@@ -18,16 +18,22 @@
         "category": "misc",
         "key": {
           "A": {
-            "item": "industrialforegoing:machine_frame_pity"
+            "item": "minecraft:dragon_breath"
           },
           "B": {
-            "item": "minecraft:iron_block"
+            "item": "industrialforegoing:machine_frame_advanced"
+          },
+          "C": {
+            "item": "industrialforegoing:machine_frame_supreme"
+          },
+          "D": {
+            "item": "minecraft:dragon_egg"
           }
         },
         "pattern": [
-          "BBB",
-          "BAB",
-          "BBB"
+          "ABA",
+          "CDC",
+          "ABA"
         ],
         "result": {
           "item": "ifeu:infuser"

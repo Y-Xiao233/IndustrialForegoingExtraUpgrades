@@ -1,4 +1,6 @@
-// 1.20.1	2024-12-17T17:33:55.9529127	Recipes
+// 1.20.1	2024-12-17T21:59:14.4180392	Recipes
 f7a5505e08e943bfb31346c21af7013ead3c3d7b data/ifeu/advancements/recipes/misc/laser_lens_sculk.json
-756d1931e4987cfe6acadfe82f9a064521128722 data/ifeu/recipes/infuser.json
+236fb117a626dd32922dea1121b10776d3224377 data/ifeu/recipes/infuser.json
 541ff5191f512671d3d8d4b594187f11bcc669c6 data/ifeu/recipes/laser_lens_sculk.json
+8107b5d076b6e8a9b6e694e09e3bd439e2c04a01 data/industrialforegoing/advancements/recipes/misc/laser_lens0.json
+25d5da1fb8a0647abd155574a457ba6964f3c6a2 data/industrialforegoing/recipes/laser_lens0.json

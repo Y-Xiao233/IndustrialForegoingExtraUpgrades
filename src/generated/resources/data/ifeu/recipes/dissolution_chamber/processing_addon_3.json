@@ -14,10 +14,10 @@
       "tag": "forge:glass_panes/colorless"
     },
     {
-      "tag": "forge:gems/diamond"
+      "tag": "forge:gears/netherite"
     },
     {
-      "item": "industrialforegoing:processing_addon_2"
+      "tag": "forge:gears/netherite"
     },
     {
       "item": "minecraft:furnace"

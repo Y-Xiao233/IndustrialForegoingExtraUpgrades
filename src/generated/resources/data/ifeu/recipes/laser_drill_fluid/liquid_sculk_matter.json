@@ -4,7 +4,7 @@
     "item": "ifeu:laser_lens_sculk"
   },
   "entity": "minecraft:warden",
-  "output": "{Amount:10,FluidName:\"ifeu:source_liquid_sculk_matter\"}",
+  "output": "{Amount:10,FluidName:\"ifeu:liquid_sculk_matter\"}",
   "pointer": 0,
   "rarity": [
     {

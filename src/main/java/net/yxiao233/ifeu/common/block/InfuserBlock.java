@@ -32,9 +32,11 @@ public class InfuserBlock extends IndustrialBlock<InfuserEntity> {
     @Override
     public void registerRecipe(Consumer<FinishedRecipe> consumer) {
         TitaniumShapedRecipeBuilder.shapedRecipe(this)
-                .pattern("BBB").pattern("BAB").pattern("BBB")
-                .define('A', ModuleCore.PITY.get())
-                .define('B', Items.IRON_BLOCK)
+                .pattern("ABA").pattern("CDC").pattern("ABA")
+                .define('A', Items.DRAGON_BREATH)
+                .define('B', ModuleCore.ADVANCED.get())
+                .define('C',ModuleCore.SUPREME.get())
+                .define('D',Items.DRAGON_EGG)
                 .save(consumer);
     }
 }

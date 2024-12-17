@@ -14,10 +14,10 @@
       "tag": "forge:glass_panes/colorless"
     },
     {
-      "tag": "forge:gems/diamond"
+      "item": "minecraft:nether_star"
     },
     {
-      "item": "ifeu:processing_addon_4"
+      "item": "minecraft:nether_star"
     },
     {
       "item": "minecraft:furnace"

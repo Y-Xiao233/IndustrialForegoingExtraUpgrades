@@ -14,10 +14,10 @@
       "tag": "forge:glass_panes/colorless"
     },
     {
-      "tag": "forge:gems/diamond"
+      "item": "ifeu:dragon_star"
     },
     {
-      "item": "ifeu:efficiency_addon_5"
+      "item": "ifeu:dragon_star"
     },
     {
       "item": "minecraft:blaze_rod"

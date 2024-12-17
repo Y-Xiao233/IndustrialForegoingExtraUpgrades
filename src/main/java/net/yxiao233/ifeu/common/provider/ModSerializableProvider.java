@@ -25,6 +25,7 @@ import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.registry.ModFluids;
 
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ModSerializableProvider extends TitaniumSerializableProvider {
     private final String modId = IndustrialForegoingExtraUpgrades.MODID;
@@ -35,18 +36,25 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
     @Override
     public void add(Map<IJsonFile, IJSONGenerator> map) {
         new InfuserRecipe(new ResourceLocation(modId,"dragon_star"),
-                Items.NETHER_STAR.getDefaultInstance(), new FluidStack(ModFluids.SOURCE_LIQUID_DRAGON_BREATH.get().getSource(),1000),200, ModContents.DRAGON_STAR.get().getDefaultInstance());
+                Items.NETHER_STAR.getDefaultInstance(), new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(), 1000),200, ModContents.DRAGON_STAR.get().getDefaultInstance());
 
         new DissolutionChamberRecipe(new ResourceLocation(modId,"liquid_dragon_breath"),
                 new Ingredient.Value[]{
-                        itemValue(Items.DRAGON_BREATH.getDefaultInstance())
+                        itemValue(Items.DRAGON_BREATH.getDefaultInstance()),
+                        itemValue(Items.DRAGON_BREATH.getDefaultInstance()),
+                        itemValue(Items.DRAGON_BREATH.getDefaultInstance()),
+                        itemValue(Items.DRAGON_BREATH.getDefaultInstance()),
+                        itemValue(Items.DRAGON_BREATH.getDefaultInstance()),
+                        itemValue(Items.DRAGON_BREATH.getDefaultInstance()),
+                        itemValue(Items.DRAGON_BREATH.getDefaultInstance()),
+                        itemValue(Items.DRAGON_BREATH.getDefaultInstance()),
                 },
-                new FluidStack(ModFluids.SOURCE_LIQUID_SCULK_MATTER.get().getSource(),1000),200,
-                Items.GLASS_BOTTLE.getDefaultInstance(),new FluidStack(ModFluids.SOURCE_LIQUID_DRAGON_BREATH.get().getSource(),1000)
+                new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),500),200,
+                new ItemStack(Items.GLASS_BOTTLE,8),new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000)
         );
 
         new LaserDrillFluidRecipe("liquid_sculk_matter",
-                new FluidStack(ModFluids.SOURCE_LIQUID_SCULK_MATTER.get().getSource(),10).writeToNBT(new CompoundTag()),
+                new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),10).writeToNBT(new CompoundTag()),
                 Ingredient.of(ModContents.LASER_LENS_SCULK.get()),
                 new ResourceLocation("minecraft","warden"),
                 new LaserDrillRarity(new ResourceKey[0], new ResourceKey[0],-64,256,8)
@@ -64,6 +72,16 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                         itemValue(Items.SCULK.getDefaultInstance())
                 },new FluidStack(ModuleCore.ETHER.getSourceFluid().get(), 1000),200,
                 ModContents.LASER_LENS_SCULK.get().getDefaultInstance(),FluidStack.EMPTY);
+
+        AtomicInteger i = new AtomicInteger(0);
+        ForgeRegistries.FLUIDS.getEntries().forEach(reg ->{
+            if(!reg.getValue().defaultFluidState().isEmpty() && reg.getValue().isSource(reg.getValue().defaultFluidState())){
+                new InfuserRecipe(new ResourceLocation(modId,("compact/fill_" + i)),Items.BUCKET.getDefaultInstance(),
+                        new FluidStack(reg.getValue(),1000),100,reg.getValue().getBucket().getDefaultInstance()
+                );
+                i.getAndIncrement();
+            }
+        });
 
         DissolutionChamberRecipe.RECIPES.forEach(dissolutionChamberRecipe -> map.put(dissolutionChamberRecipe,dissolutionChamberRecipe));
         InfuserRecipe.RECIPES.forEach(infuserRecipe -> map.put(infuserRecipe,infuserRecipe));

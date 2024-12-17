@@ -10,6 +10,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.yxiao233.ifeu.common.item.ModEfficiencyAddonItem;
 import net.yxiao233.ifeu.common.item.ModProcessingAddonItem;
@@ -55,6 +56,11 @@ public class ModRecipeProvider extends TitaniumRecipeProvider {
         TitaniumShapelessRecipeBuilder.shapelessRecipe(ModContents.LASER_LENS_SCULK.get())
                 .requires(Ingredient.of(Arrays.stream(ModuleCore.LASER_LENS).map(itemRegistryObject -> new ItemStack(itemRegistryObject.get())).collect(Collectors.toList()).stream()))
                 .requires(Items.SCULK,4)
+                .save(consumer);
+
+        TitaniumShapelessRecipeBuilder.shapelessRecipe(ModuleCore.LASER_LENS[0].get())
+                .requires(ModContents.LASER_LENS_SCULK.get())
+                .requires(Tags.Items.DYES_WHITE)
                 .save(consumer);
     }
 }

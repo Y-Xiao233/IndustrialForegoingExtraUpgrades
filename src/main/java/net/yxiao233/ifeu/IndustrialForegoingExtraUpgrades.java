@@ -14,7 +14,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.yxiao233.ifeu.common.fluid.ModFluidTypes;
 import net.yxiao233.ifeu.common.provider.ModRecipeProvider;
 import net.yxiao233.ifeu.common.provider.ModSerializableProvider;
 import net.yxiao233.ifeu.common.registry.*;
@@ -30,8 +29,6 @@ public class IndustrialForegoingExtraUpgrades extends ModuleController
         MinecraftForge.EVENT_BUS.register(this);
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
 
-        ModFluids.FLUIDS.register(modEventBus);
-        ModFluidTypes.FLUID_TYPES.register(modEventBus);
         ModContents.BLOCKS.register(modEventBus);
         ModContents.ITEMS.register(modEventBus);
         ModCreativeModeTab.CREATIVE_MODE_TAB.register(modEventBus);
@@ -41,11 +38,10 @@ public class IndustrialForegoingExtraUpgrades extends ModuleController
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_LIQUID_DRAGON_BREATH.get(), RenderType.translucent());
-            ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_LIQUID_DRAGON_BREATH.get(), RenderType.translucent());
-
-            ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_LIQUID_SCULK_MATTER.get(), RenderType.translucent());
-            ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_LIQUID_SCULK_MATTER.get(), RenderType.translucent());
+//            ItemBlockRenderTypes.setRenderLayer(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(), RenderType.translucent());
+//            ItemBlockRenderTypes.setRenderLayer(ModFluids.LIQUID_DRAGON_BREATH.getFlowingFluid().get(), RenderType.translucent());
+//            ItemBlockRenderTypes.setRenderLayer(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(), RenderType.translucent());
+//            ItemBlockRenderTypes.setRenderLayer(ModFluids.LIQUID_SCULK_MATTER.getFlowingFluid().get(), RenderType.translucent());
         }
     }
 
@@ -54,7 +50,8 @@ public class IndustrialForegoingExtraUpgrades extends ModuleController
         new ModItems().generateFeatures(getRegistries());
         new ModBlocks().generateFeatures(getRegistries());
         new ModRecipes().generateFeatures(getRegistries());
-        this.addCreativeTab("extra_upgrades", () -> new ItemStack(ModItems.SPEED_ADDON_3.get()),IndustrialForegoingExtraUpgrades.MODID+ ".extra_upgrades", ModItems.TAB_ADDONS);
+        new ModFluids().generateFeatures(getRegistries());
+        this.addCreativeTab("extra_upgrades", () -> new ItemStack(ModItems.SPEED_ADDON_6.get()),IndustrialForegoingExtraUpgrades.MODID+ ".extra_upgrades", ModItems.TAB_ADDONS);
     }
 
     @Override

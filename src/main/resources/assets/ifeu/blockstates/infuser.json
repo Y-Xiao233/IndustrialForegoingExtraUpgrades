@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "subfacing=east": {
+      "model": "ifeu:block/infuser",
+      "y": 90
+    },
+    "subfacing=north": {
+      "model": "ifeu:block/infuser"
+    },
+    "subfacing=south": {
+      "model": "ifeu:block/infuser",
+      "y": 180
+    },
+    "subfacing=west": {
+      "model": "ifeu:block/infuser",
+      "y": 270
+    }
+  }
+}
