@@ -4,6 +4,7 @@ import com.buuz135.industrial.module.ModuleCore;
 import com.hrznstudio.titanium.api.IRecipeProvider;
 import com.hrznstudio.titanium.block.BasicBlock;
 import com.hrznstudio.titanium.recipe.generator.TitaniumRecipeProvider;
+import com.hrznstudio.titanium.recipe.generator.TitaniumShapedRecipeBuilder;
 import com.hrznstudio.titanium.recipe.generator.TitaniumShapelessRecipeBuilder;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -61,6 +62,16 @@ public class ModRecipeProvider extends TitaniumRecipeProvider {
         TitaniumShapelessRecipeBuilder.shapelessRecipe(ModuleCore.LASER_LENS[0].get())
                 .requires(ModContents.LASER_LENS_SCULK.get())
                 .requires(Tags.Items.DYES_WHITE)
+                .save(consumer);
+
+        TitaniumShapedRecipeBuilder.shapedRecipe(ModContents.NETHERITE_GEAR.get())
+                .pattern(" A ").pattern("A A").pattern(" A ")
+                .define('A',Tags.Items.INGOTS_NETHERITE)
+                .save(consumer);
+
+        TitaniumShapedRecipeBuilder.shapedRecipe(ModContents.SCULK_GEAR.get())
+                .pattern(" A ").pattern("A A").pattern(" A ")
+                .define('A',Items.SCULK)
                 .save(consumer);
     }
 }
