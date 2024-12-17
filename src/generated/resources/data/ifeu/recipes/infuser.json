@@ -1,0 +1,39 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "forge:item_exists",
+              "item": "ifeu:infuser"
+            }
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "key": {
+          "A": {
+            "item": "industrialforegoing:machine_frame_pity"
+          },
+          "B": {
+            "item": "minecraft:iron_block"
+          }
+        },
+        "pattern": [
+          "BBB",
+          "BAB",
+          "BBB"
+        ],
+        "result": {
+          "item": "ifeu:infuser"
+        },
+        "show_notification": true
+      }
+    }
+  ]
+}

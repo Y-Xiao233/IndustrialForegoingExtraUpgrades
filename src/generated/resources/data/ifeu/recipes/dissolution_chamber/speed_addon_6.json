@@ -1,0 +1,36 @@
+{
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "tag": "forge:dusts/redstone"
+    },
+    {
+      "tag": "forge:dusts/redstone"
+    },
+    {
+      "tag": "forge:glass_panes/colorless"
+    },
+    {
+      "tag": "forge:glass_panes/colorless"
+    },
+    {
+      "tag": "forge:gems/diamond"
+    },
+    {
+      "item": "ifeu:speed_addon_5"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "inputFluid": "{Amount:2000,FluidName:\"industrialforegoing:ether_gas\"}",
+  "output": {
+    "count": 1,
+    "item": "ifeu:speed_addon_6",
+    "nbt": "{TitaniumAugment:{Speed:101.0f}}"
+  },
+  "processingTime": 200
+}

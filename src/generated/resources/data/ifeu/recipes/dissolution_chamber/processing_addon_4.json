@@ -1,0 +1,36 @@
+{
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "tag": "forge:dusts/redstone"
+    },
+    {
+      "tag": "forge:dusts/redstone"
+    },
+    {
+      "tag": "forge:glass_panes/colorless"
+    },
+    {
+      "tag": "forge:glass_panes/colorless"
+    },
+    {
+      "tag": "forge:gems/diamond"
+    },
+    {
+      "item": "ifeu:processing_addon_3"
+    },
+    {
+      "item": "minecraft:furnace"
+    },
+    {
+      "item": "minecraft:crafting_table"
+    }
+  ],
+  "inputFluid": "{Amount:2000,FluidName:\"industrialforegoing:pink_slime\"}",
+  "output": {
+    "count": 1,
+    "item": "ifeu:processing_addon_4",
+    "nbt": "{TitaniumAugment:{Processing:5.0f}}"
+  },
+  "processingTime": 200
+}

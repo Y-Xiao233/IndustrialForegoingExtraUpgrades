@@ -1,0 +1,18 @@
+{
+  "itemGroup.ifeu.extra_upgrades": "Industrial Foregoing: Extra Upgrades",
+  "itemGroup.industrialforegoing_extra_upgrades": "Industrial Foregoing: Extra Upgrades",
+  "itemGroup.ifeu.extra_contents": "Industrial Foregoing: Extra Contents",
+
+  "tooltip.ifeu.cooldown_amount": "Cooldown Amount",
+  "tooltip.ifeu.cooldown_time": "Cooldown Time",
+
+  "item.ifeu.liquid_dragon_breath_bucket": "Liquid Dragon Breath Bucket",
+  "item.ifeu.liquid_sculk_matter_bucket": "Liquid Sculk Matter Bucket",
+  "item.ifeu.dragon_star": "Dragon Star",
+  "item.ifeu.laser_lens_sculk": "Sculk Laser Lens",
+
+  "block.ifeu.infuser": "Infuser",
+
+  "fluid_type.ifeu.liquid_dragon_breath": "Liquid Dragon Breath",
+  "fluid_type.ifeu.liquid_sculk_matter": "Liquid Sculk Matter"
+}

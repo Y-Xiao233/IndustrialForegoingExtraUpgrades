@@ -1,0 +1,18 @@
+{
+  "itemGroup.ifeu.extra_upgrades": "工业先锋: 更多升级",
+  "itemGroup.industrialforegoing_extra_upgrades": "工业先锋: 更多升级",
+  "itemGroup.ifeu.extra_contents": "工业先锋: 更多内容",
+
+  "tooltip.ifeu.cooldown_amount": "冷却数量",
+  "tooltip.ifeu.cooldown_time": "冷却时间",
+
+  "item.ifeu.liquid_dragon_breath_bucket": "液态龙息桶",
+  "item.ifeu.liquid_sculk_matter_bucket": "液态幽匿物质桶",
+  "item.ifeu.dragon_star": "龙之星",
+  "item.ifeu.laser_lens_sculk": "幽匿 镭射聚焦透镜",
+
+  "block.ifeu.infuser": "灌注器",
+
+  "fluid_type.ifeu.liquid_dragon_breath": "液态龙息",
+  "fluid_type.ifeu.liquid_sculk_matter": "液态幽匿物质"
+}

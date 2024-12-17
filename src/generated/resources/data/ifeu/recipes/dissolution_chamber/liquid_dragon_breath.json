@@ -1,0 +1,15 @@
+{
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "item": "minecraft:dragon_breath"
+    }
+  ],
+  "inputFluid": "{Amount:1000,FluidName:\"ifeu:source_liquid_sculk_matter\"}",
+  "output": {
+    "count": 1,
+    "item": "minecraft:glass_bottle"
+  },
+  "outputFluid": "{Amount:1000,FluidName:\"ifeu:source_liquid_dragon_breath\"}",
+  "processingTime": 200
+}
