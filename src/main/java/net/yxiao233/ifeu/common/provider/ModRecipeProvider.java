@@ -17,6 +17,7 @@ import net.yxiao233.ifeu.common.item.ModEfficiencyAddonItem;
 import net.yxiao233.ifeu.common.item.ModProcessingAddonItem;
 import net.yxiao233.ifeu.common.item.ModSpeedAddonItem;
 import net.yxiao233.ifeu.common.registry.ModContents;
+import net.yxiao233.ifeu.common.registry.ModTags;
 
 import java.util.Arrays;
 import java.util.function.Consumer;
@@ -70,8 +71,9 @@ public class ModRecipeProvider extends TitaniumRecipeProvider {
                 .save(consumer);
 
         TitaniumShapedRecipeBuilder.shapedRecipe(ModContents.SCULK_GEAR.get())
-                .pattern(" A ").pattern("A A").pattern(" A ")
+                .pattern(" A ").pattern("ABA").pattern(" A ")
                 .define('A',Items.SCULK)
+                .define('B', ModTags.Items.GEARS_NETHERITE)
                 .save(consumer);
     }
 }

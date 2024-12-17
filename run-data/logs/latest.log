@@ -1,36 +1,36 @@
-[1712月2024 22:52:45.278] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\18703\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.3.0, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, ifeu, --all, --output, K:\mod\my_mods\IndustrialForegoingExtraUpgrades\src\generated\resources, --existing, K:\mod\my_mods\IndustrialForegoingExtraUpgrades\src\main\resources]
-[1712月2024 22:52:45.285] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.11 by Amazon.com Inc.; OS Windows 11 arch amd64 version 10.0
-[1712月2024 22:52:45.408] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
-[1712月2024 22:52:45.455] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/18703/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
-[1712月2024 22:52:45.776] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\18703\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.3.0\d7ebc62120f202109e300e084ca1a31a7b946a62\javafmllanguage-1.20.1-47.3.0.jar is missing mods.toml file
-[1712月2024 22:52:45.788] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\18703\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.3.0\1bf3e845ea0ce750096da8c71c8364b188ab74d4\lowcodelanguage-1.20.1-47.3.0.jar is missing mods.toml file
-[1712月2024 22:52:45.799] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\18703\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.3.0\6093682e943ddccbabf70539319d7f2fe64db2e7\mclanguage-1.20.1-47.3.0.jar is missing mods.toml file
-[1712月2024 22:52:45.812] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\18703\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.3.0\3b6be96aba3e323f3c918e8ef6a96312d82d76ad\fmlcore-1.20.1-47.3.0.jar is missing mods.toml file
-[1712月2024 22:52:45.960] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
-[1712月2024 22:52:47.483] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\18703\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, ifeu, --all, --output, K:\mod\my_mods\IndustrialForegoingExtraUpgrades\src\generated\resources, --existing, K:\mod\my_mods\IndustrialForegoingExtraUpgrades\src\main\resources]
-[1712月2024 22:52:47.958] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [ifeu]
-[1712月2024 22:52:51.857] [modloading-worker-0/INFO] [PluginManager/]: Scanning classes for ifeu
-[1712月2024 22:52:51.873] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.3.0, for MC 1.20.1 with MCP 20230612.114412
-[1712月2024 22:52:51.874] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.3.0 Initialized
-[1712月2024 22:52:51.884] [modloading-worker-0/INFO] [PluginManager/]: Scanning classes for titanium
-[1712月2024 22:52:51.896] [modloading-worker-0/INFO] [PluginManager/]: Scanning classes for industrialforegoing
-[1712月2024 22:52:52.192] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
-[1712月2024 22:52:52.203] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 7.919 ms
-[1712月2024 22:52:52.844] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/18703/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1.jar%23191!/assets/.mcassetsroot' uses unexpected schema
-[1712月2024 22:52:52.845] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/18703/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1.jar%23191!/data/.mcassetsroot' uses unexpected schema
-[1712月2024 22:52:53.044] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
-[1712月2024 22:52:53.134] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 89 ms
-[1712月2024 22:52:53.134] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Titanium Serializable (ifeu)
-[1712月2024 22:52:53.146] [main/INFO] [net.minecraft.data.DataGenerator/]: Titanium Serializable (ifeu) finished after 12 ms
-[1712月2024 22:52:53.146] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: ifeu
-[1712月2024 22:52:53.151] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: ifeu finished after 4 ms
-[1712月2024 22:52:53.152] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
-[1712月2024 22:52:53.197] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 44 ms
-[1712月2024 22:52:53.197] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: ifeu - ItemModel
-[1712月2024 22:52:53.212] [main/INFO] [net.minecraft.data.DataGenerator/]: ifeu - ItemModel finished after 15 ms
-[1712月2024 22:52:53.212] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id ifeu
-[1712月2024 22:52:53.233] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id ifeu finished after 19 ms
-[1712月2024 22:52:53.233] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id vanilla
-[1712月2024 22:52:53.236] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id vanilla finished after 2 ms
-[1712月2024 22:52:53.236] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 192 ms
-[1712月2024 22:52:53.251] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 66, old count: 64, new count: 67, removed stale: 0, written: 2
+[1712月2024 22:55:50.071] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\18703\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.3.0, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, ifeu, --all, --output, K:\mod\my_mods\IndustrialForegoingExtraUpgrades\src\generated\resources, --existing, K:\mod\my_mods\IndustrialForegoingExtraUpgrades\src\main\resources]
+[1712月2024 22:55:50.077] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.11 by Amazon.com Inc.; OS Windows 11 arch amd64 version 10.0
+[1712月2024 22:55:50.187] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
+[1712月2024 22:55:50.232] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/18703/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
+[1712月2024 22:55:50.524] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\18703\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.3.0\d7ebc62120f202109e300e084ca1a31a7b946a62\javafmllanguage-1.20.1-47.3.0.jar is missing mods.toml file
+[1712月2024 22:55:50.536] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\18703\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.3.0\1bf3e845ea0ce750096da8c71c8364b188ab74d4\lowcodelanguage-1.20.1-47.3.0.jar is missing mods.toml file
+[1712月2024 22:55:50.546] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\18703\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.3.0\6093682e943ddccbabf70539319d7f2fe64db2e7\mclanguage-1.20.1-47.3.0.jar is missing mods.toml file
+[1712月2024 22:55:50.557] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\18703\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.3.0\3b6be96aba3e323f3c918e8ef6a96312d82d76ad\fmlcore-1.20.1-47.3.0.jar is missing mods.toml file
+[1712月2024 22:55:50.702] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[1712月2024 22:55:52.164] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\18703\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, ifeu, --all, --output, K:\mod\my_mods\IndustrialForegoingExtraUpgrades\src\generated\resources, --existing, K:\mod\my_mods\IndustrialForegoingExtraUpgrades\src\main\resources]
+[1712月2024 22:55:52.599] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [ifeu]
+[1712月2024 22:55:56.419] [modloading-worker-0/INFO] [PluginManager/]: Scanning classes for ifeu
+[1712月2024 22:55:56.440] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.3.0, for MC 1.20.1 with MCP 20230612.114412
+[1712月2024 22:55:56.440] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.3.0 Initialized
+[1712月2024 22:55:56.453] [modloading-worker-0/INFO] [PluginManager/]: Scanning classes for titanium
+[1712月2024 22:55:56.463] [modloading-worker-0/INFO] [PluginManager/]: Scanning classes for industrialforegoing
+[1712月2024 22:55:56.759] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
+[1712月2024 22:55:56.772] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 7.314 ms
+[1712月2024 22:55:57.563] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/18703/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[1712月2024 22:55:57.563] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/18703/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[1712月2024 22:55:57.768] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
+[1712月2024 22:55:57.843] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 74 ms
+[1712月2024 22:55:57.843] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Titanium Serializable (ifeu)
+[1712月2024 22:55:57.861] [main/INFO] [net.minecraft.data.DataGenerator/]: Titanium Serializable (ifeu) finished after 18 ms
+[1712月2024 22:55:57.861] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: ifeu
+[1712月2024 22:55:57.869] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: ifeu finished after 7 ms
+[1712月2024 22:55:57.869] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
+[1712月2024 22:55:57.925] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 55 ms
+[1712月2024 22:55:57.925] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: ifeu - ItemModel
+[1712月2024 22:55:57.953] [main/INFO] [net.minecraft.data.DataGenerator/]: ifeu - ItemModel finished after 27 ms
+[1712月2024 22:55:57.953] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id ifeu
+[1712月2024 22:55:57.975] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id ifeu finished after 20 ms
+[1712月2024 22:55:57.975] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id vanilla
+[1712月2024 22:55:57.978] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id vanilla finished after 3 ms
+[1712月2024 22:55:57.979] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 211 ms
+[1712月2024 22:55:57.996] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 66, old count: 66, new count: 67, removed stale: 0, written: 1
