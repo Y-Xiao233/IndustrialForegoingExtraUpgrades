@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "ifeu:item/efficiency_addon_4"
+  }
+}

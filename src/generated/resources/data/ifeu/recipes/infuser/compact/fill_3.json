@@ -1,0 +1,13 @@
+{
+  "type": "ifeu:infuser",
+  "input": {
+    "count": 1,
+    "item": "minecraft:bucket"
+  },
+  "inputFluid": "{Amount:1000,FluidName:\"industrialforegoing:meat\"}",
+  "output": {
+    "count": 1,
+    "item": "industrialforegoing:meat_bucket"
+  },
+  "processingTime": 100
+}
