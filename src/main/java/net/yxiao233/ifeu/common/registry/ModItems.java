@@ -20,7 +20,6 @@ import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.common.item.ModEfficiencyAddonItem;
 import net.yxiao233.ifeu.common.item.ModProcessingAddonItem;
 import net.yxiao233.ifeu.common.item.ModSpeedAddonItem;
-import net.yxiao233.ifeu.common.recipe.InfuserRecipe;
 
 import java.util.function.Consumer;
 
