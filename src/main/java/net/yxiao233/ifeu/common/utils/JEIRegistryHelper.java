@@ -9,7 +9,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeManager;
-import net.yxiao233.ifeu.common.compact.jei.category.AbstractJEICategory;
+import net.yxiao233.ifeu.common.compact.jei.AbstractJEICategory;
 
 import java.util.ArrayList;
 import java.util.List;

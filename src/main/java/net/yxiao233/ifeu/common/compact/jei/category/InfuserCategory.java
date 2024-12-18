@@ -20,7 +20,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
+import net.yxiao233.ifeu.common.compact.jei.AbstractJEICategory;
 import net.yxiao233.ifeu.common.compact.jei.ModRecipeType;
+import net.yxiao233.ifeu.common.config.machine.InfuserConfig;
 import net.yxiao233.ifeu.common.recipe.InfuserRecipe;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModRecipes;
@@ -30,7 +32,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InfuserCategory extends AbstractJEICategory<InfuserRecipe>{
+public class InfuserCategory extends AbstractJEICategory<InfuserRecipe> {
     public static final Component TITLE = Component.translatable("block.ifeu.infuser");
     private final IDrawable bigTank;
     public InfuserCategory(IGuiHelper helper) {
@@ -72,7 +74,7 @@ public class InfuserCategory extends AbstractJEICategory<InfuserRecipe>{
         //ProgressBar
         AssetUtil.drawAsset(guiGraphics, Minecraft.getInstance().screen, IAssetProvider.getAsset(DefaultAssetProvider.DEFAULT_PROVIDER, AssetTypes.PROGRESS_BAR_BACKGROUND_ARROW_HORIZONTAL), 92, 41 - 8);
         //EnergyBar
-        int consumed = recipe.processingTime * 90;
+        int consumed = recipe.processingTime * InfuserConfig.powerPerTick;
         EnergyBarScreenAddon.drawForeground(guiGraphics, Minecraft.getInstance().screen, DefaultAssetProvider.DEFAULT_PROVIDER, 0, 12, 0, 0, consumed, (int) Math.max(50000, Math.ceil(consumed)));
     }
 

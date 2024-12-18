@@ -27,7 +27,6 @@ public class IndustrialForegoingExtraUpgrades extends ModuleController
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         MinecraftForge.EVENT_BUS.register(this);
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
 
         ModContents.BLOCKS.register(modEventBus);
         ModContents.ITEMS.register(modEventBus);

@@ -1,4 +1,4 @@
-package net.yxiao233.ifeu.common.compact.jei.category;
+package net.yxiao233.ifeu.common.compact.jei;
 
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;

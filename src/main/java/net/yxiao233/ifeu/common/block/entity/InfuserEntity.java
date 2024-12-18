@@ -15,6 +15,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.items.ItemHandlerHelper;
+import net.yxiao233.ifeu.common.config.machine.InfuserConfig;
 import net.yxiao233.ifeu.common.recipe.InfuserRecipe;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModRecipes;
@@ -42,7 +43,7 @@ public class InfuserEntity extends IndustrialProcessingTile<InfuserEntity> {
                 .setOnSlotChanged((itemStack, integer) -> checkForRecipe())
                 .setComponentHarness(this));
 
-        this.addTank(this.inputFluid = (SidedFluidTankComponent<InfuserEntity>) new SidedFluidTankComponent<InfuserEntity>("input_fluid",8000,52,19,1)
+        this.addTank(this.inputFluid = (SidedFluidTankComponent<InfuserEntity>) new SidedFluidTankComponent<InfuserEntity>("input_fluid",InfuserConfig.maxInputTankSize,52,19,1)
                 .setColor(DyeColor.LIME)
                 .setTankType(FluidTankComponent.Type.NORMAL)
                 .setComponentHarness(this)
@@ -55,7 +56,7 @@ public class InfuserEntity extends IndustrialProcessingTile<InfuserEntity> {
                 .setComponentHarness(this));
 
         this.maxProgress = 100;
-        this.powerPerTick = 90;
+        this.powerPerTick = InfuserConfig.powerPerTick;
     }
 
     private void checkForRecipe(){
@@ -101,7 +102,7 @@ public class InfuserEntity extends IndustrialProcessingTile<InfuserEntity> {
     @NotNull
     @Override
     protected EnergyStorageComponent<InfuserEntity> createEnergyStorage() {
-        return new EnergyStorageComponent<>(10000,10,20);
+        return new EnergyStorageComponent<>(InfuserConfig.maxStoredPower,10,20);
     }
     @Override
     protected int getTickPower() {
