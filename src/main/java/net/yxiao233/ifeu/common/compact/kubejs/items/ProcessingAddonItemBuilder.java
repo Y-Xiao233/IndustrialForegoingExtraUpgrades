@@ -1,27 +1,25 @@
-package net.yxiao233.ifeu.common.compact.kubejs.item;
+package net.yxiao233.ifeu.common.compact.kubejs.items;
 
 import dev.latvian.mods.kubejs.item.ItemBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.yxiao233.ifeu.common.item.ModEfficiencyAddonItem;
+import net.yxiao233.ifeu.common.item.ModProcessingAddonItem;
 import net.yxiao233.ifeu.common.registry.ModItems;
 
-public class EfficiencyAddonItemBuilder extends ItemBuilder {
-
+public class ProcessingAddonItemBuilder extends ItemBuilder {
     private int tier;
     private int formTier;
-
-    public EfficiencyAddonItemBuilder(ResourceLocation i) {
+    public ProcessingAddonItemBuilder(ResourceLocation i) {
         super(i);
     }
 
-    public EfficiencyAddonItemBuilder setTier(int tier) {
+    public ProcessingAddonItemBuilder setTier(int tier){
         this.tier = tier;
         this.formTier = tier;
         return this;
     }
 
-    public EfficiencyAddonItemBuilder setFormTier(int tier) {
+    public ProcessingAddonItemBuilder setFormTier(int tier){
         this.formTier = tier;
         return this;
     }
@@ -29,6 +27,6 @@ public class EfficiencyAddonItemBuilder extends ItemBuilder {
     @Override
     public Item createObject() {
         int formTier = this.formTier == this.tier ? this.tier : this.formTier;
-        return new ModEfficiencyAddonItem(formTier, tier, ModItems.TAB_ADDONS);
+        return new ModProcessingAddonItem(formTier,tier, ModItems.TAB_ADDONS);
     }
 }

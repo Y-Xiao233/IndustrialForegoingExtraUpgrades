@@ -320,7 +320,7 @@
 [1712月2024 22:55:56.517] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Config file ifeu-common.toml for ifeu tracking
 [1712月2024 22:55:56.517] [modloading-worker-0/DEBUG] [mezz.jei.common.platform.Services/]: Loaded mezz.jei.forge.platform.PlatformHelper@2f787520 for service interface mezz.jei.common.platform.IPlatformHelper
 [1712月2024 22:55:56.526] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Attempting to inject @EventBusSubscriber classes into the eventbus for ifeu
-[1712月2024 22:55:56.533] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.yxiao233.ifeu.client.ClientForgeEvents to FORGE
+[1712月2024 22:55:56.533] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.yxiao233.ifeu.client.events.AddonItemTooltipEvent to FORGE
 [1712月2024 22:55:56.546] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.yxiao233.ifeu.client.data.DataGenerators to MOD
 [1712月2024 22:55:56.549] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.yxiao233.ifeu.Config to MOD
 [1712月2024 22:55:56.550] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades$ClientModEvents to MOD

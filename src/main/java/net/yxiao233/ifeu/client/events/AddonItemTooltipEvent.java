@@ -1,4 +1,4 @@
-package net.yxiao233.ifeu.client;
+package net.yxiao233.ifeu.client.events;
 
 import com.buuz135.industrial.item.addon.EfficiencyAddonItem;
 import com.buuz135.industrial.item.addon.ProcessingAddonItem;
@@ -17,7 +17,7 @@ import net.yxiao233.ifeu.common.item.ModProcessingAddonItem;
 import net.yxiao233.ifeu.common.item.ModSpeedAddonItem;
 
 @Mod.EventBusSubscriber(value = Dist.CLIENT, modid = IndustrialForegoingExtraUpgrades.MODID, bus =  Mod.EventBusSubscriber.Bus.FORGE)
-public class ClientForgeEvents {
+public class AddonItemTooltipEvent {
     @SubscribeEvent
     public static void onItemTooltip(ItemTooltipEvent event){
         Item item = event.getItemStack().getItem();

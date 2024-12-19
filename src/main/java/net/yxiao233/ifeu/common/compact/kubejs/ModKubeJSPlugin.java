@@ -3,10 +3,10 @@ package net.yxiao233.ifeu.common.compact.kubejs;
 import dev.latvian.mods.kubejs.KubeJSPlugin;
 import dev.latvian.mods.kubejs.recipe.schema.RegisterRecipeSchemasEvent;
 import dev.latvian.mods.kubejs.registry.RegistryInfo;
-import net.yxiao233.ifeu.common.compact.kubejs.item.EfficiencyAddonItemBuilder;
-import net.yxiao233.ifeu.common.compact.kubejs.item.ProcessingAddonItemBuilder;
-import net.yxiao233.ifeu.common.compact.kubejs.item.SpeedAddonItemBuilder;
-import net.yxiao233.ifeu.common.compact.kubejs.schema.InfuserSchema;
+import net.yxiao233.ifeu.common.compact.kubejs.items.EfficiencyAddonItemBuilder;
+import net.yxiao233.ifeu.common.compact.kubejs.items.ProcessingAddonItemBuilder;
+import net.yxiao233.ifeu.common.compact.kubejs.items.SpeedAddonItemBuilder;
+import net.yxiao233.ifeu.common.compact.kubejs.schemas.InfuserSchema;
 
 public class ModKubeJSPlugin extends KubeJSPlugin {
 

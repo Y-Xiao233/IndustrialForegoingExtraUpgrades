@@ -1,4 +1,4 @@
-package net.yxiao233.ifeu.common.compact.kubejs;
+package net.yxiao233.ifeu.common.compact.kubejs.components;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;

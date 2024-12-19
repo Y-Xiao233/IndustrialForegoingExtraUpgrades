@@ -1,4 +1,4 @@
-package net.yxiao233.ifeu.common.compact.kubejs.schema;
+package net.yxiao233.ifeu.common.compact.kubejs.schemas;
 
 import dev.latvian.mods.kubejs.fluid.InputFluid;
 import dev.latvian.mods.kubejs.item.InputItem;
@@ -7,7 +7,7 @@ import dev.latvian.mods.kubejs.recipe.RecipeKey;
 import dev.latvian.mods.kubejs.recipe.component.ItemComponents;
 import dev.latvian.mods.kubejs.recipe.component.TimeComponent;
 import dev.latvian.mods.kubejs.recipe.schema.RecipeSchema;
-import net.yxiao233.ifeu.common.compact.kubejs.IndustrialForegoingComponents;
+import net.yxiao233.ifeu.common.compact.kubejs.components.IndustrialForegoingComponents;
 
 public interface InfuserSchema{
     RecipeKey<OutputItem> OUTPUT = ItemComponents.OUTPUT.key("output");

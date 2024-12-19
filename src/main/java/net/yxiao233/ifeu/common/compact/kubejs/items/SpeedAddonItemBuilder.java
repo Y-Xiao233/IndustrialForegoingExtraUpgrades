@@ -1,4 +1,4 @@
-package net.yxiao233.ifeu.common.compact.kubejs.item;
+package net.yxiao233.ifeu.common.compact.kubejs.items;
 
 import dev.latvian.mods.kubejs.item.ItemBuilder;
 import net.minecraft.resources.ResourceLocation;
