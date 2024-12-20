@@ -41,19 +41,24 @@ public class JEIRegistryHelper {
         return recipeCategories;
     }
     public <T extends Recipe<C>, C extends Container> void addRecipes(RecipeManager manager, IRecipeRegistration registration){
-        this.getRecipeCategories().forEach(abstractJEICategory -> {
-            AbstractJEICategory<T> jeiCategory = (AbstractJEICategory<T>) abstractJEICategory;
+        for (int i = 0; i < this.getRecipeCategories().size(); i++) {
+            AbstractJEICategory<T> jeiCategory = (AbstractJEICategory<T>) this.getRecipeCategories().get(i);
             net.minecraft.world.item.crafting.RecipeType<T> typeInstance = jeiCategory.getTypeInstance();
+
+            if(typeInstance == null){
+                continue;
+            }
             RecipeType<T> recipeType = jeiCategory.getRecipeType();
 
             addRecipes2(manager,registration,recipeType,typeInstance);
-        });
+        }
     }
     public <T extends Recipe<?>> void addRecipeCatalyst(IRecipeCatalystRegistration registration){
         for (int i = 0; i < this.getRecipeCategories().size(); i++) {
             AbstractJEICategory<T> jeiCategory = (AbstractJEICategory<T>) this.getRecipeCategories().get(i);
             RecipeType<T> recipeType = jeiCategory.getRecipeType();
             ItemStack itemStack = this.recipeCatalysts.get(i).getDefaultInstance();
+            System.out.println(itemStack+"test00000");
             registration.addRecipeCatalyst(itemStack,recipeType);
         }
     }

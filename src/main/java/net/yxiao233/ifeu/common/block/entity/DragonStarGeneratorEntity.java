@@ -21,7 +21,7 @@ public class DragonStarGeneratorEntity extends IndustrialGeneratorTile<DragonSta
         //TODO 调整输入槽位置,为该机器添加JEI Category
         super(ModBlocks.DRAGON_STAR_GENERATOR, blockPos, blockState);
 
-        this.addInventory(this.input = (SidedInventoryComponent<DragonStarGeneratorEntity>) new SidedInventoryComponent<DragonStarGeneratorEntity>("input",45,22,1,0)
+        this.addInventory(this.input = (SidedInventoryComponent<DragonStarGeneratorEntity>) new SidedInventoryComponent<DragonStarGeneratorEntity>("input",44,22,1,0)
                 .setColor(DyeColor.LIGHT_BLUE)
                 .setRange(1,1)
                 .setOutputFilter((itemStack, integer) -> false)

@@ -22,6 +22,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         blockItem(ModBlocks.INFUSER.getKey());
+        blockItem(ModBlocks.DRAGON_STAR_GENERATOR.getKey());
     }
 
     private void blockItem(RegistryObject<Block> registryObject){

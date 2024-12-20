@@ -9,7 +9,6 @@ import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeManager;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.common.compact.jei.category.InfuserCategory;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
@@ -31,6 +30,7 @@ public class JEIPlugin implements IModPlugin {
         IGuiHelper guiHelper = registration.getJeiHelpers().getGuiHelper();
         registries(guiHelper);
         helper.getRecipeCategories().forEach(registration::addRecipeCategories);
+
     }
 
     @Override

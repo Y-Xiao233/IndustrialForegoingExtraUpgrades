@@ -5,6 +5,7 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
 
+import java.util.Arrays;
 import java.util.Set;
 
 public class ModBlockLootTables extends BlockLootSubProvider {
@@ -15,11 +16,16 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     @Override
     protected void generate() {
         this.dropSelf(ModBlocks.INFUSER.getKey().get());
+        this.dropSelf(ModBlocks.DRAGON_STAR_GENERATOR.getLeft().get());
     }
 
     @Override
     protected Iterable<Block> getKnownBlocks() {
         //注册方法时后面加上.noLootTable()就不会在这里生成
-        return ModBlocks.INFUSER.getKey().stream()::iterator;
+        Iterable<Block> iterable = Arrays.asList(
+                ModBlocks.INFUSER.getLeft().get(),
+                ModBlocks.DRAGON_STAR_GENERATOR.getLeft().get()
+        );
+        return iterable;
     }
 }

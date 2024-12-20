@@ -25,24 +25,42 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        simpleItem(ModContents.NETHERITE_GEAR);
-        simpleItem(ModContents.SCULK_GEAR);
-        simpleItem(ModFluids.LIQUID_SCULK_MATTER.getBucketFluid());
-        simpleItem(ModFluids.LIQUID_DRAGON_BREATH.getBucketFluid());
-        simpleItem(ModContents.DRAGON_STAR);
-        simpleItem(ModItems.EFFICIENCY_ADDON_3);
-        simpleItem(ModItems.EFFICIENCY_ADDON_4);
-        simpleItem(ModItems.EFFICIENCY_ADDON_5);
-        simpleItem(ModItems.EFFICIENCY_ADDON_6);
-        simpleItem(ModItems.PROCESSING_ADDON_3);
-        simpleItem(ModItems.PROCESSING_ADDON_4);
-        simpleItem(ModItems.PROCESSING_ADDON_5);
-        simpleItem(ModItems.PROCESSING_ADDON_6);
-        simpleItem(ModItems.SPEED_ADDON_3);
-        simpleItem(ModItems.SPEED_ADDON_4);
-        simpleItem(ModItems.SPEED_ADDON_5);
-        simpleItem(ModItems.SPEED_ADDON_6);
-        simpleItem(ModContents.LASER_LENS_SCULK);
+        basicItem(ModContents.NETHERITE_GEAR.get());
+        basicItem(ModContents.SCULK_GEAR.get());
+        basicItem(ModFluids.LIQUID_SCULK_MATTER.getBucketFluid().get());
+        basicItem(ModFluids.LIQUID_DRAGON_BREATH.getBucketFluid().get());
+        basicItem(ModContents.DRAGON_STAR.get());
+        basicItem(ModItems.EFFICIENCY_ADDON_3.get());
+        basicItem(ModItems.EFFICIENCY_ADDON_4.get());
+        basicItem(ModItems.EFFICIENCY_ADDON_5.get());
+        basicItem(ModItems.EFFICIENCY_ADDON_6.get());
+        basicItem(ModItems.PROCESSING_ADDON_3.get());
+        basicItem(ModItems.PROCESSING_ADDON_4.get());
+        basicItem(ModItems.PROCESSING_ADDON_5.get());
+        basicItem(ModItems.PROCESSING_ADDON_6.get());
+        basicItem(ModItems.SPEED_ADDON_3.get());
+        basicItem(ModItems.SPEED_ADDON_4.get());
+        basicItem(ModItems.SPEED_ADDON_5.get());
+        basicItem(ModItems.SPEED_ADDON_6.get());
+        basicItem(ModContents.LASER_LENS_SCULK.get());
+//        simpleItem(ModContents.NETHERITE_GEAR);
+//        simpleItem(ModContents.SCULK_GEAR);
+//        simpleItem(ModFluids.LIQUID_SCULK_MATTER.getBucketFluid());
+//        simpleItem(ModFluids.LIQUID_DRAGON_BREATH.getBucketFluid());
+//        simpleItem(ModContents.DRAGON_STAR);
+//        simpleItem(ModItems.EFFICIENCY_ADDON_3);
+//        simpleItem(ModItems.EFFICIENCY_ADDON_4);
+//        simpleItem(ModItems.EFFICIENCY_ADDON_5);
+//        simpleItem(ModItems.EFFICIENCY_ADDON_6);
+//        simpleItem(ModItems.PROCESSING_ADDON_3);
+//        simpleItem(ModItems.PROCESSING_ADDON_4);
+//        simpleItem(ModItems.PROCESSING_ADDON_5);
+//        simpleItem(ModItems.PROCESSING_ADDON_6);
+//        simpleItem(ModItems.SPEED_ADDON_3);
+//        simpleItem(ModItems.SPEED_ADDON_4);
+//        simpleItem(ModItems.SPEED_ADDON_5);
+//        simpleItem(ModItems.SPEED_ADDON_6);
+//        simpleItem(ModContents.LASER_LENS_SCULK);
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item){
