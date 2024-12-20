@@ -66,7 +66,7 @@ public class AddonItemTooltipEvent {
     }
     public static void addDragonStarTooltip(Item item, ItemTooltipEvent event){
         if(item.getDefaultInstance().is(ModContents.DRAGON_STAR.get())){
-            event.getToolTip().add(Component.translatable("tooltip.ifeu.dragon_star", DragonStarGeneratorConfig.powerPerTick).append(DragonStarGeneratorConfig.maxProgress + "tick").withStyle(ChatFormatting.LIGHT_PURPLE));
+            event.getToolTip().add(Component.translatable("tooltip.ifeu.dragon_star", DragonStarGeneratorConfig.powerPerTick).append(DragonStarGeneratorConfig.maxProgress + "tick").withStyle(ChatFormatting.AQUA));
         }
     }
 }
