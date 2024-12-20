@@ -29,8 +29,6 @@ public class IndustrialForegoingExtraUpgrades extends ModuleController
         ModContents.BLOCKS.register(modEventBus);
         ModContents.ITEMS.register(modEventBus);
         ModCreativeModeTab.CREATIVE_MODE_TAB.register(modEventBus);
-
-
     }
 
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
