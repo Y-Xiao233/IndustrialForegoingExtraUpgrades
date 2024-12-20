@@ -12,27 +12,25 @@ import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
+import net.yxiao233.ifeu.common.config.machine.DragonStarGeneratorConfig;
 import net.yxiao233.ifeu.common.item.ModEfficiencyAddonItem;
 import net.yxiao233.ifeu.common.item.ModProcessingAddonItem;
 import net.yxiao233.ifeu.common.item.ModSpeedAddonItem;
+import net.yxiao233.ifeu.common.registry.ModContents;
 
 @Mod.EventBusSubscriber(value = Dist.CLIENT, modid = IndustrialForegoingExtraUpgrades.MODID, bus =  Mod.EventBusSubscriber.Bus.FORGE)
 public class AddonItemTooltipEvent {
     @SubscribeEvent
     public static void onItemTooltip(ItemTooltipEvent event){
         Item item = event.getItemStack().getItem();
-        if(item instanceof EfficiencyAddonItem){
-            addTooltip(AddonType.EFFICIENCY,item,event);
-        }else if (item instanceof ProcessingAddonItem) {
-            addTooltip(AddonType.PROCESSING,item,event);
-        }else if (item instanceof SpeedAddonItem) {
-            addTooltip(AddonType.SPEED,item,event);
-        }
+
+        addAddonItemTooltip(item,event);
+        addDragonStarTooltip(item,event);
     }
 
-    public static void addTooltip(AddonType type, Item item, ItemTooltipEvent event){
-        float tier = 0;
-        if(type == AddonType.PROCESSING){
+    public static void addAddonItemTooltip(Item item, ItemTooltipEvent event){
+        if(item instanceof ProcessingAddonItem){
+            float tier = 0;
             if(item == ModuleCore.PROCESSING_ADDON_1.get()){
                 tier = 1;
             }else if(item == ModuleCore.PROCESSING_ADDON_2.get()){
@@ -42,7 +40,8 @@ public class AddonItemTooltipEvent {
             }
             float upgrade = 1 + tier;
             event.getToolTip().add(Component.translatable("item.industrialforegoing.processing").append("x" + upgrade).withStyle(ChatFormatting.GRAY));
-        }else if (type == AddonType.SPEED) {
+        }else if (item instanceof SpeedAddonItem) {
+            float tier = 0;
             if(item == ModuleCore.SPEED_ADDON_1.get()){
                 tier = 1;
             }else if (item == ModuleCore.SPEED_ADDON_2.get()){
@@ -52,7 +51,8 @@ public class AddonItemTooltipEvent {
             }
             float reduction = (1.0F - 1.0F / (1.0F + tier)) * -100.0F;
             event.getToolTip().add(Component.translatable("tooltip.ifeu.cooldown_time").append(": " + Math.ceil(reduction) + "%").withStyle(ChatFormatting.GRAY));
-        }else if(type == AddonType.EFFICIENCY){
+        }else if(item instanceof EfficiencyAddonItem){
+            float tier = 0;
             if(item == ModuleCore.EFFICIENCY_ADDON_1.get()){
                 tier = 1;
             }else if(item == ModuleCore.EFFICIENCY_ADDON_2.get()){
@@ -64,10 +64,9 @@ public class AddonItemTooltipEvent {
             event.getToolTip().add(Component.translatable("tooltip.ifeu.cooldown_amount").append(": " + reduction + "%").withStyle(ChatFormatting.GRAY));
         }
     }
-
-    public enum AddonType{
-        PROCESSING,
-        EFFICIENCY,
-        SPEED
+    public static void addDragonStarTooltip(Item item, ItemTooltipEvent event){
+        if(item.getDefaultInstance().is(ModContents.DRAGON_STAR.get())){
+            event.getToolTip().add(Component.translatable("tooltip.ifeu.dragon_star", DragonStarGeneratorConfig.powerPerTick).append(DragonStarGeneratorConfig.maxProgress + "tick").withStyle(ChatFormatting.LIGHT_PURPLE));
+        }
     }
 }

@@ -24,19 +24,25 @@
             "item": "minecraft:furnace"
           },
           "C": {
-            "item": "minecraft:dragon_breath"
+            "item": "ifeu:efficiency_addon_6"
           },
           "D": {
-            "tag": "industrialforegoing:machine_frame/supreme"
+            "item": "ifeu:processing_addon_6"
           },
           "E": {
+            "item": "ifeu:speed_addon_6"
+          },
+          "F": {
+            "tag": "industrialforegoing:machine_frame/supreme"
+          },
+          "G": {
             "tag": "forge:gears/sculk"
           }
         },
         "pattern": [
           "ACA",
-          "CDC",
-          "EBE"
+          "DFE",
+          "GBG"
         ],
         "result": {
           "item": "ifeu:dragon_star_generator"

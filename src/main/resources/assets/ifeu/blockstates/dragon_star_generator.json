@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "subfacing=east": {
+      "model": "ifeu:block/dragon_star_generator",
+      "y": 90
+    },
+    "subfacing=north": {
+      "model": "ifeu:block/dragon_star_generator"
+    },
+    "subfacing=south": {
+      "model": "ifeu:block/dragon_star_generator",
+      "y": 180
+    },
+    "subfacing=west": {
+      "model": "ifeu:block/dragon_star_generator",
+      "y": 270
+    }
+  }
+}

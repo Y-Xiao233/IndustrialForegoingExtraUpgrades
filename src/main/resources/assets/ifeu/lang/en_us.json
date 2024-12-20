@@ -5,6 +5,7 @@
 
   "tooltip.ifeu.cooldown_amount": "Cooldown Amount",
   "tooltip.ifeu.cooldown_time": "Cooldown Time",
+  "tooltip.ifeu.dragon_star": "It can generate electricity in the Dragon Star generator, which can produce %dFE/tick and sustain ",
 
   "item.ifeu.liquid_dragon_breath_bucket": "Liquid Dragon Breath Bucket",
   "item.ifeu.liquid_sculk_matter_bucket": "Liquid Sculk Matter Bucket",

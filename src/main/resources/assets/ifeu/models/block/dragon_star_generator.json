@@ -1,0 +1,10 @@
+{
+  "parent": "industrialforegoing:block/base_block",
+  "textures": {
+    "south": "ifeu:block/dragon_star_generator_side",
+    "west": "ifeu:block/dragon_star_generator_side",
+    "east": "ifeu:block/dragon_star_generator_side",
+    "north": "ifeu:block/dragon_star_generator_front",
+    "up": "ifeu:block/dragon_star_generator_top"
+  }
+}

@@ -34,12 +34,14 @@ public class DragonStarGeneratorBlock extends IndustrialBlock<DragonStarGenerato
     @Override
     public void registerRecipe(Consumer<FinishedRecipe> consumer) {
         TitaniumShapedRecipeBuilder.shapedRecipe(this)
-                .pattern("ACA").pattern("CDC").pattern("EBE")
+                .pattern("ACA").pattern("DFE").pattern("GBG")
                 .define('A', IndustrialTags.Items.PLASTIC)
-                .define('B',Blocks.FURNACE)
-                .define('C', Items.DRAGON_BREATH)
-                .define('D',IndustrialTags.Items.MACHINE_FRAME_SUPREME)
-                .define('E', ModTags.Items.GEARS_SCULK)
+                .define('B', Blocks.FURNACE)
+                .define('C', ModItems.EFFICIENCY_ADDON_6.get())
+                .define('D', ModItems.PROCESSING_ADDON_6.get())
+                .define('E', ModItems.SPEED_ADDON_6.get())
+                .define('F', IndustrialTags.Items.MACHINE_FRAME_SUPREME)
+                .define('G', ModTags.Items.GEARS_SCULK)
                 .save(consumer);
     }
 }

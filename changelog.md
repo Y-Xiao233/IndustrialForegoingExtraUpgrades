@@ -12,6 +12,7 @@
 
 ### v1.0.3
 - 为液态龙息以及液态又匿物质添加了放置粒子效果以及声音(可在模组对应的config文件配置)
+- 添加了龙之星发电机
 
 ## en_us
 ### v1.0.0
@@ -25,3 +26,4 @@
 
 ### v1.0.3
 - Added particles and sound for liquid dragon breath and liquid sculk matter (can be configured in the corresponding config file of the mod)
+- Added Dragon Star generator
