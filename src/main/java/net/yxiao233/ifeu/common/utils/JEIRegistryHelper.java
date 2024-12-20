@@ -9,6 +9,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeManager;
+import net.minecraft.world.level.block.Block;
+import net.minecraftforge.registries.RegistryObject;
 import net.yxiao233.ifeu.common.compact.jei.AbstractJEICategory;
 
 import java.util.ArrayList;
@@ -22,6 +24,19 @@ public class JEIRegistryHelper {
         this.recipeCategories.add(recipeCategory);
         this.recipeCatalysts.add(item);
     }
+
+    public void add(IRecipeCategory<?> recipeCategory, Block block){
+        add(recipeCategory,block.asItem());
+    }
+
+    public void add(IRecipeCategory<?> recipeCategory, RegistryObject<?> registryObject){
+        if(registryObject.get() instanceof Item item){
+            add(recipeCategory,item);
+        }else if(registryObject.get() instanceof Block block){
+            add(recipeCategory,block);
+        }
+    }
+
     public ArrayList<IRecipeCategory<?>> getRecipeCategories() {
         return recipeCategories;
     }

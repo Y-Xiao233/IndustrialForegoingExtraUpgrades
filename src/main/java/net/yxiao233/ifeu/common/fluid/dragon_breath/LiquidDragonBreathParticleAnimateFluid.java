@@ -1,5 +1,6 @@
 package net.yxiao233.ifeu.common.fluid.dragon_breath;
 
+import com.buuz135.industrial.module.ModuleGenerator;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;

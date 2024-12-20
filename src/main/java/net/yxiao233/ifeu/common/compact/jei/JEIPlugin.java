@@ -9,6 +9,7 @@ import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeManager;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.common.compact.jei.category.InfuserCategory;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
@@ -18,7 +19,7 @@ import net.yxiao233.ifeu.common.utils.JEIRegistryHelper;
 public class JEIPlugin implements IModPlugin {
     private JEIRegistryHelper helper = new JEIRegistryHelper();
     private void registries(IGuiHelper guiHelper){
-        helper.add(new InfuserCategory(guiHelper), ModBlocks.INFUSER.getKey().get().asItem());
+        helper.add(new InfuserCategory(guiHelper), ModBlocks.INFUSER.getKey());
     }
     @Override
     public ResourceLocation getPluginUid() {
@@ -34,17 +35,12 @@ public class JEIPlugin implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
-        IGuiHelper guiHelper = registration.getJeiHelpers().getGuiHelper();
         RecipeManager manager = Minecraft.getInstance().level.getRecipeManager();
-        registries(guiHelper);
-
         helper.addRecipes(manager,registration);
     }
 
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
-        IGuiHelper guiHelper = registration.getJeiHelpers().getGuiHelper();
-        registries(guiHelper);
         helper.addRecipeCatalyst(registration);
     }
 }

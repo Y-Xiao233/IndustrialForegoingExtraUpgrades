@@ -1,6 +1,9 @@
 package net.yxiao233.ifeu.common.provider;
 
+import com.buuz135.industrial.block.generator.mycelial.IMycelialGeneratorType;
 import com.buuz135.industrial.module.ModuleCore;
+import com.buuz135.industrial.module.ModuleGenerator;
+import com.buuz135.industrial.plugin.jei.generator.MycelialGeneratorRecipe;
 import com.buuz135.industrial.recipe.DissolutionChamberRecipe;
 import com.buuz135.industrial.recipe.LaserDrillFluidRecipe;
 import com.buuz135.industrial.recipe.LaserDrillRarity;
