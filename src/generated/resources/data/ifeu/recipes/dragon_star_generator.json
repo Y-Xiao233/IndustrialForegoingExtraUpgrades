@@ -34,9 +34,9 @@
           }
         },
         "pattern": [
-          "ABA",
+          "ACA",
           "CDC",
-          "ECE"
+          "EBE"
         ],
         "result": {
           "item": "ifeu:dragon_star_generator"

@@ -34,7 +34,7 @@ public class DragonStarGeneratorBlock extends IndustrialBlock<DragonStarGenerato
     @Override
     public void registerRecipe(Consumer<FinishedRecipe> consumer) {
         TitaniumShapedRecipeBuilder.shapedRecipe(this)
-                .pattern("ABA").pattern("CDC").pattern("ECE")
+                .pattern("ACA").pattern("CDC").pattern("EBE")
                 .define('A', IndustrialTags.Items.PLASTIC)
                 .define('B',Blocks.FURNACE)
                 .define('C', Items.DRAGON_BREATH)
