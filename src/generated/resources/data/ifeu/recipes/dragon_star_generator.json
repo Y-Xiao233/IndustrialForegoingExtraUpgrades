@@ -1,0 +1,48 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "forge:item_exists",
+              "item": "ifeu:dragon_star_generator"
+            }
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "key": {
+          "A": {
+            "tag": "forge:plastic"
+          },
+          "B": {
+            "item": "minecraft:furnace"
+          },
+          "C": {
+            "item": "minecraft:dragon_breath"
+          },
+          "D": {
+            "tag": "industrialforegoing:machine_frame/supreme"
+          },
+          "E": {
+            "tag": "forge:gears/sculk"
+          }
+        },
+        "pattern": [
+          "ABA",
+          "CDC",
+          "ECE"
+        ],
+        "result": {
+          "item": "ifeu:dragon_star_generator"
+        },
+        "show_notification": true
+      }
+    }
+  ]
+}
