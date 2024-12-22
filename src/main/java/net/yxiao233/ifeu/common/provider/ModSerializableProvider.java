@@ -16,16 +16,15 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.common.recipe.InfuserRecipe;
 import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.registry.ModFluids;
 
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class ModSerializableProvider extends TitaniumSerializableProvider {
     private final String modId = IndustrialForegoingExtraUpgrades.MODID;
@@ -73,6 +72,14 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                 },new FluidStack(ModuleCore.ETHER.getSourceFluid().get(), 1000),200,
                 ModContents.LASER_LENS_SCULK.get().getDefaultInstance(),FluidStack.EMPTY);
 
+        new InfuserRecipe(new ResourceLocation(modId,"dirt_mud"),
+                Items.DIRT.getDefaultInstance(),new FluidStack(Fluids.WATER.getSource(),1000),200,Items.MUD.getDefaultInstance());
+
+        new InfuserRecipe(new ResourceLocation(modId,"mud_clay"),
+                Items.MUD.getDefaultInstance(),new FluidStack(Fluids.WATER.getSource(),2000),500,Items.CLAY.getDefaultInstance());
+
+        new InfuserRecipe(new ResourceLocation(modId,"cobblestone_blackstone"),
+                Items.COBBLESTONE.getDefaultInstance(),new FluidStack(Fluids.LAVA.getSource(),200),200,Items.BLACKSTONE.getDefaultInstance());
 
         DissolutionChamberRecipe.RECIPES.forEach(dissolutionChamberRecipe -> map.put(dissolutionChamberRecipe,dissolutionChamberRecipe));
         InfuserRecipe.RECIPES.forEach(infuserRecipe -> map.put(infuserRecipe,infuserRecipe));

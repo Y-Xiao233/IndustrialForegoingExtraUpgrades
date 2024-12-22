@@ -19,7 +19,6 @@ public class DragonStarGeneratorBlock extends IndustrialBlock<DragonStarGenerato
     public DragonStarGeneratorBlock() {
         super("dragon_star_generator", Properties.copy(Blocks.IRON_BLOCK), DragonStarGeneratorEntity.class, ModItems.TAB_ADDONS);
     }
-
     @Override
     public BlockEntityType.BlockEntitySupplier<?> getTileEntityFactory() {
         return DragonStarGeneratorEntity::new;

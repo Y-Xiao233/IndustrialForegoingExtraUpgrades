@@ -1,4 +1,4 @@
-// 1.20.1	2024-12-22T13:35:37.4021406	Titanium Serializable (ifeu)
+// 1.20.1	2024-12-22T20:41:51.0376097	Titanium Serializable (ifeu)
 ae707198164e49ef8363f51273758b70a3aa0dd6 data/ifeu/recipes/dissolution_chamber/efficiency_addon_3.json
 d94db185558648aaef913cacd14ff4a4cc270249 data/ifeu/recipes/dissolution_chamber/efficiency_addon_4.json
 cea608a6f3915838bc4c71a38a8029ce757ac887 data/ifeu/recipes/dissolution_chamber/efficiency_addon_5.json
@@ -13,5 +13,8 @@ dec137485956e28db83e71225ab5aaba19011ba9 data/ifeu/recipes/dissolution_chamber/s
 d74591305be55bfa1cada4f43c0b2766f5c7e1e9 data/ifeu/recipes/dissolution_chamber/speed_addon_4.json
 b0e0d66c7be5b34930377002dd74490766f2bbd9 data/ifeu/recipes/dissolution_chamber/speed_addon_5.json
 c775b30ada1958dac762a0ed7ff45af6f028f9a9 data/ifeu/recipes/dissolution_chamber/speed_addon_6.json
+153cbc67e05ad06c563015681e18a85ddb9670de data/ifeu/recipes/infuser/cobblestone_blackstone.json
+3bd41d277f69f6d2085d51a56637ff2d0475b2c2 data/ifeu/recipes/infuser/dirt_mud.json
 ba58b2b397fb9586302fa5b10929627667023155 data/ifeu/recipes/infuser/dragon_star.json
+54ea3180ae4162b0b2ad3fc6462733961477f24e data/ifeu/recipes/infuser/mud_clay.json
 dee15dd97d525725d29711fd6a518776d8ce51c4 data/ifeu/recipes/laser_drill_fluid/liquid_sculk_matter.json

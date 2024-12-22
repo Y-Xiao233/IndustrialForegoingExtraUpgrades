@@ -11,7 +11,7 @@ import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 
 public class ModTags {
     public static class Blocks{
-
+        public static final TagKey<Block> NEEDS_DRAGON_STAR_TOOL = createTag("need_dragon_star_tool");
         private static TagKey<Block> createTag(String name){
             return BlockTags.create(new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID,name));
         }
