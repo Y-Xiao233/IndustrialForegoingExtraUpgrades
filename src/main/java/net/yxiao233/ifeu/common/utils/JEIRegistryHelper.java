@@ -58,7 +58,6 @@ public class JEIRegistryHelper {
             AbstractJEICategory<T> jeiCategory = (AbstractJEICategory<T>) this.getRecipeCategories().get(i);
             RecipeType<T> recipeType = jeiCategory.getRecipeType();
             ItemStack itemStack = this.recipeCatalysts.get(i).getDefaultInstance();
-            System.out.println(itemStack+"test00000");
             registration.addRecipeCatalyst(itemStack,recipeType);
         }
     }

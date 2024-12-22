@@ -8,13 +8,17 @@ import com.hrznstudio.titanium.component.fluid.SidedFluidTankComponent;
 import com.hrznstudio.titanium.component.inventory.SidedInventoryComponent;
 import com.hrznstudio.titanium.util.RecipeUtil;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.IFluidHandler;
+import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemHandlerHelper;
+import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.common.config.machine.InfuserConfig;
 import net.yxiao233.ifeu.common.recipe.InfuserRecipe;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
@@ -64,7 +68,24 @@ public class InfuserEntity extends IndustrialProcessingTile<InfuserEntity> {
             if(currentRecipe != null && currentRecipe.matches(input, inputFluid)){
                 return;
             }
+
             currentRecipe = RecipeUtil.getRecipes(this.level,(RecipeType<InfuserRecipe>) ModRecipes.INFUSER_TYPE.get()).stream().filter(recipe -> recipe.matches(input,inputFluid)).findFirst().orElse(null);
+
+            if(currentRecipe == null && input.getStackInSlot(0).is(Items.BUCKET)){
+                Item item = inputFluid.getFluid().getFluid().getBucket();
+                if(item instanceof BucketItem bucketItem){
+                    FluidStack fluidStack = new FluidStack(inputFluid.getFluid(),1000);
+
+                    String raw = bucketItem.getDescriptionId();
+                    int firstPoint = raw.indexOf('.');
+                    int lastPoint = raw.lastIndexOf('.');
+                    String nameSpace = raw.substring(firstPoint+1,lastPoint);
+                    String path = raw.substring(lastPoint+1,raw.length());
+
+                    ResourceLocation resourceLocation = new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID,"infuser/compact/"+nameSpace+"/fill_"+path);
+                    currentRecipe = new InfuserRecipe(resourceLocation,Items.BUCKET.getDefaultInstance(),fluidStack,200,item.getDefaultInstance());
+                }
+            }
         }
     }
 

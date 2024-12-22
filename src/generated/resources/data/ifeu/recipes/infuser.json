@@ -18,13 +18,10 @@
         "category": "misc",
         "key": {
           "A": {
-            "item": "minecraft:dragon_breath"
+            "item": "minecraft:bucket"
           },
           "B": {
-            "item": "industrialforegoing:machine_frame_advanced"
-          },
-          "C": {
-            "item": "industrialforegoing:machine_frame_supreme"
+            "tag": "industrialforegoing:machine_frame/pity"
           },
           "D": {
             "item": "minecraft:dragon_egg"
@@ -32,7 +29,7 @@
         },
         "pattern": [
           "ABA",
-          "CDC",
+          "BDB",
           "ABA"
         ],
         "result": {

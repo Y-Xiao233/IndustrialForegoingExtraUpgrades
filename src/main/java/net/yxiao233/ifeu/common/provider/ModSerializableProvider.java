@@ -73,15 +73,6 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                 },new FluidStack(ModuleCore.ETHER.getSourceFluid().get(), 1000),200,
                 ModContents.LASER_LENS_SCULK.get().getDefaultInstance(),FluidStack.EMPTY);
 
-        AtomicInteger i = new AtomicInteger(0);
-        ForgeRegistries.FLUIDS.getEntries().forEach(reg ->{
-            if(!reg.getValue().defaultFluidState().isEmpty() && reg.getValue().isSource(reg.getValue().defaultFluidState())){
-                new InfuserRecipe(new ResourceLocation(modId,("compact/fill_" + i)),Items.BUCKET.getDefaultInstance(),
-                        new FluidStack(reg.getValue(),1000),100,reg.getValue().getBucket().getDefaultInstance()
-                );
-                i.getAndIncrement();
-            }
-        });
 
         DissolutionChamberRecipe.RECIPES.forEach(dissolutionChamberRecipe -> map.put(dissolutionChamberRecipe,dissolutionChamberRecipe));
         InfuserRecipe.RECIPES.forEach(infuserRecipe -> map.put(infuserRecipe,infuserRecipe));
