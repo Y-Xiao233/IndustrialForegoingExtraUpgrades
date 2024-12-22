@@ -1,31 +1,15 @@
 package net.yxiao233.ifeu.common.fluid.dragon_breath;
 
-import com.buuz135.industrial.module.ModuleGenerator;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.*;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.LiquidBlock;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.Property;
-import net.minecraft.world.level.material.FlowingFluid;
-import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
-import net.minecraftforge.fluids.FluidType;
 import net.yxiao233.ifeu.common.config.misc.LiquidDragonBreathConfig;
 import net.yxiao233.ifeu.common.fluid.AbstractAnimateFluid;
 import net.yxiao233.ifeu.common.fluid.AbstractAnimateFluidInstance;
-
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 public class LiquidDragonBreathParticleAnimateFluid extends AbstractAnimateFluid {
     public LiquidDragonBreathParticleAnimateFluid(AbstractAnimateFluidInstance abstractAnimateFluidInstance) {

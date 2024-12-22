@@ -5,7 +5,8 @@
 
   "tooltip.ifeu.cooldown_amount": "冷却数量",
   "tooltip.ifeu.cooldown_time": "冷却时间",
-  "tooltip.ifeu.dragon_star": "可以龙之星发电机中发电,可产出%dFE/tick,持续",
+  "tooltip.ifeu.dragon_star": "可在龙之星发电机中发电,可产出%dFE/tick,持续",
+  "tooltip.ifeu.dragon_star_generator": "放入龙之星可以发电",
 
   "item.ifeu.liquid_dragon_breath_bucket": "液态龙息桶",
   "item.ifeu.liquid_sculk_matter_bucket": "液态幽匿物质桶",

@@ -16,6 +16,7 @@ import net.yxiao233.ifeu.common.config.machine.DragonStarGeneratorConfig;
 import net.yxiao233.ifeu.common.item.ModEfficiencyAddonItem;
 import net.yxiao233.ifeu.common.item.ModProcessingAddonItem;
 import net.yxiao233.ifeu.common.item.ModSpeedAddonItem;
+import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModContents;
 
 @Mod.EventBusSubscriber(value = Dist.CLIENT, modid = IndustrialForegoingExtraUpgrades.MODID, bus =  Mod.EventBusSubscriber.Bus.FORGE)
@@ -26,6 +27,7 @@ public class AddonItemTooltipEvent {
 
         addAddonItemTooltip(item,event);
         addDragonStarTooltip(item,event);
+        addDragonStarGeneratorTooltip(item,event);
     }
 
     public static void addAddonItemTooltip(Item item, ItemTooltipEvent event){
@@ -67,6 +69,11 @@ public class AddonItemTooltipEvent {
     public static void addDragonStarTooltip(Item item, ItemTooltipEvent event){
         if(item.getDefaultInstance().is(ModContents.DRAGON_STAR.get())){
             event.getToolTip().add(Component.translatable("tooltip.ifeu.dragon_star", DragonStarGeneratorConfig.powerPerTick).append(DragonStarGeneratorConfig.maxProgress + "tick").withStyle(ChatFormatting.AQUA));
+        }
+    }
+    public static void addDragonStarGeneratorTooltip(Item item, ItemTooltipEvent event){
+        if(item.getDefaultInstance().is(ModBlocks.DRAGON_STAR_GENERATOR.getLeft().get().asItem())){
+            event.getToolTip().add(Component.translatable("tooltip.ifeu.dragon_star_generator").withStyle(ChatFormatting.AQUA));
         }
     }
 }

@@ -59,8 +59,8 @@ public abstract class AbstractAnimateFluidInstance {
         });
     }
 
-    public abstract AbstractAnimateFluid.Source setSource(AbstractAnimateFluidInstance atfi);
-    public abstract AbstractAnimateFluid.Flowing setFlowing(AbstractAnimateFluidInstance atfi);
+    public abstract AbstractAnimateFluid.Source<?> setSource(AbstractAnimateFluidInstance abstractAnimateFluidInstance);
+    public abstract AbstractAnimateFluid.Flowing<?> setFlowing(AbstractAnimateFluidInstance abstractAnimateFluidInstance);
 
     public RegistryObject<FluidType> getFluidType() {
         return this.fluidType;
