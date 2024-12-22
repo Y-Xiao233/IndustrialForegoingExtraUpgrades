@@ -39,7 +39,7 @@ StartupEvents.registry("item", event =>{
     
 */
 
-//Infuser(灌注器)
+//Infuser (灌注器)
 event.recipes.ifeu.infuser(OutputItem,InputItem,InputFluid,ProcessingTime)
 
 //StoneWork Generate(造石加工机) -> Crusher(粉碎)
@@ -54,10 +54,10 @@ event.recipes.industrialforegoing.dissolution_chamber(OutputItem,InputItems,Inpu
 //Fluid Extractor(液体提取机)
 event.recipes.industrialforegoing.fluid_extractor(OutputFluid,InputItem,breakChance,result,defaultRecipe)
 
-//Laser Drill Fluid流体镭射钻基座
+//Laser Drill Fluid(流体镭射钻基座)
 event.recipes.industrialforegoing.laser_drill_fluid(OutputFluid,catelyst,rarity,entity,pointer)
 
-//Laser Drill Ore镭射钻基座
+//Laser Drill Ore(镭射钻基座)
 event.recipes.industrialforegoing.laser_drill_ore(OutputItem,catelyst,rarity,pointer)
 
 
