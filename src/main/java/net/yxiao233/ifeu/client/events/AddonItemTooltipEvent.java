@@ -6,21 +6,16 @@ import com.buuz135.industrial.item.addon.SpeedAddonItem;
 import com.buuz135.industrial.module.ModuleCore;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.common.Mod;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.common.config.machine.DragonStarGeneratorConfig;
 import net.yxiao233.ifeu.common.item.ModEfficiencyAddonItem;
 import net.yxiao233.ifeu.common.item.ModProcessingAddonItem;
 import net.yxiao233.ifeu.common.item.ModSpeedAddonItem;
-import net.yxiao233.ifeu.common.recipe.InfuserRecipe;
 import net.yxiao233.ifeu.common.registry.ModContents;
 
 @Mod.EventBusSubscriber(value = Dist.CLIENT, modid = IndustrialForegoingExtraUpgrades.MODID, bus =  Mod.EventBusSubscriber.Bus.FORGE)
@@ -72,22 +67,6 @@ public class AddonItemTooltipEvent {
     public static void addDragonStarTooltip(Item item, ItemTooltipEvent event){
         if(item.getDefaultInstance().is(ModContents.DRAGON_STAR.get())){
             event.getToolTip().add(Component.translatable("tooltip.ifeu.dragon_star", DragonStarGeneratorConfig.powerPerTick).append(DragonStarGeneratorConfig.maxProgress + "tick").withStyle(ChatFormatting.AQUA));
-        }
-    }
-
-    public static void addInfuserRecipes(Item item){
-        if(item instanceof BucketItem bucketItem){
-            FluidStack fluidStack = new FluidStack(bucketItem.getFluid(),1000);
-            if(!fluidStack.isEmpty()){
-                String raw = bucketItem.getDescriptionId();
-                int firstPoint = raw.indexOf('.');
-                int lastPoint = raw.lastIndexOf('.');
-                String nameSpace = raw.substring(firstPoint+1,lastPoint);
-                String path = raw.substring(lastPoint+1,raw.length());
-
-                ResourceLocation resourceLocation = new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID,"compact/"+nameSpace+"/fill_"+path);
-                new InfuserRecipe(resourceLocation, Items.BUCKET.getDefaultInstance(),fluidStack,200,item.getDefaultInstance());
-            }
         }
     }
 }
