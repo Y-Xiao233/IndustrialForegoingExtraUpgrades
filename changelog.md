@@ -13,6 +13,7 @@
 ### v1.0.3
 - 为液态龙息以及液态幽匿物质添加了放置粒子效果以及声音(可在模组对应的config文件配置)
 - 添加了龙之星发电机
+- 添加了各种龙之星等级的工具(TODO: 画材质)
 
 ### v1.0.4
 - 添加了工业先锋所有支持json文件添加配方的KubeJS支持
@@ -35,3 +36,4 @@
 ### v1.0.4
 - Added KubeJS support for IndustrialForegoing's "All Supports Adding recipe to JSON Files" feature
 - Added all fluid support for the newly added Infuser in this mod
+- Added various Dragon Star Tier tools
