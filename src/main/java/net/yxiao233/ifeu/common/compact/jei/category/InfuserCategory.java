@@ -51,7 +51,7 @@ public class InfuserCategory extends AbstractJEICategory<InfuserRecipe> {
         builder.addSlot(RecipeIngredientRole.INPUT, 66, 33).addIngredient(VanillaTypes.ITEM_STACK,recipe.input);
         //InputFluid
         if(recipe.inputFluid != null && !recipe.inputFluid.isEmpty()){
-            builder.addSlot(RecipeIngredientRole.INPUT, 44 + 3, 12 + 3).setFluidRenderer(1000,false,12,50).setOverlay(bigTank,0,0).addIngredient(ForgeTypes.FLUID_STACK, recipe.inputFluid);
+            builder.addSlot(RecipeIngredientRole.INPUT, 44 + 3, 12 + 3).setFluidRenderer(InfuserConfig.maxInputTankSize >= 1000 ? InfuserConfig.maxInputTankSize : 1000,false,12,50).setOverlay(bigTank,0,0).addIngredient(ForgeTypes.FLUID_STACK, recipe.inputFluid);
         }
         //Output
         if(!recipe.output.isEmpty()){

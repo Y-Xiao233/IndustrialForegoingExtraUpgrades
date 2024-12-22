@@ -69,8 +69,11 @@ public class InfuserEntity extends IndustrialProcessingTile<InfuserEntity> {
                 return;
             }
 
+            //Json Recipes
             currentRecipe = RecipeUtil.getRecipes(this.level,(RecipeType<InfuserRecipe>) ModRecipes.INFUSER_TYPE.get()).stream().filter(recipe -> recipe.matches(input,inputFluid)).findFirst().orElse(null);
 
+
+            //Compact Recipes
             if(currentRecipe == null && input.getStackInSlot(0).is(Items.BUCKET)){
                 Item item = inputFluid.getFluid().getFluid().getBucket();
                 if(item instanceof BucketItem bucketItem){
