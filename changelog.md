@@ -16,6 +16,7 @@
 
 ### v1.0.4
 - 添加了工业先锋所有支持json文件添加配方的KubeJS支持
+- 为该mod新添加的灌注器添加了所有流体支持
 
 ## en_us
 ### v1.0.0
@@ -33,3 +34,4 @@
 
 ### v1.0.4
 - Added KubeJS support for IndustrialForegoing's "All Supports Adding recipe to JSON Files" feature
+- Added all fluid support for the newly added Infuser in this mod
