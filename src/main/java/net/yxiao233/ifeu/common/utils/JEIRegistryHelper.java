@@ -48,8 +48,8 @@ public class JEIRegistryHelper {
             if(typeInstance == null){
                 continue;
             }
-            RecipeType<T> recipeType = jeiCategory.getRecipeType();
 
+            RecipeType<T> recipeType = jeiCategory.getRecipeType();
             addRecipes2(manager,registration,recipeType,typeInstance);
         }
     }

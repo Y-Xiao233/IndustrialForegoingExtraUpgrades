@@ -9,11 +9,9 @@ import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BucketItem;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.MobBucketItem;
 import net.minecraft.world.item.crafting.RecipeManager;
-import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
@@ -73,7 +71,7 @@ public class JEIPlugin implements IModPlugin {
                     String nameSpace = raw.substring(firstPoint+1,lastPoint);
                     String path = raw.substring(lastPoint+1,raw.length());
 
-                    ResourceLocation resourceLocation = new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID,"infuser/compact/"+nameSpace+"/fill_"+path);
+                    ResourceLocation resourceLocation = new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID,"infuser/"+nameSpace+"/fill_"+path);
                     infuserRecipes.add(new InfuserRecipe(resourceLocation,Items.BUCKET.getDefaultInstance(),fluidStack,200,bucketItem.getDefaultInstance()));
                 }
             }

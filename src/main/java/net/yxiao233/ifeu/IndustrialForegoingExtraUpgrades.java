@@ -17,12 +17,10 @@ import net.yxiao233.ifeu.common.provider.ModSerializableProvider;
 import net.yxiao233.ifeu.common.registry.*;
 
 @Mod(IndustrialForegoingExtraUpgrades.MODID)
-public class IndustrialForegoingExtraUpgrades extends ModuleController
-{
-    public static final String MODID = "ifeu";
+public class IndustrialForegoingExtraUpgrades extends ModuleController{
 
-    public IndustrialForegoingExtraUpgrades()
-    {
+    public static final String MODID = "ifeu";
+    public IndustrialForegoingExtraUpgrades(){
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         MinecraftForge.EVENT_BUS.register(this);
 
@@ -43,7 +41,7 @@ public class IndustrialForegoingExtraUpgrades extends ModuleController
     }
 
     @Override
-    protected void initModules() {
+    protected void initModules(){
         new ModItems().generateFeatures(getRegistries());
         new ModBlocks().generateFeatures(getRegistries());
         new ModRecipes().generateFeatures(getRegistries());
@@ -52,7 +50,7 @@ public class IndustrialForegoingExtraUpgrades extends ModuleController
     }
 
     @Override
-    public void addDataProvider(GatherDataEvent event) {
+    public void addDataProvider(GatherDataEvent event){
         event.getGenerator().addProvider(event.includeServer(), new ModRecipeProvider(event.getGenerator()));
         event.getGenerator().addProvider(event.includeServer(), new ModSerializableProvider(event.getGenerator(),IndustrialForegoingExtraUpgrades.MODID));
     }

@@ -22,7 +22,6 @@ public class DataGenerators {
 
         generator.addProvider(event.includeClient(), new ModBlockStateProvider(packOutput,existingFileHelper));
 
-
         generator.addProvider(event.includeServer(), ModBlockLootTablesProvider.create(packOutput));
 
         generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput,existingFileHelper));

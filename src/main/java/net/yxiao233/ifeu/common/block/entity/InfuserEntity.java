@@ -83,7 +83,7 @@ public class InfuserEntity extends IndustrialProcessingTile<InfuserEntity> {
                     String nameSpace = raw.substring(firstPoint+1,lastPoint);
                     String path = raw.substring(lastPoint+1,raw.length());
 
-                    ResourceLocation resourceLocation = new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID,"infuser/compact/"+nameSpace+"/fill_"+path);
+                    ResourceLocation resourceLocation = new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID,"infuser/"+nameSpace+"/fill_"+path);
                     currentRecipe = new InfuserRecipe(resourceLocation,Items.BUCKET.getDefaultInstance(),fluidStack,200,item.getDefaultInstance());
                 }
             }
