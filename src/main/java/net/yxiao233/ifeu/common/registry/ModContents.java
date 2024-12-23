@@ -26,6 +26,9 @@ public class ModContents {
     //Armor
         //TODO
         // paint textures for Tools and Armors
-        // add Tools' and Armors' Recipe
-        // add Dragon Star Tier Armor
+
+    public static final RegistryObject<Item> DRAGON_STAR_HELMET = ITEMS.register("dragon_star_helmet",() -> new ArmorItem(ModArmorMaterials.DRAGON_STAR, ArmorItem.Type.HELMET,new Item.Properties().fireResistant().rarity(ModRarity.LEGENDARY)));
+    public static final RegistryObject<Item> DRAGON_STAR_CHESTPLATE = ITEMS.register("dragon_star_chestplate",() -> new ArmorItem(ModArmorMaterials.DRAGON_STAR, ArmorItem.Type.CHESTPLATE,new Item.Properties().fireResistant().rarity(ModRarity.LEGENDARY)));
+    public static final RegistryObject<Item> DRAGON_STAR_LEGGINGS = ITEMS.register("dragon_star_leggings",() -> new ArmorItem(ModArmorMaterials.DRAGON_STAR, ArmorItem.Type.LEGGINGS,new Item.Properties().fireResistant().rarity(ModRarity.LEGENDARY)));
+    public static final RegistryObject<Item> DRAGON_STAR_BOOTS = ITEMS.register("dragon_star_boots",() -> new ArmorItem(ModArmorMaterials.DRAGON_STAR, ArmorItem.Type.BOOTS,new Item.Properties().fireResistant().rarity(ModRarity.LEGENDARY)));
 }

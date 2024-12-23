@@ -4,7 +4,7 @@
     "count": 1,
     "item": "minecraft:mud"
   },
-  "inputFluid": "{Amount:1000,FluidName:\"minecraft:water\"}",
+  "inputFluid": "{Amount:2000,FluidName:\"minecraft:water\"}",
   "output": {
     "count": 1,
     "item": "minecraft:clay"

@@ -1,6 +1,15 @@
-// 1.20.1	2024-12-22T13:35:37.3997605	Recipes
+// 1.20.1	2024-12-23T14:34:40.4868085	Recipes
 f7a5505e08e943bfb31346c21af7013ead3c3d7b data/ifeu/advancements/recipes/misc/laser_lens_sculk.json
+4814ae5d9de8ce03f4730b32c12820c84e94061d data/ifeu/recipes/dragon_star_axe.json
+8aa3d1e73d27d09fb9b72fe71a2d7432df9f3446 data/ifeu/recipes/dragon_star_boots.json
+b232776917c1def87b4fbc6d5c8f7f5388db92bb data/ifeu/recipes/dragon_star_chestplate.json
 044b12b72f139de4370b0a91c4f63708cbe8862c data/ifeu/recipes/dragon_star_generator.json
+aeb285d9dfe5ba17d9b8a01f571a969b86370680 data/ifeu/recipes/dragon_star_helmet.json
+f7a76bf0a0c7f004e26e1b5e08e0a1e4d70e36d0 data/ifeu/recipes/dragon_star_hoe.json
+4b4f94a48d33f7945dcbe1d6de0ddb93204567f1 data/ifeu/recipes/dragon_star_leggings.json
+fdfd911a6d257c4ad0e9dc454a19c1035091e08a data/ifeu/recipes/dragon_star_pickaxe.json
+79d789ff79f5c5f1a4da7fc3ab57fa6a5fe5442f data/ifeu/recipes/dragon_star_shovel.json
+0a3dec6c9ea30ed57774a14b66c4b3f53c2df178 data/ifeu/recipes/dragon_star_sword.json
 f25b519cbbe7709d7e14627c64af447c3b05323d data/ifeu/recipes/infuser.json
 541ff5191f512671d3d8d4b594187f11bcc669c6 data/ifeu/recipes/laser_lens_sculk.json
 af221a4ef31bc37469f7242cd56c9fe4b5500ebb data/ifeu/recipes/netherite_gear.json
