@@ -18,8 +18,6 @@ public class ModContents {
     public static final RegistryObject<Item> SCULK_GEAR = ITEMS.register("sculk_gear", () -> new Item(new Item.Properties()));
 
     //Tool
-    //TODO
-    //  paint textures for Tools
     public static final RegistryObject<Item> DRAGON_STAR_PICKAXE = ITEMS.register("dragon_star_pickaxe",() -> new PickaxeItem(ModTiers.DRAGON_STAR,1,-2.8F,(new Item.Properties().fireResistant().rarity(ModRarity.LEGENDARY))));
     public static final RegistryObject<Item> DRAGON_STAR_AXE = ITEMS.register("dragon_star_axe",() -> new AxeItem(ModTiers.DRAGON_STAR,5.0F,-3.0F,(new Item.Properties().fireResistant().rarity(ModRarity.LEGENDARY))));
     public static final RegistryObject<Item> DRAGON_STAR_HOE = ITEMS.register("dragon_star_hoe",() -> new HoeItem(ModTiers.DRAGON_STAR,-4,0.0F,(new Item.Properties().fireResistant().rarity(ModRarity.LEGENDARY))));
