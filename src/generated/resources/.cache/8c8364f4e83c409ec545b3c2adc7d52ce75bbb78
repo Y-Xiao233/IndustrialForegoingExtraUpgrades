@@ -1,7 +1,8 @@
-// 1.20.1	2024-12-17T19:30:20.1643803	Tags for minecraft:item mod id vanilla
+// 1.20.1	2024-12-24T20:02:44.1730119	Tags for minecraft:item mod id vanilla
 91070ccb4e4744344f0f5dfa893e6277aa843703 data/forge/tags/items/gears.json
 b4f05d39ccb4e9007094301213bb95a6938cc607 data/forge/tags/items/gears/diamond.json
 90ab32de2c9647cd4563103fc413e8eb65356d39 data/forge/tags/items/gears/gold.json
 9c226908886b9b4d08706cd03083d72437ce37a7 data/forge/tags/items/gears/iron.json
 1db7f763b3f5fbbcc2cbee6f8f90f75224a9d134 data/forge/tags/items/gears/netherite.json
 03349825c1c2bc67c51166ee48f8e2ee1c83f20b data/forge/tags/items/gears/sculk.json
+86bff8418a02adcd12b053449f71ff059c3a9b95 data/minecraft/tags/items/pickaxes.json

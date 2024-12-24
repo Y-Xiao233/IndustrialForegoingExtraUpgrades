@@ -39,5 +39,10 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.SPEED_ADDON_5.get());
         basicItem(ModItems.SPEED_ADDON_6.get());
         basicItem(ModContents.LASER_LENS_SCULK.get());
+        basicItem(ModContents.DRAGON_STAR_HOE.get());
+        basicItem(ModContents.DRAGON_STAR_SHOVEL.get());
+        basicItem(ModContents.DRAGON_STAR_SWORD.get());
+        basicItem(ModContents.DRAGON_STAR_PICKAXE.get());
+        basicItem(ModContents.DRAGON_STAR_AXE.get());
     }
 }

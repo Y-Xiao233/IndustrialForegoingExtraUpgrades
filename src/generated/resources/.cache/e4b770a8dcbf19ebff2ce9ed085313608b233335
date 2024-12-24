@@ -1,5 +1,10 @@
-// 1.20.1	2024-12-20T18:23:37.4278201	ifeu - ItemModel
+// 1.20.1	2024-12-24T20:02:44.175236	ifeu - ItemModel
 4954c2de2f229dc6891c84b879aa2c46bc052b21 assets/ifeu/models/item/dragon_star.json
+8ec369f49a195ee9cadcfa86a240cd662ce097d0 assets/ifeu/models/item/dragon_star_axe.json
+60fc9ad634f9facf392a4e6f26573f0966cba8dc assets/ifeu/models/item/dragon_star_hoe.json
+3145c8bafada3138011d2109bae202349e284747 assets/ifeu/models/item/dragon_star_pickaxe.json
+8f2cca6b051c1b9ea81f9bbfa42881097cb9aa1c assets/ifeu/models/item/dragon_star_shovel.json
+3327560db239f0a772e3b917782e2d5f10e4a0fc assets/ifeu/models/item/dragon_star_sword.json
 43d51900e04f153248f2358eca6cf3424616c5cc assets/ifeu/models/item/efficiency_addon_3.json
 5f1cdb8b73b632aa4d1838e5dd5732c5c80514d8 assets/ifeu/models/item/efficiency_addon_4.json
 9bae33867b451297e561d7e0855602d5216f6b5b assets/ifeu/models/item/efficiency_addon_5.json

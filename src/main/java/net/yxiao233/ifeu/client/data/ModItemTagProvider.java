@@ -5,7 +5,9 @@ import com.buuz135.industrial.utils.IndustrialTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.common.Tags;
 import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.registry.ModTags;
 
@@ -29,5 +31,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .addTag(IndustrialTags.Items.GEAR_DIAMOND)
                 .addTag(ModTags.Items.GEARS_NETHERITE)
                 .addTag(ModTags.Items.GEARS_SCULK);
+
+        tag(ItemTags.PICKAXES)
+                .add(ModContents.DRAGON_STAR_PICKAXE.get());
     }
 }
