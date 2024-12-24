@@ -112,28 +112,28 @@ public class ModRecipeProvider extends TitaniumRecipeProvider {
                 .define('C', Tags.Items.RODS)
                 .save(consumer);
 
-        TitaniumShapedRecipeBuilder.shapedRecipe(ModContents.DRAGON_STAR_HELMET.get())
-                .pattern("AAA").pattern("ABA").pattern("   ")
-                .define('A',ModContents.DRAGON_STAR.get())
-                .define('B',Items.NETHERITE_HELMET)
-                .save(consumer);
-
-        TitaniumShapedRecipeBuilder.shapedRecipe(ModContents.DRAGON_STAR_CHESTPLATE.get())
-                .pattern("A A").pattern("ABA").pattern("AAA")
-                .define('A',ModContents.DRAGON_STAR.get())
-                .define('B',Items.NETHERITE_CHESTPLATE)
-                .save(consumer);
-
-        TitaniumShapedRecipeBuilder.shapedRecipe(ModContents.DRAGON_STAR_LEGGINGS.get())
-                .pattern("AAA").pattern("ABA").pattern("A A")
-                .define('A',ModContents.DRAGON_STAR.get())
-                .define('B',Items.NETHERITE_LEGGINGS)
-                .save(consumer);
-
-        TitaniumShapedRecipeBuilder.shapedRecipe(ModContents.DRAGON_STAR_BOOTS.get())
-                .pattern("   ").pattern("A A").pattern("ABA")
-                .define('A',ModContents.DRAGON_STAR.get())
-                .define('B',Items.NETHERITE_BOOTS)
-                .save(consumer);
+//        TitaniumShapedRecipeBuilder.shapedRecipe(ModContents.DRAGON_STAR_HELMET.get())
+//                .pattern("AAA").pattern("ABA").pattern("   ")
+//                .define('A',ModContents.DRAGON_STAR.get())
+//                .define('B',Items.NETHERITE_HELMET)
+//                .save(consumer);
+//
+//        TitaniumShapedRecipeBuilder.shapedRecipe(ModContents.DRAGON_STAR_CHESTPLATE.get())
+//                .pattern("A A").pattern("ABA").pattern("AAA")
+//                .define('A',ModContents.DRAGON_STAR.get())
+//                .define('B',Items.NETHERITE_CHESTPLATE)
+//                .save(consumer);
+//
+//        TitaniumShapedRecipeBuilder.shapedRecipe(ModContents.DRAGON_STAR_LEGGINGS.get())
+//                .pattern("AAA").pattern("ABA").pattern("A A")
+//                .define('A',ModContents.DRAGON_STAR.get())
+//                .define('B',Items.NETHERITE_LEGGINGS)
+//                .save(consumer);
+//
+//        TitaniumShapedRecipeBuilder.shapedRecipe(ModContents.DRAGON_STAR_BOOTS.get())
+//                .pattern("   ").pattern("A A").pattern("ABA")
+//                .define('A',ModContents.DRAGON_STAR.get())
+//                .define('B',Items.NETHERITE_BOOTS)
+//                .save(consumer);
     }
 }
