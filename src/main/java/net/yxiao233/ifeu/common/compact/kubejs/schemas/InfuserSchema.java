@@ -13,6 +13,6 @@ public interface InfuserSchema{
     RecipeKey<OutputItem> OUTPUT = ItemComponents.OUTPUT.key("output");
     RecipeKey<InputItem> INPUT = ItemComponents.INPUT.key("input");
     RecipeKey<InputFluid> INPUT_FLUID = IndustrialForegoingComponents.INPUT_FLUID.key("inputFluid");
-    RecipeKey<Long> TIME = TimeComponent.TICKS.key("processingTime").optional(200L);
+    RecipeKey<Long> TIME = TimeComponent.TICKS.key("processingTime");
     RecipeSchema SCHEMA = new RecipeSchema(OUTPUT,INPUT,INPUT_FLUID,TIME);
 }
