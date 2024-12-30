@@ -10,7 +10,7 @@
 - 插件: 处理```event.create(id,"industrialforegoing:processing_addon").setTier(tier).setFormTier(formTier)```
 
 ### 示例
-```javaSrcipt
+```JavaScript
 StartupEvents.registry("item", event =>{
     //.setTier(int) 设置升级的等级
     //.setFormTier(int) 默认为设置的等级,可设置为其他整形,用来展示
