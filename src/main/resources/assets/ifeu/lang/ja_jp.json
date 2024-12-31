@@ -1,0 +1,32 @@
+{
+  "itemGroup.ifeu.extra_upgrades": "Industrial Foregoing: 追加のアップグレード",
+  "itemGroup.industrialforegoing_extra_upgrades": "Industrial Foregoing: Extra Upgrades",
+  "itemGroup.ifeu.extra_contents": "Industrial Foregoing: 追加コンテンツ",
+
+  "tooltip.ifeu.cooldown_amount": "クールダウン量",
+  "tooltip.ifeu.cooldown_time": "クールダウン時間",
+  "tooltip.ifeu.dragon_star": "ドラゴンスター発電機ではエネルギーを発電することができ、%dFE/ティックを発電します。持続時間： ",
+  "tooltip.ifeu.dragon_star_generator": "ドラゴンスターで発電します",
+
+  "item.ifeu.liquid_dragon_breath_bucket": "液体ドラゴンブレス入りバケツ",
+  "item.ifeu.liquid_sculk_matter_bucket": "液体スカルク物質入りバケツ",
+  "item.ifeu.dragon_star": "ドラゴンスター",
+  "item.ifeu.laser_lens_sculk": "スカルクレーザーレンズ",
+  "item.ifeu.netherite_gear": "ネザライトの歯車",
+  "item.ifeu.sculk_gear": "スカルクの歯車",
+  "item.ifeu.dragon_star_sword": "ドラゴンスターの剣",
+  "item.ifeu.dragon_star_pickaxe": "ドラゴンスターのツルハシ",
+  "item.ifeu.dragon_star_axe": "ドラゴンスターの斧",
+  "item.ifeu.dragon_star_shovel": "ドラゴンスターのシャベル",
+  "item.ifeu.dragon_star_hoe": "ドラゴンスターのクワ",
+  "item.ifeu.dragon_star_helmet": "ドラゴンスターのヘルメット",
+  "item.ifeu.dragon_star_chestplate": "ドラゴンスターのチェストプレート",
+  "item.ifeu.dragon_star_leggings": "ドラゴンスターのレギンス",
+  "item.ifeu.dragon_star_boots": "ドラゴンスターのブーツ",
+
+  "block.ifeu.infuser": "注入機",
+  "block.ifeu.dragon_star_generator": "ドラゴンスター発電機",
+
+  "fluid_type.ifeu.liquid_dragon_breath": "液体ドラゴンブレス",
+  "fluid_type.ifeu.liquid_sculk_matter": "液体スカルク物質"
+}
