@@ -19,6 +19,8 @@
 - 为该mod新添加的灌注器添加了所有流体支持
 - 添加了各种龙之星等级的工具
 
+### v1.0.5
+- 添加了日语翻译[\#1 bytwister716](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/pull/1)
 ## en_us
 ### v1.0.0
 - init
@@ -37,3 +39,6 @@
 - Added KubeJS support for IndustrialForegoing's "All Supports Adding recipe to JSON Files" feature
 - Added all fluid support for the newly added Infuser in this mod
 - Added various Dragon Star Tier tools
+
+### v1.0.5
+- Add japanese translation[\#1 bytwister716](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/pull/1)
