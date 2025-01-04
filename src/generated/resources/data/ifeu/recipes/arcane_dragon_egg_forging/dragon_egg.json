@@ -1,0 +1,14 @@
+{
+  "type": "ifeu:arcane_dragon_egg_forging",
+  "input": {
+    "count": 4,
+    "item": "minecraft:egg"
+  },
+  "inputFluid1": "{Amount:250,FluidName:\"industrialforegoing:essence\"}",
+  "inputFluid2": "{Amount:250,FluidName:\"ifeu:liquid_dragon_breath\"}",
+  "output": {
+    "count": 1,
+    "item": "minecraft:dragon_egg"
+  },
+  "processingTime": 200
+}

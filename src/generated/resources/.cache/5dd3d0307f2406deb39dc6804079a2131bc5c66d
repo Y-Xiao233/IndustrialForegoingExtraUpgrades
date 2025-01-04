@@ -1,10 +1,13 @@
-// 1.20.1	2024-12-23T14:34:40.4888123	Titanium Serializable (ifeu)
+// 1.20.1	2025-01-04T23:41:33.9592783	Titanium Serializable (ifeu)
+c519791eb845a134853291569762abb550c38abe data/ifeu/recipes/arcane_dragon_egg_forging/dragon_egg.json
+ee98c1c55d06b1ef40bcf4b3ff86cabb9ceb5e93 data/ifeu/recipes/arcane_dragon_egg_forging/egg.json
 ae707198164e49ef8363f51273758b70a3aa0dd6 data/ifeu/recipes/dissolution_chamber/efficiency_addon_3.json
 d94db185558648aaef913cacd14ff4a4cc270249 data/ifeu/recipes/dissolution_chamber/efficiency_addon_4.json
 cea608a6f3915838bc4c71a38a8029ce757ac887 data/ifeu/recipes/dissolution_chamber/efficiency_addon_5.json
 94dc0b14ce8e96b1260326b2132f438acea97927 data/ifeu/recipes/dissolution_chamber/efficiency_addon_6.json
+90d81f57196834931542693df6833d6dca6c5ab7 data/ifeu/recipes/dissolution_chamber/laser_lens_dragon.json
 1c24b92a38c6d6e82ca5cea5e40ed78976197bb3 data/ifeu/recipes/dissolution_chamber/laser_lens_sculk.json
-327cfb32894166186bebd312b62e23152f435b72 data/ifeu/recipes/dissolution_chamber/liquid_dragon_breath.json
+a9c332b590cd6a60ffba23ba3e66c4e9d0a42c7d data/ifeu/recipes/dissolution_chamber/liquid_dragon_breath.json
 944ec526e6ce4aeb7dd3826ce60d2b8c52533c7c data/ifeu/recipes/dissolution_chamber/processing_addon_3.json
 37f532d270ae0213335737badf9a233cf22aa15e data/ifeu/recipes/dissolution_chamber/processing_addon_4.json
 d1bbf0af46d750a05fe482838b2ff89454f0ee15 data/ifeu/recipes/dissolution_chamber/processing_addon_5.json
@@ -17,4 +20,5 @@ c775b30ada1958dac762a0ed7ff45af6f028f9a9 data/ifeu/recipes/dissolution_chamber/s
 3bd41d277f69f6d2085d51a56637ff2d0475b2c2 data/ifeu/recipes/infuser/dirt_mud.json
 ba58b2b397fb9586302fa5b10929627667023155 data/ifeu/recipes/infuser/dragon_star.json
 234f4250341e6b7fa0a969c65e489c6d8c7f1f3c data/ifeu/recipes/infuser/mud_clay.json
+8e842c86c963be8e7a5ef9a7d7db62ed3b4f7795 data/ifeu/recipes/laser_drill_fluid/liquid_dragon_breath.json
 dee15dd97d525725d29711fd6a518776d8ce51c4 data/ifeu/recipes/laser_drill_fluid/liquid_sculk_matter.json

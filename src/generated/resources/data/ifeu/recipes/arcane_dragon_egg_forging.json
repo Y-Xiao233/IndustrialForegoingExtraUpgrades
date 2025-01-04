@@ -1,0 +1,42 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "forge:item_exists",
+              "item": "ifeu:arcane_dragon_egg_forging"
+            }
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "key": {
+          "A": {
+            "tag": "forge:chests"
+          },
+          "B": {
+            "item": "minecraft:sculk"
+          },
+          "D": {
+            "tag": "industrialforegoing:machine_frame/supreme"
+          }
+        },
+        "pattern": [
+          "ABA",
+          "BDB",
+          "ABA"
+        ],
+        "result": {
+          "item": "ifeu:arcane_dragon_egg_forging"
+        },
+        "show_notification": true
+      }
+    }
+  ]
+}

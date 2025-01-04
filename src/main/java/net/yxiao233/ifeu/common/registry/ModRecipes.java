@@ -9,14 +9,21 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
+import net.yxiao233.ifeu.common.recipe.ArcaneDragonEggForgingRecipe;
 import net.yxiao233.ifeu.common.recipe.InfuserRecipe;
 
 public class ModRecipes implements IModule {
     public static RegistryObject<RecipeSerializer<?>> INFUSER_SERIALIZER;
     public static RegistryObject<RecipeType<?>> INFUSER_TYPE;
+    public static RegistryObject<RecipeSerializer<?>> ARCANE_DRAGON_EGG_FORGING_SERIALIZER;
+    public static RegistryObject<RecipeType<?>> ARCANE_DRAGON_EGG_FORGING_TYPE;
     @Override
     public void generateFeatures(DeferredRegistryHelper helper) {
         INFUSER_SERIALIZER = helper.registerGeneric(ForgeRegistries.RECIPE_SERIALIZERS.getRegistryKey(), "infuser", () -> new GenericSerializer<>(InfuserRecipe.class, INFUSER_TYPE));
         INFUSER_TYPE = helper.registerGeneric(ForgeRegistries.RECIPE_TYPES.getRegistryKey(), "infuser", () -> RecipeType.simple(new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID, "infuser")));
+
+
+        ARCANE_DRAGON_EGG_FORGING_SERIALIZER = helper.registerGeneric(ForgeRegistries.RECIPE_SERIALIZERS.getRegistryKey(), "arcane_dragon_egg_forging", () -> new GenericSerializer<>(ArcaneDragonEggForgingRecipe.class, ARCANE_DRAGON_EGG_FORGING_TYPE));
+        ARCANE_DRAGON_EGG_FORGING_TYPE = helper.registerGeneric(ForgeRegistries.RECIPE_TYPES.getRegistryKey(), "arcane_dragon_egg_forging", () -> RecipeType.simple(new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID, "arcane_dragon_egg_forging")));
     }
 }

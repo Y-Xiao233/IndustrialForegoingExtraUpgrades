@@ -17,6 +17,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     protected void generate() {
         this.dropSelf(ModBlocks.INFUSER.getKey().get());
         this.dropSelf(ModBlocks.DRAGON_STAR_GENERATOR.getLeft().get());
+        this.dropSelf(ModBlocks.ARCANE_DRAGON_EGG_FORGING.getLeft().get());
     }
 
     @Override
@@ -24,7 +25,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         //注册方法时后面加上.noLootTable()就不会在这里生成
         Iterable<Block> iterable = Arrays.asList(
                 ModBlocks.INFUSER.getLeft().get(),
-                ModBlocks.DRAGON_STAR_GENERATOR.getLeft().get()
+                ModBlocks.DRAGON_STAR_GENERATOR.getLeft().get(),
+                ModBlocks.ARCANE_DRAGON_EGG_FORGING.getLeft().get()
         );
         return iterable;
     }

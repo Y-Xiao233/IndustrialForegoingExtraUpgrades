@@ -15,6 +15,7 @@ import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
+import net.yxiao233.ifeu.common.compact.jei.category.ArcaneDragonEggForgingCategory;
 import net.yxiao233.ifeu.common.compact.jei.category.InfuserCategory;
 import net.yxiao233.ifeu.common.recipe.InfuserRecipe;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
@@ -27,7 +28,8 @@ import java.util.List;
 public class JEIPlugin implements IModPlugin {
     private JEIRegistryHelper helper = new JEIRegistryHelper();
     private void registries(IGuiHelper guiHelper){
-        helper.add(new InfuserCategory(guiHelper), ModBlocks.INFUSER.getKey());
+        helper.add(new InfuserCategory(guiHelper), ModBlocks.INFUSER.getLeft());
+        helper.add(new ArcaneDragonEggForgingCategory(guiHelper), ModBlocks.ARCANE_DRAGON_EGG_FORGING.getLeft());
     }
     @Override
     public ResourceLocation getPluginUid() {

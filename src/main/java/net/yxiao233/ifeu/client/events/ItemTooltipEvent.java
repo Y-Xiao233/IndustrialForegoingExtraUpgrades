@@ -8,7 +8,6 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
@@ -20,9 +19,9 @@ import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModContents;
 
 @Mod.EventBusSubscriber(value = Dist.CLIENT, modid = IndustrialForegoingExtraUpgrades.MODID, bus =  Mod.EventBusSubscriber.Bus.FORGE)
-public class AddonItemTooltipEvent {
+public class ItemTooltipEvent {
     @SubscribeEvent
-    public static void onItemTooltip(ItemTooltipEvent event){
+    public static void onItemTooltip(net.minecraftforge.event.entity.player.ItemTooltipEvent event){
         Item item = event.getItemStack().getItem();
 
         addAddonItemTooltip(item,event);
@@ -30,7 +29,7 @@ public class AddonItemTooltipEvent {
         addDragonStarGeneratorTooltip(item,event);
     }
 
-    public static void addAddonItemTooltip(Item item, ItemTooltipEvent event){
+    public static void addAddonItemTooltip(Item item, net.minecraftforge.event.entity.player.ItemTooltipEvent event){
         if(item instanceof ProcessingAddonItem){
             float tier = 0;
             if(item == ModuleCore.PROCESSING_ADDON_1.get()){
@@ -66,12 +65,12 @@ public class AddonItemTooltipEvent {
             event.getToolTip().add(Component.translatable("tooltip.ifeu.cooldown_amount").append(": " + reduction + "%").withStyle(ChatFormatting.GRAY));
         }
     }
-    public static void addDragonStarTooltip(Item item, ItemTooltipEvent event){
+    public static void addDragonStarTooltip(Item item, net.minecraftforge.event.entity.player.ItemTooltipEvent event){
         if(item.getDefaultInstance().is(ModContents.DRAGON_STAR.get())){
             event.getToolTip().add(Component.translatable("tooltip.ifeu.dragon_star", DragonStarGeneratorConfig.powerPerTick).append(DragonStarGeneratorConfig.maxProgress + "tick").withStyle(ChatFormatting.AQUA));
         }
     }
-    public static void addDragonStarGeneratorTooltip(Item item, ItemTooltipEvent event){
+    public static void addDragonStarGeneratorTooltip(Item item, net.minecraftforge.event.entity.player.ItemTooltipEvent event){
         if(item.getDefaultInstance().is(ModBlocks.DRAGON_STAR_GENERATOR.getLeft().get().asItem())){
             event.getToolTip().add(Component.translatable("tooltip.ifeu.dragon_star_generator").withStyle(ChatFormatting.AQUA));
         }

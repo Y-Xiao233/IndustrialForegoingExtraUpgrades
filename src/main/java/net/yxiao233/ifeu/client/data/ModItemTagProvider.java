@@ -34,5 +34,17 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         tag(ItemTags.PICKAXES)
                 .add(ModContents.DRAGON_STAR_PICKAXE.get());
+
+        tag(ItemTags.AXES)
+                .add(ModContents.DRAGON_STAR_AXE.get());
+
+        tag(ItemTags.SHOVELS)
+                .add(ModContents.DRAGON_STAR_SHOVEL.get());
+
+        tag(ItemTags.SWORDS)
+                .add(ModContents.DRAGON_STAR_SWORD.get());
+
+        tag(ItemTags.HOES)
+                .add(ModContents.DRAGON_STAR_HOE.get());
     }
 }

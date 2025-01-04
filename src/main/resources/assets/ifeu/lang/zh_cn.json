@@ -7,6 +7,8 @@
   "tooltip.ifeu.cooldown_time": "冷却时间",
   "tooltip.ifeu.dragon_star": "可在龙之星发电机中发电,可产出%dFE/tick,持续",
   "tooltip.ifeu.dragon_star_generator": "放入龙之星可以发电",
+  "tooltip.titanium.facing_handler.input_fluid1": "流体输入1",
+  "tooltip.titanium.facing_handler.input_fluid2": "流体输入2",
 
   "item.ifeu.liquid_dragon_breath_bucket": "液态龙息桶",
   "item.ifeu.liquid_sculk_matter_bucket": "液态幽匿物质桶",
@@ -23,9 +25,11 @@
   "item.ifeu.dragon_star_chestplate": "龙之胸甲",
   "item.ifeu.dragon_star_leggings": "龙之护腿",
   "item.ifeu.dragon_star_boots": "龙之靴子",
+  "item.ifeu.laser_lens_dragon": "龙 镭射聚焦透镜",
 
   "block.ifeu.infuser": "灌注器",
   "block.ifeu.dragon_star_generator": "龙之星发电机",
+  "block.ifeu.arcane_dragon_egg_forging": "奥数龙蛋锻造炉",
 
   "fluid_type.ifeu.liquid_dragon_breath": "液态龙息",
   "fluid_type.ifeu.liquid_sculk_matter": "液态幽匿物质"

@@ -103,7 +103,14 @@ public class InfuserEntity extends IndustrialProcessingTile<InfuserEntity> {
     }
     @Override
     public boolean canIncrease() {
-        return currentRecipe != null && ItemHandlerHelper.insertItem(output, currentRecipe.output.copy(),true).isEmpty();
+        if(currentRecipe != null){
+            boolean hasCurrentItem = ItemHandlerHelper.insertItem(output, currentRecipe.output.copy(),true).isEmpty();
+            boolean hasEnoughCount = input.getStackInSlot(0).getCount() >= currentRecipe.input.getCount();
+
+            return hasCurrentItem && hasEnoughCount;
+        }else {
+            return false;
+        }
     }
 
     @Override
@@ -111,8 +118,10 @@ public class InfuserEntity extends IndustrialProcessingTile<InfuserEntity> {
         return () -> {
             if (currentRecipe != null) {
                 InfuserRecipe infuserRecipe = currentRecipe;
+
+                input.getStackInSlot(0).shrink(infuserRecipe.input.getCount());
+
                 inputFluid.drainForced(infuserRecipe.inputFluid, IFluidHandler.FluidAction.EXECUTE);
-                input.getStackInSlot(0).shrink(1);
 
                 ItemStack outputStack = infuserRecipe.output.copy();
                 outputStack.getItem().onCraftedBy(outputStack, this.level, null);

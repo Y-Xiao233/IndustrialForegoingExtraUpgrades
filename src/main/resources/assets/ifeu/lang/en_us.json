@@ -7,6 +7,8 @@
   "tooltip.ifeu.cooldown_time": "Cooldown Time",
   "tooltip.ifeu.dragon_star": "It can generate energy in the Dragon Star generator, which can produce %dFE/tick and sustain ",
   "tooltip.ifeu.dragon_star_generator": "Placing the Dragon Star can generate energy",
+  "tooltip.titanium.facing_handler.input_fluid1": "Fluid Input 1",
+  "tooltip.titanium.facing_handler.input_fluid2": "Fluid Input 2",
 
   "item.ifeu.liquid_dragon_breath_bucket": "Liquid Dragon Breath Bucket",
   "item.ifeu.liquid_sculk_matter_bucket": "Liquid Sculk Matter Bucket",
@@ -23,9 +25,11 @@
   "item.ifeu.dragon_star_chestplate": "Dragon Star Chestplate",
   "item.ifeu.dragon_star_leggings": "Dragon Star Leggings",
   "item.ifeu.dragon_star_boots": "Dragon Star Boots",
+  "item.ifeu.laser_lens_dragon": "Dragon Laser Lens",
 
   "block.ifeu.infuser": "Infuser",
   "block.ifeu.dragon_star_generator": "Dragon Star Generator",
+  "block.ifeu.arcane_dragon_egg_forging": "Arcane Dragon Egg Forging",
 
   "fluid_type.ifeu.liquid_dragon_breath": "Liquid Dragon Breath",
   "fluid_type.ifeu.liquid_sculk_matter": "Liquid Sculk Matter"

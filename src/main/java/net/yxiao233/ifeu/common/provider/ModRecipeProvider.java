@@ -61,6 +61,11 @@ public class ModRecipeProvider extends TitaniumRecipeProvider {
                 .requires(Items.SCULK,4)
                 .save(consumer);
 
+        TitaniumShapelessRecipeBuilder.shapelessRecipe(ModContents.LASER_LENS_DRAGON.get())
+                .requires(Ingredient.of(Arrays.stream(ModuleCore.LASER_LENS).map(itemRegistryObject -> new ItemStack(itemRegistryObject.get())).collect(Collectors.toList()).stream()))
+                .requires(ModContents.DRAGON_STAR.get(),4)
+                .save(consumer);
+
         TitaniumShapelessRecipeBuilder.shapelessRecipe(ModuleCore.LASER_LENS[0].get())
                 .requires(ModContents.LASER_LENS_SCULK.get())
                 .requires(Tags.Items.DYES_WHITE)

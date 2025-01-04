@@ -20,10 +20,12 @@ public class ModBlockTagProvider extends BlockTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         this.tag(BlockTags.NEEDS_STONE_TOOL)
                 .add(ModBlocks.INFUSER.getLeft().get())
-                .add(ModBlocks.DRAGON_STAR_GENERATOR.getLeft().get());
+                .add(ModBlocks.DRAGON_STAR_GENERATOR.getLeft().get())
+                .add(ModBlocks.ARCANE_DRAGON_EGG_FORGING.getLeft().get());
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.INFUSER.getLeft().get())
-                .add(ModBlocks.DRAGON_STAR_GENERATOR.getLeft().get());
+                .add(ModBlocks.DRAGON_STAR_GENERATOR.getLeft().get())
+                .add(ModBlocks.ARCANE_DRAGON_EGG_FORGING.getLeft().get());
     }
 }
