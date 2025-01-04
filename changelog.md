@@ -21,6 +21,11 @@
 
 ### v1.0.5
 - 添加了日语翻译[\#1 bytwister716](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/pull/1)
+
+### v1.0.6
+- 添加了奥数龙蛋锻造炉(贴图暂未绘制)
+
+
 ## en_us
 ### v1.0.0
 - init
@@ -42,3 +47,6 @@
 
 ### v1.0.5
 - Add japanese translation[\#1 bytwister716](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/pull/1)
+
+### v1.0.6
+- Added Arcane Dragon Egg Forging
