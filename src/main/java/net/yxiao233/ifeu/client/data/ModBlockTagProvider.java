@@ -21,11 +21,13 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         this.tag(BlockTags.NEEDS_STONE_TOOL)
                 .add(ModBlocks.INFUSER.getLeft().get())
                 .add(ModBlocks.DRAGON_STAR_GENERATOR.getLeft().get())
-                .add(ModBlocks.ARCANE_DRAGON_EGG_FORGING.getLeft().get());
+                .add(ModBlocks.ARCANE_DRAGON_EGG_FORGING.getLeft().get())
+                .add(ModBlocks.CREATIVE_CAPACITOR.getLeft().get());
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.INFUSER.getLeft().get())
                 .add(ModBlocks.DRAGON_STAR_GENERATOR.getLeft().get())
-                .add(ModBlocks.ARCANE_DRAGON_EGG_FORGING.getLeft().get());
+                .add(ModBlocks.ARCANE_DRAGON_EGG_FORGING.getLeft().get())
+                .add(ModBlocks.CREATIVE_CAPACITOR.getLeft().get());
     }
 }

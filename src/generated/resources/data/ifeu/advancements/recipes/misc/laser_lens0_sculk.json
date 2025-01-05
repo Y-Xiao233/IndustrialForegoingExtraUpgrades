@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "industrialforegoing:laser_lens0"
+        "recipe": "ifeu:laser_lens0_sculk"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "industrialforegoing:laser_lens0"
+      "ifeu:laser_lens0_sculk"
     ]
   },
   "sends_telemetry_event": false

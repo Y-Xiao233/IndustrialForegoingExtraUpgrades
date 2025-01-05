@@ -52,7 +52,7 @@ public class DragonStarGeneratorEntity extends IndustrialGeneratorTile<DragonSta
 
     @Override
     public ProgressBarComponent<DragonStarGeneratorEntity> getProgressBar() {
-        return new ProgressBarComponent(30,20,0,15)
+        return new ProgressBarComponent<DragonStarGeneratorEntity>(30,20,0,15)
                 .setComponentHarness(this)
                 .setBarDirection(ProgressBarComponent.BarDirection.VERTICAL_UP)
                 .setColor(DyeColor.CYAN);

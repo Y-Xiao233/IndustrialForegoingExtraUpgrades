@@ -30,7 +30,15 @@
   "block.ifeu.infuser": "Infuser",
   "block.ifeu.dragon_star_generator": "Dragon Star Generator",
   "block.ifeu.arcane_dragon_egg_forging": "Arcane Dragon Egg Forging",
+  "block.ifeu.creative_capacitor": "Creative Capacitor",
+  "block.ifeu.dead_dragon_egg": "Dead Dragon Egg",
 
   "fluid_type.ifeu.liquid_dragon_breath": "Liquid Dragon Breath",
-  "fluid_type.ifeu.liquid_sculk_matter": "Liquid Sculk Matter"
+  "fluid_type.ifeu.liquid_sculk_matter": "Liquid Sculk Matter",
+
+  "recipe.ifeu.block_right_click": "Block Right Click",
+
+  "jei.ifeu.block_right_click": "Right click on the block",
+  "jei.ifeu.hand": "Handheld item",
+  "jei.ifeu.world": "Placed in the world"
 }

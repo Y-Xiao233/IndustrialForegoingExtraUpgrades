@@ -12,13 +12,18 @@ import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.MobBucketItem;
 import net.minecraft.world.item.crafting.RecipeManager;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.common.compact.jei.category.ArcaneDragonEggForgingCategory;
+import net.yxiao233.ifeu.common.compact.jei.category.BlockRightClickCategory;
 import net.yxiao233.ifeu.common.compact.jei.category.InfuserCategory;
+import net.yxiao233.ifeu.common.recipe.BlockRightClickRecipe;
 import net.yxiao233.ifeu.common.recipe.InfuserRecipe;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
+import net.yxiao233.ifeu.common.registry.ModContents;
+import net.yxiao233.ifeu.common.registry.ModTags;
 import net.yxiao233.ifeu.common.utils.JEIRegistryHelper;
 
 import java.util.ArrayList;
@@ -30,6 +35,7 @@ public class JEIPlugin implements IModPlugin {
     private void registries(IGuiHelper guiHelper){
         helper.add(new InfuserCategory(guiHelper), ModBlocks.INFUSER.getLeft());
         helper.add(new ArcaneDragonEggForgingCategory(guiHelper), ModBlocks.ARCANE_DRAGON_EGG_FORGING.getLeft());
+        helper.add(new BlockRightClickCategory(guiHelper), Blocks.DRAGON_EGG);
     }
     @Override
     public ResourceLocation getPluginUid() {
@@ -49,6 +55,7 @@ public class JEIPlugin implements IModPlugin {
     public void registerRecipes(IRecipeRegistration registration) {
         RecipeManager manager = Minecraft.getInstance().level.getRecipeManager();
         addInfuserCompactRecipes(registration);
+        addBlockRightClickRecipes(registration);
 
         helper.addRecipes(manager,registration);
     }
@@ -79,5 +86,11 @@ public class JEIPlugin implements IModPlugin {
             }
         });
         registration.addRecipes(ModRecipeType.INFUSER,infuserRecipes);
+    }
+
+    private void addBlockRightClickRecipes(IRecipeRegistration registration){
+        List<BlockRightClickRecipe> blockRightClickRecipes = new ArrayList<>();
+        blockRightClickRecipes.add(new BlockRightClickRecipe(new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID,"block_right_click"), ModContents.DEAD_DRAGON_EGG.get(),Items.NETHER_STAR.getDefaultInstance(),Blocks.DRAGON_EGG));
+        registration.addRecipes(ModRecipeType.BLOCK_RIGHT_CLICK,blockRightClickRecipes);
     }
 }

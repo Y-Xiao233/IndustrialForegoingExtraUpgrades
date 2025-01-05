@@ -28,7 +28,7 @@ import net.yxiao233.ifeu.common.registry.ModFluids;
 import java.util.Map;
 
 public class ModSerializableProvider extends TitaniumSerializableProvider {
-    private final String modId = IndustrialForegoingExtraUpgrades.MODID;
+    private static final String modId = IndustrialForegoingExtraUpgrades.MODID;
     public ModSerializableProvider(DataGenerator generatorIn, String modid) {
         super(generatorIn, modid);
     }
@@ -114,14 +114,19 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
 
 
         //arcane dragon egg forging
-        new ArcaneDragonEggForgingRecipe(new ResourceLocation(modId,"dragon_egg"),
+        new ArcaneDragonEggForgingRecipe(new ResourceLocation(modId,"dead_dragon_egg"),
                 new ItemStack(Items.EGG,4),new FluidStack(ModuleCore.ESSENCE.getSourceFluid().get(),250),new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),250),
-                200,Items.DRAGON_EGG.getDefaultInstance(),FluidStack.EMPTY
+                200,ModContents.DEAD_DRAGON_EGG_ITEM.get().getDefaultInstance(),FluidStack.EMPTY
         );
 
-        new ArcaneDragonEggForgingRecipe(new ResourceLocation(modId,"egg"),
+        new ArcaneDragonEggForgingRecipe(new ResourceLocation(modId,"egg_1"),
                 Items.DRAGON_EGG.getDefaultInstance(),new FluidStack(ModuleCore.PINK_SLIME.getSourceFluid().get(),100),new FluidStack(Fluids.WATER,1000),
                 200,new ItemStack(Items.EGG,16),new FluidStack(ModuleCore.ESSENCE.getSourceFluid().get(), 100)
+        );
+
+        new ArcaneDragonEggForgingRecipe(new ResourceLocation(modId,"egg_2"),
+                ModContents.DEAD_DRAGON_EGG_ITEM.get().getDefaultInstance(),new FluidStack(ModuleCore.PINK_SLIME.getSourceFluid().get(),100),new FluidStack(Fluids.WATER,1000),
+                200,new ItemStack(Items.EGG,16),FluidStack.EMPTY
         );
 
 

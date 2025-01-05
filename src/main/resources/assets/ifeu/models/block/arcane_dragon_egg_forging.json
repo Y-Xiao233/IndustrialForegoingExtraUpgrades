@@ -1,0 +1,11 @@
+{
+  "parent": "industrialforegoing:block/base_block",
+  "textures": {
+    "south": "ifeu:block/arcane_dragon_egg_forging_side",
+    "west": "ifeu:block/arcane_dragon_egg_forging_side",
+    "east": "ifeu:block/arcane_dragon_egg_forging_side",
+    "north": "ifeu:block/arcane_dragon_egg_forging_front",
+    "up": "ifeu:block/arcane_dragon_egg_forging_top",
+    "down": "ifeu:block/arcane_dragon_egg_forging_bottom"
+  }
+}

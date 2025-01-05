@@ -1,0 +1,14 @@
+{
+  "type": "ifeu:arcane_dragon_egg_forging",
+  "input": {
+    "count": 1,
+    "item": "ifeu:dead_dragon_egg"
+  },
+  "inputFluid1": "{Amount:100,FluidName:\"industrialforegoing:pink_slime\"}",
+  "inputFluid2": "{Amount:1000,FluidName:\"minecraft:water\"}",
+  "output": {
+    "count": 16,
+    "item": "minecraft:egg"
+  },
+  "processingTime": 200
+}

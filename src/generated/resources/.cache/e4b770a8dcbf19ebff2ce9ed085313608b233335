@@ -1,4 +1,4 @@
-// 1.20.1	2024-12-24T20:02:44.175236	ifeu - ItemModel
+// 1.20.1	2025-01-05T21:38:11.5399315	ifeu - ItemModel
 4954c2de2f229dc6891c84b879aa2c46bc052b21 assets/ifeu/models/item/dragon_star.json
 8ec369f49a195ee9cadcfa86a240cd662ce097d0 assets/ifeu/models/item/dragon_star_axe.json
 60fc9ad634f9facf392a4e6f26573f0966cba8dc assets/ifeu/models/item/dragon_star_hoe.json
@@ -9,6 +9,7 @@
 5f1cdb8b73b632aa4d1838e5dd5732c5c80514d8 assets/ifeu/models/item/efficiency_addon_4.json
 9bae33867b451297e561d7e0855602d5216f6b5b assets/ifeu/models/item/efficiency_addon_5.json
 e2ccb756d4fa94a1bfa0bcdf82071040119ebe1c assets/ifeu/models/item/efficiency_addon_6.json
+d37d6ec3fce052d157ee9222dc9887f7fe543a7d assets/ifeu/models/item/laser_lens_dragon.json
 ea11f5c33f99af4c3147cf713e62524098223344 assets/ifeu/models/item/laser_lens_sculk.json
 07ea1fd916b8e46ab0f163a7a0fdae08b5cf6ef3 assets/ifeu/models/item/liquid_dragon_breath_bucket.json
 61f92fa8810ccb3919619f826fc4bc0b07cb5f1b assets/ifeu/models/item/liquid_sculk_matter_bucket.json

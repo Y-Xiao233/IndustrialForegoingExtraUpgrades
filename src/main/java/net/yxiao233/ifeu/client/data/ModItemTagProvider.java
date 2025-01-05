@@ -25,6 +25,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(IndustrialTags.Items.GEAR_DIAMOND).add(ModuleCore.DIAMOND_GEAR.get());
         tag(IndustrialTags.Items.GEAR_GOLD).add(ModuleCore.GOLD_GEAR.get());
         tag(IndustrialTags.Items.GEAR_IRON).add(ModuleCore.IRON_GEAR.get());
+
         tag(ModTags.Items.GEARS)
                 .addTag(IndustrialTags.Items.GEAR_IRON)
                 .addTag(IndustrialTags.Items.GEAR_GOLD)

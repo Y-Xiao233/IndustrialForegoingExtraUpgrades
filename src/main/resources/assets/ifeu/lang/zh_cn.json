@@ -30,7 +30,15 @@
   "block.ifeu.infuser": "灌注器",
   "block.ifeu.dragon_star_generator": "龙之星发电机",
   "block.ifeu.arcane_dragon_egg_forging": "奥数龙蛋锻造炉",
+  "block.ifeu.creative_capacitor": "创造电容器",
+  "block.ifeu.dead_dragon_egg": "失活的龙蛋",
 
   "fluid_type.ifeu.liquid_dragon_breath": "液态龙息",
-  "fluid_type.ifeu.liquid_sculk_matter": "液态幽匿物质"
+  "fluid_type.ifeu.liquid_sculk_matter": "液态幽匿物质",
+
+  "recipe.ifeu.block_right_click": "对方块右键",
+
+  "jei.ifeu.block_right_click": "对方块右键",
+  "jei.ifeu.hand": "手拿物品",
+  "jei.ifeu.world": "放在世界中"
 }

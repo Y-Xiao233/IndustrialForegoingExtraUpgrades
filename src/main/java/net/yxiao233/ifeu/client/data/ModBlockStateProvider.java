@@ -10,6 +10,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
+import net.yxiao233.ifeu.common.registry.ModContents;
 
 public class ModBlockStateProvider extends BlockStateProvider {
     public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
@@ -21,8 +22,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        blockItem(ModBlocks.INFUSER.getKey());
-        blockItem(ModBlocks.DRAGON_STAR_GENERATOR.getKey());
+        blockItem(ModBlocks.INFUSER.getLeft());
+        blockItem(ModBlocks.DRAGON_STAR_GENERATOR.getLeft());
+        blockItem(ModBlocks.CREATIVE_CAPACITOR.getLeft());
+        blockItem(ModBlocks.ARCANE_DRAGON_EGG_FORGING.getLeft());
+        blockItem(ModContents.DEAD_DRAGON_EGG);
     }
 
     private void blockItem(RegistryObject<Block> registryObject){

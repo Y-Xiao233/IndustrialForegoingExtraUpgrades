@@ -1,6 +1,7 @@
-// 1.20.1	2025-01-04T23:41:33.9592783	Titanium Serializable (ifeu)
-c519791eb845a134853291569762abb550c38abe data/ifeu/recipes/arcane_dragon_egg_forging/dragon_egg.json
-ee98c1c55d06b1ef40bcf4b3ff86cabb9ceb5e93 data/ifeu/recipes/arcane_dragon_egg_forging/egg.json
+// 1.20.1	2025-01-05T21:31:28.0273208	Titanium Serializable (ifeu)
+09e9cc007d8b2ba8c132d458f9a3de08d296daed data/ifeu/recipes/arcane_dragon_egg_forging/dead_dragon_egg.json
+ee98c1c55d06b1ef40bcf4b3ff86cabb9ceb5e93 data/ifeu/recipes/arcane_dragon_egg_forging/egg_1.json
+8d37adb344b2eb92c22f350e100824d2620a4f40 data/ifeu/recipes/arcane_dragon_egg_forging/egg_2.json
 ae707198164e49ef8363f51273758b70a3aa0dd6 data/ifeu/recipes/dissolution_chamber/efficiency_addon_3.json
 d94db185558648aaef913cacd14ff4a4cc270249 data/ifeu/recipes/dissolution_chamber/efficiency_addon_4.json
 cea608a6f3915838bc4c71a38a8029ce757ac887 data/ifeu/recipes/dissolution_chamber/efficiency_addon_5.json

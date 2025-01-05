@@ -8,12 +8,14 @@ import com.hrznstudio.titanium.recipe.generator.TitaniumShapedRecipeBuilder;
 import com.hrznstudio.titanium.recipe.generator.TitaniumShapelessRecipeBuilder;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.common.item.ModEfficiencyAddonItem;
 import net.yxiao233.ifeu.common.item.ModProcessingAddonItem;
 import net.yxiao233.ifeu.common.item.ModSpeedAddonItem;
@@ -28,6 +30,7 @@ public class ModRecipeProvider extends TitaniumRecipeProvider {
     public ModRecipeProvider(DataGenerator generatorIn) {
         super(generatorIn);
     }
+    public static final String modId = IndustrialForegoingExtraUpgrades.MODID;
 
     @Override
     public void register(Consumer<FinishedRecipe> consumer) {
@@ -69,7 +72,12 @@ public class ModRecipeProvider extends TitaniumRecipeProvider {
         TitaniumShapelessRecipeBuilder.shapelessRecipe(ModuleCore.LASER_LENS[0].get())
                 .requires(ModContents.LASER_LENS_SCULK.get())
                 .requires(Tags.Items.DYES_WHITE)
-                .save(consumer);
+                .save(consumer,new ResourceLocation(modId,"laser_lens0_sculk"));
+
+        TitaniumShapelessRecipeBuilder.shapelessRecipe(ModuleCore.LASER_LENS[0].get())
+                .requires(ModContents.LASER_LENS_DRAGON.get())
+                .requires(Tags.Items.DYES_WHITE)
+                .save(consumer,new ResourceLocation(modId,"laser_lens0_dragon"));
 
         TitaniumShapedRecipeBuilder.shapedRecipe(ModContents.NETHERITE_GEAR.get())
                 .pattern(" A ").pattern("A A").pattern(" A ")

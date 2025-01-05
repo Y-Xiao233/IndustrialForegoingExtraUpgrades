@@ -28,6 +28,17 @@ StartupEvents.registry("item", event =>{
     ProcessingTime:时间[long,单位为tick]
 ```
 
+- Arcane Dragon Egg Forging 奥数龙蛋锻造炉```event.recipes.ifeu.arcane_dragon_egg_forging(OutputItem,InputItem,InputFluid1,InputFluid2,ProcessingTime,OutputFluid)```
+```
+参数详解:
+    OutputItem:输出物品[ItemStack]
+    InputItem:输入物品[ItemStack]
+    InputFluid1:输入流体[FluidStack]
+    InputFluid2:输入流体[FluidStack]
+    ProcessingTime:时间[long,单位为tick]
+    OutputFluid:输出流体[FluidStack,可选,默认为空]
+```
+
 - StoneWork Generate 造石加工机```event.recipes.industrialforegoing.stonework_generate(OutputItem,waterNeed,lavaNeed,waterConsume,lavaConsume)```
 ```
 参数详解:
@@ -91,6 +102,9 @@ StartupEvents.registry("item", event =>{
 ServerEvents.recipes(event => {
     //Infuser
     event.recipes.ifeu.infuser("minecraft:diamond","minecraft:coal_block",Fluid.of("minecraft:lava",1000),100)
+    
+    //Arcane Dragon Egg Forging
+    event.recipes.ifeu.arcane_dragon_egg_forging("16x minecraft:egg","minecraft:dragon_egg",Fluid.of("minecraft:water",1000),Fluid.of("minecraft:lava",1000),200,Fluid.of("minecraft:water",100))
 
     //StoneWork Generate -> Crusher
     event.recipes.industrialforegoing.stonework_generate("minecraft:blackstone",1000,1000,100,100)

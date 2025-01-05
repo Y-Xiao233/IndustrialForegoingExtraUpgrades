@@ -23,7 +23,9 @@
 - 添加了日语翻译[\#1 bytwister716](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/pull/1)
 
 ### v1.0.6
-- 添加了奥数龙蛋锻造炉(贴图暂未绘制)
+- 添加了奥数龙蛋锻造炉,同时也支持使用KubeJS添加配方
+- 添加了创造电容器
+- 添加了失活的龙蛋,龙 镭射聚焦透镜
 
 
 ## en_us
@@ -49,4 +51,6 @@
 - Add japanese translation[\#1 bytwister716](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/pull/1)
 
 ### v1.0.6
-- Added Arcane Dragon Egg Forging
+- Added Arcane Dragon Egg Forging,It also supports adding recipes using KubeJS
+- Added Creative Capacitor
+- Added Dragon Laser Lens

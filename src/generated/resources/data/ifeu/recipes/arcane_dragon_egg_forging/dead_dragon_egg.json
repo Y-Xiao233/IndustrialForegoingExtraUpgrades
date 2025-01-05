@@ -8,7 +8,7 @@
   "inputFluid2": "{Amount:250,FluidName:\"ifeu:liquid_dragon_breath\"}",
   "output": {
     "count": 1,
-    "item": "minecraft:dragon_egg"
+    "item": "ifeu:dead_dragon_egg"
   },
   "processingTime": 200
 }
