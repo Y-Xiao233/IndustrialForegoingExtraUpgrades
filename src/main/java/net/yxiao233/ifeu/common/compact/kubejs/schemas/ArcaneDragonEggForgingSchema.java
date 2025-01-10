@@ -16,7 +16,7 @@ public interface ArcaneDragonEggForgingSchema{
     RecipeKey<InputFluid> INPUT_FLUID_1 = FluidComponents.INPUT.key("inputFluid1");
     RecipeKey<InputFluid> INPUT_FLUID_2 = FluidComponents.INPUT.key("inputFluid2");
     RecipeKey<OutputItem> OUTPUT = ItemComponents.OUTPUT.key("output");
-    RecipeKey<OutputFluid> OUTPUT_FLUID = FluidComponents.OUTPUT.key("outputFluid").optional(EmptyFluidStackJS.INSTANCE).exclude().allowEmpty();
+    RecipeKey<OutputFluid> OUTPUT_FLUID = FluidComponents.OUTPUT.key("outputFluid").optional(EmptyFluidStackJS.INSTANCE).allowEmpty();
     RecipeKey<Long> TIME = TimeComponent.TICKS.key("processingTime");
     RecipeSchema SCHEMA = new RecipeSchema(OUTPUT,INPUT,INPUT_FLUID_1,INPUT_FLUID_2,TIME,OUTPUT_FLUID);
 }

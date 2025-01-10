@@ -30,6 +30,7 @@
 ### v1.0.7
 - 为龙之星发电机添加了jei集成,并删除了直接的tooltip
 - 为两个仅作展示的jei配方添加了提示
+- 修复了溶解成形机和奥数龙蛋锻造炉的可选流体输出在使用KubeJS添加时无法正确被添加的bug
 
 ## en_us
 ### v1.0.0
@@ -61,3 +62,4 @@
 ### v1.0.7
 - Added JEI integration for the Dragon Star Generator and removed the direct tooltip
 - Added tips for two JEI recipes for display purposes only
+- Fixed a bug where the optional fluid output of the Dissolution Chamber and the Arcane Dragon Egg Forging could not be correctly added when using KubeJS

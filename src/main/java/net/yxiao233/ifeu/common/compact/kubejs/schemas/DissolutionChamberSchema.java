@@ -16,7 +16,7 @@ public interface DissolutionChamberSchema {
     RecipeKey<InputItem[]> INPUTS = ItemComponents.INPUT_ARRAY.key("input");
     RecipeKey<InputFluid> INPUT_FLUID = IndustrialForegoingComponents.INPUT_FLUID.key("inputFluid");
     RecipeKey<OutputItem> OUTPUT = ItemComponents.OUTPUT.key("output");
-    RecipeKey<OutputFluid> OUTPUT_FLUID = IndustrialForegoingComponents.OUTPUT_FLUID.key("outputFluid").optional(EmptyFluidStackJS.INSTANCE).exclude().allowEmpty();
+    RecipeKey<OutputFluid> OUTPUT_FLUID = IndustrialForegoingComponents.OUTPUT_FLUID.key("outputFluid").optional(EmptyFluidStackJS.INSTANCE).allowEmpty();
     RecipeKey<Long> TIME = TimeComponent.TICKS.key("processingTime");
     RecipeSchema SCHEMA = new RecipeSchema(OUTPUT,INPUTS,INPUT_FLUID,TIME,OUTPUT_FLUID);
 }
