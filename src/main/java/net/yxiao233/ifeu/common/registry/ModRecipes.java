@@ -18,9 +18,10 @@ public class ModRecipes implements IModule {
     public static RegistryObject<RecipeType<?>> INFUSER_TYPE;
     public static RegistryObject<RecipeSerializer<?>> ARCANE_DRAGON_EGG_FORGING_SERIALIZER;
     public static RegistryObject<RecipeType<?>> ARCANE_DRAGON_EGG_FORGING_TYPE;
-
     public static RegistryObject<RecipeSerializer<?>> BLOCK_RIGHT_CLICK_SERIALIZER;
     public static RegistryObject<RecipeType<?>> BLOCK_RIGHT_CLICK_TYPE;
+    public static RegistryObject<RecipeSerializer<?>> DRAGON_STAR_GENERATOR_SERIALIZER;
+    public static RegistryObject<RecipeType<?>> DRAGON_STAR_GENERATOR_TYPE;
     @Override
     public void generateFeatures(DeferredRegistryHelper helper) {
         INFUSER_SERIALIZER = helper.registerGeneric(ForgeRegistries.RECIPE_SERIALIZERS.getRegistryKey(), "infuser", () -> new GenericSerializer<>(InfuserRecipe.class, INFUSER_TYPE));
@@ -32,5 +33,8 @@ public class ModRecipes implements IModule {
 
         BLOCK_RIGHT_CLICK_SERIALIZER = helper.registerGeneric(ForgeRegistries.RECIPE_SERIALIZERS.getRegistryKey(), "block_right_click", () -> new GenericSerializer<>(BlockRightClickRecipe.class, BLOCK_RIGHT_CLICK_TYPE));
         BLOCK_RIGHT_CLICK_TYPE = helper.registerGeneric(ForgeRegistries.RECIPE_TYPES.getRegistryKey(), "block_right_click", () -> RecipeType.simple(new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID, "block_right_click")));
+
+        DRAGON_STAR_GENERATOR_SERIALIZER = helper.registerGeneric(ForgeRegistries.RECIPE_SERIALIZERS.getRegistryKey(), "dragon_star_generator", () -> new GenericSerializer<>(BlockRightClickRecipe.class, DRAGON_STAR_GENERATOR_TYPE));
+        DRAGON_STAR_GENERATOR_TYPE = helper.registerGeneric(ForgeRegistries.RECIPE_TYPES.getRegistryKey(), "dragon_star_generator", () -> RecipeType.simple(new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID, "dragon_star_generator")));
     }
 }

@@ -60,5 +60,7 @@ public class BlockRightClickCategory extends AbstractJEICategory<BlockRightClick
         AllGuiTextures.BASIC_SLOT.render(guiGraphics,109,26);
         //ProgressBar
         AssetUtil.drawAsset(guiGraphics, Minecraft.getInstance().screen, IAssetProvider.getAsset(DefaultAssetProvider.DEFAULT_PROVIDER, AssetTypes.PROGRESS_BAR_BACKGROUND_ARROW_HORIZONTAL), 80, 30);
+        //Information
+        drawTextureWithTooltip(guiGraphics,AllGuiTextures.JEI_INFORMATION,Component.translatable("jei.ifeu.view.information").withStyle(ChatFormatting.RED),0,46,mouseX,mouseY);
     }
 }

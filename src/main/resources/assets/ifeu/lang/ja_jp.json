@@ -5,8 +5,6 @@
 
   "tooltip.ifeu.cooldown_amount": "クールダウン量",
   "tooltip.ifeu.cooldown_time": "クールダウン時間",
-  "tooltip.ifeu.dragon_star": "ドラゴンスター発電機ではエネルギーを発電することができ、%dFE/ティックを発電します。持続時間： ",
-  "tooltip.ifeu.dragon_star_generator": "ドラゴンスターで発電します",
 
   "item.ifeu.liquid_dragon_breath_bucket": "液体ドラゴンブレス入りバケツ",
   "item.ifeu.liquid_sculk_matter_bucket": "液体スカルク物質入りバケツ",

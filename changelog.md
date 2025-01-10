@@ -27,6 +27,9 @@
 - 添加了创造电容器
 - 添加了失活的龙蛋,龙 镭射聚焦透镜
 
+### v1.0.7
+- 为龙之星发电机添加了jei集成,并删除了直接的tooltip
+- 为两个仅作展示的jei配方添加了提示
 
 ## en_us
 ### v1.0.0
@@ -54,3 +57,7 @@
 - Added Arcane Dragon Egg Forging,It also supports adding recipes using KubeJS
 - Added Creative Capacitor
 - Added Dragon Laser Lens
+
+### v1.0.7
+- Added JEI integration for the Dragon Star Generator and removed the direct tooltip
+- Added tips for two JEI recipes for display purposes only

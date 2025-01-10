@@ -5,8 +5,6 @@
 
   "tooltip.ifeu.cooldown_amount": "Cooldown Amount",
   "tooltip.ifeu.cooldown_time": "Cooldown Time",
-  "tooltip.ifeu.dragon_star": "It can generate energy in the Dragon Star generator, which can produce %dFE/tick and sustain ",
-  "tooltip.ifeu.dragon_star_generator": "Placing the Dragon Star can generate energy",
   "tooltip.titanium.facing_handler.input_fluid1": "Fluid Input 1",
   "tooltip.titanium.facing_handler.input_fluid2": "Fluid Input 2",
 
@@ -39,6 +37,10 @@
   "recipe.ifeu.block_right_click": "Block Right Click",
 
   "jei.ifeu.block_right_click": "Right click on the block",
+  "jei.ifeu.view.information": "For display purposes only, adding JSON recipes is invalid",
   "jei.ifeu.hand": "Handheld item",
-  "jei.ifeu.world": "Placed in the world"
+  "jei.ifeu.world": "Placed in the world",
+  "jei.ifeu.power": "Power: ",
+  "jei.ifeu.progress": "Progress: ",
+  "jei.ifeu.total": "Total: "
 }

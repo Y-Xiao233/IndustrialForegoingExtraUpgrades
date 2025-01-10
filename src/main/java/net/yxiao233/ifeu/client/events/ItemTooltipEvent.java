@@ -25,8 +25,6 @@ public class ItemTooltipEvent {
         Item item = event.getItemStack().getItem();
 
         addAddonItemTooltip(item,event);
-        addDragonStarTooltip(item,event);
-        addDragonStarGeneratorTooltip(item,event);
     }
 
     public static void addAddonItemTooltip(Item item, net.minecraftforge.event.entity.player.ItemTooltipEvent event){
@@ -63,16 +61,6 @@ public class ItemTooltipEvent {
             }
             float reduction = tier * -10;
             event.getToolTip().add(Component.translatable("tooltip.ifeu.cooldown_amount").append(": " + reduction + "%").withStyle(ChatFormatting.GRAY));
-        }
-    }
-    public static void addDragonStarTooltip(Item item, net.minecraftforge.event.entity.player.ItemTooltipEvent event){
-        if(item.getDefaultInstance().is(ModContents.DRAGON_STAR.get())){
-            event.getToolTip().add(Component.translatable("tooltip.ifeu.dragon_star", DragonStarGeneratorConfig.powerPerTick).append(DragonStarGeneratorConfig.maxProgress + "tick").withStyle(ChatFormatting.AQUA));
-        }
-    }
-    public static void addDragonStarGeneratorTooltip(Item item, net.minecraftforge.event.entity.player.ItemTooltipEvent event){
-        if(item.getDefaultInstance().is(ModBlocks.DRAGON_STAR_GENERATOR.getLeft().get().asItem())){
-            event.getToolTip().add(Component.translatable("tooltip.ifeu.dragon_star_generator").withStyle(ChatFormatting.AQUA));
         }
     }
 }

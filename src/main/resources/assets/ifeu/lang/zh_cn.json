@@ -5,8 +5,6 @@
 
   "tooltip.ifeu.cooldown_amount": "冷却数量",
   "tooltip.ifeu.cooldown_time": "冷却时间",
-  "tooltip.ifeu.dragon_star": "可在龙之星发电机中发电,可产出%dFE/tick,持续",
-  "tooltip.ifeu.dragon_star_generator": "放入龙之星可以发电",
   "tooltip.titanium.facing_handler.input_fluid1": "流体输入1",
   "tooltip.titanium.facing_handler.input_fluid2": "流体输入2",
 
@@ -39,6 +37,10 @@
   "recipe.ifeu.block_right_click": "对方块右键",
 
   "jei.ifeu.block_right_click": "对方块右键",
+  "jei.ifeu.view.information": "仅作为展示,添加JSON配方合成无效",
   "jei.ifeu.hand": "手拿物品",
-  "jei.ifeu.world": "放在世界中"
+  "jei.ifeu.world": "放在世界中",
+  "jei.ifeu.power": "Power: ",
+  "jei.ifeu.progress": "Progress: ",
+  "jei.ifeu.total": "Total: "
 }

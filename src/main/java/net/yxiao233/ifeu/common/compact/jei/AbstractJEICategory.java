@@ -15,13 +15,21 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.FormattedCharSequence;
+import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
+import net.yxiao233.ifeu.common.config.machine.DragonStarGeneratorConfig;
 import net.yxiao233.ifeu.common.gui.AllGuiTextures;
 import net.yxiao233.ifeu.common.utils.TooltipCallBackHelper;
 import org.jetbrains.annotations.Nullable;
+
+import javax.swing.text.html.Option;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 public abstract class AbstractJEICategory<T extends Recipe<?>> implements IRecipeCategory<T> {
     public final RecipeType<T> type;
@@ -31,7 +39,7 @@ public abstract class AbstractJEICategory<T extends Recipe<?>> implements IRecip
     public abstract net.minecraft.world.item.crafting.RecipeType<T> getTypeInstance();
 
     public AbstractJEICategory(IGuiHelper helper, RecipeType<T> type, Component title, Item icon, int width, int height) {
-        ResourceLocation TEXTURE = new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID,"textures/jei/empty.png");
+        ResourceLocation TEXTURE = new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID,"textures/gui/empty.png");
         this.type = type;
         this.title = title;
         this.background = helper.createDrawable(TEXTURE,0,0,width,height);
@@ -57,15 +65,38 @@ public abstract class AbstractJEICategory<T extends Recipe<?>> implements IRecip
     public abstract void setRecipe(IRecipeLayoutBuilder iRecipeLayoutBuilder, T t, IFocusGroup iFocusGroup);
     @Override
     public abstract void draw(T recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY);
+    public void addTooltips(GuiGraphics guiGraphics, int width, int height, Component[] components, int x, int y,double mouseX, double mouseY){
+        Font font = Minecraft.getInstance().font;
+        List<FormattedCharSequence> list = new ArrayList<>();
 
-    public void drawTextureWithTooltip(GuiGraphics guiGraphics, AllGuiTextures allGuiTextures, Component component, int x, int y , double mouseX, double mouseY){
+        if(mouseX >= x && mouseY >= y && mouseX <= width + x && mouseY <= height + y) {
+            for (Component component : components) {
+                list.add(component.getVisualOrderText());
+            }
+
+            guiGraphics.renderTooltip(font,list,(int) mouseX, (int) mouseY);
+        }
+    }
+
+    public void addEnergyBarTooltip(GuiGraphics guiGraphics, int width, int height, int x, int y,double mouseX, double mouseY){
+        addTooltips(guiGraphics,width,height,new Component[]{
+                        Component.translatable("jei.ifeu.power").withStyle(ChatFormatting.GOLD).append(Component.literal(String.valueOf(DragonStarGeneratorConfig.powerPerTick)).withStyle(ChatFormatting.WHITE)).append(Component.literal(" FE/tick").withStyle(ChatFormatting.DARK_AQUA)),
+                        Component.translatable("jei.ifeu.progress").withStyle(ChatFormatting.GOLD).append(Component.literal(String.valueOf(DragonStarGeneratorConfig.maxProgress)).withStyle(ChatFormatting.WHITE)).append(Component.literal(" tick").withStyle(ChatFormatting.DARK_AQUA)),
+                        Component.translatable("jei.ifeu.total").withStyle(ChatFormatting.GOLD).append(Component.literal(String.valueOf(DragonStarGeneratorConfig.maxProgress * DragonStarGeneratorConfig.powerPerTick)).withStyle(ChatFormatting.WHITE)).append(Component.literal(" FE").withStyle(ChatFormatting.DARK_AQUA))},
+                x,y,mouseX,mouseY
+        );
+    }
+
+    public void addTooltipOnTexture(GuiGraphics guiGraphics, int width, int height, Component component, int x, int y,double mouseX, double mouseY){
         Font font = Minecraft.getInstance().font;
 
-        allGuiTextures.render(guiGraphics,x,y);
-
-        if(mouseX >= x && mouseY >= y && mouseX <= allGuiTextures.width + x && mouseY <= allGuiTextures.height + y) {
+        if(mouseX >= x && mouseY >= y && mouseX <= width + x && mouseY <= height + y) {
             guiGraphics.renderTooltip(font, component, (int) mouseX, (int) mouseY);
         }
+    }
+    public void drawTextureWithTooltip(GuiGraphics guiGraphics, AllGuiTextures allGuiTextures, Component component, int x, int y, double mouseX, double mouseY){
+        allGuiTextures.render(guiGraphics,x,y);
+        addTooltipOnTexture(guiGraphics,allGuiTextures.width,allGuiTextures.height,component,x,y,mouseX,mouseY);
     }
 
     public IRecipeSlotTooltipCallback addText(String translatableKey, ChatFormatting style){

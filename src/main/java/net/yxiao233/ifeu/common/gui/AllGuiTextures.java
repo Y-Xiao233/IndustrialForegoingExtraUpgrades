@@ -10,7 +10,9 @@ public enum AllGuiTextures implements ScreenElement {
     BASIC_SLOT("widgets",0,0,18,18),
     //click
     RIGHT_CLICK("widgets",227, 0, 10, 14),
-    LEFT_CLICK("widgets",195,0,10,14);
+    LEFT_CLICK("widgets",195,0,10,14),
+    //Information
+    JEI_INFORMATION("widgets",240,0,16,16);
     //Other
 
     public final ResourceLocation location;
