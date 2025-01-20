@@ -37,6 +37,7 @@ public class ModContents {
 
     //Block
     public static final RegistryObject<Block> DEAD_DRAGON_EGG = BLOCKS.register("dead_dragon_egg", () -> new DeadDragonEggBlock(BlockBehaviour.Properties.copy(Blocks.DRAGON_EGG)));
+    public static final RegistryObject<Block> ULTIMATE_MACHINE_FRAME = BLOCKS.register("ultimate_machine_frame", () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
 
 
 

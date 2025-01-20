@@ -3,6 +3,10 @@
     "ifeu:infuser",
     "ifeu:dragon_star_generator",
     "ifeu:arcane_dragon_egg_forging",
-    "ifeu:creative_capacitor"
+    "ifeu:creative_capacitor",
+    "ifeu:weather_controller",
+    "ifeu:time_controller",
+    "ifeu:rule_controller",
+    "ifeu:ultimate_machine_frame"
   ]
 }

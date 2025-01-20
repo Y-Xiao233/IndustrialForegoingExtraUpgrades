@@ -10,8 +10,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.registries.RegistryObject;
 import net.yxiao233.ifeu.common.compact.jei.AbstractJEICategory;
+import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +38,10 @@ public class JEIRegistryHelper {
         }else if(registryObject.get() instanceof Block block){
             add(recipeCategory,block);
         }
+    }
+
+    public void add(IRecipeCategory<?> recipeCategory, Pair<RegistryObject<Block>,RegistryObject<BlockEntityType<?>>> pair){
+        add(recipeCategory,pair.getLeft());
     }
 
     public ArrayList<IRecipeCategory<?>> getRecipeCategories() {

@@ -7,6 +7,8 @@
   "tooltip.ifeu.cooldown_time": "Cooldown Time",
   "tooltip.titanium.facing_handler.input_fluid1": "Fluid Input 1",
   "tooltip.titanium.facing_handler.input_fluid2": "Fluid Input 2",
+  "tooltip.titanium.facing_handler.dragon_star_input": "Dragon Star Input",
+  "tooltip.ifeu.gamerule": "The value of the currently selected game rule is %d",
 
   "item.ifeu.liquid_dragon_breath_bucket": "Liquid Dragon Breath Bucket",
   "item.ifeu.liquid_sculk_matter_bucket": "Liquid Sculk Matter Bucket",
@@ -30,6 +32,9 @@
   "block.ifeu.arcane_dragon_egg_forging": "Arcane Dragon Egg Forging",
   "block.ifeu.creative_capacitor": "Creative Capacitor",
   "block.ifeu.dead_dragon_egg": "Dead Dragon Egg",
+  "block.ifeu.rule_controller": "Rule Controller",
+  "block.ifeu.weather_controller": "Weather Controller",
+  "block.ifeu.time_controller": "Time Controller",
 
   "fluid_type.ifeu.liquid_dragon_breath": "Liquid Dragon Breath",
   "fluid_type.ifeu.liquid_sculk_matter": "Liquid Sculk Matter",
@@ -42,5 +47,20 @@
   "jei.ifeu.world": "Placed in the world",
   "jei.ifeu.power": "Power: ",
   "jei.ifeu.progress": "Progress: ",
-  "jei.ifeu.total": "Total: "
+  "jei.ifeu.total": "Total: ",
+
+  "weather.ifeu.clear": "Weather Clear",
+  "weather.ifeu.rain": "Weather Rain",
+  "weather.ifeu.thunder": "Weather Thunder",
+  "weather.ifeu.finish": "Weather switch successful",
+
+  "time.ifeu.day": "Day",
+  "time.ifeu.noon": "Noon",
+  "time.ifeu.night": "Night",
+  "time.ifeu.midnight": "Midnight",
+  "time.ifeu.finish": "Time switch successful",
+
+  "key.ifeu.press": "Press",
+  "key.ifeu.add": "to add",
+  "key.ifeu.reduce": "to reduce"
 }

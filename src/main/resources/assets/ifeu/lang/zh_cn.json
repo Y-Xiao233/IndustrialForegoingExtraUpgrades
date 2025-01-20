@@ -7,6 +7,8 @@
   "tooltip.ifeu.cooldown_time": "冷却时间",
   "tooltip.titanium.facing_handler.input_fluid1": "流体输入1",
   "tooltip.titanium.facing_handler.input_fluid2": "流体输入2",
+  "tooltip.titanium.facing_handler.dragon_star_input": "龙之星输入",
+  "tooltip.ifeu.gamerule": "当前所选游戏规则的值为 %d",
 
   "item.ifeu.liquid_dragon_breath_bucket": "液态龙息桶",
   "item.ifeu.liquid_sculk_matter_bucket": "液态幽匿物质桶",
@@ -30,6 +32,9 @@
   "block.ifeu.arcane_dragon_egg_forging": "奥数龙蛋锻造炉",
   "block.ifeu.creative_capacitor": "创造电容器",
   "block.ifeu.dead_dragon_egg": "失活的龙蛋",
+  "block.ifeu.rule_controller": "规则掌控者",
+  "block.ifeu.weather_controller": "天气掌控者",
+  "block.ifeu.time_controller": "时间掌控者",
 
   "fluid_type.ifeu.liquid_dragon_breath": "液态龙息",
   "fluid_type.ifeu.liquid_sculk_matter": "液态幽匿物质",
@@ -42,5 +47,20 @@
   "jei.ifeu.world": "放在世界中",
   "jei.ifeu.power": "Power: ",
   "jei.ifeu.progress": "Progress: ",
-  "jei.ifeu.total": "Total: "
+  "jei.ifeu.total": "Total: ",
+
+  "weather.ifeu.clear": "天气晴朗",
+  "weather.ifeu.rain": "下雨天气",
+  "weather.ifeu.thunder": "雷雨天气",
+  "weather.ifeu.finish": "天气切换成功",
+
+  "time.ifeu.day": "白天",
+  "time.ifeu.noon": "正午",
+  "time.ifeu.night": "夜晚",
+  "time.ifeu.midnight": "午夜",
+  "time.ifeu.finish": "时间切换成功",
+
+  "key.ifeu.press": "按下",
+  "key.ifeu.add": "增加",
+  "key.ifeu.reduce": "减少"
 }

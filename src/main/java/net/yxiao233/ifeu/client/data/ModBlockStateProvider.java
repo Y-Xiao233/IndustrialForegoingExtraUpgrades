@@ -27,6 +27,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(ModBlocks.CREATIVE_CAPACITOR.getLeft());
         blockItem(ModBlocks.ARCANE_DRAGON_EGG_FORGING.getLeft());
         blockItem(ModContents.DEAD_DRAGON_EGG);
+        blockItem(ModBlocks.WEATHER_CONTROLLER.getLeft());
+        blockItem(ModBlocks.TIME_CONTROLLER.getLeft());
+        blockItem(ModBlocks.RULE_CONTROLLER.getLeft());
+        blockItem(ModContents.ULTIMATE_MACHINE_FRAME);
     }
 
     private void blockItem(RegistryObject<Block> registryObject){

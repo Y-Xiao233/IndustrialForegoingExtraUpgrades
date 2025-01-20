@@ -36,7 +36,7 @@ public class InfuserCategory extends AbstractJEICategory<InfuserRecipe> {
     public static final Component TITLE = Component.translatable("block.ifeu.infuser");
     private final IDrawable bigTank;
     public InfuserCategory(IGuiHelper helper) {
-        super(helper, ModRecipeType.INFUSER, TITLE, ModBlocks.INFUSER.getKey().get().asItem(), 160, 82);
+        super(helper, ModRecipeType.INFUSER,TITLE,ModBlocks.INFUSER.getKey().get().asItem(), 160, 82);
         this.bigTank = helper.createDrawable(DefaultAssetProvider.DEFAULT_LOCATION, 177 + 3, 1 + 3, 12, 50);
     }
 

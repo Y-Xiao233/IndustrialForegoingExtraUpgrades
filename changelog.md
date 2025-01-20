@@ -32,6 +32,10 @@
 - 为两个仅作展示的jei配方添加了提示
 - 修复了溶解成形机和奥数龙蛋锻造炉的可选流体输出在使用KubeJS添加时无法正确被添加的bug
 
+### v1.0.8
+- 将失活的龙蛋 -> 龙蛋配方中的下界之星替换为了龙之星
+- 添加了时间,天气,规则掌控者
+
 ## en_us
 ### v1.0.0
 - init
@@ -63,3 +67,7 @@
 - Added JEI integration for the Dragon Star Generator and removed the direct tooltip
 - Added tips for two JEI recipes for display purposes only
 - Fixed a bug where the optional fluid output of the Dissolution Chamber and the Arcane Dragon Egg Forging could not be correctly added when using KubeJS
+- 
+### v1.0.8
+- 将失活的龙蛋 -> 龙蛋配方中的下界之星替换为了龙之星
+- 添加了时间,天气,规则掌控者

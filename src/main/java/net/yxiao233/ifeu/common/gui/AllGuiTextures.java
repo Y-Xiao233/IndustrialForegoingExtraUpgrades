@@ -5,14 +5,27 @@ import net.minecraft.resources.ResourceLocation;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 
 public enum AllGuiTextures implements ScreenElement {
+    //Empty
+    EMPTY("empty",0,0,0,0),
     //Slot
-    CHANCE_SLOT("widgets",20, 156, 18, 18),
-    BASIC_SLOT("widgets",0,0,18,18),
+    CHANCE_SLOT(20, 156, 18, 18),
+    BASIC_SLOT(0,0,18,18),
     //click
-    RIGHT_CLICK("widgets",227, 0, 10, 14),
-    LEFT_CLICK("widgets",195,0,10,14),
+    RIGHT_CLICK(227, 0, 10, 14),
+    LEFT_CLICK(195,0,10,14),
     //Information
-    JEI_INFORMATION("widgets",240,0,16,16);
+    JEI_INFORMATION(240,0,16,16),
+    //Controller
+    TRUE(226,241,14,14),
+    FALSE(241,241,14,14),
+    WEATHER_CLEAR(173,240,16,16),
+    WEATHER_RAIN(190,240,16,16),
+    WEATHER_THUNDER(208,240,16,16),
+    DAY(0,242,14,14),
+    NOON(15,242,14,14),
+    NIGHT(30,242,14,14),
+    MIDNIGHT(45,242,14,14)
+    ;
     //Other
 
     public final ResourceLocation location;
@@ -20,6 +33,14 @@ public enum AllGuiTextures implements ScreenElement {
     public final int startX, startY;
     private AllGuiTextures(String location, int startX, int startY, int width, int height) {
         this.location = new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID, "textures/gui/" + location + ".png");
+        this.width = width;
+        this.height = height;
+        this.startX = startX;
+        this.startY = startY;
+    }
+
+    private AllGuiTextures(int startX, int startY, int width, int height) {
+        this.location = new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID, "textures/gui/widgets.png");
         this.width = width;
         this.height = height;
         this.startX = startX;

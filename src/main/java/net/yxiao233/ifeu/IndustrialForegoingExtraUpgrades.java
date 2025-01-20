@@ -1,8 +1,6 @@
 package net.yxiao233.ifeu;
 
 import com.hrznstudio.titanium.module.ModuleController;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -12,6 +10,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.yxiao233.ifeu.common.networking.ModNetWorking;
 import net.yxiao233.ifeu.common.provider.ModRecipeProvider;
 import net.yxiao233.ifeu.common.provider.ModSerializableProvider;
 import net.yxiao233.ifeu.common.registry.*;
@@ -27,8 +26,8 @@ public class IndustrialForegoingExtraUpgrades extends ModuleController{
         ModContents.BLOCKS.register(modEventBus);
         ModContents.ITEMS.register(modEventBus);
         ModCreativeModeTab.CREATIVE_MODE_TAB.register(modEventBus);
+        ModNetWorking.register();
     }
-
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent

@@ -4,6 +4,7 @@ import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
+import net.yxiao233.ifeu.common.registry.ModContents;
 
 import java.util.Arrays;
 import java.util.Set;
@@ -19,6 +20,10 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.DRAGON_STAR_GENERATOR.getLeft().get());
         this.dropSelf(ModBlocks.ARCANE_DRAGON_EGG_FORGING.getLeft().get());
         this.dropSelf(ModBlocks.CREATIVE_CAPACITOR.getLeft().get());
+        this.dropSelf(ModBlocks.WEATHER_CONTROLLER.getLeft().get());
+        this.dropSelf(ModBlocks.TIME_CONTROLLER.getLeft().get());
+        this.dropSelf(ModBlocks.RULE_CONTROLLER.getLeft().get());
+        this.dropSelf(ModContents.ULTIMATE_MACHINE_FRAME.get());
     }
 
     @Override
@@ -28,7 +33,11 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 ModBlocks.INFUSER.getLeft().get(),
                 ModBlocks.DRAGON_STAR_GENERATOR.getLeft().get(),
                 ModBlocks.ARCANE_DRAGON_EGG_FORGING.getLeft().get(),
-                ModBlocks.CREATIVE_CAPACITOR.getLeft().get()
+                ModBlocks.CREATIVE_CAPACITOR.getLeft().get(),
+                ModBlocks.RULE_CONTROLLER.getLeft().get(),
+                ModBlocks.WEATHER_CONTROLLER.getLeft().get(),
+                ModBlocks.TIME_CONTROLLER.getLeft().get(),
+                ModContents.ULTIMATE_MACHINE_FRAME.get()
         );
         return iterable;
     }
