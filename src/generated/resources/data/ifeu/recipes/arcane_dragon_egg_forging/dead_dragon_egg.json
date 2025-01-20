@@ -5,7 +5,7 @@
     "item": "minecraft:egg"
   },
   "inputFluid1": "{Amount:250,FluidName:\"industrialforegoing:essence\"}",
-  "inputFluid2": "{Amount:250,FluidName:\"ifeu:liquid_dragon_breath\"}",
+  "inputFluid2": "{Amount:4000,FluidName:\"ifeu:liquid_dragon_breath\"}",
   "output": {
     "count": 1,
     "item": "ifeu:dead_dragon_egg"

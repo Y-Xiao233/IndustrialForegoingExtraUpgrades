@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:air"
+          "name": "ifeu:ultimate_machine_frame"
         }
       ],
       "rolls": 1.0

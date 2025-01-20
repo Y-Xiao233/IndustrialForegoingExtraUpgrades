@@ -8,6 +8,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModContents;
+import net.yxiao233.ifeu.common.registry.ModTags;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
@@ -37,6 +38,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.WEATHER_CONTROLLER.getLeft().get())
                 .add(ModBlocks.TIME_CONTROLLER.getLeft().get())
                 .add(ModBlocks.RULE_CONTROLLER.getLeft().get())
+                .add(ModContents.ULTIMATE_MACHINE_FRAME.get());
+
+        this.tag(ModTags.Blocks.MACHINE_FRAME_ULTIMATE)
                 .add(ModContents.ULTIMATE_MACHINE_FRAME.get());
     }
 }

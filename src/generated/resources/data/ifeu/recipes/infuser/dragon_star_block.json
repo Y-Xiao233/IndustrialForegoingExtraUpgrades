@@ -1,0 +1,13 @@
+{
+  "type": "ifeu:infuser",
+  "input": {
+    "count": 9,
+    "item": "ifeu:dragon_star"
+  },
+  "inputFluid": "{Amount:8000,FluidName:\"ifeu:liquid_sculk_matter\"}",
+  "output": {
+    "count": 1,
+    "item": "ifeu:dragon_star_block"
+  },
+  "processingTime": 200
+}

@@ -1,0 +1,36 @@
+{
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "tag": "forge:plastic"
+    },
+    {
+      "tag": "industrialforegoing:machine_frame/supreme"
+    },
+    {
+      "tag": "forge:plastic"
+    },
+    {
+      "item": "ifeu:dragon_star_block"
+    },
+    {
+      "item": "ifeu:dragon_star_block"
+    },
+    {
+      "item": "minecraft:dragon_egg"
+    },
+    {
+      "tag": "forge:gears/sculk"
+    },
+    {
+      "item": "minecraft:dragon_egg"
+    }
+  ],
+  "inputFluid": "{Amount:8000,FluidName:\"ifeu:liquid_sculk_matter\"}",
+  "output": {
+    "count": 1,
+    "item": "ifeu:ultimate_machine_frame"
+  },
+  "outputFluid": "{Amount:8000,FluidName:\"minecraft:water\"}",
+  "processingTime": 200
+}

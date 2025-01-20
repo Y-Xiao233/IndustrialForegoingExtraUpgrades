@@ -35,6 +35,8 @@
   "block.ifeu.rule_controller": "规则掌控者",
   "block.ifeu.weather_controller": "天气掌控者",
   "block.ifeu.time_controller": "时间掌控者",
+  "block.ifeu.ultimate_machine_frame": "终极机器框架",
+  "block.ifeu.dragon_star_block": "龙之星块",
 
   "fluid_type.ifeu.liquid_dragon_breath": "液态龙息",
   "fluid_type.ifeu.liquid_sculk_matter": "液态幽匿物质",

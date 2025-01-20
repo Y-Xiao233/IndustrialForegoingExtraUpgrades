@@ -35,6 +35,8 @@
   "block.ifeu.rule_controller": "Rule Controller",
   "block.ifeu.weather_controller": "Weather Controller",
   "block.ifeu.time_controller": "Time Controller",
+  "block.ifeu.ultimate_machine_frame": "Ultimate Machine Frame",
+  "block.ifeu.dragon_star_block": "Block of Dragon Star",
 
   "fluid_type.ifeu.liquid_dragon_breath": "Liquid Dragon Breath",
   "fluid_type.ifeu.liquid_sculk_matter": "Liquid Sculk Matter",

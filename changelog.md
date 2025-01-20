@@ -34,7 +34,9 @@
 
 ### v1.0.8
 - 将失活的龙蛋 -> 龙蛋配方中的下界之星替换为了龙之星
-- 添加了时间,天气,规则掌控者
+- 添加了时间,天气,规则掌控者(贴图暂未完成)
+- 添加了终极机器框架,龙之星块(贴图暂未完成)
+- 修改了部分配方
 
 ## en_us
 ### v1.0.0
@@ -69,5 +71,7 @@
 - Fixed a bug where the optional fluid output of the Dissolution Chamber and the Arcane Dragon Egg Forging could not be correctly added when using KubeJS
 - 
 ### v1.0.8
-- 将失活的龙蛋 -> 龙蛋配方中的下界之星替换为了龙之星
-- 添加了时间,天气,规则掌控者
+- Replace the Nether Star to Dragon Star of the recipe: Dead Dragon Egg -> Dragon Egg
+- Added time, weather, and rule controller (texture not yet completed)
+- Added Ultimate Machine framework, Block of Dragon Star (texture not yet completed)
+- Modified some recipes

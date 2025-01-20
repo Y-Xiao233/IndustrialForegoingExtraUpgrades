@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.yxiao233.ifeu.common.block.entity.RuleControllerEntity;
 import net.yxiao233.ifeu.common.registry.ModItems;
+import net.yxiao233.ifeu.common.registry.ModTags;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Consumer;
@@ -27,5 +28,16 @@ public class RuleControllerBlock extends IndustrialBlock<RuleControllerEntity> {
     @Override
     public RotationType getRotationType() {
         return RotationType.NONE;
+    }
+
+    @Override
+    public void registerRecipe(Consumer<FinishedRecipe> consumer) {
+        TitaniumShapedRecipeBuilder.shapedRecipe(this)
+                .pattern("ABA").pattern("CDC").pattern("ABA")
+                .define('A',Items.END_CRYSTAL)
+                .define('B',ModItems.SPEED_ADDON_6.get())
+                .define('C',Items.TOTEM_OF_UNDYING)
+                .define('D', ModTags.Items.MACHINE_FRAME_ULTIMATE)
+                .save(consumer);
     }
 }

@@ -1,0 +1,13 @@
+{
+  "type": "ifeu:infuser",
+  "input": {
+    "count": 1,
+    "item": "ifeu:dragon_star_block"
+  },
+  "inputFluid": "{Amount:100,FluidName:\"ifeu:liquid_dragon_breath\"}",
+  "output": {
+    "count": 9,
+    "item": "ifeu:dragon_star"
+  },
+  "processingTime": 200
+}
