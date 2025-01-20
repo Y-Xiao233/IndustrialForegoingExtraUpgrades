@@ -58,7 +58,7 @@ public enum ModTiers implements Tier {
         return getTagFromVanillaTier(this);
     }
 
-    public TagKey<Block> getTagFromVanillaTier(ModTiers modTiers) {
+    public static TagKey<Block> getTagFromVanillaTier(ModTiers modTiers) {
         TagKey var10000;
         switch (modTiers) {
             case DRAGON_STAR:

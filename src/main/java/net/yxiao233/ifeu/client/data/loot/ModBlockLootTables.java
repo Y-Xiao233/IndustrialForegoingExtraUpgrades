@@ -24,11 +24,12 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.TIME_CONTROLLER.getLeft().get());
         this.dropSelf(ModBlocks.RULE_CONTROLLER.getLeft().get());
         this.dropSelf(ModContents.ULTIMATE_MACHINE_FRAME.get());
+        this.dropSelf(ModContents.DRAGON_STAR_BLOCK.get());
     }
 
     @Override
     protected Iterable<Block> getKnownBlocks() {
-        //注册方法时后面加上.noLootTable()就不会在这里生成
+        //注册方法时后面加上.noLootTable()就不需要在这里写
         Iterable<Block> iterable = Arrays.asList(
                 ModBlocks.INFUSER.getLeft().get(),
                 ModBlocks.DRAGON_STAR_GENERATOR.getLeft().get(),
@@ -37,7 +38,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 ModBlocks.RULE_CONTROLLER.getLeft().get(),
                 ModBlocks.WEATHER_CONTROLLER.getLeft().get(),
                 ModBlocks.TIME_CONTROLLER.getLeft().get(),
-                ModContents.ULTIMATE_MACHINE_FRAME.get()
+                ModContents.ULTIMATE_MACHINE_FRAME.get(),
+                ModContents.DRAGON_STAR_BLOCK.get()
         );
         return iterable;
     }
