@@ -1,0 +1,9 @@
+{
+  "parent": "block/orientable",
+  "textures": {
+    "top": "ifeu:block/base/ultimate/top",
+    "front": "ifeu:block/base/ultimate/side",
+    "side": "ifeu:block/base/ultimate/side",
+    "bottom": "ifeu:block/base/ultimate/bottom"
+  }
+}

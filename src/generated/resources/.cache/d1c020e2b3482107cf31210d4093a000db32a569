@@ -1,7 +1,8 @@
-// 1.20.1	2025-01-20T16:57:36.5580318	Block States: ifeu
+// 1.20.1	2025-01-21T20:58:46.3584052	Block States: ifeu
 3950649a1dc32fea368f21e3e32352f896d082fb assets/ifeu/models/item/arcane_dragon_egg_forging.json
 3565055ca76aa3ae842ed8c502bd0e6725729b02 assets/ifeu/models/item/creative_capacitor.json
 9090d5c04212b3317a4dfb2eff1899afc31a6bd7 assets/ifeu/models/item/dead_dragon_egg.json
+32b6e54cdceb6d7f6e3ad694283c4d6dc99ca287 assets/ifeu/models/item/dragon_star_block.json
 6b8324f9915fd58cf5836dc37bd1d3d6ff5738c7 assets/ifeu/models/item/dragon_star_generator.json
 0ec005217cd58d4ce236b8ba3df370901d551655 assets/ifeu/models/item/infuser.json
 d08afa31dcb256d215c40067fc0eafd9462fed25 assets/ifeu/models/item/rule_controller.json

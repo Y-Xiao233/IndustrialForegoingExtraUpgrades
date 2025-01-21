@@ -31,6 +31,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(ModBlocks.TIME_CONTROLLER.getLeft());
         blockItem(ModBlocks.RULE_CONTROLLER.getLeft());
         blockItem(ModContents.ULTIMATE_MACHINE_FRAME);
+        blockItem(ModContents.DRAGON_STAR_BLOCK);
     }
 
     private void blockItem(RegistryObject<Block> registryObject){

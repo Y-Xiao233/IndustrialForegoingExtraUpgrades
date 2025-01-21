@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "subfacing=east": {
+      "model": "ifeu:block/weather_controller",
+      "y": 90
+    },
+    "subfacing=north": {
+      "model": "ifeu:block/weather_controller"
+    },
+    "subfacing=south": {
+      "model": "ifeu:block/weather_controller",
+      "y": 180
+    },
+    "subfacing=west": {
+      "model": "ifeu:block/weather_controller",
+      "y": 270
+    }
+  }
+}

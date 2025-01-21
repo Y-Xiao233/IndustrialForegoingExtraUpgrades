@@ -26,7 +26,7 @@ public class WeatherControllerBlock extends IndustrialBlock<WeatherControllerEnt
     @NotNull
     @Override
     public RotationType getRotationType() {
-        return RotationType.NONE;
+        return RotationType.FOUR_WAY;
     }
 
     @Override
