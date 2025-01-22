@@ -3,12 +3,19 @@ package net.yxiao233.ifeu.common.block.entity;
 import com.buuz135.industrial.block.tile.IndustrialProcessingTile;
 import com.hrznstudio.titanium.annotation.Save;
 import com.hrznstudio.titanium.api.IFactory;
+import com.hrznstudio.titanium.api.client.AssetTypes;
+import com.hrznstudio.titanium.api.client.IAsset;
+import com.hrznstudio.titanium.api.client.IAssetType;
 import com.hrznstudio.titanium.api.client.IScreenAddon;
 import com.hrznstudio.titanium.client.screen.addon.ProgressBarScreenAddon;
+import com.hrznstudio.titanium.client.screen.addon.StateButtonAddon;
+import com.hrznstudio.titanium.client.screen.addon.StateButtonInfo;
 import com.hrznstudio.titanium.component.button.ArrowButtonComponent;
+import com.hrznstudio.titanium.component.button.ButtonComponent;
 import com.hrznstudio.titanium.component.inventory.SidedInventoryComponent;
 import com.hrznstudio.titanium.component.progress.ProgressBarComponent;
 import com.hrznstudio.titanium.util.FacingUtil;
+import com.hrznstudio.titanium.util.LangUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
@@ -52,6 +59,9 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
     public long time;
     @Save
     public int choose;
+    @Save
+    public boolean hasButtonTip = false;
+    private ButtonComponent buttonComponent;
     private boolean finish = false;
     public TimeControllerEntity(BlockPos blockPos, BlockState blockState) {
         super(ModBlocks.TIME_CONTROLLER, 66, 40, blockPos, blockState);
@@ -86,7 +96,7 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
         this.addButton((new ArrowButtonComponent(155, 23, 14, 14, FacingUtil.Sideness.TOP)).setId(1).setPredicate((playerEntity, compoundNBT) -> {
             --this.choose;
             this.finish = false;
-            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(false,getBlockPos()));
+            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(getBlockPos(),false));
             if (this.choose < 0) {
                 this.choose = times.length - 1;
             }
@@ -99,7 +109,7 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
         this.addButton((new ArrowButtonComponent(155, 60, 14, 14, FacingUtil.Sideness.BOTTOM)).setId(2).setPredicate((playerEntity, compoundNBT) -> {
             ++this.choose;
             this.finish = false;
-            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(false,getBlockPos()));
+            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(getBlockPos(),false));
             if (this.choose > times.length - 1) {
                 this.choose = 0;
             }
@@ -124,7 +134,7 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
                 }
             }
             this.finish = false;
-            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(false,getBlockPos()));
+            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(getBlockPos(),false));
             this.markForUpdate();
         }));
 
@@ -143,9 +153,37 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
                 }
             }
             this.finish = false;
-            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(false,getBlockPos()));
+            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(getBlockPos(),false));
             this.markForUpdate();
         }));
+
+        this.addButton(this.buttonComponent = (new ButtonComponent(136, 84, 14, 14) {
+            @OnlyIn(Dist.CLIENT)
+            public List<IFactory<? extends IScreenAddon>> getScreenAddons() {
+                return Collections.singletonList(() -> {
+                    StateButtonInfo[] buttonInfo = new StateButtonInfo[2];
+                    IAssetType<IAsset> asset = AssetTypes.BUTTON_SIDENESS_ENABLED;
+                    String[] tip = new String[2];
+                    ChatFormatting chatFormatting = ChatFormatting.GOLD;
+                    tip[0] = chatFormatting + LangUtil.getString("tooltip.ifeu.time_controller.has_tip", new Object[0]);
+                    tip[1] = "tooltip.ifeu.time_controller.has_tip_1";
+                    buttonInfo[0] = new StateButtonInfo(0, asset, tip);
+                    asset = AssetTypes.BUTTON_SIDENESS_DISABLED;
+                    tip = new String[2];
+                    tip[0] = chatFormatting + LangUtil.getString("tooltip.ifeu.time_controller.without_tip", new Object[0]);
+                    tip[1] = "tooltip.ifeu.time_controller.without_tip_1";
+                    buttonInfo[1] = new StateButtonInfo(1, asset, tip);
+                    return new StateButtonAddon(this, buttonInfo) {
+                        public int getState() {
+                            return TimeControllerEntity.this.hasButtonTip ? 0 : 1;
+                        }
+                    };
+                });
+            }
+        }).setPredicate((playerEntity, compoundNBT) -> {
+            this.hasButtonTip = !this.hasButtonTip;
+            this.markForUpdate();
+        }).setId(5));
 
         this.powerPerTick = TimeControllerConfig.powerPerTick;
 
@@ -217,7 +255,7 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
         });
 
         this.addGuiAddonFactory(() ->{
-            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(false,getBlockPos()));
+            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(getBlockPos(),false));
             return new TextureGuiComponent(98,41) {
                 @Override
                 public AllGuiTextures getTexture() {
@@ -250,6 +288,11 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
                 public Component[] getComponents() {
                     return defaultKeyDownTips("reduce");
                 }
+
+                @Override
+                public boolean hasTooltip() {
+                    return hasButtonTip;
+                }
             };
         });
 
@@ -264,6 +307,11 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
                 @Override
                 public Component[] getComponents() {
                     return defaultKeyDownTips("add");
+                }
+
+                @Override
+                public boolean hasTooltip() {
+                    return hasButtonTip;
                 }
             };
         });
@@ -290,7 +338,7 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
             times[choose].modifyTime(time);
             times[choose].setTime((ServerLevel) level);
             this.finish = true;
-            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(true,getBlockPos()));
+            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(getBlockPos(),true));
             this.markForUpdate();
         };
     }
@@ -313,22 +361,26 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
         if (tag.contains("choose")) {
             this.choose = tag.getInt("choose");
         }
+        if (tag.contains("hideButtonTip")) {
+            this.hasButtonTip = tag.getBoolean("hideButtonTip");
+        }
         super.loadSettings(player, tag);
     }
 
     public void saveSettings(Player player, CompoundTag tag) {
         tag.putLong("time", this.time);
         tag.putInt("choose",this.choose);
+        tag.putBoolean("hideButtonTip",this.hasButtonTip);
         super.saveSettings(player, tag);
     }
 
     @Override
-    public void setValue(boolean value) {
-        this.finish = value;
+    public void setValue(boolean... value) {
+        this.finish = value[0];
     }
 
     @Override
-    public boolean getValue() {
-        return this.finish;
+    public boolean[] getValues() {
+        return new boolean[]{finish};
     }
 }

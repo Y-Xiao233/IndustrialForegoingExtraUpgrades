@@ -9,6 +9,10 @@
   "tooltip.titanium.facing_handler.input_fluid2": "Fluid Input 2",
   "tooltip.titanium.facing_handler.dragon_star_input": "Dragon Star Input",
   "tooltip.ifeu.gamerule": "The value of the currently selected game rule is %d",
+  "tooltip.ifeu.time_controller.has_tip": "show tool tip",
+  "tooltip.ifeu.time_controller.has_tip_1": "Display information when the mouse is placed on the time adjustment button",
+  "tooltip.ifeu.time_controller.without_tip": "Close button tip",
+  "tooltip.ifeu.time_controller.without_tip_1": "When the mouse is placed on the time adjustment button, no information is displayed",
 
   "item.ifeu.liquid_dragon_breath_bucket": "Liquid Dragon Breath Bucket",
   "item.ifeu.liquid_sculk_matter_bucket": "Liquid Sculk Matter Bucket",

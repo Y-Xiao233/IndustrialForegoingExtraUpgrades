@@ -9,6 +9,10 @@
   "tooltip.titanium.facing_handler.input_fluid2": "流体输入2",
   "tooltip.titanium.facing_handler.dragon_star_input": "龙之星输入",
   "tooltip.ifeu.gamerule": "当前所选游戏规则的值为 %d",
+  "tooltip.ifeu.time_controller.has_tip": "显示按钮提示",
+  "tooltip.ifeu.time_controller.has_tip_1": "鼠标放在时间调整按钮上时显示信息",
+  "tooltip.ifeu.time_controller.without_tip": "关闭按钮提示",
+  "tooltip.ifeu.time_controller.without_tip_1": "鼠标放在时间调整按钮上时不显示信息",
 
   "item.ifeu.liquid_dragon_breath_bucket": "液态龙息桶",
   "item.ifeu.liquid_sculk_matter_bucket": "液态幽匿物质桶",

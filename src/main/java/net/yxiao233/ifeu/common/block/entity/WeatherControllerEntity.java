@@ -82,7 +82,7 @@ public class WeatherControllerEntity extends IndustrialProcessingTile<WeatherCon
         this.addButton((new ArrowButtonComponent(119, 40, 14, 14, FacingUtil.Sideness.LEFT)).setId(1).setPredicate((playerEntity, compoundNBT) -> {
             --this.weather;
             this.finish = false;
-            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(false,getBlockPos()));
+            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(getBlockPos(),false));
             if (this.weather < 0) {
                 this.weather = weathers.length - 1;
             }
@@ -92,7 +92,7 @@ public class WeatherControllerEntity extends IndustrialProcessingTile<WeatherCon
         this.addButton((new ArrowButtonComponent(155, 40, 14, 14, FacingUtil.Sideness.RIGHT)).setId(2).setPredicate((playerEntity, compoundNBT) -> {
             ++this.weather;
             this.finish = false;
-            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(false,getBlockPos()));
+            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(getBlockPos(),false));
             if (this.weather > weathers.length - 1) {
                 this.weather = 0;
             }
@@ -123,7 +123,7 @@ public class WeatherControllerEntity extends IndustrialProcessingTile<WeatherCon
         });
 
         this.addGuiAddonFactory(() ->{
-            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(false,getBlockPos()));
+            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(getBlockPos(),false));
             return new TextureGuiComponent(98,41) {
                 @Override
                 public AllGuiTextures getTexture() {
@@ -164,7 +164,7 @@ public class WeatherControllerEntity extends IndustrialProcessingTile<WeatherCon
         return () -> {
             this.bar.setProgress(this.bar.getProgress() - 1);
             weathers[weather].setWeather((ServerLevel) level);
-            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(true,getBlockPos()));
+            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(getBlockPos(),true));
             this.finish = true;
             this.markForUpdate();
         };
@@ -201,12 +201,12 @@ public class WeatherControllerEntity extends IndustrialProcessingTile<WeatherCon
     }
 
     @Override
-    public void setValue(boolean value) {
-        this.finish = value;
+    public void setValue(boolean... value) {
+        this.finish = value[0];
     }
 
     @Override
-    public boolean getValue() {
-        return this.finish;
+    public boolean[] getValues() {
+        return new boolean[]{finish};
     }
 }

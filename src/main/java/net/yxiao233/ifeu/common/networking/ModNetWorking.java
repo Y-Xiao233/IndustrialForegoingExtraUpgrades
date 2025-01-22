@@ -7,7 +7,6 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
-import net.yxiao233.ifeu.common.networking.packet.GameRuleSyncS2CPacket;
 import net.yxiao233.ifeu.common.networking.packet.BooleanSyncS2CPacket;
 
 public class ModNetWorking {
@@ -27,11 +26,6 @@ public class ModNetWorking {
 
         INSTANCE = net;
 
-        net.messageBuilder(GameRuleSyncS2CPacket.class,id(), NetworkDirection.PLAY_TO_CLIENT)
-                .decoder(GameRuleSyncS2CPacket::new)
-                .encoder(GameRuleSyncS2CPacket::toBytes)
-                .consumerMainThread(GameRuleSyncS2CPacket::handle)
-                .add();
 
         net.messageBuilder(BooleanSyncS2CPacket.class,id(), NetworkDirection.PLAY_TO_CLIENT)
                 .decoder(BooleanSyncS2CPacket::new)

@@ -33,6 +33,9 @@ public abstract class CustomTooltipComponent extends BasicScreenAddon {
     public void drawBackgroundLayer(GuiGraphics guiGraphics, Screen screen, IAssetProvider iAssetProvider, int guiX, int guiY, int mouseX, int mouseY, float partialTicks) {
         Font font = Minecraft.getInstance().font;
         List<FormattedCharSequence> list = new ArrayList<>();
+        if(!hasTooltip()){
+            return;
+        }
 
         if(isMouseOver(guiX,guiY,mouseX,mouseY)) {
             for (Component component : getComponents()) {
@@ -60,4 +63,5 @@ public abstract class CustomTooltipComponent extends BasicScreenAddon {
     }
     public abstract int[] width$height();
     public abstract Component[] getComponents();
+    public abstract boolean hasTooltip();
 }

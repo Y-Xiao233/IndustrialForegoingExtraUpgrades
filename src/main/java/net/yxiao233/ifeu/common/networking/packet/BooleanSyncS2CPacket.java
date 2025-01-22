@@ -12,22 +12,41 @@ import net.yxiao233.ifeu.common.networking.packet.interfaces.BooleanValueSyncS2C
 import java.util.function.Supplier;
 
 public class BooleanSyncS2CPacket {
-    private final Boolean value;
+    private final boolean[] value;
     private final BlockPos blockPos;
-    public BooleanSyncS2CPacket(boolean value, BlockPos blockPos) {
+    private final int size;
+    public BooleanSyncS2CPacket(BlockPos blockPos,boolean... value) {
         this.value = value;
         this.blockPos = blockPos;
+        this.size = value.length;
+    }
+
+    public BooleanSyncS2CPacket(BlockPos blockPos,boolean value) {
+        this.value = new boolean[]{value};
+        this.blockPos = blockPos;
+        this.size = this.value.length;
     }
 
     public BooleanSyncS2CPacket(FriendlyByteBuf buffer) {
-        this.value = buffer.readBoolean();
+        this.size = buffer.readInt();
         this.blockPos = buffer.readBlockPos();
+
+        boolean[] temp = new boolean[size];
+        for (int i = 0; i < this.size; i++) {
+            temp[i] = buffer.readBoolean();
+        }
+
+        this.value = temp;
     }
 
 
     public void toBytes(FriendlyByteBuf buffer) {
-        buffer.writeBoolean(value);
+        buffer.writeInt(size);
         buffer.writeBlockPos(blockPos);
+
+        for (boolean b : this.value) {
+            buffer.writeBoolean(b);
+        }
     }
 
     public boolean handle(Supplier<NetworkEvent.Context> supplier) {

@@ -27,7 +27,8 @@ import net.yxiao233.ifeu.common.components.TextureGuiComponent;
 import net.yxiao233.ifeu.common.config.machine.RuleControllerConfig;
 import net.yxiao233.ifeu.common.gui.AllGuiTextures;
 import net.yxiao233.ifeu.common.networking.ModNetWorking;
-import net.yxiao233.ifeu.common.networking.packet.GameRuleSyncS2CPacket;
+import net.yxiao233.ifeu.common.networking.packet.BooleanSyncS2CPacket;
+import net.yxiao233.ifeu.common.networking.packet.interfaces.BooleanValueSyncS2C;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.utils.GameRuleGetter;
@@ -40,7 +41,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
-public class RuleControllerEntity extends IndustrialProcessingTile<RuleControllerEntity> {
+public class RuleControllerEntity extends IndustrialProcessingTile<RuleControllerEntity> implements BooleanValueSyncS2C {
     private static GameRuleGetter[] rules = {GameRuleGetter.DO_FIRE_TICK,GameRuleGetter.MOB_GRIEFING,GameRuleGetter.KEEP_INVENTORY,GameRuleGetter.DO_MOB_SPAWNING,GameRuleGetter.DO_MOB_LOOT,GameRuleGetter.DO_BLOCK_DROPS,GameRuleGetter.DO_ENTITY_DROPS};
     private int powerPerTick;
     @Save
@@ -49,7 +50,7 @@ public class RuleControllerEntity extends IndustrialProcessingTile<RuleControlle
     private ProgressBarComponent<RuleControllerEntity> bar;
     @Save
     private int rule;
-    public boolean value;
+    private boolean value;
     public RuleControllerEntity(BlockPos blockPos, BlockState blockState) {
         super(ModBlocks.RULE_CONTROLLER, 66, 40, blockPos, blockState);
 
@@ -137,7 +138,7 @@ public class RuleControllerEntity extends IndustrialProcessingTile<RuleControlle
         super.serverTick(level, pos, state, blockEntity);
         if(!level.isClientSide()){
             this.value = GameRuleUtil.getGameRule(level,rules[rule].getRuleKey());
-            ModNetWorking.sendToClient(new GameRuleSyncS2CPacket(value,pos));
+            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(pos,value));
         }
     }
 
@@ -194,5 +195,15 @@ public class RuleControllerEntity extends IndustrialProcessingTile<RuleControlle
     public void saveSettings(Player player, CompoundTag tag) {
         tag.putInt("rule", this.rule);
         super.saveSettings(player, tag);
+    }
+
+    @Override
+    public void setValue(boolean... value) {
+        this.value = value[0];
+    }
+
+    @Override
+    public boolean[] getValues() {
+        return new boolean[]{value};
     }
 }
