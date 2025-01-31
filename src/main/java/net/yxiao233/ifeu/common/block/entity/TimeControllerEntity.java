@@ -17,7 +17,6 @@ import com.hrznstudio.titanium.component.progress.ProgressBarComponent;
 import com.hrznstudio.titanium.util.FacingUtil;
 import com.hrznstudio.titanium.util.LangUtil;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -39,6 +38,7 @@ import net.yxiao233.ifeu.common.networking.packet.BooleanSyncS2CPacket;
 import net.yxiao233.ifeu.common.networking.packet.interfaces.BooleanValueSyncS2C;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModContents;
+import net.yxiao233.ifeu.common.utils.KeyDownUtil;
 import net.yxiao233.ifeu.common.utils.TimeGetter;
 import org.jetbrains.annotations.NotNull;
 
@@ -123,13 +123,13 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
             if(times[choose].hasTexture()){
                 this.time = times[choose].getTime();
             }else{
-                if(Screen.hasShiftDown() && !Screen.hasControlDown()){
+                if(KeyDownUtil.isShiftKeyDown() && !KeyDownUtil.isCtrlKeyDown()){
                     this.time = time - 10;
-                }else if(!Screen.hasShiftDown() && Screen.hasControlDown()){
+                }else if(!KeyDownUtil.isShiftKeyDown() && KeyDownUtil.isCtrlKeyDown()){
                     this.time = time - 100;
-                }else if(Screen.hasShiftDown() && Screen.hasControlDown()){
+                }else if(KeyDownUtil.isShiftKeyDown() && KeyDownUtil.isCtrlKeyDown()){
                     this.time = time - 1000;
-                }else if(!Screen.hasShiftDown() && !Screen.hasControlDown()){
+                }else if(!KeyDownUtil.isShiftKeyDown() && !KeyDownUtil.isCtrlKeyDown()){
                     --this.time;
                 }
             }
@@ -142,13 +142,13 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
             if(times[choose].hasTexture()){
                 this.time = times[choose].getTime();
             }else{
-                if(Screen.hasShiftDown() && !Screen.hasControlDown()){
+                if(KeyDownUtil.isShiftKeyDown() && !KeyDownUtil.isCtrlKeyDown()){
                     this.time = time + 10;
-                }else if(!Screen.hasShiftDown() && Screen.hasControlDown()){
+                }else if(!KeyDownUtil.isShiftKeyDown() && KeyDownUtil.isCtrlKeyDown()){
                     this.time = time + 100;
-                }else if(Screen.hasShiftDown() && Screen.hasControlDown()){
+                }else if(KeyDownUtil.isShiftKeyDown() && KeyDownUtil.isCtrlKeyDown()){
                     this.time = time + 1000;
-                }else if(!Screen.hasShiftDown() && !Screen.hasControlDown()){
+                }else if(!KeyDownUtil.isShiftKeyDown() && !KeyDownUtil.isCtrlKeyDown()){
                     ++this.time;
                 }
             }
