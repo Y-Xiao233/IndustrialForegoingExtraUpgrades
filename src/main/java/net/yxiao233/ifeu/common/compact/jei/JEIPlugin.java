@@ -1,5 +1,6 @@
 package net.yxiao233.ifeu.common.compact.jei;
 
+import com.hrznstudio.titanium.util.RecipeUtil;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.helpers.IGuiHelper;
@@ -11,7 +12,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.MobBucketItem;
-import net.minecraft.world.item.crafting.RecipeManager;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -21,25 +23,19 @@ import net.yxiao233.ifeu.common.compact.jei.category.BlockRightClickCategory;
 import net.yxiao233.ifeu.common.compact.jei.category.DragonStarGeneratorCategory;
 import net.yxiao233.ifeu.common.compact.jei.category.InfuserCategory;
 import net.yxiao233.ifeu.common.config.machine.DragonStarGeneratorConfig;
+import net.yxiao233.ifeu.common.recipe.ArcaneDragonEggForgingRecipe;
 import net.yxiao233.ifeu.common.recipe.BlockRightClickRecipe;
 import net.yxiao233.ifeu.common.recipe.DragonStarGeneratorRecipe;
 import net.yxiao233.ifeu.common.recipe.InfuserRecipe;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModContents;
-import net.yxiao233.ifeu.common.utils.JEIRegistryHelper;
+import net.yxiao233.ifeu.common.registry.ModRecipes;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @JeiPlugin
 public class JEIPlugin implements IModPlugin {
-    private JEIRegistryHelper helper = new JEIRegistryHelper();
-    private void registries(IGuiHelper guiHelper){
-        helper.add(new InfuserCategory(guiHelper),ModBlocks.INFUSER);
-        helper.add(new ArcaneDragonEggForgingCategory(guiHelper),ModBlocks.ARCANE_DRAGON_EGG_FORGING);
-        helper.add(new BlockRightClickCategory(guiHelper),Blocks.DRAGON_EGG);
-        helper.add(new DragonStarGeneratorCategory(guiHelper),ModBlocks.DRAGON_STAR_GENERATOR);
-    }
     @Override
     public ResourceLocation getPluginUid() {
         return new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID,"jei_plugin");
@@ -47,24 +43,33 @@ public class JEIPlugin implements IModPlugin {
 
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
-        registries(registration.getJeiHelpers().getGuiHelper());
+        IGuiHelper guiHelper =  registration.getJeiHelpers().getGuiHelper();
 
-        helper.getRecipeCategories().forEach(registration::addRecipeCategories);
+        registration.addRecipeCategories(new InfuserCategory(guiHelper));
+        registration.addRecipeCategories(new ArcaneDragonEggForgingCategory(guiHelper));
+        registration.addRecipeCategories(new BlockRightClickCategory(guiHelper));
+        registration.addRecipeCategories(new DragonStarGeneratorCategory(guiHelper));
     }
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
-        RecipeManager manager = Minecraft.getInstance().level.getRecipeManager();
         addInfuserCompactRecipes(registration);
         addBlockRightClickRecipes(registration);
         addDragonStarGenerator(registration);
 
-        helper.addRecipes(manager,registration);
+        Level level = Minecraft.getInstance().level;
+        registration.addRecipes(ModRecipeType.INFUSER, RecipeUtil.getRecipes(level,(RecipeType<InfuserRecipe>) ModRecipes.INFUSER_TYPE.get()));
+        registration.addRecipes(ModRecipeType.ARCANE_DRAGON_EGG_FORGING, RecipeUtil.getRecipes(level,(RecipeType<ArcaneDragonEggForgingRecipe>) ModRecipes.ARCANE_DRAGON_EGG_FORGING_TYPE.get()));
+        registration.addRecipes(ModRecipeType.BLOCK_RIGHT_CLICK, RecipeUtil.getRecipes(level,(RecipeType<BlockRightClickRecipe>) ModRecipes.BLOCK_RIGHT_CLICK_TYPE.get()));
+        registration.addRecipes(ModRecipeType.DRAGON_STAR_GENERATOR, RecipeUtil.getRecipes(level,(RecipeType<DragonStarGeneratorRecipe>) ModRecipes.DRAGON_STAR_GENERATOR_TYPE.get()));
     }
 
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
-        helper.addRecipeCatalyst(registration);
+        registration.addRecipeCatalyst(ModBlocks.INFUSER.getLeft().get().asItem().getDefaultInstance(),ModRecipeType.INFUSER);
+        registration.addRecipeCatalyst(ModBlocks.ARCANE_DRAGON_EGG_FORGING.getLeft().get().asItem().getDefaultInstance(),ModRecipeType.ARCANE_DRAGON_EGG_FORGING);
+        registration.addRecipeCatalyst(Blocks.DRAGON_EGG.asItem().getDefaultInstance(),ModRecipeType.BLOCK_RIGHT_CLICK);
+        registration.addRecipeCatalyst(ModBlocks.DRAGON_STAR_GENERATOR.getLeft().get().asItem().getDefaultInstance(),ModRecipeType.DRAGON_STAR_GENERATOR);
     }
 
     private void addInfuserCompactRecipes(IRecipeRegistration registration){

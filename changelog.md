@@ -42,6 +42,9 @@
 - 为时间掌控者添加了可调节按钮信息
 - 修复了部分情况按住shift/ctrl时无法粗调某些值
 
+### v1.0.91
+- 修复了在游戏中使用reload指令会导致配方jei出现各种问题的bug
+
 ## en_us
 ### v1.0.0
 - init
@@ -83,3 +86,6 @@
 ### v1.0.9
 - Added adjustable button information for time controllers
 - Fixed some situations where holding down shift/ctrl prevents coarse adjustment of certain values
+
+### v1.0.91
+- Fixed a bug where using the reload command in the game would cause various issues with the jei
