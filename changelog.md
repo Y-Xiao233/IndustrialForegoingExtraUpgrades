@@ -20,7 +20,7 @@
 - 添加了各种龙之星等级的工具
 
 ### v1.0.5
-- 添加了日语翻译[\#1 bytwister716](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/pull/1)
+- 添加了日语翻译[\#1 by twister716](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/pull/1)
 
 ### v1.0.6
 - 添加了奥数龙蛋锻造炉,同时也支持使用KubeJS添加配方
@@ -46,7 +46,7 @@
 - 修复了在游戏中使用reload指令会导致配方jei出现各种问题的bug
 
 ### v2.0.0
-- 修复了在失活的龙蛋服务端加载时报错的bug[\#3 IceBlues](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/pull/3)
+- 修复了在失活的龙蛋服务端加载时报错的bug[\#3 by IceBlues](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/pull/3)
 
 ## en_us
 ### v1.0.0
@@ -68,7 +68,7 @@
 - Added various Dragon Star Tier tools
 
 ### v1.0.5
-- Add japanese translation[\#1 bytwister716](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/pull/1)
+- Add japanese translation[\#1 by twister716](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/pull/1)
 
 ### v1.0.6
 - Added Arcane Dragon Egg Forging,It also supports adding recipes using KubeJS
@@ -94,4 +94,4 @@
 - Fixed a bug where using the reload command in the game would cause various issues with the jei
 
 ### v2.0.0
-- Fixed the bug of reporting errors when loading on the server[\#3 IceBlues](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/pull/3)
+- Fixed the bug of reporting errors when loading on the server[\#3 by IceBlues](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/pull/3)
