@@ -45,6 +45,9 @@
 ### v1.0.91
 - 修复了在游戏中使用reload指令会导致配方jei出现各种问题的bug
 
+### v2.0.0
+- 修复了在失活的龙蛋服务端加载时报错的bug[\#3 IceBlues](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/pull/3)
+
 ## en_us
 ### v1.0.0
 - init
@@ -89,3 +92,6 @@
 
 ### v1.0.91
 - Fixed a bug where using the reload command in the game would cause various issues with the jei
+
+### v2.0.0
+- Fixed the bug of reporting errors when loading on the server[\#3 IceBlues](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/pull/3)
