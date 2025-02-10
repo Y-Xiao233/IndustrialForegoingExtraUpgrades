@@ -1,17 +1,21 @@
 package net.yxiao233.ifeu.common.registry;
 
+import com.google.common.base.Suppliers;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.LazyLoadedValue;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Objects;
 import java.util.function.Supplier;
 
 public enum ModTiers implements Tier {
     DRAGON_STAR(5,4096,18.0F,7.0F,25, () -> {
-        return Ingredient.of(ModContents.DRAGON_STAR.get());
+        return Ingredient.of(new ItemLike[]{ModContents.DRAGON_STAR});
     });
 
 
@@ -20,15 +24,16 @@ public enum ModTiers implements Tier {
     private final float speed;
     private final float damage;
     private final int enchantmentValue;
-    private final LazyLoadedValue<Ingredient> repairIngredient;
+    private final Supplier<Ingredient> repairIngredient;
 
-    private ModTiers(int pLevel, int pUses, float pSpeed, float pDamage, int pEnchantmentValue, Supplier pRepairIngredient) {
+    private ModTiers(int pLevel, int pUses, float pSpeed, float pDamage, int pEnchantmentValue, Supplier<Ingredient> pRepairIngredient) {
         this.level = pLevel;
         this.uses = pUses;
         this.speed = pSpeed;
         this.damage = pDamage;
         this.enchantmentValue = pEnchantmentValue;
-        this.repairIngredient = new LazyLoadedValue(pRepairIngredient);
+        Objects.requireNonNull(pRepairIngredient);
+        this.repairIngredient = Suppliers.memoize(pRepairIngredient::get);
     }
     public int getUses() {
         return this.uses;
