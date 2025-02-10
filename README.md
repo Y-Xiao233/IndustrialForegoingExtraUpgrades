@@ -55,15 +55,15 @@ StartupEvents.registry("item", event =>{
 如果造石机本身有这个物品配方,则不需要额外添加
 
 参数详解:
-	OutputItem:输出物品[ItemStack]
-	InputItem:输入物品[ItemStack]
+	OutputItem:输出物品[Ingredient]
+	InputItem:输入物品[Ingredient]
 ```
 
 - Dissolution Chamber 溶解成形机```event.recipes.industrialforegoing.dissolution_chamber(OutputItem,InputItems,InputFluid,ProcessingTime,OutputFluid)```
 ```
 参数详解:
 	OutputItem:输出物品[ItemStack]
-	InputItems:输入物品列表[[ItemStack...],最多8个输入物品]
+	InputItems:输入物品列表[[Ingredient...],最多8个输入物品]
 	InputFluid:输入流体[FluidStack]
 	ProcessingTime:时间[long,单位为tick]
 	OutputFluid:输出流体[FluidStack,可选,默认为空]
@@ -73,10 +73,10 @@ StartupEvents.registry("item", event =>{
 ```
 参数详解:
     OutputFluid:输出流体[FluidStack]
-    InputItem:输入物品列表[ItemStack]
+    InputItem:输入物品列表[Ingredient]
     breakChance:破坏概率[float]
-    result:方块在被破坏后会变成什么[Block]
-    defaultRecipe:是否为默认配方[booleam,默默任务false]
+    result:方块在被破坏后会变成什么[BlockState]
+    defaultRecipe:是否为默认配方[booleam,默认为false,若配方添加不成功请在结尾写上该参数]
 ```
 
 ### 示例
@@ -105,6 +105,6 @@ ServerEvents.recipes(event => {
 
 
     //Fluid Extractor
-    event.recipes.industrialforegoing.fluid_extractor(Fluid.of("minecraft:lava"),"minecraft:stone",0.01,"minecraft:air")
+    event.recipes.industrialforegoing.fluid_extractor(Fluid.of("minecraft:water",2),Item.of('minecraft:wet_sponge'),0.1,Blocks.SPONGE.defaultBlockState(),false)
 })
 ```
