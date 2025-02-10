@@ -12,7 +12,7 @@
       "item": "minecraft:sculk"
     },
     "B": {
-      "tag": "forge:gears/netherite"
+      "tag": "c:gears/netherite"
     }
   },
   "pattern": [

@@ -18,9 +18,9 @@ public class ModTags {
         }
     }
     public static class Items{
-        public static final TagKey<Item> GEARS_NETHERITE = TagUtil.getItemTag(ResourceLocation.parse("forge:gears/netherite"));
-        public static final TagKey<Item> GEARS = TagUtil.getItemTag(ResourceLocation.parse("forge:gears"));
-        public static final TagKey<Item> GEARS_SCULK = TagUtil.getItemTag(ResourceLocation.parse("forge:gears/sculk"));
+        public static final TagKey<Item> GEARS_NETHERITE = TagUtil.getItemTag(ResourceLocation.parse("c:gears/netherite"));
+        public static final TagKey<Item> GEARS = TagUtil.getItemTag(ResourceLocation.parse("c:gears"));
+        public static final TagKey<Item> GEARS_SCULK = TagUtil.getItemTag(ResourceLocation.parse("c:gears/sculk"));
         public static final TagKey<Item> MACHINE_FRAME_ULTIMATE = TagUtil.getItemTag(ResourceLocation.parse("ifeu:machine_frame/ultimate"));
 
         private static TagKey<Item> createTag(String name){
