@@ -1,0 +1,49 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "ifeu:efficiency_addon_4"
+    }
+  ],
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "tag": "c:dusts/redstone"
+    },
+    {
+      "tag": "c:dusts/redstone"
+    },
+    {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "tag": "forge:gears/sculk"
+    },
+    {
+      "tag": "forge:gears/sculk"
+    },
+    {
+      "item": "minecraft:blaze_rod"
+    },
+    {
+      "item": "minecraft:blaze_rod"
+    }
+  ],
+  "inputFluid": {
+    "amount": 1000,
+    "id": "industrialforegoing:pink_slime"
+  },
+  "output": {
+    "components": {
+      "titanium:augments": {
+        "Efficiency": 0.6
+      }
+    },
+    "count": 1,
+    "id": "ifeu:efficiency_addon_4"
+  },
+  "processingTime": 200
+}

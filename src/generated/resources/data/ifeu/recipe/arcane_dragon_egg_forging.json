@@ -1,0 +1,30 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "ifeu:arcane_dragon_egg_forging"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "c:chests"
+    },
+    "B": {
+      "item": "minecraft:sculk"
+    },
+    "D": {
+      "tag": "industrialforegoing:machine_frame/supreme"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "BDB",
+    "ABA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ifeu:arcane_dragon_egg_forging"
+  }
+}

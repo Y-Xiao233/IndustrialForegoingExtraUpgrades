@@ -1,0 +1,30 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "ifeu:infuser"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:bucket"
+    },
+    "B": {
+      "tag": "industrialforegoing:machine_frame/pity"
+    },
+    "D": {
+      "item": "minecraft:dragon_egg"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "BDB",
+    "ABA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ifeu:infuser"
+  }
+}

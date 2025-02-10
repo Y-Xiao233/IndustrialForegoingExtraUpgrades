@@ -1,0 +1,26 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "ifeu:dead_dragon_egg"
+    }
+  ],
+  "type": "ifeu:arcane_dragon_egg_forging",
+  "input": {
+    "count": 4,
+    "id": "minecraft:egg"
+  },
+  "inputFluid1": {
+    "amount": 250,
+    "id": "industrialforegoing:essence"
+  },
+  "inputFluid2": {
+    "amount": 4000,
+    "id": "ifeu:liquid_dragon_breath"
+  },
+  "output": {
+    "count": 1,
+    "id": "ifeu:dead_dragon_egg"
+  },
+  "processingTime": 200
+}

@@ -1,0 +1,26 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "minecraft:egg"
+    }
+  ],
+  "type": "ifeu:arcane_dragon_egg_forging",
+  "input": {
+    "count": 1,
+    "id": "ifeu:dead_dragon_egg"
+  },
+  "inputFluid1": {
+    "amount": 100,
+    "id": "industrialforegoing:pink_slime"
+  },
+  "inputFluid2": {
+    "amount": 1000,
+    "id": "minecraft:water"
+  },
+  "output": {
+    "count": 16,
+    "id": "minecraft:egg"
+  },
+  "processingTime": 200
+}

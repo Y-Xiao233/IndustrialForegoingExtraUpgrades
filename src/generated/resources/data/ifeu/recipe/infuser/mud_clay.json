@@ -1,0 +1,16 @@
+{
+  "type": "ifeu:infuser",
+  "input": {
+    "count": 1,
+    "id": "minecraft:mud"
+  },
+  "inputFluid": {
+    "amount": 2000,
+    "id": "minecraft:water"
+  },
+  "output": {
+    "count": 1,
+    "id": "minecraft:clay"
+  },
+  "processingTime": 500
+}

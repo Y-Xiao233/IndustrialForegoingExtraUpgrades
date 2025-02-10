@@ -1,0 +1,16 @@
+{
+  "type": "ifeu:infuser",
+  "input": {
+    "count": 1,
+    "id": "minecraft:nether_star"
+  },
+  "inputFluid": {
+    "amount": 1000,
+    "id": "ifeu:liquid_dragon_breath"
+  },
+  "output": {
+    "count": 1,
+    "id": "ifeu:dragon_star"
+  },
+  "processingTime": 200
+}
