@@ -1,8 +1,8 @@
 package net.yxiao233.ifeu.client.data;
 
 import net.minecraft.data.PackOutput;
-import net.minecraftforge.client.model.generators.ItemModelProvider;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.registry.ModFluids;

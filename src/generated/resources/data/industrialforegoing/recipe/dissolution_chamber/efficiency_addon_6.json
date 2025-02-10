@@ -1,0 +1,49 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "ifeu:efficiency_addon_6"
+    }
+  ],
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "tag": "c:dusts/redstone"
+    },
+    {
+      "tag": "c:dusts/redstone"
+    },
+    {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "item": "minecraft:blaze_rod"
+    },
+    {
+      "item": "minecraft:blaze_rod"
+    }
+  ],
+  "inputFluid": {
+    "amount": 1000,
+    "id": "industrialforegoing:pink_slime"
+  },
+  "output": {
+    "components": {
+      "titanium:augments": {
+        "Efficiency": 0.39999998
+      }
+    },
+    "count": 1,
+    "id": "ifeu:efficiency_addon_6"
+  },
+  "processingTime": 200
+}

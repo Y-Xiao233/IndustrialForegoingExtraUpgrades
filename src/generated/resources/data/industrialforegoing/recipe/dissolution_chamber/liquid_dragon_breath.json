@@ -1,0 +1,48 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "item": "minecraft:dragon_breath"
+    },
+    {
+      "item": "minecraft:dragon_breath"
+    },
+    {
+      "item": "minecraft:dragon_breath"
+    },
+    {
+      "item": "minecraft:dragon_breath"
+    },
+    {
+      "item": "minecraft:dragon_breath"
+    },
+    {
+      "item": "minecraft:dragon_breath"
+    },
+    {
+      "item": "minecraft:dragon_breath"
+    },
+    {
+      "item": "minecraft:dragon_breath"
+    }
+  ],
+  "inputFluid": {
+    "amount": 500,
+    "id": "ifeu:liquid_sculk_matter"
+  },
+  "output": {
+    "count": 8,
+    "id": "minecraft:glass_bottle"
+  },
+  "outputFluid": {
+    "amount": 100,
+    "id": "ifeu:liquid_sculk_matter"
+  },
+  "processingTime": 200
+}

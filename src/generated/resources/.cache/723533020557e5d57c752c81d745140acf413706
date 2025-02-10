@@ -1,4 +1,4 @@
-// 1.20.1	2025-01-20T21:06:02.5130763	Tags for minecraft:block mod id ifeu
-caf4c98e85cb3415a948909a7ff166fdb7bbf229 data/ifeu/tags/blocks/machine_frame/ultimate.json
-b9eb49d7f8a71965a0360ce632f73bcd47f99f23 data/minecraft/tags/blocks/mineable/pickaxe.json
-b48e36b55f310c896de4fc1ac9c42deb3cb581ff data/minecraft/tags/blocks/needs_stone_tool.json
+// 1.21.1	2025-02-10T19:33:57.3918802	Tags for minecraft:block mod id ifeu
+caf4c98e85cb3415a948909a7ff166fdb7bbf229 data/ifeu/tags/block/machine_frame/ultimate.json
+b9eb49d7f8a71965a0360ce632f73bcd47f99f23 data/minecraft/tags/block/mineable/pickaxe.json
+b48e36b55f310c896de4fc1ac9c42deb3cb581ff data/minecraft/tags/block/needs_stone_tool.json

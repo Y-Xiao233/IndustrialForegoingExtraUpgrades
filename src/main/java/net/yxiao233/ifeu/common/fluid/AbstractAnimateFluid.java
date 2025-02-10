@@ -18,7 +18,7 @@ import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
-import net.minecraftforge.fluids.FluidType;
+import net.neoforged.neoforge.fluids.FluidType;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -104,7 +104,7 @@ public abstract class AbstractAnimateFluid extends FlowingFluid {
     }
 
     public FluidType getFluidType() {
-        return (FluidType)this.abstractAnimateFluidInstance.getFluidType().get();
+        return (FluidType) this.abstractAnimateFluidInstance.getFluidType().get();
     }
 
     public abstract static class Source<T extends AbstractAnimateFluidInstance> extends AbstractAnimateFluid {

@@ -1,0 +1,30 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "ifeu:dragon_star_axe"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "ifeu:dragon_star"
+    },
+    "B": {
+      "item": "minecraft:netherite_axe"
+    },
+    "C": {
+      "tag": "c:rods"
+    }
+  },
+  "pattern": [
+    "AA ",
+    "AB ",
+    " C "
+  ],
+  "result": {
+    "count": 1,
+    "id": "ifeu:dragon_star_axe"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "ifeu:speed_addon_4"
+    }
+  ],
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "tag": "c:dusts/redstone"
+    },
+    {
+      "tag": "c:dusts/redstone"
+    },
+    {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "tag": "forge:gears/sculk"
+    },
+    {
+      "tag": "forge:gears/sculk"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "inputFluid": {
+    "amount": 2000,
+    "id": "industrialforegoing:ether_gas"
+  },
+  "output": {
+    "components": {
+      "titanium:augments": {
+        "Speed": 7.0
+      }
+    },
+    "count": 1,
+    "id": "ifeu:speed_addon_4"
+  },
+  "processingTime": 200
+}

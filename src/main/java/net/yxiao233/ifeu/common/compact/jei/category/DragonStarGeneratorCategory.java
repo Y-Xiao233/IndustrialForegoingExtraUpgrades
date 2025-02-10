@@ -21,23 +21,18 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.yxiao233.ifeu.common.compact.jei.AbstractJEICategory;
 import net.yxiao233.ifeu.common.compact.jei.ModRecipeType;
-import net.yxiao233.ifeu.common.config.machine.DragonStarGeneratorConfig;
-import net.yxiao233.ifeu.common.config.machine.InfuserConfig;
 import net.yxiao233.ifeu.common.gui.AllGuiTextures;
-import net.yxiao233.ifeu.common.recipe.ArcaneDragonEggForgingRecipe;
 import net.yxiao233.ifeu.common.recipe.DragonStarGeneratorRecipe;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModRecipes;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class DragonStarGeneratorCategory extends AbstractJEICategory<DragonStarGeneratorRecipe> {
     public static final Component TITLE = Component.translatable("block.ifeu.dragon_star_generator");
     public DragonStarGeneratorCategory(IGuiHelper helper) {
-        super(helper, ModRecipeType.DRAGON_STAR_GENERATOR, TITLE, ModBlocks.DRAGON_STAR_GENERATOR.getLeft().get().asItem(), 95, 82);
+        super(helper, ModRecipeType.DRAGON_STAR_GENERATOR, TITLE, ModBlocks.DRAGON_STAR_GENERATOR.getBlock().asItem(), 95, 82);
     }
 
     @Override

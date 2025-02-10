@@ -9,7 +9,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.energy.IEnergyStorage;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
 import org.jetbrains.annotations.NotNull;
 
@@ -24,7 +25,7 @@ public class CreativeCapacitorEntity extends IndustrialGeneratorTile<CreativeCap
                 .setColor(DyeColor.BLUE)
                 .setSlotLimit(1)
                 .setInputFilter((stack, integer) -> {
-                    return stack.getCapability(ForgeCapabilities.ENERGY).isPresent();
+                    return stack.getCapability(Capabilities.EnergyStorage.ITEM) != null;
                 })
         );
     }
@@ -33,17 +34,16 @@ public class CreativeCapacitorEntity extends IndustrialGeneratorTile<CreativeCap
     public void serverTick(Level level, BlockPos pos, BlockState state, CreativeCapacitorEntity blockEntity) {
         super.serverTick(level,pos,state,blockEntity);
         if (!this.chargingSlot.getStackInSlot(0).isEmpty()) {
-            this.chargingSlot.getStackInSlot(0).getCapability(ForgeCapabilities.ENERGY).ifPresent((energyStorage) -> {
-                if(energyStorage instanceof InfinityEnergyStorage<?> infinityEnergyStorage){
-                    long added = Math.min(this.getEnergyStorage().getEnergyStored(),Long.MAX_VALUE - infinityEnergyStorage.getLongEnergyStored());
-                    infinityEnergyStorage.setEnergyStored(infinityEnergyStorage.getLongEnergyStored() + added);
-                    this.getEnergyStorage().setEnergyStored((int) (this.getEnergyStorage().getEnergyStored() - added));
-                    this.markForUpdate();
-                }else if(energyStorage.canReceive() && energyStorage.getEnergyStored() <= energyStorage.getMaxEnergyStored()){
-                    int added = energyStorage.getMaxEnergyStored() - energyStorage.getEnergyStored();
-                    energyStorage.receiveEnergy(added,false);
-                }
-            });
+            IEnergyStorage energyStorage = this.chargingSlot.getStackInSlot(0).getCapability(Capabilities.EnergyStorage.ITEM);
+            if(energyStorage instanceof InfinityEnergyStorage<?> infinityEnergyStorage){
+                long added = Math.min(this.getEnergyStorage().getEnergyStored(),Long.MAX_VALUE - infinityEnergyStorage.getLongEnergyStored());
+                infinityEnergyStorage.setEnergyStored(infinityEnergyStorage.getLongEnergyStored() + added);
+                this.getEnergyStorage().setEnergyStored((int) (this.getEnergyStorage().getEnergyStored() - added));
+                this.markForUpdate();
+            }else if(energyStorage.canReceive() && energyStorage.getEnergyStored() <= energyStorage.getMaxEnergyStored()){
+                int added = energyStorage.getMaxEnergyStored() - energyStorage.getEnergyStored();
+                energyStorage.receiveEnergy(added,false);
+            }
         }
     }
 

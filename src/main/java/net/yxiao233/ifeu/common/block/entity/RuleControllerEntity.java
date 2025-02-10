@@ -20,15 +20,15 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.neoforge.network.PacketDistributor;
 import net.yxiao233.ifeu.common.components.TextGuiComponent;
 import net.yxiao233.ifeu.common.components.TextureGuiComponent;
 import net.yxiao233.ifeu.common.config.machine.RuleControllerConfig;
 import net.yxiao233.ifeu.common.gui.AllGuiTextures;
-import net.yxiao233.ifeu.common.networking.ModNetWorking;
 import net.yxiao233.ifeu.common.networking.packet.BooleanSyncS2CPacket;
-import net.yxiao233.ifeu.common.networking.packet.interfaces.BooleanValueSyncS2C;
+import net.yxiao233.ifeu.common.networking.packet.BooleanValueSyncS2C;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.utils.GameRuleGetter;
@@ -138,7 +138,7 @@ public class RuleControllerEntity extends IndustrialProcessingTile<RuleControlle
         super.serverTick(level, pos, state, blockEntity);
         if(!level.isClientSide()){
             this.value = GameRuleUtil.getGameRule(level,rules[rule].getRuleKey());
-            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(pos,value));
+            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(pos.getX(),pos.getY(),pos.getZ(),value)));
         }
     }
 
@@ -198,12 +198,12 @@ public class RuleControllerEntity extends IndustrialProcessingTile<RuleControlle
     }
 
     @Override
-    public void setValue(boolean... value) {
-        this.value = value[0];
+    public void setValue(boolean value) {
+        this.value = value;
     }
 
     @Override
-    public boolean[] getValues() {
-        return new boolean[]{value};
+    public boolean getValues() {
+        return value;
     }
 }

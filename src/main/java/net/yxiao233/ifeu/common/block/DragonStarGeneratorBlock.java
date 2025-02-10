@@ -3,9 +3,7 @@ package net.yxiao233.ifeu.common.block;
 import com.buuz135.industrial.block.IndustrialBlock;
 import com.buuz135.industrial.utils.IndustrialTags;
 import com.hrznstudio.titanium.recipe.generator.TitaniumShapedRecipeBuilder;
-import com.hrznstudio.titanium.tab.TitaniumTab;
-import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.world.item.Items;
+import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.yxiao233.ifeu.common.block.entity.DragonStarGeneratorEntity;
@@ -13,11 +11,9 @@ import net.yxiao233.ifeu.common.registry.ModItems;
 import net.yxiao233.ifeu.common.registry.ModTags;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.function.Consumer;
-
 public class DragonStarGeneratorBlock extends IndustrialBlock<DragonStarGeneratorEntity> {
     public DragonStarGeneratorBlock() {
-        super("dragon_star_generator", Properties.copy(Blocks.IRON_BLOCK), DragonStarGeneratorEntity.class, ModItems.TAB_ADDONS);
+        super("dragon_star_generator", Properties.ofFullCopy(Blocks.IRON_BLOCK), DragonStarGeneratorEntity.class, ModItems.TAB_ADDONS);
     }
     @Override
     public BlockEntityType.BlockEntitySupplier<?> getTileEntityFactory() {
@@ -31,7 +27,7 @@ public class DragonStarGeneratorBlock extends IndustrialBlock<DragonStarGenerato
     }
 
     @Override
-    public void registerRecipe(Consumer<FinishedRecipe> consumer) {
+    public void registerRecipe(RecipeOutput consumer) {
         TitaniumShapedRecipeBuilder.shapedRecipe(this)
                 .pattern("ACA").pattern("DFE").pattern("GBG")
                 .define('A', IndustrialTags.Items.PLASTIC)

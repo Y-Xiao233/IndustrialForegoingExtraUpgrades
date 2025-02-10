@@ -1,9 +1,12 @@
 package net.yxiao233.ifeu.common.compact.jei;
 
+import com.hrznstudio.titanium.api.client.AssetTypes;
+import com.hrznstudio.titanium.client.screen.asset.DefaultAssetProvider;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
+import mezz.jei.api.gui.builder.ITooltipBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
-import mezz.jei.api.gui.ingredient.IRecipeSlotTooltipCallback;
+import mezz.jei.api.gui.ingredient.IRecipeSlotRichTooltipCallback;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
@@ -14,9 +17,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.FormattedText;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.FormattedCharSequence;
-import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
@@ -26,10 +29,10 @@ import net.yxiao233.ifeu.common.gui.AllGuiTextures;
 import net.yxiao233.ifeu.common.utils.TooltipCallBackHelper;
 import org.jetbrains.annotations.Nullable;
 
-import javax.swing.text.html.Option;
+import java.awt.*;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public abstract class AbstractJEICategory<T extends Recipe<?>> implements IRecipeCategory<T> {
     public final RecipeType<T> type;
@@ -39,7 +42,7 @@ public abstract class AbstractJEICategory<T extends Recipe<?>> implements IRecip
     public abstract net.minecraft.world.item.crafting.RecipeType<T> getTypeInstance();
 
     public AbstractJEICategory(IGuiHelper helper, RecipeType<T> type, Component title, Item icon, int width, int height) {
-        ResourceLocation TEXTURE = new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID,"textures/gui/empty.png");
+        ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(IndustrialForegoingExtraUpgrades.MODID,"textures/gui/empty.png");
         this.type = type;
         this.title = title;
         this.background = helper.createDrawable(TEXTURE,0,0,width,height);
@@ -53,10 +56,13 @@ public abstract class AbstractJEICategory<T extends Recipe<?>> implements IRecip
     public Component getTitle() {
         return title;
     }
+
+    @Nullable
     @Override
     public IDrawable getBackground() {
         return background;
     }
+
     @Override
     public @Nullable IDrawable getIcon() {
         return icon;
@@ -87,6 +93,18 @@ public abstract class AbstractJEICategory<T extends Recipe<?>> implements IRecip
         );
     }
 
+    public void addEnergyBarTooltip(ITooltipBuilder tooltip, double mouseX, double mouseY, int stored, int capacity){
+        Rectangle rec = DefaultAssetProvider.DEFAULT_PROVIDER.getAsset(AssetTypes.ENERGY_BACKGROUND).getArea();
+        if (new Rectangle(0, 12, rec.width, rec.height).contains(mouseX, mouseY)) {
+            Component[] components = new Component[2];
+            String s = String.valueOf(ChatFormatting.GOLD);
+            components[0] = Component.literal(s + Component.translatable("tooltip.titanium.power").getString());
+            s = (new DecimalFormat()).format((long)stored);
+            components[1] = Component.literal(s + String.valueOf(ChatFormatting.GOLD) + "/" + String.valueOf(ChatFormatting.WHITE) + (new DecimalFormat()).format((long)capacity) + String.valueOf(ChatFormatting.DARK_AQUA) + " FE");
+            tooltip.add(FormattedText.composite(components));
+        }
+    }
+
     public void addTooltipOnTexture(GuiGraphics guiGraphics, int width, int height, Component component, int x, int y,double mouseX, double mouseY){
         Font font = Minecraft.getInstance().font;
 
@@ -99,13 +117,13 @@ public abstract class AbstractJEICategory<T extends Recipe<?>> implements IRecip
         addTooltipOnTexture(guiGraphics,allGuiTextures.width,allGuiTextures.height,component,x,y,mouseX,mouseY);
     }
 
-    public IRecipeSlotTooltipCallback addText(String translatableKey, ChatFormatting style){
+    public IRecipeSlotRichTooltipCallback addText(String translatableKey, ChatFormatting style){
         return (view, tooltip) ->{
-            tooltip.add(1,Component.translatable(translatableKey).withStyle(style));
+            tooltip.add(Component.translatable(translatableKey).withStyle(style));
         };
     }
 
-    public IRecipeSlotTooltipCallback addText(TooltipCallBackHelper... tooltips){
+    public IRecipeSlotRichTooltipCallback addText(TooltipCallBackHelper... tooltips){
         return (view, tooltip) ->{
             for (int i = 0; i < tooltips.length; i++) {
                 tooltip.add(tooltips[i].getComponent());

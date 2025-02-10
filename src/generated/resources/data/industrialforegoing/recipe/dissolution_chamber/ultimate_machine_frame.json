@@ -1,0 +1,48 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "ifeu:ultimate_machine_frame"
+    }
+  ],
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "tag": "c:plastics"
+    },
+    {
+      "tag": "industrialforegoing:machine_frame/supreme"
+    },
+    {
+      "tag": "c:plastics"
+    },
+    {
+      "item": "ifeu:dragon_star_block"
+    },
+    {
+      "item": "ifeu:dragon_star_block"
+    },
+    {
+      "item": "minecraft:dragon_egg"
+    },
+    {
+      "tag": "forge:gears/sculk"
+    },
+    {
+      "item": "minecraft:dragon_egg"
+    }
+  ],
+  "inputFluid": {
+    "amount": 8000,
+    "id": "ifeu:liquid_sculk_matter"
+  },
+  "output": {
+    "count": 1,
+    "id": "ifeu:ultimate_machine_frame"
+  },
+  "outputFluid": {
+    "amount": 8000,
+    "id": "minecraft:water"
+  },
+  "processingTime": 200
+}

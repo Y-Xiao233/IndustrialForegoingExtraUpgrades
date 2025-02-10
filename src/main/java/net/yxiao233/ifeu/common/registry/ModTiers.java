@@ -42,6 +42,11 @@ public enum ModTiers implements Tier {
         return this.damage;
     }
 
+    @Override
+    public TagKey<Block> getIncorrectBlocksForDrops() {
+        return ModTags.Blocks.NEEDS_DRAGON_STAR_TOOL;
+    }
+
     public int getLevel() {
         return this.level;
     }

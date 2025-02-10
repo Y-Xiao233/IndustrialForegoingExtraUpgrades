@@ -1,13 +1,12 @@
 package net.yxiao233.ifeu.common.compact.kubejs.schemas;
 
-import dev.latvian.mods.kubejs.item.InputItem;
-import dev.latvian.mods.kubejs.item.OutputItem;
 import dev.latvian.mods.kubejs.recipe.RecipeKey;
-import dev.latvian.mods.kubejs.recipe.component.ItemComponents;
+import dev.latvian.mods.kubejs.recipe.component.ItemStackComponent;
 import dev.latvian.mods.kubejs.recipe.schema.RecipeSchema;
+import net.minecraft.world.item.ItemStack;
 
 public interface CrusherSchema {
-    RecipeKey<InputItem> INPUT = ItemComponents.INPUT.key("input");
-    RecipeKey<OutputItem> OUTPUT = ItemComponents.OUTPUT.key("output");
+    RecipeKey<ItemStack> INPUT = ItemStackComponent.ITEM_STACK.inputKey("input");
+    RecipeKey<ItemStack> OUTPUT = ItemStackComponent.ITEM_STACK.outputKey("output");
     RecipeSchema SCHEMA = new RecipeSchema(OUTPUT,INPUT);
 }

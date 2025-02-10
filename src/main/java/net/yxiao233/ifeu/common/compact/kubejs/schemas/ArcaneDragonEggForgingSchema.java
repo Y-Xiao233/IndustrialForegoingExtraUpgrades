@@ -1,22 +1,20 @@
 package net.yxiao233.ifeu.common.compact.kubejs.schemas;
 
-import dev.latvian.mods.kubejs.fluid.EmptyFluidStackJS;
-import dev.latvian.mods.kubejs.fluid.InputFluid;
-import dev.latvian.mods.kubejs.fluid.OutputFluid;
-import dev.latvian.mods.kubejs.item.InputItem;
-import dev.latvian.mods.kubejs.item.OutputItem;
 import dev.latvian.mods.kubejs.recipe.RecipeKey;
-import dev.latvian.mods.kubejs.recipe.component.FluidComponents;
-import dev.latvian.mods.kubejs.recipe.component.ItemComponents;
+import dev.latvian.mods.kubejs.recipe.component.FluidStackComponent;
+import dev.latvian.mods.kubejs.recipe.component.ItemStackComponent;
 import dev.latvian.mods.kubejs.recipe.component.TimeComponent;
 import dev.latvian.mods.kubejs.recipe.schema.RecipeSchema;
+import dev.latvian.mods.kubejs.util.TickDuration;
+import net.minecraft.world.item.ItemStack;
+import net.neoforged.neoforge.fluids.FluidStack;
 
 public interface ArcaneDragonEggForgingSchema{
-    RecipeKey<InputItem> INPUT = ItemComponents.INPUT.key("input");
-    RecipeKey<InputFluid> INPUT_FLUID_1 = FluidComponents.INPUT.key("inputFluid1");
-    RecipeKey<InputFluid> INPUT_FLUID_2 = FluidComponents.INPUT.key("inputFluid2");
-    RecipeKey<OutputItem> OUTPUT = ItemComponents.OUTPUT.key("output");
-    RecipeKey<OutputFluid> OUTPUT_FLUID = FluidComponents.OUTPUT.key("outputFluid").optional(EmptyFluidStackJS.INSTANCE).allowEmpty();
-    RecipeKey<Long> TIME = TimeComponent.TICKS.key("processingTime");
+    RecipeKey<ItemStack> INPUT = ItemStackComponent.ITEM_STACK.inputKey("input");
+    RecipeKey<FluidStack> INPUT_FLUID_1 = FluidStackComponent.FLUID_STACK.inputKey("inputFluid1");
+    RecipeKey<FluidStack> INPUT_FLUID_2 = FluidStackComponent.FLUID_STACK.inputKey("inputFluid2");
+    RecipeKey<ItemStack> OUTPUT = ItemStackComponent.ITEM_STACK.outputKey("output").optional(ItemStack.EMPTY).allowEmpty();
+    RecipeKey<FluidStack> OUTPUT_FLUID = FluidStackComponent.FLUID_STACK.outputKey("outputFluid").optional(FluidStack.EMPTY).allowEmpty();
+    RecipeKey<TickDuration> TIME = TimeComponent.TICKS.otherKey("processingTime");
     RecipeSchema SCHEMA = new RecipeSchema(OUTPUT,INPUT,INPUT_FLUID_1,INPUT_FLUID_2,TIME,OUTPUT_FLUID);
 }

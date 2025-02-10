@@ -1,63 +1,29 @@
 package net.yxiao233.ifeu.common.networking.packet;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.core.BlockPos;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraftforge.network.NetworkEvent;
-import net.yxiao233.ifeu.common.block.entity.TimeControllerEntity;
-import net.yxiao233.ifeu.common.block.entity.WeatherControllerEntity;
-import net.yxiao233.ifeu.common.networking.packet.interfaces.BooleanValueSyncS2C;
+import io.netty.buffer.ByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
+import net.minecraft.resources.ResourceLocation;
 
-import java.util.function.Supplier;
+public record BooleanSyncS2CPacket(int x, int y, int z, boolean value) implements CustomPacketPayload {
 
-public class BooleanSyncS2CPacket {
-    private final boolean[] value;
-    private final BlockPos blockPos;
-    private final int size;
-    public BooleanSyncS2CPacket(BlockPos blockPos,boolean... value) {
-        this.value = value;
-        this.blockPos = blockPos;
-        this.size = value.length;
-    }
+    public static final CustomPacketPayload.Type<BooleanSyncS2CPacket> TYPE = new CustomPacketPayload.Type<>(ResourceLocation.fromNamespaceAndPath("ifeu", "data"));
 
-    public BooleanSyncS2CPacket(BlockPos blockPos,boolean value) {
-        this.value = new boolean[]{value};
-        this.blockPos = blockPos;
-        this.size = this.value.length;
-    }
+    public static final StreamCodec<ByteBuf, BooleanSyncS2CPacket> STREAM_CODEC = StreamCodec.composite(
+            ByteBufCodecs.VAR_INT,
+            BooleanSyncS2CPacket::x,
+            ByteBufCodecs.VAR_INT,
+            BooleanSyncS2CPacket::y,
+            ByteBufCodecs.VAR_INT,
+            BooleanSyncS2CPacket::z,
+            ByteBufCodecs.BOOL,
+            BooleanSyncS2CPacket::value,
+            BooleanSyncS2CPacket::new
+    );
 
-    public BooleanSyncS2CPacket(FriendlyByteBuf buffer) {
-        this.size = buffer.readInt();
-        this.blockPos = buffer.readBlockPos();
-
-        boolean[] temp = new boolean[size];
-        for (int i = 0; i < this.size; i++) {
-            temp[i] = buffer.readBoolean();
-        }
-
-        this.value = temp;
-    }
-
-
-    public void toBytes(FriendlyByteBuf buffer) {
-        buffer.writeInt(size);
-        buffer.writeBlockPos(blockPos);
-
-        for (boolean b : this.value) {
-            buffer.writeBoolean(b);
-        }
-    }
-
-    public boolean handle(Supplier<NetworkEvent.Context> supplier) {
-        NetworkEvent.Context context = supplier.get();
-        context.enqueueWork(() -> {
-            BlockEntity blockEntity = Minecraft.getInstance().level.getBlockEntity(blockPos);
-            if(blockEntity instanceof BooleanValueSyncS2C entity){
-                entity.setValue(this.value);
-                blockEntity.setChanged();
-            }
-        });
-        return true;
+    @Override
+    public CustomPacketPayload.Type<? extends CustomPacketPayload> type() {
+        return TYPE;
     }
 }

@@ -1,0 +1,44 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "ifeu:laser_lens_dragon"
+    }
+  ],
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "item": "ifeu:dragon_star"
+    }
+  ],
+  "inputFluid": {
+    "amount": 1000,
+    "id": "industrialforegoing:ether_gas"
+  },
+  "output": {
+    "count": 1,
+    "id": "ifeu:laser_lens_dragon"
+  },
+  "processingTime": 200
+}

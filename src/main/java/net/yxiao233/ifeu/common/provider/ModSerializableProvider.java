@@ -5,12 +5,7 @@ import com.buuz135.industrial.recipe.DissolutionChamberRecipe;
 import com.buuz135.industrial.recipe.LaserDrillFluidRecipe;
 import com.buuz135.industrial.recipe.LaserDrillRarity;
 import com.buuz135.industrial.utils.IndustrialTags;
-import com.hrznstudio.titanium.recipe.generator.IJSONGenerator;
-import com.hrznstudio.titanium.recipe.generator.IJsonFile;
-import com.hrznstudio.titanium.recipe.generator.TitaniumSerializableProvider;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceKey;
+import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -18,28 +13,24 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraftforge.common.Tags;
-import net.minecraftforge.fluids.FluidStack;
-import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
+import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.fluids.FluidStack;
 import net.yxiao233.ifeu.common.recipe.ArcaneDragonEggForgingRecipe;
 import net.yxiao233.ifeu.common.recipe.InfuserRecipe;
 import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.registry.ModFluids;
 import net.yxiao233.ifeu.common.registry.ModTags;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
-public class ModSerializableProvider extends TitaniumSerializableProvider {
-    private static final String modId = IndustrialForegoingExtraUpgrades.MODID;
-    public ModSerializableProvider(DataGenerator generatorIn, String modid) {
-        super(generatorIn, modid);
-    }
-
-    @Override
-    public void add(Map<IJsonFile, IJSONGenerator> map) {
+public class ModSerializableProvider{
+    public static void init(RecipeOutput recipeOutput) {
         //dissolution chamber
-        new DissolutionChamberRecipe(new ResourceLocation(modId,"liquid_dragon_breath"),
-                new Ingredient.Value[]{
+        DissolutionChamberRecipe.createRecipe(recipeOutput,"liquid_dragon_breath", new DissolutionChamberRecipe(
+                List.of(
                         itemValue(Items.DRAGON_BREATH.getDefaultInstance()),
                         itemValue(Items.DRAGON_BREATH.getDefaultInstance()),
                         itemValue(Items.DRAGON_BREATH.getDefaultInstance()),
@@ -47,14 +38,13 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                         itemValue(Items.DRAGON_BREATH.getDefaultInstance()),
                         itemValue(Items.DRAGON_BREATH.getDefaultInstance()),
                         itemValue(Items.DRAGON_BREATH.getDefaultInstance()),
-                        itemValue(Items.DRAGON_BREATH.getDefaultInstance()),
-                },
-                new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),500),200,
-                new ItemStack(Items.GLASS_BOTTLE,8),new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),100)
-        );
+                        itemValue(Items.DRAGON_BREATH.getDefaultInstance())
+                ),new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),500),200,
+                Optional.of(new ItemStack(Items.GLASS_BOTTLE,8)), Optional.of(new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),100))
+        ));
 
-        new DissolutionChamberRecipe(new ResourceLocation(modId,"laser_lens_sculk"),
-                new Ingredient.Value[]{
+        DissolutionChamberRecipe.createRecipe(recipeOutput,"laser_lens_sculk", new DissolutionChamberRecipe(
+                List.of(
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
@@ -63,12 +53,12 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                         itemValue(Items.SCULK.getDefaultInstance()),
                         itemValue(Items.SCULK.getDefaultInstance()),
                         itemValue(Items.SCULK.getDefaultInstance())
-                },new FluidStack(ModuleCore.ETHER.getSourceFluid().get(), 1000),200,
-                ModContents.LASER_LENS_SCULK.get().getDefaultInstance(),FluidStack.EMPTY
-        );
+                ),new FluidStack(ModuleCore.ETHER.getSourceFluid().get(), 1000),200,
+                Optional.of(ModContents.LASER_LENS_SCULK.get().getDefaultInstance()),Optional.empty()
+        ));
 
-        new DissolutionChamberRecipe(new ResourceLocation(modId,"laser_lens_dragon"),
-                new Ingredient.Value[]{
+        DissolutionChamberRecipe.createRecipe(recipeOutput,"laser_lens_dragon", new DissolutionChamberRecipe(
+                List.of(
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
@@ -77,12 +67,12 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                         itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
                         itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
                         itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance())
-                },new FluidStack(ModuleCore.ETHER.getSourceFluid().get(), 1000),200,
-                ModContents.LASER_LENS_DRAGON.get().getDefaultInstance(),FluidStack.EMPTY
-        );
+                ),new FluidStack(ModuleCore.ETHER.getSourceFluid().get(), 1000),200,
+                Optional.of(ModContents.LASER_LENS_DRAGON.get().getDefaultInstance()),Optional.empty()
+        ));
 
-        new DissolutionChamberRecipe(new ResourceLocation(modId,"ultimate_machine_frame"),
-                new Ingredient.Value[]{
+        DissolutionChamberRecipe.createRecipe(recipeOutput,"ultimate_machine_frame", new DissolutionChamberRecipe(
+                List.of(
                         tagValue(IndustrialTags.Items.PLASTIC),
                         tagValue(IndustrialTags.Items.MACHINE_FRAME_SUPREME),
                         tagValue(IndustrialTags.Items.PLASTIC),
@@ -91,79 +81,74 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                         itemValue(Items.DRAGON_EGG.getDefaultInstance()),
                         tagValue(ModTags.Items.GEARS_SCULK),
                         itemValue(Items.DRAGON_EGG.getDefaultInstance())
-                },new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),8000),200,
-                ModContents.ULTIMATE_MACHINE_FRAME.get().asItem().getDefaultInstance(),new FluidStack(Fluids.WATER,8000)
-        );
+                ),new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),8000),200,
+                Optional.of(ModContents.ULTIMATE_MACHINE_FRAME.get().asItem().getDefaultInstance()),Optional.of(new FluidStack(Fluids.WATER,8000))
+        ));
+
 
 
         //infuser
-        new InfuserRecipe(new ResourceLocation(modId,"dragon_star"),
+        InfuserRecipe.createRecipe(recipeOutput,"dragon_star",new InfuserRecipe(
                 Items.NETHER_STAR.getDefaultInstance(), new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(), 1000),200, ModContents.DRAGON_STAR.get().getDefaultInstance()
-        );
+        ));
 
-        new InfuserRecipe(new ResourceLocation(modId,"dirt_mud"),
+        InfuserRecipe.createRecipe(recipeOutput,"dirt_mud",new InfuserRecipe(
                 Items.DIRT.getDefaultInstance(),new FluidStack(Fluids.WATER.getSource(),1000),200,Items.MUD.getDefaultInstance()
-        );
+        ));
 
-        new InfuserRecipe(new ResourceLocation(modId,"mud_clay"),
+        InfuserRecipe.createRecipe(recipeOutput,"mud_clay",new InfuserRecipe(
                 Items.MUD.getDefaultInstance(),new FluidStack(Fluids.WATER.getSource(),2000),500,Items.CLAY.getDefaultInstance()
-        );
+        ));
 
-        new InfuserRecipe(new ResourceLocation(modId,"cobblestone_blackstone"),
+        InfuserRecipe.createRecipe(recipeOutput,"cobblestone_blackstone",new InfuserRecipe(
                 Items.COBBLESTONE.getDefaultInstance(),new FluidStack(Fluids.LAVA.getSource(),200),200,Items.BLACKSTONE.getDefaultInstance()
-        );
+        ));
 
-        new InfuserRecipe(new ResourceLocation(modId,"dragon_star_block"),
+        InfuserRecipe.createRecipe(recipeOutput,"dragon_star_block",new InfuserRecipe(
                 new ItemStack(ModContents.DRAGON_STAR.get(),9),new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),8000),200,ModContents.DRAGON_STAR_BLOCK.get().asItem().getDefaultInstance()
-        );
+        ));
 
-        new InfuserRecipe(new ResourceLocation(modId,"dragon_star_from_block"),
+        InfuserRecipe.createRecipe(recipeOutput,"dragon_star_from_block",new InfuserRecipe(
                 ModContents.DRAGON_STAR_BLOCK.get().asItem().getDefaultInstance(),new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),100),200,new ItemStack(ModContents.DRAGON_STAR.get(),9)
-        );
+        ));
 
 
         //laser drill fluid
-        new LaserDrillFluidRecipe("liquid_sculk_matter",
-                new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),10).writeToNBT(new CompoundTag()),
+        LaserDrillFluidRecipe.createRecipe(recipeOutput,"liquid_sculk_matter","ifeu",new LaserDrillFluidRecipe(
+                new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),10),
                 Ingredient.of(ModContents.LASER_LENS_SCULK.get()),
-                new ResourceLocation("minecraft","warden"),
-                new LaserDrillRarity(new ResourceKey[0], new ResourceKey[0],-64,256,8)
-        );
-        new LaserDrillFluidRecipe("liquid_dragon_breath",
-                new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),10).writeToNBT(new CompoundTag()),
-                Ingredient.of(ModContents.LASER_LENS_DRAGON.get()),
-                new ResourceLocation("minecraft","ender_dragon"),
-                new LaserDrillRarity(LaserDrillRarity.END, new ResourceKey[0],-64,256,8)
-        );
+                ResourceLocation.fromNamespaceAndPath("minecraft","warden"),
+                new LaserDrillRarity(new LaserDrillRarity.BiomeRarity(new ArrayList<>(),new ArrayList<>()),new LaserDrillRarity.DimensionRarity(new ArrayList<>(),new ArrayList<>()),-64,256,8)
+        ));
 
+        LaserDrillFluidRecipe.createRecipe(recipeOutput,"liquid_dragon_breath","ifeu",new LaserDrillFluidRecipe(
+                new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),10),
+                Ingredient.of(ModContents.LASER_LENS_DRAGON.get()),
+                ResourceLocation.fromNamespaceAndPath("minecraft","ender_dragon"),
+                new LaserDrillRarity(new LaserDrillRarity.BiomeRarity(LaserDrillRarity.BiomeRarity.END,new ArrayList<>()),new LaserDrillRarity.DimensionRarity(new ArrayList<>(),new ArrayList<>()),-64,256,8)
+        ));
 
         //arcane dragon egg forging
-        new ArcaneDragonEggForgingRecipe(new ResourceLocation(modId,"dead_dragon_egg"),
+        ArcaneDragonEggForgingRecipe.createRecipe(recipeOutput,"dead_dragon_egg",new ArcaneDragonEggForgingRecipe(
                 new ItemStack(Items.EGG,4),new FluidStack(ModuleCore.ESSENCE.getSourceFluid().get(),250),new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),4000),
-                200,ModContents.DEAD_DRAGON_EGG_ITEM.get().getDefaultInstance(),FluidStack.EMPTY
-        );
+                200,Optional.of(ModContents.DEAD_DRAGON_EGG_ITEM.get().getDefaultInstance()),Optional.empty()
+        ));
 
-        new ArcaneDragonEggForgingRecipe(new ResourceLocation(modId,"egg_1"),
+        ArcaneDragonEggForgingRecipe.createRecipe(recipeOutput,"egg_1",new ArcaneDragonEggForgingRecipe(
                 Items.DRAGON_EGG.getDefaultInstance(),new FluidStack(ModuleCore.PINK_SLIME.getSourceFluid().get(),100),new FluidStack(Fluids.WATER,1000),
-                200,new ItemStack(Items.EGG,16),new FluidStack(ModuleCore.ESSENCE.getSourceFluid().get(), 100)
-        );
+                200,Optional.of(new ItemStack(Items.EGG,16)),Optional.of(new FluidStack(ModuleCore.ESSENCE.getSourceFluid().get(), 100))
+        ));
 
-        new ArcaneDragonEggForgingRecipe(new ResourceLocation(modId,"egg_2"),
+        ArcaneDragonEggForgingRecipe.createRecipe(recipeOutput,"egg_2",new ArcaneDragonEggForgingRecipe(
                 ModContents.DEAD_DRAGON_EGG_ITEM.get().getDefaultInstance(),new FluidStack(ModuleCore.PINK_SLIME.getSourceFluid().get(),100),new FluidStack(Fluids.WATER,1000),
-                200,new ItemStack(Items.EGG,16),FluidStack.EMPTY
-        );
-
-
-        DissolutionChamberRecipe.RECIPES.forEach(dissolutionChamberRecipe -> map.put(dissolutionChamberRecipe,dissolutionChamberRecipe));
-        InfuserRecipe.RECIPES.forEach(infuserRecipe -> map.put(infuserRecipe,infuserRecipe));
-        LaserDrillFluidRecipe.RECIPES.forEach(laserDrillFluidRecipe -> map.put(laserDrillFluidRecipe,laserDrillFluidRecipe));
-        ArcaneDragonEggForgingRecipe.RECIPES.forEach(arcaneDragonEggForgingRecipe -> map.put(arcaneDragonEggForgingRecipe,arcaneDragonEggForgingRecipe));
+                200,Optional.of(new ItemStack(Items.EGG,16)),Optional.empty()
+        ));
     }
 
-    public Ingredient.TagValue tagValue(TagKey<Item> tagKey){
-        return new Ingredient.TagValue(tagKey);
+    public static Ingredient tagValue(TagKey<Item> tagKey){
+        return Ingredient.of(tagKey);
     }
-    public Ingredient.ItemValue itemValue(ItemStack itemStack){
-        return new Ingredient.ItemValue(itemStack);
+    public static Ingredient itemValue(ItemStack itemStack){
+        return Ingredient.of(itemStack);
     }
 }

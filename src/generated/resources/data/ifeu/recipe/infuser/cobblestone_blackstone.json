@@ -1,0 +1,16 @@
+{
+  "type": "ifeu:infuser",
+  "input": {
+    "count": 1,
+    "id": "minecraft:cobblestone"
+  },
+  "inputFluid": {
+    "amount": 200,
+    "id": "minecraft:lava"
+  },
+  "output": {
+    "count": 1,
+    "id": "minecraft:blackstone"
+  },
+  "processingTime": 200
+}
