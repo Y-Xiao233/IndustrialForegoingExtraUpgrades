@@ -23,11 +23,11 @@ public class ModContents {
     public static final DeferredItem<Item> LASER_LENS_DRAGON = ITEMS.register("laser_lens_dragon", () -> new Item(new Item.Properties()));
 
     //Tool
-    public static final DeferredItem<Item> DRAGON_STAR_PICKAXE = ITEMS.register("dragon_star_pickaxe",() -> new PickaxeItem(ModTiers.DRAGON_STAR,(new Item.Properties().fireResistant().rarity(CustomRarity.SUPREME.getValue()))));
-    public static final DeferredItem<Item> DRAGON_STAR_AXE = ITEMS.register("dragon_star_axe",() -> new AxeItem(ModTiers.DRAGON_STAR,(new Item.Properties().fireResistant().rarity(CustomRarity.SUPREME.getValue()))));
-    public static final DeferredItem<Item> DRAGON_STAR_HOE = ITEMS.register("dragon_star_hoe",() -> new HoeItem(ModTiers.DRAGON_STAR,(new Item.Properties().fireResistant().rarity(CustomRarity.SUPREME.getValue()))));
-    public static final DeferredItem<Item> DRAGON_STAR_SHOVEL = ITEMS.register("dragon_star_shovel",() -> new ShovelItem(ModTiers.DRAGON_STAR,(new Item.Properties().fireResistant().rarity(CustomRarity.SUPREME.getValue()))));
-    public static final DeferredItem<Item> DRAGON_STAR_SWORD = ITEMS.register("dragon_star_sword",() -> new SwordItem(ModTiers.DRAGON_STAR,(new Item.Properties().fireResistant().rarity(CustomRarity.SUPREME.getValue()))));
+    public static final DeferredItem<Item> DRAGON_STAR_PICKAXE = ITEMS.register("dragon_star_pickaxe",() -> new PickaxeItem(ModTiers.DRAGON_STAR,(new Item.Properties().attributes(PickaxeItem.createAttributes(ModTiers.DRAGON_STAR,1,-2.8F)).fireResistant().rarity(CustomRarity.SUPREME.getValue()))));
+    public static final DeferredItem<Item> DRAGON_STAR_AXE = ITEMS.register("dragon_star_axe",() -> new AxeItem(ModTiers.DRAGON_STAR,(new Item.Properties().fireResistant().attributes(AxeItem.createAttributes(ModTiers.DRAGON_STAR,5.0F,-3.0F)).rarity(CustomRarity.SUPREME.getValue()))));
+    public static final DeferredItem<Item> DRAGON_STAR_HOE = ITEMS.register("dragon_star_hoe",() -> new HoeItem(ModTiers.DRAGON_STAR,(new Item.Properties().fireResistant().attributes(HoeItem.createAttributes(ModTiers.DRAGON_STAR,-4,0.0F)).rarity(CustomRarity.SUPREME.getValue()))));
+    public static final DeferredItem<Item> DRAGON_STAR_SHOVEL = ITEMS.register("dragon_star_shovel",() -> new ShovelItem(ModTiers.DRAGON_STAR,(new Item.Properties().fireResistant().attributes(ShovelItem.createAttributes(ModTiers.DRAGON_STAR,1.5F,-3.0F)).rarity(CustomRarity.SUPREME.getValue()))));
+    public static final DeferredItem<Item> DRAGON_STAR_SWORD = ITEMS.register("dragon_star_sword",() -> new SwordItem(ModTiers.DRAGON_STAR,(new Item.Properties().fireResistant().attributes(SwordItem.createAttributes(ModTiers.DRAGON_STAR,3,-2.4F)).rarity(CustomRarity.SUPREME.getValue()))));
 
     //Block
     public static final DeferredBlock<Block> DEAD_DRAGON_EGG = BLOCKS.register("dead_dragon_egg", () -> new DeadDragonEggBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DRAGON_EGG)));
