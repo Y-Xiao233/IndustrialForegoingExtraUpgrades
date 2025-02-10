@@ -32,7 +32,7 @@ public enum AllGuiTextures implements ScreenElement {
     public final int width, height;
     public final int startX, startY;
     private AllGuiTextures(String location, int startX, int startY, int width, int height) {
-        this.location = new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID, "textures/gui/" + location + ".png");
+        this.location = ResourceLocation.fromNamespaceAndPath(IndustrialForegoingExtraUpgrades.MODID, "textures/gui/" + location + ".png");
         this.width = width;
         this.height = height;
         this.startX = startX;
@@ -40,7 +40,7 @@ public enum AllGuiTextures implements ScreenElement {
     }
 
     private AllGuiTextures(int startX, int startY, int width, int height) {
-        this.location = new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID, "textures/gui/widgets.png");
+        this.location = ResourceLocation.fromNamespaceAndPath(IndustrialForegoingExtraUpgrades.MODID, "textures/gui/widgets.png");
         this.width = width;
         this.height = height;
         this.startX = startX;

@@ -1,22 +1,20 @@
 package net.yxiao233.ifeu.common.compact.kubejs.schemas;
 
-import dev.latvian.mods.kubejs.fluid.EmptyFluidStackJS;
-import dev.latvian.mods.kubejs.fluid.InputFluid;
-import dev.latvian.mods.kubejs.fluid.OutputFluid;
-import dev.latvian.mods.kubejs.item.InputItem;
-import dev.latvian.mods.kubejs.item.OutputItem;
 import dev.latvian.mods.kubejs.recipe.RecipeKey;
-import dev.latvian.mods.kubejs.recipe.component.ItemComponents;
-import dev.latvian.mods.kubejs.recipe.component.NumberComponent;
-import dev.latvian.mods.kubejs.recipe.component.TimeComponent;
+import dev.latvian.mods.kubejs.recipe.component.*;
 import dev.latvian.mods.kubejs.recipe.schema.RecipeSchema;
-import net.yxiao233.ifeu.common.compact.kubejs.components.IndustrialForegoingComponents;
+import dev.latvian.mods.kubejs.util.TickDuration;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.neoforged.neoforge.fluids.FluidStack;
+
+import java.util.List;
 
 public interface DissolutionChamberSchema {
-    RecipeKey<InputItem[]> INPUTS = ItemComponents.INPUT_ARRAY.key("input");
-    RecipeKey<InputFluid> INPUT_FLUID = IndustrialForegoingComponents.INPUT_FLUID.key("inputFluid");
-    RecipeKey<OutputItem> OUTPUT = ItemComponents.OUTPUT.key("output");
-    RecipeKey<OutputFluid> OUTPUT_FLUID = IndustrialForegoingComponents.OUTPUT_FLUID.key("outputFluid").optional(EmptyFluidStackJS.INSTANCE).allowEmpty();
-    RecipeKey<Long> TIME = TimeComponent.TICKS.key("processingTime");
+    RecipeKey<List<Ingredient>> INPUTS = IngredientComponent.UNWRAPPED_INGREDIENT_LIST.otherKey("input");
+    RecipeKey<FluidStack> INPUT_FLUID = FluidStackComponent.FLUID_STACK.inputKey("inputFluid");
+    RecipeKey<ItemStack> OUTPUT = ItemStackComponent.ITEM_STACK.inputKey("output");
+    RecipeKey<FluidStack> OUTPUT_FLUID = FluidStackComponent.FLUID_STACK.outputKey("outputFluid").optional(FluidStack.EMPTY).allowEmpty();
+    RecipeKey<TickDuration> TIME = TimeComponent.TICKS.otherKey("processingTime");
     RecipeSchema SCHEMA = new RecipeSchema(OUTPUT,INPUTS,INPUT_FLUID,TIME,OUTPUT_FLUID);
 }

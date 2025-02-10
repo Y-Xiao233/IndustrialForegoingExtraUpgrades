@@ -1,50 +1,69 @@
 package net.yxiao233.ifeu.common.recipe;
 
-import com.hrznstudio.titanium.recipe.serializer.GenericSerializer;
-import com.hrznstudio.titanium.recipe.serializer.SerializableRecipe;
-import net.minecraft.core.RegistryAccess;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.advancements.AdvancementHolder;
+import net.minecraft.advancements.AdvancementRequirements;
+import net.minecraft.advancements.AdvancementRewards;
+import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.BlockHitResult;
+import net.neoforged.neoforge.common.conditions.ICondition;
+import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 import net.yxiao233.ifeu.common.registry.ModRecipes;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class BlockRightClickRecipe extends SerializableRecipe {
-    public static List<BlockRightClickRecipe> RECIPES = new ArrayList<>();
+public class BlockRightClickRecipe implements Recipe<CraftingInput> {
+    public static final MapCodec<BlockRightClickRecipe> CODEC = RecordCodecBuilder.mapCodec((in) -> {
+        return in.group(ItemStack.CODEC.fieldOf("handItem").forGetter((o) -> {
+            return o.handItem;
+        }), Block.CODEC.fieldOf("block").forGetter((o) -> {
+            return o.block;
+        }), Block.CODEC.fieldOf("result").forGetter((o) -> {
+            return o.result;
+        })).apply(in, BlockRightClickRecipe::new);
+    });
     public Block block;
     public ItemStack handItem;
     public Block result;
-    public BlockRightClickRecipe(ResourceLocation resourceLocation) {
-        super(resourceLocation);
+    public BlockRightClickRecipe() {
     }
 
-    public BlockRightClickRecipe(ResourceLocation resourceLocation, Block block, ItemStack handItem, Block result) {
-        super(resourceLocation);
+    public BlockRightClickRecipe(ItemStack handItem, Block block, Block result) {
         this.block = block;
         this.handItem = handItem;
         this.result = result;
     }
 
-    @Override
-    public boolean matches(Container container, Level level) {
-        return false;
+    public static void createRecipe(RecipeOutput recipeOutput, String name, BlockRightClickRecipe recipe) {
+        ResourceLocation rl = generateRL(name);
+        AdvancementHolder advancementHolder = recipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(rl)).rewards(AdvancementRewards.Builder.recipe(rl)).requirements(AdvancementRequirements.Strategy.OR).build(rl);
+        recipeOutput.accept(rl, recipe, advancementHolder);
     }
 
+    public static ResourceLocation generateRL(String key) {
+        return ResourceLocation.fromNamespaceAndPath("ifeu", "block_right/" + key);
+    }
 
     public boolean matches(Player player, BlockHitResult hit, Level level) {
         return level.getBlockState(hit.getBlockPos()).is(block) && player.getMainHandItem().is(handItem.getItem());
     }
 
+
     @Override
-    public ItemStack assemble(Container container, RegistryAccess registryAccess) {
-        return ItemStack.EMPTY;
+    public boolean matches(CraftingInput craftingInput, Level level) {
+        return false;
+    }
+
+    @Override
+    public ItemStack assemble(CraftingInput craftingInput, HolderLookup.Provider provider) {
+        return null;
     }
 
     @Override
@@ -53,13 +72,13 @@ public class BlockRightClickRecipe extends SerializableRecipe {
     }
 
     @Override
-    public ItemStack getResultItem(RegistryAccess registryAccess) {
-        return result.asItem().getDefaultInstance();
+    public ItemStack getResultItem(HolderLookup.Provider provider) {
+        return this.result.asItem().getDefaultInstance();
     }
 
     @Override
-    public GenericSerializer<? extends SerializableRecipe> getSerializer() {
-        return (GenericSerializer<? extends SerializableRecipe>) ModRecipes.BLOCK_RIGHT_CLICK_SERIALIZER.get();
+    public RecipeSerializer<?> getSerializer() {
+        return ModRecipes.BLOCK_RIGHT_CLICK_SERIALIZER.get();
     }
 
     @Override

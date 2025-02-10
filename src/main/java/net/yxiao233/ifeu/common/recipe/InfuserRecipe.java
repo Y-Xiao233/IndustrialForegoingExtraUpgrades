@@ -1,45 +1,67 @@
 package net.yxiao233.ifeu.common.recipe;
 
 import com.hrznstudio.titanium.component.fluid.FluidTankComponent;
-import com.hrznstudio.titanium.recipe.serializer.GenericSerializer;
-import com.hrznstudio.titanium.recipe.serializer.SerializableRecipe;
-import net.minecraft.core.RegistryAccess;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.advancements.AdvancementHolder;
+import net.minecraft.advancements.AdvancementRequirements;
+import net.minecraft.advancements.AdvancementRewards;
+import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.capability.IFluidHandler;
-import net.minecraftforge.items.IItemHandler;
+import net.neoforged.neoforge.common.conditions.ICondition;
+import net.neoforged.neoforge.common.conditions.ItemExistsCondition;
+import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.capability.IFluidHandler;
+import net.neoforged.neoforge.items.IItemHandler;
 import net.yxiao233.ifeu.common.registry.ModRecipes;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class InfuserRecipe extends SerializableRecipe {
-    public static List<InfuserRecipe> RECIPES = new ArrayList<>();
+public class InfuserRecipe implements Recipe<CraftingInput> {
+    public static final MapCodec<InfuserRecipe> CODEC = RecordCodecBuilder.mapCodec((in) -> {
+        return in.group(ItemStack.CODEC.fieldOf("input").forGetter((o) -> {
+            return o.input;
+        }), FluidStack.CODEC.fieldOf("inputFluid").forGetter((o) -> {
+            return o.inputFluid;
+        }), Codec.INT.fieldOf("processingTime").forGetter((o) -> {
+            return o.processingTime;
+        }), ItemStack.CODEC.fieldOf("output").forGetter((o) -> {
+            return o.output;
+        })).apply(in, InfuserRecipe::new);
+    });
+
     public ItemStack input;
     public FluidStack inputFluid;
     public int processingTime;
     public ItemStack output;
-    public InfuserRecipe(ResourceLocation resourceLocation) {
-        super(resourceLocation);
+    public InfuserRecipe() {
+
     }
 
-    public InfuserRecipe(ResourceLocation resourceLocation, ItemStack input, FluidStack inputFluid, int processingTime, ItemStack output){
-        super(resourceLocation);
+    public InfuserRecipe(ItemStack input, FluidStack inputFluid, int processingTime, ItemStack output){
         this.input = input;
         this.inputFluid = inputFluid;
         this.processingTime = processingTime;
         this.output = output;
-        this.output.getItem().onCraftedBy(this.output,null,null);
-        RECIPES.add(this);
     }
 
-    @Override
-    public boolean matches(Container container, Level level) {
-        return false;
+    public static void createRecipe(RecipeOutput recipeOutput, String name, InfuserRecipe recipe) {
+        ResourceLocation rl = generateRL(name);
+        AdvancementHolder advancementHolder = recipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(rl)).rewards(AdvancementRewards.Builder.recipe(rl)).requirements(AdvancementRequirements.Strategy.OR).build(rl);
+        recipeOutput.accept(rl, recipe, advancementHolder);
+    }
+
+    public static ResourceLocation generateRL(String key) {
+        return ResourceLocation.fromNamespaceAndPath("ifeu", "infuser/" + key);
     }
 
     public boolean matches(IItemHandler handler, FluidTankComponent tank){
@@ -51,9 +73,15 @@ public class InfuserRecipe extends SerializableRecipe {
         return tank.drainForced(inputFluid, IFluidHandler.FluidAction.SIMULATE).getAmount() == inputFluid.getAmount();
     }
 
+
     @Override
-    public ItemStack assemble(Container container, RegistryAccess registryAccess) {
-        return ItemStack.EMPTY;
+    public boolean matches(CraftingInput craftingInput, Level level) {
+        return false;
+    }
+
+    @Override
+    public ItemStack assemble(CraftingInput craftingInput, HolderLookup.Provider provider) {
+        return null;
     }
 
     @Override
@@ -62,13 +90,13 @@ public class InfuserRecipe extends SerializableRecipe {
     }
 
     @Override
-    public ItemStack getResultItem(RegistryAccess registryAccess) {
-        return output;
+    public ItemStack getResultItem(HolderLookup.Provider provider) {
+        return output.copy();
     }
 
     @Override
-    public GenericSerializer<? extends SerializableRecipe> getSerializer() {
-        return (GenericSerializer<? extends SerializableRecipe>) ModRecipes.INFUSER_SERIALIZER.get();
+    public RecipeSerializer<?> getSerializer() {
+        return ModRecipes.INFUSER_SERIALIZER.get();
     }
 
     @Override

@@ -13,8 +13,8 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.fluids.capability.IFluidHandler;
-import net.minecraftforge.items.ItemHandlerHelper;
+import net.neoforged.neoforge.fluids.capability.IFluidHandler;
+import net.neoforged.neoforge.items.ItemHandlerHelper;
 import net.yxiao233.ifeu.common.config.machine.ArcaneDragonForgingConfig;
 import net.yxiao233.ifeu.common.recipe.ArcaneDragonEggForgingRecipe;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
@@ -97,9 +97,9 @@ public class ArcaneDragonEggForgingEntity extends IndustrialProcessingTile<Arcan
     @Override
     public boolean canIncrease() {
         if(currentRecipe != null){
-            boolean hasCurrentItem = ItemHandlerHelper.insertItem(output, currentRecipe.output.copy(),true).isEmpty();
+            boolean hasCurrentItem = currentRecipe.output.get() == null || ItemHandlerHelper.insertItem(output, currentRecipe.output.get().copy(),true).isEmpty();
             boolean hasEnoughCount = input.getStackInSlot(0).getCount() >= currentRecipe.input.getCount();
-            boolean canFillFluid = (this.currentRecipe.outputFluid == null || this.outputFluid.fillForced(this.currentRecipe.outputFluid.copy(), IFluidHandler.FluidAction.SIMULATE) == this.currentRecipe.outputFluid.getAmount());
+            boolean canFillFluid = (this.currentRecipe.outputFluid == null || this.outputFluid.fillForced(this.currentRecipe.outputFluid.get().copy(), IFluidHandler.FluidAction.SIMULATE) == this.currentRecipe.outputFluid.get().getAmount());
 
             return currentRecipe != null && hasCurrentItem && hasEnoughCount && canFillFluid;
         }else {
@@ -118,13 +118,14 @@ public class ArcaneDragonEggForgingEntity extends IndustrialProcessingTile<Arcan
 
                 input.getStackInSlot(0).shrink(arcaneDragonEggForgingRecipe.input.getCount());
 
-                if (arcaneDragonEggForgingRecipe.outputFluid != null && !arcaneDragonEggForgingRecipe.outputFluid.isEmpty()) {
-                    this.outputFluid.fillForced(arcaneDragonEggForgingRecipe.outputFluid.copy(), IFluidHandler.FluidAction.EXECUTE);
+                if (arcaneDragonEggForgingRecipe.outputFluid.get() != null && !arcaneDragonEggForgingRecipe.outputFluid.isEmpty()) {
+                    this.outputFluid.fillForced(arcaneDragonEggForgingRecipe.outputFluid.get().copy(), IFluidHandler.FluidAction.EXECUTE);
                 }
-
-                ItemStack outputStack = arcaneDragonEggForgingRecipe.output.copy();
-                outputStack.getItem().onCraftedBy(outputStack, this.level, (Player)null);
-                ItemHandlerHelper.insertItem(this.output, outputStack, false);
+                if(arcaneDragonEggForgingRecipe.output.get() != null){
+                    ItemStack outputStack = arcaneDragonEggForgingRecipe.output.get().copy();
+                    outputStack.getItem().onCraftedBy(outputStack, this.level, (Player)null);
+                    ItemHandlerHelper.insertItem(this.output, outputStack, false);
+                }
                 this.checkForRecipe();
             }
 

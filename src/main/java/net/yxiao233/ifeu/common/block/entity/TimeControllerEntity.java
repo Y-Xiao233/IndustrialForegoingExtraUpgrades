@@ -26,16 +26,16 @@ import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.neoforge.network.PacketDistributor;
 import net.yxiao233.ifeu.common.components.CustomTooltipComponent;
 import net.yxiao233.ifeu.common.components.TextGuiComponent;
 import net.yxiao233.ifeu.common.components.TextureGuiComponent;
 import net.yxiao233.ifeu.common.config.machine.TimeControllerConfig;
 import net.yxiao233.ifeu.common.gui.AllGuiTextures;
-import net.yxiao233.ifeu.common.networking.ModNetWorking;
 import net.yxiao233.ifeu.common.networking.packet.BooleanSyncS2CPacket;
-import net.yxiao233.ifeu.common.networking.packet.interfaces.BooleanValueSyncS2C;
+import net.yxiao233.ifeu.common.networking.packet.BooleanValueSyncS2C;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.utils.KeyDownUtil;
@@ -96,7 +96,7 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
         this.addButton((new ArrowButtonComponent(155, 23, 14, 14, FacingUtil.Sideness.TOP)).setId(1).setPredicate((playerEntity, compoundNBT) -> {
             --this.choose;
             this.finish = false;
-            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(getBlockPos(),false));
+            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos().getX(),getBlockPos().getY(),getBlockPos().getZ(),false)));
             if (this.choose < 0) {
                 this.choose = times.length - 1;
             }
@@ -109,7 +109,7 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
         this.addButton((new ArrowButtonComponent(155, 60, 14, 14, FacingUtil.Sideness.BOTTOM)).setId(2).setPredicate((playerEntity, compoundNBT) -> {
             ++this.choose;
             this.finish = false;
-            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(getBlockPos(),false));
+            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos().getX(),getBlockPos().getY(),getBlockPos().getZ(),false)));
             if (this.choose > times.length - 1) {
                 this.choose = 0;
             }
@@ -134,7 +134,7 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
                 }
             }
             this.finish = false;
-            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(getBlockPos(),false));
+            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos().getX(),getBlockPos().getY(),getBlockPos().getZ(),false)));
             this.markForUpdate();
         }));
 
@@ -153,7 +153,7 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
                 }
             }
             this.finish = false;
-            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(getBlockPos(),false));
+            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos().getX(),getBlockPos().getY(),getBlockPos().getZ(),false)));
             this.markForUpdate();
         }));
 
@@ -255,7 +255,7 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
         });
 
         this.addGuiAddonFactory(() ->{
-            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(getBlockPos(),false));
+            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos().getX(),getBlockPos().getY(),getBlockPos().getZ(),false)));
             return new TextureGuiComponent(98,41) {
                 @Override
                 public AllGuiTextures getTexture() {
@@ -338,7 +338,7 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
             times[choose].modifyTime(time);
             times[choose].setTime((ServerLevel) level);
             this.finish = true;
-            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(getBlockPos(),true));
+            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos().getX(),getBlockPos().getY(),getBlockPos().getZ(),true)));
             this.markForUpdate();
         };
     }
@@ -375,12 +375,12 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
     }
 
     @Override
-    public void setValue(boolean... value) {
-        this.finish = value[0];
+    public void setValue(boolean value) {
+        this.finish = value;
     }
 
     @Override
-    public boolean[] getValues() {
-        return new boolean[]{finish};
+    public boolean getValues() {
+        return finish;
     }
 }

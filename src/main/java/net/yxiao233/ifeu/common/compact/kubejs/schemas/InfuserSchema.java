@@ -1,18 +1,18 @@
 package net.yxiao233.ifeu.common.compact.kubejs.schemas;
 
-import dev.latvian.mods.kubejs.fluid.InputFluid;
-import dev.latvian.mods.kubejs.item.InputItem;
-import dev.latvian.mods.kubejs.item.OutputItem;
 import dev.latvian.mods.kubejs.recipe.RecipeKey;
-import dev.latvian.mods.kubejs.recipe.component.ItemComponents;
+import dev.latvian.mods.kubejs.recipe.component.FluidStackComponent;
+import dev.latvian.mods.kubejs.recipe.component.ItemStackComponent;
 import dev.latvian.mods.kubejs.recipe.component.TimeComponent;
 import dev.latvian.mods.kubejs.recipe.schema.RecipeSchema;
-import net.yxiao233.ifeu.common.compact.kubejs.components.IndustrialForegoingComponents;
+import dev.latvian.mods.kubejs.util.TickDuration;
+import net.minecraft.world.item.ItemStack;
+import net.neoforged.neoforge.fluids.FluidStack;
 
 public interface InfuserSchema{
-    RecipeKey<OutputItem> OUTPUT = ItemComponents.OUTPUT.key("output");
-    RecipeKey<InputItem> INPUT = ItemComponents.INPUT.key("input");
-    RecipeKey<InputFluid> INPUT_FLUID = IndustrialForegoingComponents.INPUT_FLUID.key("inputFluid");
-    RecipeKey<Long> TIME = TimeComponent.TICKS.key("processingTime");
+    RecipeKey<ItemStack> OUTPUT = ItemStackComponent.ITEM_STACK.inputKey("output");
+    RecipeKey<ItemStack> INPUT = ItemStackComponent.ITEM_STACK.inputKey("input");
+    RecipeKey<FluidStack> INPUT_FLUID = FluidStackComponent.FLUID_STACK.inputKey("inputFluid");
+    RecipeKey<TickDuration> TIME = TimeComponent.TICKS.otherKey("processingTime");
     RecipeSchema SCHEMA = new RecipeSchema(OUTPUT,INPUT,INPUT_FLUID,TIME);
 }

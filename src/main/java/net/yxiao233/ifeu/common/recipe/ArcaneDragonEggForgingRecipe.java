@@ -1,49 +1,78 @@
 package net.yxiao233.ifeu.common.recipe;
 
 import com.hrznstudio.titanium.component.fluid.FluidTankComponent;
-import com.hrznstudio.titanium.recipe.serializer.GenericSerializer;
-import com.hrznstudio.titanium.recipe.serializer.SerializableRecipe;
-import net.minecraft.core.RegistryAccess;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.advancements.AdvancementHolder;
+import net.minecraft.advancements.AdvancementRequirements;
+import net.minecraft.advancements.AdvancementRewards;
+import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.capability.IFluidHandler;
-import net.minecraftforge.items.IItemHandler;
+import net.neoforged.neoforge.common.conditions.ICondition;
+import net.neoforged.neoforge.common.conditions.ItemExistsCondition;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.capability.IFluidHandler;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModRecipes;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-public class ArcaneDragonEggForgingRecipe extends SerializableRecipe {
-    public static List<ArcaneDragonEggForgingRecipe> RECIPES = new ArrayList<>();
+public class ArcaneDragonEggForgingRecipe implements Recipe<CraftingInput> {
+    public static final MapCodec<ArcaneDragonEggForgingRecipe> CODEC = RecordCodecBuilder.mapCodec((in) -> {
+        return in.group(ItemStack.CODEC.fieldOf("input").forGetter((o) -> {
+            return o.input;
+        }), FluidStack.CODEC.fieldOf("inputFluid1").forGetter((o) -> {
+            return o.inputFluid1;
+        }), FluidStack.CODEC.fieldOf("inputFluid2").forGetter((o) -> {
+            return o.inputFluid2;
+        }),Codec.INT.fieldOf("processingTime").forGetter((o) -> {
+            return o.processingTime;
+        }), ItemStack.CODEC.optionalFieldOf("output").forGetter((o) -> {
+            return o.output;
+        }), FluidStack.CODEC.optionalFieldOf("outputFluid").forGetter((o) -> {
+            return o.outputFluid;
+        })).apply(in, ArcaneDragonEggForgingRecipe::new);
+    });
     public ItemStack input;
     public FluidStack inputFluid1;
     public FluidStack inputFluid2;
     public int processingTime;
-    public ItemStack output;
-    public FluidStack outputFluid;
-    public ArcaneDragonEggForgingRecipe(ResourceLocation resourceLocation) {
-        super(resourceLocation);
-    }
+    public Optional<ItemStack> output;
+    public Optional<FluidStack> outputFluid;
+    public ArcaneDragonEggForgingRecipe() {}
 
-    public ArcaneDragonEggForgingRecipe(ResourceLocation resourceLocation, ItemStack input, FluidStack inputFluid1, FluidStack inputFluid2, int processingTime, ItemStack output, FluidStack outputFluid){
-        super(resourceLocation);
+    public ArcaneDragonEggForgingRecipe(ItemStack input, FluidStack inputFluid1, FluidStack inputFluid2, int processingTime, Optional<ItemStack> output, Optional<FluidStack> outputFluid){
         this.input = input;
         this.inputFluid1 = inputFluid1;
         this.inputFluid2 = inputFluid2;
         this.processingTime = processingTime;
         this.output = output;
         this.outputFluid = outputFluid;
-        this.output.getItem().onCraftedBy(this.output,null,null);
-        RECIPES.add(this);
     }
 
-    @Override
-    public boolean matches(Container container, Level level) {
-        return false;
+    public static void createRecipe(RecipeOutput recipeOutput, String name, ArcaneDragonEggForgingRecipe recipe) {
+        ResourceLocation rl = generateRL(name);
+        AdvancementHolder advancementHolder = recipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(rl)).rewards(AdvancementRewards.Builder.recipe(rl)).requirements(AdvancementRequirements.Strategy.OR).build(rl);
+        List<ICondition> conditions = new ArrayList();
+        if (recipe.output.isPresent()) {
+            conditions.add(new ItemExistsCondition(BuiltInRegistries.ITEM.getKey(((ItemStack)recipe.output.get()).getItem())));
+        }
+
+        recipeOutput.accept(rl, recipe, advancementHolder, (ICondition[])conditions.toArray(new ICondition[conditions.size()]));
+    }
+
+    public static ResourceLocation generateRL(String key) {
+        return ResourceLocation.fromNamespaceAndPath("ifeu", "arcane_dragon_egg_forging/" + key);
     }
 
     public boolean matches(IItemHandler handler, FluidTankComponent tank1, FluidTankComponent tank2){
@@ -59,8 +88,13 @@ public class ArcaneDragonEggForgingRecipe extends SerializableRecipe {
     }
 
     @Override
-    public ItemStack assemble(Container container, RegistryAccess registryAccess) {
-        return ItemStack.EMPTY;
+    public boolean matches(CraftingInput craftingInput, Level level) {
+        return false;
+    }
+
+    @Override
+    public ItemStack assemble(CraftingInput craftingInput, HolderLookup.Provider provider) {
+        return null;
     }
 
     @Override
@@ -69,16 +103,17 @@ public class ArcaneDragonEggForgingRecipe extends SerializableRecipe {
     }
 
     @Override
-    public ItemStack getResultItem(RegistryAccess registryAccess) {
-        return output;
+    public ItemStack getResultItem(HolderLookup.Provider provider) {
+        return ((ItemStack)this.output.orElse(ItemStack.EMPTY)).copy();
+    }
+    public ItemStack getToastSymbol() {
+        return new ItemStack(ModBlocks.INFUSER);
     }
 
-    @Override
-    public GenericSerializer<? extends SerializableRecipe> getSerializer() {
-        return (GenericSerializer<? extends SerializableRecipe>) ModRecipes.ARCANE_DRAGON_EGG_FORGING_SERIALIZER.get();
+    public RecipeSerializer<?> getSerializer() {
+        return ModRecipes.ARCANE_DRAGON_EGG_FORGING_SERIALIZER.get();
     }
 
-    @Override
     public RecipeType<?> getType() {
         return ModRecipes.ARCANE_DRAGON_EGG_FORGING_TYPE.get();
     }

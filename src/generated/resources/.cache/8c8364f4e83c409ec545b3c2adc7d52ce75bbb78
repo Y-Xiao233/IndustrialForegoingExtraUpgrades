@@ -1,13 +1,13 @@
-// 1.20.1	2025-01-20T20:33:34.5972622	Tags for minecraft:item mod id vanilla
-91070ccb4e4744344f0f5dfa893e6277aa843703 data/forge/tags/items/gears.json
-b4f05d39ccb4e9007094301213bb95a6938cc607 data/forge/tags/items/gears/diamond.json
-90ab32de2c9647cd4563103fc413e8eb65356d39 data/forge/tags/items/gears/gold.json
-9c226908886b9b4d08706cd03083d72437ce37a7 data/forge/tags/items/gears/iron.json
-1db7f763b3f5fbbcc2cbee6f8f90f75224a9d134 data/forge/tags/items/gears/netherite.json
-03349825c1c2bc67c51166ee48f8e2ee1c83f20b data/forge/tags/items/gears/sculk.json
-caf4c98e85cb3415a948909a7ff166fdb7bbf229 data/ifeu/tags/items/machine_frame/ultimate.json
-f4932bcfc4b4d65fe652c15cb3cd447243f9601d data/minecraft/tags/items/axes.json
-a17e42d407f7f1244b71d441b228d0fa454d7bff data/minecraft/tags/items/hoes.json
-86bff8418a02adcd12b053449f71ff059c3a9b95 data/minecraft/tags/items/pickaxes.json
-fe2bfc16d61ddc360df5a3d48667b6fa45e24804 data/minecraft/tags/items/shovels.json
-afe2ee0be445d8f61cc944ea82c15b90528962bc data/minecraft/tags/items/swords.json
+// 1.21.1	2025-02-10T19:33:57.3876868	Tags for minecraft:item mod id vanilla
+b4f05d39ccb4e9007094301213bb95a6938cc607 data/c/tags/item/gears/diamond.json
+90ab32de2c9647cd4563103fc413e8eb65356d39 data/c/tags/item/gears/gold.json
+9c226908886b9b4d08706cd03083d72437ce37a7 data/c/tags/item/gears/iron.json
+41c39c77df3db4217a28e395745faa9685726684 data/forge/tags/item/gears.json
+1db7f763b3f5fbbcc2cbee6f8f90f75224a9d134 data/forge/tags/item/gears/netherite.json
+03349825c1c2bc67c51166ee48f8e2ee1c83f20b data/forge/tags/item/gears/sculk.json
+caf4c98e85cb3415a948909a7ff166fdb7bbf229 data/ifeu/tags/item/machine_frame/ultimate.json
+f4932bcfc4b4d65fe652c15cb3cd447243f9601d data/minecraft/tags/item/axes.json
+a17e42d407f7f1244b71d441b228d0fa454d7bff data/minecraft/tags/item/hoes.json
+86bff8418a02adcd12b053449f71ff059c3a9b95 data/minecraft/tags/item/pickaxes.json
+fe2bfc16d61ddc360df5a3d48667b6fa45e24804 data/minecraft/tags/item/shovels.json
+afe2ee0be445d8f61cc944ea82c15b90528962bc data/minecraft/tags/item/swords.json

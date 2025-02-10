@@ -38,11 +38,11 @@ public class BlockRightClickCategory extends AbstractJEICategory<BlockRightClick
         //Block
         builder.addSlot(RecipeIngredientRole.INPUT,50,39)
                 .addIngredient(VanillaTypes.ITEM_STACK,recipe.block.asItem().getDefaultInstance())
-                .addTooltipCallback(addText("jei.ifeu.world",ChatFormatting.GOLD));
+                .addRichTooltipCallback(addText("jei.ifeu.world",ChatFormatting.GOLD));
         //handItem
         builder.addSlot(RecipeIngredientRole.INPUT,22,17)
                 .addIngredient(VanillaTypes.ITEM_STACK,recipe.handItem)
-                .addTooltipCallback(addText("jei.ifeu.hand",ChatFormatting.AQUA));
+                .addRichTooltipCallback(addText("jei.ifeu.hand",ChatFormatting.AQUA));
         //result
         builder.addSlot(RecipeIngredientRole.OUTPUT,110,27)
                 .addIngredient(VanillaTypes.ITEM_STACK,recipe.result.asItem().getDefaultInstance());

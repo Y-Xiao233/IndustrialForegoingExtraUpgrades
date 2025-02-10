@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class CreativeCapacitorBlock extends IndustrialBlock<CreativeCapacitorEntity> {
     public CreativeCapacitorBlock() {
-        super("creative_capacitor", Properties.copy(Blocks.IRON_BLOCK), CreativeCapacitorEntity.class, ModItems.TAB_ADDONS);
+        super("creative_capacitor", Properties.ofFullCopy(Blocks.IRON_BLOCK), CreativeCapacitorEntity.class, ModItems.TAB_ADDONS);
     }
 
     @Override

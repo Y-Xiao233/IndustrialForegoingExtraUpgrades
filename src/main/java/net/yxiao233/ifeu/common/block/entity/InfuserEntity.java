@@ -8,15 +8,13 @@ import com.hrznstudio.titanium.component.fluid.SidedFluidTankComponent;
 import com.hrznstudio.titanium.component.inventory.SidedInventoryComponent;
 import com.hrznstudio.titanium.util.RecipeUtil;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.capability.IFluidHandler;
-import net.minecraftforge.items.ItemHandlerHelper;
-import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.capability.IFluidHandler;
+import net.neoforged.neoforge.items.ItemHandlerHelper;
 import net.yxiao233.ifeu.common.config.machine.InfuserConfig;
 import net.yxiao233.ifeu.common.recipe.InfuserRecipe;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
@@ -74,17 +72,9 @@ public class InfuserEntity extends IndustrialProcessingTile<InfuserEntity> {
             //Compact Recipes
             if(currentRecipe == null && input.getStackInSlot(0).is(Items.BUCKET)){
                 Item item = inputFluid.getFluid().getFluid().getBucket();
-                if(item instanceof BucketItem bucketItem){
-                    FluidStack fluidStack = new FluidStack(inputFluid.getFluid(),1000);
-
-                    String raw = bucketItem.getDescriptionId();
-                    int firstPoint = raw.indexOf('.');
-                    int lastPoint = raw.lastIndexOf('.');
-                    String nameSpace = raw.substring(firstPoint+1,lastPoint);
-                    String path = raw.substring(lastPoint+1,raw.length());
-
-                    ResourceLocation resourceLocation = new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID,"infuser/"+nameSpace+"/fill_"+path);
-                    currentRecipe = new InfuserRecipe(resourceLocation,Items.BUCKET.getDefaultInstance(),fluidStack,200,item.getDefaultInstance());
+                if(item instanceof BucketItem){
+                    FluidStack fluidStack = new FluidStack(inputFluid.getFluid().getFluid(),1000);
+                    currentRecipe = new InfuserRecipe(Items.BUCKET.getDefaultInstance(),fluidStack,200,item.getDefaultInstance());
                 }
             }
         }
