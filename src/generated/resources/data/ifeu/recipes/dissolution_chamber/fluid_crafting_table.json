@@ -1,0 +1,35 @@
+{
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "tag": "forge:glass"
+    },
+    {
+      "tag": "industrialforegoing:machine_frame/advanced"
+    },
+    {
+      "tag": "forge:glass"
+    },
+    {
+      "tag": "forge:glass"
+    },
+    {
+      "tag": "forge:glass"
+    },
+    {
+      "tag": "forge:glass"
+    },
+    {
+      "tag": "forge:gears/diamond"
+    },
+    {
+      "tag": "forge:glass"
+    }
+  ],
+  "inputFluid": "{Amount:2000,FluidName:\"industrialforegoing:pink_slime\"}",
+  "output": {
+    "count": 1,
+    "item": "ifeu:fluid_crafting_table"
+  },
+  "processingTime": 200
+}

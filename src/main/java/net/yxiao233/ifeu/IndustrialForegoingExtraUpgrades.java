@@ -1,6 +1,8 @@
 package net.yxiao233.ifeu;
 
 import com.hrznstudio.titanium.module.ModuleController;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -28,14 +30,12 @@ public class IndustrialForegoingExtraUpgrades extends ModuleController{
         ModCreativeModeTab.CREATIVE_MODE_TAB.register(modEventBus);
         ModNetWorking.register();
     }
+    @SuppressWarnings("deprecation")
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-//            ItemBlockRenderTypes.setRenderLayer(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(), RenderType.translucent());
-//            ItemBlockRenderTypes.setRenderLayer(ModFluids.LIQUID_DRAGON_BREATH.getFlowingFluid().get(), RenderType.translucent());
-//            ItemBlockRenderTypes.setRenderLayer(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(), RenderType.translucent());
-//            ItemBlockRenderTypes.setRenderLayer(ModFluids.LIQUID_SCULK_MATTER.getFlowingFluid().get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.FLUID_CRAFTING_TABLE.getLeft().get(), RenderType.translucent());
         }
     }
 

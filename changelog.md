@@ -49,7 +49,7 @@
 - 修复了在失活的龙蛋服务端加载时报错的bug[\#3 by IceBlues](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/pull/3)
 
 ### v2.0.100
-- 添加了流体合成台(配方,贴图未完善)
+- 添加了流体合成台
 
 ## en_us
 ### v1.0.0
@@ -100,4 +100,4 @@
 - Fixed the bug of reporting errors when loading on the server[\#3 by IceBlues](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/pull/3)
 
 ### v2.0.100
--Added fluid crafting table (recipe, texture incomplete)
+-Added fluid crafting table
