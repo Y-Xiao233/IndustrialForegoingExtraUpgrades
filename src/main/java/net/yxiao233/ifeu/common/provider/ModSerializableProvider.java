@@ -17,11 +17,13 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.fluids.FluidStack;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.common.recipe.ArcaneDragonEggForgingRecipe;
+import net.yxiao233.ifeu.common.recipe.FluidCraftingTableRecipe;
 import net.yxiao233.ifeu.common.recipe.InfuserRecipe;
 import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.registry.ModFluids;
@@ -30,7 +32,6 @@ import net.yxiao233.ifeu.common.registry.ModTags;
 import java.util.Map;
 
 public class ModSerializableProvider extends TitaniumSerializableProvider {
-    private static final String modId = IndustrialForegoingExtraUpgrades.MODID;
     public ModSerializableProvider(DataGenerator generatorIn, String modid) {
         super(generatorIn, modid);
     }
@@ -38,7 +39,7 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
     @Override
     public void add(Map<IJsonFile, IJSONGenerator> map) {
         //dissolution chamber
-        new DissolutionChamberRecipe(new ResourceLocation(modId,"liquid_dragon_breath"),
+        new DissolutionChamberRecipe(IFEU("liquid_dragon_breath"),
                 new Ingredient.Value[]{
                         itemValue(Items.DRAGON_BREATH.getDefaultInstance()),
                         itemValue(Items.DRAGON_BREATH.getDefaultInstance()),
@@ -53,7 +54,7 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                 new ItemStack(Items.GLASS_BOTTLE,8),new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),100)
         );
 
-        new DissolutionChamberRecipe(new ResourceLocation(modId,"laser_lens_sculk"),
+        new DissolutionChamberRecipe(IFEU("laser_lens_sculk"),
                 new Ingredient.Value[]{
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
@@ -67,7 +68,7 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                 ModContents.LASER_LENS_SCULK.get().getDefaultInstance(),FluidStack.EMPTY
         );
 
-        new DissolutionChamberRecipe(new ResourceLocation(modId,"laser_lens_dragon"),
+        new DissolutionChamberRecipe(IFEU("laser_lens_dragon"),
                 new Ingredient.Value[]{
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
@@ -81,7 +82,7 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                 ModContents.LASER_LENS_DRAGON.get().getDefaultInstance(),FluidStack.EMPTY
         );
 
-        new DissolutionChamberRecipe(new ResourceLocation(modId,"ultimate_machine_frame"),
+        new DissolutionChamberRecipe(IFEU("ultimate_machine_frame"),
                 new Ingredient.Value[]{
                         tagValue(IndustrialTags.Items.PLASTIC),
                         tagValue(IndustrialTags.Items.MACHINE_FRAME_SUPREME),
@@ -97,27 +98,23 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
 
 
         //infuser
-        new InfuserRecipe(new ResourceLocation(modId,"dragon_star"),
+        new InfuserRecipe(IFEU("dragon_star"),
                 Items.NETHER_STAR.getDefaultInstance(), new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(), 1000),200, ModContents.DRAGON_STAR.get().getDefaultInstance()
         );
 
-        new InfuserRecipe(new ResourceLocation(modId,"dirt_mud"),
+        new InfuserRecipe(IFEU("dirt_mud"),
                 Items.DIRT.getDefaultInstance(),new FluidStack(Fluids.WATER.getSource(),1000),200,Items.MUD.getDefaultInstance()
         );
 
-        new InfuserRecipe(new ResourceLocation(modId,"mud_clay"),
+        new InfuserRecipe(IFEU("mud_clay"),
                 Items.MUD.getDefaultInstance(),new FluidStack(Fluids.WATER.getSource(),2000),500,Items.CLAY.getDefaultInstance()
         );
 
-        new InfuserRecipe(new ResourceLocation(modId,"cobblestone_blackstone"),
+        new InfuserRecipe(IFEU("cobblestone_blackstone"),
                 Items.COBBLESTONE.getDefaultInstance(),new FluidStack(Fluids.LAVA.getSource(),200),200,Items.BLACKSTONE.getDefaultInstance()
         );
 
-        new InfuserRecipe(new ResourceLocation(modId,"dragon_star_block"),
-                new ItemStack(ModContents.DRAGON_STAR.get(),9),new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),8000),200,ModContents.DRAGON_STAR_BLOCK.get().asItem().getDefaultInstance()
-        );
-
-        new InfuserRecipe(new ResourceLocation(modId,"dragon_star_from_block"),
+        new InfuserRecipe(IFEU("dragon_star_from_block"),
                 ModContents.DRAGON_STAR_BLOCK.get().asItem().getDefaultInstance(),new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),100),200,new ItemStack(ModContents.DRAGON_STAR.get(),9)
         );
 
@@ -126,31 +123,50 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
         new LaserDrillFluidRecipe("liquid_sculk_matter",
                 new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),10).writeToNBT(new CompoundTag()),
                 Ingredient.of(ModContents.LASER_LENS_SCULK.get()),
-                new ResourceLocation("minecraft","warden"),
+                MC("warden"),
                 new LaserDrillRarity(new ResourceKey[0], new ResourceKey[0],-64,256,8)
         );
         new LaserDrillFluidRecipe("liquid_dragon_breath",
                 new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),10).writeToNBT(new CompoundTag()),
                 Ingredient.of(ModContents.LASER_LENS_DRAGON.get()),
-                new ResourceLocation("minecraft","ender_dragon"),
+                MC("ender_dragon"),
                 new LaserDrillRarity(LaserDrillRarity.END, new ResourceKey[0],-64,256,8)
         );
 
 
         //arcane dragon egg forging
-        new ArcaneDragonEggForgingRecipe(new ResourceLocation(modId,"dead_dragon_egg"),
+        new ArcaneDragonEggForgingRecipe(IFEU("dead_dragon_egg"),
                 new ItemStack(Items.EGG,4),new FluidStack(ModuleCore.ESSENCE.getSourceFluid().get(),250),new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),4000),
                 200,ModContents.DEAD_DRAGON_EGG_ITEM.get().getDefaultInstance(),FluidStack.EMPTY
         );
 
-        new ArcaneDragonEggForgingRecipe(new ResourceLocation(modId,"egg_1"),
+        new ArcaneDragonEggForgingRecipe(IFEU("egg_1"),
                 Items.DRAGON_EGG.getDefaultInstance(),new FluidStack(ModuleCore.PINK_SLIME.getSourceFluid().get(),100),new FluidStack(Fluids.WATER,1000),
                 200,new ItemStack(Items.EGG,16),new FluidStack(ModuleCore.ESSENCE.getSourceFluid().get(), 100)
         );
 
-        new ArcaneDragonEggForgingRecipe(new ResourceLocation(modId,"egg_2"),
+        new ArcaneDragonEggForgingRecipe(IFEU("egg_2"),
                 ModContents.DEAD_DRAGON_EGG_ITEM.get().getDefaultInstance(),new FluidStack(ModuleCore.PINK_SLIME.getSourceFluid().get(),100),new FluidStack(Fluids.WATER,1000),
                 200,new ItemStack(Items.EGG,16),FluidStack.EMPTY
+        );
+        
+        //fluid crafting table
+            //如果配方内某个格子为空,请不要使用serializableProvider来生成配方
+            //请手动添加一个json文件,并将空输入写为{"item":"minecraft:air"}
+        new FluidCraftingTableRecipe(IFEU("dragon_star_block"),
+                new ItemStack[]{
+                        ModContents.DRAGON_STAR.get().getDefaultInstance(),
+                        ModContents.DRAGON_STAR.get().getDefaultInstance(),
+                        ModContents.DRAGON_STAR.get().getDefaultInstance(),
+                        ModContents.DRAGON_STAR.get().getDefaultInstance(),
+                        ModContents.DRAGON_STAR.get().getDefaultInstance(),
+                        ModContents.DRAGON_STAR.get().getDefaultInstance(),
+                        ModContents.DRAGON_STAR.get().getDefaultInstance(),
+                        ModContents.DRAGON_STAR.get().getDefaultInstance(),
+                        ModContents.DRAGON_STAR.get().getDefaultInstance(),
+                },
+                new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),8000),
+                ModContents.DRAGON_STAR_BLOCK.get().asItem().getDefaultInstance()
         );
 
 
@@ -158,6 +174,7 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
         InfuserRecipe.RECIPES.forEach(infuserRecipe -> map.put(infuserRecipe,infuserRecipe));
         LaserDrillFluidRecipe.RECIPES.forEach(laserDrillFluidRecipe -> map.put(laserDrillFluidRecipe,laserDrillFluidRecipe));
         ArcaneDragonEggForgingRecipe.RECIPES.forEach(arcaneDragonEggForgingRecipe -> map.put(arcaneDragonEggForgingRecipe,arcaneDragonEggForgingRecipe));
+        FluidCraftingTableRecipe.RECIPES.forEach(fluidCraftingTableRecipe -> map.put(fluidCraftingTableRecipe,fluidCraftingTableRecipe));
     }
 
     public Ingredient.TagValue tagValue(TagKey<Item> tagKey){
@@ -165,5 +182,11 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
     }
     public Ingredient.ItemValue itemValue(ItemStack itemStack){
         return new Ingredient.ItemValue(itemStack);
+    }
+    public ResourceLocation IFEU(String path){
+        return new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID,path);
+    }
+    public ResourceLocation MC(String path){
+        return new ResourceLocation("minecraft",path);
     }
 }

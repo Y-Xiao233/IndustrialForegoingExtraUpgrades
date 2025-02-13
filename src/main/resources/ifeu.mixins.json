@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.yxiao233.ifeu.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "ifeu.refmap.json",
+  "mixins": [
+    "slot.MixinUpdatableSlotItemHandler"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

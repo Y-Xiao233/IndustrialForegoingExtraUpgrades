@@ -1,0 +1,46 @@
+{
+  "type": "ifeu:fluid_crafting_table",
+  "inputFluid": "{Amount:8000,FluidName:\"ifeu:liquid_sculk_matter\"}",
+  "inputs": [
+    {
+      "count": 1,
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "count": 1,
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "count": 1,
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "count": 1,
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "count": 1,
+      "item": "minecraft:dragon_egg"
+    },
+    {
+      "count": 1,
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "count": 1,
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "count": 1,
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "count": 1,
+      "item": "ifeu:dragon_star"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "item": "ifeu:dragon_star_block"
+  }
+}
