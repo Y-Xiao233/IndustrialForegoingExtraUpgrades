@@ -21,7 +21,8 @@ public class ModKubeJSPlugin extends KubeJSPlugin {
     public void registerRecipeSchemas(RegisterRecipeSchemasEvent event) {
         event.namespace("ifeu")
                 .register("infuser", InfuserSchema.SCHEMA)
-                .register("arcane_dragon_egg_forging",ArcaneDragonEggForgingSchema.SCHEMA);
+                .register("arcane_dragon_egg_forging",ArcaneDragonEggForgingSchema.SCHEMA)
+                .register("fluid_crafting_table",FluidCraftingTableSchema.SCHEMA);
 
         event.namespace("industrialforegoing")
                 .register("crusher", CrusherSchema.SCHEMA)

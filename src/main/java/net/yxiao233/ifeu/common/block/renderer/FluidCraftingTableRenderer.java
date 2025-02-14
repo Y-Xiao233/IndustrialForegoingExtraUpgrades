@@ -22,6 +22,9 @@ public class FluidCraftingTableRenderer implements BlockEntityRenderer<FluidCraf
     }
     @Override
     public void render(FluidCraftingTableEntity entity, float v, PoseStack poseStack, MultiBufferSource multiBufferSource, int combinedLight, int combinedOverlay) {
+        if(!entity.isFluidRender){
+            return;
+        }
         FluidStack fluid = entity.inputFluid.getFluid();
         RendererHelper.renderFluidContext(fluid, poseStack, () -> {
             float height = ((fluid.getAmount() * 1.0F) / FluidCraftingTableConfig.maxInputTankSize);

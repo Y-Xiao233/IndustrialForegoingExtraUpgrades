@@ -1,6 +1,5 @@
 package net.yxiao233.ifeu.common.compact.jei.category;
 
-import com.buuz135.industrial.recipe.DissolutionChamberRecipe;
 import com.hrznstudio.titanium.api.client.AssetTypes;
 import com.hrznstudio.titanium.client.screen.addon.EnergyBarScreenAddon;
 import com.hrznstudio.titanium.client.screen.addon.SlotsScreenAddon;
@@ -19,9 +18,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.yxiao233.ifeu.common.compact.jei.AbstractJEICategory;
 import net.yxiao233.ifeu.common.compact.jei.ModRecipeType;

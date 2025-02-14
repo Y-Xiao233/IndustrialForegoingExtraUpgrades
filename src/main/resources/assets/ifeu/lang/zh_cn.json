@@ -18,6 +18,10 @@
   "tooltip.ifeu.fluid_crafting_table.original": "正常合成模式",
   "tooltip.ifeu.fluid_crafting_table.auto_craft_1": "在输入物品与配方匹配后,会自动合成为输出物品",
   "tooltip.ifeu.fluid_crafting_table.original_1": "就像原版工作台那样",
+  "tooltip.ifeu.fluid_crafting_table.render_fluid": "渲染流体",
+  "tooltip.ifeu.fluid_crafting_table.not_render_fluid": "关闭流体渲染",
+  "tooltip.ifeu.fluid_crafting_table.render_fluid_1": "在世界中渲染该方块流体槽内的流体",
+  "tooltip.ifeu.fluid_crafting_table.not_render_fluid_1": "不在世界中渲染该方块流体槽内的流体",
 
   "item.ifeu.liquid_dragon_breath_bucket": "液态龙息桶",
   "item.ifeu.liquid_sculk_matter_bucket": "液态幽匿物质桶",

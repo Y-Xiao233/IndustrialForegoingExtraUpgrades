@@ -51,6 +51,13 @@
 ### v2.0.100
 - 添加了流体合成台
 
+### v2.0.101
+- 为流体工作台添加了可配置的流体渲染按钮
+- 为流体工作台添加了KubeJS集成
+
+### v2.0.102
+- 更新了jei的版本,并根据其修改内容更改了mixin内容
+
 ## en_us
 ### v1.0.0
 - init
@@ -101,3 +108,10 @@
 
 ### v2.0.100
 -Added fluid crafting table
+
+### v2.0.101
+-Added configurable fluid rendering buttons for the fluid crafting table
+-Added KubeJS integration for fluid crafting table
+
+### v2.0.102
+-Updated the version of JEI and changed the mixin content based on its modifications

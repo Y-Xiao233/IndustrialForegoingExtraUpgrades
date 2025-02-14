@@ -73,9 +73,12 @@ public class FluidCraftingTableEntity extends IndustrialProcessingTile<FluidCraf
     public boolean onFinish;
     public FluidStack fluidWillBeDrained;
     public FluidCraftingTableRecipe lastTimeRecipe;
-    private ButtonComponent buttonComponent;
+    private ButtonComponent buttonComponent1;
+    private ButtonComponent buttonComponent2;
     @Save
     public boolean autoCraft = false;
+    @Save
+    public boolean isFluidRender = true;
     public FluidCraftingTableEntity(BlockPos blockPos, BlockState blockState) {
         super(ModBlocks.FLUID_CRAFTING_TABLE,102,41,blockPos,blockState);
         int slotSpacing = 22;
@@ -174,7 +177,7 @@ public class FluidCraftingTableEntity extends IndustrialProcessingTile<FluidCraf
                 .setComponentHarness(this)
                 .setOnContentChange(() -> checkForRecipe()));
 
-        this.addButton(this.buttonComponent = (new ButtonComponent(136, 84, 14, 14) {
+        this.addButton(this.buttonComponent1 = (new ButtonComponent(136, 84, 14, 14) {
             @OnlyIn(Dist.CLIENT)
             public List<IFactory<? extends IScreenAddon>> getScreenAddons() {
                 return Collections.singletonList(() -> {
@@ -200,7 +203,36 @@ public class FluidCraftingTableEntity extends IndustrialProcessingTile<FluidCraf
         }).setPredicate((playerEntity, compoundNBT) -> {
             this.autoCraft = !this.autoCraft;
             this.markForUpdate();
-        }));
+        }).setId(1));
+
+
+        this.addButton(this.buttonComponent2 = (new ButtonComponent(120, 84, 14, 14) {
+            @OnlyIn(Dist.CLIENT)
+            public List<IFactory<? extends IScreenAddon>> getScreenAddons() {
+                return Collections.singletonList(() -> {
+                    StateButtonInfo[] buttonInfo = new StateButtonInfo[2];
+                    IAssetType<IAsset> asset = AssetTypes.BUTTON_SIDENESS_ENABLED;
+                    String[] tip = new String[2];
+                    ChatFormatting chatFormatting = ChatFormatting.GOLD;
+                    tip[0] = chatFormatting + LangUtil.getString("tooltip.ifeu.fluid_crafting_table.render_fluid", new Object[0]);
+                    tip[1] = "tooltip.ifeu.fluid_crafting_table.render_fluid_1";
+                    buttonInfo[0] = new StateButtonInfo(0, asset, tip);
+                    asset = AssetTypes.BUTTON_SIDENESS_DISABLED;
+                    tip = new String[2];
+                    tip[0] = chatFormatting + LangUtil.getString("tooltip.ifeu.fluid_crafting_table.not_render_fluid", new Object[0]);
+                    tip[1] = "tooltip.ifeu.fluid_crafting_table.not_render_fluid_1";
+                    buttonInfo[1] = new StateButtonInfo(1, asset, tip);
+                    return new StateButtonAddon(this, buttonInfo) {
+                        public int getState() {
+                            return FluidCraftingTableEntity.this.isFluidRender ? 0 : 1;
+                        }
+                    };
+                });
+            }
+        }).setPredicate((playerEntity, compoundNBT) -> {
+            this.isFluidRender = !this.isFluidRender;
+            this.markForUpdate();
+        }).setId(2));
 
 
         this.inputs = NonNullList.of(null,
@@ -337,6 +369,7 @@ public class FluidCraftingTableEntity extends IndustrialProcessingTile<FluidCraf
         super.saveAdditional(compoundTag);
         compoundTag.putBoolean("on_finish",this.onFinish);
         compoundTag.putBoolean("auto_craft",this.autoCraft);
+        compoundTag.putBoolean("is_render_fluid",this.isFluidRender);
     }
 
     @Override
@@ -344,5 +377,6 @@ public class FluidCraftingTableEntity extends IndustrialProcessingTile<FluidCraf
         super.loadSettings(player, tag);
         this.onFinish = tag.getBoolean("on_finish");
         this.autoCraft = tag.getBoolean("auto_craft");
+        this.isFluidRender = tag.getBoolean("is_render_fluid");
     }
 }

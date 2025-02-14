@@ -5,6 +5,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
+import net.yxiao233.ifeu.common.block.entity.FluidCraftingTableEntity;
 import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 
@@ -16,7 +17,7 @@ public class MixinUpdatableSlotItemHandler extends SlotItemHandler {
     }
 
     @Override
-    public boolean allowModification(Player pPlayer) {
+    public boolean mayPickup(Player playerIn) {
         return true;
     }
 }
