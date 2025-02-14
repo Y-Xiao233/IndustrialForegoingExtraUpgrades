@@ -151,8 +151,7 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
         );
         
         //fluid crafting table
-            //如果配方内某个格子为空,请不要使用serializableProvider来生成配方
-            //请手动添加一个json文件,并将空输入写为{"item":"minecraft:air"}
+            //如果配方内某个格子为空,请使用ModContents.AIR.get().getDefaultInstance(),而不是ItemStack.EMPTY
         new FluidCraftingTableRecipe(IFEU("dragon_star_block"),
                 new ItemStack[]{
                         ModContents.DRAGON_STAR.get().getDefaultInstance(),

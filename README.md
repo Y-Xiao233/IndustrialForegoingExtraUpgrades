@@ -115,7 +115,7 @@ ServerEvents.recipes(event => {
     event.recipes.ifeu.arcane_dragon_egg_forging("16x minecraft:egg","minecraft:dragon_egg",Fluid.of("minecraft:water",1000),Fluid.of("minecraft:lava",1000),200,Fluid.of("minecraft:water",100))
 
     //Fluid Crafting Table
-    //顺序写入物品,如当前格子输入为空可以直接写[,],可以写[''],也可以写['minecraft:air']
+    //顺序写入物品,如当前格子输入为空可以直接写[,],可以写[''],也可以写['minecraft:air'],还可以写['ifeu:air']
     /*下面几个示例配方均为该样式
         '   ',
         ' A ',
@@ -138,6 +138,13 @@ ServerEvents.recipes(event => {
         'minecraft:air','minecraft:oak_log','minecraft:air',
         'minecraft:air','minecraft:air','minecraft:air'
     ],Fluid.of("minecraft:water"))
+    
+    event.recipes.ifeu.fluid_crafting_table('4x minecraft:oak_planks',[
+        'ifeu:air','ifeu:air','ifeu:air',
+        'ifeu:air','minecraft:oak_log','ifeu:air',
+        'ifeu:air','ifeu:air','ifeu:air'
+    ],Fluid.of("minecraft:water"))
+    
     
     //StoneWork Generate -> Crusher
     event.recipes.industrialforegoing.stonework_generate("minecraft:blackstone",1000,1000,100,100)
