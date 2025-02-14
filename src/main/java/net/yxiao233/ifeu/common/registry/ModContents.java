@@ -46,4 +46,8 @@ public class ModContents {
     public static final RegistryObject<BlockItem> ULTIMATE_MACHINE_FRAME_ITEM = ITEMS.register("ultimate_machine_frame", () -> new BlockItem(ModContents.ULTIMATE_MACHINE_FRAME.get(),new Item.Properties().rarity(ModRarity.MYTHOLOGICAL)));
     public static final RegistryObject<BlockItem> DRAGON_STAR_BLOCK_ITEM = ITEMS.register("dragon_star_block", () -> new BlockItem(ModContents.DRAGON_STAR_BLOCK.get(),new Item.Properties().rarity(ModRarity.LEGENDARY)));
 
+
+    //for recipe as "minecraft:air"
+    public static final RegistryObject<Item> AIR = ITEMS.register("air", () -> new Item(new Item.Properties()));
+
 }

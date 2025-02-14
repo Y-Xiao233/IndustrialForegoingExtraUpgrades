@@ -26,6 +26,7 @@ import net.yxiao233.ifeu.common.config.machine.FluidCraftingTableConfig;
 import net.yxiao233.ifeu.common.config.machine.InfuserConfig;
 import net.yxiao233.ifeu.common.recipe.FluidCraftingTableRecipe;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
+import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.registry.ModRecipes;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -57,7 +58,7 @@ public class FluidCraftingTableCategory extends AbstractJEICategory<FluidCraftin
                 x = 31;
                 y += 18;
             }
-            if(recipe.inputs[i].isEmpty()){
+            if(recipe.inputs[i].is(ModContents.AIR.get())){
                 builder.addSlot(RecipeIngredientRole.INPUT,x,y).addItemStack(ItemStack.EMPTY);
             }else{
                 builder.addSlot(RecipeIngredientRole.INPUT,x,y).addItemStack(recipe.inputs[i]);

@@ -4,14 +4,14 @@ import com.hrznstudio.titanium.container.BasicAddonContainer;
 import com.hrznstudio.titanium.util.RecipeUtil;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
+import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.helpers.IGuiHelper;
-import mezz.jei.api.registration.IRecipeCatalystRegistration;
-import mezz.jei.api.registration.IRecipeCategoryRegistration;
-import mezz.jei.api.registration.IRecipeRegistration;
-import mezz.jei.api.registration.IRecipeTransferRegistration;
+import mezz.jei.api.registration.*;
+import mezz.jei.api.runtime.IJeiRuntime;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BucketItem;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.MobBucketItem;
 import net.minecraft.world.item.crafting.RecipeType;
@@ -28,6 +28,7 @@ import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.registry.ModRecipes;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @JeiPlugin
@@ -37,6 +38,10 @@ public class JEIPlugin implements IModPlugin {
         return new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID,"jei_plugin");
     }
 
+    @Override
+    public void onRuntimeAvailable(IJeiRuntime jeiRuntime) {
+        jeiRuntime.getIngredientManager().removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK, Collections.singletonList(new ItemStack(ModContents.AIR.get())));
+    }
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
         IGuiHelper guiHelper =  registration.getJeiHelpers().getGuiHelper();

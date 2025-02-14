@@ -28,7 +28,7 @@ public class IFEUComponents {
         public JsonElement write(RecipeJS recipeJS, InputItem inputItem) {
             if(inputItem.isEmpty()){
                 JsonObject jsonobject = new JsonObject();
-                jsonobject.addProperty("item", "minecraft:air");
+                jsonobject.addProperty("item", "ifeu:air");
                 return jsonobject;
             }else{
                 return recipeJS.writeInputItem(inputItem);

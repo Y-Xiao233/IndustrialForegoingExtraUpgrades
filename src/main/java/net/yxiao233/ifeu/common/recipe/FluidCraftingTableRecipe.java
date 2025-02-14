@@ -16,6 +16,7 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.yxiao233.ifeu.common.block.entity.FluidCraftingTableEntity;
+import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.registry.ModRecipes;
 
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class FluidCraftingTableRecipe extends SerializableRecipe {
             NonNullList<Boolean> matches = NonNullList.withSize(9, false);
 
             for (int i = 0; i < this.inputs.length; i++) {
-                if(!this.inputs[i].isEmpty()){
+                if(!this.inputs[i].is(ModContents.AIR.get())){
                     matches.set(i,inputs.get(i).getStackInSlot(0).is(this.inputs[i].getItem()));
                 }else{
                     if(inputs.get(i).getStackInSlot(0).isEmpty()){
