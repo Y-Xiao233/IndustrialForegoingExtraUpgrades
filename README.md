@@ -39,6 +39,14 @@ StartupEvents.registry("item", event =>{
     OutputFluid:输出流体[FluidStack,可选,默认为空]
 ```
 
+- Fluid Crafting Table 流体工作台```event.recipes.ifeu.fluid_crafting_table(OutputItem,InputItems,InputFluid)```
+```
+参数详解:
+    OutputItem:输出物品[ItemStack]
+    InputItems:输入物品[[ItemStack...],最多9个输入物品]
+    InputFluid:输入流体[FluidStack]
+```
+
 - StoneWork Generate 造石加工机```event.recipes.industrialforegoing.stonework_generate(OutputItem,waterNeed,lavaNeed,waterConsume,lavaConsume)```
 ```
 参数详解:
@@ -106,6 +114,31 @@ ServerEvents.recipes(event => {
     //Arcane Dragon Egg Forging
     event.recipes.ifeu.arcane_dragon_egg_forging("16x minecraft:egg","minecraft:dragon_egg",Fluid.of("minecraft:water",1000),Fluid.of("minecraft:lava",1000),200,Fluid.of("minecraft:water",100))
 
+    //Fluid Crafting Table
+    //顺序写入物品,如当前格子输入为空可以直接写[,],可以写[''],也可以写['minecraft:air']
+    /*下面几个示例配方均为该样式
+        '   ',
+        ' A ',
+        '   '
+    */
+    event.recipes.ifeu.fluid_crafting_table('4x minecraft:oak_planks',[
+        ,,,
+        ,'minecraft:oak_log',,
+        ,,,
+    ],Fluid.of("minecraft:water"))
+    
+    event.recipes.ifeu.fluid_crafting_table('4x minecraft:oak_planks',[
+        '','','',
+        '','minecraft:oak_log','',
+        '','',''
+    ],Fluid.of("minecraft:water"))
+    
+    event.recipes.ifeu.fluid_crafting_table('4x minecraft:oak_planks',[
+        'minecraft:air','minecraft:air','minecraft:air',
+        'minecraft:air','minecraft:oak_log','minecraft:air',
+        'minecraft:air','minecraft:air','minecraft:air'
+    ],Fluid.of("minecraft:water"))
+    
     //StoneWork Generate -> Crusher
     event.recipes.industrialforegoing.stonework_generate("minecraft:blackstone",1000,1000,100,100)
     event.recipes.industrialforegoing.crusher("minecraft:coal","minecraft:blackstone")
