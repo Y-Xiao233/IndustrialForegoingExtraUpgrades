@@ -61,6 +61,7 @@
 
 ### v2.0.103
 - 修复了流体工作台无法正常挖掘的bug
+- 修复了服务端JEI被破坏的bug[\#8 by MashiroYae](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/8)
 
 ## en_us
 ### v1.0.0
@@ -119,3 +120,7 @@
 
 ### v2.0.102
 -Updated the version of JEI and changed the mixin content based on its modifications
+
+### v2.0.103
+- Fixed the bug where the fluid crafting table could not excavate properly
+- Fixed the bug where the server-side JEI was compromised[\#8 by MashiroYae](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/8)

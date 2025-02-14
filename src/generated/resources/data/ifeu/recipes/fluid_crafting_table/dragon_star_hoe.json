@@ -3,44 +3,36 @@
   "inputFluid": "{Amount:1000,FluidName:\"ifeu:liquid_dragon_breath\"}",
   "inputs": [
     {
-      "count": 1,
       "item": "ifeu:dragon_star"
     },
     {
-      "count": 1,
       "item": "ifeu:dragon_star"
     },
     {
-      "count": 1,
       "item": "ifeu:air"
     },
     {
-      "count": 1,
       "item": "ifeu:air"
     },
     {
-      "count": 1,
       "item": "minecraft:netherite_hoe"
     },
     {
-      "count": 1,
       "item": "ifeu:air"
     },
     {
-      "count": 1,
       "item": "ifeu:air"
     },
     {
-      "count": 1,
       "item": "minecraft:stick"
     },
     {
-      "count": 1,
       "item": "ifeu:air"
     }
   ],
   "output": {
     "count": 1,
-    "item": "ifeu:dragon_star_hoe"
+    "item": "ifeu:dragon_star_hoe",
+    "nbt": "{Damage:0}"
   }
 }

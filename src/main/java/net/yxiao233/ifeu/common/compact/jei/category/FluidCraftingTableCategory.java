@@ -58,10 +58,11 @@ public class FluidCraftingTableCategory extends AbstractJEICategory<FluidCraftin
                 x = 31;
                 y += 18;
             }
-            if(recipe.inputs[i].is(ModContents.AIR.get())){
-                builder.addSlot(RecipeIngredientRole.INPUT,x,y).addItemStack(ItemStack.EMPTY);
+            Iterator<ItemStack> iterator = recipe.inputs[i].getItems().iterator();
+            if(iterator.hasNext() && iterator.next().is(ModContents.AIR.get())){
+                builder.addSlot(RecipeIngredientRole.INPUT,x,y).addIngredient(VanillaTypes.ITEM_STACK,ItemStack.EMPTY);
             }else{
-                builder.addSlot(RecipeIngredientRole.INPUT,x,y).addItemStack(recipe.inputs[i]);
+                builder.addSlot(RecipeIngredientRole.INPUT,x,y).addIngredients(VanillaTypes.ITEM_STACK,recipe.inputs[i].getItems().stream().toList());
             }
             x += 18;
         }
@@ -74,7 +75,7 @@ public class FluidCraftingTableCategory extends AbstractJEICategory<FluidCraftin
         }
         //Output
         builder.addSlot(RecipeIngredientRole.OUTPUT, 119, 33)
-                .addItemStack(recipe.output);
+                .addIngredient(VanillaTypes.ITEM_STACK,recipe.output);
     }
 
     @Override

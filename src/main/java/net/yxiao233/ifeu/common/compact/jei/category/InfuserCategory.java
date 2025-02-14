@@ -9,6 +9,7 @@ import com.hrznstudio.titanium.util.AssetUtil;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.forge.ForgeTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
+import mezz.jei.api.gui.builder.ITooltipBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
@@ -79,12 +80,8 @@ public class InfuserCategory extends AbstractJEICategory<InfuserRecipe> {
     }
 
     @Override
-    public List<Component> getTooltipStrings(InfuserRecipe recipe, IRecipeSlotsView recipeSlotsView, double mouseX, double mouseY) {
-        Rectangle rec = DefaultAssetProvider.DEFAULT_PROVIDER.getAsset(AssetTypes.ENERGY_BACKGROUND).getArea();
-        if (new Rectangle(0, 12, rec.width, rec.height).contains(mouseX, mouseY)) {
-            int consumed = recipe.processingTime * 60;
-            return EnergyBarScreenAddon.getTooltip(consumed, (int) Math.max(50000, Math.ceil(consumed)));
-        }
-        return new ArrayList<>();
+    public void getTooltip(ITooltipBuilder tooltip, InfuserRecipe recipe, IRecipeSlotsView recipeSlotsView, double mouseX, double mouseY) {
+        int consumed = recipe.processingTime * 60;
+        addEnergyBarTooltip(tooltip,mouseX,mouseY,consumed,(int) Math.max(50000, Math.ceil(consumed)));
     }
 }

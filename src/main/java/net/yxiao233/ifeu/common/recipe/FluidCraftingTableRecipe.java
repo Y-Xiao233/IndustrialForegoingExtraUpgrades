@@ -27,13 +27,13 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class FluidCraftingTableRecipe extends SerializableRecipe {
     public static List<FluidCraftingTableRecipe> RECIPES = new ArrayList<>();
-    public ItemStack[] inputs;
+    public Ingredient.Value[] inputs;
     public FluidStack inputFluid;
     public ItemStack output;
     public FluidCraftingTableRecipe(ResourceLocation resourceLocation){
         super(resourceLocation);
     }
-    public FluidCraftingTableRecipe(ResourceLocation resourceLocation, ItemStack[] inputs, FluidStack inputFluid, ItemStack output) {
+    public FluidCraftingTableRecipe(ResourceLocation resourceLocation, Ingredient.Value[] inputs, FluidStack inputFluid, ItemStack output) {
         super(resourceLocation);
         this.inputs = inputs;
         this.inputFluid = inputFluid;
@@ -46,11 +46,14 @@ public class FluidCraftingTableRecipe extends SerializableRecipe {
             NonNullList<Boolean> matches = NonNullList.withSize(9, false);
 
             for (int i = 0; i < this.inputs.length; i++) {
-                if(!this.inputs[i].is(ModContents.AIR.get())){
-                    matches.set(i,inputs.get(i).getStackInSlot(0).is(this.inputs[i].getItem()));
-                }else{
-                    if(inputs.get(i).getStackInSlot(0).isEmpty()){
-                        matches.set(i,true);
+                Iterator<ItemStack> iterator = this.inputs[i].getItems().iterator();
+
+                if(iterator.hasNext()){
+                    ItemStack stack = iterator.next();
+                    if(stack.is(ModContents.AIR.get())){
+                        matches.set(i,inputs.get(i).getStackInSlot(0).isEmpty());
+                    }else{
+                        matches.set(i,inputs.get(i).getStackInSlot(0).is(stack.getItem()));
                     }
                 }
             }

@@ -153,21 +153,102 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
         //fluid crafting table
             //如果配方内某个格子为空,请使用ModContents.AIR.get().getDefaultInstance(),而不是ItemStack.EMPTY
         new FluidCraftingTableRecipe(IFEU("dragon_star_block"),
-                new ItemStack[]{
-                        ModContents.DRAGON_STAR.get().getDefaultInstance(),
-                        ModContents.DRAGON_STAR.get().getDefaultInstance(),
-                        ModContents.DRAGON_STAR.get().getDefaultInstance(),
-                        ModContents.DRAGON_STAR.get().getDefaultInstance(),
-                        ModContents.DRAGON_STAR.get().getDefaultInstance(),
-                        ModContents.DRAGON_STAR.get().getDefaultInstance(),
-                        ModContents.DRAGON_STAR.get().getDefaultInstance(),
-                        ModContents.DRAGON_STAR.get().getDefaultInstance(),
-                        ModContents.DRAGON_STAR.get().getDefaultInstance(),
+                new Ingredient.Value[]{
+                        itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
+                        itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
+                        itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
+                        itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
+                        itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
+                        itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
+                        itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
+                        itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
+                        itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance())
                 },
                 new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),8000),
                 ModContents.DRAGON_STAR_BLOCK.get().asItem().getDefaultInstance()
         );
 
+        new FluidCraftingTableRecipe(IFEU("dragon_star_axe"),
+                new Ingredient.Value[]{
+                        itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
+                        itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
+                        itemValue(ModContents.AIR.get().getDefaultInstance()),
+                        itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
+                        itemValue(Items.NETHERITE_AXE.getDefaultInstance()),
+                        itemValue(ModContents.AIR.get().getDefaultInstance()),
+                        itemValue(ModContents.AIR.get().getDefaultInstance()),
+                        itemValue(Items.STICK.getDefaultInstance()),
+                        itemValue(ModContents.AIR.get().getDefaultInstance())
+                },
+                new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000),
+                ModContents.DRAGON_STAR_AXE.get().getDefaultInstance()
+        );
+
+        new FluidCraftingTableRecipe(IFEU("dragon_star_hoe"),
+                new Ingredient.Value[]{
+                        itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
+                        itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
+                        itemValue(ModContents.AIR.get().getDefaultInstance()),
+                        itemValue(ModContents.AIR.get().getDefaultInstance()),
+                        itemValue(Items.NETHERITE_HOE.getDefaultInstance()),
+                        itemValue(ModContents.AIR.get().getDefaultInstance()),
+                        itemValue(ModContents.AIR.get().getDefaultInstance()),
+                        itemValue(Items.STICK.getDefaultInstance()),
+                        itemValue(ModContents.AIR.get().getDefaultInstance())
+                },
+                new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000),
+                ModContents.DRAGON_STAR_HOE.get().getDefaultInstance()
+        );
+
+
+        new FluidCraftingTableRecipe(IFEU("dragon_star_pickaxe"),
+                new Ingredient.Value[]{
+                        itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
+                        itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
+                        itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
+                        itemValue(ModContents.AIR.get().getDefaultInstance()),
+                        itemValue(Items.NETHERITE_PICKAXE.getDefaultInstance()),
+                        itemValue(ModContents.AIR.get().getDefaultInstance()),
+                        itemValue(ModContents.AIR.get().getDefaultInstance()),
+                        itemValue(Items.STICK.getDefaultInstance()),
+                        itemValue(ModContents.AIR.get().getDefaultInstance())
+                },
+                new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000),
+                ModContents.DRAGON_STAR_PICKAXE.get().getDefaultInstance()
+        );
+
+        new FluidCraftingTableRecipe(IFEU("dragon_star_shovel"),
+                new Ingredient.Value[]{
+                        itemValue(ModContents.AIR.get().getDefaultInstance()),
+                        itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
+                        itemValue(ModContents.AIR.get().getDefaultInstance()),
+                        itemValue(ModContents.AIR.get().getDefaultInstance()),
+                        itemValue(Items.NETHERITE_SHOVEL.getDefaultInstance()),
+                        itemValue(ModContents.AIR.get().getDefaultInstance()),
+                        itemValue(ModContents.AIR.get().getDefaultInstance()),
+                        itemValue(Items.STICK.getDefaultInstance()),
+                        itemValue(ModContents.AIR.get().getDefaultInstance())
+                },
+                new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000),
+                ModContents.DRAGON_STAR_SHOVEL.get().getDefaultInstance()
+        );
+
+
+        new FluidCraftingTableRecipe(IFEU("dragon_star_sword"),
+                new Ingredient.Value[]{
+                        itemValue(ModContents.AIR.get().getDefaultInstance()),
+                        itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
+                        itemValue(ModContents.AIR.get().getDefaultInstance()),
+                        itemValue(ModContents.AIR.get().getDefaultInstance()),
+                        itemValue(Items.NETHERITE_SWORD.getDefaultInstance()),
+                        itemValue(ModContents.AIR.get().getDefaultInstance()),
+                        itemValue(ModContents.AIR.get().getDefaultInstance()),
+                        itemValue(Items.STICK.getDefaultInstance()),
+                        itemValue(ModContents.AIR.get().getDefaultInstance())
+                },
+                new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000),
+                ModContents.DRAGON_STAR_SWORD.get().getDefaultInstance()
+        );
 
         DissolutionChamberRecipe.RECIPES.forEach(dissolutionChamberRecipe -> map.put(dissolutionChamberRecipe,dissolutionChamberRecipe));
         InfuserRecipe.RECIPES.forEach(infuserRecipe -> map.put(infuserRecipe,infuserRecipe));
