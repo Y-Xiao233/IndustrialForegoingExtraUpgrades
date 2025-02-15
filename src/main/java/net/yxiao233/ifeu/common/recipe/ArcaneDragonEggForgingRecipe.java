@@ -107,7 +107,7 @@ public class ArcaneDragonEggForgingRecipe implements Recipe<CraftingInput> {
         return ((ItemStack)this.output.orElse(ItemStack.EMPTY)).copy();
     }
     public ItemStack getToastSymbol() {
-        return new ItemStack(ModBlocks.INFUSER);
+        return new ItemStack(ModBlocks.ARCANE_DRAGON_EGG_FORGING);
     }
 
     public RecipeSerializer<?> getSerializer() {

@@ -1,0 +1,40 @@
+{
+  "type": "ifeu:fluid_crafting_table",
+  "inputFluid": {
+    "amount": 1000,
+    "id": "ifeu:liquid_dragon_breath"
+  },
+  "inputs": [
+    {
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "item": "ifeu:air"
+    },
+    {
+      "item": "ifeu:air"
+    },
+    {
+      "item": "minecraft:netherite_hoe"
+    },
+    {
+      "item": "ifeu:air"
+    },
+    {
+      "item": "ifeu:air"
+    },
+    {
+      "item": "minecraft:stick"
+    },
+    {
+      "item": "ifeu:air"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "id": "ifeu:dragon_star_hoe"
+  }
+}

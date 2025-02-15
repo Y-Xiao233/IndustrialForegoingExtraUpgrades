@@ -88,43 +88,6 @@ public class ModRecipeProvider extends VanillaRecipeProvider {
                 .define('B', ModTags.Items.GEARS_NETHERITE)
                 .save(recipeOutput);
 
-        TitaniumShapedRecipeBuilder.shapedRecipe(ModContents.DRAGON_STAR_SWORD.get())
-                .pattern(" A ").pattern(" B ").pattern(" C ")
-                .define('A',ModContents.DRAGON_STAR.get())
-                .define('B',Items.NETHERITE_SWORD)
-                .define('C', Tags.Items.RODS)
-                .save(recipeOutput);
-
-        TitaniumShapedRecipeBuilder.shapedRecipe(ModContents.DRAGON_STAR_PICKAXE.get())
-                .pattern("AAA").pattern(" B ").pattern(" C ")
-                .define('A',ModContents.DRAGON_STAR.get())
-                .define('B',Items.NETHERITE_PICKAXE)
-                .define('C', Tags.Items.RODS)
-                .save(recipeOutput);
-
-        TitaniumShapedRecipeBuilder.shapedRecipe(ModContents.DRAGON_STAR_AXE.get())
-                .pattern("AA ").pattern("AB ").pattern(" C ")
-                .define('A',ModContents.DRAGON_STAR.get())
-                .define('B',Items.NETHERITE_AXE)
-                .define('C', Tags.Items.RODS)
-                .save(recipeOutput);
-
-        TitaniumShapedRecipeBuilder.shapedRecipe(ModContents.DRAGON_STAR_SHOVEL.get())
-                .pattern(" A ").pattern(" B ").pattern(" C ")
-                .define('A',ModContents.DRAGON_STAR.get())
-                .define('B',Items.NETHERITE_SHOVEL)
-                .define('C', Tags.Items.RODS)
-                .save(recipeOutput);
-
-        TitaniumShapedRecipeBuilder.shapedRecipe(ModContents.DRAGON_STAR_HOE.get())
-                .pattern("AA ").pattern(" B ").pattern(" C ")
-                .define('A',ModContents.DRAGON_STAR.get())
-                .define('B',Items.NETHERITE_HOE)
-                .define('C', Tags.Items.RODS)
-                .save(recipeOutput);
-
-
-
         ModSerializableProvider.init(recipeOutput);
     }
 }

@@ -17,6 +17,7 @@ import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.common.conditions.ICondition;
 import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 import net.neoforged.neoforge.items.IItemHandler;
+import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModRecipes;
 
 public class DragonStarGeneratorRecipe implements Recipe<CraftingInput> {
@@ -72,6 +73,11 @@ public class DragonStarGeneratorRecipe implements Recipe<CraftingInput> {
     @Override
     public ItemStack getResultItem(HolderLookup.Provider provider) {
         return null;
+    }
+
+    @Override
+    public ItemStack getToastSymbol() {
+        return new ItemStack(ModBlocks.DRAGON_STAR_GENERATOR);
     }
 
     @Override

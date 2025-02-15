@@ -1,16 +1,21 @@
 package net.yxiao233.ifeu.common.compact.jei;
 
+import com.hrznstudio.titanium.container.BasicAddonContainer;
 import com.hrznstudio.titanium.util.RecipeUtil;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
+import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
+import mezz.jei.api.registration.IRecipeTransferRegistration;
+import mezz.jei.api.runtime.IJeiRuntime;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BucketItem;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.MobBucketItem;
 import net.minecraft.world.item.crafting.RecipeType;
@@ -18,20 +23,15 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
-import net.yxiao233.ifeu.common.compact.jei.category.ArcaneDragonEggForgingCategory;
-import net.yxiao233.ifeu.common.compact.jei.category.BlockRightClickCategory;
-import net.yxiao233.ifeu.common.compact.jei.category.DragonStarGeneratorCategory;
-import net.yxiao233.ifeu.common.compact.jei.category.InfuserCategory;
+import net.yxiao233.ifeu.common.compact.jei.category.*;
 import net.yxiao233.ifeu.common.config.machine.DragonStarGeneratorConfig;
-import net.yxiao233.ifeu.common.recipe.ArcaneDragonEggForgingRecipe;
-import net.yxiao233.ifeu.common.recipe.BlockRightClickRecipe;
-import net.yxiao233.ifeu.common.recipe.DragonStarGeneratorRecipe;
-import net.yxiao233.ifeu.common.recipe.InfuserRecipe;
+import net.yxiao233.ifeu.common.recipe.*;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.registry.ModRecipes;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @JeiPlugin
@@ -42,6 +42,11 @@ public class JEIPlugin implements IModPlugin {
     }
 
     @Override
+    public void onRuntimeAvailable(IJeiRuntime jeiRuntime) {
+        jeiRuntime.getIngredientManager().removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK, Collections.singletonList(new ItemStack(ModContents.AIR.get())));
+    }
+
+    @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
         IGuiHelper guiHelper =  registration.getJeiHelpers().getGuiHelper();
 
@@ -49,6 +54,7 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeCategories(new ArcaneDragonEggForgingCategory(guiHelper));
         registration.addRecipeCategories(new BlockRightClickCategory(guiHelper));
         registration.addRecipeCategories(new DragonStarGeneratorCategory(guiHelper));
+        registration.addRecipeCategories(new FluidCraftingTableCategory(guiHelper));
     }
 
     @Override
@@ -62,6 +68,7 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipes(ModRecipeType.ARCANE_DRAGON_EGG_FORGING, RecipeUtil.getRecipes(level,(RecipeType<ArcaneDragonEggForgingRecipe>) ModRecipes.ARCANE_DRAGON_EGG_FORGING_TYPE.get()));
         registration.addRecipes(ModRecipeType.BLOCK_RIGHT_CLICK, RecipeUtil.getRecipes(level,(RecipeType<BlockRightClickRecipe>) ModRecipes.BLOCK_RIGHT_CLICK_TYPE.get()));
         registration.addRecipes(ModRecipeType.DRAGON_STAR_GENERATOR, RecipeUtil.getRecipes(level,(RecipeType<DragonStarGeneratorRecipe>) ModRecipes.DRAGON_STAR_GENERATOR_TYPE.get()));
+        registration.addRecipes(ModRecipeType.FLUID_CRAFTING_TABLE, RecipeUtil.getRecipes(level,(RecipeType<FluidCraftingTableRecipe>) ModRecipes.FLUID_CRAFTING_TABLE_TYPE.get()));
     }
 
     @Override
@@ -70,6 +77,12 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeCatalyst(ModBlocks.ARCANE_DRAGON_EGG_FORGING.getBlock().asItem().getDefaultInstance(),ModRecipeType.ARCANE_DRAGON_EGG_FORGING);
         registration.addRecipeCatalyst(Blocks.DRAGON_EGG.asItem().getDefaultInstance(),ModRecipeType.BLOCK_RIGHT_CLICK);
         registration.addRecipeCatalyst(ModBlocks.DRAGON_STAR_GENERATOR.getBlock().asItem().getDefaultInstance(),ModRecipeType.DRAGON_STAR_GENERATOR);
+        registration.addRecipeCatalyst(ModBlocks.FLUID_CRAFTING_TABLE.getBlock().asItem().asItem(),ModRecipeType.FLUID_CRAFTING_TABLE);
+    }
+
+    @Override
+    public void registerRecipeTransferHandlers(IRecipeTransferRegistration registration) {
+        registration.addRecipeTransferHandler(BasicAddonContainer.class,null,ModRecipeType.FLUID_CRAFTING_TABLE,4,9,16,36);
     }
 
     private void addInfuserCompactRecipes(IRecipeRegistration registration){

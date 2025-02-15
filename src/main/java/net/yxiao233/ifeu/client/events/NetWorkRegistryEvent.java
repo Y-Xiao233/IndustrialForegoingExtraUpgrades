@@ -15,7 +15,7 @@ import net.yxiao233.ifeu.common.networking.packet.BooleanSyncS2CPacket;
 public class NetWorkRegistryEvent {
     @SubscribeEvent
     public static void register(final RegisterPayloadHandlersEvent event) {
-        PayloadRegistrar registrar = event.registrar("1");
+        PayloadRegistrar registrar = event.registrar("21.1.117");
 
         registrar.playBidirectional(
                 BooleanSyncS2CPacket.TYPE,
