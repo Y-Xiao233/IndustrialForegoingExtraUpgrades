@@ -1,0 +1,44 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "ifeu:fluid_crafting_table"
+    }
+  ],
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "tag": "c:glass_blocks"
+    },
+    {
+      "tag": "industrialforegoing:machine_frame/advanced"
+    },
+    {
+      "tag": "c:glass_blocks"
+    },
+    {
+      "tag": "c:glass_blocks"
+    },
+    {
+      "tag": "c:glass_blocks"
+    },
+    {
+      "tag": "c:glass_blocks"
+    },
+    {
+      "tag": "c:gears/diamond"
+    },
+    {
+      "tag": "c:glass_blocks"
+    }
+  ],
+  "inputFluid": {
+    "amount": 2000,
+    "id": "industrialforegoing:pink_slime"
+  },
+  "output": {
+    "count": 1,
+    "id": "ifeu:fluid_crafting_table"
+  },
+  "processingTime": 200
+}

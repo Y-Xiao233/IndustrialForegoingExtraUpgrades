@@ -21,6 +21,7 @@ import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.neoforged.neoforge.items.IItemHandler;
+import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModRecipes;
 
 import java.util.ArrayList;
@@ -92,6 +93,11 @@ public class InfuserRecipe implements Recipe<CraftingInput> {
     @Override
     public ItemStack getResultItem(HolderLookup.Provider provider) {
         return output.copy();
+    }
+
+    @Override
+    public ItemStack getToastSymbol() {
+        return new ItemStack(ModBlocks.INFUSER);
     }
 
     @Override

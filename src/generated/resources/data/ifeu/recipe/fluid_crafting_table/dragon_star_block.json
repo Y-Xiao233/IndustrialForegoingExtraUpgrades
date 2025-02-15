@@ -1,0 +1,40 @@
+{
+  "type": "ifeu:fluid_crafting_table",
+  "inputFluid": {
+    "amount": 8000,
+    "id": "ifeu:liquid_sculk_matter"
+  },
+  "inputs": [
+    {
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "item": "ifeu:dragon_star"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "id": "ifeu:dragon_star_block"
+  }
+}

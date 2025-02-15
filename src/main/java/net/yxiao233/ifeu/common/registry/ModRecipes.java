@@ -9,10 +9,7 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
-import net.yxiao233.ifeu.common.recipe.ArcaneDragonEggForgingRecipe;
-import net.yxiao233.ifeu.common.recipe.BlockRightClickRecipe;
-import net.yxiao233.ifeu.common.recipe.DragonStarGeneratorRecipe;
-import net.yxiao233.ifeu.common.recipe.InfuserRecipe;
+import net.yxiao233.ifeu.common.recipe.*;
 
 public class ModRecipes implements IModule {
     public static DeferredHolder<RecipeSerializer<?>,RecipeSerializer<?>> INFUSER_SERIALIZER;
@@ -23,6 +20,8 @@ public class ModRecipes implements IModule {
     public static DeferredHolder<RecipeType<?>,RecipeType<?>> BLOCK_RIGHT_CLICK_TYPE;
     public static DeferredHolder<RecipeSerializer<?>,RecipeSerializer<?>> DRAGON_STAR_GENERATOR_SERIALIZER;
     public static DeferredHolder<RecipeType<?>,RecipeType<?>> DRAGON_STAR_GENERATOR_TYPE;
+    public static DeferredHolder<RecipeSerializer<?>,RecipeSerializer<?>> FLUID_CRAFTING_TABLE_SERIALIZER;
+    public static DeferredHolder<RecipeType<?>,RecipeType<?>> FLUID_CRAFTING_TABLE_TYPE;
     @Override
     public void generateFeatures(DeferredRegistryHelper helper) {
         INFUSER_SERIALIZER = helper.registerGeneric(Registries.RECIPE_SERIALIZER, "infuser", () -> new CodecRecipeSerializer<>(InfuserRecipe.class, INFUSER_TYPE,InfuserRecipe.CODEC));
@@ -37,5 +36,8 @@ public class ModRecipes implements IModule {
 
         DRAGON_STAR_GENERATOR_SERIALIZER = helper.registerGeneric(Registries.RECIPE_SERIALIZER, "dragon_star_generator", () -> new CodecRecipeSerializer<>(DragonStarGeneratorRecipe.class, DRAGON_STAR_GENERATOR_TYPE, DragonStarGeneratorRecipe.CODEC));
         DRAGON_STAR_GENERATOR_TYPE = helper.registerGeneric(Registries.RECIPE_TYPE, "dragon_star_generator", () -> RecipeType.simple(ResourceLocation.fromNamespaceAndPath(IndustrialForegoingExtraUpgrades.MODID, "dragon_star_generator")));
+
+        FLUID_CRAFTING_TABLE_SERIALIZER = helper.registerGeneric(Registries.RECIPE_SERIALIZER, "fluid_crafting_table", () -> new CodecRecipeSerializer<>(FluidCraftingTableRecipe.class, FLUID_CRAFTING_TABLE_TYPE, FluidCraftingTableRecipe.CODEC));
+        FLUID_CRAFTING_TABLE_TYPE = helper.registerGeneric(Registries.RECIPE_TYPE, "fluid_crafting_table", () -> RecipeType.simple(ResourceLocation.fromNamespaceAndPath(IndustrialForegoingExtraUpgrades.MODID, "fluid_crafting_table")));
     }
 }

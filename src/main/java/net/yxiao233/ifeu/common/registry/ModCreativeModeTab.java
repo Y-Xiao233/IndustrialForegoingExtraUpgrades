@@ -14,7 +14,9 @@ public class ModCreativeModeTab {
             .displayItems((parameters, output) -> {
 
                 ModContents.ITEMS.getEntries().forEach((reg) ->{
-                    output.accept(reg.get());
+                    if(!reg.get().getDefaultInstance().is(ModContents.AIR)){
+                        output.accept(reg.get());
+                    }
                 });
 
                 ModFluids.addBucketItemsToCreativeModeTab().forEach(item -> output.accept(item.getDefaultInstance()));

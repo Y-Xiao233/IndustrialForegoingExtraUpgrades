@@ -19,6 +19,7 @@ public class ModBlocks implements IModule {
     public static BlockWithTile RULE_CONTROLLER;
     public static BlockWithTile WEATHER_CONTROLLER;
     public static BlockWithTile TIME_CONTROLLER;
+    public static BlockWithTile FLUID_CRAFTING_TABLE;
     @Override
     public void generateFeatures(DeferredRegistryHelper helper) {
         INFUSER = deferredRegistry(helper,"infuser",InfuserBlock::new);
@@ -28,6 +29,7 @@ public class ModBlocks implements IModule {
         RULE_CONTROLLER = deferredRegistry(helper,"rule_controller", RuleControllerBlock::new);
         WEATHER_CONTROLLER = deferredRegistry(helper,"weather_controller",WeatherControllerBlock::new);
         TIME_CONTROLLER = deferredRegistry(helper,"time_controller",TimeControllerBlock::new);
+        FLUID_CRAFTING_TABLE = deferredRegistry(helper,"fluid_crafting_table",FluidCraftingTableBlock::new);
     }
 
     private BlockWithTile deferredRegistry(DeferredRegistryHelper helper, String name, Supplier<BasicTileBlock<?>> blockSupplier){
@@ -44,6 +46,7 @@ public class ModBlocks implements IModule {
         blocks.add(RULE_CONTROLLER.getBlock());
         blocks.add(WEATHER_CONTROLLER.getBlock());
         blocks.add(TIME_CONTROLLER.getBlock());
+        blocks.add(FLUID_CRAFTING_TABLE.getBlock());
 
         return blocks;
     }

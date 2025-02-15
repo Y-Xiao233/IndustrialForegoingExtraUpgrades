@@ -17,6 +17,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.BlockHitResult;
 import net.neoforged.neoforge.common.conditions.ICondition;
 import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
+import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.registry.ModRecipes;
 
 public class BlockRightClickRecipe implements Recipe<CraftingInput> {
@@ -74,6 +75,11 @@ public class BlockRightClickRecipe implements Recipe<CraftingInput> {
     @Override
     public ItemStack getResultItem(HolderLookup.Provider provider) {
         return this.result.asItem().getDefaultInstance();
+    }
+
+    @Override
+    public ItemStack getToastSymbol() {
+        return new ItemStack(ModContents.DEAD_DRAGON_EGG);
     }
 
     @Override
