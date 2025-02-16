@@ -47,7 +47,7 @@ StartupEvents.registry("item", event =>{
     InputFluid:输入流体[FluidStack]
 ```
 
-- Shapeless Fluid Crafting Recipe 有序流体工作台```event.recipes.ifeu.shapeless(OutputItem,InputItems,InputFluid)```
+- Shapeless Fluid Crafting Recipe 无序流体工作台```event.recipes.ifeu.shapeless(OutputItem,InputItems,InputFluid)```
 ```
 参数详解:
     OutputItem:输出物品[ItemStack]
