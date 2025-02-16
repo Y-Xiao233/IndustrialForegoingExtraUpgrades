@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ifeu:fluid_crafting_table/dragon_star_pickaxe"
+        "recipe": "ifeu:shaped/dragon_star_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "ifeu:fluid_crafting_table/dragon_star_pickaxe"
+      "ifeu:shaped/dragon_star_block"
     ]
   }
 }

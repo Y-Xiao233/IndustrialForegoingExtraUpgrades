@@ -24,7 +24,8 @@ public class ModKubeJSPlugin implements KubeJSPlugin {
         event.namespace("ifeu")
                 .register("infuser", InfuserSchema.SCHEMA)
                 .register("arcane_dragon_egg_forging",ArcaneDragonEggForgingSchema.SCHEMA)
-                .register("fluid_crafting_table",FluidCraftingTableSchema.SCHEMA);
+                .register("shaped", ShapedSchema.SCHEMA)
+                .register("shapeless",ShapelessSchema.SCHEMA);
 
         event.namespace("industrialforegoing")
                 .register("crusher", CrusherSchema.SCHEMA)

@@ -11,6 +11,10 @@
 ### v1.1.000
 - 将1.20.1-2.0.103内容更新至当前版本
 
+### v1.1.001
+- 修复了流体工作台输出物品在数量改变时不会消耗输入物品的bug
+- 为流体工作台添加了无序配方
+
 
 ## en_us
 ### v1.0.0
@@ -22,3 +26,7 @@
 
 ### v1.1.000
 - Update the content of 1.20.1-2.0.103 to the current version
+
+### v2.0.104
+- Fixed bug where fluid crafting table output items do not consume input items when quantity changes
+- Added shapeless recipe to the fluid crafting table
