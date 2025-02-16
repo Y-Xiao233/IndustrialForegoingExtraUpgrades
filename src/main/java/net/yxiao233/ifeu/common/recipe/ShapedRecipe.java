@@ -9,7 +9,6 @@ import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
@@ -20,20 +19,18 @@ import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.registry.ModRecipes;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
 
-public class FluidCraftingTableRecipe extends SerializableRecipe {
-    public static List<FluidCraftingTableRecipe> RECIPES = new ArrayList<>();
+public class ShapedRecipe extends SerializableRecipe {
+    public static List<ShapedRecipe> RECIPES = new ArrayList<>();
     public Ingredient.Value[] inputs;
     public FluidStack inputFluid;
     public ItemStack output;
-    public FluidCraftingTableRecipe(ResourceLocation resourceLocation){
+    public ShapedRecipe(ResourceLocation resourceLocation){
         super(resourceLocation);
     }
-    public FluidCraftingTableRecipe(ResourceLocation resourceLocation, Ingredient.Value[] inputs, FluidStack inputFluid, ItemStack output) {
+    public ShapedRecipe(ResourceLocation resourceLocation, Ingredient.Value[] inputs, FluidStack inputFluid, ItemStack output) {
         super(resourceLocation);
         this.inputs = inputs;
         this.inputFluid = inputFluid;
@@ -41,7 +38,7 @@ public class FluidCraftingTableRecipe extends SerializableRecipe {
         this.output.getItem().onCraftedBy(this.output,null,null);
         RECIPES.add(this);
     }
-    public boolean matches(NonNullList<InventoryComponent<FluidCraftingTableEntity>> inputs, FluidTankComponent<FluidCraftingTableEntity> tank) {
+    public boolean matches(InventoryComponent<FluidCraftingTableEntity> inputs, FluidTankComponent<FluidCraftingTableEntity> tank) {
         if (this.inputs != null && tank != null && this.inputFluid != null) {
             NonNullList<Boolean> matches = NonNullList.withSize(9, false);
 
@@ -51,9 +48,9 @@ public class FluidCraftingTableRecipe extends SerializableRecipe {
                 if(iterator.hasNext()){
                     ItemStack stack = iterator.next();
                     if(stack.is(ModContents.AIR.get())){
-                        matches.set(i,inputs.get(i).getStackInSlot(0).isEmpty());
+                        matches.set(i,inputs.getStackInSlot(i).isEmpty());
                     }else{
-                        matches.set(i,inputs.get(i).getStackInSlot(0).is(stack.getItem()));
+                        matches.set(i,inputs.getStackInSlot(i).is(stack.getItem()));
                     }
                 }
             }
@@ -87,11 +84,11 @@ public class FluidCraftingTableRecipe extends SerializableRecipe {
 
     @Override
     public GenericSerializer<? extends SerializableRecipe> getSerializer() {
-        return (GenericSerializer<? extends SerializableRecipe>) ModRecipes.FLUID_CRAFTING_TABLE_SERIALIZER.get();
+        return (GenericSerializer<? extends SerializableRecipe>) ModRecipes.SHAPED_SERIALIZER.get();
     }
 
     @Override
     public RecipeType<?> getType() {
-        return ModRecipes.FLUID_CRAFTING_TABLE_TYPE.get();
+        return ModRecipes.SHAPED_TYPE.get();
     }
 }

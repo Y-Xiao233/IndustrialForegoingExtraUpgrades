@@ -1,5 +1,6 @@
 package net.yxiao233.ifeu.common.compact.jei;
 
+import com.buuz135.industrial.plugin.jei.IndustrialRecipeTypes;
 import com.hrznstudio.titanium.container.BasicAddonContainer;
 import com.hrznstudio.titanium.util.RecipeUtil;
 import mezz.jei.api.IModPlugin;
@@ -50,7 +51,8 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeCategories(new ArcaneDragonEggForgingCategory(guiHelper));
         registration.addRecipeCategories(new BlockRightClickCategory(guiHelper));
         registration.addRecipeCategories(new DragonStarGeneratorCategory(guiHelper));
-        registration.addRecipeCategories(new FluidCraftingTableCategory(guiHelper));
+        registration.addRecipeCategories(new ShapedCategory(guiHelper));
+        registration.addRecipeCategories(new ShapelessCategory(guiHelper));
     }
 
     @Override
@@ -64,7 +66,8 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipes(ModRecipeType.ARCANE_DRAGON_EGG_FORGING, RecipeUtil.getRecipes(level,(RecipeType<ArcaneDragonEggForgingRecipe>) ModRecipes.ARCANE_DRAGON_EGG_FORGING_TYPE.get()));
         registration.addRecipes(ModRecipeType.BLOCK_RIGHT_CLICK, RecipeUtil.getRecipes(level,(RecipeType<BlockRightClickRecipe>) ModRecipes.BLOCK_RIGHT_CLICK_TYPE.get()));
         registration.addRecipes(ModRecipeType.DRAGON_STAR_GENERATOR, RecipeUtil.getRecipes(level,(RecipeType<DragonStarGeneratorRecipe>) ModRecipes.DRAGON_STAR_GENERATOR_TYPE.get()));
-        registration.addRecipes(ModRecipeType.FLUID_CRAFTING_TABLE, RecipeUtil.getRecipes(level,(RecipeType<FluidCraftingTableRecipe>) ModRecipes.FLUID_CRAFTING_TABLE_TYPE.get()));
+        registration.addRecipes(ModRecipeType.SHAPED, RecipeUtil.getRecipes(level,(RecipeType<ShapedRecipe>) ModRecipes.SHAPED_TYPE.get()));
+        registration.addRecipes(ModRecipeType.SHAPELESS, RecipeUtil.getRecipes(level,(RecipeType<ShapelessRecipe>) ModRecipes.SHAPELESS_TYPE.get()));
     }
 
     @Override
@@ -73,13 +76,17 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeCatalyst(ModBlocks.ARCANE_DRAGON_EGG_FORGING.getLeft().get().asItem().getDefaultInstance(),ModRecipeType.ARCANE_DRAGON_EGG_FORGING);
         registration.addRecipeCatalyst(Blocks.DRAGON_EGG.asItem().getDefaultInstance(),ModRecipeType.BLOCK_RIGHT_CLICK);
         registration.addRecipeCatalyst(ModBlocks.DRAGON_STAR_GENERATOR.getLeft().get().asItem().getDefaultInstance(),ModRecipeType.DRAGON_STAR_GENERATOR);
-        registration.addRecipeCatalyst(ModBlocks.FLUID_CRAFTING_TABLE.getLeft().get().asItem().getDefaultInstance(),ModRecipeType.FLUID_CRAFTING_TABLE);
+        registration.addRecipeCatalyst(ModBlocks.FLUID_CRAFTING_TABLE.getLeft().get().asItem().getDefaultInstance(),ModRecipeType.SHAPED);
+        registration.addRecipeCatalyst(ModBlocks.FLUID_CRAFTING_TABLE.getLeft().get().asItem().getDefaultInstance(),ModRecipeType.SHAPELESS);
     }
 
 
     @Override
     public void registerRecipeTransferHandlers(IRecipeTransferRegistration registration) {
-        registration.addRecipeTransferHandler(BasicAddonContainer.class,null,ModRecipeType.FLUID_CRAFTING_TABLE,4,9,16,36);
+        registration.addRecipeTransferHandler(BasicAddonContainer.class,null,ModRecipeType.SHAPED,4,9,16,36);
+        registration.addRecipeTransferHandler(BasicAddonContainer.class,null,ModRecipeType.SHAPELESS,4,9,16,36);
+        //工业先锋原版将流体算入了输入,导致无法识别
+//        registration.addRecipeTransferHandler(BasicAddonContainer.class,null, IndustrialRecipeTypes.DISSOLUTION,4,8,17,36);
     }
 
     private void addInfuserCompactRecipes(IRecipeRegistration registration){

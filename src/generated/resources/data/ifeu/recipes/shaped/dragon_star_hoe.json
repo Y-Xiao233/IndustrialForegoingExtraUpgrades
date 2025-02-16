@@ -1,5 +1,5 @@
 {
-  "type": "ifeu:fluid_crafting_table",
+  "type": "ifeu:shaped",
   "inputFluid": "{Amount:1000,FluidName:\"ifeu:liquid_dragon_breath\"}",
   "inputs": [
     {

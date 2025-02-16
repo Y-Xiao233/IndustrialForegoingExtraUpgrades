@@ -24,7 +24,9 @@ public enum AllGuiTextures implements ScreenElement {
     DAY(0,242,14,14),
     NOON(15,242,14,14),
     NIGHT(30,242,14,14),
-    MIDNIGHT(45,242,14,14)
+    MIDNIGHT(45,242,14,14),
+    //Shapeless
+    SHAPELESS(240,21,15,15)
     ;
     //Other
 

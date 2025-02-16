@@ -1,4 +1,4 @@
-// 1.20.1	2025-02-14T23:03:44.6688593	Titanium Serializable (ifeu)
+// 1.20.1	2025-02-16T22:26:05.7784037	Titanium Serializable (ifeu)
 5a32aaf5edd8a63da8d7dbbc3e98ee222f54e549 data/ifeu/recipes/arcane_dragon_egg_forging/dead_dragon_egg.json
 ee98c1c55d06b1ef40bcf4b3ff86cabb9ceb5e93 data/ifeu/recipes/arcane_dragon_egg_forging/egg_1.json
 8d37adb344b2eb92c22f350e100824d2620a4f40 data/ifeu/recipes/arcane_dragon_egg_forging/egg_2.json
@@ -19,12 +19,6 @@ d74591305be55bfa1cada4f43c0b2766f5c7e1e9 data/ifeu/recipes/dissolution_chamber/s
 b0e0d66c7be5b34930377002dd74490766f2bbd9 data/ifeu/recipes/dissolution_chamber/speed_addon_5.json
 c775b30ada1958dac762a0ed7ff45af6f028f9a9 data/ifeu/recipes/dissolution_chamber/speed_addon_6.json
 df22a6d1e32f30a9c12b4542a9a370e53de24a8a data/ifeu/recipes/dissolution_chamber/ultimate_machine_frame.json
-c117e2eee377fc74b8c50557ab64044147d01572 data/ifeu/recipes/fluid_crafting_table/dragon_star_axe.json
-5811d489ba84c3e81821eefc50265e5e413b7c01 data/ifeu/recipes/fluid_crafting_table/dragon_star_block.json
-273698834a90401c24e005fb4159396281148e69 data/ifeu/recipes/fluid_crafting_table/dragon_star_hoe.json
-58d6a4469943c64aaf8c30eaced25891b13aad6f data/ifeu/recipes/fluid_crafting_table/dragon_star_pickaxe.json
-742b18d71017e87105ed6547215f3a6135f61610 data/ifeu/recipes/fluid_crafting_table/dragon_star_shovel.json
-8981f6ceb481cf7776516bd50e900e96979886df data/ifeu/recipes/fluid_crafting_table/dragon_star_sword.json
 153cbc67e05ad06c563015681e18a85ddb9670de data/ifeu/recipes/infuser/cobblestone_blackstone.json
 3bd41d277f69f6d2085d51a56637ff2d0475b2c2 data/ifeu/recipes/infuser/dirt_mud.json
 ba58b2b397fb9586302fa5b10929627667023155 data/ifeu/recipes/infuser/dragon_star.json
@@ -32,3 +26,10 @@ cfb4187c4446a36a69fe250b161dfc35db78db83 data/ifeu/recipes/infuser/dragon_star_f
 234f4250341e6b7fa0a969c65e489c6d8c7f1f3c data/ifeu/recipes/infuser/mud_clay.json
 8e842c86c963be8e7a5ef9a7d7db62ed3b4f7795 data/ifeu/recipes/laser_drill_fluid/liquid_dragon_breath.json
 dee15dd97d525725d29711fd6a518776d8ce51c4 data/ifeu/recipes/laser_drill_fluid/liquid_sculk_matter.json
+87d6223944f8d0a3b906e0446ff0b896c7768fc6 data/ifeu/recipes/shaped/dragon_star_axe.json
+eee58b236806c11511f9cc76a287cc31fd13bd94 data/ifeu/recipes/shaped/dragon_star_block.json
+ae3181b010b66109b935c6358b45c3ee05d61e9c data/ifeu/recipes/shaped/dragon_star_hoe.json
+72a1217b060a592abe8f5a9241b16feaa51314c4 data/ifeu/recipes/shaped/dragon_star_pickaxe.json
+aa79e24a1cec64a24c639aa95eecdfca3f39a7a8 data/ifeu/recipes/shaped/dragon_star_shovel.json
+c0bbf05b9610437e266d127946fff012ae6fcee5 data/ifeu/recipes/shaped/dragon_star_sword.json
+42183fbbc6fd661226fa754ca6d6d76e17407927 data/ifeu/recipes/shapeless/dragon_star_from_block.json

@@ -18,38 +18,34 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.yxiao233.ifeu.common.compact.jei.AbstractJEICategory;
 import net.yxiao233.ifeu.common.compact.jei.ModRecipeType;
 import net.yxiao233.ifeu.common.config.machine.FluidCraftingTableConfig;
-import net.yxiao233.ifeu.common.config.machine.InfuserConfig;
-import net.yxiao233.ifeu.common.recipe.FluidCraftingTableRecipe;
+import net.yxiao233.ifeu.common.recipe.ShapedRecipe;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.registry.ModRecipes;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.awt.*;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Iterator;
 
-public class FluidCraftingTableCategory extends AbstractJEICategory<FluidCraftingTableRecipe> {
-    public static final Component TITLE = Component.translatable("block.ifeu.fluid_crafting_table");
+public class ShapedCategory extends AbstractJEICategory<ShapedRecipe> {
+    public static final Component TITLE = Component.translatable("jei.ifeu.fluid_shaped");
     private final IDrawable bigTank_input1;
-    public FluidCraftingTableCategory(IGuiHelper helper) {
-        super(helper, ModRecipeType.FLUID_CRAFTING_TABLE, TITLE, ModBlocks.FLUID_CRAFTING_TABLE.getLeft().get().asItem(),160, 82);
+    public ShapedCategory(IGuiHelper helper) {
+        super(helper, ModRecipeType.SHAPED, TITLE, ModBlocks.FLUID_CRAFTING_TABLE.getLeft().get().asItem(),160, 82);
         this.bigTank_input1 = helper.createDrawable(DefaultAssetProvider.DEFAULT_LOCATION, 180, 4, 12, 50);
     }
 
     @Override
     public RecipeType getTypeInstance() {
-        return ModRecipes.FLUID_CRAFTING_TABLE_TYPE.get();
+        return ModRecipes.SHAPED_TYPE.get();
     }
 
     @Override
-    public void setRecipe(IRecipeLayoutBuilder builder, FluidCraftingTableRecipe recipe, IFocusGroup iFocusGroup) {
+    public void setRecipe(IRecipeLayoutBuilder builder, ShapedRecipe recipe, IFocusGroup iFocusGroup) {
         //Input
         int x = 31;
         int y = 15;
@@ -79,7 +75,7 @@ public class FluidCraftingTableCategory extends AbstractJEICategory<FluidCraftin
     }
 
     @Override
-    public void draw(FluidCraftingTableRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
+    public void draw(ShapedRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
         //Input
         int x = 31;
         int y = 15;

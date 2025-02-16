@@ -17,14 +17,14 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.fluids.FluidStack;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.common.recipe.ArcaneDragonEggForgingRecipe;
-import net.yxiao233.ifeu.common.recipe.FluidCraftingTableRecipe;
+import net.yxiao233.ifeu.common.recipe.ShapedRecipe;
 import net.yxiao233.ifeu.common.recipe.InfuserRecipe;
+import net.yxiao233.ifeu.common.recipe.ShapelessRecipe;
 import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.registry.ModFluids;
 import net.yxiao233.ifeu.common.registry.ModTags;
@@ -114,10 +114,6 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                 Items.COBBLESTONE.getDefaultInstance(),new FluidStack(Fluids.LAVA.getSource(),200),200,Items.BLACKSTONE.getDefaultInstance()
         );
 
-        new InfuserRecipe(IFEU("dragon_star_from_block"),
-                ModContents.DRAGON_STAR_BLOCK.get().asItem().getDefaultInstance(),new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),100),200,new ItemStack(ModContents.DRAGON_STAR.get(),9)
-        );
-
 
         //laser drill fluid
         new LaserDrillFluidRecipe("liquid_sculk_matter",
@@ -150,9 +146,9 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                 200,new ItemStack(Items.EGG,16),FluidStack.EMPTY
         );
         
-        //fluid crafting table
+        //shaped
             //如果配方内某个格子为空,请使用ModContents.AIR.get().getDefaultInstance(),而不是ItemStack.EMPTY
-        new FluidCraftingTableRecipe(IFEU("dragon_star_block"),
+        new ShapedRecipe(IFEU("dragon_star_block"),
                 new Ingredient.Value[]{
                         itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
                         itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
@@ -168,7 +164,7 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                 ModContents.DRAGON_STAR_BLOCK.get().asItem().getDefaultInstance()
         );
 
-        new FluidCraftingTableRecipe(IFEU("dragon_star_axe"),
+        new ShapedRecipe(IFEU("dragon_star_axe"),
                 new Ingredient.Value[]{
                         itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
                         itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
@@ -184,7 +180,7 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                 ModContents.DRAGON_STAR_AXE.get().getDefaultInstance()
         );
 
-        new FluidCraftingTableRecipe(IFEU("dragon_star_hoe"),
+        new ShapedRecipe(IFEU("dragon_star_hoe"),
                 new Ingredient.Value[]{
                         itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
                         itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
@@ -201,7 +197,7 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
         );
 
 
-        new FluidCraftingTableRecipe(IFEU("dragon_star_pickaxe"),
+        new ShapedRecipe(IFEU("dragon_star_pickaxe"),
                 new Ingredient.Value[]{
                         itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
                         itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
@@ -217,7 +213,7 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                 ModContents.DRAGON_STAR_PICKAXE.get().getDefaultInstance()
         );
 
-        new FluidCraftingTableRecipe(IFEU("dragon_star_shovel"),
+        new ShapedRecipe(IFEU("dragon_star_shovel"),
                 new Ingredient.Value[]{
                         itemValue(ModContents.AIR.get().getDefaultInstance()),
                         itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
@@ -234,7 +230,7 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
         );
 
 
-        new FluidCraftingTableRecipe(IFEU("dragon_star_sword"),
+        new ShapedRecipe(IFEU("dragon_star_sword"),
                 new Ingredient.Value[]{
                         itemValue(ModContents.AIR.get().getDefaultInstance()),
                         itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
@@ -250,11 +246,22 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                 ModContents.DRAGON_STAR_SWORD.get().getDefaultInstance()
         );
 
+        //shapeless
+            //有多少输入写多少
+        new ShapelessRecipe(IFEU("dragon_star_from_block"),
+                new Ingredient.Value[]{
+                        itemValue(ModContents.DRAGON_STAR_BLOCK.get().asItem().getDefaultInstance())
+                },
+                new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),100),
+                ModContents.DRAGON_STAR.get().getDefaultInstance().copyWithCount(9)
+        );
+
         DissolutionChamberRecipe.RECIPES.forEach(dissolutionChamberRecipe -> map.put(dissolutionChamberRecipe,dissolutionChamberRecipe));
         InfuserRecipe.RECIPES.forEach(infuserRecipe -> map.put(infuserRecipe,infuserRecipe));
         LaserDrillFluidRecipe.RECIPES.forEach(laserDrillFluidRecipe -> map.put(laserDrillFluidRecipe,laserDrillFluidRecipe));
         ArcaneDragonEggForgingRecipe.RECIPES.forEach(arcaneDragonEggForgingRecipe -> map.put(arcaneDragonEggForgingRecipe,arcaneDragonEggForgingRecipe));
-        FluidCraftingTableRecipe.RECIPES.forEach(fluidCraftingTableRecipe -> map.put(fluidCraftingTableRecipe,fluidCraftingTableRecipe));
+        ShapedRecipe.RECIPES.forEach(fluidCraftingTableRecipe -> map.put(fluidCraftingTableRecipe,fluidCraftingTableRecipe));
+        ShapelessRecipe.RECIPES.forEach(shapelessRecipe -> map.put(shapelessRecipe,shapelessRecipe));
     }
 
     public Ingredient.TagValue tagValue(TagKey<Item> tagKey){

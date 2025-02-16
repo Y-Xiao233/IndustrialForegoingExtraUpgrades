@@ -20,8 +20,10 @@ public class ModRecipes implements IModule {
     public static RegistryObject<RecipeType<?>> BLOCK_RIGHT_CLICK_TYPE;
     public static RegistryObject<RecipeSerializer<?>> DRAGON_STAR_GENERATOR_SERIALIZER;
     public static RegistryObject<RecipeType<?>> DRAGON_STAR_GENERATOR_TYPE;
-    public static RegistryObject<RecipeSerializer<?>> FLUID_CRAFTING_TABLE_SERIALIZER;
-    public static RegistryObject<RecipeType<?>> FLUID_CRAFTING_TABLE_TYPE;
+    public static RegistryObject<RecipeSerializer<?>> SHAPED_SERIALIZER;
+    public static RegistryObject<RecipeType<?>> SHAPED_TYPE;
+    public static RegistryObject<RecipeSerializer<?>> SHAPELESS_SERIALIZER;
+    public static RegistryObject<RecipeType<?>> SHAPELESS_TYPE;
     @Override
     public void generateFeatures(DeferredRegistryHelper helper) {
         INFUSER_SERIALIZER = helper.registerGeneric(ForgeRegistries.RECIPE_SERIALIZERS.getRegistryKey(), "infuser", () -> new GenericSerializer<>(InfuserRecipe.class, INFUSER_TYPE));
@@ -37,7 +39,10 @@ public class ModRecipes implements IModule {
         DRAGON_STAR_GENERATOR_SERIALIZER = helper.registerGeneric(ForgeRegistries.RECIPE_SERIALIZERS.getRegistryKey(), "dragon_star_generator", () -> new GenericSerializer<>(DragonStarGeneratorRecipe.class, DRAGON_STAR_GENERATOR_TYPE));
         DRAGON_STAR_GENERATOR_TYPE = helper.registerGeneric(ForgeRegistries.RECIPE_TYPES.getRegistryKey(), "dragon_star_generator", () -> RecipeType.simple(new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID, "dragon_star_generator")));
 
-        FLUID_CRAFTING_TABLE_SERIALIZER = helper.registerGeneric(ForgeRegistries.RECIPE_SERIALIZERS.getRegistryKey(), "fluid_crafting_table", () -> new GenericSerializer<>(FluidCraftingTableRecipe.class, FLUID_CRAFTING_TABLE_TYPE));
-        FLUID_CRAFTING_TABLE_TYPE = helper.registerGeneric(ForgeRegistries.RECIPE_TYPES.getRegistryKey(), "fluid_crafting_table", () -> RecipeType.simple(new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID, "fluid_crafting_table")));
+        SHAPED_SERIALIZER = helper.registerGeneric(ForgeRegistries.RECIPE_SERIALIZERS.getRegistryKey(), "shaped", () -> new GenericSerializer<>(ShapedRecipe.class, SHAPED_TYPE));
+        SHAPED_TYPE = helper.registerGeneric(ForgeRegistries.RECIPE_TYPES.getRegistryKey(), "shaped", () -> RecipeType.simple(new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID, "shaped")));
+
+        SHAPELESS_SERIALIZER = helper.registerGeneric(ForgeRegistries.RECIPE_SERIALIZERS.getRegistryKey(), "shapeless", () -> new GenericSerializer<>(ShapelessRecipe.class, SHAPELESS_TYPE));
+        SHAPELESS_TYPE = helper.registerGeneric(ForgeRegistries.RECIPE_TYPES.getRegistryKey(), "shapeless", () -> RecipeType.simple(new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID, "shapeless")));
     }
 }

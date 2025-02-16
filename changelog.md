@@ -63,6 +63,10 @@
 - 修复了流体工作台无法正常挖掘的bug
 - 修复了服务端JEI被破坏的bug[\#8 by MashiroYae](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/8)
 
+### v2.0.104
+- 修复了流体工作台输出物品在数量改变时不会消耗输入物品的bug
+- 为流体工作台添加了无序配方
+
 ## en_us
 ### v1.0.0
 - init
@@ -124,3 +128,7 @@
 ### v2.0.103
 - Fixed the bug where the fluid crafting table could not excavate properly
 - Fixed the bug where the server-side JEI was compromised[\#8 by MashiroYae](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/8)
+
+### v2.0.104
+- Fixed bug where fluid crafting table output items do not consume input items when quantity changes
+- Added shapeless recipe to the fluid crafting table

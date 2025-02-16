@@ -1,10 +1,7 @@
 {
-  "type": "ifeu:fluid_crafting_table",
+  "type": "ifeu:shaped",
   "inputFluid": "{Amount:1000,FluidName:\"ifeu:liquid_dragon_breath\"}",
   "inputs": [
-    {
-      "item": "ifeu:dragon_star"
-    },
     {
       "item": "ifeu:dragon_star"
     },
@@ -15,7 +12,10 @@
       "item": "ifeu:air"
     },
     {
-      "item": "minecraft:netherite_pickaxe"
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "item": "minecraft:netherite_axe"
     },
     {
       "item": "ifeu:air"
@@ -32,7 +32,7 @@
   ],
   "output": {
     "count": 1,
-    "item": "ifeu:dragon_star_pickaxe",
+    "item": "ifeu:dragon_star_axe",
     "nbt": "{Damage:0}"
   }
 }
