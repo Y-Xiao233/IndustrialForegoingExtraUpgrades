@@ -64,6 +64,9 @@
   "jei.ifeu.power": "Power: ",
   "jei.ifeu.progress": "Progress: ",
   "jei.ifeu.total": "Total: ",
+  "jei.ifeu.shapeless": "Shapeless Recipe",
+  "jei.ifeu.fluid_shaped": "Shaped Fluid Crafting Recipe",
+  "jei.ifeu.fluid_shapeless": "Shapeless Fluid Crafting Recipe",
 
   "weather.ifeu.clear": "Weather Clear",
   "weather.ifeu.rain": "Weather Rain",

@@ -24,41 +24,38 @@ import net.yxiao233.ifeu.common.registry.ModRecipes;
 
 import java.util.*;
 
-public class FluidCraftingTableRecipe implements Recipe<CraftingInput> {
-    public static final MapCodec<FluidCraftingTableRecipe> CODEC = RecordCodecBuilder.mapCodec((in) -> {
+public class ShapedRecipe implements Recipe<CraftingInput> {
+    public static final MapCodec<ShapedRecipe> CODEC = RecordCodecBuilder.mapCodec((in) -> {
         return in.group(Ingredient.CODEC.listOf(0,9).fieldOf("inputs").forGetter((o) -> {
             return o.inputs;
         }),FluidStack.CODEC.fieldOf("inputFluid").forGetter((o) -> {
             return o.inputFluid;
         }),ItemStack.CODEC.fieldOf("output").forGetter((o) -> {
             return o.output;
-        })).apply(in, FluidCraftingTableRecipe::new);
+        })).apply(in, ShapedRecipe::new);
     });
 
     public List<Ingredient> inputs;
     public FluidStack inputFluid;
     public ItemStack output;
-    public FluidCraftingTableRecipe(){
 
-    }
-
-    public FluidCraftingTableRecipe(List<Ingredient> inputs, FluidStack inputFluid, ItemStack output){
+    public ShapedRecipe(List<Ingredient> inputs, FluidStack inputFluid, ItemStack output){
         this.inputs = inputs;
         this.inputFluid = inputFluid;
         this.output = output;
     }
 
-    public static void createRecipe(RecipeOutput recipeOutput, String name, FluidCraftingTableRecipe recipe) {
+    public static void createRecipe(RecipeOutput recipeOutput, String name, ShapedRecipe recipe) {
         ResourceLocation rl = generateRL(name);
         AdvancementHolder advancementHolder = recipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(rl)).rewards(AdvancementRewards.Builder.recipe(rl)).requirements(AdvancementRequirements.Strategy.OR).build(rl);
         recipeOutput.accept(rl, recipe, advancementHolder);
     }
 
     public static ResourceLocation generateRL(String key) {
-        return ResourceLocation.fromNamespaceAndPath("ifeu","fluid_crafting_table/" + key);
+        return ResourceLocation.fromNamespaceAndPath("ifeu","shaped/" + key);
     }
 
-    public boolean matches(NonNullList<InventoryComponent<FluidCraftingTableEntity>> inputs, FluidTankComponent<FluidCraftingTableEntity> tank) {
+    public boolean matches(InventoryComponent<FluidCraftingTableEntity> inputs, FluidTankComponent<FluidCraftingTableEntity> tank) {
         if (this.inputs != null && tank != null && this.inputFluid != null) {
             NonNullList<Boolean> matches = NonNullList.withSize(9, false);
 
@@ -68,9 +65,9 @@ public class FluidCraftingTableRecipe implements Recipe<CraftingInput> {
                 if(iterator.hasNext()){
                     ItemStack stack = iterator.next();
                     if(stack.is(ModContents.AIR.get())){
-                        matches.set(i,inputs.get(i).getStackInSlot(0).isEmpty());
+                        matches.set(i,inputs.getStackInSlot(i).isEmpty());
                     }else{
-                        matches.set(i,inputs.get(i).getStackInSlot(0).is(stack.getItem()));
+                        matches.set(i,inputs.getStackInSlot(i).is(stack.getItem()));
                     }
                 }
             }
@@ -109,11 +106,11 @@ public class FluidCraftingTableRecipe implements Recipe<CraftingInput> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return ModRecipes.FLUID_CRAFTING_TABLE_SERIALIZER.get();
+        return ModRecipes.SHAPED_SERIALIZER.get();
     }
 
     @Override
     public RecipeType<?> getType() {
-        return ModRecipes.FLUID_CRAFTING_TABLE_TYPE.get();
+        return ModRecipes.SHAPED_TYPE.get();
     }
 }

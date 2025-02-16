@@ -16,15 +16,15 @@ import net.minecraft.world.level.material.Fluids;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.yxiao233.ifeu.common.recipe.ArcaneDragonEggForgingRecipe;
-import net.yxiao233.ifeu.common.recipe.FluidCraftingTableRecipe;
+import net.yxiao233.ifeu.common.recipe.ShapedRecipe;
 import net.yxiao233.ifeu.common.recipe.InfuserRecipe;
+import net.yxiao233.ifeu.common.recipe.ShapelessRecipe;
 import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.registry.ModFluids;
 import net.yxiao233.ifeu.common.registry.ModTags;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 public class ModSerializableProvider{
@@ -106,11 +106,6 @@ public class ModSerializableProvider{
         ));
 
 
-        InfuserRecipe.createRecipe(recipeOutput,"dragon_star_from_block",new InfuserRecipe(
-                ModContents.DRAGON_STAR_BLOCK.get().asItem().getDefaultInstance(),new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),100),200,new ItemStack(ModContents.DRAGON_STAR.get(),9)
-        ));
-
-
         //laser drill fluid
         LaserDrillFluidRecipe.createRecipe(recipeOutput,"liquid_sculk_matter","ifeu",new LaserDrillFluidRecipe(
                 new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),10),
@@ -144,7 +139,7 @@ public class ModSerializableProvider{
 
         //fluid crafting table
         //如果配方内某个格子为空,请使用ModContents.AIR.get().getDefaultInstance(),而不是ItemStack.EMPTY
-        FluidCraftingTableRecipe.createRecipe(recipeOutput,"dragon_star_block",new FluidCraftingTableRecipe(
+        ShapedRecipe.createRecipe(recipeOutput,"dragon_star_block",new ShapedRecipe(
                 List.of(
                         itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
                         itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
@@ -160,7 +155,7 @@ public class ModSerializableProvider{
                 ModContents.DRAGON_STAR_BLOCK.get().asItem().getDefaultInstance()
         ));
 
-        FluidCraftingTableRecipe.createRecipe(recipeOutput,"dragon_star_axe",new FluidCraftingTableRecipe(
+        ShapedRecipe.createRecipe(recipeOutput,"dragon_star_axe",new ShapedRecipe(
                 List.of(
                         itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
                         itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
@@ -177,7 +172,7 @@ public class ModSerializableProvider{
         ));
 
 
-        FluidCraftingTableRecipe.createRecipe(recipeOutput,"dragon_star_hoe",new FluidCraftingTableRecipe(
+        ShapedRecipe.createRecipe(recipeOutput,"dragon_star_hoe",new ShapedRecipe(
                 List.of(
                         itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
                         itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
@@ -194,7 +189,7 @@ public class ModSerializableProvider{
         ));
 
 
-        FluidCraftingTableRecipe.createRecipe(recipeOutput,"dragon_star_pickaxe",new FluidCraftingTableRecipe(
+        ShapedRecipe.createRecipe(recipeOutput,"dragon_star_pickaxe",new ShapedRecipe(
                 List.of(
                         itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
                         itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
@@ -211,7 +206,7 @@ public class ModSerializableProvider{
         ));
 
 
-        FluidCraftingTableRecipe.createRecipe(recipeOutput,"dragon_star_shovel",new FluidCraftingTableRecipe(
+        ShapedRecipe.createRecipe(recipeOutput,"dragon_star_shovel",new ShapedRecipe(
                 List.of(
                         itemValue(ModContents.AIR.get().getDefaultInstance()),
                         itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
@@ -227,7 +222,7 @@ public class ModSerializableProvider{
                 ModContents.DRAGON_STAR_SHOVEL.get().asItem().getDefaultInstance()
         ));
 
-        FluidCraftingTableRecipe.createRecipe(recipeOutput,"dragon_star_sword",new FluidCraftingTableRecipe(
+        ShapedRecipe.createRecipe(recipeOutput,"dragon_star_sword",new ShapedRecipe(
                 List.of(
                         itemValue(ModContents.AIR.get().getDefaultInstance()),
                         itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
@@ -241,6 +236,17 @@ public class ModSerializableProvider{
 
                 ),new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000),
                 ModContents.DRAGON_STAR_SWORD.get().asItem().getDefaultInstance()
+        ));
+
+
+        //shapeless
+            //有多少输入写多少
+        ShapelessRecipe.createRecipe(recipeOutput,"dragon_star_from_block",new ShapelessRecipe(
+                List.of(
+                        itemValue(ModContents.DRAGON_STAR_BLOCK.get().asItem().getDefaultInstance())
+                ),
+                new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),100),
+                ModContents.DRAGON_STAR.get().getDefaultInstance().copyWithCount(9)
         ));
     }
 

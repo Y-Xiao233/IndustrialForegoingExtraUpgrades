@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ifeu:fluid_crafting_table/dragon_star_sword"
+        "recipe": "ifeu:shapeless/dragon_star_from_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "ifeu:fluid_crafting_table/dragon_star_sword"
+      "ifeu:shapeless/dragon_star_from_block"
     ]
   }
 }

@@ -20,8 +20,10 @@ public class ModRecipes implements IModule {
     public static DeferredHolder<RecipeType<?>,RecipeType<?>> BLOCK_RIGHT_CLICK_TYPE;
     public static DeferredHolder<RecipeSerializer<?>,RecipeSerializer<?>> DRAGON_STAR_GENERATOR_SERIALIZER;
     public static DeferredHolder<RecipeType<?>,RecipeType<?>> DRAGON_STAR_GENERATOR_TYPE;
-    public static DeferredHolder<RecipeSerializer<?>,RecipeSerializer<?>> FLUID_CRAFTING_TABLE_SERIALIZER;
-    public static DeferredHolder<RecipeType<?>,RecipeType<?>> FLUID_CRAFTING_TABLE_TYPE;
+    public static DeferredHolder<RecipeSerializer<?>,RecipeSerializer<?>> SHAPED_SERIALIZER;
+    public static DeferredHolder<RecipeType<?>,RecipeType<?>> SHAPED_TYPE;
+    public static DeferredHolder<RecipeSerializer<?>,RecipeSerializer<?>> SHAPELESS_SERIALIZER;
+    public static DeferredHolder<RecipeType<?>,RecipeType<?>> SHAPELESS_TYPE;
     @Override
     public void generateFeatures(DeferredRegistryHelper helper) {
         INFUSER_SERIALIZER = helper.registerGeneric(Registries.RECIPE_SERIALIZER, "infuser", () -> new CodecRecipeSerializer<>(InfuserRecipe.class, INFUSER_TYPE,InfuserRecipe.CODEC));
@@ -37,7 +39,10 @@ public class ModRecipes implements IModule {
         DRAGON_STAR_GENERATOR_SERIALIZER = helper.registerGeneric(Registries.RECIPE_SERIALIZER, "dragon_star_generator", () -> new CodecRecipeSerializer<>(DragonStarGeneratorRecipe.class, DRAGON_STAR_GENERATOR_TYPE, DragonStarGeneratorRecipe.CODEC));
         DRAGON_STAR_GENERATOR_TYPE = helper.registerGeneric(Registries.RECIPE_TYPE, "dragon_star_generator", () -> RecipeType.simple(ResourceLocation.fromNamespaceAndPath(IndustrialForegoingExtraUpgrades.MODID, "dragon_star_generator")));
 
-        FLUID_CRAFTING_TABLE_SERIALIZER = helper.registerGeneric(Registries.RECIPE_SERIALIZER, "fluid_crafting_table", () -> new CodecRecipeSerializer<>(FluidCraftingTableRecipe.class, FLUID_CRAFTING_TABLE_TYPE, FluidCraftingTableRecipe.CODEC));
-        FLUID_CRAFTING_TABLE_TYPE = helper.registerGeneric(Registries.RECIPE_TYPE, "fluid_crafting_table", () -> RecipeType.simple(ResourceLocation.fromNamespaceAndPath(IndustrialForegoingExtraUpgrades.MODID, "fluid_crafting_table")));
+        SHAPED_SERIALIZER = helper.registerGeneric(Registries.RECIPE_SERIALIZER, "shaped", () -> new CodecRecipeSerializer<>(ShapedRecipe.class, SHAPED_TYPE, ShapedRecipe.CODEC));
+        SHAPED_TYPE = helper.registerGeneric(Registries.RECIPE_TYPE, "shaped", () -> RecipeType.simple(ResourceLocation.fromNamespaceAndPath(IndustrialForegoingExtraUpgrades.MODID, "shaped")));
+
+        SHAPELESS_SERIALIZER = helper.registerGeneric(Registries.RECIPE_SERIALIZER, "shapeless", () -> new CodecRecipeSerializer<>(ShapelessRecipe.class, SHAPELESS_TYPE,ShapelessRecipe.CODEC));
+        SHAPELESS_TYPE = helper.registerGeneric(Registries.RECIPE_TYPE, "shapeless", () -> RecipeType.simple(ResourceLocation.fromNamespaceAndPath(IndustrialForegoingExtraUpgrades.MODID, "shapeless")));
     }
 }

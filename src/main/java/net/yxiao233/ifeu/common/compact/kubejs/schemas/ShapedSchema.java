@@ -11,7 +11,7 @@ import net.neoforged.neoforge.fluids.FluidStack;
 
 import java.util.List;
 
-public interface FluidCraftingTableSchema {
+public interface ShapedSchema {
     RecipeKey<List<Ingredient>> INPUTS = IngredientComponent.UNWRAPPED_INGREDIENT_LIST.inputKey("inputs");
     RecipeKey<FluidStack> INPUT_FLUID = FluidStackComponent.FLUID_STACK.inputKey("inputFluid");
     RecipeKey<ItemStack> OUTPUT = ItemStackComponent.ITEM_STACK.outputKey("output");
