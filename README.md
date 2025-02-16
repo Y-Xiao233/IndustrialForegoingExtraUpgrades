@@ -39,7 +39,15 @@ StartupEvents.registry("item", event =>{
     OutputFluid:输出流体[FluidStack,可选,默认为空]
 ```
 
-- Fluid Crafting Table 流体工作台```event.recipes.ifeu.fluid_crafting_table(OutputItem,InputItems,InputFluid)```
+- Shaped Fluid Crafting Recipe 有序流体工作台```event.recipes.ifeu.shaped(OutputItem,InputItems,InputFluid)```
+```
+参数详解:
+    OutputItem:输出物品[ItemStack]
+    InputItems:输入物品[[ItemStack...],最多9个输入物品]
+    InputFluid:输入流体[FluidStack]
+```
+
+- Shapeless Fluid Crafting Recipe 无序流体工作台```event.recipes.ifeu.shaped(OutputItem,InputItems,InputFluid)```
 ```
 参数详解:
     OutputItem:输出物品[ItemStack]
@@ -114,37 +122,40 @@ ServerEvents.recipes(event => {
     //Arcane Dragon Egg Forging
     event.recipes.ifeu.arcane_dragon_egg_forging("16x minecraft:egg","minecraft:dragon_egg",Fluid.of("minecraft:water",1000),Fluid.of("minecraft:lava",1000),200,Fluid.of("minecraft:water",100))
 
-    //Fluid Crafting Table
+    //Shaped Fluid Crafting Recipe
     //顺序写入物品,如当前格子输入为空可以直接写[,],可以写[''],也可以写['minecraft:air'],还可以写['ifeu:air']
     /*下面几个示例配方均为该样式
         '   ',
         ' A ',
         '   '
     */
-    event.recipes.ifeu.fluid_crafting_table('4x minecraft:oak_planks',[
+    event.recipes.ifeu.shaped('4x minecraft:oak_planks',[
         ,,,
         ,'minecraft:oak_log',,
         ,,,
     ],Fluid.of("minecraft:water"))
     
-    event.recipes.ifeu.fluid_crafting_table('4x minecraft:oak_planks',[
+    event.recipes.ifeu.shaped('4x minecraft:oak_planks',[
         '','','',
         '','minecraft:oak_log','',
         '','',''
     ],Fluid.of("minecraft:water"))
     
-    event.recipes.ifeu.fluid_crafting_table('4x minecraft:oak_planks',[
+    event.recipes.ifeu.shaped('4x minecraft:oak_planks',[
         'minecraft:air','minecraft:air','minecraft:air',
         'minecraft:air','minecraft:oak_log','minecraft:air',
         'minecraft:air','minecraft:air','minecraft:air'
     ],Fluid.of("minecraft:water"))
     
-    event.recipes.ifeu.fluid_crafting_table('4x minecraft:oak_planks',[
+    event.recipes.ifeu.shaped('4x minecraft:oak_planks',[
         'ifeu:air','ifeu:air','ifeu:air',
         'ifeu:air','minecraft:oak_log','ifeu:air',
         'ifeu:air','ifeu:air','ifeu:air'
     ],Fluid.of("minecraft:water"))
     
+    //Shapeless Fluid Crafting Recipe
+    //随意写入,有几个写几个
+    event.recipes.ifeu.shapeless('4x minecraft:oak_planks',['minecraft:oak_log'],Fluid.of("minecraft:water"))
     
     //StoneWork Generate -> Crusher
     event.recipes.industrialforegoing.stonework_generate("minecraft:blackstone",1000,1000,100,100)
