@@ -15,6 +15,8 @@
 - 修复了流体工作台输出物品在数量改变时不会消耗输入物品的bug
 - 为流体工作台添加了无序配方
 
+### v1.1.002
+- 为工业先锋溶解成形机添加了jei一键转移配方的支持
 
 ## en_us
 ### v1.0.0
@@ -30,3 +32,6 @@
 ### v2.0.104
 - Fixed bug where fluid crafting table output items do not consume input items when quantity changes
 - Added shapeless recipe to the fluid crafting table
+
+### v1.1.002
+- Added support for JEI one key transfer recipe to the dissolution chamber
