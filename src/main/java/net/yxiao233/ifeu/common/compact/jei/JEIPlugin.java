@@ -1,5 +1,6 @@
 package net.yxiao233.ifeu.common.compact.jei;
 
+import com.buuz135.industrial.plugin.jei.IndustrialRecipeTypes;
 import com.hrznstudio.titanium.container.BasicAddonContainer;
 import com.hrznstudio.titanium.util.RecipeUtil;
 import mezz.jei.api.IModPlugin;
@@ -87,6 +88,7 @@ public class JEIPlugin implements IModPlugin {
     public void registerRecipeTransferHandlers(IRecipeTransferRegistration registration) {
         registration.addRecipeTransferHandler(BasicAddonContainer.class,null,ModRecipeType.SHAPED,4,9,16,36);
         registration.addRecipeTransferHandler(BasicAddonContainer.class,null,ModRecipeType.SHAPELESS,4,9,16,36);
+        registration.addRecipeTransferHandler(BasicAddonContainer.class,null, IndustrialRecipeTypes.DISSOLUTION,4,8,17,36);
     }
 
     private void addInfuserCompactRecipes(IRecipeRegistration registration){
