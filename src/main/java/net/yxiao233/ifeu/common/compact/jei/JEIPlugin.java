@@ -86,7 +86,7 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeTransferHandler(BasicAddonContainer.class,null,ModRecipeType.SHAPED,4,9,16,36);
         registration.addRecipeTransferHandler(BasicAddonContainer.class,null,ModRecipeType.SHAPELESS,4,9,16,36);
         //工业先锋原版将流体算入了输入,导致无法识别
-//        registration.addRecipeTransferHandler(BasicAddonContainer.class,null, IndustrialRecipeTypes.DISSOLUTION,4,8,17,36);
+        registration.addRecipeTransferHandler(BasicAddonContainer.class,null, IndustrialRecipeTypes.DISSOLUTION,4,8,17,36);
     }
 
     private void addInfuserCompactRecipes(IRecipeRegistration registration){

@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "ifeu.refmap.json",
   "mixins": [
+    "jei.MixinDissolutionChamberCategory",
     "slot.MixinUpdatableSlotItemHandler"
   ],
   "client": [
