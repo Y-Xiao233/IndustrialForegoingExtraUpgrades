@@ -1,0 +1,42 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "ifeu:dragon_generator"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "c:plastics"
+    },
+    "B": {
+      "item": "minecraft:furnace"
+    },
+    "C": {
+      "item": "ifeu:efficiency_addon_6"
+    },
+    "D": {
+      "item": "ifeu:processing_addon_6"
+    },
+    "E": {
+      "item": "ifeu:speed_addon_6"
+    },
+    "F": {
+      "tag": "industrialforegoing:machine_frame/supreme"
+    },
+    "G": {
+      "tag": "c:gears/netherite"
+    }
+  },
+  "pattern": [
+    "ACA",
+    "DFE",
+    "GBG"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ifeu:dragon_generator"
+  }
+}

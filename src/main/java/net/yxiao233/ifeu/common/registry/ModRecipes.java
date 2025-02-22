@@ -24,6 +24,9 @@ public class ModRecipes implements IModule {
     public static DeferredHolder<RecipeType<?>,RecipeType<?>> SHAPED_TYPE;
     public static DeferredHolder<RecipeSerializer<?>,RecipeSerializer<?>> SHAPELESS_SERIALIZER;
     public static DeferredHolder<RecipeType<?>,RecipeType<?>> SHAPELESS_TYPE;
+
+    public static DeferredHolder<RecipeSerializer<?>,RecipeSerializer<?>> DRAGON_GENERATOR_SERIALIZER;
+    public static DeferredHolder<RecipeType<?>,RecipeType<?>> DRAGON_GENERATOR_TYPE;
     @Override
     public void generateFeatures(DeferredRegistryHelper helper) {
         INFUSER_SERIALIZER = helper.registerGeneric(Registries.RECIPE_SERIALIZER, "infuser", () -> new CodecRecipeSerializer<>(InfuserRecipe.class, INFUSER_TYPE,InfuserRecipe.CODEC));
@@ -44,5 +47,8 @@ public class ModRecipes implements IModule {
 
         SHAPELESS_SERIALIZER = helper.registerGeneric(Registries.RECIPE_SERIALIZER, "shapeless", () -> new CodecRecipeSerializer<>(ShapelessRecipe.class, SHAPELESS_TYPE,ShapelessRecipe.CODEC));
         SHAPELESS_TYPE = helper.registerGeneric(Registries.RECIPE_TYPE, "shapeless", () -> RecipeType.simple(ResourceLocation.fromNamespaceAndPath(IndustrialForegoingExtraUpgrades.MODID, "shapeless")));
+
+        DRAGON_GENERATOR_SERIALIZER = helper.registerGeneric(Registries.RECIPE_SERIALIZER, "dragon_generator", () -> new CodecRecipeSerializer<>(DragonGeneratorRecipe.class, DRAGON_GENERATOR_TYPE, DragonGeneratorRecipe.CODEC));
+        DRAGON_GENERATOR_TYPE = helper.registerGeneric(Registries.RECIPE_TYPE, "dragon_generator", () -> RecipeType.simple(ResourceLocation.fromNamespaceAndPath(IndustrialForegoingExtraUpgrades.MODID, "dragon_generator")));
     }
 }

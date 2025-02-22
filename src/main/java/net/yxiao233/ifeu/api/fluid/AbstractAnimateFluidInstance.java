@@ -1,4 +1,4 @@
-package net.yxiao233.ifeu.common.fluid;
+package net.yxiao233.ifeu.api.fluid;
 
 import com.hrznstudio.titanium.module.DeferredRegistryHelper;
 import com.hrznstudio.titanium.tab.TitaniumTab;

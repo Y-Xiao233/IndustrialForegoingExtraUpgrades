@@ -25,10 +25,12 @@ import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.common.compact.jei.category.*;
+import net.yxiao233.ifeu.common.config.machine.DragonGeneratorConfig;
 import net.yxiao233.ifeu.common.config.machine.DragonStarGeneratorConfig;
 import net.yxiao233.ifeu.common.recipe.*;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModContents;
+import net.yxiao233.ifeu.common.registry.ModFluids;
 import net.yxiao233.ifeu.common.registry.ModRecipes;
 
 import java.util.ArrayList;
@@ -57,6 +59,7 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeCategories(new DragonStarGeneratorCategory(guiHelper));
         registration.addRecipeCategories(new ShapedCategory(guiHelper));
         registration.addRecipeCategories(new ShapelessCategory(guiHelper));
+        registration.addRecipeCategories(new DragonGeneratorCategory(guiHelper));
     }
 
     @Override
@@ -64,6 +67,7 @@ public class JEIPlugin implements IModPlugin {
         addInfuserCompactRecipes(registration);
         addBlockRightClickRecipes(registration);
         addDragonStarGenerator(registration);
+        addDragonGeneratorRecipe(registration);
 
         Level level = Minecraft.getInstance().level;
         registration.addRecipes(ModRecipeType.INFUSER, RecipeUtil.getRecipes(level,(RecipeType<InfuserRecipe>) ModRecipes.INFUSER_TYPE.get()));
@@ -76,12 +80,13 @@ public class JEIPlugin implements IModPlugin {
 
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
-        registration.addRecipeCatalyst(ModBlocks.INFUSER.getBlock().asItem().getDefaultInstance(),ModRecipeType.INFUSER);
-        registration.addRecipeCatalyst(ModBlocks.ARCANE_DRAGON_EGG_FORGING.getBlock().asItem().getDefaultInstance(),ModRecipeType.ARCANE_DRAGON_EGG_FORGING);
+        registration.addRecipeCatalyst(ModBlocks.INFUSER.asItem().getDefaultInstance(),ModRecipeType.INFUSER);
+        registration.addRecipeCatalyst(ModBlocks.ARCANE_DRAGON_EGG_FORGING.asItem().getDefaultInstance(),ModRecipeType.ARCANE_DRAGON_EGG_FORGING);
         registration.addRecipeCatalyst(Blocks.DRAGON_EGG.asItem().getDefaultInstance(),ModRecipeType.BLOCK_RIGHT_CLICK);
-        registration.addRecipeCatalyst(ModBlocks.DRAGON_STAR_GENERATOR.getBlock().asItem().getDefaultInstance(),ModRecipeType.DRAGON_STAR_GENERATOR);
-        registration.addRecipeCatalyst(ModBlocks.FLUID_CRAFTING_TABLE.getBlock().asItem().asItem(),ModRecipeType.SHAPED);
-        registration.addRecipeCatalyst(ModBlocks.FLUID_CRAFTING_TABLE.getBlock().asItem().asItem(),ModRecipeType.SHAPELESS);
+        registration.addRecipeCatalyst(ModBlocks.DRAGON_STAR_GENERATOR.asItem().getDefaultInstance(),ModRecipeType.DRAGON_STAR_GENERATOR);
+        registration.addRecipeCatalyst(ModBlocks.FLUID_CRAFTING_TABLE.asItem(),ModRecipeType.SHAPED);
+        registration.addRecipeCatalyst(ModBlocks.FLUID_CRAFTING_TABLE.asItem(),ModRecipeType.SHAPELESS);
+        registration.addRecipeCatalyst(ModBlocks.DRAGON_GENERATOR.asItem().getDefaultInstance(),ModRecipeType.DRAGON_GENERATOR);
     }
 
     @Override
@@ -115,5 +120,11 @@ public class JEIPlugin implements IModPlugin {
         List<DragonStarGeneratorRecipe> dragonStarGeneratorCategories = new ArrayList<>();
         dragonStarGeneratorCategories.add(new DragonStarGeneratorRecipe(ModContents.DRAGON_STAR.get().getDefaultInstance(), DragonStarGeneratorConfig.maxProgress,DragonStarGeneratorConfig.powerPerTick));
         registration.addRecipes(ModRecipeType.DRAGON_STAR_GENERATOR,dragonStarGeneratorCategories);
+    }
+
+    private void addDragonGeneratorRecipe(IRecipeRegistration registration){
+        List<DragonGeneratorRecipe> dragonGeneratorRecipes = new ArrayList<>();
+        dragonGeneratorRecipes.add(new DragonGeneratorRecipe(new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000), DragonGeneratorConfig.maxProgress,DragonGeneratorConfig.powerPerTick));
+        registration.addRecipes(ModRecipeType.DRAGON_GENERATOR,dragonGeneratorRecipes);
     }
 }

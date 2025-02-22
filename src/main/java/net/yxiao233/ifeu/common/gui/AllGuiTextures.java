@@ -3,6 +3,7 @@ package net.yxiao233.ifeu.common.gui;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.resources.ResourceLocation;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
+import net.yxiao233.ifeu.api.gui.ScreenElement;
 
 public enum AllGuiTextures implements ScreenElement {
     //Empty

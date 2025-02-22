@@ -12,4 +12,5 @@ public class ModRecipeType {
     public static RecipeType<DragonStarGeneratorRecipe> DRAGON_STAR_GENERATOR = RecipeType.create(nameSpace,"dragon_star_generator", DragonStarGeneratorRecipe.class);
     public static RecipeType<ShapedRecipe> SHAPED = RecipeType.create(nameSpace,"shaped", ShapedRecipe.class);
     public static RecipeType<ShapelessRecipe> SHAPELESS = RecipeType.create(nameSpace,"shapeless", ShapelessRecipe.class);
+    public static RecipeType<DragonGeneratorRecipe> DRAGON_GENERATOR = RecipeType.create(nameSpace,"dragon_generator", DragonGeneratorRecipe.class);
 }

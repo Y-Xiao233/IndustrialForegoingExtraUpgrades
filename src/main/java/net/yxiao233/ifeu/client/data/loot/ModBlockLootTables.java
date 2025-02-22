@@ -27,6 +27,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModContents.ULTIMATE_MACHINE_FRAME.get());
         this.dropSelf(ModContents.DRAGON_STAR_BLOCK.get());
         this.dropSelf(ModBlocks.FLUID_CRAFTING_TABLE.getBlock());
+        this.dropSelf(ModBlocks.DRAGON_GENERATOR.getBlock());
     }
 
     @Override
@@ -42,7 +43,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 ModBlocks.TIME_CONTROLLER.getBlock(),
                 ModContents.ULTIMATE_MACHINE_FRAME.get(),
                 ModContents.DRAGON_STAR_BLOCK.get(),
-                ModBlocks.FLUID_CRAFTING_TABLE.getBlock()
+                ModBlocks.FLUID_CRAFTING_TABLE.getBlock(),
+                ModBlocks.DRAGON_GENERATOR.getBlock()
         );
         return iterable;
     }

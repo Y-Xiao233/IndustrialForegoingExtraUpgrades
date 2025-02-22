@@ -9,6 +9,7 @@
     "ifeu:weather_controller",
     "ifeu:time_controller",
     "ifeu:rule_controller",
-    "ifeu:fluid_crafting_table"
+    "ifeu:fluid_crafting_table",
+    "ifeu:dragon_generator"
   ]
 }

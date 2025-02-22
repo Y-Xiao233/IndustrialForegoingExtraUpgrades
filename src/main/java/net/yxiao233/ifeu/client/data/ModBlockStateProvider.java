@@ -34,6 +34,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(ModContents.ULTIMATE_MACHINE_FRAME);
         blockItem(ModContents.DRAGON_STAR_BLOCK);
         blockWithTileItem(ModBlocks.FLUID_CRAFTING_TABLE);
+        blockWithTileItem(ModBlocks.DRAGON_GENERATOR);
     }
 
     private void blockItem(DeferredHolder<Block,Block> registryObject){

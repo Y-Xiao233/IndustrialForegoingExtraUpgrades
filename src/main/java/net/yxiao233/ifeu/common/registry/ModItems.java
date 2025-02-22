@@ -17,13 +17,12 @@ import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
-import net.yxiao233.ifeu.common.item.ModEfficiencyAddonItem;
-import net.yxiao233.ifeu.common.item.ModProcessingAddonItem;
-import net.yxiao233.ifeu.common.item.ModSpeedAddonItem;
+import net.yxiao233.ifeu.api.item.ModEfficiencyAddonItem;
+import net.yxiao233.ifeu.api.item.ModProcessingAddonItem;
+import net.yxiao233.ifeu.api.item.ModSpeedAddonItem;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Consumer;
 
 public class ModItems implements IModule {
     public static TitaniumTab TAB_ADDONS = new TitaniumTab(ResourceLocation.fromNamespaceAndPath(IndustrialForegoingExtraUpgrades.MODID, "extra_upgrades"));

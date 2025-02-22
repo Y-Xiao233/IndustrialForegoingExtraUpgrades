@@ -1,4 +1,4 @@
-package net.yxiao233.ifeu.common.components;
+package net.yxiao233.ifeu.api.components;
 
 import com.hrznstudio.titanium.api.client.AssetTypes;
 import com.hrznstudio.titanium.client.screen.addon.BasicScreenAddon;

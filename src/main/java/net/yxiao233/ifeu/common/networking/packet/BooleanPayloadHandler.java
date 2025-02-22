@@ -4,6 +4,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
+import net.yxiao233.ifeu.api.networking.BooleanValueSyncS2C;
 
 public class BooleanPayloadHandler {
     public static void handle(BooleanSyncS2CPacket data, IPayloadContext context) {
