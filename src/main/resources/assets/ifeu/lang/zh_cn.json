@@ -51,6 +51,7 @@
   "block.ifeu.ultimate_machine_frame": "终极机器框架",
   "block.ifeu.dragon_star_block": "龙之星块",
   "block.ifeu.fluid_crafting_table": "流体工作台",
+  "block.ifeu.dragon_generator": "龙发电机",
 
   "fluid_type.ifeu.liquid_dragon_breath": "液态龙息",
   "fluid_type.ifeu.liquid_sculk_matter": "液态幽匿物质",
@@ -65,6 +66,8 @@
   "jei.ifeu.progress": "Progress: ",
   "jei.ifeu.total": "Total: ",
   "jei.ifeu.shapeless": "无序配方",
+  "jei.ifeu.fluid_shaped": "有序流体工作台配方",
+  "jei.ifeu.fluid_shapeless": "无序流体工作台配方",
 
   "weather.ifeu.clear": "天气晴朗",
   "weather.ifeu.rain": "下雨天气",

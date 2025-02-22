@@ -1,4 +1,4 @@
-package net.yxiao233.ifeu.common.item;
+package net.yxiao233.ifeu.api.item;
 
 import com.buuz135.industrial.item.addon.ProcessingAddonItem;
 import com.hrznstudio.titanium.tab.TitaniumTab;

@@ -9,7 +9,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
-import net.yxiao233.ifeu.common.block.custom.DeadDragonEggBlock;
+import net.yxiao233.ifeu.api.block.DeadDragonEggBlock;
 
 public class ModContents {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(IndustrialForegoingExtraUpgrades.MODID);

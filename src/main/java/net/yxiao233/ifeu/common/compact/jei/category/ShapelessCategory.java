@@ -19,7 +19,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.yxiao233.ifeu.common.compact.jei.AbstractJEICategory;
+import net.yxiao233.ifeu.api.jei.AbstractJEICategory;
 import net.yxiao233.ifeu.common.compact.jei.ModRecipeType;
 import net.yxiao233.ifeu.common.config.machine.FluidCraftingTableConfig;
 import net.yxiao233.ifeu.common.gui.AllGuiTextures;

@@ -21,20 +21,15 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.yxiao233.ifeu.common.compact.jei.AbstractJEICategory;
+import net.yxiao233.ifeu.api.jei.AbstractJEICategory;
 import net.yxiao233.ifeu.common.compact.jei.ModRecipeType;
 import net.yxiao233.ifeu.common.config.machine.InfuserConfig;
 import net.yxiao233.ifeu.common.recipe.ArcaneDragonEggForgingRecipe;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModRecipes;
 import org.apache.commons.lang3.tuple.Pair;
-import org.jetbrains.annotations.Nullable;
 
 import java.awt.*;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class ArcaneDragonEggForgingCategory extends AbstractJEICategory<ArcaneDragonEggForgingRecipe> {
     public static final Component TITLE = Component.translatable("block.ifeu.arcane_dragon_egg_forging");

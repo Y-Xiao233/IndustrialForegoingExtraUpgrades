@@ -1,6 +1,7 @@
-// 1.21.1	2025-02-15T14:00:40.5799191	Loot Tables
+// 1.21.1	2025-02-22T12:11:20.5585693	Loot Tables
 415ef358a3d4a4290a0a68f6f17ac60e4ff615f2 data/ifeu/loot_table/blocks/arcane_dragon_egg_forging.json
 36805e21e81dd0482a92b3ecff8c35a434cfea0d data/ifeu/loot_table/blocks/creative_capacitor.json
+8970feeb31a2838573fea21a1c4191062b6f364e data/ifeu/loot_table/blocks/dragon_generator.json
 75b264b8f3b24a89a31367ff258b6ef2d84e17ab data/ifeu/loot_table/blocks/dragon_star_block.json
 1bcac0e4a5013c743acae9ac9e907d5010c79ef2 data/ifeu/loot_table/blocks/dragon_star_generator.json
 b62535370102127e63093e15339865c75d287bc6 data/ifeu/loot_table/blocks/fluid_crafting_table.json

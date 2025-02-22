@@ -3,7 +3,7 @@ package net.yxiao233.ifeu.common.compact.kubejs.items;
 import dev.latvian.mods.kubejs.item.ItemBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.yxiao233.ifeu.common.item.ModProcessingAddonItem;
+import net.yxiao233.ifeu.api.item.ModProcessingAddonItem;
 import net.yxiao233.ifeu.common.registry.ModItems;
 
 public class ProcessingAddonItemBuilder extends ItemBuilder {

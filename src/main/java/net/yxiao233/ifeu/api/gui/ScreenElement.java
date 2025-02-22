@@ -1,4 +1,4 @@
-package net.yxiao233.ifeu.common.gui;
+package net.yxiao233.ifeu.api.gui;
 
 import net.minecraft.client.gui.GuiGraphics;
 import net.neoforged.api.distmarker.Dist;

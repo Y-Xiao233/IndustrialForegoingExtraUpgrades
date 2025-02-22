@@ -1,4 +1,4 @@
-package net.yxiao233.ifeu.common.block.custom;
+package net.yxiao233.ifeu.api.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;

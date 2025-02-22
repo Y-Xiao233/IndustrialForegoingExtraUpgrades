@@ -9,8 +9,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.FluidState;
 import net.yxiao233.ifeu.common.config.misc.LiquidDragonBreathConfig;
 import net.yxiao233.ifeu.common.config.misc.LiquidSculkMatterConfig;
-import net.yxiao233.ifeu.common.fluid.AbstractAnimateFluid;
-import net.yxiao233.ifeu.common.fluid.AbstractAnimateFluidInstance;
+import net.yxiao233.ifeu.api.fluid.AbstractAnimateFluid;
+import net.yxiao233.ifeu.api.fluid.AbstractAnimateFluidInstance;
 
 public class LiquidSculkMatterParticleAnimateFluid extends AbstractAnimateFluid {
     public LiquidSculkMatterParticleAnimateFluid(AbstractAnimateFluidInstance abstractAnimateFluidInstance) {
