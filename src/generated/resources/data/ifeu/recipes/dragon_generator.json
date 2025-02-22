@@ -1,0 +1,54 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "forge:item_exists",
+              "item": "ifeu:dragon_generator"
+            }
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "key": {
+          "A": {
+            "tag": "forge:plastic"
+          },
+          "B": {
+            "item": "minecraft:furnace"
+          },
+          "C": {
+            "item": "ifeu:efficiency_addon_6"
+          },
+          "D": {
+            "item": "ifeu:processing_addon_6"
+          },
+          "E": {
+            "item": "ifeu:speed_addon_6"
+          },
+          "F": {
+            "tag": "industrialforegoing:machine_frame/supreme"
+          },
+          "G": {
+            "tag": "forge:gears/netherite"
+          }
+        },
+        "pattern": [
+          "ACA",
+          "DFE",
+          "GBG"
+        ],
+        "result": {
+          "item": "ifeu:dragon_generator"
+        },
+        "show_notification": true
+      }
+    }
+  ]
+}
