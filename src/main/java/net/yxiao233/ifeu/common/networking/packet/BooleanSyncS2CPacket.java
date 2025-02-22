@@ -5,9 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.network.NetworkEvent;
-import net.yxiao233.ifeu.common.block.entity.TimeControllerEntity;
-import net.yxiao233.ifeu.common.block.entity.WeatherControllerEntity;
-import net.yxiao233.ifeu.common.networking.packet.interfaces.BooleanValueSyncS2C;
+import net.yxiao233.ifeu.api.networking.BooleanValueSyncS2C;
 
 import java.util.function.Supplier;
 

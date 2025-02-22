@@ -2,11 +2,8 @@ package net.yxiao233.ifeu.mixin.slot;
 
 import com.hrznstudio.titanium.container.addon.UpdatableSlotItemHandler;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
-import net.yxiao233.ifeu.common.block.entity.FluidCraftingTableEntity;
-import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(UpdatableSlotItemHandler.class)

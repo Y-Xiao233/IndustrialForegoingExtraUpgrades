@@ -1,4 +1,4 @@
-package net.yxiao233.ifeu.common.compact.jei;
+package net.yxiao233.ifeu.api.jei;
 
 import com.hrznstudio.titanium.api.client.AssetTypes;
 import com.hrznstudio.titanium.client.screen.asset.DefaultAssetProvider;
@@ -24,19 +24,19 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
-import net.yxiao233.ifeu.common.config.machine.DragonStarGeneratorConfig;
 import net.yxiao233.ifeu.common.gui.AllGuiTextures;
 import net.yxiao233.ifeu.common.utils.TooltipCallBackHelper;
 import org.jetbrains.annotations.Nullable;
 
 import java.awt.*;
+import java.lang.reflect.Field;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AbstractJEICategory<T extends Recipe<?>> implements IRecipeCategory<T> {
     public final RecipeType<T> type;
-    public final Component title;
+    public Component title;
     public final IDrawable background;
     public final IDrawable icon;
     public abstract net.minecraft.world.item.crafting.RecipeType<T> getTypeInstance();
@@ -81,11 +81,24 @@ public abstract class AbstractJEICategory<T extends Recipe<?>> implements IRecip
         }
     }
 
-    public void addEnergyBarTooltip(GuiGraphics guiGraphics, int width, int height, int x, int y,double mouseX, double mouseY){
+    public void addEnergyBarTooltip(GuiGraphics guiGraphics, Class<?> clazz,int width, int height, int x, int y,double mouseX, double mouseY){
+        int powerPerTick = 0, maxProgress = 0;
+        try {
+            for (int i = 0; i < clazz.getFields().length; i++) {
+                Field field = clazz.getFields()[i];
+                if(field.getName().equals("powerPerTick")){
+                    powerPerTick = field.getInt(field.getName());
+                }else if(field.getName().equals("maxProgress")){
+                    maxProgress = field.getInt(field.getName());
+                }
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         addTooltips(guiGraphics,width,height,new Component[]{
-                        Component.translatable("jei.ifeu.power").withStyle(ChatFormatting.GOLD).append(Component.literal(String.valueOf(DragonStarGeneratorConfig.powerPerTick)).withStyle(ChatFormatting.WHITE)).append(Component.literal(" FE/tick").withStyle(ChatFormatting.DARK_AQUA)),
-                        Component.translatable("jei.ifeu.progress").withStyle(ChatFormatting.GOLD).append(Component.literal(String.valueOf(DragonStarGeneratorConfig.maxProgress)).withStyle(ChatFormatting.WHITE)).append(Component.literal(" tick").withStyle(ChatFormatting.DARK_AQUA)),
-                        Component.translatable("jei.ifeu.total").withStyle(ChatFormatting.GOLD).append(Component.literal(String.valueOf(DragonStarGeneratorConfig.maxProgress * DragonStarGeneratorConfig.powerPerTick)).withStyle(ChatFormatting.WHITE)).append(Component.literal(" FE").withStyle(ChatFormatting.DARK_AQUA))},
+                        Component.translatable("jei.ifeu.power").withStyle(ChatFormatting.GOLD).append(Component.literal(String.valueOf(powerPerTick)).withStyle(ChatFormatting.WHITE)).append(Component.literal(" FE/tick").withStyle(ChatFormatting.DARK_AQUA)),
+                        Component.translatable("jei.ifeu.progress").withStyle(ChatFormatting.GOLD).append(Component.literal(String.valueOf(maxProgress)).withStyle(ChatFormatting.WHITE)).append(Component.literal(" tick").withStyle(ChatFormatting.DARK_AQUA)),
+                        Component.translatable("jei.ifeu.total").withStyle(ChatFormatting.GOLD).append(Component.literal(String.valueOf(maxProgress * powerPerTick)).withStyle(ChatFormatting.WHITE)).append(Component.literal(" FE").withStyle(ChatFormatting.DARK_AQUA))},
                 x,y,mouseX,mouseY
         );
     }

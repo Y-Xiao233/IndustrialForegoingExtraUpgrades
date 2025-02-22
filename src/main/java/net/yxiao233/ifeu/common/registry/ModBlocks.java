@@ -22,6 +22,7 @@ public class ModBlocks implements IModule {
     public static Pair<RegistryObject<Block>,RegistryObject<BlockEntityType<?>>> WEATHER_CONTROLLER;
     public static Pair<RegistryObject<Block>,RegistryObject<BlockEntityType<?>>> TIME_CONTROLLER;
     public static Pair<RegistryObject<Block>,RegistryObject<BlockEntityType<?>>> FLUID_CRAFTING_TABLE;
+    public static Pair<RegistryObject<Block>,RegistryObject<BlockEntityType<?>>> DRAGON_GENERATOR;
     @Override
     public void generateFeatures(DeferredRegistryHelper helper) {
         INFUSER = deferredRegistry(helper,"infuser",InfuserBlock::new);
@@ -32,6 +33,7 @@ public class ModBlocks implements IModule {
         WEATHER_CONTROLLER = deferredRegistry(helper,"weather_controller",WeatherControllerBlock::new);
         TIME_CONTROLLER = deferredRegistry(helper,"time_controller",TimeControllerBlock::new);
         FLUID_CRAFTING_TABLE = deferredRegistry(helper,"fluid_crafting_table",FluidCraftingTableBlock::new);
+        DRAGON_GENERATOR = deferredRegistry(helper,"dragon_generator",DragonGeneratorBlock::new);
     }
 
     private Pair<RegistryObject<Block>,RegistryObject<BlockEntityType<?>>> deferredRegistry(DeferredRegistryHelper helper, String name, Supplier<BasicTileBlock<?>> blockSupplier){
@@ -49,6 +51,7 @@ public class ModBlocks implements IModule {
         blocks.add(WEATHER_CONTROLLER.getLeft());
         blocks.add(TIME_CONTROLLER.getLeft());
         blocks.add(FLUID_CRAFTING_TABLE.getLeft());
+        blocks.add(DRAGON_GENERATOR.getLeft());
 
         return blocks;
     }

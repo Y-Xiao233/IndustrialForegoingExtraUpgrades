@@ -27,7 +27,7 @@ import net.yxiao233.ifeu.common.config.machine.WeatherControllerConfig;
 import net.yxiao233.ifeu.common.gui.AllGuiTextures;
 import net.yxiao233.ifeu.common.networking.ModNetWorking;
 import net.yxiao233.ifeu.common.networking.packet.BooleanSyncS2CPacket;
-import net.yxiao233.ifeu.common.networking.packet.interfaces.BooleanValueSyncS2C;
+import net.yxiao233.ifeu.api.networking.BooleanValueSyncS2C;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.utils.WeatherGetter;

@@ -1,4 +1,4 @@
-package net.yxiao233.ifeu.common.networking.packet.interfaces;
+package net.yxiao233.ifeu.api.networking;
 
 public interface BooleanValueSyncS2C {
     void setValue(boolean... value);

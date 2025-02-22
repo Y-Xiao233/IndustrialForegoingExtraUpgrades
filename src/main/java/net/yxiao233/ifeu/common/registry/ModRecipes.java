@@ -24,6 +24,8 @@ public class ModRecipes implements IModule {
     public static RegistryObject<RecipeType<?>> SHAPED_TYPE;
     public static RegistryObject<RecipeSerializer<?>> SHAPELESS_SERIALIZER;
     public static RegistryObject<RecipeType<?>> SHAPELESS_TYPE;
+    public static RegistryObject<RecipeSerializer<?>> DRAGON_GENERATOR_SERIALIZER;
+    public static RegistryObject<RecipeType<?>> DRAGON_GENERATOR_TYPE;
     @Override
     public void generateFeatures(DeferredRegistryHelper helper) {
         INFUSER_SERIALIZER = helper.registerGeneric(ForgeRegistries.RECIPE_SERIALIZERS.getRegistryKey(), "infuser", () -> new GenericSerializer<>(InfuserRecipe.class, INFUSER_TYPE));
@@ -44,5 +46,8 @@ public class ModRecipes implements IModule {
 
         SHAPELESS_SERIALIZER = helper.registerGeneric(ForgeRegistries.RECIPE_SERIALIZERS.getRegistryKey(), "shapeless", () -> new GenericSerializer<>(ShapelessRecipe.class, SHAPELESS_TYPE));
         SHAPELESS_TYPE = helper.registerGeneric(ForgeRegistries.RECIPE_TYPES.getRegistryKey(), "shapeless", () -> RecipeType.simple(new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID, "shapeless")));
+
+        DRAGON_GENERATOR_SERIALIZER = helper.registerGeneric(ForgeRegistries.RECIPE_SERIALIZERS.getRegistryKey(), "dragon_generator", () -> new GenericSerializer<>(DragonGeneratorRecipe.class, DRAGON_GENERATOR_TYPE));
+        DRAGON_GENERATOR_TYPE = helper.registerGeneric(ForgeRegistries.RECIPE_TYPES.getRegistryKey(), "dragon_generator", () -> RecipeType.simple(new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID, "dragon_generator")));
     }
 }

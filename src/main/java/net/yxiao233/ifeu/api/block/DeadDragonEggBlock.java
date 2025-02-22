@@ -1,4 +1,4 @@
-package net.yxiao233.ifeu.common.block.custom;
+package net.yxiao233.ifeu.api.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
@@ -36,6 +36,6 @@ public class DeadDragonEggBlock extends DragonEggBlock {
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return new BlockBoxHelper("dead_dragon_egg").getVoxelShapes();
+        return new BlockBoxHelper("ifeu","dead_dragon_egg").getVoxelShapes();
     }
 }

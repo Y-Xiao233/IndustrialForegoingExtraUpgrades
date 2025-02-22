@@ -17,9 +17,9 @@ public class BlockBoxHelper {
     private int size;
     private JsonArray jsonArray;
 
-    public BlockBoxHelper(String fileName) {
+    public BlockBoxHelper(String path, String fileName) {
         try {
-            InputStream is = BlockBoxHelper.class.getResourceAsStream("/assets/ifeu/models/block/" + fileName + ".json");
+            InputStream is = BlockBoxHelper.class.getResourceAsStream("/assets/" + path + "/models/block/" + fileName + ".json");
             if (is == null) {
                 throw new IOException("File not found");
             }

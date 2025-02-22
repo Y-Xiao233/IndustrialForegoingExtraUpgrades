@@ -70,6 +70,11 @@
 ### v2.0.105
 - 为工业先锋溶解成形机添加了jei一键转移配方的支持
 
+### v2.0.106
+- 添加了龙发电机
+- 修改了龙之星发电机的默认发电量
+- 调整了部分源代码结构
+
 ## en_us
 ### v1.0.0
 - init
@@ -138,3 +143,8 @@
 
 ### v2.0.105
 - Added support for JEI one key transfer recipe to the dissolution chamber
+
+### v2.0.106
+- Added Dragon Generator
+- Modified the default power generation of the Dragon Star generator
+- Adjusted some of the source code structure

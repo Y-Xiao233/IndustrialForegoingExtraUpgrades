@@ -19,7 +19,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.yxiao233.ifeu.common.compact.jei.AbstractJEICategory;
+import net.yxiao233.ifeu.api.jei.AbstractJEICategory;
 import net.yxiao233.ifeu.common.compact.jei.ModRecipeType;
 import net.yxiao233.ifeu.common.config.machine.FluidCraftingTableConfig;
 import net.yxiao233.ifeu.common.gui.AllGuiTextures;
@@ -29,7 +29,6 @@ import net.yxiao233.ifeu.common.registry.ModRecipes;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.awt.*;
-import java.util.Iterator;
 
 public class ShapelessCategory extends AbstractJEICategory<ShapelessRecipe> {
     public static final Component TITLE = Component.translatable("jei.ifeu.fluid_shapeless");

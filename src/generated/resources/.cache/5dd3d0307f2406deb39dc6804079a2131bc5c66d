@@ -1,4 +1,4 @@
-// 1.20.1	2025-02-16T22:26:05.7784037	Titanium Serializable (ifeu)
+// 1.20.1	2025-02-21T11:06:47.6559582	Titanium Serializable (ifeu)
 5a32aaf5edd8a63da8d7dbbc3e98ee222f54e549 data/ifeu/recipes/arcane_dragon_egg_forging/dead_dragon_egg.json
 ee98c1c55d06b1ef40bcf4b3ff86cabb9ceb5e93 data/ifeu/recipes/arcane_dragon_egg_forging/egg_1.json
 8d37adb344b2eb92c22f350e100824d2620a4f40 data/ifeu/recipes/arcane_dragon_egg_forging/egg_2.json
@@ -22,7 +22,6 @@ df22a6d1e32f30a9c12b4542a9a370e53de24a8a data/ifeu/recipes/dissolution_chamber/u
 153cbc67e05ad06c563015681e18a85ddb9670de data/ifeu/recipes/infuser/cobblestone_blackstone.json
 3bd41d277f69f6d2085d51a56637ff2d0475b2c2 data/ifeu/recipes/infuser/dirt_mud.json
 ba58b2b397fb9586302fa5b10929627667023155 data/ifeu/recipes/infuser/dragon_star.json
-cfb4187c4446a36a69fe250b161dfc35db78db83 data/ifeu/recipes/infuser/dragon_star_from_block.json
 234f4250341e6b7fa0a969c65e489c6d8c7f1f3c data/ifeu/recipes/infuser/mud_clay.json
 8e842c86c963be8e7a5ef9a7d7db62ed3b4f7795 data/ifeu/recipes/laser_drill_fluid/liquid_dragon_breath.json
 dee15dd97d525725d29711fd6a518776d8ce51c4 data/ifeu/recipes/laser_drill_fluid/liquid_sculk_matter.json
