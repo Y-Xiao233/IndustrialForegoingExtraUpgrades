@@ -37,7 +37,7 @@ public class DragonStarGeneratorBlock extends IndustrialBlock<DragonStarGenerato
                 .define('C', ModItems.EFFICIENCY_ADDON_6.get())
                 .define('D', ModItems.PROCESSING_ADDON_6.get())
                 .define('E', ModItems.SPEED_ADDON_6.get())
-                .define('F', IndustrialTags.Items.MACHINE_FRAME_SUPREME)
+                .define('F', ModTags.Items.MACHINE_FRAME_ULTIMATE)
                 .define('G', ModTags.Items.GEARS_SCULK)
                 .save(consumer);
     }

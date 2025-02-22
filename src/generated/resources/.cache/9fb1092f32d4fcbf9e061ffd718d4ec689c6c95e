@@ -1,10 +1,11 @@
-// 1.20.1	2025-02-14T02:37:17.223597	Recipes
+// 1.20.1	2025-02-22T12:20:28.5553903	Recipes
 4105a1cfaee5bc99c59b13bc79916d0e9179d33e data/ifeu/advancements/recipes/misc/laser_lens0_dragon.json
 c1559a400ab9444e305185a8dbe8ea444a53aec6 data/ifeu/advancements/recipes/misc/laser_lens0_sculk.json
 2c7a31422964e552b422bd35031d106dea2fd79d data/ifeu/advancements/recipes/misc/laser_lens_dragon.json
 f7a5505e08e943bfb31346c21af7013ead3c3d7b data/ifeu/advancements/recipes/misc/laser_lens_sculk.json
 96754d2ef870c2fbc299743ce0325453bdf90872 data/ifeu/recipes/arcane_dragon_egg_forging.json
-044b12b72f139de4370b0a91c4f63708cbe8862c data/ifeu/recipes/dragon_star_generator.json
+3bbb4bf78e04aaed258bfb9cca88c2af7e5b19b6 data/ifeu/recipes/dragon_generator.json
+8c33f91fa94b06064e6069df01f2fe943092e6e7 data/ifeu/recipes/dragon_star_generator.json
 f25b519cbbe7709d7e14627c64af447c3b05323d data/ifeu/recipes/infuser.json
 d15bfd0cd163f3493193f9581abcce26e13b9a41 data/ifeu/recipes/laser_lens0_dragon.json
 25d5da1fb8a0647abd155574a457ba6964f3c6a2 data/ifeu/recipes/laser_lens0_sculk.json
