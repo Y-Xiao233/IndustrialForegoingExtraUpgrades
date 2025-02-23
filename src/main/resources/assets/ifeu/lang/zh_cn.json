@@ -9,6 +9,7 @@
   "tooltip.titanium.facing_handler.input_fluid2": "流体输入2",
   "tooltip.titanium.facing_handler.dragon_star_input": "龙之星输入",
   "tooltip.titanium.facing_handler.ot": "物品输出",
+  "tooltip.titanium.facing_handler.fluid_stored": "流体存储",
   "tooltip.ifeu.gamerule": "当前所选游戏规则的值为 %d",
   "tooltip.ifeu.time_controller.has_tip": "显示按钮提示",
   "tooltip.ifeu.time_controller.has_tip_1": "鼠标放在时间调整按钮上时显示信息",
@@ -22,6 +23,21 @@
   "tooltip.ifeu.fluid_crafting_table.not_render_fluid": "关闭流体渲染",
   "tooltip.ifeu.fluid_crafting_table.render_fluid_1": "在世界中渲染该方块流体槽内的流体",
   "tooltip.ifeu.fluid_crafting_table.not_render_fluid_1": "不在世界中渲染该方块流体槽内的流体",
+  "tooltip.ifeu.fluid_transfer.choose": "已经连接",
+  "tooltip.ifeu.fluid_transfer.choose_1": "该流体传输器已连接至对应坐标的传输器",
+  "tooltip.ifeu.fluid_transfer.not_choose": "未连接",
+  "tooltip.ifeu.fluid_transfer.not_choose_1": "该流体传输器未连接另一个传输器,请选定坐标再次点击后连接(无法连接至已连接的传输器)",
+  "tooltip.ifeu.fluid_transfer.input": "输入模式",
+  "tooltip.ifeu.fluid_transfer.input_1": "该传输器会将其中的流体传输给与其连接的输出模式传输器",
+  "tooltip.ifeu.fluid_transfer.output": "输出模式",
+  "tooltip.ifeu.fluid_transfer.output_1": "该传输器可以接受与其连接的输入模式的传输器传输的流体",
+  "tooltip.ifeu.held.shift": "§9按下§6Shift§9查看更多信息",
+  "tooltip.ifeu.held.alt": "§9按下§6Alt§9查看更多信息",
+  "tooltip.ifeu.held.control": "§9按下§6Ctrl§9查看更多信息",
+  "tooltip.ifeu.connect_tool4": "对着流体传输器右键添加第一个坐标",
+  "tooltip.ifeu.connect_tool5": "对着流体传输器shift+右键添加第一个坐标",
+  "tooltip.ifeu.connect_tool6": "对着除流体传输器任意方块shift+右键清除配置",
+  "tooltip.ifeu.connect_tool7": "只能在同一维度中工作",
 
   "item.ifeu.liquid_dragon_breath_bucket": "液态龙息桶",
   "item.ifeu.liquid_sculk_matter_bucket": "液态幽匿物质桶",
@@ -39,6 +55,7 @@
   "item.ifeu.dragon_star_leggings": "龙之护腿",
   "item.ifeu.dragon_star_boots": "龙之靴子",
   "item.ifeu.laser_lens_dragon": "龙 镭射聚焦透镜",
+  "item.ifeu.connect_tool": "连接工具",
 
   "block.ifeu.infuser": "灌注器",
   "block.ifeu.dragon_star_generator": "龙之星发电机",
@@ -52,6 +69,7 @@
   "block.ifeu.dragon_star_block": "龙之星块",
   "block.ifeu.fluid_crafting_table": "流体工作台",
   "block.ifeu.dragon_generator": "龙发电机",
+  "block.ifeu.fluid_transfer": "流体传输器",
 
   "fluid_type.ifeu.liquid_dragon_breath": "液态龙息",
   "fluid_type.ifeu.liquid_sculk_matter": "液态幽匿物质",
@@ -82,5 +100,14 @@
 
   "key.ifeu.press": "按下",
   "key.ifeu.add": "增加",
-  "key.ifeu.reduce": "减少"
+  "key.ifeu.reduce": "减少",
+
+  "message.ifeu.connect_tool.same_pos": "连接失败,不能与自身相连",
+  "message.ifeu.connect_tool.pos1": "已经记录第一个坐标: %s, %s, %s",
+  "message.ifeu.connect_tool.pos2": "已经记录第二个坐标: %s, %s, %s",
+  "message.ifeu.connect_tool.connect_success": "连接成功",
+  "message.ifeu.connect_tool.has_pos1": "若要重新设置第一点坐标,请清除配置后重试",
+  "message.ifeu.connect_tool.no_pos1": "请先记录第一点坐标后重试",
+  "message.ifeu.connect_tool.clear_configuration": "成功清除配置",
+  "message.ifeu.connect_tool.beyond_distance": "超出距离限制"
 }

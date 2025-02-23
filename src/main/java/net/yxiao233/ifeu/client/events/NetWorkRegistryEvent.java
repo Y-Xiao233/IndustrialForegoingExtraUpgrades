@@ -8,6 +8,8 @@ import net.neoforged.neoforge.network.handling.DirectionalPayloadHandler;
 import net.neoforged.neoforge.network.registration.HandlerThread;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
+import net.yxiao233.ifeu.common.networking.packet.BlockPosPayloadHandler;
+import net.yxiao233.ifeu.common.networking.packet.BlockPosSyncS2CPacket;
 import net.yxiao233.ifeu.common.networking.packet.BooleanPayloadHandler;
 import net.yxiao233.ifeu.common.networking.packet.BooleanSyncS2CPacket;
 
@@ -25,6 +27,14 @@ public class NetWorkRegistryEvent {
                         BooleanPayloadHandler::handle
                 )
         );
-        registrar = registrar.executesOn(HandlerThread.NETWORK);
+
+        registrar.playBidirectional(
+                BlockPosSyncS2CPacket.TYPE,
+                BlockPosSyncS2CPacket.STREAM_CODEC,
+                new DirectionalPayloadHandler<>(
+                        BlockPosPayloadHandler::handle,
+                        BlockPosPayloadHandler::handle
+                )
+        );
     }
 }

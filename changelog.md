@@ -23,6 +23,9 @@
 - 修改了龙之星发电机的默认发电量
 - 调整了部分源代码结构
 
+### v1.1.004
+- 将1.20.1-forge-2.0.107的内容同步至此版本
+
 ## en_us
 ### v1.0.0
 - init
@@ -45,3 +48,6 @@
 - Added Dragon Generator
 - Modified the default power generation of the Dragon Star generator
 - Adjusted some of the source code structure
+
+### v1.1.004
+- Update the content of 1.20.1-2.0.107 to the current version

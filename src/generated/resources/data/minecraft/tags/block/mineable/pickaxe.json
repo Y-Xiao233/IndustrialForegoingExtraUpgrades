@@ -10,6 +10,7 @@
     "ifeu:ultimate_machine_frame",
     "ifeu:dragon_star_block",
     "ifeu:fluid_crafting_table",
-    "ifeu:dragon_generator"
+    "ifeu:dragon_generator",
+    "ifeu:fluid_transfer"
   ]
 }
