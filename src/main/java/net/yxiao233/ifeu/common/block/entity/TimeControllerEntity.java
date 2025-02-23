@@ -96,7 +96,7 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
         this.addButton((new ArrowButtonComponent(155, 23, 14, 14, FacingUtil.Sideness.TOP)).setId(1).setPredicate((playerEntity, compoundNBT) -> {
             --this.choose;
             this.finish = false;
-            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos().getX(),getBlockPos().getY(),getBlockPos().getZ(),false)));
+            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos(),false)));
             if (this.choose < 0) {
                 this.choose = times.length - 1;
             }
@@ -109,7 +109,7 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
         this.addButton((new ArrowButtonComponent(155, 60, 14, 14, FacingUtil.Sideness.BOTTOM)).setId(2).setPredicate((playerEntity, compoundNBT) -> {
             ++this.choose;
             this.finish = false;
-            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos().getX(),getBlockPos().getY(),getBlockPos().getZ(),false)));
+            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos(),false)));
             if (this.choose > times.length - 1) {
                 this.choose = 0;
             }
@@ -134,7 +134,7 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
                 }
             }
             this.finish = false;
-            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos().getX(),getBlockPos().getY(),getBlockPos().getZ(),false)));
+            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos(),false)));
             this.markForUpdate();
         }));
 
@@ -153,7 +153,7 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
                 }
             }
             this.finish = false;
-            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos().getX(),getBlockPos().getY(),getBlockPos().getZ(),false)));
+            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos(),false)));
             this.markForUpdate();
         }));
 
@@ -255,7 +255,7 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
         });
 
         this.addGuiAddonFactory(() ->{
-            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos().getX(),getBlockPos().getY(),getBlockPos().getZ(),false)));
+            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos(),false)));
             return new TextureGuiComponent(98,41) {
                 @Override
                 public AllGuiTextures getTexture() {
@@ -338,7 +338,7 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
             times[choose].modifyTime(time);
             times[choose].setTime((ServerLevel) level);
             this.finish = true;
-            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos().getX(),getBlockPos().getY(),getBlockPos().getZ(),true)));
+            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos(),true)));
             this.markForUpdate();
         };
     }

@@ -1,0 +1,40 @@
+{
+  "type": "ifeu:shaped",
+  "inputFluid": {
+    "amount": 1000,
+    "id": "ifeu:liquid_dragon_breath"
+  },
+  "inputs": [
+    {
+      "tag": "c:plastics"
+    },
+    {
+      "tag": "c:glass_panes"
+    },
+    {
+      "tag": "c:plastics"
+    },
+    {
+      "tag": "c:gears/netherite"
+    },
+    {
+      "tag": "ifeu:machine_frame/ultimate"
+    },
+    {
+      "tag": "c:gears/netherite"
+    },
+    {
+      "item": "industrialforegoing:range_addon_tier_3"
+    },
+    {
+      "item": "minecraft:bucket"
+    },
+    {
+      "item": "industrialforegoing:range_addon_tier_3"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "id": "ifeu:dragon_star_sword"
+  }
+}

@@ -8,6 +8,7 @@
   "tooltip.titanium.facing_handler.input_fluid1": "Fluid Input 1",
   "tooltip.titanium.facing_handler.input_fluid2": "Fluid Input 2",
   "tooltip.titanium.facing_handler.ot": "Output",
+  "tooltip.titanium.facing_handler.fluid_stored": "Fluid Stored",
   "tooltip.titanium.facing_handler.dragon_star_input": "Dragon Star Input",
   "tooltip.ifeu.gamerule": "The value of the currently selected game rule is %d",
   "tooltip.ifeu.time_controller.has_tip": "show tooltip",
@@ -22,6 +23,25 @@
   "tooltip.ifeu.fluid_crafting_table.not_render_fluid": "Close the fluid render",
   "tooltip.ifeu.fluid_crafting_table.render_fluid_1": "Rendering the fluid in the fluid slot of the block in the world",
   "tooltip.ifeu.fluid_crafting_table.not_render_fluid_1": "Do not render the fluid in the fluid slot of this block in the world",
+  "tooltip.ifeu.fluid_transfer.choose":  "Connected already ",
+  "tooltip.ifeu.fluid_transfer.choose_1":  "The fluid transfer has been connected to the corresponding pos transfer",
+  "tooltip.ifeu.fluid_transfer.not_choose":  "Not connected",
+  "tooltip.ifeu.fluid_transfer.not_choose_1":  "The fluid transfer is not connected to another transfer. Please select the pos and click again to connect (unable to connect to the already connected transmitter)",
+  "tooltip.ifeu.fluid_transfer.input":  "Input mode",
+  "tooltip.ifeu.fluid_transfer.input_1":  "The transfer will transfer the fluid to the output mode transfer which connected to it",
+  "tooltip.ifeu.fluid_transfer.output":  "Output mode ",
+  "tooltip.ifeu.fluid_transfer.output_1":  "This transfer can accept fluid by the input mode transfer which connected to it",
+  "tooltip.ifeu.held.shift": "§9Press §6Shift§9 to view more information",
+  "tooltip.ifeu.held.alt": "§9Press §6Alt§9 to view more information",
+  "tooltip.ifeu.held.control": "§9Press §6Ctrl§9 to view more information",
+  "tooltip.ifeu.connect_tool0": "Pos1: %s, %s, %s",
+  "tooltip.ifeu.connect_tool1": "Pos1: null",
+  "tooltip.ifeu.connect_tool2": "Pos2: %s, %s, %s",
+  "tooltip.ifeu.connect_tool3": "Pos2: null",
+  "tooltip.ifeu.connect_tool4": "Right-click on the fluid transfer to add the first blockPos",
+  "tooltip.ifeu.connect_tool5": "shift + right-click on the fluid transfer to add the second blockPos",
+  "tooltip.ifeu.connect_tool6": "Shift + right-click on any block of the fluid transfer to clear the configuration",
+  "tooltip.ifeu.connect_tool7": "Can only work in the same dimension",
 
   "item.ifeu.liquid_dragon_breath_bucket": "Liquid Dragon Breath Bucket",
   "item.ifeu.liquid_sculk_matter_bucket": "Liquid Sculk Matter Bucket",
@@ -39,6 +59,7 @@
   "item.ifeu.dragon_star_leggings": "Dragon Star Leggings",
   "item.ifeu.dragon_star_boots": "Dragon Star Boots",
   "item.ifeu.laser_lens_dragon": "Dragon Laser Lens",
+  "item.ifeu.connect_tool": "Connect Tool",
 
   "block.ifeu.infuser": "Infuser",
   "block.ifeu.dragon_star_generator": "Dragon Star Generator",
@@ -52,6 +73,7 @@
   "block.ifeu.dragon_star_block": "Block of Dragon Star",
   "block.ifeu.fluid_crafting_table": "Fluid Crafting Table",
   "block.ifeu.dragon_generator": "Dragon Generator",
+  "block.ifeu.fluid_transfer": "Fluid Transfer",
 
   "fluid_type.ifeu.liquid_dragon_breath": "Liquid Dragon Breath",
   "fluid_type.ifeu.liquid_sculk_matter": "Liquid Sculk Matter",
@@ -82,5 +104,14 @@
 
   "key.ifeu.press": "Press",
   "key.ifeu.add": "to add",
-  "key.ifeu.reduce": "to reduce"
+  "key.ifeu.reduce": "to reduce",
+
+  "message.ifeu.connect_tool.same_pos": "Connection failed, unable to connect to itself",
+  "message.ifeu.connect_tool.pos1": "First BlockPos: %s, %s, %s",
+  "message.ifeu.connect_tool.pos2": "Second BlockPos: %s, %s, %s",
+  "message.ifeu.connect_tool.connect_success": "Connection successful",
+  "message.ifeu.connect_tool.has_pos1": "To reset the first blockPos, please clear the configuration and try again",
+  "message.ifeu.connect_tool.no_pos1": "Please record the first blockPos and try again",
+  "message.ifeu.connect_tool.clear_configuration": "Successfully cleared configuration",
+  "message.ifeu.connect_tool.beyond_distance": "Beyond the Distance"
 }

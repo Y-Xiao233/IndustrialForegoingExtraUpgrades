@@ -238,6 +238,22 @@ public class ModSerializableProvider{
                 ModContents.DRAGON_STAR_SWORD.get().asItem().getDefaultInstance()
         ));
 
+        ShapedRecipe.createRecipe(recipeOutput,"connect_tool",new ShapedRecipe(
+                List.of(
+                        itemValue(ModContents.AIR.get().getDefaultInstance()),
+                        itemValue(ModContents.AIR.get().getDefaultInstance()),
+                        itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
+                        itemValue(ModContents.AIR.get().getDefaultInstance()),
+                        tagValue(Tags.Items.RODS),
+                        itemValue(ModContents.AIR.get().getDefaultInstance()),
+                        tagValue(Tags.Items.RODS),
+                        itemValue(ModContents.AIR.get().getDefaultInstance()),
+                        itemValue(ModContents.AIR.get().getDefaultInstance())
+
+                ),new FluidStack(ModuleCore.PINK_SLIME.getSourceFluid().get(),1000),
+                ModContents.CONNECT_TOOL.get().getDefaultInstance()
+        ));
+
 
         //shapeless
             //有多少输入写多少

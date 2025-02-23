@@ -21,6 +21,7 @@ public class ModBlocks implements IModule {
     public static BlockWithTile TIME_CONTROLLER;
     public static BlockWithTile FLUID_CRAFTING_TABLE;
     public static BlockWithTile DRAGON_GENERATOR;
+    public static BlockWithTile FLUID_TRANSFER;
     @Override
     public void generateFeatures(DeferredRegistryHelper helper) {
         INFUSER = deferredRegistry(helper,"infuser",InfuserBlock::new);
@@ -32,6 +33,7 @@ public class ModBlocks implements IModule {
         TIME_CONTROLLER = deferredRegistry(helper,"time_controller",TimeControllerBlock::new);
         FLUID_CRAFTING_TABLE = deferredRegistry(helper,"fluid_crafting_table",FluidCraftingTableBlock::new);
         DRAGON_GENERATOR = deferredRegistry(helper,"dragon_generator",DragonGeneratorBlock::new);
+        FLUID_TRANSFER = deferredRegistry(helper,"fluid_transfer",FluidTransferBlock::new);
     }
 
     private BlockWithTile deferredRegistry(DeferredRegistryHelper helper, String name, Supplier<BasicTileBlock<?>> blockSupplier){
@@ -50,6 +52,7 @@ public class ModBlocks implements IModule {
         blocks.add(TIME_CONTROLLER.getBlock());
         blocks.add(FLUID_CRAFTING_TABLE.getBlock());
         blocks.add(DRAGON_GENERATOR.getBlock());
+        blocks.add(FLUID_TRANSFER.getBlock());
 
         return blocks;
     }

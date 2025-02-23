@@ -31,7 +31,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.TIME_CONTROLLER.getBlock())
                 .add(ModBlocks.RULE_CONTROLLER.getBlock())
                 .add(ModBlocks.FLUID_CRAFTING_TABLE.getBlock())
-                .add(ModBlocks.DRAGON_GENERATOR.getBlock());
+                .add(ModBlocks.DRAGON_GENERATOR.getBlock())
+                .add(ModBlocks.FLUID_TRANSFER.getBlock());
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.INFUSER.getBlock())
@@ -44,7 +45,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModContents.ULTIMATE_MACHINE_FRAME.get())
                 .add(ModContents.DRAGON_STAR_BLOCK.get())
                 .add(ModBlocks.FLUID_CRAFTING_TABLE.getBlock())
-                .add(ModBlocks.DRAGON_GENERATOR.getBlock());
+                .add(ModBlocks.DRAGON_GENERATOR.getBlock())
+                .add(ModBlocks.FLUID_TRANSFER.getBlock());
 
 
         this.tag(ModTags.Blocks.MACHINE_FRAME_ULTIMATE)

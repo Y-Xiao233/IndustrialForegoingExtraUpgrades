@@ -6,6 +6,7 @@ import dev.latvian.mods.kubejs.registry.BuilderTypeRegistry;
 import net.minecraft.core.registries.Registries;
 import net.yxiao233.ifeu.common.compact.kubejs.items.EfficiencyAddonItemBuilder;
 import net.yxiao233.ifeu.common.compact.kubejs.items.ProcessingAddonItemBuilder;
+import net.yxiao233.ifeu.common.compact.kubejs.items.RangeAddonItemBuilder;
 import net.yxiao233.ifeu.common.compact.kubejs.items.SpeedAddonItemBuilder;
 import net.yxiao233.ifeu.common.compact.kubejs.schemas.*;
 
@@ -16,6 +17,7 @@ public class ModKubeJSPlugin implements KubeJSPlugin {
             reg.add("industrialforegoing:speed_addon",SpeedAddonItemBuilder.class, SpeedAddonItemBuilder::new);
             reg.add("industrialforegoing:efficiency_addon", EfficiencyAddonItemBuilder.class, EfficiencyAddonItemBuilder::new);
             reg.add("industrialforegoing:processing_addon", ProcessingAddonItemBuilder.class, ProcessingAddonItemBuilder::new);
+            reg.add("industrialforegoing:range_addon", RangeAddonItemBuilder.class,RangeAddonItemBuilder::new);
         });
     }
 

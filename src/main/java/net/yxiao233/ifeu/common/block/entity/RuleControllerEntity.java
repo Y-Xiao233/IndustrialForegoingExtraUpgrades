@@ -138,7 +138,7 @@ public class RuleControllerEntity extends IndustrialProcessingTile<RuleControlle
         super.serverTick(level, pos, state, blockEntity);
         if(!level.isClientSide()){
             this.value = GameRuleUtil.getGameRule(level,rules[rule].getRuleKey());
-            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(pos.getX(),pos.getY(),pos.getZ(),value)));
+            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(pos,value)));
         }
     }
 

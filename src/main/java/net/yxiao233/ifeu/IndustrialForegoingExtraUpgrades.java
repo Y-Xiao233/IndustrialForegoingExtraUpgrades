@@ -26,6 +26,7 @@ public class IndustrialForegoingExtraUpgrades extends ModuleController {
         ModContents.BLOCKS.register(modEventBus);
         ModContents.ITEMS.register(modEventBus);
         ModCreativeModeTab.CREATIVE_MODE_TAB.register(modEventBus);
+        ModDataComponentTypes.DATA_COMPONENTS.register(modEventBus);
     }
 
     @EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -33,6 +34,7 @@ public class IndustrialForegoingExtraUpgrades extends ModuleController {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.FLUID_CRAFTING_TABLE.getBlock(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.FLUID_TRANSFER.getBlock(), RenderType.translucent());
         }
     }
 

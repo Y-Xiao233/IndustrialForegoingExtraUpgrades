@@ -10,6 +10,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.api.block.DeadDragonEggBlock;
+import net.yxiao233.ifeu.common.item.ConnectToolItem;
 
 public class ModContents {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(IndustrialForegoingExtraUpgrades.MODID);
@@ -21,6 +22,7 @@ public class ModContents {
     public static final DeferredItem<Item> NETHERITE_GEAR = ITEMS.register("netherite_gear", () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> SCULK_GEAR = ITEMS.register("sculk_gear", () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> LASER_LENS_DRAGON = ITEMS.register("laser_lens_dragon", () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> CONNECT_TOOL = ITEMS.register("connect_tool", () -> new ConnectToolItem(new Item.Properties().stacksTo(1)));
 
     //Tool
     public static final DeferredItem<Item> DRAGON_STAR_PICKAXE = ITEMS.register("dragon_star_pickaxe",() -> new PickaxeItem(ModTiers.DRAGON_STAR,(new Item.Properties().attributes(PickaxeItem.createAttributes(ModTiers.DRAGON_STAR,1,-2.8F)).fireResistant().rarity(CustomRarity.SUPREME.getValue()))));
