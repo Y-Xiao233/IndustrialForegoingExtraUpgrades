@@ -75,6 +75,9 @@
 - 修改了龙之星发电机的默认发电量
 - 调整了部分源代码结构
 
+### v2.0.107
+- 添加了流体传输器
+
 ## en_us
 ### v1.0.0
 - init
@@ -148,3 +151,6 @@
 - Added Dragon Generator
 - Modified the default power generation of the Dragon Star generator
 - Adjusted some of the source code structure
+
+### v2.0.107
+- Added Fluid Transfer

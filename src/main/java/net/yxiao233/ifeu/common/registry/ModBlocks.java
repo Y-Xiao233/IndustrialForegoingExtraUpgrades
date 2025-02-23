@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.RegistryObject;
 import net.yxiao233.ifeu.common.block.*;
+import net.yxiao233.ifeu.common.block.FluidTransferBlock;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class ModBlocks implements IModule {
     public static Pair<RegistryObject<Block>,RegistryObject<BlockEntityType<?>>> TIME_CONTROLLER;
     public static Pair<RegistryObject<Block>,RegistryObject<BlockEntityType<?>>> FLUID_CRAFTING_TABLE;
     public static Pair<RegistryObject<Block>,RegistryObject<BlockEntityType<?>>> DRAGON_GENERATOR;
+    public static Pair<RegistryObject<Block>,RegistryObject<BlockEntityType<?>>> FLUID_TRANSFER;
     @Override
     public void generateFeatures(DeferredRegistryHelper helper) {
         INFUSER = deferredRegistry(helper,"infuser",InfuserBlock::new);
@@ -34,6 +36,7 @@ public class ModBlocks implements IModule {
         TIME_CONTROLLER = deferredRegistry(helper,"time_controller",TimeControllerBlock::new);
         FLUID_CRAFTING_TABLE = deferredRegistry(helper,"fluid_crafting_table",FluidCraftingTableBlock::new);
         DRAGON_GENERATOR = deferredRegistry(helper,"dragon_generator",DragonGeneratorBlock::new);
+        FLUID_TRANSFER = deferredRegistry(helper,"fluid_transfer", FluidTransferBlock::new);
     }
 
     private Pair<RegistryObject<Block>,RegistryObject<BlockEntityType<?>>> deferredRegistry(DeferredRegistryHelper helper, String name, Supplier<BasicTileBlock<?>> blockSupplier){
@@ -52,6 +55,7 @@ public class ModBlocks implements IModule {
         blocks.add(TIME_CONTROLLER.getLeft());
         blocks.add(FLUID_CRAFTING_TABLE.getLeft());
         blocks.add(DRAGON_GENERATOR.getLeft());
+        blocks.add(FLUID_TRANSFER.getLeft());
 
         return blocks;
     }

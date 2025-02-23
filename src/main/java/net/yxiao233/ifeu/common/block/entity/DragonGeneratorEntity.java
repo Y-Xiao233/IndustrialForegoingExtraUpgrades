@@ -1,16 +1,9 @@
 package net.yxiao233.ifeu.common.block.entity;
 
-import com.hrznstudio.titanium.annotation.Save;
-import com.hrznstudio.titanium.component.fluid.FluidTankComponent;
-import com.hrznstudio.titanium.component.fluid.SidedFluidTankComponent;
-import com.hrznstudio.titanium.component.progress.ProgressBarComponent;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.capability.IFluidHandler;
-import net.yxiao233.ifeu.api.block.entity.BetterIndustrialGeneratorTile;
 import net.yxiao233.ifeu.api.block.entity.IFEUFluidFuelGeneratorEntity;
 import net.yxiao233.ifeu.common.config.machine.DragonGeneratorConfig;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
