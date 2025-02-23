@@ -11,12 +11,9 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
-import net.yxiao233.ifeu.common.config.machine.DragonStarGeneratorConfig;
-import net.yxiao233.ifeu.common.item.ModEfficiencyAddonItem;
-import net.yxiao233.ifeu.common.item.ModProcessingAddonItem;
-import net.yxiao233.ifeu.common.item.ModSpeedAddonItem;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.registry.ModContents;
+import net.yxiao233.ifeu.api.item.ModEfficiencyAddonItem;
+import net.yxiao233.ifeu.api.item.ModProcessingAddonItem;
+import net.yxiao233.ifeu.api.item.ModSpeedAddonItem;
 
 @Mod.EventBusSubscriber(value = Dist.CLIENT, modid = IndustrialForegoingExtraUpgrades.MODID, bus =  Mod.EventBusSubscriber.Bus.FORGE)
 public class ItemTooltipEvent {

@@ -38,8 +38,8 @@
   "tooltip.ifeu.connect_tool1": "Pos1: null",
   "tooltip.ifeu.connect_tool2": "Pos2: %s, %s, %s",
   "tooltip.ifeu.connect_tool3": "Pos2: null",
-  "tooltip.ifeu.connect_tool4": "Shift + right-click on the fluid transfer to add the first blockPos",
-  "tooltip.ifeu.connect_tool5": "shift + ctrl + right-click on the fluid transfer to add the second blockPos",
+  "tooltip.ifeu.connect_tool4": "Right-click on the fluid transfer to add the first blockPos",
+  "tooltip.ifeu.connect_tool5": "shift + right-click on the fluid transfer to add the second blockPos",
   "tooltip.ifeu.connect_tool6": "Shift + right-click on any block of the fluid transfer to clear the configuration",
   "tooltip.ifeu.connect_tool7": "Can only work in the same dimension",
 
@@ -112,5 +112,6 @@
   "message.ifeu.connect_tool.connect_success": "Connection successful",
   "message.ifeu.connect_tool.has_pos1": "To reset the first blockPos, please clear the configuration and try again",
   "message.ifeu.connect_tool.no_pos1": "Please record the first blockPos and try again",
-  "message.ifeu.connect_tool.clear_configuration": "Successfully cleared configuration"
+  "message.ifeu.connect_tool.clear_configuration": "Successfully cleared configuration",
+  "message.ifeu.connect_tool.beyond_distance": "Beyond the Distance"
 }

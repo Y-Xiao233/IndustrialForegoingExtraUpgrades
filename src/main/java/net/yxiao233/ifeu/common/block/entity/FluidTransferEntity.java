@@ -1,6 +1,7 @@
 package net.yxiao233.ifeu.common.block.entity;
 
 import com.buuz135.industrial.block.tile.IndustrialProcessingTile;
+import com.buuz135.industrial.item.addon.RangeAddonItem;
 import com.hrznstudio.titanium.annotation.Save;
 import com.hrznstudio.titanium.api.IFactory;
 import com.hrznstudio.titanium.api.client.AssetTypes;
@@ -13,6 +14,7 @@ import com.hrznstudio.titanium.component.button.ButtonComponent;
 import com.hrznstudio.titanium.component.energy.EnergyStorageComponent;
 import com.hrznstudio.titanium.component.fluid.FluidTankComponent;
 import com.hrznstudio.titanium.component.fluid.SidedFluidTankComponent;
+import com.hrznstudio.titanium.component.inventory.SidedInventoryComponent;
 import com.hrznstudio.titanium.util.LangUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -20,6 +22,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -28,16 +31,20 @@ import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.yxiao233.ifeu.api.networking.BlockPosSyncS2C;
 import net.yxiao233.ifeu.api.networking.BooleanValueSyncS2C;
 import net.yxiao233.ifeu.common.block.FluidTransferBlock;
-import net.yxiao233.ifeu.common.components.TextGuiComponent;
+import net.yxiao233.ifeu.api.components.TextGuiComponent;
 import net.yxiao233.ifeu.common.config.machine.FluidTransferConfig;
+import net.yxiao233.ifeu.common.item.ConnectToolItem;
 import net.yxiao233.ifeu.common.networking.ModNetWorking;
 import net.yxiao233.ifeu.common.networking.packet.BlockPosSyncS2CPacket;
 import net.yxiao233.ifeu.common.networking.packet.BooleanSyncS2CPacket;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
 import org.jetbrains.annotations.NotNull;
 
+import java.lang.reflect.Field;
 import java.util.Collections;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class FluidTransferEntity extends IndustrialProcessingTile<FluidTransferEntity> implements BlockPosSyncS2C, BooleanValueSyncS2C {
     @Save
@@ -48,7 +55,12 @@ public class FluidTransferEntity extends IndustrialProcessingTile<FluidTransferE
     public boolean hasConnect;
     @Save
     public boolean mode;
+    @Save
+    public int maxConnectionDistance;
+    @Save
+    public boolean isFluidRender = true;
     public ButtonComponent modeComponent;
+    public ButtonComponent buttonComponent2;
     public int maxTransfer;
     public FluidTransferEntity(BlockPos blockPos, BlockState blockState) {
         super(ModBlocks.FLUID_TRANSFER,76,40, blockPos, blockState);
@@ -58,6 +70,34 @@ public class FluidTransferEntity extends IndustrialProcessingTile<FluidTransferE
                 .setTankType(FluidTankComponent.Type.NORMAL)
                 .setComponentHarness(this));
 
+
+        this.addButton(this.buttonComponent2 = (new ButtonComponent(136, 84, 14, 14) {
+            @OnlyIn(Dist.CLIENT)
+            public List<IFactory<? extends IScreenAddon>> getScreenAddons() {
+                return Collections.singletonList(() -> {
+                    StateButtonInfo[] buttonInfo = new StateButtonInfo[2];
+                    IAssetType<IAsset> asset = AssetTypes.BUTTON_SIDENESS_ENABLED;
+                    String[] tip = new String[2];
+                    ChatFormatting chatFormatting = ChatFormatting.GOLD;
+                    tip[0] = chatFormatting + LangUtil.getString("tooltip.ifeu.fluid_crafting_table.render_fluid", new Object[0]);
+                    tip[1] = "tooltip.ifeu.fluid_crafting_table.render_fluid_1";
+                    buttonInfo[0] = new StateButtonInfo(0, asset, tip);
+                    asset = AssetTypes.BUTTON_SIDENESS_DISABLED;
+                    tip = new String[2];
+                    tip[0] = chatFormatting + LangUtil.getString("tooltip.ifeu.fluid_crafting_table.not_render_fluid", new Object[0]);
+                    tip[1] = "tooltip.ifeu.fluid_crafting_table.not_render_fluid_1";
+                    buttonInfo[1] = new StateButtonInfo(1, asset, tip);
+                    return new StateButtonAddon(this, buttonInfo) {
+                        public int getState() {
+                            return FluidTransferEntity.this.isFluidRender ? 0 : 1;
+                        }
+                    };
+                });
+            }
+        }).setPredicate((playerEntity, compoundNBT) -> {
+            this.isFluidRender = !this.isFluidRender;
+            this.markForUpdate();
+        }).setId(2));
 
         this.addButton(this.modeComponent = (new ButtonComponent(106, 40, 14, 14) {
             @OnlyIn(Dist.CLIENT)
@@ -88,13 +128,15 @@ public class FluidTransferEntity extends IndustrialProcessingTile<FluidTransferE
         }).setId(6));
 
 
-        this.maxTransfer = FluidTransferConfig.maxTransfer;
+        this.maxTransfer = FluidTransferConfig.baseMaxTransfer;
+        this.maxConnectionDistance = FluidTransferConfig.defaultMaxConnectDistance;
     }
 
 
     @Override
     public void serverTick(Level level, BlockPos pos, BlockState state, FluidTransferEntity blockEntity) {
         super.serverTick(level, pos, state, blockEntity);
+        //连接移除逻辑
         if(connectBlockPos != null){
             if(level.getBlockEntity(connectBlockPos) instanceof FluidTransferEntity entity){
                 if(entity.hasConnect && this.hasConnect){
@@ -108,10 +150,53 @@ public class FluidTransferEntity extends IndustrialProcessingTile<FluidTransferE
                 this.hasConnect = false;
             }
         }
+
+        //连接范围逻辑
+        getMaxConnectDistance();
+        if(this.connectBlockPos != null){
+            BlockEntity entity = level.getBlockEntity(this.connectBlockPos);
+            if(entity instanceof FluidTransferEntity fluidTransferEntity){
+                if(ConnectToolItem.getDistance(getBlockPos(),this.connectBlockPos) > ConnectToolItem.getCanConnectDistance(this,fluidTransferEntity)){
+                    this.connectBlockPos = null;
+                    this.hasConnect = false;
+                }
+            }
+        }
+        //单次传输最大值逻辑
+
+
+        //发送至客户端
         ModNetWorking.sendToClient(new BooleanSyncS2CPacket(getBlockPos(),hasConnect));
         if(this.connectBlockPos != null){
             ModNetWorking.sendToClient(new BlockPosSyncS2CPacket(getBlockPos(),this.connectBlockPos));
         }
+    }
+
+    @Override
+    public void openGui(Player player) {
+        if(!(player.getMainHandItem().getItem() instanceof ConnectToolItem)){
+            super.openGui(player);
+        }
+    }
+
+    public void getMaxConnectDistance(){
+        SidedInventoryComponent<FluidTransferEntity> augments = this.getAugmentInventory();
+        int dis = FluidTransferConfig.defaultMaxConnectDistance;
+        for (int i = 0; i < augments.getSlots(); i++) {
+            if(augments.getStackInSlot(i).getItem() instanceof RangeAddonItem rangeAddonItem){
+                String raw = rangeAddonItem.getDescriptionId();
+                Pattern pattern = Pattern.compile("\\d+");
+                Matcher matcher = pattern.matcher(raw);
+                int tier = 0;
+                if(matcher.find()){
+                    tier = Integer.parseInt(matcher.group());
+                }
+
+                dis += tier;
+                break;
+            }
+        }
+        this.maxConnectionDistance = dis;
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -248,6 +333,9 @@ public class FluidTransferEntity extends IndustrialProcessingTile<FluidTransferE
         if(tag.contains("mode")){
             this.mode = tag.getBoolean("mode");
         }
+        if(tag.contains("is_fluid_render")){
+            this.isFluidRender = tag.getBoolean("is_fluid_render");
+        }
         super.loadSettings(player, tag);
     }
 
@@ -255,6 +343,7 @@ public class FluidTransferEntity extends IndustrialProcessingTile<FluidTransferE
         tag.putIntArray("connect_block_pos", new int[]{this.connectBlockPos.getX(),this.connectBlockPos.getY(),this.connectBlockPos.getZ()});
         tag.putBoolean("has_connect",this.hasConnect);
         tag.putBoolean("mode",this.mode);
+        tag.putBoolean("is_fluid_render",this.isFluidRender);
         super.saveSettings(player, tag);
     }
 

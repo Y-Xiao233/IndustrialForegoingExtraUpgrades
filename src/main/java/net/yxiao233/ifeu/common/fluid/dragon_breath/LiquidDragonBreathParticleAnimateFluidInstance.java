@@ -4,8 +4,8 @@ import com.hrznstudio.titanium.module.DeferredRegistryHelper;
 import com.hrznstudio.titanium.tab.TitaniumTab;
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.minecraftforge.fluids.FluidType;
-import net.yxiao233.ifeu.common.fluid.AbstractAnimateFluid;
-import net.yxiao233.ifeu.common.fluid.AbstractAnimateFluidInstance;
+import net.yxiao233.ifeu.api.fluid.AbstractAnimateFluid;
+import net.yxiao233.ifeu.api.fluid.AbstractAnimateFluidInstance;
 import org.jetbrains.annotations.Nullable;
 
 public class LiquidDragonBreathParticleAnimateFluidInstance extends AbstractAnimateFluidInstance {

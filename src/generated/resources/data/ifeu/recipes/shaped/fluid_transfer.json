@@ -1,0 +1,37 @@
+{
+  "type": "ifeu:shaped",
+  "inputFluid": "{Amount:200,FluidName:\"ifeu:liquid_dragon_breath\"}",
+  "inputs": [
+    {
+      "tag": "forge:plastic"
+    },
+    {
+      "tag": "forge:glass_panes"
+    },
+    {
+      "tag": "forge:plastic"
+    },
+    {
+      "tag": "forge:gears/netherite"
+    },
+    {
+      "tag": "ifeu:machine_frame/ultimate"
+    },
+    {
+      "tag": "forge:gears/netherite"
+    },
+    {
+      "item": "industrialforegoing:range_addon3"
+    },
+    {
+      "item": "minecraft:bucket"
+    },
+    {
+      "item": "industrialforegoing:range_addon3"
+    }
+  ],
+  "output": {
+    "count": 2,
+    "item": "ifeu:fluid_transfer"
+  }
+}

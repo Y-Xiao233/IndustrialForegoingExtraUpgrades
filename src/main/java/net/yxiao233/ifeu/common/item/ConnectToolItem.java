@@ -52,16 +52,20 @@ public class ConnectToolItem extends Item {
                     BlockPos blockPos2 = getBlockPos(tag,"pos2");
                     if(blockPos1.equals(blockPos2)){
                         tag = emptyTag;
-                        player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.same_pos"));
+                        player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.same_pos").withStyle(ChatFormatting.RED));
                     }else{
                         FluidTransferEntity entity1 = getFluidTransferEntity(level,blockPos1);
                         FluidTransferEntity entity2 = getFluidTransferEntity(level,blockPos2);
                         if(entity1 != null && entity2 != null){
-                            entity1.hasConnect = true;
-                            entity2.hasConnect = true;
-                            entity1.connectBlockPos = blockPos2;
-                            entity2.connectBlockPos = blockPos1;
-                            player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.connect_success"));
+                            if(getDistance(blockPos1,blockPos2) <= getCanConnectDistance(entity1,entity2)){
+                                entity1.hasConnect = true;
+                                entity2.hasConnect = true;
+                                entity1.connectBlockPos = blockPos2;
+                                entity2.connectBlockPos = blockPos1;
+                                player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.connect_success").withStyle(ChatFormatting.GOLD));
+                            }else{
+                                player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.beyond_distance").withStyle(ChatFormatting.RED));
+                            }
                         }
                     }
                 }
@@ -79,7 +83,7 @@ public class ConnectToolItem extends Item {
 
                 item.setTag(tag);
             }else if(player.isShiftKeyDown()){
-                player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.clear_configuration"));
+                player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.clear_configuration").withStyle(ChatFormatting.GREEN));
                 item.setTag(emptyTag);
             }
         }
@@ -104,23 +108,23 @@ public class ConnectToolItem extends Item {
     }
 
     private void addPos1ToTag(ItemStack item,CompoundTag tag, Player player,BlockPos pos1){
-        if(KeyDownUtil.isShiftKeyDown() && !KeyDownUtil.isCtrlKeyDown()){
+        if(!KeyDownUtil.isShiftKeyDown()){
             if(item.getTag() != null && !item.getTag().contains("pos1")){
                 tag.putIntArray("pos1",IntArrayBlockPosUtil.BlockPosToIntArray(pos1));
-                player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.pos1",new Object[]{pos1.getX(),pos1.getY(),pos1.getZ()}));
+                player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.pos1",new Object[]{pos1.getX(),pos1.getY(),pos1.getZ()}).withStyle(ChatFormatting.GOLD));
             }else{
-                player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.has_pos1"));
+                player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.has_pos1").withStyle(ChatFormatting.RED));
             }
         }
     }
 
     private void addPos2ToTag(ItemStack item,CompoundTag tag, Player player,BlockPos pos2){
-        if(KeyDownUtil.isShiftKeyDown() && KeyDownUtil.isCtrlKeyDown()){
+        if(KeyDownUtil.isShiftKeyDown()){
             if(item.getTag() != null && item.getTag().contains("pos1")){
                 tag.putIntArray("pos2",IntArrayBlockPosUtil.BlockPosToIntArray(pos2));
-                player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.pos2",new Object[]{pos2.getX(),pos2.getY(),pos2.getZ()}));
+                player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.pos2",new Object[]{pos2.getX(),pos2.getY(),pos2.getZ()}).withStyle(ChatFormatting.GOLD));
             }else{
-                player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.no_pos1"));
+                player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.no_pos1").withStyle(ChatFormatting.RED));
             }
         }
     }
@@ -130,6 +134,21 @@ public class ConnectToolItem extends Item {
             return entity;
         }
         return null;
+    }
+
+    public static double getDistance(BlockPos pos1, BlockPos pos2){
+        int x1 = pos1.getX();
+        int y1 = pos1.getY();
+        int z1 = pos1.getZ();
+
+        int x2 = pos2.getX();
+        int y2 = pos2.getY();
+        int z2 = pos2.getZ();
+        return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2) + Math.pow(z2 - z1, 2));
+    }
+
+    public static int getCanConnectDistance(FluidTransferEntity entity1, FluidTransferEntity entity2){
+        return Math.max(entity1.maxConnectionDistance,entity2.maxConnectionDistance);
     }
 
     @Override

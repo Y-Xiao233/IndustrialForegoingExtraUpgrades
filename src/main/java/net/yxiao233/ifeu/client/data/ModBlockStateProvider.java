@@ -34,6 +34,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(ModContents.DRAGON_STAR_BLOCK);
         blockItem(ModBlocks.FLUID_CRAFTING_TABLE.getLeft());
         blockItem(ModBlocks.DRAGON_GENERATOR.getLeft());
+        blockItem(ModBlocks.FLUID_TRANSFER.getLeft());
     }
 
     private void blockItem(RegistryObject<Block> registryObject){

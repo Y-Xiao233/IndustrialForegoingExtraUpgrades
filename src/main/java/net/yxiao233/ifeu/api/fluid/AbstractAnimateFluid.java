@@ -1,4 +1,4 @@
-package net.yxiao233.ifeu.common.fluid;
+package net.yxiao233.ifeu.api.fluid;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

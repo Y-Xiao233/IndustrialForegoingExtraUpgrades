@@ -36,6 +36,7 @@ public class IndustrialForegoingExtraUpgrades extends ModuleController{
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.FLUID_CRAFTING_TABLE.getLeft().get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.FLUID_TRANSFER.getLeft().get(), RenderType.translucent());
         }
     }
 

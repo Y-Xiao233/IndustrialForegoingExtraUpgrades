@@ -34,8 +34,8 @@
   "tooltip.ifeu.held.shift": "§9按下§6Shift§9查看更多信息",
   "tooltip.ifeu.held.alt": "§9按下§6Alt§9查看更多信息",
   "tooltip.ifeu.held.control": "§9按下§6Ctrl§9查看更多信息",
-  "tooltip.ifeu.connect_tool4": "对着流体传输器shift+右键添加第一个坐标",
-  "tooltip.ifeu.connect_tool5": "对着流体传输器shift+ctrl+右键添加第一个坐标",
+  "tooltip.ifeu.connect_tool4": "对着流体传输器右键添加第一个坐标",
+  "tooltip.ifeu.connect_tool5": "对着流体传输器shift+右键添加第一个坐标",
   "tooltip.ifeu.connect_tool6": "对着除流体传输器任意方块shift+右键清除配置",
   "tooltip.ifeu.connect_tool7": "只能在同一维度中工作",
 
@@ -108,5 +108,6 @@
   "message.ifeu.connect_tool.connect_success": "连接成功",
   "message.ifeu.connect_tool.has_pos1": "若要重新设置第一点坐标,请清除配置后重试",
   "message.ifeu.connect_tool.no_pos1": "请先记录第一点坐标后重试",
-  "message.ifeu.connect_tool.clear_configuration": "成功清除配置"
+  "message.ifeu.connect_tool.clear_configuration": "成功清除配置",
+  "message.ifeu.connect_tool.beyond_distance": "超出距离限制"
 }

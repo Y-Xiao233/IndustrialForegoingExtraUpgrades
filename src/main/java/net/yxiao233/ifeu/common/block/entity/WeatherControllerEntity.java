@@ -21,7 +21,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.yxiao233.ifeu.common.components.TextureGuiComponent;
+import net.yxiao233.ifeu.api.components.TextureGuiComponent;
 import net.yxiao233.ifeu.common.config.machine.RuleControllerConfig;
 import net.yxiao233.ifeu.common.config.machine.WeatherControllerConfig;
 import net.yxiao233.ifeu.common.gui.AllGuiTextures;

@@ -1,0 +1,37 @@
+{
+  "type": "ifeu:shaped",
+  "inputFluid": "{Amount:1000,FluidName:\"industrialforegoing:pink_slime\"}",
+  "inputs": [
+    {
+      "item": "ifeu:air"
+    },
+    {
+      "item": "ifeu:air"
+    },
+    {
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "item": "ifeu:air"
+    },
+    {
+      "tag": "forge:rods"
+    },
+    {
+      "item": "ifeu:air"
+    },
+    {
+      "tag": "forge:rods"
+    },
+    {
+      "item": "ifeu:air"
+    },
+    {
+      "item": "ifeu:air"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "item": "ifeu:connect_tool"
+  }
+}

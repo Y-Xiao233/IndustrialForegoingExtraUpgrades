@@ -17,9 +17,9 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
-import net.yxiao233.ifeu.common.item.ModEfficiencyAddonItem;
-import net.yxiao233.ifeu.common.item.ModProcessingAddonItem;
-import net.yxiao233.ifeu.common.item.ModSpeedAddonItem;
+import net.yxiao233.ifeu.api.item.ModEfficiencyAddonItem;
+import net.yxiao233.ifeu.api.item.ModProcessingAddonItem;
+import net.yxiao233.ifeu.api.item.ModSpeedAddonItem;
 
 import java.util.function.Consumer;
 
