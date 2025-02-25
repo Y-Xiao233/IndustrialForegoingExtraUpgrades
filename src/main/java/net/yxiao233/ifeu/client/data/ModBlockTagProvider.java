@@ -1,8 +1,13 @@
 package net.yxiao233.ifeu.client.data;
 
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
@@ -11,6 +16,8 @@ import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.registry.ModTags;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class ModBlockTagProvider extends BlockTagsProvider {
@@ -51,5 +58,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
         this.tag(ModTags.Blocks.MACHINE_FRAME_ULTIMATE)
                 .add(ModContents.ULTIMATE_MACHINE_FRAME.get());
+
+        this.tag(ModTags.Blocks.WRENCH_PICKUP)
+                .addTag(BlockTags.SHULKER_BOXES)
+                .addTag(Tags.Blocks.CHESTS);
     }
 }

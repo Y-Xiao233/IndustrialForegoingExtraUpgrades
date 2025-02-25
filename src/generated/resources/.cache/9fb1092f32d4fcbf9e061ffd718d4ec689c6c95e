@@ -1,4 +1,4 @@
-// 1.21.1	2025-02-24T02:22:06.3382289	Recipes
+// 1.21.1	2025-02-25T19:01:55.7462561	Recipes
 50dded7964768360091d2a72f21482917ba313b2 data/ifeu/advancement/arcane_dragon_egg_forging/dead_dragon_egg.json
 0c4d904269eadd30beb5b7fbd62d9fddfffc4954 data/ifeu/advancement/arcane_dragon_egg_forging/egg_1.json
 819d02b8ab08a1e4eb76f7e73cc546ff23804450 data/ifeu/advancement/arcane_dragon_egg_forging/egg_2.json
@@ -19,6 +19,7 @@ efc289649174a4eca68e0e66ddfb88d33ba6b19e data/ifeu/advancement/recipes/misc/lase
 3debba5bda683d1364997b3073ad3e267b8cbef4 data/ifeu/advancement/recipes/misc/sculk_gear.json
 7429d9b3533f64aec3c4fdaa8c91b2d53e779a3b data/ifeu/advancement/recipes/misc/time_controller.json
 3443b9668294c5ad27a5b2f9bbbea7d0fe06ad3f data/ifeu/advancement/recipes/misc/weather_controller.json
+3121302f2ab295b53fff37710627739259799fe4 data/ifeu/advancement/recipes/misc/wrench.json
 3a67701f5045c934e4a532e5895cec048a599383 data/ifeu/advancement/shaped/connect_tool.json
 a8b50ec69d2b634632e51e508e79445e32bd7967 data/ifeu/advancement/shaped/dragon_star_axe.json
 2bc26edf6e3b26a37c3c5a7724a3ec1e590b8a74 data/ifeu/advancement/shaped/dragon_star_block.json
@@ -57,6 +58,7 @@ f0bd98af713bcfbaa1a0eb92cc14a55956478618 data/ifeu/recipe/shaped/dragon_star_pic
 15d20408b77aa6bb480043ef4293aaface1e0c11 data/ifeu/recipe/shapeless/dragon_star_from_block.json
 bd5c42bd3c4d901faee0c4c1fee338b3f1b93ba4 data/ifeu/recipe/time_controller.json
 d42f083e007d4a98feea7b7d250d7bac2da9705d data/ifeu/recipe/weather_controller.json
+f61034c24177a1e4d193508ec10e11a1ce29cba3 data/ifeu/recipe/wrench.json
 3bb3df4b30daec3dbbadd47862a742c78b58e864 data/industrialforegoing/advancement/dissolution_chamber/efficiency_addon_3.json
 c499f5218c2b0bfbe2d321db63774b72c39d338f data/industrialforegoing/advancement/dissolution_chamber/efficiency_addon_4.json
 f17812e3a934a4a723519003b98b89e2cf30a49e data/industrialforegoing/advancement/dissolution_chamber/efficiency_addon_5.json

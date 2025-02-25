@@ -1,0 +1,30 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "ifeu:wrench"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "c:dyes/pink"
+    },
+    "B": {
+      "tag": "c:plastics"
+    },
+    "C": {
+      "tag": "c:rods"
+    }
+  },
+  "pattern": [
+    " AB",
+    " CA",
+    "C  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "ifeu:wrench"
+  }
+}
