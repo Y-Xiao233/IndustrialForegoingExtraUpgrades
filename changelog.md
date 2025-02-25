@@ -79,6 +79,12 @@
 - 添加了流体传输器
 - 添加了KubeJS对范围升级注册支持
 
+### v2.0.108
+- 修复了制作出来的连接工具没有任务工具提示的bug
+- 为流体传输器添加了默认可连接距离的提示
+- 修复了连接工具部分提示错误的bug
+- 添加了扳手(可扳下所有工业先锋的机器,以及带"ifeu:wrench_pickup"标签的方块)
+
 ## en_us
 ### v1.0.0
 - init
@@ -155,3 +161,10 @@
 
 ### v2.0.107
 - Added Fluid Transfer
+- Added KubeJS support for addon upgrade registration
+
+### v2.0.108
+- Fixed the bug where the created connection tool did not have tooltips
+- Added a tooltip for default connectable distance for fluid transfer
+- Fixed the bug where the connection tool displayed an error message
+- Added wrench (capable of pulling down all industrial foregoing machines, as well as blocks labeled with "ifeu: wrench_pickup"

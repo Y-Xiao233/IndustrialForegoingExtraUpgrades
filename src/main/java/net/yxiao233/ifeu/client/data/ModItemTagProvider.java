@@ -48,5 +48,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         tag(ItemTags.HOES)
                 .add(ModContents.DRAGON_STAR_HOE.get());
+
+        tag(ModTags.Items.WRENCH)
+                .add(ModContents.WRENCH.get());
     }
 }

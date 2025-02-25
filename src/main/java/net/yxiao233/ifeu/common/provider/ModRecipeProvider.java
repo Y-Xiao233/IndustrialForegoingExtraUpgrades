@@ -1,6 +1,7 @@
 package net.yxiao233.ifeu.common.provider;
 
 import com.buuz135.industrial.module.ModuleCore;
+import com.buuz135.industrial.utils.IndustrialTags;
 import com.hrznstudio.titanium.api.IRecipeProvider;
 import com.hrznstudio.titanium.block.BasicBlock;
 import com.hrznstudio.titanium.recipe.generator.TitaniumRecipeProvider;
@@ -87,6 +88,13 @@ public class ModRecipeProvider extends TitaniumRecipeProvider {
                 .pattern(" A ").pattern("ABA").pattern(" A ")
                 .define('A',Items.SCULK)
                 .define('B', ModTags.Items.GEARS_NETHERITE)
+                .save(consumer);
+
+        TitaniumShapedRecipeBuilder.shapedRecipe(ModContents.WRENCH.get())
+                .pattern(" AB").pattern(" CA").pattern("C  ")
+                .define('A',Tags.Items.DYES_PINK)
+                .define('B', IndustrialTags.Items.PLASTIC)
+                .define('C',Tags.Items.RODS)
                 .save(consumer);
     }
 }

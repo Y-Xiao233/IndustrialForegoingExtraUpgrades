@@ -3,6 +3,7 @@ package net.yxiao233.ifeu.client.data;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
@@ -51,5 +52,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
         this.tag(ModTags.Blocks.MACHINE_FRAME_ULTIMATE)
                 .add(ModContents.ULTIMATE_MACHINE_FRAME.get());
+
+        this.tag(ModTags.Blocks.WRENCH_PICKUP)
+                .addTag(Tags.Blocks.CHESTS)
+                .addTag(BlockTags.SHULKER_BOXES);
     }
 }

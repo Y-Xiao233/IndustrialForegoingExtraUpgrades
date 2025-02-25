@@ -35,9 +35,13 @@
   "tooltip.ifeu.held.alt": "§9按下§6Alt§9查看更多信息",
   "tooltip.ifeu.held.control": "§9按下§6Ctrl§9查看更多信息",
   "tooltip.ifeu.connect_tool4": "对着流体传输器右键添加第一个坐标",
-  "tooltip.ifeu.connect_tool5": "对着流体传输器shift+右键添加第一个坐标",
+  "tooltip.ifeu.connect_tool5": "对着流体传输器shift+右键添加第二个坐标",
   "tooltip.ifeu.connect_tool6": "对着除流体传输器任意方块shift+右键清除配置",
   "tooltip.ifeu.connect_tool7": "只能在同一维度中工作",
+  "tooltip.ifeu.fluid_transfer0": "默认最远连接距离: %d 个方块",
+  "tooltip.ifeu.fluid_transfer1": "可以使用 \"插件: 范围升级\" 来增加连接范围",
+  "tooltip.ifeu.wrench0": "可以直接扳下所有工业先锋的机器",
+  "tooltip.ifeu.wrench1": "可为方块添加\"ifeu:wrench_pickup\"的方块标签来使其可被扳手破坏",
 
   "item.ifeu.liquid_dragon_breath_bucket": "液态龙息桶",
   "item.ifeu.liquid_sculk_matter_bucket": "液态幽匿物质桶",
@@ -56,6 +60,7 @@
   "item.ifeu.dragon_star_boots": "龙之靴子",
   "item.ifeu.laser_lens_dragon": "龙 镭射聚焦透镜",
   "item.ifeu.connect_tool": "连接工具",
+  "item.ifeu.wrench": "扳手",
 
   "block.ifeu.infuser": "灌注器",
   "block.ifeu.dragon_star_generator": "龙之星发电机",

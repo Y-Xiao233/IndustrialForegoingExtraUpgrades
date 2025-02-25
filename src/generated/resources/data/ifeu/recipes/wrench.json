@@ -1,0 +1,42 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "forge:item_exists",
+              "item": "ifeu:wrench"
+            }
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "key": {
+          "A": {
+            "tag": "forge:dyes/pink"
+          },
+          "B": {
+            "tag": "forge:plastic"
+          },
+          "C": {
+            "tag": "forge:rods"
+          }
+        },
+        "pattern": [
+          " AB",
+          " CA",
+          "C  "
+        ],
+        "result": {
+          "item": "ifeu:wrench"
+        },
+        "show_notification": true
+      }
+    }
+  ]
+}
