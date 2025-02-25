@@ -26,6 +26,12 @@
 ### v1.1.004
 - 将1.20.1-forge-2.0.107的内容同步至此版本
 
+### v1.1.005
+- 修复了制作出来的连接工具没有任务工具提示的bug
+- 为流体传输器添加了默认可连接距离的提示
+- 修复了连接工具部分提示错误的bug
+- 添加了扳手(可扳下所有工业先锋的机器,以及带"ifeu:wrench_pickup"标签的方块)
+
 ## en_us
 ### v1.0.0
 - init
@@ -51,3 +57,9 @@
 
 ### v1.1.004
 - Update the content of 1.20.1-2.0.107 to the current version
+
+### v1.1.005
+- Fixed the bug where the created connection tool did not have tooltips
+- Added a tooltip for default connectable distance for fluid transfer
+- Fixed the bug where the connection tool displayed an error message
+- Added wrench (capable of pulling down all industrial foregoing machines, as well as blocks labeled with "ifeu: wrench_pickup")

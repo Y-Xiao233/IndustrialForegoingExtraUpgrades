@@ -1,10 +1,11 @@
-// 1.21.1	2025-02-10T20:13:14.8133104	Tags for minecraft:item mod id vanilla
+// 1.21.1	2025-02-25T18:38:33.5469407	Tags for minecraft:item mod id vanilla
 a7d1a293754e0a484ecad3c2a216a22ef1243dcc data/c/tags/item/gears.json
 b4f05d39ccb4e9007094301213bb95a6938cc607 data/c/tags/item/gears/diamond.json
 90ab32de2c9647cd4563103fc413e8eb65356d39 data/c/tags/item/gears/gold.json
 9c226908886b9b4d08706cd03083d72437ce37a7 data/c/tags/item/gears/iron.json
 1db7f763b3f5fbbcc2cbee6f8f90f75224a9d134 data/c/tags/item/gears/netherite.json
 03349825c1c2bc67c51166ee48f8e2ee1c83f20b data/c/tags/item/gears/sculk.json
+2a7d15611a3879e018f1701d1ea44d08c76787d6 data/c/tags/item/wrench.json
 caf4c98e85cb3415a948909a7ff166fdb7bbf229 data/ifeu/tags/item/machine_frame/ultimate.json
 f4932bcfc4b4d65fe652c15cb3cd447243f9601d data/minecraft/tags/item/axes.json
 a17e42d407f7f1244b71d441b228d0fa454d7bff data/minecraft/tags/item/hoes.json

@@ -156,19 +156,16 @@ public class ConnectToolItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltips, TooltipFlag flag) {
         CompoundTag tag = stack.get(ModDataComponentTypes.COMPOUND_TAG);
-        if(tag == null){
-            return;
-        }
 
         addTooltipWhileKeyDown(KeyType.SHIFT,tooltips,stack,() ->{
-            if(tag.contains("pos1")){
+            if(tag != null && tag.contains("pos1")){
                 int[] temp = tag.getIntArray("pos1");
                 addTooltip(tooltips, stack, ChatFormatting.GREEN,0,new Object[]{temp[0],temp[1],temp[2]});
             }else{
                 addTooltip(tooltips,stack,ChatFormatting.RED,1);
             }
 
-            if(tag.contains("pos2")){
+            if(tag != null && tag.contains("pos2")){
                 int[] temp = tag.getIntArray("pos2");
                 addTooltip(tooltips, stack, ChatFormatting.GREEN,2,new Object[]{temp[0],temp[1],temp[2]});
             }else{

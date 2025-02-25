@@ -13,6 +13,7 @@ public class ModTags {
     public static class Blocks{
         public static final TagKey<Block> NEEDS_DRAGON_STAR_TOOL = TagUtil.getBlockTag(ResourceLocation.parse("ifeu:need_dragon_star_tool"));
         public static final TagKey<Block> MACHINE_FRAME_ULTIMATE = TagUtil.getBlockTag(ResourceLocation.parse("ifeu:machine_frame/ultimate"));
+        public static final TagKey<Block> WRENCH_PICKUP = TagUtil.getBlockTag(ResourceLocation.parse("ifeu:wrench_pickup"));
         private static TagKey<Block> createTag(String name){
             return BlockTags.create(ResourceLocation.fromNamespaceAndPath(IndustrialForegoingExtraUpgrades.MODID,name));
         }
@@ -22,6 +23,7 @@ public class ModTags {
         public static final TagKey<Item> GEARS = TagUtil.getItemTag(ResourceLocation.parse("c:gears"));
         public static final TagKey<Item> GEARS_SCULK = TagUtil.getItemTag(ResourceLocation.parse("c:gears/sculk"));
         public static final TagKey<Item> MACHINE_FRAME_ULTIMATE = TagUtil.getItemTag(ResourceLocation.parse("ifeu:machine_frame/ultimate"));
+        public static final TagKey<Item> WRENCH = TagUtil.getItemTag(ResourceLocation.parse("c:wrench"));
 
         private static TagKey<Item> createTag(String name){
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath(IndustrialForegoingExtraUpgrades.MODID,name));
