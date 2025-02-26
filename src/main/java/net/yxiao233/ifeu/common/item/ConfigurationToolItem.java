@@ -1,21 +1,30 @@
 package net.yxiao233.ifeu.common.item;
 
+import com.buuz135.industrial.item.addon.EfficiencyAddonItem;
+import com.buuz135.industrial.item.addon.ProcessingAddonItem;
+import com.buuz135.industrial.item.addon.RangeAddonItem;
+import com.buuz135.industrial.item.addon.SpeedAddonItem;
 import com.hrznstudio.titanium.block.tile.ActiveTile;
+import com.hrznstudio.titanium.block.tile.MachineTile;
 import com.hrznstudio.titanium.component.fluid.SidedFluidTankComponent;
 import com.hrznstudio.titanium.component.inventory.SidedInventoryComponent;
 import com.hrznstudio.titanium.component.sideness.IFacingComponent;
+import com.hrznstudio.titanium.item.AugmentWrapper;
 import com.hrznstudio.titanium.util.FacingUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -28,14 +37,12 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.neoforged.neoforge.common.NeoForgeMod;
 import net.yxiao233.ifeu.common.registry.ModDataComponentTypes;
+import net.yxiao233.ifeu.common.utils.InventoryComponentHelper;
 import net.yxiao233.ifeu.common.utils.KeyDownUtil;
 import net.yxiao233.ifeu.common.utils.TooltipHelper;
 
 import javax.annotation.Nullable;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -76,11 +83,10 @@ public class ConfigurationToolItem extends Item {
         CompoundTag emptyTag = new CompoundTag();
         CompoundTag tag = new CompoundTag();
         //inventory
-        AtomicReference<NonNullList<Map<FacingUtil.Sideness, IFacingComponent.FaceMode>>> invFacings = new AtomicReference<>(NonNullList.create());
+        AtomicReference<NonNullList<HashMap<FacingUtil.Sideness, IFacingComponent.FaceMode>>> invFacings = new AtomicReference<>(NonNullList.create());
         AtomicReference<NonNullList<String>> invConfigName = new AtomicReference<>(NonNullList.create());
         AtomicBoolean hasInvConfig = new AtomicBoolean(false);
 
-        CompoundTag invTag = new CompoundTag();
         CompoundTag invFacingsTag = new CompoundTag();
 
         //fluid
@@ -89,6 +95,10 @@ public class ConfigurationToolItem extends Item {
         AtomicBoolean hasFluidConfig = new AtomicBoolean(false);
 
         CompoundTag fluidFacingsTag = new CompoundTag();
+
+        //augments
+        CompoundTag augmentsTag = new CompoundTag();
+        AtomicBoolean hasAugments = new AtomicBoolean(false);
 
 
         if(blockState.hasBlockEntity()){
@@ -117,8 +127,26 @@ public class ConfigurationToolItem extends Item {
                         }
                     });
                 }
-            }else{
-                return InteractionResult.PASS;
+            }
+
+            //augments
+            if(blockEntity instanceof MachineTile<?> machineTile){
+                SidedInventoryComponent<?> invComponent = machineTile.getAugmentInventory();
+                int m = 0;
+                for (int i = 0; i < invComponent.getSlots(); i++) {
+                    ItemStack aug = invComponent.getStackInSlot(i);
+                    if(!aug.isEmpty() && aug.get(AugmentWrapper.ATTACHMENT) != null){
+                        CompoundTag tagg = new CompoundTag();
+                        hasAugments.set(true);
+                        aug.get(AugmentWrapper.ATTACHMENT).forEach((s, f) ->{
+                            tagg.putFloat("float",f);
+                            tagg.putString("string",s);
+                        });
+                        tagg.putString("item_id",String.valueOf(BuiltInRegistries.ITEM.getKey(aug.getItem())));
+                        augmentsTag.put("augment"+m,tagg);
+                        m ++;
+                    }
+                }
             }
         }else{
             return InteractionResult.PASS;
@@ -162,6 +190,16 @@ public class ConfigurationToolItem extends Item {
             }
         }
 
+        //augments
+        if(hasAugments.get()){
+            if(augmentsTag.isEmpty()){
+                stack.set(ModDataComponentTypes.COMPOUND_TAG,emptyTag);
+                return InteractionResult.FAIL;
+            }else{
+                tag.put("augments",augmentsTag);
+            }
+        }
+
         tag.putString("machine_type",block.getDescriptionId());
 
         stack.set(ModDataComponentTypes.COMPOUND_TAG,tag);
@@ -177,21 +215,31 @@ public class ConfigurationToolItem extends Item {
         Block block = blockState.getBlock();
         ItemStack stack = context.getItemInHand();
         CompoundTag itemTag = stack.get(ModDataComponentTypes.COMPOUND_TAG);
+        Player player = context.getPlayer();
+        if(player == null){
+            return InteractionResult.PASS;
+        }
         //inv
         AtomicReference<HashMap<String,HashMap<FacingUtil.Sideness, IFacingComponent.FaceMode>>> invFacings = new AtomicReference<>(new HashMap<>());
 
         //fluid
         AtomicReference<HashMap<String,HashMap<FacingUtil.Sideness, IFacingComponent.FaceMode>>> fluidFacings = new AtomicReference<>(new HashMap<>());
 
+        //augments
+        ArrayList<Map<String,Float>> augmentsTag = new ArrayList<>();
+        AtomicReference<NonNullList<Item>> augItem = new AtomicReference<>(NonNullList.create());
+
         if (itemTag != null) {
             boolean hasFluidConfig = itemTag.contains("fluidFacingModes");
             boolean hasInvConfig = itemTag.contains("invFacingModes");
+            boolean hasAugments = itemTag.contains("augments");
             if (!itemTag.contains("machine_type")) {
                 return InteractionResult.FAIL;
             }
 
             if (block.getDescriptionId().equals(itemTag.getString("machine_type"))) {
 
+                //inv
                 if(hasInvConfig){
                     CompoundTag facingModes = itemTag.getCompound("invFacingModes");
                     Iterator<String> facingsKeyIterator = facingModes.getAllKeys().iterator();
@@ -214,6 +262,7 @@ public class ConfigurationToolItem extends Item {
                     }
                 }
 
+                //fluid
                 if(hasFluidConfig){
                     CompoundTag facingModes = itemTag.getCompound("fluidFacingModes");
                     Iterator<String> facingsKeyIterator = facingModes.getAllKeys().iterator();
@@ -232,6 +281,22 @@ public class ConfigurationToolItem extends Item {
                     }
                 }
 
+                //augments
+                if(hasAugments){
+                    CompoundTag tempAugmentsTag = itemTag.getCompound("augments");
+
+                    int index = tempAugmentsTag.getAllKeys().size();
+
+                    for (int i = 0; i < index; i++) {
+                        Map<String,Float> map = new HashMap<>();
+                        String key = "augment"+i;
+                        CompoundTag tag = tempAugmentsTag.getCompound(key);
+                        map.put(tag.getString("string"),tag.getFloat("float"));
+                        augmentsTag.add(map);
+                        augItem.get().add(BuiltInRegistries.ITEM.get(ResourceLocation.parse(tag.getString("item_id"))));
+                    }
+
+                }
 
                 if (blockState.hasBlockEntity()) {
                     BlockEntity blockEntity = level.getBlockEntity(clickedBlockPos);
@@ -262,19 +327,42 @@ public class ConfigurationToolItem extends Item {
                         //update
                         activeTile.markForUpdate();
                         activeTile.markComponentDirty();
-                        context.getPlayer().displayClientMessage(Component.translatable("message.ifeu.configuration_tool.paste").withStyle(ChatFormatting.GOLD),true);
-                        return InteractionResult.SUCCESS;
-                    } else {
-                        return InteractionResult.PASS;
                     }
+
+                    //augments
+                    if(hasAugments && blockEntity instanceof MachineTile<?> machineTile){
+                        Inventory inventory = player.getInventory();
+                        insertAugment(augItem.get(),augmentsTag,inventory,machineTile, SpeedAddonItem.class);
+                        insertAugment(augItem.get(),augmentsTag,inventory,machineTile, RangeAddonItem.class);
+                        insertAugment(augItem.get(),augmentsTag,inventory,machineTile, EfficiencyAddonItem.class);
+                        insertAugment(augItem.get(),augmentsTag,inventory,machineTile, ProcessingAddonItem.class);
+                    }
+
+                    player.displayClientMessage(Component.translatable("message.ifeu.configuration_tool.paste").withStyle(ChatFormatting.GOLD),true);
+                    return InteractionResult.SUCCESS;
                 } else {
                     return InteractionResult.PASS;
                 }
             }else{
-                context.getPlayer().displayClientMessage(Component.translatable("message.ifeu.configuration_tool.different_type").withStyle(ChatFormatting.RED),true);
+                player.displayClientMessage(Component.translatable("message.ifeu.configuration_tool.different_type").withStyle(ChatFormatting.RED),true);
             }
         }
         return InteractionResult.PASS;
+    }
+
+    private void insertAugment(NonNullList<Item> augItems, ArrayList<Map<String,Float>> augmentsTag, Inventory playerInventory, MachineTile<?> machineTile, Class<?> clazz){
+        for (int i = 0; i < augItems.size(); i++) {
+            if(clazz.isAssignableFrom(augItems.get(i).getClass())){
+                Item item = augItems.get(i);
+                ItemStack stack = new ItemStack(item);
+                stack.set(AugmentWrapper.ATTACHMENT,augmentsTag.get(i));
+                if(playerInventory.findSlotMatchingItem(stack) != -1 && InventoryComponentHelper.canInsertAugment(machineTile,stack)){
+                    int index = playerInventory.findSlotMatchingItem(stack);
+                    playerInventory.getItem(index).setCount(playerInventory.getItem(index).getCount() - 1);
+                    InventoryComponentHelper.insertAugment(machineTile,stack);
+                }
+            }
+        }
     }
 
     @Override
