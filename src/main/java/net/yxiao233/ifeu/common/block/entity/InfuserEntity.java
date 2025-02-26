@@ -6,6 +6,8 @@ import com.hrznstudio.titanium.component.energy.EnergyStorageComponent;
 import com.hrznstudio.titanium.component.fluid.FluidTankComponent;
 import com.hrznstudio.titanium.component.fluid.SidedFluidTankComponent;
 import com.hrznstudio.titanium.component.inventory.SidedInventoryComponent;
+import com.hrznstudio.titanium.component.sideness.IFacingComponent;
+import com.hrznstudio.titanium.util.FacingUtil;
 import com.hrznstudio.titanium.util.RecipeUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
@@ -59,6 +61,10 @@ public class InfuserEntity extends IndustrialProcessingTile<InfuserEntity> {
 
         this.maxProgress = 100;
         this.powerPerTick = InfuserConfig.powerPerTick;
+
+//        this.input.getFacingModes().merge(FacingUtil.Sideness.BACK, IFacingComponent.FaceMode.PUSH,((oldValue, newValue) -> {
+//            return newValue;
+//        }));
     }
 
     private void checkForRecipe(){

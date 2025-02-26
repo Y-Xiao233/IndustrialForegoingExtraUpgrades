@@ -48,5 +48,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModContents.LASER_LENS_DRAGON.get());
         basicItem(ModContents.CONNECT_TOOL.get());
         basicItem(ModContents.WRENCH.get());
+        basicItem(ModContents.CONFIGURATION_TOOL.get());
     }
 }

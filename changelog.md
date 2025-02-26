@@ -85,6 +85,10 @@
 - 修复了连接工具部分提示错误的bug
 - 添加了扳手(可扳下所有工业先锋的机器,以及带"ifeu:wrench_pickup"标签的方块)
 
+### v2.0.109
+- 调整了连接工具清除配置的逻辑(改为了对空气shift右键清除)
+- 添加了配置工具(仅会复制粘贴传输面配置)
+
 ## en_us
 ### v1.0.0
 - init
@@ -168,3 +172,7 @@
 - Added a tooltip for default connectable distance for fluid transfer
 - Fixed the bug where the connection tool displayed an error message
 - Added wrench (capable of pulling down all industrial foregoing machines, as well as blocks labeled with "ifeu: wrench_pickup"
+
+### v2.0.109
+- Adjusted the logic of clearing configuration for the connection tool (changed to shift + right-click clearing configuration)
+- Added configuration tool (only capable of copying and pasting transmission surface configurations)

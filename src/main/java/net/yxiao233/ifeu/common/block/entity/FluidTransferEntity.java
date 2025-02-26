@@ -239,6 +239,9 @@ public class FluidTransferEntity extends IndustrialProcessingTile<FluidTransferE
             if(connectBlockPos == null){
                 return false;
             }
+            if(!this.mode){
+                return false;
+            }
             if(level.getBlockEntity(connectBlockPos) instanceof FluidTransferEntity connect){
                 //判断输入输出
                 FluidTransferEntity self = this;

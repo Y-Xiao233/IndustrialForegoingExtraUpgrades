@@ -10,6 +10,7 @@ import com.hrznstudio.titanium.recipe.generator.TitaniumShapelessRecipeBuilder;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -96,5 +97,15 @@ public class ModRecipeProvider extends TitaniumRecipeProvider {
                 .define('B', IndustrialTags.Items.PLASTIC)
                 .define('C',Tags.Items.RODS)
                 .save(consumer);
+
+        TitaniumShapedRecipeBuilder.shapedRecipe(ModContents.CONFIGURATION_TOOL.get())
+                .pattern("ABA").pattern("CDC").pattern("AEA")
+                .define('A', Items.PAPER)
+                .define('B',IndustrialTags.Items.PLASTIC)
+                .define('C',ModTags.Items.DIAMOND)
+                .define('D',Tags.Items.DYES_GREEN)
+                .define('E',Tags.Items.DYES_PINK)
+                .save(consumer);
+
     }
 }

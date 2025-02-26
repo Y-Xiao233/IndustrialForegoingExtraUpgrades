@@ -4,13 +4,16 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.BlockHitResult;
 import net.yxiao233.ifeu.common.block.entity.FluidTransferEntity;
 import net.yxiao233.ifeu.common.utils.IntArrayBlockPosUtil;
 import net.yxiao233.ifeu.common.utils.KeyDownUtil;
@@ -52,7 +55,7 @@ public class ConnectToolItem extends Item {
                     BlockPos blockPos2 = getBlockPos(tag,"pos2");
                     if(blockPos1.equals(blockPos2)){
                         tag = emptyTag;
-                        player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.same_pos").withStyle(ChatFormatting.RED));
+                        player.displayClientMessage(Component.translatable("message.ifeu.connect_tool.same_pos").withStyle(ChatFormatting.RED),true);
                     }else{
                         FluidTransferEntity entity1 = getFluidTransferEntity(level,blockPos1);
                         FluidTransferEntity entity2 = getFluidTransferEntity(level,blockPos2);
@@ -62,9 +65,9 @@ public class ConnectToolItem extends Item {
                                 entity2.hasConnect = true;
                                 entity1.connectBlockPos = blockPos2;
                                 entity2.connectBlockPos = blockPos1;
-                                player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.connect_success").withStyle(ChatFormatting.GOLD));
+                                player.displayClientMessage(Component.translatable("message.ifeu.connect_tool.connect_success").withStyle(ChatFormatting.GREEN),true);
                             }else{
-                                player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.beyond_distance").withStyle(ChatFormatting.RED));
+                                player.displayClientMessage(Component.translatable("message.ifeu.connect_tool.beyond_distance").withStyle(ChatFormatting.RED),true);
                             }
                         }
                     }
@@ -82,12 +85,22 @@ public class ConnectToolItem extends Item {
                 }
 
                 item.setTag(tag);
-            }else if(player.isShiftKeyDown()){
-                player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.clear_configuration").withStyle(ChatFormatting.GREEN));
-                item.setTag(emptyTag);
             }
         }
         return super.useOn(context);
+    }
+
+    @Override
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+        if(!level.isClientSide()){
+            BlockHitResult blockHitResult = (BlockHitResult) player.pick(player.getBlockReach(), 0.0F, false);
+            if(player.isShiftKeyDown() && level.getBlockState(blockHitResult.getBlockPos()).isAir()){
+                player.getMainHandItem().setTag(new CompoundTag());
+                player.displayClientMessage(Component.translatable("message.ifeu.connect_tool.clear_configuration").withStyle(ChatFormatting.GREEN),true);
+                return InteractionResultHolder.success(player.getMainHandItem());
+            }
+        }
+        return super.use(level, player, hand);
     }
 
     private BlockPos getBlockPos(ItemStack stack, String posId){
@@ -111,9 +124,9 @@ public class ConnectToolItem extends Item {
         if(!KeyDownUtil.isShiftKeyDown()){
             if(item.getTag() != null && !item.getTag().contains("pos1")){
                 tag.putIntArray("pos1",IntArrayBlockPosUtil.BlockPosToIntArray(pos1));
-                player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.pos1",new Object[]{pos1.getX(),pos1.getY(),pos1.getZ()}).withStyle(ChatFormatting.GOLD));
+                player.displayClientMessage(Component.translatable("message.ifeu.connect_tool.pos1",new Object[]{pos1.getX(),pos1.getY(),pos1.getZ()}).withStyle(ChatFormatting.GOLD),true);
             }else{
-                player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.has_pos1").withStyle(ChatFormatting.RED));
+                player.displayClientMessage(Component.translatable("message.ifeu.connect_tool.has_pos1").withStyle(ChatFormatting.RED),true);
             }
         }
     }
@@ -122,9 +135,9 @@ public class ConnectToolItem extends Item {
         if(KeyDownUtil.isShiftKeyDown()){
             if(item.getTag() != null && item.getTag().contains("pos1")){
                 tag.putIntArray("pos2",IntArrayBlockPosUtil.BlockPosToIntArray(pos2));
-                player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.pos2",new Object[]{pos2.getX(),pos2.getY(),pos2.getZ()}).withStyle(ChatFormatting.GOLD));
+                player.displayClientMessage(Component.translatable("message.ifeu.connect_tool.pos2",new Object[]{pos2.getX(),pos2.getY(),pos2.getZ()}).withStyle(ChatFormatting.GOLD),true);
             }else{
-                player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.no_pos1").withStyle(ChatFormatting.RED));
+                player.displayClientMessage(Component.translatable("message.ifeu.connect_tool.no_pos1").withStyle(ChatFormatting.RED),true);
             }
         }
     }

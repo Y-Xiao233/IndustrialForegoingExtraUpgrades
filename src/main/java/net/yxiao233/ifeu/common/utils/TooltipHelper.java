@@ -21,6 +21,10 @@ public class TooltipHelper {
         tooltips.add(Component.translatable(itemIdToKey(itemStack, index)));
     }
 
+    public static void addTooltip(List<Component> tooltips, ItemStack itemStack, int index, Object... obj) {
+        tooltips.add(Component.translatable(itemIdToKey(itemStack, index),obj));
+    }
+
     public static void addTooltip(List<Component> tooltips, ItemStack itemStack, ChatFormatting style, int index, Object... obj) {
         tooltips.add(Component.translatable(itemIdToKey(itemStack, index), obj).withStyle(style));
     }

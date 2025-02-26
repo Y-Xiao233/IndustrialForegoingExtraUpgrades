@@ -24,6 +24,7 @@ public class ModTags {
         public static final TagKey<Item> GEARS_SCULK = TagUtil.getItemTag(new ResourceLocation("forge:gears/sculk"));
         public static final TagKey<Item> MACHINE_FRAME_ULTIMATE = TagUtil.getItemTag(new ResourceLocation("ifeu:machine_frame/ultimate"));
         public static final TagKey<Item> WRENCH = TagUtil.getItemTag(new ResourceLocation("forge:wrench"));
+        public static final TagKey<Item> DIAMOND = TagUtil.getItemTag(new ResourceLocation("forge:gems/diamond"));
 
         private static TagKey<Item> createTag(String name){
             return ItemTags.create(new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID,name));
