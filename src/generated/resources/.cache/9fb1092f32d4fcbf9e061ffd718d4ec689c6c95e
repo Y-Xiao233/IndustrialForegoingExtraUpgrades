@@ -1,4 +1,4 @@
-// 1.21.1	2025-02-25T19:01:55.7462561	Recipes
+// 1.21.1	2025-02-26T16:57:29.3125926	Recipes
 50dded7964768360091d2a72f21482917ba313b2 data/ifeu/advancement/arcane_dragon_egg_forging/dead_dragon_egg.json
 0c4d904269eadd30beb5b7fbd62d9fddfffc4954 data/ifeu/advancement/arcane_dragon_egg_forging/egg_1.json
 819d02b8ab08a1e4eb76f7e73cc546ff23804450 data/ifeu/advancement/arcane_dragon_egg_forging/egg_2.json
@@ -7,6 +7,7 @@ e65a1695d0e2d605fab87e868a41f1afe53ed5fb data/ifeu/advancement/infuser/cobblesto
 86d8ea36683dc90e1a13cec1462e4c92176edb84 data/ifeu/advancement/infuser/dragon_star.json
 d22bb0f6365711edf6ee1ebf827a887114839e39 data/ifeu/advancement/infuser/mud_clay.json
 6d4d5db044153ec1a1b47e15f333536174e10424 data/ifeu/advancement/recipes/misc/arcane_dragon_egg_forging.json
+66516eb5ec88cb3c72ee3e03031c7ac2b62a967c data/ifeu/advancement/recipes/misc/configuration_tool.json
 ae8c62dc5a2914f285e79908b48a30b919b454a4 data/ifeu/advancement/recipes/misc/dragon_generator.json
 68e896ba2c8f41c78a20a837e9354ff5715c8576 data/ifeu/advancement/recipes/misc/dragon_star_generator.json
 b40374cac743a242503aae6ade1f4e4620d957f6 data/ifeu/advancement/recipes/misc/infuser.json
@@ -33,6 +34,7 @@ a266b60d153d9f05e2b73b492637f9d95bc591bb data/ifeu/advancement/shapeless/dragon_
 76f438a327fbfd1d731cd627e08fcd464f84dd7b data/ifeu/recipe/arcane_dragon_egg_forging/dead_dragon_egg.json
 97b4c0c70752db4673fea13d22c764e349539a7d data/ifeu/recipe/arcane_dragon_egg_forging/egg_1.json
 0d76031491961f2b899555157f4b98a278ffc6a0 data/ifeu/recipe/arcane_dragon_egg_forging/egg_2.json
+1054deb724aedbab2096c3289fd7278555e4ba03 data/ifeu/recipe/configuration_tool.json
 640b95b46577044d3e0d33a8d270b4f208065fcc data/ifeu/recipe/dragon_generator.json
 1be0f05546c18a3c72e6b6e0303869d55873e2b5 data/ifeu/recipe/dragon_star_generator.json
 d182b54d731415fe44be6c9b9d352f70feedba9c data/ifeu/recipe/infuser.json

@@ -96,6 +96,15 @@ public class ModRecipeProvider extends VanillaRecipeProvider {
                 .define('C',Tags.Items.RODS)
                 .save(recipeOutput);
 
+        TitaniumShapedRecipeBuilder.shapedRecipe(ModContents.CONFIGURATION_TOOL.get())
+                .pattern("ABA").pattern("CDC").pattern("AEA")
+                .define('A', Items.PAPER)
+                .define('B',IndustrialTags.Items.PLASTIC)
+                .define('C',ModTags.Items.DIAMOND)
+                .define('D',Tags.Items.DYES_GREEN)
+                .define('E',Tags.Items.DYES_PINK)
+                .save(recipeOutput);
+
 
         ModSerializableProvider.init(recipeOutput);
     }

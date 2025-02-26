@@ -36,12 +36,16 @@
   "tooltip.ifeu.held.control": "§9按下§6Ctrl§9查看更多信息",
   "tooltip.ifeu.connect_tool4": "对着流体传输器右键添加第一个坐标",
   "tooltip.ifeu.connect_tool5": "对着流体传输器shift+右键添加第二个坐标",
-  "tooltip.ifeu.connect_tool6": "对着除流体传输器任意方块shift+右键清除配置",
+  "tooltip.ifeu.connect_tool6": "对着空气shift+右键清除配置",
   "tooltip.ifeu.connect_tool7": "只能在同一维度中工作",
   "tooltip.ifeu.fluid_transfer0": "默认最远连接距离: %d 个方块",
   "tooltip.ifeu.fluid_transfer1": "可以使用 \"插件: 范围升级\" 来增加连接范围",
   "tooltip.ifeu.wrench0": "可以直接扳下所有工业先锋的机器",
   "tooltip.ifeu.wrench1": "可为方块添加\"ifeu:wrench_pickup\"的方块标签来使其可被扳手破坏",
+  "tooltip.ifeu.configuration_tool0": "Shift + 右键 复制机器配置",
+  "tooltip.ifeu.configuration_tool1": "Shift + ctrl + 右键 粘贴机器配置",
+  "tooltip.ifeu.configuration_tool2": "对着空气shift+右键清除配置",
+  "tooltip.ifeu.configuration_tool3": "复制配置的机器: %d",
 
   "item.ifeu.liquid_dragon_breath_bucket": "液态龙息桶",
   "item.ifeu.liquid_sculk_matter_bucket": "液态幽匿物质桶",
@@ -60,6 +64,8 @@
   "item.ifeu.dragon_star_boots": "龙之靴子",
   "item.ifeu.laser_lens_dragon": "龙 镭射聚焦透镜",
   "item.ifeu.connect_tool": "连接工具",
+  "item.ifeu.wrench": "扳手",
+  "item.ifeu.configuration_tool": "配置工具",
 
   "block.ifeu.infuser": "灌注器",
   "block.ifeu.dragon_star_generator": "龙之星发电机",
@@ -113,5 +119,8 @@
   "message.ifeu.connect_tool.has_pos1": "若要重新设置第一点坐标,请清除配置后重试",
   "message.ifeu.connect_tool.no_pos1": "请先记录第一点坐标后重试",
   "message.ifeu.connect_tool.clear_configuration": "成功清除配置",
-  "message.ifeu.connect_tool.beyond_distance": "超出距离限制"
+  "message.ifeu.connect_tool.beyond_distance": "超出距离限制",
+  "message.ifeu.configuration_tool.different_type": "机器类型错误",
+  "message.ifeu.configuration_tool.copy": "复制配置成功",
+  "message.ifeu.configuration_tool.paste": "粘贴配置成功"
 }
