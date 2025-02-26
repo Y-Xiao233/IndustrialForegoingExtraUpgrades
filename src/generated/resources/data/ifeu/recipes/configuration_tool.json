@@ -1,0 +1,48 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "forge:item_exists",
+              "item": "ifeu:configuration_tool"
+            }
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "key": {
+          "A": {
+            "item": "minecraft:paper"
+          },
+          "B": {
+            "tag": "forge:plastic"
+          },
+          "C": {
+            "tag": "forge:gems/diamond"
+          },
+          "D": {
+            "tag": "forge:dyes/green"
+          },
+          "E": {
+            "tag": "forge:dyes/pink"
+          }
+        },
+        "pattern": [
+          "ABA",
+          "CDC",
+          "AEA"
+        ],
+        "result": {
+          "item": "ifeu:configuration_tool"
+        },
+        "show_notification": true
+      }
+    }
+  ]
+}
