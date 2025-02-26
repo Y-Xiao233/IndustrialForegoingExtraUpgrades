@@ -54,7 +54,7 @@ public class ConnectToolItem extends Item {
                     BlockPos blockPos2 = getBlockPos(tag,"pos2");
                     if(blockPos1.equals(blockPos2)){
                         tag = emptyTag;
-                        player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.same_pos").withStyle(ChatFormatting.RED));
+                        player.displayClientMessage(Component.translatable("message.ifeu.connect_tool.same_pos").withStyle(ChatFormatting.RED),true);
                     }else{
                         FluidTransferEntity entity1 = getFluidTransferEntity(level,blockPos1);
                         FluidTransferEntity entity2 = getFluidTransferEntity(level,blockPos2);
@@ -64,9 +64,9 @@ public class ConnectToolItem extends Item {
                                 entity2.hasConnect = true;
                                 entity1.connectBlockPos = blockPos2;
                                 entity2.connectBlockPos = blockPos1;
-                                player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.connect_success").withStyle(ChatFormatting.GOLD));
+                                player.displayClientMessage(Component.translatable("message.ifeu.connect_tool.connect_success").withStyle(ChatFormatting.GREEN),true);
                             }else{
-                                player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.beyond_distance").withStyle(ChatFormatting.RED));
+                                player.displayClientMessage(Component.translatable("message.ifeu.connect_tool.beyond_distance").withStyle(ChatFormatting.RED),true);
                             }
                         }
                     }
@@ -85,7 +85,7 @@ public class ConnectToolItem extends Item {
 
                 item.set(ModDataComponentTypes.COMPOUND_TAG,tag);
             }else if(player.isShiftKeyDown()){
-                player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.clear_configuration").withStyle(ChatFormatting.GREEN));
+                player.displayClientMessage(Component.translatable("message.ifeu.connect_tool.clear_configuration").withStyle(ChatFormatting.GREEN),true);
                 item.set(ModDataComponentTypes.COMPOUND_TAG,emptyTag);
             }
         }
@@ -113,9 +113,9 @@ public class ConnectToolItem extends Item {
         if(!KeyDownUtil.isShiftKeyDown()){
             if(item.has(ModDataComponentTypes.COMPOUND_TAG) && !item.get(ModDataComponentTypes.COMPOUND_TAG).contains("pos1")){
                 tag.putIntArray("pos1",IntArrayBlockPosUtil.BlockPosToIntArray(pos1));
-                player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.pos1",new Object[]{pos1.getX(),pos1.getY(),pos1.getZ()}).withStyle(ChatFormatting.GOLD));
+                player.displayClientMessage(Component.translatable("message.ifeu.connect_tool.pos1",new Object[]{pos1.getX(),pos1.getY(),pos1.getZ()}).withStyle(ChatFormatting.GOLD),true);
             }else{
-                player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.has_pos1").withStyle(ChatFormatting.RED));
+                player.displayClientMessage(Component.translatable("message.ifeu.connect_tool.has_pos1").withStyle(ChatFormatting.RED),true);
             }
         }
     }
@@ -124,9 +124,9 @@ public class ConnectToolItem extends Item {
         if(KeyDownUtil.isShiftKeyDown()){
             if(item.has(ModDataComponentTypes.COMPOUND_TAG) && item.get(ModDataComponentTypes.COMPOUND_TAG).contains("pos1")){
                 tag.putIntArray("pos2",IntArrayBlockPosUtil.BlockPosToIntArray(pos2));
-                player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.pos2",new Object[]{pos2.getX(),pos2.getY(),pos2.getZ()}).withStyle(ChatFormatting.GOLD));
+                player.displayClientMessage(Component.translatable("message.ifeu.connect_tool.pos2",new Object[]{pos2.getX(),pos2.getY(),pos2.getZ()}).withStyle(ChatFormatting.GOLD),true);
             }else{
-                player.sendSystemMessage(Component.translatable("message.ifeu.connect_tool.no_pos1").withStyle(ChatFormatting.RED));
+                player.displayClientMessage(Component.translatable("message.ifeu.connect_tool.no_pos1").withStyle(ChatFormatting.RED),true);
             }
         }
     }

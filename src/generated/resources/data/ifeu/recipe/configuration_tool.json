@@ -1,0 +1,36 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "ifeu:configuration_tool"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:paper"
+    },
+    "B": {
+      "tag": "c:plastics"
+    },
+    "C": {
+      "tag": "c:gems/diamond"
+    },
+    "D": {
+      "tag": "c:dyes/green"
+    },
+    "E": {
+      "tag": "c:dyes/pink"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "CDC",
+    "AEA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ifeu:configuration_tool"
+  }
+}
