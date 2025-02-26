@@ -8,7 +8,7 @@
 - 插件: 速度```event.create(id,"industrialforegoing:speed_addon").setTier(tier).setFormTier(formTier)```
 - 插件: 效率```event.create(id,"industrialforegoing:efficiency_addon").setTier(tier).setFormTier(formTier)```
 - 插件: 处理```event.create(id,"industrialforegoing:processing_addon").setTier(tier).setFormTier(formTier)```
-- - 插件: 范围```event.create(id,"industrialforegoing:range_addon").setTier(tier)```
+- 插件: 范围```event.create(id,"industrialforegoing:range_addon").setTier(tier)```
 
 ### 示例
 ```JavaScript
