@@ -1,6 +1,12 @@
 package net.yxiao233.ifeu.common.item;
 
+import com.buuz135.industrial.item.addon.EfficiencyAddonItem;
+import com.buuz135.industrial.item.addon.ProcessingAddonItem;
+import com.buuz135.industrial.item.addon.RangeAddonItem;
+import com.buuz135.industrial.item.addon.SpeedAddonItem;
+import com.buuz135.industrial.module.ModuleCore;
 import com.hrznstudio.titanium.block.tile.ActiveTile;
+import com.hrznstudio.titanium.block.tile.MachineTile;
 import com.hrznstudio.titanium.component.fluid.SidedFluidTankComponent;
 import com.hrznstudio.titanium.component.inventory.SidedInventoryComponent;
 import com.hrznstudio.titanium.component.sideness.IFacingComponent;
@@ -8,14 +14,18 @@ import com.hrznstudio.titanium.util.FacingUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
@@ -23,6 +33,9 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.yxiao233.ifeu.common.registry.ModTags;
+import net.yxiao233.ifeu.common.utils.InventoryComponentHelper;
 import net.yxiao233.ifeu.common.utils.KeyDownUtil;
 import net.yxiao233.ifeu.common.utils.TooltipHelper;
 import org.jetbrains.annotations.Nullable;
@@ -72,7 +85,6 @@ public class ConfigurationToolItem extends Item {
         AtomicReference<NonNullList<String>> invConfigName = new AtomicReference<>(NonNullList.create());
         AtomicBoolean hasInvConfig = new AtomicBoolean(false);
 
-        CompoundTag invTag = new CompoundTag();
         CompoundTag invFacingsTag = new CompoundTag();
 
         //fluid
@@ -81,6 +93,10 @@ public class ConfigurationToolItem extends Item {
         AtomicBoolean hasFluidConfig = new AtomicBoolean(false);
 
         CompoundTag fluidFacingsTag = new CompoundTag();
+
+        //augments
+        CompoundTag augmentsTag = new CompoundTag();
+        AtomicBoolean hasAugments = new AtomicBoolean(false);
 
 
         if(blockState.hasBlockEntity()){
@@ -109,8 +125,18 @@ public class ConfigurationToolItem extends Item {
                         }
                     });
                 }
-            }else{
-                return InteractionResult.PASS;
+            }
+
+            //augments
+            if(blockEntity instanceof MachineTile<?> machineTile){
+                SidedInventoryComponent<?> invComponent = machineTile.getAugmentInventory();
+                for (int i = 0; i < invComponent.getSlots(); i++) {
+                    ItemStack aug = invComponent.getStackInSlot(i);
+                    if(!aug.isEmpty() && aug.getTag() != null){
+                        hasAugments.set(true);
+                        augmentsTag.put(String.valueOf(ForgeRegistries.ITEMS.getKey(aug.getItem())),aug.getTag());
+                    }
+                }
             }
         }else{
             return InteractionResult.PASS;
@@ -154,6 +180,16 @@ public class ConfigurationToolItem extends Item {
             }
         }
 
+        //augments
+        if(hasAugments.get()){
+            if(augmentsTag.isEmpty()){
+                stack.setTag(emptyTag);
+                return InteractionResult.FAIL;
+            }else{
+                tag.put("augments",augmentsTag);
+            }
+        }
+
         tag.putString("machine_type",block.getDescriptionId());
 
         stack.setTag(tag);
@@ -169,21 +205,31 @@ public class ConfigurationToolItem extends Item {
         Block block = blockState.getBlock();
         ItemStack stack = context.getItemInHand();
         CompoundTag itemTag = stack.getTag();
+        Player player = context.getPlayer();
+        if(player == null){
+            return InteractionResult.PASS;
+        }
         //inv
         AtomicReference<HashMap<String,HashMap<FacingUtil.Sideness, IFacingComponent.FaceMode>>> invFacings = new AtomicReference<>(new HashMap<>());
 
         //fluid
         AtomicReference<HashMap<String,HashMap<FacingUtil.Sideness, IFacingComponent.FaceMode>>> fluidFacings = new AtomicReference<>(new HashMap<>());
 
+        //augments
+        ArrayList<CompoundTag> augmentsTag = new ArrayList<>();
+        AtomicReference<NonNullList<Item>> augItem = new AtomicReference<>(NonNullList.create());
+
         if (itemTag != null) {
             boolean hasFluidConfig = itemTag.contains("fluidFacingModes");
             boolean hasInvConfig = itemTag.contains("invFacingModes");
+            boolean hasAugments = itemTag.contains("augments");
             if (!itemTag.contains("machine_type")) {
                 return InteractionResult.FAIL;
             }
 
             if (block.getDescriptionId().equals(itemTag.getString("machine_type"))) {
 
+                //inv
                 if(hasInvConfig){
                     CompoundTag facingModes = itemTag.getCompound("invFacingModes");
                     Iterator<String> facingsKeyIterator = facingModes.getAllKeys().iterator();
@@ -206,6 +252,7 @@ public class ConfigurationToolItem extends Item {
                     }
                 }
 
+                //fluid
                 if(hasFluidConfig){
                     CompoundTag facingModes = itemTag.getCompound("fluidFacingModes");
                     Iterator<String> facingsKeyIterator = facingModes.getAllKeys().iterator();
@@ -224,6 +271,27 @@ public class ConfigurationToolItem extends Item {
                     }
                 }
 
+                //augments
+                if(hasAugments){
+                    CompoundTag tempAugmentsTag = itemTag.getCompound("augments");
+
+                    Iterator<String> iterator = tempAugmentsTag.getAllKeys().iterator();
+
+                    while (iterator.hasNext()){
+                        String key = iterator.next();
+                        Item aug = ForgeRegistries.ITEMS.getValue(new ResourceLocation(key));
+                        if(aug != null){
+                            CompoundTag addonItemTag = tempAugmentsTag.getCompound(key);
+                            if(!addonItemTag.isEmpty()){
+                                augmentsTag.add(addonItemTag);
+                                augItem.get().add(aug);
+                            }else{
+                                augmentsTag.add(new CompoundTag());
+                                augItem.get().add(aug);
+                            }
+                        }
+                    }
+                }
 
                 if (blockState.hasBlockEntity()) {
                     BlockEntity blockEntity = level.getBlockEntity(clickedBlockPos);
@@ -254,19 +322,42 @@ public class ConfigurationToolItem extends Item {
                         //update
                         activeTile.markForUpdate();
                         activeTile.markComponentDirty();
-                        context.getPlayer().displayClientMessage(Component.translatable("message.ifeu.configuration_tool.paste").withStyle(ChatFormatting.GOLD),true);
-                        return InteractionResult.SUCCESS;
-                    } else {
-                        return InteractionResult.PASS;
                     }
+
+                    //augments
+                    if(hasAugments && blockEntity instanceof MachineTile<?> machineTile){
+                        Inventory inventory = player.getInventory();
+                        insertAugment(augItem.get(),augmentsTag,inventory,machineTile,SpeedAddonItem.class);
+                        insertAugment(augItem.get(),augmentsTag,inventory,machineTile,RangeAddonItem.class);
+                        insertAugment(augItem.get(),augmentsTag,inventory,machineTile,EfficiencyAddonItem.class);
+                        insertAugment(augItem.get(),augmentsTag,inventory,machineTile,ProcessingAddonItem.class);
+                    }
+
+                    player.displayClientMessage(Component.translatable("message.ifeu.configuration_tool.paste").withStyle(ChatFormatting.GOLD),true);
+                    return InteractionResult.SUCCESS;
                 } else {
                     return InteractionResult.PASS;
                 }
             }else{
-                context.getPlayer().displayClientMessage(Component.translatable("message.ifeu.configuration_tool.different_type").withStyle(ChatFormatting.RED),true);
+                player.displayClientMessage(Component.translatable("message.ifeu.configuration_tool.different_type").withStyle(ChatFormatting.RED),true);
             }
         }
         return InteractionResult.PASS;
+    }
+
+    private void insertAugment(NonNullList<Item> augItems, ArrayList<CompoundTag> augmentsTag, Inventory playerInventory, MachineTile<?> machineTile, Class<?> clazz){
+        for (int i = 0; i < augItems.size(); i++) {
+            if(clazz.isAssignableFrom(augItems.get(i).getClass())){
+                Item item = augItems.get(i);
+                ItemStack stack = new ItemStack(item);
+                stack.setTag(augmentsTag.get(i));
+                if(playerInventory.findSlotMatchingItem(stack) != -1 && InventoryComponentHelper.canInsertAugment(machineTile,stack)){
+                    int index = playerInventory.findSlotMatchingItem(stack);
+                    playerInventory.getItem(index).setCount(playerInventory.getItem(index).getCount() - 1);
+                    InventoryComponentHelper.insertAugment(machineTile,stack);
+                }
+            }
+        }
     }
 
     @Override

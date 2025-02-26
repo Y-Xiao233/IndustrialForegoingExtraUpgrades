@@ -89,6 +89,9 @@
 - 调整了连接工具清除配置的逻辑(改为了对空气shift右键清除)
 - 添加了配置工具(仅会复制粘贴传输面配置)
 
+### v2.0.110
+- 配置工具可以同步配置各种插件了
+
 ## en_us
 ### v1.0.0
 - init
@@ -176,3 +179,6 @@
 ### v2.0.109
 - Adjusted the logic of clearing configuration for the connection tool (changed to shift + right-click clearing configuration)
 - Added configuration tool (only capable of copying and pasting transmission surface configurations)
+
+### v2.0.110
+- The configuration tool can synchronize the configuration of various addons now
