@@ -1,8 +1,11 @@
 package net.yxiao233.ifeu.common.utils;
 
 import net.minecraft.client.Minecraft;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import org.lwjgl.glfw.GLFW;
 
+@OnlyIn(Dist.CLIENT)
 public class KeyDownUtil {
     private static final long window = Minecraft.getInstance().getWindow().getWindow();
     public static boolean isShiftKeyDown(){
