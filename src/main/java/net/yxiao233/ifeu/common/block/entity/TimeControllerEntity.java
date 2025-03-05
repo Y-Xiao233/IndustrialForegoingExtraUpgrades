@@ -36,6 +36,7 @@ import net.yxiao233.ifeu.common.config.machine.TimeControllerConfig;
 import net.yxiao233.ifeu.common.gui.AllGuiTextures;
 import net.yxiao233.ifeu.common.networking.packet.BooleanSyncS2CPacket;
 import net.yxiao233.ifeu.api.networking.BooleanValueSyncS2C;
+import net.yxiao233.ifeu.common.networking.packet.TimeControllerEntityKeyDownSyncC2SPacket;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.utils.KeyDownUtil;
@@ -63,6 +64,8 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
     public boolean hasButtonTip = false;
     private ButtonComponent buttonComponent;
     private boolean finish = false;
+    public static boolean isShiftDown;
+    public static boolean isCtrlDown;
     public TimeControllerEntity(BlockPos blockPos, BlockState blockState) {
         super(ModBlocks.TIME_CONTROLLER, 66, 40, blockPos, blockState);
 
@@ -96,7 +99,6 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
         this.addButton((new ArrowButtonComponent(155, 23, 14, 14, FacingUtil.Sideness.TOP)).setId(1).setPredicate((playerEntity, compoundNBT) -> {
             --this.choose;
             this.finish = false;
-            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos(),false)));
             if (this.choose < 0) {
                 this.choose = times.length - 1;
             }
@@ -109,7 +111,6 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
         this.addButton((new ArrowButtonComponent(155, 60, 14, 14, FacingUtil.Sideness.BOTTOM)).setId(2).setPredicate((playerEntity, compoundNBT) -> {
             ++this.choose;
             this.finish = false;
-            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos(),false)));
             if (this.choose > times.length - 1) {
                 this.choose = 0;
             }
@@ -123,18 +124,17 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
             if(times[choose].hasTexture()){
                 this.time = times[choose].getTime();
             }else{
-                if(KeyDownUtil.isShiftKeyDown() && !KeyDownUtil.isCtrlKeyDown()){
+                if(isShiftDown && !isCtrlDown){
                     this.time = time - 10;
-                }else if(!KeyDownUtil.isShiftKeyDown() && KeyDownUtil.isCtrlKeyDown()){
+                }else if(!isShiftDown && isCtrlDown){
                     this.time = time - 100;
-                }else if(KeyDownUtil.isShiftKeyDown() && KeyDownUtil.isCtrlKeyDown()){
+                }else if(isShiftDown){
                     this.time = time - 1000;
-                }else if(!KeyDownUtil.isShiftKeyDown() && !KeyDownUtil.isCtrlKeyDown()){
+                }else if(!isShiftDown && !isCtrlDown){
                     --this.time;
                 }
             }
             this.finish = false;
-            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos(),false)));
             this.markForUpdate();
         }));
 
@@ -142,18 +142,17 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
             if(times[choose].hasTexture()){
                 this.time = times[choose].getTime();
             }else{
-                if(KeyDownUtil.isShiftKeyDown() && !KeyDownUtil.isCtrlKeyDown()){
+                if(isShiftDown && !isCtrlDown){
                     this.time = time + 10;
-                }else if(!KeyDownUtil.isShiftKeyDown() && KeyDownUtil.isCtrlKeyDown()){
+                }else if(!isShiftDown && isCtrlDown){
                     this.time = time + 100;
-                }else if(KeyDownUtil.isShiftKeyDown() && KeyDownUtil.isCtrlKeyDown()){
+                }else if(isShiftDown && isCtrlDown){
                     this.time = time + 1000;
-                }else if(!KeyDownUtil.isShiftKeyDown() && !KeyDownUtil.isCtrlKeyDown()){
+                }else if(!isShiftDown && !isCtrlDown){
                     ++this.time;
                 }
             }
             this.finish = false;
-            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos(),false)));
             this.markForUpdate();
         }));
 
@@ -200,6 +199,12 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
         if(this.time < 0){
             this.time = 0;
         }
+
+        if(level.isClientSide()){
+            isShiftDown = KeyDownUtil.isShiftKeyDown();
+            isCtrlDown = KeyDownUtil.isCtrlKeyDown();
+            PacketDistributor.sendToServer(new TimeControllerEntityKeyDownSyncC2SPacket(isShiftDown,isCtrlDown));
+        }
     }
 
     @Override
@@ -207,6 +212,10 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
         super.serverTick(level, pos, state, blockEntity);
         if(this.time < 0){
             this.time = 0;
+        }
+
+        if(!level.isClientSide()){
+            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos(),finish)));
         }
     }
 
@@ -255,7 +264,6 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
         });
 
         this.addGuiAddonFactory(() ->{
-            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos(),false)));
             return new TextureGuiComponent(98,41) {
                 @Override
                 public AllGuiTextures getTexture() {
@@ -338,7 +346,6 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
             times[choose].modifyTime(time);
             times[choose].setTime((ServerLevel) level);
             this.finish = true;
-            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos(),true)));
             this.markForUpdate();
         };
     }

@@ -14,7 +14,6 @@ import com.hrznstudio.titanium.util.FacingUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -22,8 +21,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.entity.ai.attributes.Attribute;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -35,18 +32,19 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
-import net.neoforged.neoforge.common.NeoForgeMod;
+import net.neoforged.neoforge.network.PacketDistributor;
+import net.yxiao233.ifeu.common.networking.packet.ConfigurationToolItemKeyDownSyncC2SPacket;
 import net.yxiao233.ifeu.common.registry.ModDataComponentTypes;
 import net.yxiao233.ifeu.common.utils.InventoryComponentHelper;
 import net.yxiao233.ifeu.common.utils.KeyDownUtil;
 import net.yxiao233.ifeu.common.utils.TooltipHelper;
 
-import javax.annotation.Nullable;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class ConfigurationToolItem extends Item {
+    public static boolean isCtrlDown;
     public ConfigurationToolItem(Properties properties) {
         super(properties);
     }
@@ -54,6 +52,10 @@ public class ConfigurationToolItem extends Item {
     @Override
     public InteractionResult useOn(UseOnContext context) {
         Level level = context.getLevel();
+        if(level.isClientSide()){
+            isCtrlDown = KeyDownUtil.isCtrlKeyDown();
+            PacketDistributor.sendToServer(new ConfigurationToolItemKeyDownSyncC2SPacket(isCtrlDown));
+        }
         if(!level.isClientSide()){
             Player player = context.getPlayer();
             if(player == null){
@@ -63,9 +65,9 @@ public class ConfigurationToolItem extends Item {
                 return InteractionResult.PASS;
             }
 
-            if(player.isShiftKeyDown() && !KeyDownUtil.isCtrlKeyDown()){
+            if(player.isShiftKeyDown() && !isCtrlDown){
                 return addConfigToTag(context);
-            }else if(player.isShiftKeyDown() && KeyDownUtil.isCtrlKeyDown()){
+            }else if(player.isShiftKeyDown() && isCtrlDown){
                 return applyConfig(context);
             }
         }

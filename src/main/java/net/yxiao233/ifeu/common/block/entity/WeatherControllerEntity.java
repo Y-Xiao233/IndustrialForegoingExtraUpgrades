@@ -18,6 +18,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
@@ -82,7 +83,6 @@ public class WeatherControllerEntity extends IndustrialProcessingTile<WeatherCon
         this.addButton((new ArrowButtonComponent(119, 40, 14, 14, FacingUtil.Sideness.LEFT)).setId(1).setPredicate((playerEntity, compoundNBT) -> {
             --this.weather;
             this.finish = false;
-            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos(),false)));
             if (this.weather < 0) {
                 this.weather = weathers.length - 1;
             }
@@ -92,7 +92,6 @@ public class WeatherControllerEntity extends IndustrialProcessingTile<WeatherCon
         this.addButton((new ArrowButtonComponent(155, 40, 14, 14, FacingUtil.Sideness.RIGHT)).setId(2).setPredicate((playerEntity, compoundNBT) -> {
             ++this.weather;
             this.finish = false;
-            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos(),false)));
             if (this.weather > weathers.length - 1) {
                 this.weather = 0;
             }
@@ -123,7 +122,6 @@ public class WeatherControllerEntity extends IndustrialProcessingTile<WeatherCon
         });
 
         this.addGuiAddonFactory(() ->{
-            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos(),false)));
             return new TextureGuiComponent(98,41) {
                 @Override
                 public AllGuiTextures getTexture() {
@@ -142,6 +140,14 @@ public class WeatherControllerEntity extends IndustrialProcessingTile<WeatherCon
                 }
             };
         });
+    }
+
+    @Override
+    public void serverTick(Level level, BlockPos pos, BlockState state, WeatherControllerEntity blockEntity) {
+        super.serverTick(level, pos, state, blockEntity);
+        if(!level.isClientSide()){
+            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos(),finish)));
+        }
     }
 
     @Override
@@ -164,7 +170,6 @@ public class WeatherControllerEntity extends IndustrialProcessingTile<WeatherCon
         return () -> {
             this.bar.setProgress(this.bar.getProgress() - 1);
             weathers[weather].setWeather((ServerLevel) level);
-            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos(),true)));
             this.finish = true;
             this.markForUpdate();
         };

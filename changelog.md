@@ -39,6 +39,11 @@
 ### v1.1.007
 - 配置工具可以同步配置各种插件了
 
+### v1.2.000
+- 修复了无法连接至服务器的bug
+- 修复了服务端无法打开时间,天气掌控者的bug
+- 修复了服务端无法监听ctrl等按键按下的bug
+
 ## en_us
 ### v1.0.0
 - init
@@ -77,3 +82,8 @@
 
 ### v1.1.007
 - The configuration tool can synchronize the configuration of various addons now
+
+### v1.2.000
+- Fixed bug where unable to connect to the server
+- Fixed the bug where the server cannot open the time and weather controller
+- Fixed the bug where the server could not listen for keystrokes such as Ctrl

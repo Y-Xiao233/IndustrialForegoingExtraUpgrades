@@ -110,7 +110,7 @@ public class ConnectToolItem extends Item {
     }
 
     private void addPos1ToTag(ItemStack item,CompoundTag tag, Player player,BlockPos pos1){
-        if(!KeyDownUtil.isShiftKeyDown()){
+        if(!player.isShiftKeyDown()){
             if(item.has(ModDataComponentTypes.COMPOUND_TAG) && !item.get(ModDataComponentTypes.COMPOUND_TAG).contains("pos1")){
                 tag.putIntArray("pos1",IntArrayBlockPosUtil.BlockPosToIntArray(pos1));
                 player.displayClientMessage(Component.translatable("message.ifeu.connect_tool.pos1",new Object[]{pos1.getX(),pos1.getY(),pos1.getZ()}).withStyle(ChatFormatting.GOLD),true);
@@ -121,7 +121,7 @@ public class ConnectToolItem extends Item {
     }
 
     private void addPos2ToTag(ItemStack item,CompoundTag tag, Player player,BlockPos pos2){
-        if(KeyDownUtil.isShiftKeyDown()){
+        if(player.isShiftKeyDown()){
             if(item.has(ModDataComponentTypes.COMPOUND_TAG) && item.get(ModDataComponentTypes.COMPOUND_TAG).contains("pos1")){
                 tag.putIntArray("pos2",IntArrayBlockPosUtil.BlockPosToIntArray(pos2));
                 player.displayClientMessage(Component.translatable("message.ifeu.connect_tool.pos2",new Object[]{pos2.getX(),pos2.getY(),pos2.getZ()}).withStyle(ChatFormatting.GOLD),true);
