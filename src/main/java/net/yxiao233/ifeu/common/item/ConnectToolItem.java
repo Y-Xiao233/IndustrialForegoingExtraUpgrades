@@ -16,14 +16,13 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.yxiao233.ifeu.common.block.entity.FluidTransferEntity;
 import net.yxiao233.ifeu.common.utils.IntArrayBlockPosUtil;
-import net.yxiao233.ifeu.common.utils.KeyDownUtil;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 import static net.yxiao233.ifeu.common.utils.TooltipHelper.*;
 
-public class ConnectToolItem extends Item {
+public class ConnectToolItem extends Item{
     public ConnectToolItem(Properties pProperties) {
         super(pProperties);
     }
@@ -121,7 +120,8 @@ public class ConnectToolItem extends Item {
     }
 
     private void addPos1ToTag(ItemStack item,CompoundTag tag, Player player,BlockPos pos1){
-        if(!KeyDownUtil.isShiftKeyDown()){
+        if(!player.isShiftKeyDown()){
+            player.isShiftKeyDown();
             if(item.getTag() != null && !item.getTag().contains("pos1")){
                 tag.putIntArray("pos1",IntArrayBlockPosUtil.BlockPosToIntArray(pos1));
                 player.displayClientMessage(Component.translatable("message.ifeu.connect_tool.pos1",new Object[]{pos1.getX(),pos1.getY(),pos1.getZ()}).withStyle(ChatFormatting.GOLD),true);
@@ -132,7 +132,7 @@ public class ConnectToolItem extends Item {
     }
 
     private void addPos2ToTag(ItemStack item,CompoundTag tag, Player player,BlockPos pos2){
-        if(KeyDownUtil.isShiftKeyDown()){
+        if(player.isShiftKeyDown()){
             if(item.getTag() != null && item.getTag().contains("pos1")){
                 tag.putIntArray("pos2",IntArrayBlockPosUtil.BlockPosToIntArray(pos2));
                 player.displayClientMessage(Component.translatable("message.ifeu.connect_tool.pos2",new Object[]{pos2.getX(),pos2.getY(),pos2.getZ()}).withStyle(ChatFormatting.GOLD),true);

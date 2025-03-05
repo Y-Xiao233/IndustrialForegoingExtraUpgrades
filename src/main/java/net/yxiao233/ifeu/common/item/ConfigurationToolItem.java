@@ -4,7 +4,6 @@ import com.buuz135.industrial.item.addon.EfficiencyAddonItem;
 import com.buuz135.industrial.item.addon.ProcessingAddonItem;
 import com.buuz135.industrial.item.addon.RangeAddonItem;
 import com.buuz135.industrial.item.addon.SpeedAddonItem;
-import com.buuz135.industrial.module.ModuleCore;
 import com.hrznstudio.titanium.block.tile.ActiveTile;
 import com.hrznstudio.titanium.block.tile.MachineTile;
 import com.hrznstudio.titanium.component.fluid.SidedFluidTankComponent;
@@ -14,7 +13,6 @@ import com.hrznstudio.titanium.util.FacingUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -25,7 +23,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
@@ -34,7 +31,8 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.yxiao233.ifeu.common.registry.ModTags;
+import net.yxiao233.ifeu.common.networking.ModNetWorking;
+import net.yxiao233.ifeu.common.networking.packet.ConfigurationToolItemKeyDownSyncC2SPacket;
 import net.yxiao233.ifeu.common.utils.InventoryComponentHelper;
 import net.yxiao233.ifeu.common.utils.KeyDownUtil;
 import net.yxiao233.ifeu.common.utils.TooltipHelper;
@@ -45,6 +43,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class ConfigurationToolItem extends Item {
+    public static boolean isCtrlDown = false;
     public ConfigurationToolItem(Properties properties) {
         super(properties);
     }
@@ -52,6 +51,12 @@ public class ConfigurationToolItem extends Item {
     @Override
     public InteractionResult useOn(UseOnContext context) {
         Level level = context.getLevel();
+        if(level.isClientSide()){
+            isCtrlDown = KeyDownUtil.isCtrlKeyDown();
+            ModNetWorking.sendToServer(new ConfigurationToolItemKeyDownSyncC2SPacket(isCtrlDown));
+        }
+
+
         if(!level.isClientSide()){
             Player player = context.getPlayer();
             if(player == null){
@@ -60,10 +65,9 @@ public class ConfigurationToolItem extends Item {
             if(context.getHand() != InteractionHand.MAIN_HAND){
                 return InteractionResult.PASS;
             }
-
-            if(player.isShiftKeyDown() && !KeyDownUtil.isCtrlKeyDown()){
+            if(player.isShiftKeyDown() && !isCtrlDown){
                 return addConfigToTag(context);
-            }else if(player.isShiftKeyDown() && KeyDownUtil.isCtrlKeyDown()){
+            }else if(player.isShiftKeyDown() && isCtrlDown){
                 return applyConfig(context);
             }
         }

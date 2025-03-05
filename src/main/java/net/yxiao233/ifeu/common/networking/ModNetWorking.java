@@ -9,6 +9,8 @@ import net.minecraftforge.network.simple.SimpleChannel;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.common.networking.packet.BlockPosSyncS2CPacket;
 import net.yxiao233.ifeu.common.networking.packet.BooleanSyncS2CPacket;
+import net.yxiao233.ifeu.common.networking.packet.ConfigurationToolItemKeyDownSyncC2SPacket;
+import net.yxiao233.ifeu.common.networking.packet.TimeControllerEntityKeyDownSyncC2SPacket;
 
 public class ModNetWorking {
     private static SimpleChannel INSTANCE;
@@ -38,6 +40,18 @@ public class ModNetWorking {
                 .decoder(BlockPosSyncS2CPacket::new)
                 .encoder(BlockPosSyncS2CPacket::toBytes)
                 .consumerMainThread(BlockPosSyncS2CPacket::handle)
+                .add();
+
+        net.messageBuilder(ConfigurationToolItemKeyDownSyncC2SPacket.class,id(),NetworkDirection.PLAY_TO_SERVER)
+                .decoder(ConfigurationToolItemKeyDownSyncC2SPacket::new)
+                .encoder(ConfigurationToolItemKeyDownSyncC2SPacket::toBytes)
+                .consumerMainThread(ConfigurationToolItemKeyDownSyncC2SPacket::handle)
+                .add();
+
+        net.messageBuilder(TimeControllerEntityKeyDownSyncC2SPacket.class,id(),NetworkDirection.PLAY_TO_SERVER)
+                .decoder(TimeControllerEntityKeyDownSyncC2SPacket::new)
+                .encoder(TimeControllerEntityKeyDownSyncC2SPacket::toBytes)
+                .consumerMainThread(TimeControllerEntityKeyDownSyncC2SPacket::handle)
                 .add();
     }
 

@@ -18,11 +18,11 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.yxiao233.ifeu.api.components.TextureGuiComponent;
-import net.yxiao233.ifeu.common.config.machine.RuleControllerConfig;
 import net.yxiao233.ifeu.common.config.machine.WeatherControllerConfig;
 import net.yxiao233.ifeu.common.gui.AllGuiTextures;
 import net.yxiao233.ifeu.common.networking.ModNetWorking;
@@ -40,7 +40,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class WeatherControllerEntity extends IndustrialProcessingTile<WeatherControllerEntity> implements BooleanValueSyncS2C {
-    private WeatherGetter[] weathers = {WeatherGetter.WEATHER_CLEAR,WeatherGetter.WEATHER_RAIN,WeatherGetter.WEATHER_THUNDER};
+    private static WeatherGetter[] weathers = {WeatherGetter.WEATHER_CLEAR,WeatherGetter.WEATHER_RAIN,WeatherGetter.WEATHER_THUNDER};
     private int powerPerTick;
     @Save
     private SidedInventoryComponent<WeatherControllerEntity> input;
@@ -82,7 +82,6 @@ public class WeatherControllerEntity extends IndustrialProcessingTile<WeatherCon
         this.addButton((new ArrowButtonComponent(119, 40, 14, 14, FacingUtil.Sideness.LEFT)).setId(1).setPredicate((playerEntity, compoundNBT) -> {
             --this.weather;
             this.finish = false;
-            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(getBlockPos(),false));
             if (this.weather < 0) {
                 this.weather = weathers.length - 1;
             }
@@ -92,7 +91,6 @@ public class WeatherControllerEntity extends IndustrialProcessingTile<WeatherCon
         this.addButton((new ArrowButtonComponent(155, 40, 14, 14, FacingUtil.Sideness.RIGHT)).setId(2).setPredicate((playerEntity, compoundNBT) -> {
             ++this.weather;
             this.finish = false;
-            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(getBlockPos(),false));
             if (this.weather > weathers.length - 1) {
                 this.weather = 0;
             }
@@ -100,7 +98,7 @@ public class WeatherControllerEntity extends IndustrialProcessingTile<WeatherCon
             this.markForUpdate();
         }));
 
-        this.powerPerTick = RuleControllerConfig.powerPerTick;
+        this.powerPerTick = WeatherControllerConfig.powerPerTick;
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -123,7 +121,6 @@ public class WeatherControllerEntity extends IndustrialProcessingTile<WeatherCon
         });
 
         this.addGuiAddonFactory(() ->{
-            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(getBlockPos(),false));
             return new TextureGuiComponent(98,41) {
                 @Override
                 public AllGuiTextures getTexture() {
@@ -142,6 +139,14 @@ public class WeatherControllerEntity extends IndustrialProcessingTile<WeatherCon
                 }
             };
         });
+    }
+
+    @Override
+    public void serverTick(Level level, BlockPos pos, BlockState state, WeatherControllerEntity blockEntity) {
+        super.serverTick(level, pos, state, blockEntity);
+        if(!level.isClientSide()){
+            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(pos,finish));
+        }
     }
 
     @Override
@@ -164,7 +169,6 @@ public class WeatherControllerEntity extends IndustrialProcessingTile<WeatherCon
         return () -> {
             this.bar.setProgress(this.bar.getProgress() - 1);
             weathers[weather].setWeather((ServerLevel) level);
-            ModNetWorking.sendToClient(new BooleanSyncS2CPacket(getBlockPos(),true));
             this.finish = true;
             this.markForUpdate();
         };
