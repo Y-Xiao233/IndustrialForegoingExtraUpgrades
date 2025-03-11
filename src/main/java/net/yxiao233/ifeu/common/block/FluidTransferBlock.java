@@ -29,10 +29,7 @@ import net.yxiao233.ifeu.common.block.entity.FluidTransferEntity;
 import net.yxiao233.ifeu.common.config.machine.FluidTransferConfig;
 import net.yxiao233.ifeu.common.item.ConnectToolItem;
 import net.yxiao233.ifeu.common.recipe.ShapedRecipe;
-import net.yxiao233.ifeu.common.registry.ModContents;
-import net.yxiao233.ifeu.common.registry.ModFluids;
-import net.yxiao233.ifeu.common.registry.ModItems;
-import net.yxiao233.ifeu.common.registry.ModTags;
+import net.yxiao233.ifeu.common.registry.*;
 import net.yxiao233.ifeu.common.utils.TooltipHelper;
 import org.jetbrains.annotations.NotNull;
 
@@ -79,13 +76,13 @@ public class FluidTransferBlock extends IndustrialBlock<FluidTransferEntity> {
                         Ingredient.of(ModuleCore.RANGE_ADDONS[3].get().getDefaultInstance())
 
                 ),new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000),
-                ModContents.DRAGON_STAR_SWORD.get().asItem().getDefaultInstance()
+                ModBlocks.FLUID_TRANSFER.asItem().getDefaultInstance()
         ));
     }
 
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltips, TooltipFlag flag) {
-        TooltipHelper.addTooltipWhileKeyDown(TooltipHelper.KeyType.SHIFT,tooltips,stack,() ->{
+        TooltipHelper.addTooltipWhileKeyDown(TooltipHelper.KeyType.SHIFT,tooltips,() ->{
                 addTooltip(tooltips, stack, ChatFormatting.GREEN,0,new Object[]{FluidTransferConfig.defaultMaxConnectDistance});
                 addTooltip(tooltips,stack,ChatFormatting.GOLD,1);
         });

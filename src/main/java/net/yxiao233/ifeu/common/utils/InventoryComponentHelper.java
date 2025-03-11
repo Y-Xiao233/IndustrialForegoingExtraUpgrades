@@ -1,6 +1,7 @@
 package net.yxiao233.ifeu.common.utils;
 
 import com.hrznstudio.titanium.block.tile.MachineTile;
+import com.hrznstudio.titanium.component.inventory.InventoryComponent;
 import com.hrznstudio.titanium.component.inventory.SidedInventoryComponent;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -55,5 +56,33 @@ public class InventoryComponentHelper {
     }
     public static void insertAugment(MachineTile<?> tile, Item item){
         insertAugment(tile,item.getDefaultInstance());
+    }
+
+    public static int canInsetMaxCount(InventoryComponent<?> inventory, ItemStack stack){
+        int stackSize = stack.getMaxStackSize();
+        int slots = inventory.getSlots();
+        int count = 0;
+
+        for (int i = 0; i < slots; i++) {
+            if(inventory.getStackInSlot(i).isEmpty() || inventory.getStackInSlot(i).is(stack.getItem())){
+                int temp = Math.min(stackSize,inventory.getSlotLimit(i)) - inventory.getStackInSlot(i).getCount();
+                count = count + temp;
+            }
+        }
+        return count;
+    }
+
+    public static int canInsetMaxCount(InventoryComponent<?> inventory, Item item){
+        int stackSize = item.getDefaultMaxStackSize();
+        int slots = inventory.getSlots();
+        int count = 0;
+
+        for (int i = 0; i < slots; i++) {
+            if(inventory.getStackInSlot(i).isEmpty() || inventory.getStackInSlot(i).is(item)){
+                int temp = Math.min(stackSize,inventory.getSlotLimit(i)) - inventory.getStackInSlot(i).getCount();
+                count = count + temp;
+            }
+        }
+        return count;
     }
 }

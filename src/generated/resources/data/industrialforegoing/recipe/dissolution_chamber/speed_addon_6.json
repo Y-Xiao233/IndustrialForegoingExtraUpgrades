@@ -34,7 +34,7 @@
   ],
   "inputFluid": {
     "amount": 1000,
-    "id": "industrialforegoing:pink_slime"
+    "id": "ifeu:liquid_dragon_breath"
   },
   "output": {
     "components": {

@@ -1,0 +1,44 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "ifeu:thread_addon_6"
+    }
+  ],
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "tag": "c:dusts/redstone"
+    },
+    {
+      "tag": "c:dusts/redstone"
+    },
+    {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "item": "minecraft:echo_shard"
+    },
+    {
+      "tag": "c:ingots/netherite"
+    }
+  ],
+  "inputFluid": {
+    "amount": 1000,
+    "id": "ifeu:liquid_dragon_breath"
+  },
+  "output": {
+    "count": 1,
+    "id": "ifeu:thread_addon_6"
+  },
+  "processingTime": 200
+}

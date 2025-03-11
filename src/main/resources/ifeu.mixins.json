@@ -5,6 +5,8 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "ifeu.refmap.json",
   "mixins": [
+    "block.MixinMachineFrameItem",
+    "item.MixinAugmentWrapper",
     "jei.MixinDissolutionChamberCategory"
   ],
   "client": [

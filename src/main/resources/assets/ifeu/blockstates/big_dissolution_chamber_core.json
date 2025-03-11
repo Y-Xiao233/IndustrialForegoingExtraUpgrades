@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "subfacing=east": {
+      "model": "ifeu:block/big_dissolution_chamber_core",
+      "y": 90
+    },
+    "subfacing=north": {
+      "model": "ifeu:block/big_dissolution_chamber_core"
+    },
+    "subfacing=south": {
+      "model": "ifeu:block/big_dissolution_chamber_core",
+      "y": 180
+    },
+    "subfacing=west": {
+      "model": "ifeu:block/big_dissolution_chamber_core",
+      "y": 270
+    }
+  }
+}

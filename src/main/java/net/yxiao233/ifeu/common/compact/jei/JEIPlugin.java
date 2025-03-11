@@ -80,13 +80,14 @@ public class JEIPlugin implements IModPlugin {
 
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
-        registration.addRecipeCatalyst(ModBlocks.INFUSER.asItem().getDefaultInstance(),ModRecipeType.INFUSER);
-        registration.addRecipeCatalyst(ModBlocks.ARCANE_DRAGON_EGG_FORGING.asItem().getDefaultInstance(),ModRecipeType.ARCANE_DRAGON_EGG_FORGING);
-        registration.addRecipeCatalyst(Blocks.DRAGON_EGG.asItem().getDefaultInstance(),ModRecipeType.BLOCK_RIGHT_CLICK);
-        registration.addRecipeCatalyst(ModBlocks.DRAGON_STAR_GENERATOR.asItem().getDefaultInstance(),ModRecipeType.DRAGON_STAR_GENERATOR);
-        registration.addRecipeCatalyst(ModBlocks.FLUID_CRAFTING_TABLE.asItem(),ModRecipeType.SHAPED);
-        registration.addRecipeCatalyst(ModBlocks.FLUID_CRAFTING_TABLE.asItem(),ModRecipeType.SHAPELESS);
-        registration.addRecipeCatalyst(ModBlocks.DRAGON_GENERATOR.asItem().getDefaultInstance(),ModRecipeType.DRAGON_GENERATOR);
+        registration.addRecipeCatalyst(ModBlocks.INFUSER,ModRecipeType.INFUSER);
+        registration.addRecipeCatalyst(ModBlocks.ARCANE_DRAGON_EGG_FORGING,ModRecipeType.ARCANE_DRAGON_EGG_FORGING);
+        registration.addRecipeCatalyst(Blocks.DRAGON_EGG,ModRecipeType.BLOCK_RIGHT_CLICK);
+        registration.addRecipeCatalyst(ModBlocks.DRAGON_STAR_GENERATOR,ModRecipeType.DRAGON_STAR_GENERATOR);
+        registration.addRecipeCatalyst(ModBlocks.FLUID_CRAFTING_TABLE,ModRecipeType.SHAPED);
+        registration.addRecipeCatalyst(ModBlocks.FLUID_CRAFTING_TABLE,ModRecipeType.SHAPELESS);
+        registration.addRecipeCatalyst(ModBlocks.DRAGON_GENERATOR,ModRecipeType.DRAGON_GENERATOR);
+        registration.addRecipeCatalyst(ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE,IndustrialRecipeTypes.DISSOLUTION);
     }
 
     @Override

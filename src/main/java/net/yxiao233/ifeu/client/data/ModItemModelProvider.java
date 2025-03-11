@@ -48,5 +48,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModContents.CONNECT_TOOL.get());
         basicItem(ModContents.WRENCH.get());
         basicItem(ModContents.CONFIGURATION_TOOL.get());
+        basicItem(ModItems.THREAD_ADDON_1.get());
+        basicItem(ModItems.THREAD_ADDON_2.get());
+        basicItem(ModItems.THREAD_ADDON_3.get());
+        basicItem(ModItems.THREAD_ADDON_4.get());
+        basicItem(ModItems.THREAD_ADDON_5.get());
+        basicItem(ModItems.THREAD_ADDON_6.get());
     }
 }

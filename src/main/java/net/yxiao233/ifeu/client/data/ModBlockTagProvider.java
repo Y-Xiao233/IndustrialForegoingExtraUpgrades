@@ -1,5 +1,6 @@
 package net.yxiao233.ifeu.client.data;
 
+import com.buuz135.industrial.module.ModuleCore;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
@@ -39,7 +40,12 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.RULE_CONTROLLER.getBlock())
                 .add(ModBlocks.FLUID_CRAFTING_TABLE.getBlock())
                 .add(ModBlocks.DRAGON_GENERATOR.getBlock())
-                .add(ModBlocks.FLUID_TRANSFER.getBlock());
+                .add(ModBlocks.FLUID_TRANSFER.getBlock())
+                .add(ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getBlock())
+                .add(ModuleCore.PITY.get())
+                .add(ModuleCore.SIMPLE.get())
+                .add(ModuleCore.ADVANCED.get())
+                .add(ModuleCore.SUPREME.get());
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.INFUSER.getBlock())
@@ -53,7 +59,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModContents.DRAGON_STAR_BLOCK.get())
                 .add(ModBlocks.FLUID_CRAFTING_TABLE.getBlock())
                 .add(ModBlocks.DRAGON_GENERATOR.getBlock())
-                .add(ModBlocks.FLUID_TRANSFER.getBlock());
+                .add(ModBlocks.FLUID_TRANSFER.getBlock())
+                .add(ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getBlock());
 
 
         this.tag(ModTags.Blocks.MACHINE_FRAME_ULTIMATE)
@@ -61,6 +68,24 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
         this.tag(ModTags.Blocks.WRENCH_PICKUP)
                 .addTag(BlockTags.SHULKER_BOXES)
-                .addTag(Tags.Blocks.CHESTS);
+                .addTag(Tags.Blocks.CHESTS)
+                .addTag(Tags.Blocks.BARRELS);
+
+//        this.tag(ModTags.Blocks.BLACK_HOLE_CAPACITOR)
+//                .add(ModBlocks.BLACK_HOLE_CAPACITOR_PITY.getLeft().get())
+//                .add(ModBlocks.BLACK_HOLE_CAPACITOR_SIMPLE.getLeft().get())
+//                .add(ModBlocks.BLACK_HOLE_CAPACITOR_ADVANCED.getLeft().get())
+//                .add(ModBlocks.BLACK_HOLE_CAPACITOR_SUPREME.getLeft().get());
+
+        this.tag(ModTags.Blocks.STORAGE_FLUID)
+//                .addTag(ModTags.Blocks.BLACK_HOLE_TANK)
+                .add(ModBlocks.FLUID_TRANSFER.getBlock());
+
+        this.tag(ModTags.Blocks.STORAGE_ITEM)
+                .addTag(Tags.Blocks.BARRELS);
+
+        this.tag(ModTags.Blocks.STORAGE_ENERGY)
+//                .addTag(ModTags.Blocks.BLACK_HOLE_CAPACITOR)
+                .add(ModBlocks.CREATIVE_CAPACITOR.getBlock());
     }
 }

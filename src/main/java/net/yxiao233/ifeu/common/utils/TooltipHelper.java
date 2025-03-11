@@ -21,12 +21,32 @@ public class TooltipHelper {
         tooltips.add(Component.translatable(itemIdToKey(itemStack, index)));
     }
 
+    public static void addTooltip(List<Component> tooltips, ItemStack itemStack, String prefix) {
+        tooltips.add(Component.translatable(itemIdToKey(itemStack, prefix)));
+    }
+
+    public static void addTooltip(List<Component> tooltips, ItemStack itemStack, int index, Object... obj) {
+        tooltips.add(Component.translatable(itemIdToKey(itemStack, index),obj));
+    }
+
+    public static void addTooltip(List<Component> tooltips, ItemStack itemStack, String prefix, Object... obj) {
+        tooltips.add(Component.translatable(itemIdToKey(itemStack, prefix),obj));
+    }
+
     public static void addTooltip(List<Component> tooltips, ItemStack itemStack, ChatFormatting style, int index, Object... obj) {
         tooltips.add(Component.translatable(itemIdToKey(itemStack, index), obj).withStyle(style));
     }
 
+    public static void addTooltip(List<Component> tooltips, ItemStack itemStack, ChatFormatting style, String prefix, Object... obj) {
+        tooltips.add(Component.translatable(itemIdToKey(itemStack, prefix), obj).withStyle(style));
+    }
+
     public static void addTooltip(List<Component> tooltips, ItemStack itemStack, ChatFormatting style, int index) {
         tooltips.add(Component.translatable(itemIdToKey(itemStack, index)).withStyle(style));
+    }
+
+    public static void addTooltip(List<Component> tooltips, ItemStack itemStack, ChatFormatting style, String prefix) {
+        tooltips.add(Component.translatable(itemIdToKey(itemStack, prefix)).withStyle(style));
     }
 
     public static String itemIdToKey(ItemStack itemStack, int index) {
@@ -34,9 +54,22 @@ public class TooltipHelper {
         return "tooltip" + rawKey.substring(rawKey.indexOf(".")) + index;
     }
 
+    public static String itemIdToKey(ItemStack itemStack, String prefix){
+        String rawKey = itemStack.getDescriptionId();
+        return "tooltip" + rawKey.substring(rawKey.indexOf(".")) + prefix;
+    }
+
     public static void addTooltipWhileKeyDown(KeyType keyType, List<Component> tooltips, ItemStack itemStack, int index) {
         if (getKeyType(keyType)) {
             addTooltip(tooltips, itemStack, index);
+        } else {
+            tooltips.add(Component.translatable("tooltip.ifeu.held." + keyType.getValue()).withStyle(ChatFormatting.GRAY));
+        }
+    }
+
+    public static void addTooltipWhileKeyDown(KeyType keyType, List<Component> tooltips, ItemStack itemStack, String prefix) {
+        if (getKeyType(keyType)) {
+            addTooltip(tooltips, itemStack, prefix);
         } else {
             tooltips.add(Component.translatable("tooltip.ifeu.held." + keyType.getValue()).withStyle(ChatFormatting.GRAY));
         }
@@ -50,9 +83,33 @@ public class TooltipHelper {
         }
     }
 
+    public static void addTooltipWhileKeyDown(KeyType keyType, List<Component> tooltips, ItemStack itemStack, ChatFormatting style, String prefix, Object... obj) {
+        if (getKeyType(keyType)) {
+            addTooltip(tooltips, itemStack, style, prefix, obj);
+        } else {
+            tooltips.add(Component.translatable("tooltip.ifeu.held." + keyType.getValue()).withStyle(ChatFormatting.GRAY));
+        }
+    }
+
     public static void addTooltipWhileKeyDown(KeyType keyType, List<Component> tooltips, ItemStack itemStack, ChatFormatting style, int index) {
         if (getKeyType(keyType)) {
             addTooltip(tooltips, itemStack, style, index);
+        } else {
+            tooltips.add(Component.translatable("tooltip.ifeu.held." + keyType.getValue()).withStyle(ChatFormatting.GRAY));
+        }
+    }
+
+    public static void addTooltipWhileKeyDown(KeyType keyType, List<Component> tooltips, ItemStack itemStack, ChatFormatting style, String prefix) {
+        if (getKeyType(keyType)) {
+            addTooltip(tooltips, itemStack, style, prefix);
+        } else {
+            tooltips.add(Component.translatable("tooltip.ifeu.held." + keyType.getValue()).withStyle(ChatFormatting.GRAY));
+        }
+    }
+
+    public static void addTooltipWhileKeyDown(KeyType keyType, List<Component> tooltips, Component component) {
+        if (getKeyType(keyType)) {
+            addTooltip(tooltips, component);
         } else {
             tooltips.add(Component.translatable("tooltip.ifeu.held." + keyType.getValue()).withStyle(ChatFormatting.GRAY));
         }
@@ -63,12 +120,32 @@ public class TooltipHelper {
         tooltips.add(Component.translatable(itemIdToKey(itemStack)));
     }
 
+    public static void addTooltip(List<Component> tooltips, Component component){
+        tooltips.add(component);
+    }
+
     public static void addTooltip(List<Component> tooltips, ItemStack itemStack, ChatFormatting style, Object... obj) {
         tooltips.add(Component.translatable(itemIdToKey(itemStack), obj).withStyle(style));
     }
 
     public static void addTooltip(List<Component> tooltips, ItemStack itemStack, ChatFormatting style) {
         tooltips.add(Component.translatable(itemIdToKey(itemStack)).withStyle(style));
+    }
+
+    public static void addTooltip(List<Component> tooltips, String id){
+        tooltips.add(Component.translatable("tooltip.ifeu." + id));
+    }
+
+    public static void addTooltip(List<Component> tooltips, String id, ChatFormatting style){
+        tooltips.add(Component.translatable("tooltip.ifeu." + id).withStyle(style));
+    }
+
+    public static void addTooltip(List<Component> tooltips, String id, ChatFormatting style, Object... obj){
+        tooltips.add(Component.translatable(("tooltip.ifeu." + id),obj).withStyle(style));
+    }
+
+    public static void addTooltip(List<Component> tooltips, String id, Object... obj){
+        tooltips.add(Component.translatable(("tooltip.ifeu." + id),obj));
     }
 
     public static String itemIdToKey(ItemStack itemStack) {
@@ -100,7 +177,7 @@ public class TooltipHelper {
         }
     }
 
-    public static void addTooltipWhileKeyDown(KeyType keyType, List<Component> tooltips, ItemStack itemStack, ITooltipContext context){
+    public static void addTooltipWhileKeyDown(KeyType keyType, List<Component> tooltips, ITooltipContext context){
         if(getKeyType(keyType)){
             context.addTooltips();
         }else{

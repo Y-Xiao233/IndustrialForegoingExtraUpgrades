@@ -50,5 +50,14 @@ public class NetWorkRegistryEvent {
                         TimeControllerEntityKeyDownHandler::handle
                 )
         );
+
+        registrar.playBidirectional(
+                DirectionSyncS2CPacket.TYPE,
+                DirectionSyncS2CPacket.STREAM_CODEC,
+                new DirectionalPayloadHandler<>(
+                        DirectionPayloadHandler::handle,
+                        DirectionPayloadHandler::handle
+                )
+        );
     }
 }

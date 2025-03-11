@@ -138,7 +138,7 @@ public class RuleControllerEntity extends IndustrialProcessingTile<RuleControlle
         super.serverTick(level, pos, state, blockEntity);
         if(!level.isClientSide()){
             this.value = GameRuleUtil.getGameRule(level,rules[rule].getRuleKey());
-            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(pos,value)));
+            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(pos,List.of(value))));
         }
     }
 
@@ -198,12 +198,12 @@ public class RuleControllerEntity extends IndustrialProcessingTile<RuleControlle
     }
 
     @Override
-    public void setValue(boolean value) {
-        this.value = value;
+    public void setValue(List<Boolean> values) {
+        this.value = values.getFirst();
     }
 
     @Override
-    public boolean getValues() {
-        return value;
+    public List<Boolean> getValues() {
+        return List.of(value);
     }
 }

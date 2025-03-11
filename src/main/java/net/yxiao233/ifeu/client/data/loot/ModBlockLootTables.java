@@ -1,9 +1,13 @@
 package net.yxiao233.ifeu.client.data.loot;
 
+import com.buuz135.industrial.module.ModuleCore;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModContents;
 
@@ -29,6 +33,11 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.FLUID_CRAFTING_TABLE.getBlock());
         this.dropSelf(ModBlocks.DRAGON_GENERATOR.getBlock());
         this.dropSelf(ModBlocks.FLUID_TRANSFER.getBlock());
+        this.dropSelf(ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getBlock());
+        this.dropSelf(ModuleCore.PITY.get());
+        this.dropSelf(ModuleCore.SIMPLE.get());
+        this.dropSelf(ModuleCore.ADVANCED.get());
+        this.dropSelf(ModuleCore.SUPREME.get());
     }
 
     @Override
@@ -46,8 +55,17 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 ModContents.DRAGON_STAR_BLOCK.get(),
                 ModBlocks.FLUID_CRAFTING_TABLE.getBlock(),
                 ModBlocks.DRAGON_GENERATOR.getBlock(),
-                ModBlocks.FLUID_TRANSFER.getBlock()
+                ModBlocks.FLUID_TRANSFER.getBlock(),
+                ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getBlock(),
+                ModuleCore.PITY.get(),
+                ModuleCore.SIMPLE.get(),
+                ModuleCore.ADVANCED.get(),
+                ModuleCore.SUPREME.get()
         );
         return iterable;
     }
+
+//    public LootTable.Builder droppingSelfWithNbt(ItemLike itemProvider, CopyNbtFunction.Builder nbtBuilder) {
+//        return LootTable.lootTable().withPool((LootPool.Builder)this.applyExplosionCondition(itemProvider, LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(itemProvider).apply(nbtBuilder))));
+//    }
 }
