@@ -19,6 +19,7 @@ import net.yxiao233.ifeu.common.recipe.ArcaneDragonEggForgingRecipe;
 import net.yxiao233.ifeu.common.recipe.ShapedRecipe;
 import net.yxiao233.ifeu.common.recipe.InfuserRecipe;
 import net.yxiao233.ifeu.common.recipe.ShapelessRecipe;
+import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.registry.ModFluids;
 import net.yxiao233.ifeu.common.registry.ModTags;
@@ -104,6 +105,11 @@ public class ModSerializableProvider{
         InfuserRecipe.createRecipe(recipeOutput,"cobblestone_blackstone",new InfuserRecipe(
                 Items.COBBLESTONE.getDefaultInstance(),new FluidStack(Fluids.LAVA.getSource(),200),200,Items.BLACKSTONE.getDefaultInstance()
         ));
+
+        InfuserRecipe.createRecipe(recipeOutput,"sculk",new InfuserRecipe(
+                Items.AMETHYST_SHARD.getDefaultInstance(),new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),200),200,Items.ECHO_SHARD.getDefaultInstance()
+        ));
+
 
 
         //laser drill fluid
@@ -254,6 +260,21 @@ public class ModSerializableProvider{
                 ModContents.CONNECT_TOOL.get().getDefaultInstance()
         ));
 
+        ShapedRecipe.createRecipe(recipeOutput,"big_dissolution_chamber_core",new ShapedRecipe(
+                List.of(
+                        tagValue(IndustrialTags.Items.PLASTIC),
+                        tagValue(Tags.Items.BUCKETS),
+                        tagValue(IndustrialTags.Items.PLASTIC),
+                        itemValue(ModuleCore.DISSOLUTION_CHAMBER.asItem().getDefaultInstance()),
+                        tagValue(ModTags.Items.MACHINE_FRAME_ULTIMATE),
+                        itemValue(ModuleCore.DISSOLUTION_CHAMBER.asItem().getDefaultInstance()),
+                        tagValue(IndustrialTags.Items.PLASTIC),
+                        tagValue(Tags.Items.CHESTS),
+                        tagValue(IndustrialTags.Items.PLASTIC)
+
+                ),new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),1000),
+                ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.asItem().getDefaultInstance()
+        ));
 
         //shapeless
             //有多少输入写多少

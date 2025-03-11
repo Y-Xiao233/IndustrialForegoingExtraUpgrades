@@ -17,6 +17,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.common.Tags;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
+import net.yxiao233.ifeu.api.item.IFEUAddonItem;
 import net.yxiao233.ifeu.api.item.ModEfficiencyAddonItem;
 import net.yxiao233.ifeu.api.item.ModProcessingAddonItem;
 import net.yxiao233.ifeu.api.item.ModSpeedAddonItem;
@@ -38,12 +39,14 @@ public class ModRecipeProvider extends VanillaRecipeProvider {
 
         BuiltInRegistries.ITEM.stream().forEach(reg ->{
             //Upgrades
-            if (reg instanceof ModSpeedAddonItem speedAddonItem) {
+            if(reg instanceof ModSpeedAddonItem speedAddonItem) {
                 ((IRecipeProvider) speedAddonItem).registerRecipe(recipeOutput);
-            } else if (reg instanceof ModEfficiencyAddonItem efficiencyAddonItem) {
+            }else if(reg instanceof ModEfficiencyAddonItem efficiencyAddonItem) {
                 ((IRecipeProvider) efficiencyAddonItem).registerRecipe(recipeOutput);
-            } else if (reg instanceof ModProcessingAddonItem processingAddonItem) {
+            }else if(reg instanceof ModProcessingAddonItem processingAddonItem) {
                 ((IRecipeProvider) processingAddonItem).registerRecipe(recipeOutput);
+            }else if(reg instanceof IFEUAddonItem addonItem){
+                ((IRecipeProvider) addonItem).registerRecipe(recipeOutput);
             }
         });
 
@@ -104,6 +107,34 @@ public class ModRecipeProvider extends VanillaRecipeProvider {
                 .define('D',Tags.Items.DYES_GREEN)
                 .define('E',Tags.Items.DYES_PINK)
                 .save(recipeOutput);
+
+        TitaniumShapedRecipeBuilder.shapedRecipe(Items.SCULK)
+                .pattern("AA")
+                .pattern("AA")
+                .define('A',Items.ECHO_SHARD)
+                .save(recipeOutput);
+
+//        TitaniumShapedRecipeBuilder.shapedRecipe(ModBlocks.BLACK_HOLE_CAPACITOR_PITY.getLeft().get())
+//                .pattern("AAA")
+//                .pattern("BCB")
+//                .pattern("DED")
+//                .define('A',IndustrialTags.Items.PLASTIC)
+//                .define('B',Items.ENDER_EYE)
+//                .define('C',Tags.Items.ENDER_PEARLS)
+//                .define('D',Tags.Items.STORAGE_BLOCKS_REDSTONE)
+//                .define('E',IndustrialTags.Items.MACHINE_FRAME_PITY)
+//                .save(consumer);
+//
+//        TitaniumShapedRecipeBuilder.shapedRecipe(ModBlocks.BLACK_HOLE_CAPACITOR_SIMPLE.getLeft().get())
+//                .pattern("AAA")
+//                .pattern("BCB")
+//                .pattern("DED")
+//                .define('A',IndustrialTags.Items.PLASTIC)
+//                .define('B',Items.ENDER_EYE)
+//                .define('C',Tags.Items.ENDER_PEARLS)
+//                .define('D',Tags.Items.STORAGE_BLOCKS_REDSTONE)
+//                .define('E',IndustrialTags.Items.MACHINE_FRAME_SIMPLE)
+//                .save(consumer);
 
 
         ModSerializableProvider.init(recipeOutput);

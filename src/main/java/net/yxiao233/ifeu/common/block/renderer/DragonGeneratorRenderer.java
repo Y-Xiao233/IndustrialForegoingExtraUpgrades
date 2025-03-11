@@ -18,6 +18,6 @@ public class DragonGeneratorRenderer implements BlockEntityRenderer<DragonGenera
             return;
         }
 
-        RendererHelper.renderSingleGhostBlock(poseStack,multiBufferSource,entity.getBlockPos(),entity.getBlockPos().above(), Blocks.DRAGON_EGG.defaultBlockState());
+        RendererHelper.renderSingleBatchedGhostBlock(poseStack,multiBufferSource,entity.getBlockPos(),entity.getBlockPos().above(), Blocks.DRAGON_EGG.defaultBlockState());
     }
 }

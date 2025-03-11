@@ -1,5 +1,8 @@
-// 1.21.1	2025-02-25T19:05:15.3650419	Tags for minecraft:block mod id ifeu
+// 1.21.1	2025-03-12T00:36:39.2774452	Tags for minecraft:block mod id ifeu
 caf4c98e85cb3415a948909a7ff166fdb7bbf229 data/ifeu/tags/block/machine_frame/ultimate.json
-c5f929b2b3367863bbe23e6857da9db4bdfeb684 data/ifeu/tags/block/wrench_pickup.json
-3506a716cf031dd5c1ad77313bd7d8a2c0cdd4af data/minecraft/tags/block/mineable/pickaxe.json
-bd93c5bac198076f8d90b8d5b428b993b886af35 data/minecraft/tags/block/needs_stone_tool.json
+6e1e62ac1ab8ce993a31aaf838fc2b16c338dcb3 data/ifeu/tags/block/storage/energy.json
+147589770f1c142177a56208127f804d21ca9994 data/ifeu/tags/block/storage/fluid.json
+d57abe724fc26960fdd2213d60d4a6daecae2036 data/ifeu/tags/block/storage/item.json
+af10a9bf09fbd74489507d6aa5c91b8c55759cc1 data/ifeu/tags/block/wrench_pickup.json
+6c6e54f2d686c81a9459c16de426847b0693c861 data/minecraft/tags/block/mineable/pickaxe.json
+bea037efb7c807441258f5bf2b5042da878cbd55 data/minecraft/tags/block/needs_stone_tool.json

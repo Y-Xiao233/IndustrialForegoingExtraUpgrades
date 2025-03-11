@@ -1,0 +1,44 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "ifeu:thread_addon_4"
+    }
+  ],
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "tag": "c:dusts/redstone"
+    },
+    {
+      "tag": "c:dusts/redstone"
+    },
+    {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "tag": "c:gears/sculk"
+    },
+    {
+      "tag": "c:gears/sculk"
+    },
+    {
+      "item": "minecraft:echo_shard"
+    },
+    {
+      "tag": "c:ingots/netherite"
+    }
+  ],
+  "inputFluid": {
+    "amount": 1000,
+    "id": "industrialforegoing:ether_gas"
+  },
+  "output": {
+    "count": 1,
+    "id": "ifeu:thread_addon_4"
+  },
+  "processingTime": 200
+}

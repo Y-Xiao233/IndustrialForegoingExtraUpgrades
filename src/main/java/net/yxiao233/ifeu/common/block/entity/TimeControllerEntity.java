@@ -215,7 +215,7 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
         }
 
         if(!level.isClientSide()){
-            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos(),finish)));
+            PacketDistributor.sendToAllPlayers((new BooleanSyncS2CPacket(getBlockPos(),List.of(finish))));
         }
     }
 
@@ -382,12 +382,12 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
     }
 
     @Override
-    public void setValue(boolean value) {
-        this.finish = value;
+    public void setValue(List<Boolean> values) {
+        this.finish = values.getFirst();
     }
 
     @Override
-    public boolean getValues() {
-        return finish;
+    public List<Boolean> getValues() {
+        return List.of(finish);
     }
 }

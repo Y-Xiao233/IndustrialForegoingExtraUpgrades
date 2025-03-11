@@ -33,6 +33,8 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.neoforged.neoforge.network.PacketDistributor;
+import net.yxiao233.ifeu.api.item.IFEUAddonItem;
+import net.yxiao233.ifeu.api.item.ModThreadAddonItem;
 import net.yxiao233.ifeu.common.networking.packet.ConfigurationToolItemKeyDownSyncC2SPacket;
 import net.yxiao233.ifeu.common.registry.ModDataComponentTypes;
 import net.yxiao233.ifeu.common.utils.InventoryComponentHelper;
@@ -137,16 +139,28 @@ public class ConfigurationToolItem extends Item {
                 int m = 0;
                 for (int i = 0; i < invComponent.getSlots(); i++) {
                     ItemStack aug = invComponent.getStackInSlot(i);
-                    if(!aug.isEmpty() && aug.get(AugmentWrapper.ATTACHMENT) != null){
-                        CompoundTag tagg = new CompoundTag();
-                        hasAugments.set(true);
-                        aug.get(AugmentWrapper.ATTACHMENT).forEach((s, f) ->{
-                            tagg.putFloat("float",f);
-                            tagg.putString("string",s);
-                        });
-                        tagg.putString("item_id",String.valueOf(BuiltInRegistries.ITEM.getKey(aug.getItem())));
-                        augmentsTag.put("augment"+m,tagg);
-                        m ++;
+                    if(aug.getItem() instanceof IFEUAddonItem addonItem){
+                        if(!aug.isEmpty()){
+                            hasAugments.set(true);
+                            CompoundTag tagg = new CompoundTag();
+                            tagg.putFloat("float",addonItem.getTier());
+                            tagg.putString("string",addonItem.getType().getId());
+                            tagg.putString("item_id",String.valueOf(BuiltInRegistries.ITEM.getKey(aug.getItem())));
+                            augmentsTag.put("augment"+m,tagg);
+                            m ++;
+                        }
+                    }else{
+                        if(!aug.isEmpty() && aug.get(AugmentWrapper.ATTACHMENT) != null){
+                            CompoundTag tagg = new CompoundTag();
+                            hasAugments.set(true);
+                            aug.get(AugmentWrapper.ATTACHMENT).forEach((s, f) ->{
+                                tagg.putFloat("float",f);
+                                tagg.putString("string",s);
+                            });
+                            tagg.putString("item_id",String.valueOf(BuiltInRegistries.ITEM.getKey(aug.getItem())));
+                            augmentsTag.put("augment"+m,tagg);
+                            m ++;
+                        }
                     }
                 }
             }
@@ -338,6 +352,7 @@ public class ConfigurationToolItem extends Item {
                         insertAugment(augItem.get(),augmentsTag,inventory,machineTile, RangeAddonItem.class);
                         insertAugment(augItem.get(),augmentsTag,inventory,machineTile, EfficiencyAddonItem.class);
                         insertAugment(augItem.get(),augmentsTag,inventory,machineTile, ProcessingAddonItem.class);
+                        insertAugment(augItem.get(),augmentsTag,inventory,machineTile, ModThreadAddonItem.class);
                     }
 
                     player.displayClientMessage(Component.translatable("message.ifeu.configuration_tool.paste").withStyle(ChatFormatting.GOLD),true);
@@ -357,7 +372,9 @@ public class ConfigurationToolItem extends Item {
             if(clazz.isAssignableFrom(augItems.get(i).getClass())){
                 Item item = augItems.get(i);
                 ItemStack stack = new ItemStack(item);
-                stack.set(AugmentWrapper.ATTACHMENT,augmentsTag.get(i));
+                if(!(item instanceof IFEUAddonItem)){
+                    stack.set(AugmentWrapper.ATTACHMENT,augmentsTag.get(i));
+                }
                 if(playerInventory.findSlotMatchingItem(stack) != -1 && InventoryComponentHelper.canInsertAugment(machineTile,stack)){
                     int index = playerInventory.findSlotMatchingItem(stack);
                     playerInventory.getItem(index).setCount(playerInventory.getItem(index).getCount() - 1);
@@ -383,7 +400,7 @@ public class ConfigurationToolItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltips, TooltipFlag flag) {
-        TooltipHelper.addTooltipWhileKeyDown(TooltipHelper.KeyType.SHIFT,tooltips,stack,() ->{
+        TooltipHelper.addTooltipWhileKeyDown(TooltipHelper.KeyType.SHIFT,tooltips,() ->{
             TooltipHelper.addTooltip(tooltips,stack, ChatFormatting.GREEN,0);
             TooltipHelper.addTooltip(tooltips,stack, ChatFormatting.GOLD,1);
             TooltipHelper.addTooltip(tooltips,stack,ChatFormatting.RED,2);

@@ -1,0 +1,16 @@
+{
+  "type": "ifeu:infuser",
+  "input": {
+    "count": 1,
+    "id": "minecraft:amethyst_shard"
+  },
+  "inputFluid": {
+    "amount": 200,
+    "id": "ifeu:liquid_sculk_matter"
+  },
+  "output": {
+    "count": 1,
+    "id": "minecraft:echo_shard"
+  },
+  "processingTime": 200
+}

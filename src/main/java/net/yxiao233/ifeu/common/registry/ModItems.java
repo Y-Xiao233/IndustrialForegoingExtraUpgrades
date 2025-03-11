@@ -3,6 +3,7 @@ package net.yxiao233.ifeu.common.registry;
 import com.buuz135.industrial.module.IModule;
 import com.buuz135.industrial.module.ModuleCore;
 import com.buuz135.industrial.recipe.DissolutionChamberRecipe;
+import com.buuz135.industrial.utils.IndustrialTags;
 import com.hrznstudio.titanium.module.DeferredRegistryHelper;
 import com.hrznstudio.titanium.tab.TitaniumTab;
 import net.minecraft.core.registries.Registries;
@@ -20,6 +21,7 @@ import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.api.item.ModEfficiencyAddonItem;
 import net.yxiao233.ifeu.api.item.ModProcessingAddonItem;
 import net.yxiao233.ifeu.api.item.ModSpeedAddonItem;
+import net.yxiao233.ifeu.api.item.ModThreadAddonItem;
 
 import java.util.List;
 import java.util.Optional;
@@ -38,6 +40,12 @@ public class ModItems implements IModule {
     public static DeferredHolder<Item,Item> PROCESSING_ADDON_4;
     public static DeferredHolder<Item,Item> PROCESSING_ADDON_5;
     public static DeferredHolder<Item,Item> PROCESSING_ADDON_6;
+    public static DeferredHolder<Item,Item> THREAD_ADDON_1;
+    public static DeferredHolder<Item,Item> THREAD_ADDON_2;
+    public static DeferredHolder<Item,Item> THREAD_ADDON_3;
+    public static DeferredHolder<Item,Item> THREAD_ADDON_4;
+    public static DeferredHolder<Item,Item> THREAD_ADDON_5;
+    public static DeferredHolder<Item,Item> THREAD_ADDON_6;
     @Override
     public void generateFeatures(DeferredRegistryHelper helper) {
         //Speed Addon
@@ -111,7 +119,7 @@ public class ModItems implements IModule {
                                 itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
                                 itemValue(Items.SUGAR.getDefaultInstance()),
                                 itemValue(Items.SUGAR.getDefaultInstance())
-                        ),new FluidStack(ModuleCore.PINK_SLIME.getSourceFluid().get(),1000),200,
+                        ),new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000),200,
                                 Optional.of(new ItemStack(this)), Optional.empty())
                 );
             }
@@ -188,7 +196,7 @@ public class ModItems implements IModule {
                                 itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
                                 itemValue(Items.BLAZE_ROD.getDefaultInstance()),
                                 itemValue(Items.BLAZE_ROD.getDefaultInstance())
-                        ),new FluidStack(ModuleCore.PINK_SLIME.getSourceFluid().get(),1000),200,
+                        ),new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000),200,
                                 Optional.of(new ItemStack(this)), Optional.empty())
                 );
             }
@@ -266,7 +274,122 @@ public class ModItems implements IModule {
                                 itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
                                 itemValue(Items.FURNACE.getDefaultInstance()),
                                 itemValue(Items.CRAFTING_TABLE.getDefaultInstance())
+                        ),new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000),200,
+                                Optional.of(new ItemStack(this)), Optional.empty())
+                );
+            }
+        });
+
+        THREAD_ADDON_1 = helper.registerGeneric(Registries.ITEM,"thread_addon_1", () -> new ModThreadAddonItem(1,TAB_ADDONS){
+            @Override
+            public void registerRecipe(RecipeOutput consumer) {
+                DissolutionChamberRecipe.createRecipe(consumer,"thread_addon_" + this.getTier(),
+                        new DissolutionChamberRecipe(List.of(
+                                tagValue(Tags.Items.DUSTS_REDSTONE),
+                                tagValue(Tags.Items.DUSTS_REDSTONE),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(IndustrialTags.Items.GEAR_GOLD),
+                                tagValue(IndustrialTags.Items.GEAR_GOLD),
+                                itemValue(Items.ECHO_SHARD.getDefaultInstance()),
+                                tagValue(Tags.Items.INGOTS_NETHERITE)
+                        ),new FluidStack(ModuleCore.LATEX.getSourceFluid().get(),1000),200,
+                                Optional.of(new ItemStack(this)), Optional.empty())
+                );
+            }
+        });
+
+        THREAD_ADDON_2 = helper.registerGeneric(Registries.ITEM,"thread_addon_2", () -> new ModThreadAddonItem(2,TAB_ADDONS){
+            @Override
+            public void registerRecipe(RecipeOutput consumer) {
+                DissolutionChamberRecipe.createRecipe(consumer,"thread_addon_" + this.getTier(),
+                        new DissolutionChamberRecipe(List.of(
+                                tagValue(Tags.Items.DUSTS_REDSTONE),
+                                tagValue(Tags.Items.DUSTS_REDSTONE),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(IndustrialTags.Items.GEAR_DIAMOND),
+                                tagValue(IndustrialTags.Items.GEAR_DIAMOND),
+                                itemValue(Items.ECHO_SHARD.getDefaultInstance()),
+                                tagValue(Tags.Items.INGOTS_NETHERITE)
+                        ),new FluidStack(ModuleCore.LATEX.getSourceFluid().get(),2000),200,
+                                Optional.of(new ItemStack(this)), Optional.empty())
+                );
+            }
+        });
+
+        THREAD_ADDON_3 = helper.registerGeneric(Registries.ITEM,"thread_addon_3", () -> new ModThreadAddonItem(3,TAB_ADDONS){
+            @Override
+            public void registerRecipe(RecipeOutput consumer) {
+                DissolutionChamberRecipe.createRecipe(consumer,"thread_addon_" + this.getTier(),
+                        new DissolutionChamberRecipe(List.of(
+                                tagValue(Tags.Items.DUSTS_REDSTONE),
+                                tagValue(Tags.Items.DUSTS_REDSTONE),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(ModTags.Items.GEARS_NETHERITE),
+                                tagValue(ModTags.Items.GEARS_NETHERITE),
+                                itemValue(Items.ECHO_SHARD.getDefaultInstance()),
+                                tagValue(Tags.Items.INGOTS_NETHERITE)
                         ),new FluidStack(ModuleCore.PINK_SLIME.getSourceFluid().get(),1000),200,
+                                Optional.of(new ItemStack(this)), Optional.empty())
+                );
+            }
+        });
+
+        THREAD_ADDON_4 = helper.registerGeneric(Registries.ITEM,"thread_addon_4", () -> new ModThreadAddonItem(4,TAB_ADDONS){
+            @Override
+            public void registerRecipe(RecipeOutput consumer) {
+                DissolutionChamberRecipe.createRecipe(consumer,"thread_addon_" + this.getTier(),
+                        new DissolutionChamberRecipe(List.of(
+                                tagValue(Tags.Items.DUSTS_REDSTONE),
+                                tagValue(Tags.Items.DUSTS_REDSTONE),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(ModTags.Items.GEARS_SCULK),
+                                tagValue(ModTags.Items.GEARS_SCULK),
+                                itemValue(Items.ECHO_SHARD.getDefaultInstance()),
+                                tagValue(Tags.Items.INGOTS_NETHERITE)
+                        ),new FluidStack(ModuleCore.ETHER.getSourceFluid().get(),1000),200,
+                                Optional.of(new ItemStack(this)), Optional.empty())
+                );
+            }
+        });
+
+        THREAD_ADDON_5 = helper.registerGeneric(Registries.ITEM,"thread_addon_5", () -> new ModThreadAddonItem(5,TAB_ADDONS){
+
+            @Override
+            public void registerRecipe(RecipeOutput consumer) {
+                DissolutionChamberRecipe.createRecipe(consumer,"thread_addon_" + this.getTier(),
+                        new DissolutionChamberRecipe(List.of(
+                                tagValue(Tags.Items.DUSTS_REDSTONE),
+                                tagValue(Tags.Items.DUSTS_REDSTONE),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(Tags.Items.NETHER_STARS),
+                                tagValue(Tags.Items.NETHER_STARS),
+                                itemValue(Items.ECHO_SHARD.getDefaultInstance()),
+                                tagValue(Tags.Items.INGOTS_NETHERITE)
+                        ),new FluidStack(ModuleCore.ETHER.getSourceFluid().get(),2000),200,
+                                Optional.of(new ItemStack(this)), Optional.empty())
+                );
+            }
+        });
+
+        THREAD_ADDON_6 = helper.registerGeneric(Registries.ITEM,"thread_addon_6", () -> new ModThreadAddonItem(6,TAB_ADDONS){
+            @Override
+            public void registerRecipe(RecipeOutput consumer) {
+                DissolutionChamberRecipe.createRecipe(consumer,"thread_addon_" + this.getTier(),
+                        new DissolutionChamberRecipe(List.of(
+                                tagValue(Tags.Items.DUSTS_REDSTONE),
+                                tagValue(Tags.Items.DUSTS_REDSTONE),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
+                                itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
+                                itemValue(Items.ECHO_SHARD.getDefaultInstance()),
+                                tagValue(Tags.Items.INGOTS_NETHERITE)
+                        ),new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000),200,
                                 Optional.of(new ItemStack(this)), Optional.empty())
                 );
             }

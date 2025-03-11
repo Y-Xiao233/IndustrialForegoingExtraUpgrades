@@ -81,7 +81,7 @@ public class WrenchItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltips, TooltipFlag flag) {
         TooltipHelper.addTooltip(tooltips,stack, ChatFormatting.GOLD,0);
-        TooltipHelper.addTooltipWhileKeyDown(TooltipHelper.KeyType.SHIFT,tooltips,stack,() ->{
+        TooltipHelper.addTooltipWhileKeyDown(TooltipHelper.KeyType.SHIFT,tooltips,() ->{
             TooltipHelper.addTooltip(tooltips,stack,ChatFormatting.GREEN,1);
         });
     }

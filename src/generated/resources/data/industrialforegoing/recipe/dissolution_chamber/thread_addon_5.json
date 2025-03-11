@@ -1,0 +1,44 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "ifeu:thread_addon_5"
+    }
+  ],
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "tag": "c:dusts/redstone"
+    },
+    {
+      "tag": "c:dusts/redstone"
+    },
+    {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "tag": "c:nether_stars"
+    },
+    {
+      "tag": "c:nether_stars"
+    },
+    {
+      "item": "minecraft:echo_shard"
+    },
+    {
+      "tag": "c:ingots/netherite"
+    }
+  ],
+  "inputFluid": {
+    "amount": 2000,
+    "id": "industrialforegoing:ether_gas"
+  },
+  "output": {
+    "count": 1,
+    "id": "ifeu:thread_addon_5"
+  },
+  "processingTime": 200
+}

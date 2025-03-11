@@ -11,7 +11,7 @@ public class BooleanPayloadHandler {
         context.enqueueWork(() ->{
             BlockEntity blockEntity = Minecraft.getInstance().level.getBlockEntity(data.entityPos());
             if(blockEntity instanceof BooleanValueSyncS2C entity){
-                entity.setValue(data.value());
+                entity.setValue(data.values());
                 blockEntity.setChanged();
             }
         });
