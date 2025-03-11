@@ -26,7 +26,7 @@
       "item": "minecraft:sugar"
     }
   ],
-  "inputFluid": "{Amount:2000,FluidName:\"industrialforegoing:ether_gas\"}",
+  "inputFluid": "{Amount:2000,FluidName:\"ifeu:liquid_dragon_breath\"}",
   "output": {
     "count": 1,
     "item": "ifeu:speed_addon_6",

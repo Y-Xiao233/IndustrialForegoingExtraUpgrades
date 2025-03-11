@@ -1,6 +1,7 @@
 package net.yxiao233.ifeu.common.provider;
 
 import com.buuz135.industrial.module.ModuleCore;
+import com.buuz135.industrial.module.ModuleTransportStorage;
 import com.buuz135.industrial.recipe.DissolutionChamberRecipe;
 import com.buuz135.industrial.recipe.LaserDrillFluidRecipe;
 import com.buuz135.industrial.recipe.LaserDrillRarity;
@@ -25,6 +26,7 @@ import net.yxiao233.ifeu.common.recipe.ArcaneDragonEggForgingRecipe;
 import net.yxiao233.ifeu.common.recipe.ShapedRecipe;
 import net.yxiao233.ifeu.common.recipe.InfuserRecipe;
 import net.yxiao233.ifeu.common.recipe.ShapelessRecipe;
+import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.registry.ModFluids;
 import net.yxiao233.ifeu.common.registry.ModTags;
@@ -112,6 +114,10 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
 
         new InfuserRecipe(IFEU("cobblestone_blackstone"),
                 Items.COBBLESTONE.getDefaultInstance(),new FluidStack(Fluids.LAVA.getSource(),200),200,Items.BLACKSTONE.getDefaultInstance()
+        );
+
+        new InfuserRecipe(IFEU("sculk"),
+                Items.AMETHYST_SHARD.getDefaultInstance(),new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),200),200,Items.ECHO_SHARD.getDefaultInstance()
         );
 
 
@@ -260,6 +266,54 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                 },
                 new FluidStack(ModuleCore.PINK_SLIME.getSourceFluid().get(),1000),
                 ModContents.CONNECT_TOOL.get().getDefaultInstance()
+        );
+
+        new ShapedRecipe(IFEU("big_dissolution_chamber_core"),
+                new Ingredient.Value[]{
+                        tagValue(IndustrialTags.Items.PLASTIC),
+                        itemValue(ModuleTransportStorage.BLACK_HOLE_TANK_SIMPLE.getLeft().get().asItem().getDefaultInstance()),
+                        tagValue(IndustrialTags.Items.PLASTIC),
+                        itemValue(ModuleCore.DISSOLUTION_CHAMBER.getLeft().get().asItem().getDefaultInstance()),
+                        tagValue(ModTags.Items.MACHINE_FRAME_ULTIMATE),
+                        itemValue(ModuleCore.DISSOLUTION_CHAMBER.getLeft().get().asItem().getDefaultInstance()),
+                        tagValue(IndustrialTags.Items.PLASTIC),
+                        itemValue(ModuleTransportStorage.BLACK_HOLE_UNIT_SIMPLE.getLeft().get().asItem().getDefaultInstance()),
+                        tagValue(IndustrialTags.Items.PLASTIC)
+                },
+                new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),1000),
+                ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getLeft().get().asItem().getDefaultInstance()
+        );
+
+        new ShapedRecipe(IFEU("black_hole_capacitor_advanced"),
+                new Ingredient.Value[]{
+                        tagValue(IndustrialTags.Items.PLASTIC),
+                        tagValue(IndustrialTags.Items.PLASTIC),
+                        tagValue(IndustrialTags.Items.PLASTIC),
+                        tagValue(Tags.Items.ENDER_PEARLS),
+                        itemValue(Items.ENDER_EYE.getDefaultInstance()),
+                        tagValue(Tags.Items.ENDER_PEARLS),
+                        tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE),
+                        tagValue(IndustrialTags.Items.MACHINE_FRAME_ADVANCED),
+                        tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE)
+                },
+                new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000),
+                ModBlocks.BLACK_HOLE_CAPACITOR_ADVANCED.getLeft().get().asItem().getDefaultInstance()
+        );
+
+        new ShapedRecipe(IFEU("black_hole_capacitor_supreme"),
+                new Ingredient.Value[]{
+                        tagValue(IndustrialTags.Items.PLASTIC),
+                        tagValue(IndustrialTags.Items.PLASTIC),
+                        tagValue(IndustrialTags.Items.PLASTIC),
+                        tagValue(Tags.Items.ENDER_PEARLS),
+                        itemValue(Items.ENDER_EYE.getDefaultInstance()),
+                        tagValue(Tags.Items.ENDER_PEARLS),
+                        tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE),
+                        tagValue(IndustrialTags.Items.MACHINE_FRAME_SUPREME),
+                        tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE)
+                },
+                new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),2000),
+                ModBlocks.BLACK_HOLE_CAPACITOR_SUPREME.getLeft().get().asItem().getDefaultInstance()
         );
 
         //shapeless

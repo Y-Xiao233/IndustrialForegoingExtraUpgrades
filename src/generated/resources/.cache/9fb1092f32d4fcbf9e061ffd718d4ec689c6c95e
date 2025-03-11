@@ -1,9 +1,11 @@
-// 1.20.1	2025-02-26T16:29:50.3427426	Recipes
+// 1.20.1	2025-03-11T20:16:20.9902178	Recipes
 4105a1cfaee5bc99c59b13bc79916d0e9179d33e data/ifeu/advancements/recipes/misc/laser_lens0_dragon.json
 c1559a400ab9444e305185a8dbe8ea444a53aec6 data/ifeu/advancements/recipes/misc/laser_lens0_sculk.json
 2c7a31422964e552b422bd35031d106dea2fd79d data/ifeu/advancements/recipes/misc/laser_lens_dragon.json
 f7a5505e08e943bfb31346c21af7013ead3c3d7b data/ifeu/advancements/recipes/misc/laser_lens_sculk.json
 96754d2ef870c2fbc299743ce0325453bdf90872 data/ifeu/recipes/arcane_dragon_egg_forging.json
+a85eeaf2bbed0aceff82ce65b38eabd6bc754cec data/ifeu/recipes/black_hole_capacitor_pity.json
+b33a3241d7cecd95b2c99e0d3c1c90a4e6a8c9fa data/ifeu/recipes/black_hole_capacitor_simple.json
 f491d013f455be8d4543cdfa6fac0dc0a6afde0d data/ifeu/recipes/configuration_tool.json
 3bbb4bf78e04aaed258bfb9cca88c2af7e5b19b6 data/ifeu/recipes/dragon_generator.json
 8c33f91fa94b06064e6069df01f2fe943092e6e7 data/ifeu/recipes/dragon_star_generator.json
@@ -18,3 +20,4 @@ d2d5d8e94147e3adde1fa7039249a1fcfc37581c data/ifeu/recipes/sculk_gear.json
 bee46d647c09d40a032f58125f5c10d2e8c45dd9 data/ifeu/recipes/time_controller.json
 87005dc355e2877ff3e0bc2cbe7fc6a830f44c01 data/ifeu/recipes/weather_controller.json
 678f0ba5cd3561db3947e44d4f56e34ef1a9e899 data/ifeu/recipes/wrench.json
+b3b1c317faf57254cf150b6ce2f1d37329349ad7 data/minecraft/recipes/sculk.json

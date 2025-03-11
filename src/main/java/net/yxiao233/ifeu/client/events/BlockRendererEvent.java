@@ -6,9 +6,13 @@ import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
+import net.yxiao233.ifeu.api.block.entity.IFEUBlackHoleCapacitorEntity;
+import net.yxiao233.ifeu.api.block.renderer.IFEUBlackHoleCapacitorRenderer;
+import net.yxiao233.ifeu.common.block.entity.BigDissolutionChamberEntity;
 import net.yxiao233.ifeu.common.block.entity.DragonGeneratorEntity;
 import net.yxiao233.ifeu.common.block.entity.FluidCraftingTableEntity;
 import net.yxiao233.ifeu.common.block.entity.FluidTransferEntity;
+import net.yxiao233.ifeu.common.block.renderer.BigDissolutionChamberRenderer;
 import net.yxiao233.ifeu.common.block.renderer.DragonGeneratorRenderer;
 import net.yxiao233.ifeu.common.block.renderer.FluidCraftingTableRenderer;
 import net.yxiao233.ifeu.common.block.renderer.FluidTransferRenderer;
@@ -21,5 +25,10 @@ public class BlockRendererEvent {
         event.registerBlockEntityRenderer((BlockEntityType<FluidCraftingTableEntity>) ModBlocks.FLUID_CRAFTING_TABLE.getRight().get(),FluidCraftingTableRenderer::new);
         event.registerBlockEntityRenderer((BlockEntityType<DragonGeneratorEntity>) ModBlocks.DRAGON_GENERATOR.getRight().get(), DragonGeneratorRenderer::new);
         event.registerBlockEntityRenderer((BlockEntityType<FluidTransferEntity>) ModBlocks.FLUID_TRANSFER.getRight().get(), FluidTransferRenderer::new);
+        event.registerBlockEntityRenderer((BlockEntityType<BigDissolutionChamberEntity>) ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getRight().get(), BigDissolutionChamberRenderer::new);
+        event.registerBlockEntityRenderer((BlockEntityType<IFEUBlackHoleCapacitorEntity>) ModBlocks.BLACK_HOLE_CAPACITOR_PITY.getRight().get(), IFEUBlackHoleCapacitorRenderer::new);
+        event.registerBlockEntityRenderer((BlockEntityType<IFEUBlackHoleCapacitorEntity>) ModBlocks.BLACK_HOLE_CAPACITOR_SIMPLE.getRight().get(), IFEUBlackHoleCapacitorRenderer::new);
+        event.registerBlockEntityRenderer((BlockEntityType<IFEUBlackHoleCapacitorEntity>) ModBlocks.BLACK_HOLE_CAPACITOR_ADVANCED.getRight().get(), IFEUBlackHoleCapacitorRenderer::new);
+        event.registerBlockEntityRenderer((BlockEntityType<IFEUBlackHoleCapacitorEntity>) ModBlocks.BLACK_HOLE_CAPACITOR_SUPREME.getRight().get(), IFEUBlackHoleCapacitorRenderer::new);
     }
 }

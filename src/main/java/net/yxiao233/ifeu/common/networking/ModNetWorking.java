@@ -2,15 +2,14 @@ package net.yxiao233.ifeu.common.networking;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
-import net.yxiao233.ifeu.common.networking.packet.BlockPosSyncS2CPacket;
-import net.yxiao233.ifeu.common.networking.packet.BooleanSyncS2CPacket;
-import net.yxiao233.ifeu.common.networking.packet.ConfigurationToolItemKeyDownSyncC2SPacket;
-import net.yxiao233.ifeu.common.networking.packet.TimeControllerEntityKeyDownSyncC2SPacket;
+import net.yxiao233.ifeu.common.networking.packet.*;
 
 public class ModNetWorking {
     private static SimpleChannel INSTANCE;
@@ -42,6 +41,12 @@ public class ModNetWorking {
                 .consumerMainThread(BlockPosSyncS2CPacket::handle)
                 .add();
 
+        net.messageBuilder(DirectionSyncS2CPacket.class,id(),NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(DirectionSyncS2CPacket::new)
+                .encoder(DirectionSyncS2CPacket::toBytes)
+                .consumerMainThread(DirectionSyncS2CPacket::handle)
+                .add();
+
         net.messageBuilder(ConfigurationToolItemKeyDownSyncC2SPacket.class,id(),NetworkDirection.PLAY_TO_SERVER)
                 .decoder(ConfigurationToolItemKeyDownSyncC2SPacket::new)
                 .encoder(ConfigurationToolItemKeyDownSyncC2SPacket::toBytes)
@@ -53,8 +58,15 @@ public class ModNetWorking {
                 .encoder(TimeControllerEntityKeyDownSyncC2SPacket::toBytes)
                 .consumerMainThread(TimeControllerEntityKeyDownSyncC2SPacket::handle)
                 .add();
+
+        net.messageBuilder(IntValueSyncC2SPacket.class,id(),NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(IntValueSyncC2SPacket::new)
+                .encoder(IntValueSyncC2SPacket::toBytes)
+                .consumerMainThread(IntValueSyncC2SPacket::handle)
+                .add();
     }
 
+    @OnlyIn(Dist.CLIENT)
     public static <MSG> void sendToServer(MSG message){
         INSTANCE.sendToServer(message);
     }

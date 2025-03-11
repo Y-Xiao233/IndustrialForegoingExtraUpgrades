@@ -1,0 +1,6 @@
+{
+  "parent": "industrialforegoing:block/base_block",
+  "textures": {
+    "north": "ifeu:block/big_dissolution_chamber_core_front"
+  }
+}

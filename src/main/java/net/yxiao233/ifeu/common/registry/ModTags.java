@@ -14,6 +14,11 @@ public class ModTags {
         public static final TagKey<Block> NEEDS_DRAGON_STAR_TOOL = TagUtil.getBlockTag(new ResourceLocation("ifeu:need_dragon_star_tool"));
         public static final TagKey<Block> MACHINE_FRAME_ULTIMATE = TagUtil.getBlockTag(new ResourceLocation("ifeu:machine_frame/ultimate"));
         public static final TagKey<Block> WRENCH_PICKUP = TagUtil.getBlockTag(new ResourceLocation("ifeu:wrench_pickup"));
+        public static final TagKey<Block> BLACK_HOLE_TANK = TagUtil.getBlockTag(new ResourceLocation("ifeu:black_hole_tank"));
+        public static final TagKey<Block> BLACK_HOLE_CAPACITOR = TagUtil.getBlockTag(new ResourceLocation("ifeu:black_hole_capacitor"));
+        public static final TagKey<Block> STORAGE_ITEM = TagUtil.getBlockTag(new ResourceLocation("ifeu:storage/item"));
+        public static final TagKey<Block> STORAGE_FLUID = TagUtil.getBlockTag(new ResourceLocation("ifeu:storage/fluid"));
+        public static final TagKey<Block> STORAGE_ENERGY = TagUtil.getBlockTag(new ResourceLocation("ifeu:storage/energy"));
         private static TagKey<Block> createTag(String name){
             return BlockTags.create(new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID,name));
         }

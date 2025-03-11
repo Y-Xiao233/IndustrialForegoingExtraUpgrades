@@ -3,10 +3,7 @@ package net.yxiao233.ifeu.common.compact.kubejs;
 import dev.latvian.mods.kubejs.KubeJSPlugin;
 import dev.latvian.mods.kubejs.recipe.schema.RegisterRecipeSchemasEvent;
 import dev.latvian.mods.kubejs.registry.RegistryInfo;
-import net.yxiao233.ifeu.common.compact.kubejs.items.EfficiencyAddonItemBuilder;
-import net.yxiao233.ifeu.common.compact.kubejs.items.ProcessingAddonItemBuilder;
-import net.yxiao233.ifeu.common.compact.kubejs.items.RangeAddonItemBuilder;
-import net.yxiao233.ifeu.common.compact.kubejs.items.SpeedAddonItemBuilder;
+import net.yxiao233.ifeu.common.compact.kubejs.items.*;
 import net.yxiao233.ifeu.common.compact.kubejs.schemas.*;
 
 public class ModKubeJSPlugin extends KubeJSPlugin {
@@ -17,6 +14,7 @@ public class ModKubeJSPlugin extends KubeJSPlugin {
         RegistryInfo.ITEM.addType("industrialforegoing:efficiency_addon", EfficiencyAddonItemBuilder.class, EfficiencyAddonItemBuilder::new);
         RegistryInfo.ITEM.addType("industrialforegoing:processing_addon", ProcessingAddonItemBuilder.class, ProcessingAddonItemBuilder::new);
         RegistryInfo.ITEM.addType("industrialforegoing:range_addon", RangeAddonItemBuilder.class,RangeAddonItemBuilder::new);
+        RegistryInfo.ITEM.addType("ifeu:thread_addon", ThreadAddonItemBuilder.class,ThreadAddonItemBuilder::new);
     }
 
     @Override

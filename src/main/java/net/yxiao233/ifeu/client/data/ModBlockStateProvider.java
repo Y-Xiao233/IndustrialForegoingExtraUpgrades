@@ -35,6 +35,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(ModBlocks.FLUID_CRAFTING_TABLE.getLeft());
         blockItem(ModBlocks.DRAGON_GENERATOR.getLeft());
         blockItem(ModBlocks.FLUID_TRANSFER.getLeft());
+        blockItem(ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getLeft());
+        blockItem(ModBlocks.BLACK_HOLE_CAPACITOR_PITY.getLeft());
+        blockItem(ModBlocks.BLACK_HOLE_CAPACITOR_SIMPLE.getLeft());
+        blockItem(ModBlocks.BLACK_HOLE_CAPACITOR_ADVANCED.getLeft());
+        blockItem(ModBlocks.BLACK_HOLE_CAPACITOR_SUPREME.getLeft());
     }
 
     private void blockItem(RegistryObject<Block> registryObject){

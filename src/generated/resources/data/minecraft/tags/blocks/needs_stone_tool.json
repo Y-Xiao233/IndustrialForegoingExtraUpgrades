@@ -11,6 +11,15 @@
     "ifeu:rule_controller",
     "ifeu:fluid_crafting_table",
     "ifeu:dragon_generator",
-    "ifeu:fluid_transfer"
+    "ifeu:fluid_transfer",
+    "ifeu:big_dissolution_chamber_core",
+    "industrialforegoing:machine_frame_pity",
+    "industrialforegoing:machine_frame_simple",
+    "industrialforegoing:machine_frame_advanced",
+    "industrialforegoing:machine_frame_supreme",
+    "ifeu:black_hole_capacitor_pity",
+    "ifeu:black_hole_capacitor_simple",
+    "ifeu:black_hole_capacitor_advanced",
+    "ifeu:black_hole_capacitor_supreme"
   ]
 }

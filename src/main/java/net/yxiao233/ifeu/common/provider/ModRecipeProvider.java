@@ -17,9 +17,11 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
+import net.yxiao233.ifeu.api.item.IFEUAddonItem;
 import net.yxiao233.ifeu.api.item.ModEfficiencyAddonItem;
 import net.yxiao233.ifeu.api.item.ModProcessingAddonItem;
 import net.yxiao233.ifeu.api.item.ModSpeedAddonItem;
+import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.registry.ModTags;
 
@@ -40,10 +42,12 @@ public class ModRecipeProvider extends TitaniumRecipeProvider {
             //Upgrades
             if (reg.getValue() instanceof ModSpeedAddonItem speedAddonItem) {
                 ((IRecipeProvider) speedAddonItem).registerRecipe(consumer);
-            } else if (reg.getValue() instanceof ModEfficiencyAddonItem efficiencyAddonItem) {
+            }else if(reg.getValue() instanceof ModEfficiencyAddonItem efficiencyAddonItem) {
                 ((IRecipeProvider) efficiencyAddonItem).registerRecipe(consumer);
-            } else if (reg.getValue() instanceof ModProcessingAddonItem processingAddonItem) {
+            }else if(reg.getValue() instanceof ModProcessingAddonItem processingAddonItem) {
                 ((IRecipeProvider) processingAddonItem).registerRecipe(consumer);
+            }else if(reg.getValue() instanceof IFEUAddonItem addonItem){
+                ((IRecipeProvider) addonItem).registerRecipe(consumer);
             }
         });
 
@@ -107,5 +111,32 @@ public class ModRecipeProvider extends TitaniumRecipeProvider {
                 .define('E',Tags.Items.DYES_PINK)
                 .save(consumer);
 
+        TitaniumShapedRecipeBuilder.shapedRecipe(Items.SCULK)
+                .pattern("AA")
+                .pattern("AA")
+                .define('A',Items.ECHO_SHARD)
+                .save(consumer);
+
+        TitaniumShapedRecipeBuilder.shapedRecipe(ModBlocks.BLACK_HOLE_CAPACITOR_PITY.getLeft().get())
+                .pattern("AAA")
+                .pattern("BCB")
+                .pattern("DED")
+                .define('A',IndustrialTags.Items.PLASTIC)
+                .define('B',Items.ENDER_EYE)
+                .define('C',Tags.Items.ENDER_PEARLS)
+                .define('D',Tags.Items.STORAGE_BLOCKS_REDSTONE)
+                .define('E',IndustrialTags.Items.MACHINE_FRAME_PITY)
+                .save(consumer);
+
+        TitaniumShapedRecipeBuilder.shapedRecipe(ModBlocks.BLACK_HOLE_CAPACITOR_SIMPLE.getLeft().get())
+                .pattern("AAA")
+                .pattern("BCB")
+                .pattern("DED")
+                .define('A',IndustrialTags.Items.PLASTIC)
+                .define('B',Items.ENDER_EYE)
+                .define('C',Tags.Items.ENDER_PEARLS)
+                .define('D',Tags.Items.STORAGE_BLOCKS_REDSTONE)
+                .define('E',IndustrialTags.Items.MACHINE_FRAME_SIMPLE)
+                .save(consumer);
     }
 }

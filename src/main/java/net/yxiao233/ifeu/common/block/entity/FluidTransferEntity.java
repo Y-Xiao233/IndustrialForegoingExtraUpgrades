@@ -104,13 +104,13 @@ public class FluidTransferEntity extends IndustrialProcessingTile<FluidTransferE
             public List<IFactory<? extends IScreenAddon>> getScreenAddons() {
                 return Collections.singletonList(() -> {
                     StateButtonInfo[] buttonInfo = new StateButtonInfo[2];
-                    IAssetType<IAsset> asset = AssetTypes.BUTTON_SIDENESS_ENABLED;
+                    IAssetType<IAsset> asset = AssetTypes.BUTTON_SIDENESS_PULL;
                     String[] tip = new String[2];
                     ChatFormatting chatFormatting = ChatFormatting.GOLD;
                     tip[0] = chatFormatting + LangUtil.getString("tooltip.ifeu.fluid_transfer.input", new Object[0]);
                     tip[1] = "tooltip.ifeu.fluid_transfer.input_1";
                     buttonInfo[0] = new StateButtonInfo(0, asset, tip);
-                    asset = AssetTypes.BUTTON_SIDENESS_DISABLED;
+                    asset = AssetTypes.BUTTON_SIDENESS_PUSH;
                     tip = new String[2];
                     tip[0] = chatFormatting + LangUtil.getString("tooltip.ifeu.fluid_transfer.output", new Object[0]);
                     tip[1] = "tooltip.ifeu.fluid_transfer.output_1";

@@ -83,7 +83,7 @@ public class FluidTransferBlock extends IndustrialBlock<FluidTransferEntity> {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable BlockGetter pLevel, List<Component> tooltips, TooltipFlag flag) {
-        TooltipHelper.addTooltipWhileKeyDown(TooltipHelper.KeyType.SHIFT,tooltips,stack,() ->{
+        TooltipHelper.addTooltipWhileKeyDown(TooltipHelper.KeyType.SHIFT,tooltips,() ->{
             TooltipHelper.addTooltip(tooltips, stack, ChatFormatting.GREEN,0,new Object[]{FluidTransferConfig.defaultMaxConnectDistance});
             TooltipHelper.addTooltip(tooltips,stack,ChatFormatting.GOLD,1);
         });

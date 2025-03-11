@@ -9,15 +9,17 @@
 - 插件: 效率```event.create(id,"industrialforegoing:efficiency_addon").setTier(tier).setFormTier(formTier)```
 - 插件: 处理```event.create(id,"industrialforegoing:processing_addon").setTier(tier).setFormTier(formTier)```
 - 插件: 范围```event.create(id,"industrialforegoing:range_addon").setTier(tier)```
+- 插件: 线程```event.create(id,"ifeu:thread_addon").setTier(tier)```
 
 ### 示例
 ```JavaScript
 StartupEvents.registry("item", event =>{
     //.setTier(int) 设置升级的等级
     //.setFormTier(int) 默认为设置的等级,可设置为其他整形,用来展示
-    event.create("addon_item","industrialforegoing:speed_addon").setTier(15).setFormTier(15)
+    event.create("speed_addon_item","industrialforegoing:speed_addon").setTier(15).setFormTier(15)
     
-    event.create("addon_item","industrialforegoing:range_addon").setTier(15)
+    event.create("range_addon_item","industrialforegoing:range_addon").setTier(15)
+    event.create("thread_addon_item","ifeu:thread_addon").setTier(15)
 })
 ```
 

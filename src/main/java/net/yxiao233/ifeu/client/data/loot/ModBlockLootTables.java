@@ -1,12 +1,23 @@
 package net.yxiao233.ifeu.client.data.loot;
 
+import com.buuz135.industrial.module.ModuleCore;
+import com.buuz135.industrial.module.ModuleTransportStorage;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.CopyNbtFunction;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraftforge.common.util.NonNullLazy;
+import net.yxiao233.ifeu.api.loot_table.IBlockLootTableProvider;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModContents;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 
 public class ModBlockLootTables extends BlockLootSubProvider {
@@ -28,6 +39,24 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.FLUID_CRAFTING_TABLE.getLeft().get());
         this.dropSelf(ModBlocks.DRAGON_GENERATOR.getLeft().get());
         this.dropSelf(ModBlocks.FLUID_TRANSFER.getLeft().get());
+        this.dropSelf(ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getLeft().get());
+        this.dropSelf(ModuleCore.PITY.get());
+        this.dropSelf(ModuleCore.SIMPLE.get());
+        this.dropSelf(ModuleCore.ADVANCED.get());
+        this.dropSelf(ModuleCore.SUPREME.get());
+
+        dropSelfWithNbtBlocks().forEach(block->{
+            this.add(block, ((IBlockLootTableProvider)block).getLootTable(this));
+        });
+    }
+
+    public List<Block> dropSelfWithNbtBlocks(){
+        return List.of(
+                ModBlocks.BLACK_HOLE_CAPACITOR_PITY.getLeft().get(),
+                ModBlocks.BLACK_HOLE_CAPACITOR_SIMPLE.getKey().get(),
+                ModBlocks.BLACK_HOLE_CAPACITOR_ADVANCED.getLeft().get(),
+                ModBlocks.BLACK_HOLE_CAPACITOR_SUPREME.getLeft().get()
+        );
     }
 
     @Override
@@ -45,8 +74,21 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 ModContents.DRAGON_STAR_BLOCK.get(),
                 ModBlocks.FLUID_CRAFTING_TABLE.getLeft().get(),
                 ModBlocks.DRAGON_GENERATOR.getLeft().get(),
-                ModBlocks.FLUID_TRANSFER.getLeft().get()
+                ModBlocks.FLUID_TRANSFER.getLeft().get(),
+                ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getLeft().get(),
+                ModuleCore.PITY.get(),
+                ModuleCore.SIMPLE.get(),
+                ModuleCore.ADVANCED.get(),
+                ModuleCore.SUPREME.get(),
+                ModBlocks.BLACK_HOLE_CAPACITOR_PITY.getLeft().get(),
+                ModBlocks.BLACK_HOLE_CAPACITOR_SIMPLE.getKey().get(),
+                ModBlocks.BLACK_HOLE_CAPACITOR_ADVANCED.getLeft().get(),
+                ModBlocks.BLACK_HOLE_CAPACITOR_SUPREME.getLeft().get()
         );
         return iterable;
+    }
+
+    public LootTable.Builder droppingSelfWithNbt(ItemLike itemProvider, CopyNbtFunction.Builder nbtBuilder) {
+        return LootTable.lootTable().withPool((LootPool.Builder)this.applyExplosionCondition(itemProvider, LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(itemProvider).apply(nbtBuilder))));
     }
 }

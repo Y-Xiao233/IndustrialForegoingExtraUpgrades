@@ -76,13 +76,14 @@ public class JEIPlugin implements IModPlugin {
 
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
-        registration.addRecipeCatalyst(ModBlocks.INFUSER.getLeft().get().asItem().getDefaultInstance(),ModRecipeType.INFUSER);
-        registration.addRecipeCatalyst(ModBlocks.ARCANE_DRAGON_EGG_FORGING.getLeft().get().asItem().getDefaultInstance(),ModRecipeType.ARCANE_DRAGON_EGG_FORGING);
-        registration.addRecipeCatalyst(Blocks.DRAGON_EGG.asItem().getDefaultInstance(),ModRecipeType.BLOCK_RIGHT_CLICK);
-        registration.addRecipeCatalyst(ModBlocks.DRAGON_STAR_GENERATOR.getLeft().get().asItem().getDefaultInstance(),ModRecipeType.DRAGON_STAR_GENERATOR);
-        registration.addRecipeCatalyst(ModBlocks.FLUID_CRAFTING_TABLE.getLeft().get().asItem().getDefaultInstance(),ModRecipeType.SHAPED);
-        registration.addRecipeCatalyst(ModBlocks.FLUID_CRAFTING_TABLE.getLeft().get().asItem().getDefaultInstance(),ModRecipeType.SHAPELESS);
-        registration.addRecipeCatalyst(ModBlocks.DRAGON_GENERATOR.getLeft().get().asItem().getDefaultInstance(),ModRecipeType.DRAGON_GENERATOR);
+        registration.addRecipeCatalyst(ModBlocks.INFUSER.getLeft().get(),ModRecipeType.INFUSER);
+        registration.addRecipeCatalyst(ModBlocks.ARCANE_DRAGON_EGG_FORGING.getLeft().get(),ModRecipeType.ARCANE_DRAGON_EGG_FORGING);
+        registration.addRecipeCatalyst(Blocks.DRAGON_EGG,ModRecipeType.BLOCK_RIGHT_CLICK);
+        registration.addRecipeCatalyst(ModBlocks.DRAGON_STAR_GENERATOR.getLeft().get(),ModRecipeType.DRAGON_STAR_GENERATOR);
+        registration.addRecipeCatalyst(ModBlocks.FLUID_CRAFTING_TABLE.getLeft().get(),ModRecipeType.SHAPED);
+        registration.addRecipeCatalyst(ModBlocks.FLUID_CRAFTING_TABLE.getLeft().get(),ModRecipeType.SHAPELESS);
+        registration.addRecipeCatalyst(ModBlocks.DRAGON_GENERATOR.getLeft().get(),ModRecipeType.DRAGON_GENERATOR);
+        registration.addRecipeCatalyst(ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getLeft().get(),IndustrialRecipeTypes.DISSOLUTION);
     }
 
 

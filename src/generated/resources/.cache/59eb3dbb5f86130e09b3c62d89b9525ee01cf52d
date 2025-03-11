@@ -1,5 +1,10 @@
-// 1.20.1	2025-02-24T00:21:05.9583078	Loot Tables
+// 1.20.1	2025-03-11T17:58:14.9945986	Loot Tables
 415ef358a3d4a4290a0a68f6f17ac60e4ff615f2 data/ifeu/loot_tables/blocks/arcane_dragon_egg_forging.json
+5b75b7d9a59738af916c93e6a1a86fb8793ddda2 data/ifeu/loot_tables/blocks/big_dissolution_chamber_core.json
+b72bee3c1e69d3cacb1abfee56ef77cd40ea7d06 data/ifeu/loot_tables/blocks/black_hole_capacitor_advanced.json
+6c83957427c9c4df892f44e22579f30a916645e9 data/ifeu/loot_tables/blocks/black_hole_capacitor_pity.json
+157b4f7f215fb126e7792e5f105ea760e8e9381c data/ifeu/loot_tables/blocks/black_hole_capacitor_simple.json
+3d77339f134cc4ab597145303bb9b31116729b8f data/ifeu/loot_tables/blocks/black_hole_capacitor_supreme.json
 36805e21e81dd0482a92b3ecff8c35a434cfea0d data/ifeu/loot_tables/blocks/creative_capacitor.json
 8970feeb31a2838573fea21a1c4191062b6f364e data/ifeu/loot_tables/blocks/dragon_generator.json
 75b264b8f3b24a89a31367ff258b6ef2d84e17ab data/ifeu/loot_tables/blocks/dragon_star_block.json
@@ -11,3 +16,7 @@ f673d13cb8fddaf02938835461055fed9dc79c65 data/ifeu/loot_tables/blocks/rule_contr
 584c021e3ccd548c07e9cdab55c2168c0d2a7322 data/ifeu/loot_tables/blocks/time_controller.json
 7059f2cee9f8b56d6c4be1ba272970071a622365 data/ifeu/loot_tables/blocks/ultimate_machine_frame.json
 afa239db3b838158868bbbbabe437ab577742e89 data/ifeu/loot_tables/blocks/weather_controller.json
+09796d9d0e9071bae9c46674dfb5ace1e0c020b1 data/industrialforegoing/loot_tables/blocks/machine_frame_advanced.json
+88793522af84546ec03bb36d4aee87424584cb9f data/industrialforegoing/loot_tables/blocks/machine_frame_pity.json
+44aa4f45be49bdffd3a69ceb13155948031185ec data/industrialforegoing/loot_tables/blocks/machine_frame_simple.json
+36a158eea8f7f74f6a0ad0c1a20f03eaba4590f0 data/industrialforegoing/loot_tables/blocks/machine_frame_supreme.json

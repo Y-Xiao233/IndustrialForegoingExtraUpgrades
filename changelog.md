@@ -96,6 +96,13 @@
 - 修复了服务端无法打开时间,天气掌控者的bug
 - 修复了服务端无法监听ctrl等按键按下的bug
 
+### v2.1.100
+- 修改了流体传输器输入输出的按钮图标
+- 修改了部分物品配方
+- 添加了大型溶解成形机
+- 添加了黑洞电容器
+- 添加了新的插件: 线程
+
 ## en_us
 ### v1.0.0
 - init
@@ -190,3 +197,10 @@
 ### v2.1.000
 - Fixed the bug where the server cannot open the time and weather controller
 - Fixed the bug where the server could not listen for keystrokes such as Ctrl
+
+### v2.1.100
+- Modified the button icon for the input and output of the fluid transfer
+- Modified some items' recipe
+- Added a big dissolution chamber
+- Added black hole capacitor
+- Added a new addon: thread
