@@ -2,6 +2,7 @@ package net.yxiao233.ifeu.client.data;
 
 import com.buuz135.industrial.module.ModuleCore;
 import com.buuz135.industrial.module.ModuleTransportStorage;
+import com.buuz135.industrial.utils.IndustrialTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
@@ -71,7 +72,13 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
         this.tag(ModTags.Blocks.WRENCH_PICKUP)
                 .addTag(Tags.Blocks.CHESTS)
-                .addTag(BlockTags.SHULKER_BOXES);
+                .addTag(BlockTags.SHULKER_BOXES)
+                .addTag(Tags.Blocks.BARRELS)
+                .add(ModuleCore.PITY.get())
+                .add(ModuleCore.SIMPLE.get())
+                .add(ModuleCore.ADVANCED.get())
+                .add(ModuleCore.SUPREME.get())
+                .add(ModContents.ULTIMATE_MACHINE_FRAME.get());
 
         this.tag(ModTags.Blocks.BLACK_HOLE_TANK)
                 .add(ModuleTransportStorage.BLACK_HOLE_TANK_COMMON.getLeft().get())

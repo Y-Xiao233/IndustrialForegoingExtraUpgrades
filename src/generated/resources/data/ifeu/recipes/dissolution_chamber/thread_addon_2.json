@@ -1,0 +1,35 @@
+{
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "tag": "forge:dusts/redstone"
+    },
+    {
+      "tag": "forge:dusts/redstone"
+    },
+    {
+      "tag": "forge:glass_panes/colorless"
+    },
+    {
+      "tag": "forge:glass_panes/colorless"
+    },
+    {
+      "tag": "forge:gears/diamond"
+    },
+    {
+      "tag": "forge:gears/diamond"
+    },
+    {
+      "item": "minecraft:echo_shard"
+    },
+    {
+      "tag": "forge:ingots/netherite"
+    }
+  ],
+  "inputFluid": "{Amount:2000,FluidName:\"industrialforegoing:latex\"}",
+  "output": {
+    "count": 1,
+    "item": "ifeu:thread_addon_2"
+  },
+  "processingTime": 200
+}

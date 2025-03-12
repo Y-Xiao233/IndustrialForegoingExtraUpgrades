@@ -1,0 +1,37 @@
+{
+  "type": "ifeu:shaped",
+  "inputFluid": "{Amount:1000,FluidName:\"ifeu:liquid_sculk_matter\"}",
+  "inputs": [
+    {
+      "tag": "forge:plastic"
+    },
+    {
+      "item": "industrialforegoing:simple_black_hole_tank"
+    },
+    {
+      "tag": "forge:plastic"
+    },
+    {
+      "item": "industrialforegoing:dissolution_chamber"
+    },
+    {
+      "tag": "ifeu:machine_frame/ultimate"
+    },
+    {
+      "item": "industrialforegoing:dissolution_chamber"
+    },
+    {
+      "tag": "forge:plastic"
+    },
+    {
+      "item": "industrialforegoing:simple_black_hole_unit"
+    },
+    {
+      "tag": "forge:plastic"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "item": "ifeu:big_dissolution_chamber_core"
+  }
+}

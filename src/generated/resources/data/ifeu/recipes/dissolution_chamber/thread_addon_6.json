@@ -1,0 +1,35 @@
+{
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "tag": "forge:dusts/redstone"
+    },
+    {
+      "tag": "forge:dusts/redstone"
+    },
+    {
+      "tag": "forge:glass_panes/colorless"
+    },
+    {
+      "tag": "forge:glass_panes/colorless"
+    },
+    {
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "item": "minecraft:echo_shard"
+    },
+    {
+      "tag": "forge:ingots/netherite"
+    }
+  ],
+  "inputFluid": "{Amount:1000,FluidName:\"ifeu:liquid_dragon_breath\"}",
+  "output": {
+    "count": 1,
+    "item": "ifeu:thread_addon_6"
+  },
+  "processingTime": 200
+}

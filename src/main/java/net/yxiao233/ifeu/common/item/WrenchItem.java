@@ -4,7 +4,10 @@ import com.hrznstudio.titanium.block.tile.BasicTile;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -34,44 +37,39 @@ public class WrenchItem extends Item {
         Player player = context.getPlayer();
         if(!level.isClientSide()){
             if(player != null && player.isShiftKeyDown()){
+                BlockState blockState = null;
+                Block block = null;
+                Inventory inventory = player.getInventory();
+                BlockEntity entity = null;
+
                 if(level.getBlockEntity(pos) instanceof BasicTile<?> tile){
-                    BlockState blockState = tile.getBlockState();
-                    Block block = blockState.getBlock();
-                    Inventory inventory = player.getInventory();
+                    blockState = tile.getBlockState();
+                    block = blockState.getBlock();
+                    entity = tile;
                     if(!block.canEntityDestroy(blockState,level,pos,player)){
                         return InteractionResult.FAIL;
                     }
-                    level.destroyBlock(pos,false);
-                    if(inventory.getFreeSlot() != -1 || inventory.contains(block.asItem().getDefaultInstance())){
-                        inventory.add(block.asItem().getDefaultInstance());
-                    }else{
-                        block.playerDestroy(level,player,pos,blockState,tile,block.asItem().getDefaultInstance());
-                    }
-                    return InteractionResult.SUCCESS;
                 }else if(level.getBlockState(pos).getTags().toList().contains(ModTags.Blocks.WRENCH_PICKUP)){
-                    BlockState state = level.getBlockState(pos);
-                    Block block = state.getBlock();
-                    Inventory inventory = player.getInventory();
-                    BlockEntity entity = null;
-                    if(state.hasBlockEntity()){
+                    blockState = level.getBlockState(pos);
+                    block = blockState.getBlock();
+                    if(blockState.hasBlockEntity()){
                         entity = level.getBlockEntity(pos);
                     }
-                    if(!block.canEntityDestroy(state,level,pos,player)){
+                    if(!block.canEntityDestroy(blockState,level,pos,player)){
                         return InteractionResult.FAIL;
                     }
-                    level.destroyBlock(pos,false);
-                    if(inventory.getFreeSlot() != -1 || inventory.contains(block.asItem().getDefaultInstance())){
-                        inventory.add(block.asItem().getDefaultInstance());
-                    }else{
-                        if(entity != null){
-                            block.playerDestroy(level,player,pos,state,entity,block.asItem().getDefaultInstance());
-                        }else{
-                            ItemEntity itemEntity = new ItemEntity(level,pos.getX(),pos.getY(),pos.getZ(),block.asItem().getDefaultInstance());
-                            level.addFreshEntity(itemEntity);
-                        }
+                }
 
-                    }
+                if(block == null){
+                    return InteractionResult.FAIL;
+                }
+
+                if(block.canEntityDestroy(blockState,level,pos,player)){
+                    level.destroyBlock(pos,false);
+                    addToInventory(level,blockState,pos,entity,player,player.getUseItem(),inventory);
                     return InteractionResult.SUCCESS;
+                }else{
+                    return InteractionResult.FAIL;
                 }
             }
         }
@@ -84,5 +82,26 @@ public class WrenchItem extends Item {
         TooltipHelper.addTooltipWhileKeyDown(TooltipHelper.KeyType.SHIFT,tooltips,() ->{
             TooltipHelper.addTooltip(tooltips,stack,ChatFormatting.GREEN,1);
         });
+    }
+
+    public void addToInventory(Level level, BlockState state, BlockPos pos, BlockEntity entity, Player player, ItemStack tool, Inventory playerInventory){
+        List<ItemStack> list = Block.getDrops(state,(ServerLevel) level,pos,entity,player,tool);
+
+        list.forEach(itemStack ->{
+            if(playerInventory.getFreeSlot() != -1 || playerInventory.contains(itemStack)){
+                playerInventory.add(itemStack);
+            }else{
+                dropContents(level,pos,itemStack);
+            }
+        });
+    }
+
+    public void dropContents(Level level, BlockPos pos,ItemStack stack){
+        double d0 = (double) EntityType.ITEM.getHeight() / 2.0;
+        double d1 = (double)pos.getX() + 0.5 + Mth.nextDouble(level.random, -0.25, 0.25);
+        double d2 = (double)pos.getY() + 0.5 + Mth.nextDouble(level.random, -0.25, 0.25) - d0;
+        double d3 = (double)pos.getZ() + 0.5 + Mth.nextDouble(level.random, -0.25, 0.25);
+        ItemEntity item = new ItemEntity(level, d1, d2, d3, stack);
+        level.addFreshEntity(item);
     }
 }

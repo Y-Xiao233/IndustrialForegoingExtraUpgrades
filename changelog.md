@@ -103,6 +103,10 @@
 - 添加了黑洞电容器
 - 添加了新的插件: 线程
 
+### v2.1.101
+- 修复了扳手扳掉有nbt的物品时会错误将其nbt清除的bug
+- 各种框架也可以被扳手扳下了
+
 ## en_us
 ### v1.0.0
 - init
@@ -204,3 +208,7 @@
 - Added a big dissolution chamber
 - Added black hole capacitor
 - Added a new addon: thread
+
+### v2.1.101
+- Fixed the bug where the wrench mistakenly cleared the nbt of items with nbt when pulling them off
+- Various machine frame can also be pulled down with a wrench
