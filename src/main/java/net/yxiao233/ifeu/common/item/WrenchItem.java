@@ -46,17 +46,11 @@ public class WrenchItem extends Item {
                     blockState = tile.getBlockState();
                     block = blockState.getBlock();
                     entity = tile;
-                    if(!block.canEntityDestroy(blockState,level,pos,player)){
-                        return InteractionResult.FAIL;
-                    }
                 }else if(level.getBlockState(pos).getTags().toList().contains(ModTags.Blocks.WRENCH_PICKUP)){
                     blockState = level.getBlockState(pos);
                     block = blockState.getBlock();
                     if(blockState.hasBlockEntity()){
                         entity = level.getBlockEntity(pos);
-                    }
-                    if(!block.canEntityDestroy(blockState,level,pos,player)){
-                        return InteractionResult.FAIL;
                     }
                 }
 
