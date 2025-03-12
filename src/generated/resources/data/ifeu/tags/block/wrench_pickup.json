@@ -1,7 +1,12 @@
 {
   "values": [
-    "#minecraft:shulker_boxes",
     "#c:chests",
-    "#c:barrels"
+    "#minecraft:shulker_boxes",
+    "#c:barrels",
+    "industrialforegoing:machine_frame_pity",
+    "industrialforegoing:machine_frame_simple",
+    "industrialforegoing:machine_frame_advanced",
+    "industrialforegoing:machine_frame_supreme",
+    "ifeu:ultimate_machine_frame"
   ]
 }

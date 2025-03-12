@@ -67,9 +67,14 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModContents.ULTIMATE_MACHINE_FRAME.get());
 
         this.tag(ModTags.Blocks.WRENCH_PICKUP)
-                .addTag(BlockTags.SHULKER_BOXES)
                 .addTag(Tags.Blocks.CHESTS)
-                .addTag(Tags.Blocks.BARRELS);
+                .addTag(BlockTags.SHULKER_BOXES)
+                .addTag(Tags.Blocks.BARRELS)
+                .add(ModuleCore.PITY.get())
+                .add(ModuleCore.SIMPLE.get())
+                .add(ModuleCore.ADVANCED.get())
+                .add(ModuleCore.SUPREME.get())
+                .add(ModContents.ULTIMATE_MACHINE_FRAME.get());
 
 //        this.tag(ModTags.Blocks.BLACK_HOLE_CAPACITOR)
 //                .add(ModBlocks.BLACK_HOLE_CAPACITOR_PITY.getLeft().get())
