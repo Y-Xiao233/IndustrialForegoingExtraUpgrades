@@ -59,6 +59,7 @@
 - 优化了大型溶解成型机
 - 更新前置工业先锋版本至3.6.24
 - 更新前置钛版本至4.0.35
+- 修复了部分配方无效的bug
 
 ## en_us
 ### v1.0.0
@@ -119,3 +120,4 @@
 - Optimized the big dissolution chamber
 - Update the industrial foregoing version to 3.6.24
 - Update the titanium version to 4.0.35
+- Fixed a bug where some recipes were invalid
