@@ -2,6 +2,7 @@ package net.yxiao233.ifeu.api.structure;
 
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.ArrayList;
@@ -13,9 +14,11 @@ public class MultiBlockStructureBuilder {
     private final ArrayList<ArrayList<String>> structure = new ArrayList<>();
     private final HashMap<Character, Block> defineMap;
     private final HashMap<Character, TagKey<Block>> defineTagMap;
+    private final HashMap<Character,List<Block>> tagBlocksMap;
     public MultiBlockStructureBuilder(){
         this.defineMap = new HashMap<>();
         this.defineTagMap = new HashMap<>();
+        this.tagBlocksMap = new HashMap<>();
     }
     public MultiBlockStructureBuilder pattern(ArrayList<String> s){
         structure.add(s);
@@ -53,6 +56,7 @@ public class MultiBlockStructureBuilder {
 
     public MultiBlockStructureBuilder define(char symbol, TagKey<Block> blockTag){
         this.defineTagMap.put(symbol,blockTag);
+        this.tagBlocksMap.put(symbol,getBlocksFromTagKey(blockTag));
         return this;
     }
 
@@ -69,7 +73,22 @@ public class MultiBlockStructureBuilder {
         return defineTagMap;
     }
 
+    public HashMap<Character, List<Block>> getTagBlocksMap() {
+        return tagBlocksMap;
+    }
+
     public MultiBlockStructure build(){
         return new MultiBlockStructure(this);
+    }
+
+    private List<Block> getBlocksFromTagKey(TagKey<Block> blockTag){
+        List<Block> list = new ArrayList<>();
+        ForgeRegistries.BLOCKS.getEntries().forEach(reg ->{
+            if(reg.getValue().defaultBlockState().is(blockTag)){
+                list.add(reg.getValue());
+            }
+        });
+
+        return list;
     }
 }

@@ -110,6 +110,9 @@
 ### v2.1.101-hotfix
 - 修复了mixin导致的崩溃
 
+### v2.1.102
+- 优化了大型溶解成型机
+
 ## en_us
 ### v1.0.0
 - init
@@ -218,3 +221,6 @@
 
 ### v2.1.101-hotfix
 - Fixed the crash caused by mixin
+
+### v2.1.102
+- Optimized the big dissolution chamber

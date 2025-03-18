@@ -12,6 +12,7 @@ import com.hrznstudio.titanium.component.inventory.SidedInventoryComponent;
 import com.hrznstudio.titanium.util.RecipeUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
@@ -19,6 +20,7 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.items.ItemHandlerHelper;
@@ -30,7 +32,6 @@ import net.yxiao233.ifeu.common.config.machine.BigDissolutionChamberConfig;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.api.structure.MultiBlockStructure;
 import net.yxiao233.ifeu.common.registry.ModContents;
-import net.yxiao233.ifeu.common.registry.ModTags;
 import net.yxiao233.ifeu.common.utils.AugmentInventoryHelper;
 import org.apache.commons.lang3.tuple.Pair;
 import org.jetbrains.annotations.NotNull;
@@ -271,12 +272,18 @@ public class BigDissolutionChamberEntity extends IFEUStructureProcessingTile<Big
                         "BBB",
                         "AEA"
                 )
-                .define('A', FRAME_SIMPLE)
+                .define('A', BlockTags.PLANKS)
                 .define('B', Blocks.SCULK)
                 .define('C', ModContents.DRAGON_STAR_BLOCK)
                 .define('D', ITEM)
                 .define('E', FLUID)
                 .define('F', ENERGY)
+//                .define('A',ModContents.DRAGON_STAR_BLOCK)
+//                .define('B',ModContents.DRAGON_STAR_BLOCK)
+//                .define('C',ModContents.DRAGON_STAR_BLOCK)
+//                .define('D',ModContents.DRAGON_STAR_BLOCK)
+//                .define('E',ModContents.DRAGON_STAR_BLOCK)
+//                .define('F',ModContents.DRAGON_STAR_BLOCK)
                 .build();
     }
 
