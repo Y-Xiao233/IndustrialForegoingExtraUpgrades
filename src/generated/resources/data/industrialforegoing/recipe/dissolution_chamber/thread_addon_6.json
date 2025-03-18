@@ -34,7 +34,7 @@
   ],
   "inputFluid": {
     "amount": 1000,
-    "id": "ifeu:liquid_dragon_breath"
+    "fluid": "ifeu:liquid_dragon_breath"
   },
   "output": {
     "count": 1,

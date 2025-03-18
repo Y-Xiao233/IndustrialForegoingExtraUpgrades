@@ -35,7 +35,9 @@ import net.yxiao233.ifeu.common.utils.InventoryComponentHelper;
 import org.apache.commons.lang3.tuple.Pair;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.Optional;
 
 public class BigDissolutionChamberEntity extends IFEUStructureProcessingTile<BigDissolutionChamberEntity> {
     private int maxProgress;
@@ -130,23 +132,26 @@ public class BigDissolutionChamberEntity extends IFEUStructureProcessingTile<Big
 
                 int thread = Math.min(getCurThread(dissolutionChamberRecipe),getMaxOutputThread());
 
+                Optional<FluidStack> optionalInputFluid = Arrays.stream(dissolutionChamberRecipe.inputFluid.getFluids()).findFirst();
 
-                this.inputFluid.drainForced(dissolutionChamberRecipe.inputFluid.getAmount() * thread, IFluidHandler.FluidAction.EXECUTE);
+                if(optionalInputFluid.isPresent()){
+                    this.inputFluid.drainForced(new FluidStack(optionalInputFluid.get().getFluid(),optionalInputFluid.get().getAmount() * thread), IFluidHandler.FluidAction.EXECUTE);
 
-                for(int i = 0; i < this.input.getInventory().getSlots(); ++i) {
-                    this.input.getInventory().getStackInSlot(i).shrink(thread);
+                    for(int i = 0; i < this.input.getInventory().getSlots(); ++i) {
+                        this.input.getInventory().getStackInSlot(i).shrink(thread);
+                    }
+
+                    if (dissolutionChamberRecipe.outputFluid.isPresent()) {
+                        this.outputFluid.fillForced(new FluidStack(dissolutionChamberRecipe.outputFluid.get().getFluid(),dissolutionChamberRecipe.outputFluid.get().getAmount() * thread), IFluidHandler.FluidAction.EXECUTE);
+                    }
+
+                    if(dissolutionChamberRecipe.output.isPresent()){
+                        ItemStack outputStack = dissolutionChamberRecipe.output.get().copy();
+                        outputStack.getItem().onCraftedBy(outputStack, this.level, (Player)null);
+                        ItemHandlerHelper.insertItem(this.output, new ItemStack(outputStack.getItem(),outputStack.getCount() * thread), false);
+                    }
+                    this.checkForRecipe();
                 }
-
-                if (dissolutionChamberRecipe.outputFluid.isPresent()) {
-                    this.outputFluid.fillForced(new FluidStack(dissolutionChamberRecipe.outputFluid.get().getFluid(),dissolutionChamberRecipe.outputFluid.get().getAmount() * thread), IFluidHandler.FluidAction.EXECUTE);
-                }
-
-                if(dissolutionChamberRecipe.output.isPresent()){
-                    ItemStack outputStack = dissolutionChamberRecipe.output.get().copy();
-                    outputStack.getItem().onCraftedBy(outputStack, this.level, (Player)null);
-                    ItemHandlerHelper.insertItem(this.output, new ItemStack(outputStack.getItem(),outputStack.getCount() * thread), false);
-                }
-                this.checkForRecipe();
             }
 
         };
@@ -164,9 +169,12 @@ public class BigDissolutionChamberEntity extends IFEUStructureProcessingTile<Big
             thread = Math.min(thread,max);
         }
 
-        int fluidAmount = this.inputFluid.getFluid().getAmount();
-        int recipeNeededFluid = recipe.inputFluid.getAmount();
-        thread = recipeNeededFluid * thread <= fluidAmount ? thread : (int) fluidAmount / recipeNeededFluid;
+        Optional<FluidStack> optionalInputFluid = Arrays.stream(recipe.inputFluid.getFluids()).findFirst();
+        if(optionalInputFluid.isPresent()){
+            int fluidAmount = this.inputFluid.getFluid().getAmount();
+            int recipeNeededFluid = optionalInputFluid.get().getAmount();
+            thread = recipeNeededFluid * thread <= fluidAmount ? thread : (int) fluidAmount / recipeNeededFluid;
+        }
 
         if(recipe.outputFluid.isPresent()){
             int remainingOutputCapacity = this.outputFluid.getCapacity() - this.outputFluid.getFluidAmount();

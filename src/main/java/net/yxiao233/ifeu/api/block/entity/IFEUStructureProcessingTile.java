@@ -48,6 +48,8 @@ public abstract class IFEUStructureProcessingTile<T extends IFEUStructureProcess
     @Save
     public boolean renderFull = false;
     public Direction direction;
+    private MultiBlockStructure helper;
+    private int time = 0;
     public ButtonComponent structureButton;
     //base structure block tag
     public static final TagKey<Block> ENERGY = ModTags.Blocks.STORAGE_ENERGY;
@@ -108,14 +110,14 @@ public abstract class IFEUStructureProcessingTile<T extends IFEUStructureProcess
             }
             this.markForUpdate();
         }));
+
+        this.helper = multiBlockStructure();
     }
 
     @Override
     public void serverTick(Level level, BlockPos pos, BlockState state, T blockEntity) {
         super.serverTick(level, pos, state, blockEntity);
         if(!level.isClientSide()){
-
-            MultiBlockStructure helper = this.multiBlockStructure();
 
             boolean b = state.hasProperty(RotatableBlock.FACING_HORIZONTAL);
             Direction direction = null;
@@ -125,7 +127,7 @@ public abstract class IFEUStructureProcessingTile<T extends IFEUStructureProcess
                 PacketDistributor.sendToAllPlayers(new DirectionSyncS2CPacket(this.getBlockPos(),direction));
             }
 
-            hasCurrentStructure = helper.checkStructure(level,helper.getStructure(),direction,pos);
+            hasCurrentStructure = helper.checkStructure(level,direction,pos);
             PacketDistributor.sendToAllPlayers(new BooleanSyncS2CPacket(pos,List.of(hasCurrentStructure,shouldRenderer,renderFull)));
         }
     }
@@ -158,6 +160,24 @@ public abstract class IFEUStructureProcessingTile<T extends IFEUStructureProcess
                 }
             }.withoutItemBackGround();
         });
+    }
+
+    public boolean isShouldRenderer(){
+        if(hasCurrentStructure){
+            return false;
+        }
+        return shouldRenderer;
+    }
+
+    public int getTime(){
+        return time;
+    }
+
+    public void increaseTime(int delta){
+        this.time = getTime() + delta;
+    }
+    public void setTime(int time){
+        this.time = time;
     }
     @Override
     public void setDirectionValue(Direction value) {

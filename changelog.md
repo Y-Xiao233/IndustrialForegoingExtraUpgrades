@@ -55,6 +55,11 @@
 - 修复了扳手扳掉有nbt的物品时会错误将其nbt清除的bug
 - 各种框架也可以被扳手扳下了
 
+### v1.2.102
+- 优化了大型溶解成型机
+- 更新前置工业先锋版本至3.6.24
+- 更新前置钛版本至4.0.35
+
 ## en_us
 ### v1.0.0
 - init
@@ -109,3 +114,8 @@
 ### v1.2.101
 - Fixed the bug where the wrench mistakenly cleared the nbt of items with nbt when pulling them off
 - Various machine frame can also be pulled down with a wrench
+
+### v1.2.102
+- Optimized the big dissolution chamber
+- Update the industrial foregoing version to 3.6.24
+- Update the titanium version to 4.0.35

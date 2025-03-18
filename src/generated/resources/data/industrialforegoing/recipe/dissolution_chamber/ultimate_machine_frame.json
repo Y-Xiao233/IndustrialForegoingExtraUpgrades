@@ -34,7 +34,7 @@
   ],
   "inputFluid": {
     "amount": 8000,
-    "id": "ifeu:liquid_sculk_matter"
+    "fluid": "ifeu:liquid_sculk_matter"
   },
   "output": {
     "count": 1,
