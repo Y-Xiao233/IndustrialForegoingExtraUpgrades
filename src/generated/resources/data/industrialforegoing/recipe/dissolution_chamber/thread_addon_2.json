@@ -34,7 +34,7 @@
   ],
   "inputFluid": {
     "amount": 2000,
-    "id": "industrialforegoing:latex"
+    "fluid": "industrialforegoing:latex"
   },
   "output": {
     "count": 1,

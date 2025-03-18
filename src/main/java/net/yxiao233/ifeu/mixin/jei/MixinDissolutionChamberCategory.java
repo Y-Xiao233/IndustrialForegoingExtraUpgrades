@@ -17,6 +17,9 @@ import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
+import java.util.Arrays;
+import java.util.Optional;
+
 @Mixin(DissolutionChamberCategory.class)
 public abstract class MixinDissolutionChamberCategory implements IRecipeCategory<DissolutionChamberRecipe> {
     @Shadow @Final private IDrawable smallTank;
@@ -25,11 +28,14 @@ public abstract class MixinDissolutionChamberCategory implements IRecipeCategory
 
     public void setRecipe(IRecipeLayoutBuilder builder, DissolutionChamberRecipe recipe, IFocusGroup focuses) {
         for(int i = 0; i < recipe.input.size(); ++i) {
-            builder.addSlot(RecipeIngredientRole.INPUT, 24 + (Integer) DissolutionChamberTile.getSlotPos(i).getLeft(), 11 + (Integer)DissolutionChamberTile.getSlotPos(i).getRight()).addIngredients((Ingredient)recipe.input.get(i));
+            builder.addSlot(RecipeIngredientRole.INPUT, 24 + (Integer)DissolutionChamberTile.getSlotPos(i).getLeft(), 11 + (Integer)DissolutionChamberTile.getSlotPos(i).getRight()).addIngredients((Ingredient)recipe.input.get(i));
         }
 
-        if (recipe.inputFluid != null && !recipe.inputFluid.isEmpty()) {
-            builder.addSlot(RecipeIngredientRole.CATALYST, 48, 35).setFluidRenderer(1000L, false, 12, 13).setOverlay(this.smallTank, 0, 0).addIngredient(NeoForgeTypes.FLUID_STACK, recipe.inputFluid);
+        if (recipe.inputFluid != null && !recipe.inputFluid.ingredient().isEmpty()) {
+            Optional<FluidStack> optionalInputFluid = Arrays.stream(recipe.inputFluid.getFluids()).findFirst();
+            optionalInputFluid.ifPresent((fluidStack) -> {
+                builder.addSlot(RecipeIngredientRole.CATALYST, 48, 35).setFluidRenderer(1000L, false, 12, 13).setOverlay(this.smallTank, 0, 0).addIngredient(NeoForgeTypes.FLUID_STACK, fluidStack);
+            });
         }
 
         if (!recipe.output.isEmpty()) {
