@@ -272,18 +272,12 @@ public class BigDissolutionChamberEntity extends IFEUStructureProcessingTile<Big
                         "BBB",
                         "AEA"
                 )
-                .define('A', BlockTags.PLANKS)
+                .define('A', FRAME_ADVANCED)
                 .define('B', Blocks.SCULK)
                 .define('C', ModContents.DRAGON_STAR_BLOCK)
                 .define('D', ITEM)
                 .define('E', FLUID)
                 .define('F', ENERGY)
-//                .define('A',ModContents.DRAGON_STAR_BLOCK)
-//                .define('B',ModContents.DRAGON_STAR_BLOCK)
-//                .define('C',ModContents.DRAGON_STAR_BLOCK)
-//                .define('D',ModContents.DRAGON_STAR_BLOCK)
-//                .define('E',ModContents.DRAGON_STAR_BLOCK)
-//                .define('F',ModContents.DRAGON_STAR_BLOCK)
                 .build();
     }
 
