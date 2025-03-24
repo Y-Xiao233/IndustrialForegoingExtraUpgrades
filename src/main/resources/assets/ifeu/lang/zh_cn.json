@@ -61,6 +61,7 @@
   "tooltip.ifeu.black_hole_capacitor_1": "能量: %d FE",
   "tooltip.ifeu.big_dissolution_chamber_core1": "默认最大线程: %d",
   "tooltip.ifeu.required_material": "结构所需的材料: ",
+  "tooltip.titanium.power": "Power: ",
 
   "item.ifeu.liquid_dragon_breath_bucket": "液态龙息桶",
   "item.ifeu.liquid_sculk_matter_bucket": "液态幽匿物质桶",
@@ -106,6 +107,8 @@
   "block.ifeu.black_hole_capacitor_simple": "简约黑洞电容器",
   "block.ifeu.black_hole_capacitor_advanced": "高级黑洞电容器",
   "block.ifeu.black_hole_capacitor_supreme": "至尊黑洞电容器",
+  "block.ifeu.liquid_dragon_breath": "液态龙息",
+  "block.ifeu.liquid_sculk_matter": "液态幽匿物质",
 
   "fluid_type.ifeu.liquid_dragon_breath": "液态龙息",
   "fluid_type.ifeu.liquid_sculk_matter": "液态幽匿物质",

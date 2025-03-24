@@ -65,6 +65,7 @@
   "tooltip.ifeu.black_hole_capacitor_1": "Energy: %d FE",
   "tooltip.ifeu.big_dissolution_chamber_core1": "Default maximum thread: %d",
   "tooltip.ifeu.required_material": "Structure Required Material: ",
+  "tooltip.titanium.power": "Power: ",
 
   "item.ifeu.liquid_dragon_breath_bucket": "Liquid Dragon Breath Bucket",
   "item.ifeu.liquid_sculk_matter_bucket": "Liquid Sculk Matter Bucket",
@@ -110,6 +111,8 @@
   "block.ifeu.black_hole_capacitor_simple": "Simple Black Hole Capacitor",
   "block.ifeu.black_hole_capacitor_advanced": "Advanced Black Hole Capacitor",
   "block.ifeu.black_hole_capacitor_supreme": "Supreme Black Hole Capacitor",
+  "block.ifeu.liquid_dragon_breath": "Liquid Dragon Breath",
+  "block.ifeu.liquid_sculk_matter": "Liquid Sculk Matter",
 
   "fluid_type.ifeu.liquid_dragon_breath": "Liquid Dragon Breath",
   "fluid_type.ifeu.liquid_sculk_matter": "Liquid Sculk Matter",
