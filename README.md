@@ -85,7 +85,7 @@ StartupEvents.registry("item", event =>{
 参数详解:
 	OutputItem:输出物品[ItemStack]
 	InputItems:输入物品列表[[Ingredient...],最多8个输入物品]
-	InputFluid:输入流体[FluidStack]
+	InputFluid:输入流体[FluidIngredients]
 	ProcessingTime:时间[long,单位为tick]
 	OutputFluid:输出流体[FluidStack,可选,默认为空]
 ```

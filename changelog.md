@@ -59,6 +59,10 @@
 - 优化了大型溶解成型机
 - 更新前置工业先锋版本至3.6.24
 - 更新前置钛版本至4.0.35
+- 修复了部分配方无效的bug
+
+### v1.2.103
+- 修复了与KubeJS同装时,配方正确但会报错的bug
 
 ## en_us
 ### v1.0.0
@@ -119,3 +123,7 @@
 - Optimized the big dissolution chamber
 - Update the industrial foregoing version to 3.6.24
 - Update the titanium version to 4.0.35
+- Fixed a bug where some recipes were invalid
+
+### v1.2.103
+- Fixed a bug where the recipe was correct but errors occurred when installed with KubeJS
