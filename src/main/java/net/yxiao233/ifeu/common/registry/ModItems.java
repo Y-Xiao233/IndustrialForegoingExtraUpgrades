@@ -68,7 +68,7 @@ public class ModItems implements IModule {
             }
         });
 
-        SPEED_ADDON_4 = helper.registerGeneric(Registries.ITEM, "speed_addon_4", () -> new ModSpeedAddonItem(4,6, TAB_ADDONS) {
+        SPEED_ADDON_4 = helper.registerGeneric(Registries.ITEM, "speed_addon_4", () -> new ModSpeedAddonItem(4, TAB_ADDONS) {
             @Override
             public void registerRecipe(RecipeOutput consumer) {
                 DissolutionChamberRecipe.createRecipe(consumer, "speed_addon_" + this.formTier,
@@ -87,7 +87,7 @@ public class ModItems implements IModule {
             }
         });
 
-        SPEED_ADDON_5 = helper.registerGeneric(Registries.ITEM, "speed_addon_5", () -> new ModSpeedAddonItem(5,20, TAB_ADDONS) {
+        SPEED_ADDON_5 = helper.registerGeneric(Registries.ITEM, "speed_addon_5", () -> new ModSpeedAddonItem(5, TAB_ADDONS) {
             @Override
             public void registerRecipe(RecipeOutput consumer) {
                 DissolutionChamberRecipe.createRecipe(consumer,"speed_addon_" + this.formTier,
@@ -106,7 +106,7 @@ public class ModItems implements IModule {
             }
         });
 
-        SPEED_ADDON_6 = helper.registerGeneric(Registries.ITEM, "speed_addon_6", () -> new ModSpeedAddonItem(6,100, TAB_ADDONS) {
+        SPEED_ADDON_6 = helper.registerGeneric(Registries.ITEM, "speed_addon_6", () -> new ModSpeedAddonItem(6, TAB_ADDONS) {
             @Override
             public void registerRecipe(RecipeOutput consumer) {
                 DissolutionChamberRecipe.createRecipe(consumer,"speed_addon_" + this.formTier,
