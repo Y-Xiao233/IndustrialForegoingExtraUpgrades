@@ -5,16 +5,12 @@ import com.hrznstudio.titanium.container.BasicAddonContainer;
 import com.hrznstudio.titanium.util.RecipeUtil;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
-import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.registration.*;
 import mezz.jei.api.runtime.IJeiRuntime;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.BucketItem;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.MobBucketItem;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
@@ -25,13 +21,10 @@ import net.yxiao233.ifeu.common.compact.jei.category.*;
 import net.yxiao233.ifeu.common.config.machine.DragonGeneratorConfig;
 import net.yxiao233.ifeu.common.config.machine.DragonStarGeneratorConfig;
 import net.yxiao233.ifeu.common.recipe.*;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.registry.ModContents;
-import net.yxiao233.ifeu.common.registry.ModFluids;
-import net.yxiao233.ifeu.common.registry.ModRecipes;
+import net.yxiao233.ifeu.common.registry.*;
+import net.yxiao233.ifeu.common.utils.JEIUtil;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @JeiPlugin
@@ -43,7 +36,8 @@ public class JEIPlugin implements IModPlugin {
 
     @Override
     public void onRuntimeAvailable(IJeiRuntime jeiRuntime) {
-        jeiRuntime.getIngredientManager().removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK, Collections.singletonList(new ItemStack(ModContents.AIR.get())));
+        JEIUtil util = new JEIUtil(jeiRuntime);
+        util.removeItemStack(ModContents.AIR);
     }
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {

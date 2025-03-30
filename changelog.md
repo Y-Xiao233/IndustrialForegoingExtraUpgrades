@@ -113,6 +113,10 @@
 ### v2.1.102
 - 优化了大型溶解成型机
 
+### v2.1.103
+- 降低了速度升级数值
+- 更新了jp_jp[\#36 by twister716](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/pull/36)
+
 ## en_us
 ### v1.0.0
 - init
@@ -224,3 +228,7 @@
 
 ### v2.1.102
 - Optimized the big dissolution chamber
+
+### v2.1.103
+- 降低了速度升级数值
+- Update jp_jp[\#36 by twister716](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/pull/36)

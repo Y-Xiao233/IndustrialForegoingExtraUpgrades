@@ -66,7 +66,7 @@ public class ModItems implements IModule {
             }
         });
 
-        SPEED_ADDON_4 = helper.registerGeneric(ForgeRegistries.ITEMS.getRegistryKey(), "speed_addon_4", () -> new ModSpeedAddonItem(4,6, TAB_ADDONS) {
+        SPEED_ADDON_4 = helper.registerGeneric(ForgeRegistries.ITEMS.getRegistryKey(), "speed_addon_4", () -> new ModSpeedAddonItem(4,TAB_ADDONS) {
             @Override
             public void registerRecipe(Consumer<FinishedRecipe> consumer) {
                 new DissolutionChamberRecipe(ForgeRegistries.ITEMS.getKey(this), new Ingredient.Value[] {
@@ -84,7 +84,7 @@ public class ModItems implements IModule {
             }
         });
 
-        SPEED_ADDON_5 = helper.registerGeneric(ForgeRegistries.ITEMS.getRegistryKey(), "speed_addon_5", () -> new ModSpeedAddonItem(5,20, TAB_ADDONS) {
+        SPEED_ADDON_5 = helper.registerGeneric(ForgeRegistries.ITEMS.getRegistryKey(), "speed_addon_5", () -> new ModSpeedAddonItem(5,TAB_ADDONS) {
             @Override
             public void registerRecipe(Consumer<FinishedRecipe> consumer) {
                 new DissolutionChamberRecipe(ForgeRegistries.ITEMS.getKey(this), new Ingredient.Value[] {
@@ -102,7 +102,7 @@ public class ModItems implements IModule {
             }
         });
 
-        SPEED_ADDON_6 = helper.registerGeneric(ForgeRegistries.ITEMS.getRegistryKey(), "speed_addon_6", () -> new ModSpeedAddonItem(6,100, TAB_ADDONS) {
+        SPEED_ADDON_6 = helper.registerGeneric(ForgeRegistries.ITEMS.getRegistryKey(), "speed_addon_6", () -> new ModSpeedAddonItem(6,TAB_ADDONS) {
             @Override
             public void registerRecipe(Consumer<FinishedRecipe> consumer) {
                 new DissolutionChamberRecipe(ForgeRegistries.ITEMS.getKey(this), new Ingredient.Value[] {

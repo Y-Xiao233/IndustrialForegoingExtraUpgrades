@@ -55,5 +55,4 @@ public class ModContents {
 
     //for recipe as "minecraft:air"
     public static final RegistryObject<Item> AIR = ITEMS.register("air", () -> new Item(new Item.Properties()));
-
 }
