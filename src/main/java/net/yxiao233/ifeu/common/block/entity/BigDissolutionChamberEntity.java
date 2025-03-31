@@ -30,6 +30,7 @@ import net.yxiao233.ifeu.api.structure.MultiBlockStructureBuilder;
 import net.yxiao233.ifeu.common.config.machine.BigDissolutionChamberConfig;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModContents;
+import net.yxiao233.ifeu.common.structure.IFEUMultiBlockStructures;
 import net.yxiao233.ifeu.common.utils.AugmentInventoryHelper;
 import net.yxiao233.ifeu.common.utils.InventoryComponentHelper;
 import org.apache.commons.lang3.tuple.Pair;
@@ -263,33 +264,7 @@ public class BigDissolutionChamberEntity extends IFEUStructureProcessingTile<Big
 
     @Override
     public MultiBlockStructure multiBlockStructure() {
-        return structure();
-    }
-
-    public static MultiBlockStructure structure(){
-        return new MultiBlockStructureBuilder()
-                .pattern(
-                        "ABA",
-                        "BBB",
-                        "A A"
-                )
-                .pattern(
-                        "BBB",
-                        "BCB",
-                        "DMD"
-                )
-                .pattern(
-                        "ABA",
-                        "BBB",
-                        "AEA"
-                )
-                .define('A', FRAME_SIMPLE)
-                .define('B', Blocks.SCULK)
-                .define('C', ModContents.DRAGON_STAR_BLOCK)
-                .define('D', ITEM)
-                .define('E', FLUID)
-//                .define('F', ENERGY)
-                .build();
+        return IFEUMultiBlockStructures.BIG_DISSOLUTION_CHAMBER.getStructure();
     }
 
     @Override

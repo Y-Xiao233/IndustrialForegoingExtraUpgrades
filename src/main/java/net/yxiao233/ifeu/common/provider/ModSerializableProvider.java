@@ -15,6 +15,8 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.material.Fluids;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.fluids.FluidStack;
+import net.yxiao233.ifeu.api.recipe.builder.IFEURecipeBuilder;
+import net.yxiao233.ifeu.api.recipe.builder.ShapedRecipeBuilder;
 import net.yxiao233.ifeu.common.recipe.ArcaneDragonEggForgingRecipe;
 import net.yxiao233.ifeu.common.recipe.ShapedRecipe;
 import net.yxiao233.ifeu.common.recipe.InfuserRecipe;
@@ -260,22 +262,17 @@ public class ModSerializableProvider{
                 ModContents.CONNECT_TOOL.get().getDefaultInstance()
         ));
 
-        ShapedRecipe.createRecipe(recipeOutput,"big_dissolution_chamber_core",new ShapedRecipe(
-                List.of(
-                        tagValue(IndustrialTags.Items.PLASTIC),
-                        tagValue(Tags.Items.BUCKETS),
-                        tagValue(IndustrialTags.Items.PLASTIC),
-                        itemValue(ModuleCore.DISSOLUTION_CHAMBER.asItem().getDefaultInstance()),
-                        tagValue(ModTags.Items.MACHINE_FRAME_ULTIMATE),
-                        itemValue(ModuleCore.DISSOLUTION_CHAMBER.asItem().getDefaultInstance()),
-                        tagValue(IndustrialTags.Items.PLASTIC),
-                        tagValue(Tags.Items.CHESTS),
-                        tagValue(IndustrialTags.Items.PLASTIC)
-
-                ),new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),1000),
-                ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.asItem().getDefaultInstance()
-        ));
-
+        new ShapedRecipeBuilder(ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.asItem().getDefaultInstance())
+                .pattern("ABA")
+                .pattern("CDC")
+                .pattern("AEA")
+                .define('A',IndustrialTags.Items.PLASTIC)
+                .define('B',Tags.Items.BUCKETS)
+                .define('C',ModuleCore.DISSOLUTION_CHAMBER.asItem().getDefaultInstance())
+                .define('D',ModTags.Items.MACHINE_FRAME_ULTIMATE)
+                .define('E',Tags.Items.CHESTS)
+                .fluid(new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),1000))
+                .save(recipeOutput);
         //shapeless
             //有多少输入写多少
         ShapelessRecipe.createRecipe(recipeOutput,"dragon_star_from_block",new ShapelessRecipe(

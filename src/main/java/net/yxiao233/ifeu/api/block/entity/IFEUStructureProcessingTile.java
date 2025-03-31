@@ -2,7 +2,6 @@ package net.yxiao233.ifeu.api.block.entity;
 
 import com.buuz135.industrial.block.tile.IndustrialProcessingTile;
 import com.buuz135.industrial.proxy.client.IndustrialAssetProvider;
-import com.buuz135.industrial.utils.IndustrialTags;
 import com.hrznstudio.titanium.annotation.Save;
 import com.hrznstudio.titanium.api.IFactory;
 import com.hrznstudio.titanium.api.client.AssetTypes;
@@ -20,10 +19,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
@@ -36,7 +33,6 @@ import net.yxiao233.ifeu.api.structure.MultiBlockStructure;
 import net.yxiao233.ifeu.common.gui.AllGuiTextures;
 import net.yxiao233.ifeu.common.networking.packet.BooleanSyncS2CPacket;
 import net.yxiao233.ifeu.common.networking.packet.DirectionSyncS2CPacket;
-import net.yxiao233.ifeu.common.registry.ModTags;
 
 import java.util.Collections;
 import java.util.List;
@@ -51,15 +47,6 @@ public abstract class IFEUStructureProcessingTile<T extends IFEUStructureProcess
     private MultiBlockStructure helper;
     private int time = 0;
     public ButtonComponent structureButton;
-    //base structure block tag
-    public static final TagKey<Block> ENERGY = ModTags.Blocks.STORAGE_ENERGY;
-    public static final TagKey<Block> FLUID = ModTags.Blocks.STORAGE_FLUID;
-    public static final TagKey<Block> ITEM = ModTags.Blocks.STORAGE_ITEM;
-    public static final TagKey<Block> FRAME_PITY = IndustrialTags.Blocks.MACHINE_FRAME_PITY;
-    public static final TagKey<Block> FRAME_SIMPLE = IndustrialTags.Blocks.MACHINE_FRAME_SIMPLE;
-    public static final TagKey<Block> FRAME_ADVANCED = IndustrialTags.Blocks.MACHINE_FRAME_ADVANCED;
-    public static final TagKey<Block> FRAME_SUPREME = IndustrialTags.Blocks.MACHINE_FRAME_SUPREME;
-    public static final TagKey<Block> FRAME_ULTIMATE = ModTags.Blocks.MACHINE_FRAME_ULTIMATE;
     public IFEUStructureProcessingTile(BlockWithTile basicTileBlock, int x, int y, BlockPos blockPos, BlockState blockState) {
         super(basicTileBlock, x, y, blockPos, blockState);
 
