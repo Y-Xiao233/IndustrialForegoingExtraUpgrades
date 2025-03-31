@@ -12,6 +12,7 @@ import net.yxiao233.ifeu.api.block.IFEUStructureBlock;
 import net.yxiao233.ifeu.common.block.entity.BigDissolutionChamberEntity;
 import net.yxiao233.ifeu.common.config.machine.BigDissolutionChamberConfig;
 import net.yxiao233.ifeu.common.registry.ModItems;
+import net.yxiao233.ifeu.common.structure.IFEUMultiBlockStructures;
 import net.yxiao233.ifeu.common.utils.TooltipHelper;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -35,6 +36,6 @@ public class BigDissolutionChamberBlock extends IFEUStructureBlock<BigDissolutio
 
     @Override
     public Pair<List<MutableComponent>, ChatFormatting> getMaterialList(ItemStack stack, List<Component> tooltips) {
-        return Pair.of(BigDissolutionChamberEntity.structure().getMaterialList(),ChatFormatting.GREEN);
+        return Pair.of(IFEUMultiBlockStructures.BIG_DISSOLUTION_CHAMBER.getStructure().getMaterialList(),ChatFormatting.GREEN);
     }
 }

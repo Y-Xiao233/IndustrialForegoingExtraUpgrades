@@ -39,7 +39,7 @@
   "output": {
     "components": {
       "titanium:augments": {
-        "Speed": 21.0
+        "Speed": 6.0
       }
     },
     "count": 1,
