@@ -36,13 +36,16 @@ public enum IFEUMultiBlockStructures {
     )
     ;
 
-    private final MultiBlockStructure structure;
+    private MultiBlockStructure structure;
     IFEUMultiBlockStructures(MultiBlockStructure structure){
         this.structure = structure;
     }
 
     public MultiBlockStructure getStructure() {
         return structure;
+    }
+    public void modify(MultiBlockStructure newStructure){
+        this.structure = newStructure;
     }
     //base structure block tag
     private static TagKey<Block> ENERGY(){
