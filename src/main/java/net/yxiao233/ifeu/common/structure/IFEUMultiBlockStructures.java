@@ -9,8 +9,10 @@ import net.yxiao233.ifeu.api.structure.MultiBlockStructureBuilder;
 import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.registry.ModTags;
 
+import java.util.function.Supplier;
+
 public enum IFEUMultiBlockStructures {
-    BIG_DISSOLUTION_CHAMBER(new MultiBlockStructureBuilder()
+    BIG_DISSOLUTION_CHAMBER(() -> new MultiBlockStructureBuilder()
                 .pattern(
                         "ABA",
                         "BBB",
@@ -28,7 +30,7 @@ public enum IFEUMultiBlockStructures {
                 )
                 .define('A', FRAME_SIMPLE())
                 .define('B', Blocks.SCULK)
-                .define('C', ModContents.DRAGON_STAR_BLOCK)
+                .define('C', ModContents.DRAGON_STAR_BLOCK.get())
                 .define('D', ITEM())
                 .define('E', FLUID())
 //                .define('F', ENERGY)
@@ -36,16 +38,16 @@ public enum IFEUMultiBlockStructures {
     )
     ;
 
-    private MultiBlockStructure structure;
-    IFEUMultiBlockStructures(MultiBlockStructure structure){
+    private Supplier<MultiBlockStructure> structure;
+    IFEUMultiBlockStructures(Supplier<MultiBlockStructure> structure){
         this.structure = structure;
     }
 
     public MultiBlockStructure getStructure() {
-        return structure;
+        return structure.get();
     }
     public void modify(MultiBlockStructure newStructure){
-        this.structure = newStructure;
+        this.structure = () -> newStructure;
     }
     //base structure block tag
     private static TagKey<Block> ENERGY(){
