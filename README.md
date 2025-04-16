@@ -23,6 +23,34 @@ StartupEvents.registry("item", event =>{
 })
 ```
 
+## 该mod支持通过KubeJS来修改由该mod添加的机器多方块结构
+### 示例
+```JavaScript
+IFEUEvents.structureModify(event =>{
+    event.modify(IFEUMultiBlockStructures.BIG_DISSOLUTION_CHAMBER,new MultiBlockStructureBuilder()
+        .pattern(
+            "AAA",
+            "AAA",
+            "AAA"
+        )
+        .pattern(
+            "BBB",
+            "BBB",
+            "BMB"
+        )
+        .pattern(
+            "CCC",
+            "CCC",
+            "CCC"
+        )
+        .define('A', Blocks.STONE)
+        .define('B', Blocks.IRON_BLOCK)
+        .define('C', Blocks.GOLD_BLOCK)
+        .build()
+    )
+})
+```
+
 ## 该mod支持通过KubeJS来添加工业先锋的机器配方(强烈建议配合probejs一起食用)
 - Infuser 灌注器```event.recipes.ifeu.infuser(OutputItem,InputItem,InputFluid,ProcessingTime)```
 ```
