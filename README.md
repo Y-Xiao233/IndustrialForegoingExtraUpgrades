@@ -23,7 +23,7 @@ StartupEvents.registry("item", event =>{
 })
 ```
 
-## 该mod支持通过KubeJS来修改由该mod添加的机器多方块结构
+## 该mod支持通过KubeJS来修改由该mod添加的机器多方块结构(需要放在startup_scripts下)
 ### 示例
 ```JavaScript
 IFEUEvents.structureModify(event =>{
