@@ -117,6 +117,10 @@
 - 降低了速度升级数值
 - 更新了jp_jp[\#36 by twister716](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/pull/36)
 
+### v2.1.104
+- 更改了部分文件结构
+- 添加了KubeJS对本模组多方块机器结构的支持(可以使用KubeJS修改机器所需的结构)
+
 ## en_us
 ### v1.0.0
 - init
@@ -232,3 +236,7 @@
 ### v2.1.103
 - 降低了速度升级数值
 - Update jp_jp[\#36 by twister716](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/pull/36)
+
+### v2.1.104
+- Changed some file structures
+- Added KubeJS support for the MultiBlock machine structure of this mod (you can use KubeJS to modify the structure required by the machine)

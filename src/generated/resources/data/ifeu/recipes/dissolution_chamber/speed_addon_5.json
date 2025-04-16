@@ -30,7 +30,7 @@
   "output": {
     "count": 1,
     "item": "ifeu:speed_addon_5",
-    "nbt": "{TitaniumAugment:{Speed:21.0f}}"
+    "nbt": "{TitaniumAugment:{Speed:6.0f}}"
   },
   "processingTime": 200
 }

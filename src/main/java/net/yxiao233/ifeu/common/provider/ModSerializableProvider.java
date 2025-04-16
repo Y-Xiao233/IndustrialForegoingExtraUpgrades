@@ -22,6 +22,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.fluids.FluidStack;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
+import net.yxiao233.ifeu.api.recipe.builder.ShapedRecipeBuilder;
 import net.yxiao233.ifeu.common.recipe.ArcaneDragonEggForgingRecipe;
 import net.yxiao233.ifeu.common.recipe.ShapedRecipe;
 import net.yxiao233.ifeu.common.recipe.InfuserRecipe;
@@ -300,21 +301,33 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                 ModBlocks.BLACK_HOLE_CAPACITOR_ADVANCED.getLeft().get().asItem().getDefaultInstance()
         );
 
-        new ShapedRecipe(IFEU("black_hole_capacitor_supreme"),
-                new Ingredient.Value[]{
-                        tagValue(IndustrialTags.Items.PLASTIC),
-                        tagValue(IndustrialTags.Items.PLASTIC),
-                        tagValue(IndustrialTags.Items.PLASTIC),
-                        tagValue(Tags.Items.ENDER_PEARLS),
-                        itemValue(Items.ENDER_EYE.getDefaultInstance()),
-                        tagValue(Tags.Items.ENDER_PEARLS),
-                        tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE),
-                        tagValue(IndustrialTags.Items.MACHINE_FRAME_SUPREME),
-                        tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE)
-                },
-                new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),2000),
-                ModBlocks.BLACK_HOLE_CAPACITOR_SUPREME.getLeft().get().asItem().getDefaultInstance()
-        );
+//        new ShapedRecipe(IFEU("black_hole_capacitor_supreme"),
+//                new Ingredient.Value[]{
+//                        tagValue(IndustrialTags.Items.PLASTIC),
+//                        tagValue(IndustrialTags.Items.PLASTIC),
+//                        tagValue(IndustrialTags.Items.PLASTIC),
+//                        tagValue(Tags.Items.ENDER_PEARLS),
+//                        itemValue(Items.ENDER_EYE.getDefaultInstance()),
+//                        tagValue(Tags.Items.ENDER_PEARLS),
+//                        tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE),
+//                        tagValue(IndustrialTags.Items.MACHINE_FRAME_SUPREME),
+//                        tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE)
+//                },
+//                new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),2000),
+//                ModBlocks.BLACK_HOLE_CAPACITOR_SUPREME.getLeft().get().asItem().getDefaultInstance()
+//        );
+
+        new ShapedRecipeBuilder(ModBlocks.BLACK_HOLE_CAPACITOR_SUPREME.getLeft().get().asItem().getDefaultInstance())
+                .pattern("AAA")
+                .pattern("BCB")
+                .pattern("DED")
+                .define('A', IndustrialTags.Items.PLASTIC)
+                .define('B', Tags.Items.ENDER_PEARLS)
+                .define('C', Items.ENDER_EYE.getDefaultInstance())
+                .define('D', Tags.Items.STORAGE_BLOCKS_REDSTONE)
+                .define('E', IndustrialTags.Items.MACHINE_FRAME_SUPREME)
+                .fluid(new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),2000))
+                .save();
 
         //shapeless
             //有多少输入写多少

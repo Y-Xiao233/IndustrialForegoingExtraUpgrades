@@ -3,10 +3,22 @@ package net.yxiao233.ifeu.common.compact.kubejs;
 import dev.latvian.mods.kubejs.KubeJSPlugin;
 import dev.latvian.mods.kubejs.recipe.schema.RegisterRecipeSchemasEvent;
 import dev.latvian.mods.kubejs.registry.RegistryInfo;
+import dev.latvian.mods.kubejs.script.BindingsEvent;
+import dev.latvian.mods.kubejs.script.ScriptType;
+import net.yxiao233.ifeu.api.structure.MultiBlockStructureBuilder;
+import net.yxiao233.ifeu.common.compact.kubejs.events.IFEUEvents;
+import net.yxiao233.ifeu.common.compact.kubejs.events.IFEUStructuresEvent;
 import net.yxiao233.ifeu.common.compact.kubejs.items.*;
 import net.yxiao233.ifeu.common.compact.kubejs.schemas.*;
+import net.yxiao233.ifeu.common.structure.IFEUMultiBlockStructures;
 
 public class ModKubeJSPlugin extends KubeJSPlugin {
+
+    @Override
+    public void registerBindings(BindingsEvent event) {
+        event.add("IFEUMultiBlockStructures", IFEUMultiBlockStructures.class);
+        event.add("MultiBlockStructureBuilder", MultiBlockStructureBuilder.class);
+    }
 
     @Override
     public void init() {
@@ -32,5 +44,16 @@ public class ModKubeJSPlugin extends KubeJSPlugin {
                 .register("laser_drill_fluid", LaserDrillFluidSchema.SCHEMA)
                 .register("laser_drill_ore", LaserDrillOreSchema.SCHEMA)
                 .register("stonework_generate", StoneWorkGenerateSchema.SCHEMA);
+    }
+
+    @Override
+    public void registerEvents() {
+        IFEUEvents.GROUP.register();
+    }
+
+    @Override
+    public void afterInit() {
+        var structure = new IFEUStructuresEvent();
+        IFEUEvents.STRUCTURES.post(ScriptType.STARTUP, structure);
     }
 }

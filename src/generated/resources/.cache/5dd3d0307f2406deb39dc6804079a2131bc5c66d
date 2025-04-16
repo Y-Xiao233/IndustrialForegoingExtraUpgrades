@@ -1,4 +1,4 @@
-// 1.20.1	2025-03-12T11:47:15.029544	Titanium Serializable (ifeu)
+// 1.20.1	2025-04-16T20:20:03.5374024	Titanium Serializable (ifeu)
 5a32aaf5edd8a63da8d7dbbc3e98ee222f54e549 data/ifeu/recipes/arcane_dragon_egg_forging/dead_dragon_egg.json
 ee98c1c55d06b1ef40bcf4b3ff86cabb9ceb5e93 data/ifeu/recipes/arcane_dragon_egg_forging/egg_1.json
 8d37adb344b2eb92c22f350e100824d2620a4f40 data/ifeu/recipes/arcane_dragon_egg_forging/egg_2.json
@@ -15,9 +15,9 @@ a9c332b590cd6a60ffba23ba3e66c4e9d0a42c7d data/ifeu/recipes/dissolution_chamber/l
 d1bbf0af46d750a05fe482838b2ff89454f0ee15 data/ifeu/recipes/dissolution_chamber/processing_addon_5.json
 5ee29a3787e6a7b95775b35c0d4e785d52bc4441 data/ifeu/recipes/dissolution_chamber/processing_addon_6.json
 dec137485956e28db83e71225ab5aaba19011ba9 data/ifeu/recipes/dissolution_chamber/speed_addon_3.json
-d74591305be55bfa1cada4f43c0b2766f5c7e1e9 data/ifeu/recipes/dissolution_chamber/speed_addon_4.json
-b0e0d66c7be5b34930377002dd74490766f2bbd9 data/ifeu/recipes/dissolution_chamber/speed_addon_5.json
-846380115b045724a3d2a22678a5cfe1c30ba16d data/ifeu/recipes/dissolution_chamber/speed_addon_6.json
+21db4005cee0932439763aa659bc87241f7ebff0 data/ifeu/recipes/dissolution_chamber/speed_addon_4.json
+5a4b437bc2950d32cd3937023b1740faaf5b905f data/ifeu/recipes/dissolution_chamber/speed_addon_5.json
+a50c25e7115fba8664b3924a702f602974a0501a data/ifeu/recipes/dissolution_chamber/speed_addon_6.json
 d6003023c4789a93cfa05d8b5302d5d112eff5d5 data/ifeu/recipes/dissolution_chamber/thread_addon_1.json
 d0a325cae02c9622f5086b16fd9e7006797d0b92 data/ifeu/recipes/dissolution_chamber/thread_addon_2.json
 e19de868a30b46379722545a91b4a4d6e1edffe7 data/ifeu/recipes/dissolution_chamber/thread_addon_3.json
