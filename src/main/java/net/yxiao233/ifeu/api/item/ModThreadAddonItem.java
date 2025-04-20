@@ -30,9 +30,4 @@ public class ModThreadAddonItem extends IFEUAddonItem {
     public boolean hasTooltipDetails(@Nullable BasicItem.Key key) {
         return key == null;
     }
-
-    @Override
-    public void registerRecipe(RecipeOutput recipeOutput) {
-
-    }
 }

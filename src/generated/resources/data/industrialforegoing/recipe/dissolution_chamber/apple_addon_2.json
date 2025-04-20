@@ -1,0 +1,44 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "ifeu:apple_addon_2"
+    }
+  ],
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "tag": "c:dusts/redstone"
+    },
+    {
+      "tag": "c:dusts/redstone"
+    },
+    {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "tag": "c:gears/diamond"
+    },
+    {
+      "tag": "c:gears/diamond"
+    },
+    {
+      "item": "ifeu:apple_addon_1"
+    },
+    {
+      "item": "ifeu:apple_core"
+    }
+  ],
+  "inputFluid": {
+    "amount": 100,
+    "fluid": "ifeu:liquid_malic_acid"
+  },
+  "output": {
+    "count": 1,
+    "id": "ifeu:apple_addon_2"
+  },
+  "processingTime": 200
+}

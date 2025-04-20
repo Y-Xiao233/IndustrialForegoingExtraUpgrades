@@ -1,0 +1,44 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "ifeu:apple_addon_6"
+    }
+  ],
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "tag": "c:dusts/redstone"
+    },
+    {
+      "tag": "c:dusts/redstone"
+    },
+    {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "item": "ifeu:apple_addon_5"
+    },
+    {
+      "item": "ifeu:apple_core"
+    }
+  ],
+  "inputFluid": {
+    "amount": 8000,
+    "fluid": "ifeu:liquid_malic_acid"
+  },
+  "output": {
+    "count": 1,
+    "id": "ifeu:apple_addon_6"
+  },
+  "processingTime": 200
+}

@@ -72,6 +72,11 @@
 - 更改了部分文件结构
 - 添加了KubeJS对本模组多方块机器结构的支持(可以使用KubeJS修改机器所需的结构)
 
+### v1.2.106
+- 为灌注器新添了一些配方
+- 添加了新的插件(苹果插件,用于水培床增加苹果产量)
+- 添加了下界之星增产方法
+
 ## en_us
 ### v1.0.0
 - init
@@ -143,3 +148,8 @@
 ### v1.2.105
 - Changed some file structures
 - Added KubeJS support for the MultiBlock machine structure of this mod (you can use KubeJS to modify the structure required by the machine)
+
+### v1.2.106
+- Added some new recipes to the infuser
+- Added a new addon (Apple addon for increasing apple yield in hydroponic beds)
+- Added the Lower bound Star method for increasing production
