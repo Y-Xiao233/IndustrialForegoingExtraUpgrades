@@ -1,0 +1,44 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "ifeu:rough_dragon_star"
+    }
+  ],
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "item": "ifeu:empty_nether_star"
+    },
+    {
+      "item": "minecraft:wither_skeleton_skull"
+    },
+    {
+      "item": "ifeu:empty_nether_star"
+    },
+    {
+      "tag": "c:rods/blaze"
+    },
+    {
+      "tag": "c:rods/blaze"
+    },
+    {
+      "tag": "c:storage_blocks/diamond"
+    },
+    {
+      "tag": "c:rods/blaze"
+    },
+    {
+      "tag": "c:storage_blocks/diamond"
+    }
+  ],
+  "inputFluid": {
+    "amount": 200,
+    "fluid": "ifeu:dragon_star_essence"
+  },
+  "output": {
+    "count": 2,
+    "id": "ifeu:rough_dragon_star"
+  },
+  "processingTime": 200
+}

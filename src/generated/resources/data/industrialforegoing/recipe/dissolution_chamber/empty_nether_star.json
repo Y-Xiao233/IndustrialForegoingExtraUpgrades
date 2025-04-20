@@ -1,0 +1,44 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "ifeu:empty_nether_star"
+    }
+  ],
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "item": "minecraft:nether_star"
+    },
+    {
+      "tag": "c:plastics"
+    },
+    {
+      "item": "minecraft:nether_star"
+    },
+    {
+      "tag": "c:plastics"
+    },
+    {
+      "tag": "c:plastics"
+    },
+    {
+      "item": "minecraft:nether_star"
+    },
+    {
+      "tag": "c:plastics"
+    },
+    {
+      "item": "minecraft:nether_star"
+    }
+  ],
+  "inputFluid": {
+    "amount": 4000,
+    "fluid": "ifeu:liquid_malic_acid"
+  },
+  "output": {
+    "count": 4,
+    "id": "ifeu:empty_nether_star"
+  },
+  "processingTime": 200
+}

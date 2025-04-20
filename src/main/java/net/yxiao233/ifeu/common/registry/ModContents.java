@@ -27,6 +27,9 @@ public class ModContents {
     public static final DeferredItem<Item> CONNECT_TOOL = ITEMS.register("connect_tool", () -> new ConnectToolItem(new Item.Properties().stacksTo(1)));
     public static final DeferredItem<Item> WRENCH = ITEMS.register("wrench", () -> new WrenchItem(new Item.Properties().stacksTo(1)));
     public static final DeferredItem<Item> CONFIGURATION_TOOL = ITEMS.register("configuration_tool", () -> new  ConfigurationToolItem(new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<Item> ROUGH_DRAGON_STAR = ITEMS.register("rough_dragon_star", () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
+    public static final DeferredItem<Item> EMPTY_NETHER_STAR = ITEMS.register("empty_nether_star", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final DeferredItem<Item> APPLE_CORE = ITEMS.register("apple_core", () -> new Item(new Item.Properties().food(ModFoodProperties.APPLE_CORE)));
 
     //Tool
     public static final DeferredItem<Item> DRAGON_STAR_PICKAXE = ITEMS.register("dragon_star_pickaxe",() -> new PickaxeItem(ModTiers.DRAGON_STAR,(new Item.Properties().attributes(PickaxeItem.createAttributes(ModTiers.DRAGON_STAR,1,-2.8F)).fireResistant().rarity(CustomRarity.SUPREME.getValue()))));

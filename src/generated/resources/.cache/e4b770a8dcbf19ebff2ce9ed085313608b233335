@@ -1,8 +1,16 @@
-// 1.21.1	2025-03-11T23:49:40.0672583	ifeu - ItemModel
+// 1.21.1	2025-04-20T18:07:35.7917279	ifeu - ItemModel
+954b2a22822a91fd5087a685934f027e85c73429 assets/ifeu/models/item/apple_addon_1.json
+010431de6f66008e97c28278342d9f0ea7c7fd39 assets/ifeu/models/item/apple_addon_2.json
+b685ea69b56d6df59a6825ab0ccee46a07f213c0 assets/ifeu/models/item/apple_addon_3.json
+da0c680b915e8e429343a853185bc72d763e33f4 assets/ifeu/models/item/apple_addon_4.json
+27f04d3c2a30e6ad09581432e535ad8ed90be91c assets/ifeu/models/item/apple_addon_5.json
+a4bf16d4c591af91b074e1b55069ed0f7671b26e assets/ifeu/models/item/apple_addon_6.json
+8062230371ded3ca5cbfcbd9da38606c3343e750 assets/ifeu/models/item/apple_core.json
 a80ba5791f486d90e80b979e33d4d7636e63b0a4 assets/ifeu/models/item/configuration_tool.json
 61eb8818a87b17926779456709825e721abb092d assets/ifeu/models/item/connect_tool.json
 4954c2de2f229dc6891c84b879aa2c46bc052b21 assets/ifeu/models/item/dragon_star.json
 8ec369f49a195ee9cadcfa86a240cd662ce097d0 assets/ifeu/models/item/dragon_star_axe.json
+de239f82bee0505adbaf4886b8da0b67d9c41464 assets/ifeu/models/item/dragon_star_essence_bucket.json
 60fc9ad634f9facf392a4e6f26573f0966cba8dc assets/ifeu/models/item/dragon_star_hoe.json
 3145c8bafada3138011d2109bae202349e284747 assets/ifeu/models/item/dragon_star_pickaxe.json
 8f2cca6b051c1b9ea81f9bbfa42881097cb9aa1c assets/ifeu/models/item/dragon_star_shovel.json
@@ -11,15 +19,18 @@ a80ba5791f486d90e80b979e33d4d7636e63b0a4 assets/ifeu/models/item/configuration_t
 5f1cdb8b73b632aa4d1838e5dd5732c5c80514d8 assets/ifeu/models/item/efficiency_addon_4.json
 9bae33867b451297e561d7e0855602d5216f6b5b assets/ifeu/models/item/efficiency_addon_5.json
 e2ccb756d4fa94a1bfa0bcdf82071040119ebe1c assets/ifeu/models/item/efficiency_addon_6.json
+ce618c8597bbc981eb767641206934e92ad5d8d4 assets/ifeu/models/item/empty_nether_star.json
 d37d6ec3fce052d157ee9222dc9887f7fe543a7d assets/ifeu/models/item/laser_lens_dragon.json
 ea11f5c33f99af4c3147cf713e62524098223344 assets/ifeu/models/item/laser_lens_sculk.json
 07ea1fd916b8e46ab0f163a7a0fdae08b5cf6ef3 assets/ifeu/models/item/liquid_dragon_breath_bucket.json
+e0e14a873cb970eef1c3a906bbcfe845f360d36e assets/ifeu/models/item/liquid_malic_acid_bucket.json
 61f92fa8810ccb3919619f826fc4bc0b07cb5f1b assets/ifeu/models/item/liquid_sculk_matter_bucket.json
 dbc9d8451f8b4e1aaf0d19a292bdc3d443e02788 assets/ifeu/models/item/netherite_gear.json
 870b2211e2a54c553e68315e1fef30052ed543e5 assets/ifeu/models/item/processing_addon_3.json
 9c0d4ec52e87927156cae2617f48bb25da020787 assets/ifeu/models/item/processing_addon_4.json
 9e03d5fe09b255889706efaed0af7b681a8bfe6d assets/ifeu/models/item/processing_addon_5.json
 0b32438956ef92c8e64c63557845a0f1ecb25a27 assets/ifeu/models/item/processing_addon_6.json
+6df8121d373deaf3b3b0568002864e0209ad4adf assets/ifeu/models/item/rough_dragon_star.json
 97ede24dd3923a4acf61eea083aeca90eca35d70 assets/ifeu/models/item/sculk_gear.json
 e0634aa8081f6387f673044b54c4e26a036077f5 assets/ifeu/models/item/speed_addon_3.json
 bfa120dc033152830e9157ce97e7737d8c6a8cae assets/ifeu/models/item/speed_addon_4.json

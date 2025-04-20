@@ -1,0 +1,48 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "ifeu:apple_core"
+    }
+  ],
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:apple"
+    }
+  ],
+  "inputFluid": {
+    "amount": 100,
+    "fluid": "industrialforegoing:ether_gas"
+  },
+  "output": {
+    "count": 8,
+    "id": "ifeu:apple_core"
+  },
+  "outputFluid": {
+    "amount": 10,
+    "id": "ifeu:liquid_malic_acid"
+  },
+  "processingTime": 200
+}

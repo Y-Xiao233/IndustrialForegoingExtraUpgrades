@@ -125,7 +125,7 @@ IFEUEvents.structureModify(event =>{
     InputItem:输入物品列表[Ingredient]
     breakChance:破坏概率[float]
     result:方块在被破坏后会变成什么[BlockState]
-    defaultRecipe:是否为默认配方[booleam,默认为false,若配方添加不成功请在结尾写上该参数]
+    defaultRecipe:是否为默认配方[boolean,默认为false,若配方添加不成功请在结尾写上该参数]
 ```
 
 ### 示例

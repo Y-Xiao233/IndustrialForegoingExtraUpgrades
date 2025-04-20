@@ -1,0 +1,15 @@
+{
+  "type": "industrialforegoing:fluid_extractor",
+  "breakChance": 0.01,
+  "defaultRecipe": false,
+  "input": {
+    "item": "ifeu:dragon_star_block"
+  },
+  "output": {
+    "amount": 2,
+    "id": "ifeu:dragon_star_essence"
+  },
+  "result": {
+    "Name": "minecraft:air"
+  }
+}

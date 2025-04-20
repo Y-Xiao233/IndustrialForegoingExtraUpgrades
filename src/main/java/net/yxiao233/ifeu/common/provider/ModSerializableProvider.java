@@ -2,6 +2,7 @@ package net.yxiao233.ifeu.common.provider;
 
 import com.buuz135.industrial.module.ModuleCore;
 import com.buuz135.industrial.recipe.DissolutionChamberRecipe;
+import com.buuz135.industrial.recipe.FluidExtractorRecipe;
 import com.buuz135.industrial.recipe.LaserDrillFluidRecipe;
 import com.buuz135.industrial.recipe.LaserDrillRarity;
 import com.buuz135.industrial.utils.IndustrialTags;
@@ -12,6 +13,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Fluids;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.fluids.FluidStack;
@@ -89,6 +91,55 @@ public class ModSerializableProvider{
                 Optional.of(ModContents.ULTIMATE_MACHINE_FRAME.get().asItem().getDefaultInstance()),Optional.of(new FluidStack(Fluids.WATER,8000))
         ));
 
+        DissolutionChamberRecipe.createRecipe(recipeOutput,"empty_nether_star", new DissolutionChamberRecipe(
+                List.of(
+                        itemValue(Items.NETHER_STAR.getDefaultInstance()),
+                        tagValue(IndustrialTags.Items.PLASTIC),
+                        itemValue(Items.NETHER_STAR.getDefaultInstance()),
+                        tagValue(IndustrialTags.Items.PLASTIC),
+                        tagValue(IndustrialTags.Items.PLASTIC),
+                        itemValue(Items.NETHER_STAR.getDefaultInstance()),
+                        tagValue(IndustrialTags.Items.PLASTIC),
+                        itemValue(Items.NETHER_STAR.getDefaultInstance())
+                ),new FluidStack(ModFluids.LIQUID_MALIC_ACID.getSourceFluid().get(),4000),200,
+                Optional.of(new ItemStack(ModContents.EMPTY_NETHER_STAR.get(),4)),Optional.empty()
+        ));
+
+        DissolutionChamberRecipe.createRecipe(recipeOutput,"rough_dragon_star", new DissolutionChamberRecipe(
+                List.of(
+                        itemValue(ModContents.EMPTY_NETHER_STAR.get().getDefaultInstance()),
+                        itemValue(Items.WITHER_SKELETON_SKULL.getDefaultInstance()),
+                        itemValue(ModContents.EMPTY_NETHER_STAR.get().getDefaultInstance()),
+                        tagValue(Tags.Items.RODS_BLAZE),
+                        tagValue(Tags.Items.RODS_BLAZE),
+                        tagValue(Tags.Items.STORAGE_BLOCKS_DIAMOND),
+                        tagValue(Tags.Items.RODS_BLAZE),
+                        tagValue(Tags.Items.STORAGE_BLOCKS_DIAMOND)
+                ),new FluidStack(ModFluids.DRAGON_STAR_ESSENCE.getSourceFluid().get(),200),200,
+                Optional.of(new ItemStack(ModContents.ROUGH_DRAGON_STAR.get(),2)),Optional.empty()
+        ));
+
+        DissolutionChamberRecipe.createRecipe(recipeOutput,"liquid_malic_acid", new DissolutionChamberRecipe(
+                List.of(
+                        itemValue(Items.APPLE.getDefaultInstance()),
+                        itemValue(Items.APPLE.getDefaultInstance()),
+                        itemValue(Items.APPLE.getDefaultInstance()),
+                        itemValue(Items.APPLE.getDefaultInstance()),
+                        itemValue(Items.APPLE.getDefaultInstance()),
+                        itemValue(Items.APPLE.getDefaultInstance()),
+                        itemValue(Items.APPLE.getDefaultInstance()),
+                        itemValue(Items.APPLE.getDefaultInstance())
+                ),new FluidStack(ModuleCore.ETHER.getSourceFluid().get(), 100),200,
+                Optional.of(new ItemStack(ModContents.APPLE_CORE.get(),8)),Optional.of(new FluidStack(ModFluids.LIQUID_MALIC_ACID.getSourceFluid().get(), 10))
+        ));
+
+        DissolutionChamberRecipe.createRecipe(recipeOutput,"nether_star", new DissolutionChamberRecipe(
+                List.of(
+                        itemValue(ModContents.ROUGH_DRAGON_STAR.get().getDefaultInstance())
+                ),new FluidStack(ModFluids.LIQUID_MALIC_ACID.getSourceFluid().get(),1000),200,
+                Optional.of(Items.NETHER_STAR.getDefaultInstance()),Optional.empty()
+        ));
+
 
 
         //infuser
@@ -112,6 +163,10 @@ public class ModSerializableProvider{
                 Items.AMETHYST_SHARD.getDefaultInstance(),new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),200),200,Items.ECHO_SHARD.getDefaultInstance()
         ));
 
+        InfuserRecipe.createRecipe(recipeOutput,"crying_obsidian",new InfuserRecipe(
+                Items.OBSIDIAN.getDefaultInstance(),new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),2000),200,Items.CRYING_OBSIDIAN.getDefaultInstance()
+        ));
+
 
 
         //laser drill fluid
@@ -127,6 +182,15 @@ public class ModSerializableProvider{
                 Ingredient.of(ModContents.LASER_LENS_DRAGON.get()),
                 ResourceLocation.fromNamespaceAndPath("minecraft","ender_dragon"),
                 new LaserDrillRarity(new LaserDrillRarity.BiomeRarity(LaserDrillRarity.BiomeRarity.END,new ArrayList<>()),new LaserDrillRarity.DimensionRarity(new ArrayList<>(),new ArrayList<>()),-64,256,8)
+        ));
+
+        //fluid extractor
+        FluidExtractorRecipe.createRecipe(recipeOutput,"dragon_star_essence",new FluidExtractorRecipe(
+                itemValue(new ItemStack(ModContents.DRAGON_STAR_BLOCK.get())),
+                Blocks.AIR.defaultBlockState(),
+                0.01f,
+                new FluidStack(ModFluids.DRAGON_STAR_ESSENCE.getSourceFluid().get(),2),
+                false
         ));
 
         //arcane dragon egg forging
