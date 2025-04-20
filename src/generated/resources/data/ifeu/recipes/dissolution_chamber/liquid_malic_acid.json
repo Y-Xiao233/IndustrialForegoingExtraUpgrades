@@ -1,0 +1,36 @@
+{
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:apple"
+    }
+  ],
+  "inputFluid": "{Amount:100,FluidName:\"industrialforegoing:ether_gas\"}",
+  "output": {
+    "count": 8,
+    "item": "ifeu:apple_core"
+  },
+  "outputFluid": "{Amount:10,FluidName:\"ifeu:liquid_malic_acid\"}",
+  "processingTime": 200
+}

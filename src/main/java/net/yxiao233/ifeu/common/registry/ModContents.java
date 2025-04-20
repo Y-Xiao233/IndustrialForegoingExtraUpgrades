@@ -1,5 +1,6 @@
 package net.yxiao233.ifeu.common.registry;
 
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -26,6 +27,9 @@ public class ModContents {
     public static final RegistryObject<Item> CONNECT_TOOL = ITEMS.register("connect_tool", () -> new ConnectToolItem(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> WRENCH = ITEMS.register("wrench", () -> new WrenchItem(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> CONFIGURATION_TOOL = ITEMS.register("configuration_tool", () -> new ConfigurationToolItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> ROUGH_DRAGON_STAR = ITEMS.register("rough_dragon_star", () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> EMPTY_NETHER_STAR = ITEMS.register("empty_nether_star", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> APPLE_CORE = ITEMS.register("apple_core", () -> new Item(new Item.Properties().food(ModFoodProperties.APPLE_CORE)));
 
     //Tool
     public static final RegistryObject<Item> DRAGON_STAR_PICKAXE = ITEMS.register("dragon_star_pickaxe",() -> new PickaxeItem(ModTiers.DRAGON_STAR,1,-2.8F,(new Item.Properties().fireResistant().rarity(ModRarity.LEGENDARY))));

@@ -1,0 +1,14 @@
+{
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "item": "ifeu:rough_dragon_star"
+    }
+  ],
+  "inputFluid": "{Amount:1000,FluidName:\"ifeu:liquid_malic_acid\"}",
+  "output": {
+    "count": 1,
+    "item": "minecraft:nether_star"
+  },
+  "processingTime": 200
+}

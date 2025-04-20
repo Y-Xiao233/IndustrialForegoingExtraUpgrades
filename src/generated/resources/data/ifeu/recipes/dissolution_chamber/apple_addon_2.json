@@ -1,0 +1,35 @@
+{
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "tag": "forge:dusts/redstone"
+    },
+    {
+      "tag": "forge:dusts/redstone"
+    },
+    {
+      "tag": "forge:glass_panes/colorless"
+    },
+    {
+      "tag": "forge:glass_panes/colorless"
+    },
+    {
+      "tag": "forge:gears/diamond"
+    },
+    {
+      "tag": "forge:gears/diamond"
+    },
+    {
+      "item": "ifeu:apple_addon_1"
+    },
+    {
+      "item": "ifeu:apple_core"
+    }
+  ],
+  "inputFluid": "{Amount:100,FluidName:\"ifeu:liquid_malic_acid\"}",
+  "output": {
+    "count": 1,
+    "item": "ifeu:apple_addon_2"
+  },
+  "processingTime": 200
+}

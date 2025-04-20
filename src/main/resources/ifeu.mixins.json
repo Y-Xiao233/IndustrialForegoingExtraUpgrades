@@ -6,6 +6,7 @@
   "refmap": "ifeu.refmap.json",
   "mixins": [
     "block.MixinMachineFrameItem",
+    "entity.MixinHydroponicBedTile",
     "item.MixinAugmentWrapper",
     "jei.MixinDissolutionChamberCategory",
     "slot.MixinUpdatableSlotItemHandler"

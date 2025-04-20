@@ -25,6 +25,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModContents.SCULK_GEAR.get());
         basicItem(ModFluids.LIQUID_SCULK_MATTER.getBucketFluid().get());
         basicItem(ModFluids.LIQUID_DRAGON_BREATH.getBucketFluid().get());
+        basicItem(ModFluids.LIQUID_MALIC_ACID.getBucketFluid().get());
+        basicItem(ModFluids.DRAGON_STAR_ESSENCE.getBucketFluid().get());
         basicItem(ModContents.DRAGON_STAR.get());
         basicItem(ModItems.EFFICIENCY_ADDON_3.get());
         basicItem(ModItems.EFFICIENCY_ADDON_4.get());
@@ -54,5 +56,14 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.THREAD_ADDON_4.get());
         basicItem(ModItems.THREAD_ADDON_5.get());
         basicItem(ModItems.THREAD_ADDON_6.get());
+        basicItem(ModItems.APPLE_ADDON_1.get());
+        basicItem(ModItems.APPLE_ADDON_2.get());
+        basicItem(ModItems.APPLE_ADDON_3.get());
+        basicItem(ModItems.APPLE_ADDON_4.get());
+        basicItem(ModItems.APPLE_ADDON_5.get());
+        basicItem(ModItems.APPLE_ADDON_6.get());
+        basicItem(ModContents.ROUGH_DRAGON_STAR.get());
+        basicItem(ModContents.EMPTY_NETHER_STAR.get());
+        basicItem(ModContents.APPLE_CORE.get());
     }
 }

@@ -17,10 +17,6 @@ public class ModThreadAddonItem extends IFEUAddonItem {
         super("thread_addon_", tier, tab, new Properties().stacksTo(16));
     }
     @Override
-    public void registerRecipe(Consumer<FinishedRecipe> consumer) {
-
-    }
-    @Override
     public IFEUAugmentTypes setAugmentType() {
         return IFEUAugmentTypes.THREAD;
     }

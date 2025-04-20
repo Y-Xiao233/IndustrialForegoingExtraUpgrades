@@ -125,7 +125,7 @@ IFEUEvents.structureModify(event =>{
     InputItem:输入物品列表[ItemStack]
     breakChance:破坏概率[float]
     result:方块在被破坏后会变成什么[Block]
-    defaultRecipe:是否为默认配方[booleam,默默任务false]
+    defaultRecipe:是否为默认配方[boolean,默认为false]
 ```
 
 - Laser Drill Fluid 流体镭射钻基座```event.recipes.industrialforegoing.laser_drill_fluid(OutputFluid,catelyst,rarity,entity,pointer)```

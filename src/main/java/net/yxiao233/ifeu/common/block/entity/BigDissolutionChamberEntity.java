@@ -27,6 +27,7 @@ import net.minecraftforge.items.ItemHandlerHelper;
 import net.yxiao233.ifeu.api.block.entity.IFEUStructureProcessingTile;
 import net.yxiao233.ifeu.api.item.IFEUAddonItem;
 import net.yxiao233.ifeu.api.item.IFEUAugmentTypes;
+import net.yxiao233.ifeu.api.item.ModAppleAddonItem;
 import net.yxiao233.ifeu.api.structure.MultiBlockStructureBuilder;
 import net.yxiao233.ifeu.common.config.machine.BigDissolutionChamberConfig;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
@@ -102,7 +103,10 @@ public class BigDissolutionChamberEntity extends IFEUStructureProcessingTile<Big
 
     @Override
     public boolean canAcceptAugment(ItemStack augment) {
-        if(augment.getItem() instanceof IFEUAddonItem){
+        if(augment.getItem() instanceof IFEUAddonItem item){
+            if(item instanceof ModAppleAddonItem){
+                return false;
+            }
             return AugmentInventoryHelper.canAccept(this.getAugmentInventory(),augment);
         }
         return super.canAcceptAugment(augment);

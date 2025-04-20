@@ -1,0 +1,13 @@
+{
+  "type": "ifeu:infuser",
+  "input": {
+    "count": 1,
+    "item": "minecraft:obsidian"
+  },
+  "inputFluid": "{Amount:2000,FluidName:\"ifeu:liquid_sculk_matter\"}",
+  "output": {
+    "count": 1,
+    "item": "minecraft:crying_obsidian"
+  },
+  "processingTime": 200
+}

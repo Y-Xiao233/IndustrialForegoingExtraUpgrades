@@ -1,0 +1,35 @@
+{
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "tag": "forge:dusts/redstone"
+    },
+    {
+      "tag": "forge:dusts/redstone"
+    },
+    {
+      "tag": "forge:glass_panes/colorless"
+    },
+    {
+      "tag": "forge:glass_panes/colorless"
+    },
+    {
+      "item": "minecraft:nether_star"
+    },
+    {
+      "item": "minecraft:nether_star"
+    },
+    {
+      "item": "ifeu:apple_addon_4"
+    },
+    {
+      "item": "ifeu:apple_core"
+    }
+  ],
+  "inputFluid": "{Amount:4000,FluidName:\"ifeu:liquid_malic_acid\"}",
+  "output": {
+    "count": 1,
+    "item": "ifeu:apple_addon_5"
+  },
+  "processingTime": 200
+}

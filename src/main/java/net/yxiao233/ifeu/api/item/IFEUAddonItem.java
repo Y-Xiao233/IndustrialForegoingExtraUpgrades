@@ -2,6 +2,9 @@ package net.yxiao233.ifeu.api.item;
 
 import com.buuz135.industrial.item.addon.AddonItem;
 import com.hrznstudio.titanium.tab.TitaniumTab;
+import net.minecraft.data.recipes.FinishedRecipe;
+
+import java.util.function.Consumer;
 
 public abstract class IFEUAddonItem extends AddonItem {
     private final IFEUAugmentTypes type;
@@ -18,5 +21,10 @@ public abstract class IFEUAddonItem extends AddonItem {
     }
     public IFEUAugmentTypes getType(){
         return this.type;
+    }
+
+    @Override
+    public void registerRecipe(Consumer<FinishedRecipe> consumer) {
+
     }
 }

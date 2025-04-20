@@ -62,9 +62,13 @@
   "tooltip.ifeu.big_dissolution_chamber_core1": "默认最大线程: %d",
   "tooltip.ifeu.required_material": "结构所需的材料: ",
   "tooltip.titanium.power": "Power: ",
+  "tooltip.ifeu.apple_addon_item_0": "用于水培床,增加苹果产出数量",
+  "tooltip.ifeu.apple_addon_item_1": "提高苹果产量: %d倍",
 
   "item.ifeu.liquid_dragon_breath_bucket": "液态龙息桶",
   "item.ifeu.liquid_sculk_matter_bucket": "液态幽匿物质桶",
+  "item.ifeu.liquid_malic_acid_bucket": "液态苹果酸桶",
+  "item.ifeu.dragon_star_essence_bucket": "龙之星精华桶",
   "item.ifeu.dragon_star": "龙之星",
   "item.ifeu.laser_lens_sculk": "幽匿 镭射聚焦透镜",
   "item.ifeu.netherite_gear": "下界合金齿轮",
@@ -88,6 +92,15 @@
   "item.ifeu.thread_addon_4": "插件: 线程 Tier 4",
   "item.ifeu.thread_addon_5": "插件: 线程 Tier 5",
   "item.ifeu.thread_addon_6": "插件: 线程 Tier 6",
+  "item.ifeu.apple_addon_1": "插件: 苹果 Tier 1",
+  "item.ifeu.apple_addon_2": "插件: 苹果 Tier 2",
+  "item.ifeu.apple_addon_3": "插件: 苹果 Tier 3",
+  "item.ifeu.apple_addon_4": "插件: 苹果 Tier 4",
+  "item.ifeu.apple_addon_5": "插件: 苹果 Tier 5",
+  "item.ifeu.apple_addon_6": "插件: 苹果 Tier 6",
+  "item.ifeu.rough_dragon_star": "粗糙龙之星",
+  "item.ifeu.empty_nether_star": "空下界之星",
+  "item.ifeu.apple_core": "苹果核",
 
   "block.ifeu.infuser": "灌注器",
   "block.ifeu.dragon_star_generator": "龙之星发电机",
@@ -109,9 +122,13 @@
   "block.ifeu.black_hole_capacitor_supreme": "至尊黑洞电容器",
   "block.ifeu.liquid_dragon_breath": "液态龙息",
   "block.ifeu.liquid_sculk_matter": "液态幽匿物质",
+  "block.ifeu.liquid_malic_acid": "液态苹果酸",
+  "block.ifeu.dragon_star_essence": "龙之星精华",
 
   "fluid_type.ifeu.liquid_dragon_breath": "液态龙息",
   "fluid_type.ifeu.liquid_sculk_matter": "液态幽匿物质",
+  "fluid_type.ifeu.liquid_malic_acid": "液态苹果酸",
+  "fluid_type.ifeu.dragon_star_essence": "龙之星精华",
 
   "recipe.ifeu.block_right_click": "对方块右键",
 

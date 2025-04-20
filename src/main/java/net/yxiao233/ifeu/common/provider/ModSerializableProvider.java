@@ -3,6 +3,7 @@ package net.yxiao233.ifeu.common.provider;
 import com.buuz135.industrial.module.ModuleCore;
 import com.buuz135.industrial.module.ModuleTransportStorage;
 import com.buuz135.industrial.recipe.DissolutionChamberRecipe;
+import com.buuz135.industrial.recipe.FluidExtractorRecipe;
 import com.buuz135.industrial.recipe.LaserDrillFluidRecipe;
 import com.buuz135.industrial.recipe.LaserDrillRarity;
 import com.buuz135.industrial.utils.IndustrialTags;
@@ -18,6 +19,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.fluids.FluidStack;
@@ -99,6 +101,55 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                 ModContents.ULTIMATE_MACHINE_FRAME.get().asItem().getDefaultInstance(),new FluidStack(Fluids.WATER,8000)
         );
 
+        new DissolutionChamberRecipe(IFEU("empty_nether_star"),
+                new Ingredient.Value[]{
+                        itemValue(Items.NETHER_STAR.getDefaultInstance()),
+                        tagValue(IndustrialTags.Items.PLASTIC),
+                        itemValue(Items.NETHER_STAR.getDefaultInstance()),
+                        tagValue(IndustrialTags.Items.PLASTIC),
+                        tagValue(IndustrialTags.Items.PLASTIC),
+                        itemValue(Items.NETHER_STAR.getDefaultInstance()),
+                        tagValue(IndustrialTags.Items.PLASTIC),
+                        itemValue(Items.NETHER_STAR.getDefaultInstance())
+                },new FluidStack(ModFluids.LIQUID_MALIC_ACID.getSourceFluid().get(), 4000), 200,
+                new ItemStack(ModContents.EMPTY_NETHER_STAR.get(),4),FluidStack.EMPTY
+        );
+
+        new DissolutionChamberRecipe(IFEU("rough_dragon_star"),
+                new Ingredient.Value[]{
+                        itemValue(ModContents.EMPTY_NETHER_STAR.get().getDefaultInstance()),
+                        itemValue(Items.WITHER_SKELETON_SKULL.getDefaultInstance()),
+                        itemValue(ModContents.EMPTY_NETHER_STAR.get().getDefaultInstance()),
+                        tagValue(Tags.Items.RODS_BLAZE),
+                        tagValue(Tags.Items.RODS_BLAZE),
+                        tagValue(Tags.Items.STORAGE_BLOCKS_DIAMOND),
+                        tagValue(Tags.Items.RODS_BLAZE),
+                        tagValue(Tags.Items.STORAGE_BLOCKS_DIAMOND),
+                },new FluidStack(ModFluids.DRAGON_STAR_ESSENCE.getSourceFluid().get(), 200), 200,
+                new ItemStack(ModContents.ROUGH_DRAGON_STAR.get(),2),FluidStack.EMPTY
+        );
+
+        new DissolutionChamberRecipe(IFEU("liquid_malic_acid"),
+                new Ingredient.Value[]{
+                        itemValue(Items.APPLE.getDefaultInstance()),
+                        itemValue(Items.APPLE.getDefaultInstance()),
+                        itemValue(Items.APPLE.getDefaultInstance()),
+                        itemValue(Items.APPLE.getDefaultInstance()),
+                        itemValue(Items.APPLE.getDefaultInstance()),
+                        itemValue(Items.APPLE.getDefaultInstance()),
+                        itemValue(Items.APPLE.getDefaultInstance()),
+                        itemValue(Items.APPLE.getDefaultInstance())
+                },new FluidStack(ModuleCore.ETHER.getSourceFluid().get(), 100), 200,
+                new ItemStack(ModContents.APPLE_CORE.get(),8),new FluidStack(ModFluids.LIQUID_MALIC_ACID.getSourceFluid().get(), 10)
+        );
+
+        new DissolutionChamberRecipe(IFEU("nether_star"),
+                new Ingredient.Value[]{
+                        itemValue(ModContents.ROUGH_DRAGON_STAR.get().getDefaultInstance())
+                },new FluidStack(ModFluids.LIQUID_MALIC_ACID.getSourceFluid().get(), 1000), 200,
+                Items.NETHER_STAR.getDefaultInstance(),FluidStack.EMPTY
+        );
+
 
         //infuser
         new InfuserRecipe(IFEU("dragon_star"),
@@ -121,6 +172,10 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                 Items.AMETHYST_SHARD.getDefaultInstance(),new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),200),200,Items.ECHO_SHARD.getDefaultInstance()
         );
 
+        new InfuserRecipe(IFEU("crying_obsidian"),
+                Items.OBSIDIAN.getDefaultInstance(),new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),2000),200,Items.CRYING_OBSIDIAN.getDefaultInstance()
+        );
+
 
         //laser drill fluid
         new LaserDrillFluidRecipe("liquid_sculk_matter",
@@ -136,6 +191,14 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                 new LaserDrillRarity(LaserDrillRarity.END, new ResourceKey[0],-64,256,8)
         );
 
+        //fluid extractor
+        new FluidExtractorRecipe(IFEU("dragon_star_essence"),
+                itemValue(new ItemStack(ModContents.DRAGON_STAR_BLOCK.get())),
+                Blocks.AIR,
+                0.01f,
+                new FluidStack(ModFluids.DRAGON_STAR_ESSENCE.getSourceFluid().get(),2),
+                false
+        );
 
         //arcane dragon egg forging
         new ArcaneDragonEggForgingRecipe(IFEU("dead_dragon_egg"),
@@ -345,6 +408,11 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
         ArcaneDragonEggForgingRecipe.RECIPES.forEach(arcaneDragonEggForgingRecipe -> map.put(arcaneDragonEggForgingRecipe,arcaneDragonEggForgingRecipe));
         ShapedRecipe.RECIPES.forEach(fluidCraftingTableRecipe -> map.put(fluidCraftingTableRecipe,fluidCraftingTableRecipe));
         ShapelessRecipe.RECIPES.forEach(shapelessRecipe -> map.put(shapelessRecipe,shapelessRecipe));
+        FluidExtractorRecipe.RECIPES.forEach(fluidExtractorRecipe -> {
+            if(!fluidExtractorRecipe.getId().getNamespace().equals("industrialforegoing")){
+                map.put(fluidExtractorRecipe,fluidExtractorRecipe);
+            }
+        });
     }
 
     public Ingredient.TagValue tagValue(TagKey<Item> tagKey){

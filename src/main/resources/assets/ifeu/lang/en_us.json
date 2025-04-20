@@ -66,9 +66,13 @@
   "tooltip.ifeu.big_dissolution_chamber_core1": "Default maximum thread: %d",
   "tooltip.ifeu.required_material": "Structure Required Material: ",
   "tooltip.titanium.power": "Power: ",
+  "tooltip.ifeu.apple_addon_item_0": "Used for hydroponic beds to increase apple production",
+  "tooltip.ifeu.apple_addon_item_1": "Increase apple production: %d times",
 
   "item.ifeu.liquid_dragon_breath_bucket": "Liquid Dragon Breath Bucket",
   "item.ifeu.liquid_sculk_matter_bucket": "Liquid Sculk Matter Bucket",
+  "item.ifeu.liquid_malic_acid_bucket": "Liquid Malic Acid Bucket",
+  "item.ifeu.dragon_star_essence_bucket": "Dragon Star Essence Bucket",
   "item.ifeu.dragon_star": "Dragon Star",
   "item.ifeu.laser_lens_sculk": "Sculk Laser Lens",
   "item.ifeu.netherite_gear": "Netherite Gear",
@@ -92,6 +96,15 @@
   "item.ifeu.thread_addon_4": "Addon: Thread Tier 4",
   "item.ifeu.thread_addon_5": "Addon: Thread Tier 5",
   "item.ifeu.thread_addon_6": "Addon: Thread Tier 6",
+  "item.ifeu.apple_addon_1": "Addon: Apple Tier 1",
+  "item.ifeu.apple_addon_2": "Addon: Apple Tier 2",
+  "item.ifeu.apple_addon_3": "Addon: Apple Tier 3",
+  "item.ifeu.apple_addon_4": "Addon: Apple Tier 4",
+  "item.ifeu.apple_addon_5": "Addon: Apple Tier 5",
+  "item.ifeu.apple_addon_6": "Addon: Apple Tier 6",
+  "item.ifeu.rough_dragon_star": "Rough Dragon Star",
+  "item.ifeu.empty_nether_star": "Empty Nether Star",
+  "item.ifeu.apple_core": "Apple Core",
 
   "block.ifeu.infuser": "Infuser",
   "block.ifeu.dragon_star_generator": "Dragon Star Generator",
@@ -113,9 +126,13 @@
   "block.ifeu.black_hole_capacitor_supreme": "Supreme Black Hole Capacitor",
   "block.ifeu.liquid_dragon_breath": "Liquid Dragon Breath",
   "block.ifeu.liquid_sculk_matter": "Liquid Sculk Matter",
+  "block.ifeu.liquid_malic_acid": "Liquid Malic Acid",
+  "block.ifeu.dragon_star_essence": "Dragon Star Essence",
 
   "fluid_type.ifeu.liquid_dragon_breath": "Liquid Dragon Breath",
   "fluid_type.ifeu.liquid_sculk_matter": "Liquid Sculk Matter",
+  "fluid_type.ifeu.liquid_malic_acid": "Liquid Malic Acid",
+  "fluid_type.ifeu.dragon_star_essence": "Dragon Star Essence",
 
   "recipe.ifeu.block_right_click": "Block Right Click",
 

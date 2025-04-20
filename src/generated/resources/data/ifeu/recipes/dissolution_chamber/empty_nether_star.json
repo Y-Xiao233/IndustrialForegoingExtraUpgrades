@@ -1,0 +1,35 @@
+{
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "item": "minecraft:nether_star"
+    },
+    {
+      "tag": "forge:plastic"
+    },
+    {
+      "item": "minecraft:nether_star"
+    },
+    {
+      "tag": "forge:plastic"
+    },
+    {
+      "tag": "forge:plastic"
+    },
+    {
+      "item": "minecraft:nether_star"
+    },
+    {
+      "tag": "forge:plastic"
+    },
+    {
+      "item": "minecraft:nether_star"
+    }
+  ],
+  "inputFluid": "{Amount:4000,FluidName:\"ifeu:liquid_malic_acid\"}",
+  "output": {
+    "count": 4,
+    "item": "ifeu:empty_nether_star"
+  },
+  "processingTime": 200
+}

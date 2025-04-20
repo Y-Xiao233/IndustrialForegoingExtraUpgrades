@@ -1,0 +1,35 @@
+{
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "item": "ifeu:empty_nether_star"
+    },
+    {
+      "item": "minecraft:wither_skeleton_skull"
+    },
+    {
+      "item": "ifeu:empty_nether_star"
+    },
+    {
+      "tag": "forge:rods/blaze"
+    },
+    {
+      "tag": "forge:rods/blaze"
+    },
+    {
+      "tag": "forge:storage_blocks/diamond"
+    },
+    {
+      "tag": "forge:rods/blaze"
+    },
+    {
+      "tag": "forge:storage_blocks/diamond"
+    }
+  ],
+  "inputFluid": "{Amount:200,FluidName:\"ifeu:dragon_star_essence\"}",
+  "output": {
+    "count": 2,
+    "item": "ifeu:rough_dragon_star"
+  },
+  "processingTime": 200
+}
