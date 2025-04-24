@@ -11,6 +11,9 @@ public class ShapedRecipeBuilder extends IFEURecipeBuilder{
     public ShapedRecipeBuilder(ItemStack output) {
         super(output);
     }
+    public ShapedRecipeBuilder(ItemStack output, String id){
+        super(output,id);
+    }
 
     @Override
     public void save() {
@@ -30,6 +33,6 @@ public class ShapedRecipeBuilder extends IFEURecipeBuilder{
                 )
                 .toArray(Ingredient.Value[]::new);
 
-        new ShapedRecipe(this.getLocation(),allItems,this.getFluid(),this.getOutput());
+        new ShapedRecipe(this.getLocation(),allItems,this.getInputFluid(),this.getOutput());
     }
 }

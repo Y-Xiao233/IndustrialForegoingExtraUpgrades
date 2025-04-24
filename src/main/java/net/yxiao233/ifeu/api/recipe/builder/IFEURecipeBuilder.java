@@ -1,10 +1,13 @@
 package net.yxiao233.ifeu.api.recipe.builder;
 
+import com.buuz135.industrial.recipe.LaserDrillRarity;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.registries.RegistryObject;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
@@ -18,9 +21,20 @@ public abstract class IFEURecipeBuilder {
     private final ArrayList<String> structure = new ArrayList<>();
     private final HashMap<Character, ItemStack> defineMap = new HashMap<>();
     private final HashMap<Character, TagKey<Item>> defineTagMap = new HashMap<>();
-    private FluidStack fluid;
+    private Ingredient.Value[] inputs;
+    private ItemStack input;
+    private FluidStack inputFluid;
+    private FluidStack[] inputFluids;
+    private Block result;
+    private ResourceLocation entity;
+    private float breakChance;
+    private Ingredient.Value inputBlock;
+    private Ingredient catalyst;
+    private LaserDrillRarity[] rarity;
+    private FluidStack outputFluid;
     private String id;
     private String nameSpace;
+    private boolean isDefaultRecipe;
     private int time;
     private final ItemStack output;
     public IFEURecipeBuilder(ItemStack output){
@@ -37,8 +51,63 @@ public abstract class IFEURecipeBuilder {
         return this;
     }
 
-    public IFEURecipeBuilder fluid(FluidStack fluid){
-        this.fluid = fluid;
+    public IFEURecipeBuilder inputFluid(FluidStack fluid){
+        this.inputFluid = fluid;
+        return this;
+    }
+
+    public IFEURecipeBuilder inputFluids(FluidStack... inputFluids){
+        this.inputFluids = inputFluids;
+        return this;
+    }
+
+    public IFEURecipeBuilder outputFluid(FluidStack fluid){
+        this.outputFluid = fluid;
+        return this;
+    }
+
+    public IFEURecipeBuilder inputs(Ingredient.Value... inputs){
+        this.inputs = inputs;
+        return this;
+    }
+
+    public IFEURecipeBuilder catalyst(Ingredient catalyst){
+        this.catalyst = catalyst;
+        return this;
+    }
+
+    public IFEURecipeBuilder isDefault(boolean isDefault){
+        this.isDefaultRecipe = isDefault;
+        return this;
+    }
+
+    public IFEURecipeBuilder breakChance(float breakChance){
+        this.breakChance = breakChance;
+        return this;
+    }
+
+    public IFEURecipeBuilder resultBlock(Block result){
+        this.result = result;
+        return this;
+    }
+
+    public IFEURecipeBuilder entity(ResourceLocation entityLocation){
+        this.entity = entityLocation;
+        return this;
+    }
+
+    public IFEURecipeBuilder rarity(LaserDrillRarity... rarity){
+        this.rarity = rarity;
+        return this;
+    }
+
+    public IFEURecipeBuilder input(ItemStack stack){
+        this.input = stack;
+        return this;
+    }
+
+    public IFEURecipeBuilder inputBlock(Ingredient.Value value){
+        this.inputBlock = value;
         return this;
     }
 
@@ -87,8 +156,11 @@ public abstract class IFEURecipeBuilder {
         return structure;
     }
 
-    protected FluidStack getFluid() {
-        return fluid;
+    protected FluidStack getInputFluid() {
+        return inputFluid;
+    }
+    protected FluidStack getOutputFluid() {
+        return outputFluid;
     }
 
     protected int getTime() {
@@ -118,11 +190,47 @@ public abstract class IFEURecipeBuilder {
         if(nameSpace == null || nameSpace.isEmpty()){
             return IndustrialForegoingExtraUpgrades.MODID;
         }
-        return  nameSpace;
+        return nameSpace;
+    }
+
+    protected Ingredient.Value[] getInputs(){
+        return this.inputs;
+    }
+    protected ItemStack getInput(){
+        return input;
+    }
+
+    protected ResourceLocation getEntity(){
+        return this.entity;
+    }
+
+    protected Ingredient getCatalyst(){
+        return catalyst;
+    }
+
+    protected LaserDrillRarity[] getRarity(){
+        return rarity;
     }
 
     protected ResourceLocation getLocation(){
         return new ResourceLocation(getNameSpace(),getId());
+    }
+    protected Ingredient.Value getInputBlock(){
+        return this.inputBlock;
+    }
+    protected Block getResult(){
+        return this.result;
+    }
+    protected float getBreakChance(){
+        return this.breakChance;
+    }
+
+    protected boolean isDefault(){
+        return this.isDefaultRecipe;
+    }
+
+    protected FluidStack[] getInputFluids(){
+        return this.inputFluids;
     }
 
     public ItemStack getOutput() {

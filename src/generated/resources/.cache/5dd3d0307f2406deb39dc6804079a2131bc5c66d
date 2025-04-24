@@ -1,4 +1,4 @@
-// 1.20.1	2025-04-20T17:26:26.9717025	Titanium Serializable (ifeu)
+// 1.20.1	2025-04-24T14:48:40.8771892	Titanium Serializable (ifeu)
 5a32aaf5edd8a63da8d7dbbc3e98ee222f54e549 data/ifeu/recipes/arcane_dragon_egg_forging/dead_dragon_egg.json
 ee98c1c55d06b1ef40bcf4b3ff86cabb9ceb5e93 data/ifeu/recipes/arcane_dragon_egg_forging/egg_1.json
 8d37adb344b2eb92c22f350e100824d2620a4f40 data/ifeu/recipes/arcane_dragon_egg_forging/egg_2.json
@@ -39,6 +39,7 @@ fc86654f4ae84fb174cc6555497accfcdfa744cf data/ifeu/recipes/fluid_extractor/drago
 153cbc67e05ad06c563015681e18a85ddb9670de data/ifeu/recipes/infuser/cobblestone_blackstone.json
 b72a7a8a749d3dd3bb4597e26d752cf307e294fe data/ifeu/recipes/infuser/crying_obsidian.json
 3bd41d277f69f6d2085d51a56637ff2d0475b2c2 data/ifeu/recipes/infuser/dirt_mud.json
+5809a4461955f3685fd1fff48473f97b77463223 data/ifeu/recipes/infuser/dragon_breath.json
 ba58b2b397fb9586302fa5b10929627667023155 data/ifeu/recipes/infuser/dragon_star.json
 234f4250341e6b7fa0a969c65e489c6d8c7f1f3c data/ifeu/recipes/infuser/mud_clay.json
 d92a984747c9177b2e22c7ffc3f5cc8e31c472f9 data/ifeu/recipes/infuser/sculk.json

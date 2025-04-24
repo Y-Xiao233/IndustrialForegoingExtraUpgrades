@@ -27,6 +27,7 @@ public class ModKubeJSPlugin extends KubeJSPlugin {
         RegistryInfo.ITEM.addType("industrialforegoing:processing_addon", ProcessingAddonItemBuilder.class, ProcessingAddonItemBuilder::new);
         RegistryInfo.ITEM.addType("industrialforegoing:range_addon", RangeAddonItemBuilder.class,RangeAddonItemBuilder::new);
         RegistryInfo.ITEM.addType("ifeu:thread_addon", ThreadAddonItemBuilder.class,ThreadAddonItemBuilder::new);
+        RegistryInfo.ITEM.addType("ifeu:apple_addon", AppleAddonItemBuilder.class,AppleAddonItemBuilder::new);
     }
 
     @Override
