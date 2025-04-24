@@ -44,7 +44,7 @@ public abstract class MixinHydroponicBedTile extends IndustrialWorkingTile<Hydro
     private static void onForEachDrops(Level level, BlockPos up, BlockState state, IItemHandler output, ProgressBarComponent<?> etherBuffer, IndustrialWorkingTile<?> tile, Supplier<PlantRecollectable> plantSupplier, CallbackInfoReturnable<Boolean> cir, PlantRecollectable cachedRecollectable, List<ItemStack> drops) {
         AtomicInteger apple = new AtomicInteger(0);
         List<ItemStack> list = new ArrayList<>();
-        int tier = AugmentInventoryHelper.getAugmentTier(tile.getAugmentInventory(), IFEUAugmentTypes.APPLE);
+        int tier = AugmentInventoryHelper.getAugmentTier(tile, IFEUAugmentTypes.APPLE);
         drops.forEach(stack -> {
             if(!stack.is(Items.APPLE)){
                 list.add(stack);

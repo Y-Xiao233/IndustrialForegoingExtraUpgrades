@@ -150,6 +150,6 @@
 - Added KubeJS support for the MultiBlock machine structure of this mod (you can use KubeJS to modify the structure required by the machine)
 
 ### v1.2.106
-- Added some new recipes to the infuser
-- Added a new addon (Apple addon for increasing apple yield in hydroponic beds)
-- Added the Lower bound Star method for increasing production
+-Added some new recipes to the infuser
+-Added a new addon (Apple addon for increasing apple yield in hydroponic beds)
+-Added the Lower bound Star method for increasing production

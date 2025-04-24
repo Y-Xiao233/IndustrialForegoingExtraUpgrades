@@ -1,10 +1,11 @@
-// 1.21.1	2025-04-20T18:04:08.8758274	Recipes
+// 1.21.1	2025-04-24T15:34:51.6061646	Recipes
 50dded7964768360091d2a72f21482917ba313b2 data/ifeu/advancement/arcane_dragon_egg_forging/dead_dragon_egg.json
 0c4d904269eadd30beb5b7fbd62d9fddfffc4954 data/ifeu/advancement/arcane_dragon_egg_forging/egg_1.json
 819d02b8ab08a1e4eb76f7e73cc546ff23804450 data/ifeu/advancement/arcane_dragon_egg_forging/egg_2.json
 e65a1695d0e2d605fab87e868a41f1afe53ed5fb data/ifeu/advancement/infuser/cobblestone_blackstone.json
 292de1a3c3106d267c7a14453d25ad7315720c56 data/ifeu/advancement/infuser/crying_obsidian.json
 19654209a5c44690d335df11f909705246c5a1ac data/ifeu/advancement/infuser/dirt_mud.json
+1e04a4a417ff5dfae1fcbaa8090941f6f17f638a data/ifeu/advancement/infuser/dragon_breath.json
 86d8ea36683dc90e1a13cec1462e4c92176edb84 data/ifeu/advancement/infuser/dragon_star.json
 d22bb0f6365711edf6ee1ebf827a887114839e39 data/ifeu/advancement/infuser/mud_clay.json
 dd07500c40ee2d27929be61e2297fbe74af2f709 data/ifeu/advancement/infuser/sculk.json
@@ -44,6 +45,7 @@ d182b54d731415fe44be6c9b9d352f70feedba9c data/ifeu/recipe/infuser.json
 73fce2c2cd15acd8f8dfa7d92b906cc5cc34149c data/ifeu/recipe/infuser/cobblestone_blackstone.json
 bdc9218399ed482704133a05125e6155f08909c3 data/ifeu/recipe/infuser/crying_obsidian.json
 69c745952cc26c0de660ebb281a5eb92cb4d6aeb data/ifeu/recipe/infuser/dirt_mud.json
+623049a9c2702ab9cbf3df3dda70f5241bdf2956 data/ifeu/recipe/infuser/dragon_breath.json
 08cc4f8a4e4f512564dde227c6d78acaa7581622 data/ifeu/recipe/infuser/dragon_star.json
 7b2781821722b317755dc5c149fa56a469df1dff data/ifeu/recipe/infuser/mud_clay.json
 9a2a10b8b2e96d2d7215653d6ddcf7b94cbab34a data/ifeu/recipe/infuser/sculk.json
