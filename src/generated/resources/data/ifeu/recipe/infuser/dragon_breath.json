@@ -1,0 +1,16 @@
+{
+  "type": "ifeu:infuser",
+  "input": {
+    "count": 1,
+    "id": "minecraft:glass_bottle"
+  },
+  "inputFluid": {
+    "amount": 10,
+    "id": "ifeu:liquid_dragon_breath"
+  },
+  "output": {
+    "count": 1,
+    "id": "minecraft:dragon_breath"
+  },
+  "processingTime": 200
+}

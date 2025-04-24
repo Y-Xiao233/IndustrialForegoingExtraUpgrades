@@ -31,6 +31,7 @@ public class ModKubeJSPlugin implements KubeJSPlugin {
             reg.add("industrialforegoing:processing_addon", ProcessingAddonItemBuilder.class, ProcessingAddonItemBuilder::new);
             reg.add("industrialforegoing:range_addon", RangeAddonItemBuilder.class,RangeAddonItemBuilder::new);
             reg.add("ifeu:thread_addon", ThreadAddonItemBuilder.class,ThreadAddonItemBuilder::new);
+            reg.add("ifeu:apple_addon", AppleAddonItemBuilder.class,AppleAddonItemBuilder::new);
         });
     }
 
