@@ -64,6 +64,6 @@ public class AugmentInventoryHelper {
     }
 
     public static int getAugmentTier(MachineTile<?> tile, IFEUAugmentTypes type){
-        return getAugmentIndex(tile.getAugmentInventory(),type);
+        return getAugmentTier(tile.getAugmentInventory(),type);
     }
 }
