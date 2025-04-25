@@ -77,6 +77,11 @@
 - 添加了新的插件(苹果插件,用于水培床增加苹果产量)
 - 添加了下界之星增产方法
 
+### v1.2.107
+- 为大部分配方添加了内建的builder类
+- 为苹果插件添加了KubeJS支持
+- 添加了灌注器内液态龙息+玻璃瓶合成龙息的配方
+
 ## en_us
 ### v1.0.0
 - init
@@ -150,6 +155,11 @@
 - Added KubeJS support for the MultiBlock machine structure of this mod (you can use KubeJS to modify the structure required by the machine)
 
 ### v1.2.106
--Added some new recipes to the infuser
--Added a new addon (Apple addon for increasing apple yield in hydroponic beds)
--Added the Lower bound Star method for increasing production
+- Added some new recipes to the infuser
+- Added a new addon (Apple addon for increasing apple yield in hydroponic beds)
+- Added the Lower bound Star method for increasing production
+
+### v1.2.107
+- Added built-in builder class for most recipes
+- Added KubeJS support for Apple Addon
+- Added the recipe of liquid Dragon Breath in the infuser and Dragon Breath in glass bottles
