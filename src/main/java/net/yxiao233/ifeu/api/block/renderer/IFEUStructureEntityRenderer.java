@@ -15,13 +15,13 @@ import net.yxiao233.ifeu.common.utils.RendererProvider;
 
 import java.util.List;
 
-public class IFEUStructureEntityRenderer<T extends IFEUStructureProcessingTile<T>> implements BlockEntityRenderer<T> {
+public class IFEUStructureEntityRenderer implements BlockEntityRenderer<IFEUStructureProcessingTile<?>> {
     private volatile MultiBlockStructure structure;
     private final int tick = 200;
     public IFEUStructureEntityRenderer(BlockEntityRendererProvider.Context context) {
     }
     @Override
-    public void render(T entity, float v, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, int i1) {
+    public void render(IFEUStructureProcessingTile<?> entity, float v, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, int i1) {
         if(entity.isShouldRenderer() && entity.direction != null){
             Level level = entity.getLevel();
             if(level == null){
@@ -75,7 +75,7 @@ public class IFEUStructureEntityRenderer<T extends IFEUStructureProcessingTile<T
         }
     }
 
-    public MultiBlockStructure getStructure(T entity){
+    public MultiBlockStructure getStructure(IFEUStructureProcessingTile<?> entity){
         if(structure == null){
             return entity.multiBlockStructure();
         }else{
