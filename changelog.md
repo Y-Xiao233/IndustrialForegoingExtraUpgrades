@@ -82,6 +82,11 @@
 - 为苹果插件添加了KubeJS支持
 - 添加了灌注器内液态龙息+玻璃瓶合成龙息的配方
 
+### v1.2.108
+- 将作为前置的工业先锋的版本更新至1.21-3.6.29
+- 修复了由于mixin注入失败导致的游戏崩溃[\#49 by penturt](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/49)
+- 为模拟水培床也添加了苹果插件支持
+
 ## en_us
 ### v1.0.0
 - init
@@ -163,3 +168,8 @@
 - Added built-in builder class for most recipes
 - Added KubeJS support for Apple Addon
 - Added the recipe of liquid Dragon Breath in the infuser and Dragon Breath in glass bottles
+
+### v1.2.108
+- Update the version of the industrial foregoing to 1.21-3.6.29
+- Fixed game crash caused by mixin injection failure[\#49 by penturt](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/49)
+- Apple addon support has also been added to simulated hydroponic bed
