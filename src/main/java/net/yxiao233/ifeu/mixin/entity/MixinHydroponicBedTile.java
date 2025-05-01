@@ -17,6 +17,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BonemealableBlock;
@@ -28,6 +29,7 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.registries.RegistryObject;
 import net.yxiao233.ifeu.api.item.IFEUAddonItem;
+import net.yxiao233.ifeu.api.item.IFEUAugmentTypes;
 import net.yxiao233.ifeu.common.item.HydroponicSimulationProcessorItem;
 import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.utils.AugmentInventoryHelper;
@@ -44,6 +46,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Supplier;
 
 @Mixin(HydroponicBedTile.class)
@@ -170,7 +173,27 @@ public abstract class MixinHydroponicBedTile extends IndustrialWorkingTile<Hydro
                 sim.acceptExecution(planted, drops);
                 simulationOutput.setTag(sim.toNBT(new CompoundTag()));
             }
-            drops.forEach(stack -> ItemHandlerHelper.insertItem(output, stack, false));
+
+            AtomicInteger apple = new AtomicInteger(0);
+            List<ItemStack> list = new ArrayList<>();
+            int tier = AugmentInventoryHelper.getAugmentTier(tile, IFEUAugmentTypes.APPLE);
+            drops.forEach(stack -> {
+                if(!stack.is(Items.APPLE)){
+                    list.add(stack);
+                }else{
+                    apple.set(apple.get() + 1);
+                }
+            });
+
+            if(apple.get() != 0){
+                int times = tier == 0 ? 1 : tier;
+                list.add(new ItemStack(Items.APPLE,apple.get() * times));
+            }
+
+            list.forEach(stack ->{
+                ItemHandlerHelper.insertItem(output, stack, false);
+            });
+
             if (tile instanceof IndustrialAreaWorkingTile<?> && cachedRecollectable.shouldCheckNextPlant(level, up, level.getBlockState(up))) {
                 ((IndustrialAreaWorkingTile<?>) tile).increasePointer();
             }
