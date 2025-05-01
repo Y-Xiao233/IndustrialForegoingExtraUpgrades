@@ -63,6 +63,14 @@ public class ModRecipeProvider extends TitaniumRecipeProvider {
             }
         });
 
+        TitaniumShapedRecipeBuilder.shapedRecipe(ModContents.HYDROPONIC_SIMULATION_PROCESSOR.get())
+                .pattern("PCP").pattern("DRD").pattern("PGP")
+                .define('P', IndustrialTags.Items.PLASTIC)
+                .define('C', net.minecraft.world.item.Items.COMPARATOR)
+                .define('D', net.minecraft.world.item.Items.OBSERVER)
+                .define('R', net.minecraft.world.item.Items.REPEATER)
+                .define('G', IndustrialTags.Items.GEAR_DIAMOND)
+                .save(consumer);
 
         TitaniumShapelessRecipeBuilder.shapelessRecipe(ModContents.LASER_LENS_SCULK.get())
                 .requires(Ingredient.of(Arrays.stream(ModuleCore.LASER_LENS).map(itemRegistryObject -> new ItemStack(itemRegistryObject.get())).collect(Collectors.toList()).stream()))

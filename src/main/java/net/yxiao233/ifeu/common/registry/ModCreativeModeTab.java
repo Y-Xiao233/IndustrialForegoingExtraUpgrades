@@ -14,7 +14,9 @@ public class ModCreativeModeTab {
             .displayItems((parameters, output) -> {
 
                 ModContents.ITEMS.getEntries().forEach((reg) ->{
-                    if(!reg.get().getDefaultInstance().is(ModContents.AIR.get())){
+                    if(reg.get().getDefaultInstance().is(ModContents.AIR.get()) || reg.get().getDefaultInstance().is(ModContents.HYDROPONIC_SIMULATION_PROCESSOR.get())){
+                        int i = 0;
+                    }else{
                         output.accept(reg.get());
                     }
                 });

@@ -1,10 +1,12 @@
 package net.yxiao233.ifeu.common.registry;
 
+import com.buuz135.industrial.IndustrialForegoing;
 import com.buuz135.industrial.block.IndustrialBlockItem;
 import com.buuz135.industrial.module.IModule;
 import com.buuz135.industrial.module.ModuleCore;
 import com.hrznstudio.titanium.block.BasicTileBlock;
 import com.hrznstudio.titanium.module.DeferredRegistryHelper;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Block;
@@ -14,6 +16,7 @@ import net.yxiao233.ifeu.api.block.IFEUBlackHoleCapacitorBlock;
 import net.yxiao233.ifeu.common.block.*;
 import net.yxiao233.ifeu.common.block.FluidTransferBlock;
 import net.yxiao233.ifeu.common.block.BigDissolutionChamberBlock;
+import net.yxiao233.ifeu.common.item.HydroponicSimulationProcessorItem;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.ArrayList;
@@ -35,6 +38,7 @@ public class ModBlocks implements IModule {
     public static Pair<RegistryObject<Block>, RegistryObject<BlockEntityType<?>>> BLACK_HOLE_CAPACITOR_SIMPLE;
     public static Pair<RegistryObject<Block>, RegistryObject<BlockEntityType<?>>> BLACK_HOLE_CAPACITOR_ADVANCED;
     public static Pair<RegistryObject<Block>, RegistryObject<BlockEntityType<?>>> BLACK_HOLE_CAPACITOR_SUPREME;
+    public static Pair<RegistryObject<Block>, RegistryObject<BlockEntityType<?>>> SIMULATED_HYDROPONIC_BED;
     @Override
     public void generateFeatures(DeferredRegistryHelper helper) {
         INFUSER = deferredRegistry(helper,"infuser",InfuserBlock::new);
@@ -52,6 +56,8 @@ public class ModBlocks implements IModule {
         BLACK_HOLE_CAPACITOR_SIMPLE = blackHoleRegistry(helper,"black_hole_capacitor_simple",ModuleCore.SIMPLE_RARITY);
         BLACK_HOLE_CAPACITOR_ADVANCED = blackHoleRegistry(helper,"black_hole_capacitor_advanced",ModuleCore.ADVANCED_RARITY);
         BLACK_HOLE_CAPACITOR_SUPREME = blackHoleRegistry(helper,"black_hole_capacitor_supreme",ModuleCore.SUPREME_RARITY);
+        SIMULATED_HYDROPONIC_BED = deferredRegistry(helper,"simulated_hydroponic_bed",SimulatedHydroponicBedBlock::new);
+
     }
 
     private Pair<RegistryObject<Block>,RegistryObject<BlockEntityType<?>>> deferredRegistry(DeferredRegistryHelper helper, String name, Supplier<BasicTileBlock<?>> blockSupplier){
@@ -86,6 +92,7 @@ public class ModBlocks implements IModule {
         blocks.add(BLACK_HOLE_CAPACITOR_SIMPLE.getLeft());
         blocks.add(BLACK_HOLE_CAPACITOR_ADVANCED.getLeft());
         blocks.add(BLACK_HOLE_CAPACITOR_SUPREME.getLeft());
+        blocks.add(SIMULATED_HYDROPONIC_BED.getLeft());
 
         return blocks;
     }

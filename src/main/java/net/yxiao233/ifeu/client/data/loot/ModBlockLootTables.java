@@ -44,6 +44,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModuleCore.SIMPLE.get());
         this.dropSelf(ModuleCore.ADVANCED.get());
         this.dropSelf(ModuleCore.SUPREME.get());
+        this.dropSelf(ModBlocks.SIMULATED_HYDROPONIC_BED.getLeft().get());
 
         dropSelfWithNbtBlocks().forEach(block->{
             this.add(block, ((IBlockLootTableProvider)block).getLootTable(this));
@@ -83,7 +84,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 ModBlocks.BLACK_HOLE_CAPACITOR_PITY.getLeft().get(),
                 ModBlocks.BLACK_HOLE_CAPACITOR_SIMPLE.getKey().get(),
                 ModBlocks.BLACK_HOLE_CAPACITOR_ADVANCED.getLeft().get(),
-                ModBlocks.BLACK_HOLE_CAPACITOR_SUPREME.getLeft().get()
+                ModBlocks.BLACK_HOLE_CAPACITOR_SUPREME.getLeft().get(),
+                ModBlocks.SIMULATED_HYDROPONIC_BED.getLeft().get()
         );
         return iterable;
     }

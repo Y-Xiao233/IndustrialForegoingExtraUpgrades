@@ -64,6 +64,17 @@
   "tooltip.titanium.power": "Power: ",
   "tooltip.ifeu.apple_addon_item_0": "用于水培床,增加苹果产出数量",
   "tooltip.ifeu.apple_addon_item_1": "提高苹果产量: %d倍",
+  "tooltip.ifeu.hydroponic.simulating": "模拟: ",
+  "tooltip.ifeu.hydroponic.nothing": "无",
+  "tooltip.ifeu.hydroponic.executions": "模拟次数: ",
+  "tooltip.ifeu.hydroponic.efficiency": "效率: ",
+  "tooltip.ifeu.hydroponic.next_efficiency": "达到下个效率的进度: ",
+  "tooltip.ifeu.hydroponic.potential_drops": "概率掉落物: ",
+  "tooltip.ifeu.hydroponic.drop_format": " - %s%s x %s",
+  "tooltip.titanium.facing_handler.simulation": "水培床模拟处理器",
+  "tooltip.titanium.facing_handler.seed": "模拟种子",
+  "tooltip.ifeu.hydroponic.function_1": "* 在水培床中使用该物品来生成作物数据",
+  "tooltip.ifeu.hydroponic.function_2": "* 在水培床模拟室中使用来获取掉落物",
 
   "item.ifeu.liquid_dragon_breath_bucket": "液态龙息桶",
   "item.ifeu.liquid_sculk_matter_bucket": "液态幽匿物质桶",
@@ -101,6 +112,7 @@
   "item.ifeu.rough_dragon_star": "粗糙龙之星",
   "item.ifeu.empty_nether_star": "空下界之星",
   "item.ifeu.apple_core": "苹果核",
+  "item.ifeu.hydroponic_simulation_processor": "水培床模拟处理器",
 
   "block.ifeu.infuser": "灌注器",
   "block.ifeu.dragon_star_generator": "龙之星发电机",
@@ -124,6 +136,7 @@
   "block.ifeu.liquid_sculk_matter": "液态幽匿物质",
   "block.ifeu.liquid_malic_acid": "液态苹果酸",
   "block.ifeu.dragon_star_essence": "龙之星精华",
+  "block.ifeu.simulated_hydroponic_bed": "水培床模拟室",
 
   "fluid_type.ifeu.liquid_dragon_breath": "液态龙息",
   "fluid_type.ifeu.liquid_sculk_matter": "液态幽匿物质",

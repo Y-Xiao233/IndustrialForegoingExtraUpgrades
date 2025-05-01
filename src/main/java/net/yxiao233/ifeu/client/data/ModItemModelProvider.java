@@ -65,5 +65,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModContents.ROUGH_DRAGON_STAR.get());
         basicItem(ModContents.EMPTY_NETHER_STAR.get());
         basicItem(ModContents.APPLE_CORE.get());
+        basicItem(ModContents.HYDROPONIC_SIMULATION_PROCESSOR.get());
     }
 }

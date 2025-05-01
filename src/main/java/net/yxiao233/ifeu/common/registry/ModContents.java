@@ -12,6 +12,7 @@ import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.api.block.DeadDragonEggBlock;
 import net.yxiao233.ifeu.common.item.ConfigurationToolItem;
 import net.yxiao233.ifeu.common.item.ConnectToolItem;
+import net.yxiao233.ifeu.common.item.HydroponicSimulationProcessorItem;
 import net.yxiao233.ifeu.common.item.WrenchItem;
 
 public class ModContents {
@@ -59,4 +60,8 @@ public class ModContents {
 
     //for recipe as "minecraft:air"
     public static final RegistryObject<Item> AIR = ITEMS.register("air", () -> new Item(new Item.Properties()));
+
+
+    //industrial foregoing 1.21 context
+    public static final RegistryObject<Item> HYDROPONIC_SIMULATION_PROCESSOR = ITEMS.register("hydroponic_simulation_processor", () -> new HydroponicSimulationProcessorItem(ModItems.TAB_ADDONS));
 }

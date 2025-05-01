@@ -45,7 +45,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.BLACK_HOLE_CAPACITOR_PITY.getLeft().get())
                 .add(ModBlocks.BLACK_HOLE_CAPACITOR_SIMPLE.getLeft().get())
                 .add(ModBlocks.BLACK_HOLE_CAPACITOR_ADVANCED.getLeft().get())
-                .add(ModBlocks.BLACK_HOLE_CAPACITOR_SUPREME.getLeft().get());
+                .add(ModBlocks.BLACK_HOLE_CAPACITOR_SUPREME.getLeft().get())
+                .add(ModBlocks.SIMULATED_HYDROPONIC_BED.getLeft().get());
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.INFUSER.getLeft().get())
@@ -64,7 +65,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.BLACK_HOLE_CAPACITOR_PITY.getLeft().get())
                 .add(ModBlocks.BLACK_HOLE_CAPACITOR_SIMPLE.getLeft().get())
                 .add(ModBlocks.BLACK_HOLE_CAPACITOR_ADVANCED.getLeft().get())
-                .add(ModBlocks.BLACK_HOLE_CAPACITOR_SUPREME.getLeft().get());
+                .add(ModBlocks.BLACK_HOLE_CAPACITOR_SUPREME.getLeft().get())
+                .add(ModBlocks.SIMULATED_HYDROPONIC_BED.getLeft().get());
 
 
         this.tag(ModTags.Blocks.MACHINE_FRAME_ULTIMATE)

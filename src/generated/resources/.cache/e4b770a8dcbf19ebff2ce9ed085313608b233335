@@ -1,4 +1,4 @@
-// 1.20.1	2025-04-20T16:56:18.0929777	ifeu - ItemModel
+// 1.20.1	2025-05-01T15:54:48.707268	ifeu - ItemModel
 954b2a22822a91fd5087a685934f027e85c73429 assets/ifeu/models/item/apple_addon_1.json
 010431de6f66008e97c28278342d9f0ea7c7fd39 assets/ifeu/models/item/apple_addon_2.json
 b685ea69b56d6df59a6825ab0ccee46a07f213c0 assets/ifeu/models/item/apple_addon_3.json
@@ -20,6 +20,7 @@ de239f82bee0505adbaf4886b8da0b67d9c41464 assets/ifeu/models/item/dragon_star_ess
 9bae33867b451297e561d7e0855602d5216f6b5b assets/ifeu/models/item/efficiency_addon_5.json
 e2ccb756d4fa94a1bfa0bcdf82071040119ebe1c assets/ifeu/models/item/efficiency_addon_6.json
 ce618c8597bbc981eb767641206934e92ad5d8d4 assets/ifeu/models/item/empty_nether_star.json
+b8842c1239afe4fdc926f704facda31180d42a71 assets/ifeu/models/item/hydroponic_simulation_processor.json
 d37d6ec3fce052d157ee9222dc9887f7fe543a7d assets/ifeu/models/item/laser_lens_dragon.json
 ea11f5c33f99af4c3147cf713e62524098223344 assets/ifeu/models/item/laser_lens_sculk.json
 07ea1fd916b8e46ab0f163a7a0fdae08b5cf6ef3 assets/ifeu/models/item/liquid_dragon_breath_bucket.json

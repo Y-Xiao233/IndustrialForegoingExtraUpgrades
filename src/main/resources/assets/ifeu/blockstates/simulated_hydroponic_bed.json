@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "ifeu:block/simulated_hydroponic_bed"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "industrialforegoing:block/base_block",
+  "textures": {
+    "south": "ifeu:block/simulated_hydroponic_bed_side",
+    "west": "ifeu:block/simulated_hydroponic_bed_side",
+    "east": "ifeu:block/simulated_hydroponic_bed_side",
+    "north": "ifeu:block/simulated_hydroponic_bed_side"
+  }
+}
