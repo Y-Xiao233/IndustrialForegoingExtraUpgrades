@@ -131,6 +131,9 @@
 - 为苹果插件添加了KubeJS支持
 - 添加了灌注器内液态龙息+玻璃瓶合成龙息的配方
 
+### v2.1.107
+- 将工业先锋1.21中新添加的特性移植到了1.20
+
 ## en_us
 ### v1.0.0
 - init
@@ -260,3 +263,6 @@
 - Added built-in builder class for most recipes
 - Added KubeJS support for Apple Addon
 - Added the recipe of liquid Dragon Breath in the infuser and Dragon Breath in glass bottles
+
+### v2.1.107
+- Transplanted the newly added features from Industrial Foregoing 1.21 to 1.20
