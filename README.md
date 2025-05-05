@@ -27,7 +27,7 @@ StartupEvents.registry("item", event =>{
 ## 你可以使用KubeJS对多方块结构进行许多操作
 ### 首先统一定义一个结构
 ```JavaScript
-const TEST = new MultiBlockStructureBuilder()
+global.TEST = new MultiBlockStructureBuilder()
         .pattern(
             "AAA",
             "AAA",
@@ -51,14 +51,14 @@ const TEST = new MultiBlockStructureBuilder()
 #### 该mod支持通过KubeJS来修改由该mod添加的机器多方块结构(需要放在startup_scripts下)
 ```JavaScript
 IFEUEvents.structureModify(event =>{
-    event.modify(IFEUMultiBlockStructures.BIG_DISSOLUTION_CHAMBER,TEST)
+    event.modify(IFEUMultiBlockStructures.BIG_DISSOLUTION_CHAMBER,global.TEST)
 })
 ```
 
 #### 该mod支持通过KubeJS来添加多方块的世界渲染(暂时只支持有方块实体的方块,需要放在startup_scripts下)
 ```JavaScript
 IFEUEvents.structureRender(event =>{
-    event.registry("test", "industrialforegoing:dissolution_chamber",TEST)
+    event.registry("test", "industrialforegoing:dissolution_chamber",global.TEST)
 })
 ```
 
@@ -74,26 +74,26 @@ IFEUEvents.structureRender(event =>{
 function addStructureTip(tooltip,structure,block_id){
     const list = structure.getMaterialList()
     tooltip.addAdvanced(block_id,(item, advanced ,tooltips) =>{
-        if(TooltipHelper.getKeyType(KeyType.SHIFT)){
+        if(TooltipHelper.getKeyType(TooltipHelper.KeyType.SHIFT)){
             tooltips.add(Component.translatable("tooltip.ifeu.required_material").withStyle($ChatFormatting.AQUA));
             list.forEach(component =>{
                 tooltips.add(component.withStyle($ChatFormatting.GREEN));
             })
         }else{
-            tooltips.add(Component.translatable("tooltip.ifeu.held." + KeyType.SHIFT.getValue()).withStyle($ChatFormatting.GRAY));
+            tooltips.add(Component.translatable("tooltip.ifeu.held." + TooltipHelper.KeyType.SHIFT.getValue()).withStyle($ChatFormatting.GRAY));
         }
     })
 }
 
 ItemEvents.tooltip(tooltip =>{
-    addStructureTip(tooltip,TEST,'industrialforegoing:dissolution_chamber')
+    addStructureTip(tooltip,global.TEST,'industrialforegoing:dissolution_chamber')
 })
 ```
 
 #### 你可以在其他事件中检测多方块结构是否成形,以对其添加进行更多的操作
 ```JavaScript
 BlockEvents.rightClicked('industrialforegoing:dissolution_chamber', event =>{
-    const b = TEST.checkStructure(event.getLevel(),event.block.blockState.getValue(RotatableBlock.FACING_HORIZONTAL),event.getBlock().getPos())
+    const b = global.TEST.checkStructure(event.getLevel(),event.block.blockState.getValue(RotatableBlock.FACING_HORIZONTAL),event.getBlock().getPos())
     event.player.tell(b)
 
     if(!b){
