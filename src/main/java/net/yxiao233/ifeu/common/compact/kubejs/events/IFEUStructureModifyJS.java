@@ -4,7 +4,7 @@ import dev.latvian.mods.kubejs.event.EventJS;
 import net.yxiao233.ifeu.api.structure.MultiBlockStructure;
 import net.yxiao233.ifeu.common.structure.IFEUMultiBlockStructures;
 
-public class IFEUStructuresEvent extends EventJS {
+public class IFEUStructureModifyJS extends EventJS {
     public void modify(IFEUMultiBlockStructures oldStructure, MultiBlockStructure newStructure){
         oldStructure.modify(newStructure);
     }

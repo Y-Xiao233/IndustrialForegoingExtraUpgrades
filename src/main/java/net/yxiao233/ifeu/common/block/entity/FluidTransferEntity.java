@@ -40,7 +40,6 @@ import net.yxiao233.ifeu.common.networking.packet.BooleanSyncS2CPacket;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
 import org.jetbrains.annotations.NotNull;
 
-import java.lang.reflect.Field;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;

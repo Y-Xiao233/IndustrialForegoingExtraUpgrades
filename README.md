@@ -52,6 +52,95 @@ IFEUEvents.structureModify(event =>{
 })
 ```
 
+## 该mod支持通过KubeJS来添加多方块的世界渲染(暂时只支持有方块实体的方块,需要放在startup_scripts下)
+### 示例
+```JavaScript
+IFEUEvents.structureRender(event =>{
+    event.registry("test", "industrialforegoing:dissolution_chamber",new MultiBlockStructureBuilder()
+        .pattern(
+            "AAA",
+            "AAA",
+            "AAA"
+        )
+        .pattern(
+            "BBB",
+            "BBB",
+            "BMB"
+        )
+        .pattern(
+            "CCC",
+            "CCC",
+            "CCC"
+        )
+        .define('A', Blocks.STONE)
+        .define('B', Blocks.IRON_BLOCK)
+        .define('C', Blocks.GOLD_BLOCK)
+        .build()
+    )
+})
+```
+
+## 该mod支持通过KubeJS来添加给多方块核心物品添加所需材料列表的工具提示(需要放在client_scripts下)
+### 示例
+```JavaScript
+/**
+ * 
+ * @param {$List_<($MutableComponent)>} tooltip
+ * @param {$MultiBlockStructure_} structure
+ * @param {Item} block_id
+ */
+
+function addStructureTip(tooltip,structure,block_id){
+    const list = structure.getMaterialList()
+    tooltip.addAdvanced(block_id,(item, advanced ,tooltips) =>{
+        if(TooltipHelper.getKeyType(KeyType.SHIFT)){
+            tooltips.add(Component.translatable("tooltip.ifeu.required_material").withStyle($ChatFormatting.AQUA));
+            list.forEach(component =>{
+                tooltips.add(component.withStyle($ChatFormatting.GREEN));
+            })
+        }else{
+            tooltips.add(Component.translatable("tooltip.ifeu.held." + KeyType.SHIFT.getValue()).withStyle($ChatFormatting.GRAY));
+        }
+    })
+}
+
+const DISSOLUTION_CHAMBER = new MultiBlockStructureBuilder()
+    .pattern(
+        "AAA",
+        "AMA",
+        "A A"
+    )
+    .define('A', "minecraft:stone")
+    .build()
+
+ItemEvents.tooltip(tooltip =>{
+    addStructureTip(tooltip,DISSOLUTION_CHAMBER,'industrialforegoing:dissolution_chamber')
+})
+```
+
+## 你可以在其他事件中检测多方块结构是否成形,以对其添加进行更多的操作
+### 示例(需要放在server_scripts下)
+```JavaScript
+const DISSOLUTION_CHAMBER = new MultiBlockStructureBuilder()
+    .pattern(
+        "AAA",
+        "AMA",
+        "A A"
+    )
+    .define('A', "minecraft:stone")
+    .build()
+    
+    
+BlockEvents.rightClicked('industrialforegoing:dissolution_chamber', event =>{
+    const b = DISSOLUTION_CHAMBER.checkStructure(event.getLevel(),event.block.blockState.getValue(RotatableBlock.FACING_HORIZONTAL),event.getBlock().getPos())
+    event.player.tell(b)
+
+    if(!b){
+        event.cancel()
+    }
+})
+```
+
 ## 该mod支持通过KubeJS来添加工业先锋的机器配方(强烈建议配合probejs一起食用)
 - Infuser 灌注器```event.recipes.ifeu.infuser(OutputItem,InputItem,InputFluid,ProcessingTime)```
 ```

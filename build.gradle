@@ -148,8 +148,12 @@ dependencies {
     implementation fg.deobf("maven.modrinth:titanium:${titanium_version}")
 
     //KubeJS
-    implementation fg.deobf("dev.latvian.mods:kubejs-forge:${kubejs_version}")
-    implementation fg.deobf("dev.latvian.mods:rhino-forge:${rhino_version}")
+    //saps.dev Maven
+//    implementation fg.deobf("dev.latvian.mods:kubejs-forge:${kubejs_version}")
+//    implementation fg.deobf("dev.latvian.mods:rhino-forge:${rhino_version}")
+    //curse Maven
+    implementation fg.deobf("curse.maven:kubejs-238086:4748655")
+    implementation fg.deobf("curse.maven:rhino-416294:4735056")
     implementation fg.deobf("dev.architectury:architectury-forge:${architectury_version}")
 }
 

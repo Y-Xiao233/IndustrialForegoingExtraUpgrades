@@ -134,6 +134,10 @@
 ### v2.1.107
 - 将工业先锋1.21中新添加的特性移植到了1.20
 
+### v2.1.108
+- 可以在KubeJS中添加多方块的渲染了(目前仅支持有方块实体的方块)
+- TooltipHelper, RotatableBlock目前默认绑定至KubeJS了,不需要额外对其loadClass
+
 ## en_us
 ### v1.0.0
 - init
@@ -266,3 +270,7 @@
 
 ### v2.1.107
 - Transplanted the newly added features from Industrial Foregoing 1.21 to 1.20
+
+### v2.1.108
+- MultiBlock rendering can now be added in KubeJS (currently only supports blocks with block entity)
+- TooltipHelper, RotatableBlock is currently bound to KubeJS by default, and there is no need to separately load its class
