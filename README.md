@@ -74,13 +74,13 @@ IFEUEvents.structureRender(event =>{
 function addStructureTip(tooltip,structure,block_id){
     const list = structure.getMaterialList()
     tooltip.addAdvanced(block_id,(item, advanced ,tooltips) =>{
-        if(TooltipHelper.getKeyType(KeyType.SHIFT)){
+        if(TooltipHelper.getKeyType(TooltipHelper.KeyType.SHIFT)){
             tooltips.add(Component.translatable("tooltip.ifeu.required_material").withStyle($ChatFormatting.AQUA));
             list.forEach(component =>{
                 tooltips.add(component.withStyle($ChatFormatting.GREEN));
             })
         }else{
-            tooltips.add(Component.translatable("tooltip.ifeu.held." + KeyType.SHIFT.getValue()).withStyle($ChatFormatting.GRAY));
+            tooltips.add(Component.translatable("tooltip.ifeu.held." + TooltipHelper.KeyType.SHIFT.getValue()).withStyle($ChatFormatting.GRAY));
         }
     })
 }
