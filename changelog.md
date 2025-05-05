@@ -87,6 +87,11 @@
 - 修复了由于mixin注入失败导致的游戏崩溃[\#49 by penturt](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/49)
 - 为模拟水培床也添加了苹果插件支持
 
+### v1.2.109
+- 可以在KubeJS中添加多方块的渲染了(目前仅支持有方块实体的方块)
+- TooltipHelper, RotatableBlock目前默认绑定至KubeJS了,不需要额外对其loadClass
+
+
 ## en_us
 ### v1.0.0
 - init
@@ -173,3 +178,7 @@
 - Update the version of the industrial foregoing to 1.21-3.6.29
 - Fixed game crash caused by mixin injection failure[\#49 by penturt](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/49)
 - Apple addon support has also been added to simulated hydroponic bed
+
+### v1.2.109
+- MultiBlock rendering can now be added in KubeJS (currently only supports blocks with block entity)
+- TooltipHelper, RotatableBlock is currently bound to KubeJS by default, and there is no need to separately load its class

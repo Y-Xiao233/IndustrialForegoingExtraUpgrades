@@ -1,19 +1,20 @@
 package net.yxiao233.ifeu.common.compact.kubejs;
 
+import com.hrznstudio.titanium.block.RotatableBlock;
 import dev.latvian.mods.kubejs.event.EventGroupRegistry;
 import dev.latvian.mods.kubejs.plugin.KubeJSPlugin;
 import dev.latvian.mods.kubejs.recipe.schema.RecipeSchemaRegistry;
 import dev.latvian.mods.kubejs.registry.BuilderTypeRegistry;
 import dev.latvian.mods.kubejs.script.BindingRegistry;
 import dev.latvian.mods.kubejs.script.ScriptType;
-import dev.latvian.mods.kubejs.script.ScriptTypeHolder;
 import net.minecraft.core.registries.Registries;
 import net.yxiao233.ifeu.api.structure.MultiBlockStructureBuilder;
 import net.yxiao233.ifeu.common.compact.kubejs.events.IFEUEvents;
-import net.yxiao233.ifeu.common.compact.kubejs.events.IFEUStructuresEvent;
+import net.yxiao233.ifeu.common.compact.kubejs.events.IFEUStructureModifyJS;
 import net.yxiao233.ifeu.common.compact.kubejs.items.*;
 import net.yxiao233.ifeu.common.compact.kubejs.schemas.*;
 import net.yxiao233.ifeu.common.structure.IFEUMultiBlockStructures;
+import net.yxiao233.ifeu.common.utils.TooltipHelper;
 
 public class ModKubeJSPlugin implements KubeJSPlugin {
 
@@ -21,6 +22,8 @@ public class ModKubeJSPlugin implements KubeJSPlugin {
     public void registerBindings(BindingRegistry bindings) {
         bindings.add("IFEUMultiBlockStructures", IFEUMultiBlockStructures.class);
         bindings.add("MultiBlockStructureBuilder", MultiBlockStructureBuilder.class);
+        bindings.add("TooltipHelper", TooltipHelper.class);
+        bindings.add("RotatableBlock", RotatableBlock.class);
     }
 
     @Override
@@ -57,7 +60,7 @@ public class ModKubeJSPlugin implements KubeJSPlugin {
 
     @Override
     public void afterInit() {
-        var structure = new IFEUStructuresEvent();
+        var structure = new IFEUStructureModifyJS();
         IFEUEvents.STRUCTURES.post(ScriptType.STARTUP, structure);
     }
 }
