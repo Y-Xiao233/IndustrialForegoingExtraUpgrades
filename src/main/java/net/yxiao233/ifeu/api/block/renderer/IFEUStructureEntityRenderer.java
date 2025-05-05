@@ -70,7 +70,6 @@ public class IFEUStructureEntityRenderer implements BlockEntityRenderer<IFEUStru
                 int var0 = 0;
             }else{
                 provider.renderSingleBatchedGhostBlock(pos,state);
-
             }
         }
     }

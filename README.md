@@ -10,6 +10,7 @@
 - 插件: 处理```event.create(id,"industrialforegoing:processing_addon").setTier(tier).setFormTier(formTier)```
 - 插件: 范围```event.create(id,"industrialforegoing:range_addon").setTier(tier)```
 - 插件: 线程```event.create(id,"ifeu:thread_addon").setTier(tier)```
+- 插件: 苹果```event.create(id,"ifeu:apple_addon").setTier(tier)```
 
 ### 示例
 ```JavaScript
