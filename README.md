@@ -10,6 +10,7 @@
 - 插件: 处理```event.create(id,"industrialforegoing:processing_addon").setTier(tier).setFormTier(formTier)```
 - 插件: 范围```event.create(id,"industrialforegoing:range_addon").setTier(tier)```
 - 插件: 线程```event.create(id,"ifeu:thread_addon").setTier(tier)```
+- 插件: 苹果```event.create(id,"ifeu:apple_addon").setTier(tier)```
 
 ### 示例
 ```JavaScript
@@ -23,11 +24,10 @@ StartupEvents.registry("item", event =>{
 })
 ```
 
-## 该mod支持通过KubeJS来修改由该mod添加的机器多方块结构(需要放在startup_scripts下)
-### 示例
+## 你可以使用KubeJS对多方块结构进行许多操作
+### 首先统一定义一个结构
 ```JavaScript
-IFEUEvents.structureModify(event =>{
-    event.modify(IFEUMultiBlockStructures.BIG_DISSOLUTION_CHAMBER,new MultiBlockStructureBuilder()
+const TEST = new MultiBlockStructureBuilder()
         .pattern(
             "AAA",
             "AAA",
@@ -47,7 +47,58 @@ IFEUEvents.structureModify(event =>{
         .define('B', Blocks.IRON_BLOCK)
         .define('C', Blocks.GOLD_BLOCK)
         .build()
-    )
+```
+#### 该mod支持通过KubeJS来修改由该mod添加的机器多方块结构(需要放在startup_scripts下)
+```JavaScript
+IFEUEvents.structureModify(event =>{
+    event.modify(IFEUMultiBlockStructures.BIG_DISSOLUTION_CHAMBER,TEST)
+})
+```
+
+#### 该mod支持通过KubeJS来添加多方块的世界渲染(暂时只支持有方块实体的方块,需要放在startup_scripts下)
+```JavaScript
+IFEUEvents.structureRender(event =>{
+    event.registry("test", "industrialforegoing:dissolution_chamber",TEST)
+})
+```
+
+#### 该mod支持通过KubeJS来添加给多方块核心物品添加所需材料列表的工具提示(需要放在client_scripts下)
+```JavaScript
+/**
+ * 
+ * @param {$List_<($MutableComponent)>} tooltip
+ * @param {$MultiBlockStructure_} structure
+ * @param {Item} block_id
+ */
+
+function addStructureTip(tooltip,structure,block_id){
+    const list = structure.getMaterialList()
+    tooltip.addAdvanced(block_id,(item, advanced ,tooltips) =>{
+        if(TooltipHelper.getKeyType(KeyType.SHIFT)){
+            tooltips.add(Component.translatable("tooltip.ifeu.required_material").withStyle($ChatFormatting.AQUA));
+            list.forEach(component =>{
+                tooltips.add(component.withStyle($ChatFormatting.GREEN));
+            })
+        }else{
+            tooltips.add(Component.translatable("tooltip.ifeu.held." + KeyType.SHIFT.getValue()).withStyle($ChatFormatting.GRAY));
+        }
+    })
+}
+
+ItemEvents.tooltip(tooltip =>{
+    addStructureTip(tooltip,TEST,'industrialforegoing:dissolution_chamber')
+})
+```
+
+#### 你可以在其他事件中检测多方块结构是否成形,以对其添加进行更多的操作
+```JavaScript
+BlockEvents.rightClicked('industrialforegoing:dissolution_chamber', event =>{
+    const b = TEST.checkStructure(event.getLevel(),event.block.blockState.getValue(RotatableBlock.FACING_HORIZONTAL),event.getBlock().getPos())
+    event.player.tell(b)
+
+    if(!b){
+        event.cancel()
+    }
 })
 ```
 
