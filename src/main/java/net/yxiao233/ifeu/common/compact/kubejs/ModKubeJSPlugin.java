@@ -61,6 +61,6 @@ public class ModKubeJSPlugin implements KubeJSPlugin {
     @Override
     public void afterInit() {
         var structure = new IFEUStructureModifyJS();
-        IFEUEvents.STRUCTURES.post(ScriptType.STARTUP, structure);
+        IFEUEvents.STRUCTURE_MODIFY.post(ScriptType.STARTUP, structure);
     }
 }
