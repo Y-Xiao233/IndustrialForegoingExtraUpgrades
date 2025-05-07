@@ -30,3 +30,24 @@ description='''${mod_description}'''
     versionRange="[3.5.19,)"
     ordering="NONE"
     side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="kubejs"
+    mandatory=false
+    versionRange="[2001.6.5-build.16,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="rhino"
+    mandatory=false
+    versionRange="[2001.2.3-build.10,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="architectury"
+    mandatory=false
+    versionRange="[9.2.14,)"
+    ordering="NONE"
+    side="BOTH"
