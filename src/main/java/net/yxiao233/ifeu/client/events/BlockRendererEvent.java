@@ -27,12 +27,5 @@ public class BlockRendererEvent {
         event.registerBlockEntityRenderer((BlockEntityType<DragonGeneratorEntity>) ModBlocks.DRAGON_GENERATOR.type().get(), DragonGeneratorRenderer::new);
         event.registerBlockEntityRenderer((BlockEntityType<FluidTransferEntity>) ModBlocks.FLUID_TRANSFER.type().get(), FluidTransferRenderer::new);
         event.registerBlockEntityRenderer((BlockEntityType<BigDissolutionChamberEntity>) ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.type().get(), IFEUStructureEntityRenderer::new);
-
-
-        IFEUEvents.CREATE.post(new IFEUStructureRenderJS());
-
-        IFEUStructureRenderJS.getMap().forEach((id, pair) ->{
-            event.registerBlockEntityRenderer(pair.getLeft(), (context -> new IFEUStructureEntityRendererJS(context,pair.getRight())));
-        });
     }
 }

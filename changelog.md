@@ -91,6 +91,13 @@
 - 可以在KubeJS中添加多方块的渲染了(目前仅支持有方块实体的方块)
 - TooltipHelper, RotatableBlock目前默认绑定至KubeJS了,不需要额外对其loadClass
 
+### v3.0.000
+- 版本名更改至高于1.20.1的版本名
+- 前置工业先锋的版本限制为1.21-3.6.29及以上
+- 修复了不安装KubeJS无法进入游戏的bug
+- 更改了一些命名
+- 更新了KubeJS及其依赖的版本至当前最新版
+
 
 ## en_us
 ### v1.0.0
@@ -182,3 +189,10 @@
 ### v1.2.109
 - MultiBlock rendering can now be added in KubeJS (currently only supports blocks with block entity)
 - TooltipHelper, RotatableBlock is currently bound to KubeJS by default, and there is no need to separately load its class
+
+### v3.0.000
+- Change the version name higher than 1.20.1
+- The version limit for  industrial foregoing is 1.21-3.6.29 and above
+- Fixed bug where unable to enter the game without installing KubeJS
+- Changed some names
+- Updated KubeJS and its dependencies to the current latest version
