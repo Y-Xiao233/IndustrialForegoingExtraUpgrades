@@ -17,6 +17,7 @@
     "ifeu:black_hole_capacitor_simple",
     "ifeu:black_hole_capacitor_advanced",
     "ifeu:black_hole_capacitor_supreme",
-    "ifeu:simulated_hydroponic_bed"
+    "ifeu:simulated_hydroponic_bed",
+    "ifeu:platform_builder"
   ]
 }

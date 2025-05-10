@@ -1,4 +1,4 @@
-// 1.20.1	2025-05-01T15:54:48.6987397	Loot Tables
+// 1.20.1	2025-05-10T13:29:34.7311458	Loot Tables
 415ef358a3d4a4290a0a68f6f17ac60e4ff615f2 data/ifeu/loot_tables/blocks/arcane_dragon_egg_forging.json
 5b75b7d9a59738af916c93e6a1a86fb8793ddda2 data/ifeu/loot_tables/blocks/big_dissolution_chamber_core.json
 b72bee3c1e69d3cacb1abfee56ef77cd40ea7d06 data/ifeu/loot_tables/blocks/black_hole_capacitor_advanced.json
@@ -12,6 +12,7 @@ b72bee3c1e69d3cacb1abfee56ef77cd40ea7d06 data/ifeu/loot_tables/blocks/black_hole
 b62535370102127e63093e15339865c75d287bc6 data/ifeu/loot_tables/blocks/fluid_crafting_table.json
 a53466727115a27644e665da8336d0f694f7447b data/ifeu/loot_tables/blocks/fluid_transfer.json
 c1c1907402dfdadd0199f00d45e0b1bbd617f9c3 data/ifeu/loot_tables/blocks/infuser.json
+843c0c6366f778ec8ce3a25508868bf67a1830ef data/ifeu/loot_tables/blocks/platform_builder.json
 f673d13cb8fddaf02938835461055fed9dc79c65 data/ifeu/loot_tables/blocks/rule_controller.json
 6a9f384b6110fd14061801b227d754a258463750 data/ifeu/loot_tables/blocks/simulated_hydroponic_bed.json
 584c021e3ccd548c07e9cdab55c2168c0d2a7322 data/ifeu/loot_tables/blocks/time_controller.json

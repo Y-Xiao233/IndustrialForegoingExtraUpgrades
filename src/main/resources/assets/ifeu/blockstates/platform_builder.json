@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "ifeu:block/platform_builder"
+    }
+  }
+}

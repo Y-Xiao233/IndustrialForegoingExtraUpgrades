@@ -41,6 +41,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(ModBlocks.BLACK_HOLE_CAPACITOR_ADVANCED.getLeft());
         blockItem(ModBlocks.BLACK_HOLE_CAPACITOR_SUPREME.getLeft());
         blockItem(ModBlocks.SIMULATED_HYDROPONIC_BED.getLeft());
+        blockItem(ModBlocks.PLATFORM_BUILDER.getLeft());
     }
 
     private void blockItem(RegistryObject<Block> registryObject){

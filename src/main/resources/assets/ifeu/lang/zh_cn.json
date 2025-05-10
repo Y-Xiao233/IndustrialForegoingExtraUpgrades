@@ -75,6 +75,10 @@
   "tooltip.titanium.facing_handler.seed": "模拟种子",
   "tooltip.ifeu.hydroponic.function_1": "* 在水培床中使用该物品来生成作物数据",
   "tooltip.ifeu.hydroponic.function_2": "* 在水培床模拟室中使用来获取掉落物",
+  "tooltip.titanium.facing_handler.land_input": "地面方块输入",
+  "tooltip.titanium.facing_handler.frame_input": "边框方块输入",
+  "tooltip.ifeu.adjust_frame_bounds": "调整边框宽度",
+  "tooltip.ifeu.adjust_land_range": "调整地面半径",
 
   "item.ifeu.liquid_dragon_breath_bucket": "液态龙息桶",
   "item.ifeu.liquid_sculk_matter_bucket": "液态幽匿物质桶",
@@ -137,6 +141,7 @@
   "block.ifeu.liquid_malic_acid": "液态苹果酸",
   "block.ifeu.dragon_star_essence": "龙之星精华",
   "block.ifeu.simulated_hydroponic_bed": "水培床模拟室",
+  "block.ifeu.platform_builder": "平台搭建者[WIP!]",
 
   "fluid_type.ifeu.liquid_dragon_breath": "液态龙息",
   "fluid_type.ifeu.liquid_sculk_matter": "液态幽匿物质",
@@ -171,6 +176,11 @@
   "key.ifeu.add": "增加",
   "key.ifeu.reduce": "减少",
 
+  "direction.ifeu.north": "北",
+  "direction.ifeu.south": "南",
+  "direction.ifeu.west": "西",
+  "direction.ifeu.east": "东",
+
   "message.ifeu.connect_tool.same_pos": "连接失败,不能与自身相连",
   "message.ifeu.connect_tool.pos1": "已经记录第一个坐标: %s, %s, %s",
   "message.ifeu.connect_tool.pos2": "已经记录第二个坐标: %s, %s, %s",
@@ -181,5 +191,6 @@
   "message.ifeu.connect_tool.beyond_distance": "超出距离限制",
   "message.ifeu.configuration_tool.different_type": "机器类型错误",
   "message.ifeu.configuration_tool.copy": "复制配置成功",
-  "message.ifeu.configuration_tool.paste": "粘贴配置成功"
+  "message.ifeu.configuration_tool.paste": "粘贴配置成功",
+  "message.ifeu.configuration_tool.missing_augment": "缺失插件"
 }

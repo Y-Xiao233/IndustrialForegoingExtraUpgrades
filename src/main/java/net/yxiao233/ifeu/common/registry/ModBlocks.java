@@ -28,17 +28,18 @@ public class ModBlocks implements IModule {
     public static Pair<RegistryObject<Block>, RegistryObject<BlockEntityType<?>>> ARCANE_DRAGON_EGG_FORGING;
     public static Pair<RegistryObject<Block>, RegistryObject<BlockEntityType<?>>> CREATIVE_CAPACITOR;
     public static Pair<RegistryObject<Block>, RegistryObject<BlockEntityType<?>>> RULE_CONTROLLER;
-    public static Pair<RegistryObject<Block>,RegistryObject<BlockEntityType<?>>> WEATHER_CONTROLLER;
-    public static Pair<RegistryObject<Block>,RegistryObject<BlockEntityType<?>>> TIME_CONTROLLER;
-    public static Pair<RegistryObject<Block>,RegistryObject<BlockEntityType<?>>> FLUID_CRAFTING_TABLE;
-    public static Pair<RegistryObject<Block>,RegistryObject<BlockEntityType<?>>> DRAGON_GENERATOR;
-    public static Pair<RegistryObject<Block>,RegistryObject<BlockEntityType<?>>> FLUID_TRANSFER;
+    public static Pair<RegistryObject<Block>, RegistryObject<BlockEntityType<?>>> WEATHER_CONTROLLER;
+    public static Pair<RegistryObject<Block>, RegistryObject<BlockEntityType<?>>> TIME_CONTROLLER;
+    public static Pair<RegistryObject<Block>, RegistryObject<BlockEntityType<?>>> FLUID_CRAFTING_TABLE;
+    public static Pair<RegistryObject<Block>, RegistryObject<BlockEntityType<?>>> DRAGON_GENERATOR;
+    public static Pair<RegistryObject<Block>, RegistryObject<BlockEntityType<?>>> FLUID_TRANSFER;
     public static Pair<RegistryObject<Block>, RegistryObject<BlockEntityType<?>>> BIG_DISSOLUTION_CHAMBER_CORE;
     public static Pair<RegistryObject<Block>, RegistryObject<BlockEntityType<?>>> BLACK_HOLE_CAPACITOR_PITY;
     public static Pair<RegistryObject<Block>, RegistryObject<BlockEntityType<?>>> BLACK_HOLE_CAPACITOR_SIMPLE;
     public static Pair<RegistryObject<Block>, RegistryObject<BlockEntityType<?>>> BLACK_HOLE_CAPACITOR_ADVANCED;
     public static Pair<RegistryObject<Block>, RegistryObject<BlockEntityType<?>>> BLACK_HOLE_CAPACITOR_SUPREME;
     public static Pair<RegistryObject<Block>, RegistryObject<BlockEntityType<?>>> SIMULATED_HYDROPONIC_BED;
+    public static Pair<RegistryObject<Block>, RegistryObject<BlockEntityType<?>>> PLATFORM_BUILDER;
     @Override
     public void generateFeatures(DeferredRegistryHelper helper) {
         INFUSER = deferredRegistry(helper,"infuser",InfuserBlock::new);
@@ -51,13 +52,13 @@ public class ModBlocks implements IModule {
         FLUID_CRAFTING_TABLE = deferredRegistry(helper,"fluid_crafting_table",FluidCraftingTableBlock::new);
         DRAGON_GENERATOR = deferredRegistry(helper,"dragon_generator",DragonGeneratorBlock::new);
         FLUID_TRANSFER = deferredRegistry(helper,"fluid_transfer", FluidTransferBlock::new);
-        BIG_DISSOLUTION_CHAMBER_CORE = deferredRegistry(helper,"big_dissolution_chamber_core", BigDissolutionChamberBlock::new);
+        BIG_DISSOLUTION_CHAMBER_CORE = deferredRegistry(helper,"big_dissolution_chamber_core",BigDissolutionChamberBlock::new);
         BLACK_HOLE_CAPACITOR_PITY = blackHoleRegistry(helper,"black_hole_capacitor_pity",ModuleCore.PITY_RARITY);
         BLACK_HOLE_CAPACITOR_SIMPLE = blackHoleRegistry(helper,"black_hole_capacitor_simple",ModuleCore.SIMPLE_RARITY);
         BLACK_HOLE_CAPACITOR_ADVANCED = blackHoleRegistry(helper,"black_hole_capacitor_advanced",ModuleCore.ADVANCED_RARITY);
         BLACK_HOLE_CAPACITOR_SUPREME = blackHoleRegistry(helper,"black_hole_capacitor_supreme",ModuleCore.SUPREME_RARITY);
         SIMULATED_HYDROPONIC_BED = deferredRegistry(helper,"simulated_hydroponic_bed",SimulatedHydroponicBedBlock::new);
-
+        PLATFORM_BUILDER = deferredRegistry(helper,"platform_builder",PlatformBuilderBlock::new);
     }
 
     private Pair<RegistryObject<Block>,RegistryObject<BlockEntityType<?>>> deferredRegistry(DeferredRegistryHelper helper, String name, Supplier<BasicTileBlock<?>> blockSupplier){
@@ -93,6 +94,7 @@ public class ModBlocks implements IModule {
         blocks.add(BLACK_HOLE_CAPACITOR_ADVANCED.getLeft());
         blocks.add(BLACK_HOLE_CAPACITOR_SUPREME.getLeft());
         blocks.add(SIMULATED_HYDROPONIC_BED.getLeft());
+        blocks.add(PLATFORM_BUILDER.getLeft());
 
         return blocks;
     }

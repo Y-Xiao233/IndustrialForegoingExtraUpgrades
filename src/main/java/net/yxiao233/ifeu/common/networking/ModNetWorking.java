@@ -64,6 +64,12 @@ public class ModNetWorking {
                 .encoder(IntValueSyncC2SPacket::toBytes)
                 .consumerMainThread(IntValueSyncC2SPacket::handle)
                 .add();
+
+        net.messageBuilder(PlatformBuilderEntityKeyDownSyncC2SPacket.class,id(),NetworkDirection.PLAY_TO_SERVER)
+                .decoder(PlatformBuilderEntityKeyDownSyncC2SPacket::new)
+                .encoder(PlatformBuilderEntityKeyDownSyncC2SPacket::toBytes)
+                .consumerMainThread(PlatformBuilderEntityKeyDownSyncC2SPacket::handle)
+                .add();
     }
 
     @OnlyIn(Dist.CLIENT)

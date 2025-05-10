@@ -3,13 +3,24 @@ package net.yxiao233.ifeu.common.utils;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.model.data.ModelData;
+import net.minecraftforge.fluids.FluidStack;
 import net.yxiao233.ifeu.common.registry.ModRenderTypes;
 
+import java.awt.*;
+import java.util.List;
+
+@OnlyIn(Dist.CLIENT)
 public class RendererProvider {
     private final PoseStack poseStack;
     private final MultiBufferSource multiBufferSource;
@@ -34,5 +45,32 @@ public class RendererProvider {
             minecraft.getBlockRenderer().renderBatched(blockState,renderBlockPos,level,poseStack,consumer,false,level.getRandom(), ModelData.EMPTY,null);
             poseStack.popPose();
         });
+    }
+
+    public void renderFullFluid(BlockEntity entity, FluidStack stack, int combinedLight){
+        RendererHelper.renderFullFluid(poseStack,multiBufferSource,entity,stack,combinedLight);
+    }
+    public void renderLineBox(AABB aabb, BlockPos entityPos, Color color){
+        RendererHelper.renderLineBox(poseStack,multiBufferSource.getBuffer(RenderType.lines()),aabb,entityPos,color);
+    }
+
+    public void renderCenterVerticalLine(BlockPos verticalPos, int high, Color color){
+        RendererHelper.renderCenterVerticalLine(poseStack,multiBufferSource.getBuffer(RenderType.lines()),verticalPos,high,entityPos,color);
+    }
+
+    public void renderAllBatchedGhostBlock(List<BlockPos> posList, BlockState blockState){
+        RendererHelper.renderAllBatchedGhostBlock(poseStack,multiBufferSource,entityPos,posList,blockState);
+    }
+
+    public void renderAllBatchedGhostBlockWhileIsNotCurrent(Level level, List<BlockPos> posList, BlockState blockState){
+        RendererHelper.renderAllBatchedGhostBlockWhileIsNotCurrent(poseStack,multiBufferSource,entityPos,level,posList,blockState);
+    }
+
+    public void renderBlockLineBox(BlockPos curPos, Color color){
+        RendererHelper.renderBlockLineBox(poseStack,multiBufferSource,curPos,entityPos,color);
+    }
+
+    public void renderBlockLineBoxWithFaces(BlockPos curPos, Color color){
+        RendererHelper.renderBlockLineBoxWithFaces(poseStack,multiBufferSource,curPos,entityPos,color);
     }
 }

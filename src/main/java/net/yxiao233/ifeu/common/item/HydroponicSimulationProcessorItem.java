@@ -52,11 +52,10 @@ public class HydroponicSimulationProcessorItem extends IFCustomItem {
                 String var10 = String.valueOf(ChatFormatting.GRAY);
                 tooltip.add(Component.literal(var10 + " - " + String.valueOf(ChatFormatting.WHITE) + (new DecimalFormat("0.00")).format((double)stat.amount / (double)simulation.executions * effi) + String.valueOf(ChatFormatting.GRAY) + "x " + String.valueOf(ChatFormatting.GOLD) + Component.translatable(stat.stack.getDescriptionId()).getString()));
             }
-
-            tooltip.add(Component.empty());
-            tooltip.add(Component.translatable("tooltip.ifeu.hydroponic.function_1").withStyle(ChatFormatting.DARK_GRAY));
-            tooltip.add(Component.translatable("tooltip.ifeu.hydroponic.function_2").withStyle(ChatFormatting.DARK_GRAY));
         }
+        tooltip.add(Component.empty());
+        tooltip.add(Component.translatable("tooltip.ifeu.hydroponic.function_1").withStyle(ChatFormatting.DARK_GRAY));
+        tooltip.add(Component.translatable("tooltip.ifeu.hydroponic.function_2").withStyle(ChatFormatting.DARK_GRAY));
     }
 
     public boolean hasTooltipDetails(@Nullable BasicItem.@Nullable Key key) {

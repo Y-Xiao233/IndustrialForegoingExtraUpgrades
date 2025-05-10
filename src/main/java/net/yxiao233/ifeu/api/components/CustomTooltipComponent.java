@@ -58,7 +58,14 @@ public abstract class CustomTooltipComponent extends BasicScreenAddon {
         return new Component[]{
                 ComponentUtil.simpleComponent("key.ifeu.press", ChatFormatting.WHITE).append(ComponentUtil.simpleLiteralComponent(" SHIFT ",ChatFormatting.GOLD)).append(ComponentUtil.simpleComponent("key.ifeu."+type,ChatFormatting.WHITE)).append(ComponentUtil.simpleLiteralComponent(" 10",ChatFormatting.AQUA)),
                 ComponentUtil.simpleComponent("key.ifeu.press", ChatFormatting.WHITE).append(ComponentUtil.simpleLiteralComponent(" CTRL ",ChatFormatting.GOLD)).append(ComponentUtil.simpleComponent("key.ifeu."+type,ChatFormatting.WHITE)).append(ComponentUtil.simpleLiteralComponent(" 100",ChatFormatting.AQUA)),
-                ComponentUtil.simpleComponent("key.ifeu.press", ChatFormatting.WHITE).append(ComponentUtil.simpleLiteralComponent(" SHIFT+CTRL ",ChatFormatting.GOLD)).append(ComponentUtil.simpleComponent("key.ifeu."+type,ChatFormatting.WHITE)).append(ComponentUtil.simpleLiteralComponent(" 1000",ChatFormatting.AQUA)),
+                ComponentUtil.simpleComponent("key.ifeu.press", ChatFormatting.WHITE).append(ComponentUtil.simpleLiteralComponent(" SHIFT+CTRL ",ChatFormatting.GOLD)).append(ComponentUtil.simpleComponent("key.ifeu."+type,ChatFormatting.WHITE)).append(ComponentUtil.simpleLiteralComponent(" 1000",ChatFormatting.AQUA))
+        };
+    }
+
+    public static Component[] platformBuilder(String type, String LF){
+        return new Component[]{
+                ComponentUtil.simpleComponent("tooltip.ifeu.adjust_"+LF,ChatFormatting.GREEN),
+                ComponentUtil.simpleComponent("key.ifeu.press", ChatFormatting.WHITE).append(ComponentUtil.simpleLiteralComponent(" SHIFT ",ChatFormatting.GOLD)).append(ComponentUtil.simpleComponent("key.ifeu."+type,ChatFormatting.WHITE)).append(ComponentUtil.simpleLiteralComponent(" 10",ChatFormatting.AQUA))
         };
     }
     public abstract int[] width$height();

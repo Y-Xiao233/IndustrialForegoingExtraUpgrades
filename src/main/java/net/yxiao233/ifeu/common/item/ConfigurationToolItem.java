@@ -342,11 +342,11 @@ public class ConfigurationToolItem extends Item {
                     //augments
                     if(hasAugments && blockEntity instanceof MachineTile<?> machineTile){
                         Inventory inventory = player.getInventory();
-                        insertAugment(augItem.get(),augmentsTag,inventory,machineTile,SpeedAddonItem.class);
-                        insertAugment(augItem.get(),augmentsTag,inventory,machineTile,RangeAddonItem.class);
-                        insertAugment(augItem.get(),augmentsTag,inventory,machineTile,EfficiencyAddonItem.class);
-                        insertAugment(augItem.get(),augmentsTag,inventory,machineTile,ProcessingAddonItem.class);
-                        insertAugment(augItem.get(),augmentsTag,inventory,machineTile,ModThreadAddonItem.class);
+                        insertAugment(augItem.get(),augmentsTag,player,inventory,machineTile,SpeedAddonItem.class);
+                        insertAugment(augItem.get(),augmentsTag,player,inventory,machineTile,RangeAddonItem.class);
+                        insertAugment(augItem.get(),augmentsTag,player,inventory,machineTile,EfficiencyAddonItem.class);
+                        insertAugment(augItem.get(),augmentsTag,player,inventory,machineTile,ProcessingAddonItem.class);
+                        insertAugment(augItem.get(),augmentsTag,player,inventory,machineTile,ModThreadAddonItem.class);
                     }
 
                     player.displayClientMessage(Component.translatable("message.ifeu.configuration_tool.paste").withStyle(ChatFormatting.GOLD),true);
@@ -361,7 +361,7 @@ public class ConfigurationToolItem extends Item {
         return InteractionResult.PASS;
     }
 
-    private void insertAugment(NonNullList<Item> augItems, ArrayList<CompoundTag> augmentsTag, Inventory playerInventory, MachineTile<?> machineTile, Class<?> clazz){
+    private void insertAugment(NonNullList<Item> augItems, ArrayList<CompoundTag> augmentsTag, Player player,Inventory playerInventory, MachineTile<?> machineTile, Class<?> clazz){
         for (int i = 0; i < augItems.size(); i++) {
             if(clazz.isAssignableFrom(augItems.get(i).getClass())){
                 Item item = augItems.get(i);
@@ -373,6 +373,8 @@ public class ConfigurationToolItem extends Item {
                     int index = playerInventory.findSlotMatchingItem(stack);
                     playerInventory.getItem(index).setCount(playerInventory.getItem(index).getCount() - 1);
                     InventoryComponentHelper.insertAugment(machineTile,stack);
+                }else{
+                    player.sendSystemMessage(Component.translatable("message.ifeu.configuration_tool.missing_augment").withStyle(ChatFormatting.RED));
                 }
             }
         }
