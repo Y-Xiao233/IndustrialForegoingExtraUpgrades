@@ -64,14 +64,14 @@ public class SimulatedHydroponicBedEntity extends IndustrialWorkingTile<Simulate
                 }
 
                 if (!ItemStack.isSameItem(seed, this.simulation.getCrop())) {
-                    return new IndustrialWorkingTile.WorkAction(1.0F, 0);
+                    return new IndustrialWorkingTile<SimulatedHydroponicBedEntity>.WorkAction(1.0F, 0);
                 }
 
                 ItemStack crop = this.simulation.getCrop();
                 long executions = this.simulation.getExecutions();
                 if (!crop.isEmpty() && executions > 0L) {
                     double efficiency = Math.floor(HydroponicSimulationProcessorItem.calculateEfficiency((double)executions) * 100.0) / 100.0;
-                    List<ItemStack> generatedDrops = new ArrayList();
+                    List<ItemStack> generatedDrops = new ArrayList<>();
                     Iterator var9 = this.simulation.getStats().iterator();
 
                     ItemStack drop;
@@ -99,7 +99,7 @@ public class SimulatedHydroponicBedEntity extends IndustrialWorkingTile<Simulate
                     }
 
                     if (this.level.random.nextDouble() <= SimulatedHydroponicBedConfig.chanceToIncreaseExecutions) {
-                        ArrayList<ItemStack> boostDrops = new ArrayList();
+                        ArrayList<ItemStack> boostDrops = new ArrayList<>();
                         Iterator var23 = this.simulation.getStats().iterator();
 
                         while(var23.hasNext()) {
@@ -148,12 +148,12 @@ public class SimulatedHydroponicBedEntity extends IndustrialWorkingTile<Simulate
                     list.forEach(stack ->{
                         ItemHandlerHelper.insertItem(output, stack, false);
                     });
-                    return new IndustrialWorkingTile.WorkAction(1.0F, SimulatedHydroponicBedConfig.powerPerOperation);
+                    return new IndustrialWorkingTile<SimulatedHydroponicBedEntity>.WorkAction(1.0F, SimulatedHydroponicBedConfig.powerPerOperation);
                 }
             }
         }
 
-        return new IndustrialWorkingTile.WorkAction(1.0F, 0);
+        return new IndustrialWorkingTile<SimulatedHydroponicBedEntity>.WorkAction(1.0F, 0);
     }
 
     @Override

@@ -83,6 +83,11 @@
   "tooltip.titanium.facing_handler.frame_input": "Frame Input",
   "tooltip.ifeu.adjust_frame_bounds": "Adjust Frame Bounds",
   "tooltip.ifeu.adjust_land_range": "Adjust Land Range",
+  "tooltip.ifeu.platform_builder.destroy": "Destruction mode",
+  "tooltip.ifeu.platform_builder.skip": "Skip Mode",
+  "tooltip.ifeu.platform_builder.destroy_1": "Destroy blocks that obstruct construction",
+  "tooltip.ifeu.platform_builder.skip_1": "Skip blocks that block construction",
+  "tooltip.ifeu.platform_builder.reset": "Reset",
 
   "item.ifeu.liquid_dragon_breath_bucket": "Liquid Dragon Breath Bucket",
   "item.ifeu.liquid_sculk_matter_bucket": "Liquid Sculk Matter Bucket",

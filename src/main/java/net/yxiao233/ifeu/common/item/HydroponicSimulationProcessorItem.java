@@ -38,7 +38,7 @@ public class HydroponicSimulationProcessorItem extends IFCustomItem {
         if(stack.hasTag()){
             Simulation simulation = new Simulation(stack.getTag());
             double effi = Math.floor(calculateEfficiency((double)simulation.executions) * 100.0) / 100.0;
-            tooltip.add(Component.translatable("tooltip.ifeu.hydroponic.simulating").withStyle(ChatFormatting.GRAY).append(Component.translatable(simulation.crop.isEmpty() ? "tooltip.industrialforegoing.hydroponic.nothing" : simulation.crop.getDescriptionId()).withStyle(ChatFormatting.GOLD)));
+            tooltip.add(Component.translatable("tooltip.ifeu.hydroponic.simulating").withStyle(ChatFormatting.GRAY).append(simulation.crop.isEmpty() ? Component.translatable("tooltip.ifeu.hydroponic.nothing").withStyle(ChatFormatting.GOLD) :simulation.crop.getDisplayName().copy().withStyle(ChatFormatting.GOLD)));
             tooltip.add(Component.translatable("tooltip.ifeu.hydroponic.executions").withStyle(ChatFormatting.GRAY).append(Component.literal((new DecimalFormat()).format(simulation.executions)).withStyle(ChatFormatting.GOLD)));
             tooltip.add(Component.translatable("tooltip.ifeu.hydroponic.efficiency").withStyle(ChatFormatting.GRAY).append(Component.literal("" + effi).withStyle(ChatFormatting.GOLD)));
             MutableComponent var10001 = Component.translatable("tooltip.ifeu.hydroponic.next_efficiency").withStyle(ChatFormatting.GRAY);
@@ -50,7 +50,7 @@ public class HydroponicSimulationProcessorItem extends IFCustomItem {
             while(var8.hasNext()) {
                 CountedStack stat = (CountedStack)var8.next();
                 String var10 = String.valueOf(ChatFormatting.GRAY);
-                tooltip.add(Component.literal(var10 + " - " + String.valueOf(ChatFormatting.WHITE) + (new DecimalFormat("0.00")).format((double)stat.amount / (double)simulation.executions * effi) + String.valueOf(ChatFormatting.GRAY) + "x " + String.valueOf(ChatFormatting.GOLD) + Component.translatable(stat.stack.getDescriptionId()).getString()));
+                tooltip.add(Component.literal(var10 + " - " + String.valueOf(ChatFormatting.WHITE) + (new DecimalFormat("0.00")).format((double)stat.amount / (double)simulation.executions * effi) + String.valueOf(ChatFormatting.GRAY) + "x " + String.valueOf(ChatFormatting.GOLD) + stat.stack.getDisplayName().getString()));
             }
         }
         tooltip.add(Component.empty());

@@ -5,15 +5,12 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.yxiao233.ifeu.api.block.entity.IFEUAreaWorkingTile;
 import net.yxiao233.ifeu.common.utils.PlatformBuilderUtil;
 import net.yxiao233.ifeu.common.utils.RendererProvider;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class PlatformBuilderRenderer implements BlockEntityRenderer<IFEUAreaWorkingTile<?>> {
     public PlatformBuilderRenderer(BlockEntityRendererProvider.Context context) {
@@ -29,8 +26,6 @@ public class PlatformBuilderRenderer implements BlockEntityRenderer<IFEUAreaWork
 
             provider.renderAllBatchedGhostBlockWhileIsNotCurrent(entity.getLevel(),PlatformBuilderUtil.getFrameBlockPosList(entity),entity.getFrameBlockState());
             provider.renderAllBatchedGhostBlockWhileIsNotCurrent(entity.getLevel(),PlatformBuilderUtil.getLandPosList(entity),entity.getLandBlockState());
-
-
         }
     }
 

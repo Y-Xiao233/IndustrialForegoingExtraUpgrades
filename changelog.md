@@ -143,6 +143,12 @@
 - 更改了一些命名
 - 更新了KubeJS及其依赖的版本至当前最新版
 
+### v2.2.001
+- 添加了平台建造器[WIP!]
+- 新增特性,手持连接器时高亮显示被链接的两个方块
+- 新增特性,配置工具粘贴配置时背包无对应升级,聊天栏提示
+- 修复了水培床模拟处理器的部分工具提示错误[\#57 by TheDesiringOne](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/57)
+
 ## en_us
 ### v1.0.0
 - init
@@ -284,3 +290,9 @@
 - Fixed bug where unable to enter the game without installing KubeJS
 - Changed some names
 - Updated KubeJS and its dependencies to the current latest version
+
+### v2.2.001
+- Added platform builder[WIP!]
+- New feature: Highlight the two linked fluid transfer blocks when holding the connect tool
+- New feature: When the configuration tool pastes the configuration, there is no corresponding upgrade for the inventory, and the chat bar prompts
+- Fixed some tooltip errors in the hydroponic bed simulation processor[\#57 by TheDesiringOne](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/57)

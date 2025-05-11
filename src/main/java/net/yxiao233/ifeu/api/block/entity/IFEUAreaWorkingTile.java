@@ -13,6 +13,7 @@ import com.hrznstudio.titanium.component.button.ButtonComponent;
 import com.hrznstudio.titanium.item.AugmentWrapper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -76,6 +77,8 @@ public abstract class IFEUAreaWorkingTile<T extends IFEUAreaWorkingTile<T>> exte
     public abstract BlockState getFrameBlockState();
     public abstract BlockState getLandBlockState();
     public abstract BlockPos getCenter();
+    public abstract Item getLandItem();
+    public abstract Item getFrameItem();
 
     @Override
     public void serverTick(Level var1, BlockPos var2, BlockState var3, T var4) {

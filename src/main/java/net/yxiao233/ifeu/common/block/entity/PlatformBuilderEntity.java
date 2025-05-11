@@ -1,5 +1,6 @@
 package net.yxiao233.ifeu.common.block.entity;
 
+import com.buuz135.industrial.IndustrialForegoing;
 import com.buuz135.industrial.block.tile.RangeManager;
 import com.buuz135.industrial.utils.BlockUtils;
 import com.hrznstudio.titanium.annotation.Save;
@@ -21,16 +22,17 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.util.FakePlayer;
 import net.yxiao233.ifeu.api.block.entity.IFEUAreaWorkingTile;
 import net.yxiao233.ifeu.api.components.ComponentGuiComponent;
 import net.yxiao233.ifeu.api.components.CustomTooltipComponent;
@@ -65,9 +67,9 @@ public class PlatformBuilderEntity extends IFEUAreaWorkingTile<PlatformBuilderEn
     @Save
     private int frameIndex;
     @Save
-    public boolean hasButtonTip = false;
+    public boolean hasButtonTip = true;
     @Save
-    public int mode;
+    public int mode = 0;
     public static boolean isShiftDown;
     private boolean finish = false;
     private static final int maxLandRange = PlatformBuilderConfig.maxLandRange;
@@ -170,7 +172,7 @@ public class PlatformBuilderEntity extends IFEUAreaWorkingTile<PlatformBuilderEn
 
         this.addButton((new ButtonComponent(118, 84, 14, 14) {
             @OnlyIn(Dist.CLIENT)
-            public List<IFactory<? extends IScreenAddon>> getScreenAddons() {
+            public @NotNull List<IFactory<? extends IScreenAddon>> getScreenAddons() {
                 return Collections.singletonList(() -> {
                     StateButtonInfo[] buttonInfo = new StateButtonInfo[2];
                     IAssetType<IAsset> asset = AssetTypes.BUTTON_SIDENESS_ENABLED;
@@ -195,6 +197,56 @@ public class PlatformBuilderEntity extends IFEUAreaWorkingTile<PlatformBuilderEn
             this.hasButtonTip = !this.hasButtonTip;
             this.markForUpdate();
         }).setId(10));
+
+        this.addButton((new ButtonComponent(100, 84, 14, 14) {
+            @OnlyIn(Dist.CLIENT)
+            public @NotNull List<IFactory<? extends IScreenAddon>> getScreenAddons() {
+                return Collections.singletonList(() -> {
+                    StateButtonInfo[] buttonInfo = new StateButtonInfo[2];
+                    IAssetType<IAsset> asset = AssetTypes.BUTTON_SIDENESS_DISABLED;
+                    String[] tip = new String[2];
+                    ChatFormatting chatFormatting = ChatFormatting.GOLD;
+                    tip[0] = chatFormatting + LangUtil.getString("tooltip.ifeu.platform_builder.destroy", new Object[0]);
+                    tip[1] = "tooltip.ifeu.platform_builder.destroy_1";
+                    buttonInfo[0] = new StateButtonInfo(0, asset, tip);
+                    asset = AssetTypes.BUTTON_SIDENESS_ENABLED;
+                    tip = new String[2];
+                    tip[0] = chatFormatting + LangUtil.getString("tooltip.ifeu.platform_builder.skip", new Object[0]);
+                    tip[1] = "tooltip.ifeu.platform_builder.skip_1";
+                    buttonInfo[1] = new StateButtonInfo(1, asset, tip);
+                    return new StateButtonAddon(this, buttonInfo) {
+                        public int getState() {
+                            return PlatformBuilderEntity.this.mode;
+                        }
+                    };
+                });
+            }
+        }).setPredicate((playerEntity, compoundNBT) -> {
+            this.mode = this.mode >= 1 ? 0: 1;
+            this.markForUpdate();
+        }).setId(11));
+
+
+        this.addButton((new ButtonComponent(82, 84, 14, 14) {
+            @OnlyIn(Dist.CLIENT)
+            public @NotNull List<IFactory<? extends IScreenAddon>> getScreenAddons() {
+                return Collections.singletonList(() -> {
+                    IAssetType<IAsset> asset = AssetTypes.BUTTON_SIDENESS_PUSH;
+                    String[] tip = new String[1];
+                    ChatFormatting chatFormatting = ChatFormatting.GOLD;
+                    tip[0] = chatFormatting + LangUtil.getString("tooltip.ifeu.platform_builder.reset",new Object[0]);
+                    StateButtonInfo info = new StateButtonInfo(0, asset, tip);
+                    return new StateButtonAddon(this, info) {
+                        public int getState() {
+                            return 0;
+                        }
+                    };
+                });
+            }
+        }).setPredicate((playerEntity, compoundNBT) -> {
+            resetIndex();
+            this.markForUpdate();
+        }).setId(12));
     }
 
 
@@ -232,7 +284,7 @@ public class PlatformBuilderEntity extends IFEUAreaWorkingTile<PlatformBuilderEn
         super.initClient();
 
         this.addGuiAddonFactory(() -> {
-            return new ComponentGuiComponent(85,22) {
+            return new ComponentGuiComponent(99,22) {
                 @Override
                 public Component getText() {
                     return isNorth ? Component.translatable("direction.ifeu.north") : Component.translatable("direction.ifeu.south");
@@ -241,7 +293,7 @@ public class PlatformBuilderEntity extends IFEUAreaWorkingTile<PlatformBuilderEn
         });
 
         this.addGuiAddonFactory(() -> {
-            return new ComponentGuiComponent(87,43) {
+            return new ComponentGuiComponent(99,43) {
                 @Override
                 public Component getText() {
                     return isWest ? Component.translatable("direction.ifeu.west") : Component.translatable("direction.ifeu.east");
@@ -354,9 +406,6 @@ public class PlatformBuilderEntity extends IFEUAreaWorkingTile<PlatformBuilderEn
     }
     @Override
     public WorkAction work() {
-        //0 销毁并放置 1跳过
-        mode = 0;
-
         List<BlockPos> frames = PlatformBuilderUtil.getFrameBlockPosList(this);
         List<BlockPos> lands = PlatformBuilderUtil.getLandPosList(this);
         int needFrame = frames.size() - frameIndex;
@@ -374,7 +423,7 @@ public class PlatformBuilderEntity extends IFEUAreaWorkingTile<PlatformBuilderEn
                 }else{
                     skip(lands.get(landIndex),getLandBlockState(),"land");
                 }
-                return new WorkAction(0.2F,PlatformBuilderConfig.powerPerOperation);
+                return new WorkAction(1.0F,PlatformBuilderConfig.powerPerOperation);
             }else if(frame){
                 if(needFrame > 0){
                     if(mode == 0){
@@ -382,7 +431,7 @@ public class PlatformBuilderEntity extends IFEUAreaWorkingTile<PlatformBuilderEn
                     }else{
                         skip(frames.get(frameIndex),getFrameBlockState(),"frame");
                     }
-                    return new WorkAction(0.2F,PlatformBuilderConfig.powerPerOperation);
+                    return new WorkAction(1.0F,PlatformBuilderConfig.powerPerOperation);
                 }
             }
         }else if(frame){
@@ -392,7 +441,7 @@ public class PlatformBuilderEntity extends IFEUAreaWorkingTile<PlatformBuilderEn
                 }else{
                     skip(frames.get(frameIndex),getFrameBlockState(),"frame");
                 }
-                return new WorkAction(0.2F,PlatformBuilderConfig.powerPerOperation);
+                return new WorkAction(1.0F,PlatformBuilderConfig.powerPerOperation);
             }
         }
 
@@ -400,6 +449,9 @@ public class PlatformBuilderEntity extends IFEUAreaWorkingTile<PlatformBuilderEn
     }
 
     private void replace(BlockPos pos, BlockState state, String type){
+        FakePlayer fakePlayer = IndustrialForegoing.getFakePlayer(level,pos);
+        fakePlayer.setGameMode(GameType.SURVIVAL);
+        fakePlayer.setItemInHand(InteractionHand.MAIN_HAND,new ItemStack(Items.NETHERITE_PICKAXE));
         if(this.level.getBlockState(pos).isAir()){
             level.setBlockAndUpdate(pos,state);
             shrink(type);
@@ -407,8 +459,9 @@ public class PlatformBuilderEntity extends IFEUAreaWorkingTile<PlatformBuilderEn
         }else{
             if(level.getBlockState(pos).is(state.getBlock())){
                 increaseIndex(type);
-            }else if(BlockUtils.canBlockBeBroken(level,pos)){
+            }else if(level.getBlockState(pos).getDestroySpeed(level,pos) >= 0.0F && level.getBlockState(pos).canHarvestBlock(level,pos,fakePlayer)){
                 shrink(type);
+                level.destroyBlock(pos,true);
                 level.setBlockAndUpdate(pos,state);
                 increaseIndex(type);
             }
@@ -495,6 +548,22 @@ public class PlatformBuilderEntity extends IFEUAreaWorkingTile<PlatformBuilderEn
     @Override
     public BlockPos getCenter() {
         return null;
+    }
+
+    @Override
+    public Item getLandItem() {
+        if(land.getStackInSlot(0).isEmpty()){
+            return Items.AIR;
+        }
+        return land.getStackInSlot(0).getItem();
+    }
+
+    @Override
+    public Item getFrameItem() {
+        if(frame.getStackInSlot(0).isEmpty()){
+            return Items.AIR;
+        }
+        return frame.getStackInSlot(0).getItem();
     }
 
     @Override

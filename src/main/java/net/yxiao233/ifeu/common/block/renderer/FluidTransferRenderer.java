@@ -28,6 +28,7 @@ public class FluidTransferRenderer implements BlockEntityRenderer<FluidTransferE
         //render fluid
         provider.renderFullFluid(entity,entity.fluidStored.getFluid(),combinedLight);
 
+        //render connected
         Player player = Minecraft.getInstance().player;
         if(player != null){
             ItemStack stack = player.getMainHandItem();

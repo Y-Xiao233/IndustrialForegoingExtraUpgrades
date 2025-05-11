@@ -24,7 +24,7 @@ public abstract class ComponentGuiComponent extends BasicScreenAddon {
 
     @Override
     public void drawBackgroundLayer(GuiGraphics guiGraphics, Screen screen, IAssetProvider provider, int guiX, int guiY, int mouseX, int mouseY, float partialTicks) {
-        guiGraphics.drawString(Minecraft.getInstance().font, this.getText(), guiX + getPosX(), guiY + getPosY(), 16777215);
+        guiGraphics.drawCenteredString(Minecraft.getInstance().font, this.getText(), guiX + getPosX(), guiY + getPosY(), 16777215);
     }
 
     @Override
