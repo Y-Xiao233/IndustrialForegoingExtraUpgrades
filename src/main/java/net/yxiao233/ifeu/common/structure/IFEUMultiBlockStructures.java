@@ -2,17 +2,43 @@ package net.yxiao233.ifeu.common.structure;
 
 import com.buuz135.industrial.utils.IndustrialTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.yxiao233.ifeu.api.structure.MultiBlockStructure;
 import net.yxiao233.ifeu.api.structure.MultiBlockStructureBuilder;
+import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.registry.ModTags;
 
 import java.util.function.Supplier;
 
 public enum IFEUMultiBlockStructures {
-    BIG_DISSOLUTION_CHAMBER(() -> new MultiBlockStructureBuilder()
+    BIG_DISSOLUTION_CHAMBER(() -> ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getLeft().get().asItem(),() -> new MultiBlockStructureBuilder()
+            .pattern(
+                    "ABA",
+                    "BBB",
+                    "A A"
+            )
+            .pattern(
+                    "BBB",
+                    "BCB",
+                    "DMD"
+            )
+            .pattern(
+                    "ABA",
+                    "BBB",
+                    "AEA"
+            )
+            .define('A', FRAME_SIMPLE())
+            .define('B', Blocks.SCULK)
+            .define('C', ModContents.DRAGON_STAR_BLOCK.get())
+            .define('D', ITEM())
+            .define('E', FLUID())
+//                .define('F', ENERGY)
+            .build()
+    ),
+    TEST(() -> ModBlocks.FLUID_CRAFTING_TABLE.getLeft().get().asItem(),() -> new MultiBlockStructureBuilder()
             .pattern(
                     "ABA",
                     "BBB",
@@ -39,10 +65,15 @@ public enum IFEUMultiBlockStructures {
     ;
 
     private Supplier<MultiBlockStructure> structure;
-    IFEUMultiBlockStructures(Supplier<MultiBlockStructure> structure){
+    private Supplier<Item> machine;
+    IFEUMultiBlockStructures(Supplier<Item> machine,Supplier<MultiBlockStructure> structure){
+        this.machine = machine;
         this.structure = structure;
     }
 
+    public Item getMachine(){
+        return machine.get();
+    }
     public MultiBlockStructure getStructure() {
         return structure.get();
     }

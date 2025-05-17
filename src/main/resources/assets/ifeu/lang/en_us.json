@@ -126,6 +126,7 @@
   "item.ifeu.empty_nether_star": "Empty Nether Star",
   "item.ifeu.apple_core": "Apple Core",
   "item.ifeu.hydroponic_simulation_processor": "Hydroponic Simulation Processor",
+  "item.ifeu.blueprint": "Blueprint",
 
   "block.ifeu.infuser": "Infuser",
   "block.ifeu.dragon_star_generator": "Dragon Star Generator",
@@ -169,6 +170,10 @@
   "jei.ifeu.shapeless": "Shapeless Recipe",
   "jei.ifeu.fluid_shaped": "Shaped Fluid Crafting Recipe",
   "jei.ifeu.fluid_shapeless": "Shapeless Fluid Crafting Recipe",
+  "jei.ifeu.structure": "Items required for the structure",
+  "jei.ifeu.structure_core": "Multiblock target machine",
+  "jei.ifeu.structure_list": "Structure Required Material: ",
+  "jei.ifeu.block_tag": "Accepts tag: ",
 
   "weather.ifeu.clear": "Weather Clear",
   "weather.ifeu.rain": "Weather Rain",

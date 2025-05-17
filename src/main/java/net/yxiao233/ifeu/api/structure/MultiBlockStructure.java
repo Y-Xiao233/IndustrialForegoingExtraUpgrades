@@ -264,4 +264,43 @@ public class MultiBlockStructure {
 
         return components;
     }
+
+    public Pair<List<ItemStack>,List<Pair<TagKey<Block>,Integer>>> materialListForJei(){
+        HashMap<Character,Integer> map = new HashMap<>();
+        String[][] structure = getStructure();
+        List<ItemStack> stacks = new ArrayList<>();
+        List<Pair<TagKey<Block>,Integer>> tags = new ArrayList<>();
+
+        for (int i = 0; i < structure.length; i++) {
+            for (int m = 0; m < structure[i].length; m++) {
+                char[] chars = structure[i][m].toCharArray();
+                for (int n = 0; n < chars.length; n++) {
+                    char c = chars[n];
+                    if(map.containsKey(c)){
+                        int value = map.get(c);
+                        map.merge(c,value + 1,(oldValue, newValue) ->{
+                            return newValue;
+                        });
+                    }else{
+                        map.put(c,1);
+                    }
+                }
+            }
+        }
+
+
+        map.forEach(((character, integer) -> {
+            ItemStack stack;
+            TagKey<Block> tag;
+            if(mapContainsSymbol(character)){
+                stack = new ItemStack(getBlock(character),integer);
+                stacks.add(stack);
+            }else if(tagMapContainsSymbol(character)){
+                tag = getBlockTag(character);
+                tags.add(Pair.of(tag,integer));
+            }
+        }));
+
+        return Pair.of(stacks,tags);
+    }
 }

@@ -39,6 +39,7 @@ public abstract class AbstractJEICategory<T extends Recipe<?>> implements IRecip
     public Component title;
     public final IDrawable background;
     public final IDrawable icon;
+    public final IGuiHelper helper;
     public abstract net.minecraft.world.item.crafting.RecipeType<T> getTypeInstance();
 
     public AbstractJEICategory(IGuiHelper helper, RecipeType<T> type, Component title, Item icon, int width, int height) {
@@ -46,6 +47,7 @@ public abstract class AbstractJEICategory<T extends Recipe<?>> implements IRecip
         this.type = type;
         this.title = title;
         this.background = helper.createDrawable(TEXTURE,0,0,width,height);
+        this.helper = helper;
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK,new ItemStack(icon));
     }
     @Override
@@ -130,6 +132,12 @@ public abstract class AbstractJEICategory<T extends Recipe<?>> implements IRecip
     public IRecipeSlotRichTooltipCallback addText(String translatableKey, ChatFormatting style){
         return (view, tooltip) ->{
             tooltip.add(Component.translatable(translatableKey).withStyle(style));
+        };
+    }
+
+    public IRecipeSlotRichTooltipCallback addText(Component component){
+        return (view, tooltip) ->{
+            tooltip.add(component);
         };
     }
 

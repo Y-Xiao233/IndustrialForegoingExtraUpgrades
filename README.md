@@ -58,7 +58,7 @@ IFEUEvents.structureModify(event =>{
 #### 该mod支持通过KubeJS来添加多方块的世界渲染(暂时只支持有方块实体的方块,需要放在startup_scripts下)
 ```JavaScript
 IFEUEvents.structureRender(event =>{
-    event.registry("test", "industrialforegoing:dissolution_chamber",global.TEST)
+    event.registry("test", "ifeu:blueprint", "industrialforegoing:dissolution_chamber",global.TEST)
 })
 ```
 

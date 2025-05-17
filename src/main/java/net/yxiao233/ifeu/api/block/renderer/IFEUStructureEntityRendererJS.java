@@ -2,30 +2,51 @@ package net.yxiao233.ifeu.api.block.renderer;
 
 import com.hrznstudio.titanium.block.RotatableBlock;
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.yxiao233.ifeu.api.structure.MultiBlockStructure;
+import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.utils.RendererProvider;
 
 import java.util.List;
 
 public class IFEUStructureEntityRendererJS implements BlockEntityRenderer<BlockEntity> {
     private final MultiBlockStructure structure;
+    private final Item item;
     private final int tick = 200;
     private int time = 0;
-    public IFEUStructureEntityRendererJS(BlockEntityRendererProvider.Context context, MultiBlockStructure structure) {
+    public IFEUStructureEntityRendererJS(BlockEntityRendererProvider.Context context, MultiBlockStructure structure, Item item) {
         this.structure = structure;
+        this.item = item;
     }
     @Override
     public void render(BlockEntity entity, float v, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, int i1) {
+        boolean shouldRender = false;
+        if(item == null || item.getDefaultInstance().is(Items.AIR) || item.getDefaultInstance().isEmpty()){
+            shouldRender = true;
+        }else{
+            Player player = Minecraft.getInstance().player;
+            if(player != null && (player.getMainHandItem().is(item) || player.getOffhandItem().is(item))){
+                shouldRender = true;
+            }
+        }
+
+        if(!shouldRender){
+            return;
+        }
         BlockState blockState = entity.getBlockState();
         boolean hasDirection = blockState.hasProperty(BlockStateProperties.HORIZONTAL_FACING);
         boolean hasSpecialDirection = blockState.hasProperty(RotatableBlock.FACING_HORIZONTAL);

@@ -122,6 +122,7 @@
   "item.ifeu.empty_nether_star": "空下界之星",
   "item.ifeu.apple_core": "苹果核",
   "item.ifeu.hydroponic_simulation_processor": "水培床模拟处理器",
+  "item.ifeu.blueprint": "蓝图",
 
   "block.ifeu.infuser": "灌注器",
   "block.ifeu.dragon_star_generator": "龙之星发电机",
@@ -165,6 +166,10 @@
   "jei.ifeu.shapeless": "无序配方",
   "jei.ifeu.fluid_shaped": "有序流体工作台配方",
   "jei.ifeu.fluid_shapeless": "无序流体工作台配方",
+  "jei.ifeu.structure": "结构所需材料",
+  "jei.ifeu.structure_core": "目标多方块机器",
+  "jei.ifeu.structure_list": "结构所需材料: ",
+  "jei.ifeu.block_tag": "接受下列任何物品: ",
 
   "weather.ifeu.clear": "天气晴朗",
   "weather.ifeu.rain": "下雨天气",

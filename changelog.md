@@ -149,6 +149,10 @@
 - 新增特性,配置工具粘贴配置时背包无对应升级,聊天栏提示
 - 修复了水培床模拟处理器的部分工具提示错误[\#57 by TheDesiringOne](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/57)
 
+### v2.2.002
+- 为所有多方块结构添加了jei查看所需材料的支持
+- 使用KubeJS添加的多方块渲染现在可以只在玩家手持特殊物品时才渲染了
+
 ## en_us
 ### v1.0.0
 - init
@@ -296,3 +300,7 @@
 - New feature: Highlight the two linked fluid transfer blocks when holding the connect tool
 - New feature: When the configuration tool pastes the configuration, there is no corresponding upgrade for the inventory, and the chat bar prompts
 - Fixed some tooltip errors in the hydroponic bed simulation processor[\#57 by TheDesiringOne](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/57)
+
+### v2.2.002
+- Added support for viewing required materials for all MultiBlock structures using JEI
+- The MultiBlock rendering added using KubeJS can now only be rendered when the player is holding a special item
