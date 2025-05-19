@@ -37,30 +37,6 @@ public enum IFEUMultiBlockStructures {
             .define('E', FLUID())
 //                .define('F', ENERGY)
             .build()
-    ),
-    TEST(() -> ModBlocks.FLUID_CRAFTING_TABLE.getLeft().get().asItem(),() -> new MultiBlockStructureBuilder()
-            .pattern(
-                    "ABA",
-                    "BBB",
-                    "A A"
-            )
-            .pattern(
-                    "BBB",
-                    "BCB",
-                    "DMD"
-            )
-            .pattern(
-                    "ABA",
-                    "BBB",
-                    "AEA"
-            )
-            .define('A', FRAME_SIMPLE())
-            .define('B', Blocks.SCULK)
-            .define('C', ModContents.DRAGON_STAR_BLOCK.get())
-            .define('D', ITEM())
-            .define('E', FLUID())
-//                .define('F', ENERGY)
-            .build()
     )
     ;
 

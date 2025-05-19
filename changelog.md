@@ -153,6 +153,10 @@
 - 为所有多方块结构添加了jei查看所需材料的支持
 - 使用KubeJS添加的多方块渲染现在可以只在玩家手持特殊物品时才渲染了
 
+### v2.2.003
+- 修复了测试结构未删除的bug
+- 将新添加的jei类型的目标机器改为了输入物品
+
 ## en_us
 ### v1.0.0
 - init
@@ -304,3 +308,7 @@
 ### v2.2.002
 - Added support for viewing required materials for all MultiBlock structures using JEI
 - The MultiBlock rendering added using KubeJS can now only be rendered when the player is holding a special item
+
+### v2.2.003
+- Fixed the bug where the test structure was not deleted
+- Change the target machine of the newly added JEI type to input item

@@ -37,7 +37,7 @@ public class StructureInfoCategory extends AbstractJEICategory<StructureInfoReci
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, StructureInfoRecipe recipe, IFocusGroup iFocusGroup) {
         ItemStack machine = recipe.getStructure().getMachine().getDefaultInstance();
-        builder.addSlot(RecipeIngredientRole.INPUT,71,1).addIngredient(VanillaTypes.ITEM_STACK, machine).addRichTooltipCallback(
+        builder.addSlot(RecipeIngredientRole.OUTPUT,71,1).addIngredient(VanillaTypes.ITEM_STACK, machine).addRichTooltipCallback(
                 addText("jei.ifeu.structure_core",ChatFormatting.GREEN)
         );
         var pair = recipe.getStructure().getStructure().materialListForJei();
