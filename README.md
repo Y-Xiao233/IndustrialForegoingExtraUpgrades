@@ -99,7 +99,7 @@ ItemEvents.tooltip(tooltip =>{
 #### 你可以在其他事件中检测多方块结构是否成形,以对其添加进行更多的操作
 ```JavaScript
 BlockEvents.rightClicked('industrialforegoing:dissolution_chamber', event =>{
-    const b = global.TEST.checkStructure(event.getLevel(),event.block.blockState.getValue(RotatableBlock.FACING_HORIZONTAL),event.getBlock().getPos())
+    const b = IFEUMultiBlockStructures.getById("ifeu:test").getStructure().checkStructure(event.getLevel(),event.block.blockState.getValue(RotatableBlock.FACING_HORIZONTAL),event.getBlock().getPos())
     event.player.tell(b)
 
     if(!b){
