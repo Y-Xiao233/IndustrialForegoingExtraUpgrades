@@ -59,7 +59,7 @@ public class ModContents {
     //for recipe as "minecraft:air"
     public static final RegistryObject<Item> AIR = ITEMS.register("air", () -> new Item(new Item.Properties()));
     //for jei category structure info
-    public static final RegistryObject<Item> BLUEPRINT = ITEMS.register("blueprint", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BLUEPRINT = ITEMS.register("blueprint", () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.COMMON)));
 
 
     //industrial foregoing 1.21 context

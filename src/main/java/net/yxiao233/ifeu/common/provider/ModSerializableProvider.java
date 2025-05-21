@@ -341,30 +341,6 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                 .inputFluid(new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),1000))
                 .save();
 
-
-        IFEURecipeBuilders.shapedRecipe(ModBlocks.BLACK_HOLE_CAPACITOR_ADVANCED.getLeft().get().asItem().getDefaultInstance())
-                .pattern("AAA")
-                .pattern("BCB")
-                .pattern("DED")
-                .define('A', IndustrialTags.Items.PLASTIC)
-                .define('B', Tags.Items.ENDER_PEARLS)
-                .define('C', Items.ENDER_EYE.getDefaultInstance())
-                .define('D', Tags.Items.STORAGE_BLOCKS_REDSTONE)
-                .define('E', IndustrialTags.Items.MACHINE_FRAME_ADVANCED)
-                .inputFluid(new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000))
-                .save();
-
-        IFEURecipeBuilders.shapedRecipe(ModBlocks.BLACK_HOLE_CAPACITOR_SUPREME.getLeft().get().asItem().getDefaultInstance())
-                .pattern("AAA")
-                .pattern("BCB")
-                .pattern("DED")
-                .define('A', IndustrialTags.Items.PLASTIC)
-                .define('B', Tags.Items.ENDER_PEARLS)
-                .define('C', Items.ENDER_EYE.getDefaultInstance())
-                .define('D', Tags.Items.STORAGE_BLOCKS_REDSTONE)
-                .define('E', IndustrialTags.Items.MACHINE_FRAME_SUPREME)
-                .inputFluid(new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),2000))
-                .save();
         //shapeless
             //有多少输入写多少
         IFEURecipeBuilders.shapelessRecipe(ModContents.DRAGON_STAR.get().getDefaultInstance().copyWithCount(9),"dragon_star_from_block")

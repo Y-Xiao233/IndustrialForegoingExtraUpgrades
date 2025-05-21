@@ -124,27 +124,5 @@ public class ModRecipeProvider extends TitaniumRecipeProvider {
                 .pattern("AA")
                 .define('A',Items.ECHO_SHARD)
                 .save(consumer);
-
-        TitaniumShapedRecipeBuilder.shapedRecipe(ModBlocks.BLACK_HOLE_CAPACITOR_PITY.getLeft().get())
-                .pattern("AAA")
-                .pattern("BCB")
-                .pattern("DED")
-                .define('A',IndustrialTags.Items.PLASTIC)
-                .define('B',Items.ENDER_EYE)
-                .define('C',Tags.Items.ENDER_PEARLS)
-                .define('D',Tags.Items.STORAGE_BLOCKS_REDSTONE)
-                .define('E',IndustrialTags.Items.MACHINE_FRAME_PITY)
-                .save(consumer);
-
-        TitaniumShapedRecipeBuilder.shapedRecipe(ModBlocks.BLACK_HOLE_CAPACITOR_SIMPLE.getLeft().get())
-                .pattern("AAA")
-                .pattern("BCB")
-                .pattern("DED")
-                .define('A',IndustrialTags.Items.PLASTIC)
-                .define('B',Items.ENDER_EYE)
-                .define('C',Tags.Items.ENDER_PEARLS)
-                .define('D',Tags.Items.STORAGE_BLOCKS_REDSTONE)
-                .define('E',IndustrialTags.Items.MACHINE_FRAME_SIMPLE)
-                .save(consumer);
     }
 }

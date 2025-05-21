@@ -1,13 +1,17 @@
 package net.yxiao233.ifeu.common.compact.kubejs.events;
 
 import dev.latvian.mods.kubejs.event.EventJS;
+import dev.latvian.mods.kubejs.script.ScriptType;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.fml.ModList;
 import net.yxiao233.ifeu.api.structure.MultiBlockStructure;
 import net.yxiao233.ifeu.common.structure.IFEUMultiBlockStructures;
 
 public class IFEUStructureModifyJS extends EventJS {
     static {
-        IFEUMultiBlockStructures.init();
+        if(ModList.get().isLoaded("kubejs")){
+            IFEUStructureEvents.REGISTRY.post(ScriptType.STARTUP,new IFEUStructureRegistryJS());
+        }
     }
     public void modify(IFEUMultiBlockStructures oldStructure, MultiBlockStructure newStructure){
         oldStructure.modify(newStructure);

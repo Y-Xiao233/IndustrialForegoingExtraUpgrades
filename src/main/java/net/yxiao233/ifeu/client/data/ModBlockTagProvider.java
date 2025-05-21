@@ -42,10 +42,6 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModuleCore.SIMPLE.get())
                 .add(ModuleCore.ADVANCED.get())
                 .add(ModuleCore.SUPREME.get())
-                .add(ModBlocks.BLACK_HOLE_CAPACITOR_PITY.getLeft().get())
-                .add(ModBlocks.BLACK_HOLE_CAPACITOR_SIMPLE.getLeft().get())
-                .add(ModBlocks.BLACK_HOLE_CAPACITOR_ADVANCED.getLeft().get())
-                .add(ModBlocks.BLACK_HOLE_CAPACITOR_SUPREME.getLeft().get())
                 .add(ModBlocks.SIMULATED_HYDROPONIC_BED.getLeft().get())
                 .add(ModBlocks.PLATFORM_BUILDER.getLeft().get());
 
@@ -63,10 +59,6 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.DRAGON_GENERATOR.getLeft().get())
                 .add(ModBlocks.FLUID_TRANSFER.getLeft().get())
                 .add(ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getLeft().get())
-                .add(ModBlocks.BLACK_HOLE_CAPACITOR_PITY.getLeft().get())
-                .add(ModBlocks.BLACK_HOLE_CAPACITOR_SIMPLE.getLeft().get())
-                .add(ModBlocks.BLACK_HOLE_CAPACITOR_ADVANCED.getLeft().get())
-                .add(ModBlocks.BLACK_HOLE_CAPACITOR_SUPREME.getLeft().get())
                 .add(ModBlocks.SIMULATED_HYDROPONIC_BED.getLeft().get())
                 .add(ModBlocks.PLATFORM_BUILDER.getLeft().get());
 
@@ -91,11 +83,6 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModuleTransportStorage.BLACK_HOLE_TANK_ADVANCED.getLeft().get())
                 .add(ModuleTransportStorage.BLACK_HOLE_TANK_SUPREME.getLeft().get());
 
-        this.tag(ModTags.Blocks.BLACK_HOLE_CAPACITOR)
-                .add(ModBlocks.BLACK_HOLE_CAPACITOR_PITY.getLeft().get())
-                .add(ModBlocks.BLACK_HOLE_CAPACITOR_SIMPLE.getLeft().get())
-                .add(ModBlocks.BLACK_HOLE_CAPACITOR_ADVANCED.getLeft().get())
-                .add(ModBlocks.BLACK_HOLE_CAPACITOR_SUPREME.getLeft().get());
 
         this.tag(ModTags.Blocks.STORAGE_FLUID)
                 .addTag(ModTags.Blocks.BLACK_HOLE_TANK)
@@ -105,7 +92,6 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .addTag(Tags.Blocks.BARRELS);
 
         this.tag(ModTags.Blocks.STORAGE_ENERGY)
-                .addTag(ModTags.Blocks.BLACK_HOLE_CAPACITOR)
                 .add(ModBlocks.CREATIVE_CAPACITOR.getLeft().get());
     }
 }

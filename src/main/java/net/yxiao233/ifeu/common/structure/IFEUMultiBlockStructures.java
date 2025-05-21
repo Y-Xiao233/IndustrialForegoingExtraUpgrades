@@ -58,9 +58,6 @@ public class IFEUMultiBlockStructures {
             values.put(id,this);
         }
     }
-    public static void init(){
-        IFEUStructureEvents.REGISTRY.post(ScriptType.STARTUP,new IFEUStructureRegistryJS());
-    }
 
     public static IFEUMultiBlockStructures getById(ResourceLocation id){
         if(values.containsKey(id)){

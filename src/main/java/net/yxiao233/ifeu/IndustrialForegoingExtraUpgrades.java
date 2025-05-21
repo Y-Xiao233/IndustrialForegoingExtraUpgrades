@@ -9,16 +9,13 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.yxiao233.ifeu.common.networking.ModNetWorking;
 import net.yxiao233.ifeu.common.provider.ModRecipeProvider;
 import net.yxiao233.ifeu.common.provider.ModSerializableProvider;
 import net.yxiao233.ifeu.common.registry.*;
-import net.yxiao233.ifeu.common.structure.IFEUMultiBlockStructures;
 
 @Mod(IndustrialForegoingExtraUpgrades.MODID)
 public class IndustrialForegoingExtraUpgrades extends ModuleController{
@@ -27,7 +24,6 @@ public class IndustrialForegoingExtraUpgrades extends ModuleController{
     public IndustrialForegoingExtraUpgrades(){
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         MinecraftForge.EVENT_BUS.register(this);
-        modEventBus.addListener(this::commonStep);
 
         ModContents.BLOCKS.register(modEventBus);
         ModContents.ITEMS.register(modEventBus);
@@ -42,10 +38,6 @@ public class IndustrialForegoingExtraUpgrades extends ModuleController{
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.FLUID_CRAFTING_TABLE.getLeft().get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.FLUID_TRANSFER.getLeft().get(), RenderType.translucent());
         }
-    }
-
-    private void commonStep(FMLCommonSetupEvent event){
-        IFEUMultiBlockStructures.init();
     }
 
     @Override

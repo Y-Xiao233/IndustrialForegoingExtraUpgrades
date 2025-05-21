@@ -8,6 +8,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.fml.ModList;
 import net.yxiao233.ifeu.api.block.renderer.IFEUStructureEntityRendererJS;
 import net.yxiao233.ifeu.api.structure.MultiBlockStructure;
 import net.yxiao233.ifeu.common.structure.IFEUMultiBlockStructures;
@@ -17,7 +18,9 @@ import java.util.HashMap;
 
 public class IFEUStructureRenderJS extends EventJS{
     static {
-        IFEUMultiBlockStructures.init();
+        if(ModList.get().isLoaded("kubejs")){
+            IFEUStructureEvents.REGISTRY.post(ScriptType.STARTUP,new IFEUStructureRegistryJS());
+        }
     }
     @HideFromJS
     private static final HashMap<ResourceLocation, Pair<BlockEntityType<?>, MultiBlockStructure>> map = new HashMap<>();
