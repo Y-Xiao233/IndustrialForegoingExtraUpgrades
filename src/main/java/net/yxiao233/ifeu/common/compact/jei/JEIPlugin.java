@@ -83,12 +83,12 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeCatalyst(ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getLeft().get(),IndustrialRecipeTypes.DISSOLUTION);
 
         List<Item> items = new ArrayList<>();
-        for(var entry : IFEUMultiBlockStructures.values()){
-            if(!items.contains(entry.getMachine())){
-                registration.addRecipeCatalyst(entry.getMachine(),ModRecipeType.STRUCTURE);
+        IFEUMultiBlockStructures.values.forEach((id,structure) ->{
+            if(!items.contains(structure.getMachine())){
+                registration.addRecipeCatalyst(structure.getMachine(),ModRecipeType.STRUCTURE);
             }
-            items.add(entry.getMachine());
-        }
+            items.add(structure.getMachine());
+        });
     }
 
 
@@ -140,12 +140,13 @@ public class JEIPlugin implements IModPlugin {
 
     private void addStructureInfoRecipe(IRecipeRegistration registration){
         List<StructureInfoRecipe> structureRecipes = new ArrayList<>();
-        for(var entry : IFEUMultiBlockStructures.values()){
-            String rawId = entry.getMachine().getDescriptionId();
-            int index = rawId.lastIndexOf('.');
-            String id = rawId.substring(index);
-            structureRecipes.add(new StructureInfoRecipe(new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID,id),entry));
-        }
+        List<Item> items = new ArrayList<>();
+        IFEUMultiBlockStructures.values.forEach((id,structure) ->{
+            if(!items.contains(structure.getMachine())){
+                structureRecipes.add(new StructureInfoRecipe(id,structure));
+            }
+            items.add(structure.getMachine());
+        });
         registration.addRecipes(ModRecipeType.STRUCTURE,structureRecipes);
     }
 }

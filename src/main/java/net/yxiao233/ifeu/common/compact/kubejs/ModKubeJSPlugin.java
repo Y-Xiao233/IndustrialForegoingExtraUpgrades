@@ -7,9 +7,8 @@ import dev.latvian.mods.kubejs.registry.RegistryInfo;
 import dev.latvian.mods.kubejs.script.BindingsEvent;
 import dev.latvian.mods.kubejs.script.ScriptType;
 import net.yxiao233.ifeu.api.structure.MultiBlockStructureBuilder;
-import net.yxiao233.ifeu.common.compact.kubejs.events.IFEUEvents;
+import net.yxiao233.ifeu.common.compact.kubejs.events.IFEUStructureEvents;
 import net.yxiao233.ifeu.common.compact.kubejs.events.IFEUStructureModifyJS;
-import net.yxiao233.ifeu.common.compact.kubejs.events.IFEUStructureRenderJS;
 import net.yxiao233.ifeu.common.compact.kubejs.items.*;
 import net.yxiao233.ifeu.common.compact.kubejs.schemas.*;
 import net.yxiao233.ifeu.common.structure.IFEUMultiBlockStructures;
@@ -54,12 +53,11 @@ public class ModKubeJSPlugin extends KubeJSPlugin {
 
     @Override
     public void registerEvents() {
-        IFEUEvents.GROUP.register();
+        IFEUStructureEvents.STRUCTURE.register();
     }
 
     @Override
     public void afterInit() {
-        var structure = new IFEUStructureModifyJS();
-        IFEUEvents.STRUCTURE_MODIFY.post(ScriptType.STARTUP, structure);
+        IFEUStructureEvents.MODIFY.post(ScriptType.STARTUP, new IFEUStructureModifyJS());
     }
 }

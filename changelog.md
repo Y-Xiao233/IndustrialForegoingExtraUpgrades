@@ -157,6 +157,11 @@
 - 修复了测试结构未删除的bug
 - 将新添加的jei类型的目标机器改为了输入物品
 
+### v2.2.004
+- 修改了大部分与KubeJS有关的命名"IFEUEvents -> IFEUStructureEvents,structureModify -> modify,structureRender -> render"(详情见README.md)
+- 添加了一个新的KubeJS事件"IFEUStructureEvents.registry"(详情见README.md)
+- 修改了大部分IFEUStructureEvents的用法(详情见README.md)
+
 ## en_us
 ### v1.0.0
 - init
@@ -312,3 +317,8 @@
 ### v2.2.003
 - Fixed the bug where the test structure was not deleted
 - Change the target machine of the newly added JEI type to input item
+
+### v2.2.004
+- Modified most of the naming conventions related to KubeJS "IFEUEvents -> IFEUStructureEvents,structureModify -> modify,structureRender -> render"(For more details, please refer to README.md)
+- Added a new KubeJS event "IFEUStructureEvents.registry"(For more details, please refer to README.md)
+-Modified the usage of most IFEUStructureEvents(For more details, please refer to README.md)

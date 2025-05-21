@@ -1,20 +1,27 @@
 package net.yxiao233.ifeu.common.structure;
 
 import com.buuz135.industrial.utils.IndustrialTags;
+import dev.latvian.mods.kubejs.script.ScriptType;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.api.structure.MultiBlockStructure;
 import net.yxiao233.ifeu.api.structure.MultiBlockStructureBuilder;
+import net.yxiao233.ifeu.common.compact.kubejs.events.IFEUStructureEvents;
+import net.yxiao233.ifeu.common.compact.kubejs.events.IFEUStructureRegistryJS;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.registry.ModTags;
 
+import java.util.HashMap;
 import java.util.function.Supplier;
 
-public enum IFEUMultiBlockStructures {
-    BIG_DISSOLUTION_CHAMBER(() -> ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getLeft().get().asItem(),() -> new MultiBlockStructureBuilder()
+public class IFEUMultiBlockStructures {
+    public static final HashMap<ResourceLocation, IFEUMultiBlockStructures> values = new HashMap<>();
+    public static final IFEUMultiBlockStructures BIG_DISSOLUTION_CHAMBER = new IFEUMultiBlockStructures(ifeu("big_dissolution_chamber"),() -> ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getLeft().get().asItem(),() -> new MultiBlockStructureBuilder()
             .pattern(
                     "ABA",
                     "BBB",
@@ -42,19 +49,39 @@ public enum IFEUMultiBlockStructures {
 
     private Supplier<MultiBlockStructure> structure;
     private Supplier<Item> machine;
-    IFEUMultiBlockStructures(Supplier<Item> machine,Supplier<MultiBlockStructure> structure){
+    private ResourceLocation id;
+    public IFEUMultiBlockStructures(ResourceLocation id, Supplier<Item> machine, Supplier<MultiBlockStructure> structure){
         this.machine = machine;
         this.structure = structure;
+        this.id = id;
+        if(!values.containsKey(id)){
+            values.put(id,this);
+        }
+    }
+    public static void init(){
+        IFEUStructureEvents.REGISTRY.post(ScriptType.STARTUP,new IFEUStructureRegistryJS());
     }
 
+    public static IFEUMultiBlockStructures getById(ResourceLocation id){
+        if(values.containsKey(id)){
+            return values.get(id);
+        }
+        return null;
+    }
     public Item getMachine(){
         return machine.get();
+    }
+    public ResourceLocation getId(){
+        return id;
     }
     public MultiBlockStructure getStructure() {
         return structure.get();
     }
     public void modify(MultiBlockStructure newStructure){
         this.structure = () -> newStructure;
+    }
+    private static ResourceLocation ifeu(String path){
+        return new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID,path);
     }
     //base structure block tag
     private static TagKey<Block> ENERGY(){
