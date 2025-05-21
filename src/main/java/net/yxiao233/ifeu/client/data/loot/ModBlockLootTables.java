@@ -38,6 +38,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModuleCore.SIMPLE.get());
         this.dropSelf(ModuleCore.ADVANCED.get());
         this.dropSelf(ModuleCore.SUPREME.get());
+        this.dropSelf(ModBlocks.PLATFORM_BUILDER.getBlock());
     }
 
     @Override
@@ -60,7 +61,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 ModuleCore.PITY.get(),
                 ModuleCore.SIMPLE.get(),
                 ModuleCore.ADVANCED.get(),
-                ModuleCore.SUPREME.get()
+                ModuleCore.SUPREME.get(),
+                ModBlocks.PLATFORM_BUILDER.getBlock()
         );
         return iterable;
     }

@@ -26,6 +26,7 @@ public class ModBlocks implements IModule {
     public static BlockWithTile DRAGON_GENERATOR;
     public static BlockWithTile FLUID_TRANSFER;
     public static BlockWithTile BIG_DISSOLUTION_CHAMBER_CORE;
+    public static BlockWithTile PLATFORM_BUILDER;
 //    public static BlockWithTile BLACK_HOLE_CAPACITOR_PITY;
 //    public static BlockWithTile BLACK_HOLE_CAPACITOR_SIMPLE;
 //    public static BlockWithTile BLACK_HOLE_CAPACITOR_ADVANCED;
@@ -43,6 +44,7 @@ public class ModBlocks implements IModule {
         DRAGON_GENERATOR = deferredRegistry(helper,"dragon_generator",DragonGeneratorBlock::new);
         FLUID_TRANSFER = deferredRegistry(helper,"fluid_transfer",FluidTransferBlock::new);
         BIG_DISSOLUTION_CHAMBER_CORE = deferredRegistry(helper,"big_dissolution_chamber_core", BigDissolutionChamberBlock::new);
+        PLATFORM_BUILDER = deferredRegistry(helper,"platform_builder",PlatformBuilderBlock::new);
 //        BLACK_HOLE_CAPACITOR_PITY = blackHoleRegistry(helper,"black_hole_capacitor_pity",ModRarity.PITY);
 //        BLACK_HOLE_CAPACITOR_SIMPLE = blackHoleRegistry(helper,"black_hole_capacitor_simple",ModRarity.SIMPLE);
 //        BLACK_HOLE_CAPACITOR_ADVANCED = blackHoleRegistry(helper,"black_hole_capacitor_advanced",ModRarity.ADVANCED);
@@ -77,6 +79,7 @@ public class ModBlocks implements IModule {
         blocks.add(DRAGON_GENERATOR.getBlock());
         blocks.add(FLUID_TRANSFER.getBlock());
         blocks.add(BIG_DISSOLUTION_CHAMBER_CORE.getBlock());
+        blocks.add(PLATFORM_BUILDER.getBlock());
 
         return blocks;
     }

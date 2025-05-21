@@ -37,6 +37,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithTileItem(ModBlocks.DRAGON_GENERATOR);
         blockWithTileItem(ModBlocks.FLUID_TRANSFER);
         blockWithTileItem(ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE);
+        blockWithTileItem(ModBlocks.PLATFORM_BUILDER);
     }
 
     private void blockItem(DeferredHolder<Block,Block> registryObject){

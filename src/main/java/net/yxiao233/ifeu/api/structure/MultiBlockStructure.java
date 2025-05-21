@@ -1,7 +1,10 @@
 package net.yxiao233.ifeu.api.structure;
 
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.tags.TagKey;
@@ -14,9 +17,46 @@ import org.apache.commons.lang3.tuple.Pair;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class MultiBlockStructure {
+    public static final Codec<MultiBlockStructure> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+            Codec.STRING.listOf().fieldOf("pattern").forGetter(struct ->
+                    List.of(struct.getStructure()[0])),
+            Codec.unboundedMap(Codec.STRING,
+                            BuiltInRegistries.BLOCK.byNameCodec())
+                    .fieldOf("blocks")
+                    .forGetter(struct -> {
+                        Map<String, Block> map = new HashMap<>();
+                        struct.defineMap.forEach((k, v) -> map.put(String.valueOf(k), v));
+                        return map;
+                    }),
+            Codec.unboundedMap(Codec.STRING,
+                            TagKey.codec(BuiltInRegistries.BLOCK.key()))
+                    .fieldOf("tags")
+                    .forGetter(struct -> {
+                        Map<String, TagKey<Block>> map = new HashMap<>();
+                        struct.defineTagMap.forEach((k, v) -> map.put(String.valueOf(k), v));
+                        return map;
+                    }),
+            Codec.INT.fieldOf("machineX").orElse(-1).forGetter(struct ->
+                    struct.getMachineLocation(struct.getStructure())[0]),
+            Codec.INT.fieldOf("machineY").orElse(-1).forGetter(struct ->
+                    struct.getMachineLocation(struct.getStructure())[1]),
+            Codec.INT.fieldOf("machineZ").orElse(-1).forGetter(struct ->
+                    struct.getMachineLocation(struct.getStructure())[2])
+    ).apply(instance, (pattern, blocks, tags, machineX, machineY, machineZ) -> {
+        MultiBlockStructureBuilder builder = new MultiBlockStructureBuilder();
+        String[][] structurePattern = new String[pattern.size()][];
+        for (int i = 0; i < pattern.size(); i++) {
+            structurePattern[i] = new String[]{pattern.get(i)};
+        }
+        builder.pattern(structurePattern);
+        blocks.forEach((k, v) -> builder.define(k.charAt(0), v));
+        tags.forEach((k, v) -> builder.define(k.charAt(0), v));
+        return new MultiBlockStructure(builder);
+    }));
     private final HashMap<Character, Block> defineMap;
     private final HashMap<Character, TagKey<Block>> defineTagMap;
     private final MultiBlockStructureBuilder builder;
@@ -263,5 +303,44 @@ public class MultiBlockStructure {
         }));
 
         return components;
+    }
+
+    public Pair<List<ItemStack>,List<Pair<TagKey<Block>,Integer>>> materialListForJei(){
+        HashMap<Character,Integer> map = new HashMap<>();
+        String[][] structure = getStructure();
+        List<ItemStack> stacks = new ArrayList<>();
+        List<Pair<TagKey<Block>,Integer>> tags = new ArrayList<>();
+
+        for (int i = 0; i < structure.length; i++) {
+            for (int m = 0; m < structure[i].length; m++) {
+                char[] chars = structure[i][m].toCharArray();
+                for (int n = 0; n < chars.length; n++) {
+                    char c = chars[n];
+                    if(map.containsKey(c)){
+                        int value = map.get(c);
+                        map.merge(c,value + 1,(oldValue, newValue) ->{
+                            return newValue;
+                        });
+                    }else{
+                        map.put(c,1);
+                    }
+                }
+            }
+        }
+
+
+        map.forEach(((character, integer) -> {
+            ItemStack stack;
+            TagKey<Block> tag;
+            if(mapContainsSymbol(character)){
+                stack = new ItemStack(getBlock(character),integer);
+                stacks.add(stack);
+            }else if(tagMapContainsSymbol(character)){
+                tag = getBlockTag(character);
+                tags.add(Pair.of(tag,integer));
+            }
+        }));
+
+        return Pair.of(stacks,tags);
     }
 }

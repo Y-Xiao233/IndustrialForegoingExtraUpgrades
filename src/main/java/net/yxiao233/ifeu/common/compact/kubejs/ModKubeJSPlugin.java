@@ -9,7 +9,7 @@ import dev.latvian.mods.kubejs.script.BindingRegistry;
 import dev.latvian.mods.kubejs.script.ScriptType;
 import net.minecraft.core.registries.Registries;
 import net.yxiao233.ifeu.api.structure.MultiBlockStructureBuilder;
-import net.yxiao233.ifeu.common.compact.kubejs.events.IFEUEvents;
+import net.yxiao233.ifeu.common.compact.kubejs.events.IFEUStructureEvents;
 import net.yxiao233.ifeu.common.compact.kubejs.events.IFEUStructureModifyJS;
 import net.yxiao233.ifeu.common.compact.kubejs.items.*;
 import net.yxiao233.ifeu.common.compact.kubejs.schemas.*;
@@ -55,12 +55,12 @@ public class ModKubeJSPlugin implements KubeJSPlugin {
 
     @Override
     public void registerEvents(EventGroupRegistry registry) {
-        registry.register(IFEUEvents.GROUP);
+        registry.register(IFEUStructureEvents.STRUCTURE);
     }
 
     @Override
     public void afterInit() {
         var structure = new IFEUStructureModifyJS();
-        IFEUEvents.STRUCTURE_MODIFY.post(ScriptType.STARTUP, structure);
+        IFEUStructureEvents.MODIFY.post(ScriptType.STARTUP, structure);
     }
 }

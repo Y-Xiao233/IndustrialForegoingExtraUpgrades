@@ -3,6 +3,7 @@ package net.yxiao233.ifeu.common.registry;
 import com.buuz135.industrial.module.IModule;
 import com.hrznstudio.titanium.module.DeferredRegistryHelper;
 import com.hrznstudio.titanium.recipe.serializer.CodecRecipeSerializer;
+import com.hrznstudio.titanium.recipe.serializer.GenericSerializer;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -27,6 +28,8 @@ public class ModRecipes implements IModule {
 
     public static DeferredHolder<RecipeSerializer<?>,RecipeSerializer<?>> DRAGON_GENERATOR_SERIALIZER;
     public static DeferredHolder<RecipeType<?>,RecipeType<?>> DRAGON_GENERATOR_TYPE;
+    public static DeferredHolder<RecipeSerializer<?>,RecipeSerializer<?>> STRUCTURE_SERIALIZER;
+    public static DeferredHolder<RecipeType<?>,RecipeType<?>> STRUCTURE_TYPE;
     @Override
     public void generateFeatures(DeferredRegistryHelper helper) {
         INFUSER_SERIALIZER = helper.registerGeneric(Registries.RECIPE_SERIALIZER, "infuser", () -> new CodecRecipeSerializer<>(InfuserRecipe.class, INFUSER_TYPE,InfuserRecipe.CODEC));
@@ -50,5 +53,8 @@ public class ModRecipes implements IModule {
 
         DRAGON_GENERATOR_SERIALIZER = helper.registerGeneric(Registries.RECIPE_SERIALIZER, "dragon_generator", () -> new CodecRecipeSerializer<>(DragonGeneratorRecipe.class, DRAGON_GENERATOR_TYPE, DragonGeneratorRecipe.CODEC));
         DRAGON_GENERATOR_TYPE = helper.registerGeneric(Registries.RECIPE_TYPE, "dragon_generator", () -> RecipeType.simple(ResourceLocation.fromNamespaceAndPath(IndustrialForegoingExtraUpgrades.MODID, "dragon_generator")));
+
+        STRUCTURE_SERIALIZER = helper.registerGeneric(Registries.RECIPE_SERIALIZER, "structure", () -> new CodecRecipeSerializer<>(StructureInfoRecipe.class, STRUCTURE_TYPE, StructureInfoRecipe.CODEC));
+        STRUCTURE_TYPE = helper.registerGeneric(Registries.RECIPE_TYPE, "structure", () -> RecipeType.simple(ResourceLocation.fromNamespaceAndPath(IndustrialForegoingExtraUpgrades.MODID, "structure")));
     }
 }

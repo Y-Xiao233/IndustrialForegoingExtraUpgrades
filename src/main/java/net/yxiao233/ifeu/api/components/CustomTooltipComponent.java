@@ -61,6 +61,13 @@ public abstract class CustomTooltipComponent extends BasicScreenAddon {
                 ComponentUtil.simpleComponent("key.ifeu.press", ChatFormatting.WHITE).append(ComponentUtil.simpleLiteralComponent(" SHIFT+CTRL ",ChatFormatting.GOLD)).append(ComponentUtil.simpleComponent("key.ifeu."+type,ChatFormatting.WHITE)).append(ComponentUtil.simpleLiteralComponent(" 1000",ChatFormatting.AQUA)),
         };
     }
+
+    public static Component[] platformBuilder(String type, String LF){
+        return new Component[]{
+                ComponentUtil.simpleComponent("tooltip.ifeu.adjust_"+LF,ChatFormatting.GREEN),
+                ComponentUtil.simpleComponent("key.ifeu.press", ChatFormatting.WHITE).append(ComponentUtil.simpleLiteralComponent(" SHIFT ",ChatFormatting.GOLD)).append(ComponentUtil.simpleComponent("key.ifeu."+type,ChatFormatting.WHITE)).append(ComponentUtil.simpleLiteralComponent(" 10",ChatFormatting.AQUA))
+        };
+    }
     public abstract int[] width$height();
     public abstract Component[] getComponents();
     public abstract boolean hasTooltip();

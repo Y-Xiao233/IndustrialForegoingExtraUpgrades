@@ -25,6 +25,13 @@ public class MultiBlockStructureBuilder {
         return this;
     }
 
+    public MultiBlockStructureBuilder pattern(String[][] s){
+        for (int i = 0; i < s.length; i++) {
+            structure.add(new ArrayList<>(Arrays.asList(s[i])));
+        }
+        return this;
+    }
+
     public MultiBlockStructureBuilder pattern(String... strings){
         structure.add(new ArrayList<>(Arrays.asList(strings)));
         return this;
