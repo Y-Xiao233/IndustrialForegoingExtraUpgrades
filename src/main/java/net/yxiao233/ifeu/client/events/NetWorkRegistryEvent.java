@@ -18,8 +18,8 @@ public class NetWorkRegistryEvent {
                 BooleanSyncS2CPacket.TYPE,
                 BooleanSyncS2CPacket.STREAM_CODEC,
                 new DirectionalPayloadHandler<>(
-                        BooleanPayloadHandler::handle,
-                        BooleanPayloadHandler::handle
+                        BooleanSyncS2CPacket::handle,
+                        BooleanSyncS2CPacket::handle
                 )
         );
 
@@ -27,8 +27,8 @@ public class NetWorkRegistryEvent {
                 BlockPosSyncS2CPacket.TYPE,
                 BlockPosSyncS2CPacket.STREAM_CODEC,
                 new DirectionalPayloadHandler<>(
-                        BlockPosPayloadHandler::handle,
-                        BlockPosPayloadHandler::handle
+                        BlockPosSyncS2CPacket::handle,
+                        BlockPosSyncS2CPacket::handle
                 )
         );
 
@@ -36,8 +36,8 @@ public class NetWorkRegistryEvent {
                 ConfigurationToolItemKeyDownSyncC2SPacket.TYPE,
                 ConfigurationToolItemKeyDownSyncC2SPacket.STREAM_CODEC,
                 new DirectionalPayloadHandler<>(
-                        ConfigurationToolItemKeyDownHandler::handle,
-                        ConfigurationToolItemKeyDownHandler::handle
+                        ConfigurationToolItemKeyDownSyncC2SPacket::handle,
+                        ConfigurationToolItemKeyDownSyncC2SPacket::handle
                 )
         );
 
@@ -46,8 +46,8 @@ public class NetWorkRegistryEvent {
                 TimeControllerEntityKeyDownSyncC2SPacket.TYPE,
                 TimeControllerEntityKeyDownSyncC2SPacket.STREAM_CODEC,
                 new DirectionalPayloadHandler<>(
-                        TimeControllerEntityKeyDownHandler::handle,
-                        TimeControllerEntityKeyDownHandler::handle
+                        TimeControllerEntityKeyDownSyncC2SPacket::handle,
+                        TimeControllerEntityKeyDownSyncC2SPacket::handle
                 )
         );
 
@@ -55,8 +55,17 @@ public class NetWorkRegistryEvent {
                 DirectionSyncS2CPacket.TYPE,
                 DirectionSyncS2CPacket.STREAM_CODEC,
                 new DirectionalPayloadHandler<>(
-                        DirectionPayloadHandler::handle,
-                        DirectionPayloadHandler::handle
+                        DirectionSyncS2CPacket::handle,
+                        DirectionSyncS2CPacket::handle
+                )
+        );
+
+        registrar.playBidirectional(
+                PlatformBuilderEntityKeyDownSyncC2SPacket.TYPE,
+                PlatformBuilderEntityKeyDownSyncC2SPacket.STREAM_CODEC,
+                new DirectionalPayloadHandler<>(
+                        PlatformBuilderEntityKeyDownSyncC2SPacket::handle,
+                        PlatformBuilderEntityKeyDownSyncC2SPacket::handle
                 )
         );
     }

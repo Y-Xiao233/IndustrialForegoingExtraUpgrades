@@ -68,6 +68,26 @@
   "tooltip.titanium.power": "Power: ",
   "tooltip.ifeu.apple_addon_item_0": "Used for hydroponic beds to increase apple production",
   "tooltip.ifeu.apple_addon_item_1": "Increase apple production: %d times",
+  "tooltip.ifeu.hydroponic.simulating": "Simulating: ",
+  "tooltip.ifeu.hydroponic.nothing": "Nothing",
+  "tooltip.ifeu.hydroponic.executions": "Executions: ",
+  "tooltip.ifeu.hydroponic.efficiency": "Efficiency: ",
+  "tooltip.ifeu.hydroponic.next_efficiency": "Next Efficiency Bonus: ",
+  "tooltip.ifeu.hydroponic.potential_drops": "Potential Drops: ",
+  "tooltip.ifeu.hydroponic.drop_format": " - %s%s x %s",
+  "tooltip.titanium.facing_handler.simulation": "Hydroponic Simulation Processor",
+  "tooltip.titanium.facing_handler.seed": "Simulated Seed",
+  "tooltip.ifeu.hydroponic.function_1": "* Use in the Hydroponic Bed to gather Crop Data",
+  "tooltip.ifeu.hydroponic.function_2": "* Use in the Simulated Hydroponic Bed to get drops",
+  "tooltip.titanium.facing_handler.land_input": "Land Input",
+  "tooltip.titanium.facing_handler.frame_input": "Frame Input",
+  "tooltip.ifeu.adjust_frame_bounds": "Adjust Frame Bounds",
+  "tooltip.ifeu.adjust_land_range": "Adjust Land Range",
+  "tooltip.ifeu.platform_builder.destroy": "Destruction mode",
+  "tooltip.ifeu.platform_builder.skip": "Skip Mode",
+  "tooltip.ifeu.platform_builder.destroy_1": "Destroy blocks that obstruct construction",
+  "tooltip.ifeu.platform_builder.skip_1": "Skip blocks that block construction",
+  "tooltip.ifeu.platform_builder.reset": "Reset",
 
   "item.ifeu.liquid_dragon_breath_bucket": "Liquid Dragon Breath Bucket",
   "item.ifeu.liquid_sculk_matter_bucket": "Liquid Sculk Matter Bucket",
@@ -105,6 +125,8 @@
   "item.ifeu.rough_dragon_star": "Rough Dragon Star",
   "item.ifeu.empty_nether_star": "Empty Nether Star",
   "item.ifeu.apple_core": "Apple Core",
+  "item.ifeu.hydroponic_simulation_processor": "Hydroponic Simulation Processor",
+  "item.ifeu.blueprint": "Blueprint",
 
   "block.ifeu.infuser": "Infuser",
   "block.ifeu.dragon_star_generator": "Dragon Star Generator",
@@ -128,6 +150,8 @@
   "block.ifeu.liquid_sculk_matter": "Liquid Sculk Matter",
   "block.ifeu.liquid_malic_acid": "Liquid Malic Acid",
   "block.ifeu.dragon_star_essence": "Dragon Star Essence",
+  "block.ifeu.simulated_hydroponic_bed": "Simulated Hydroponic Bed",
+  "block.ifeu.platform_builder": "Platform Builder[WIP!]",
 
   "fluid_type.ifeu.liquid_dragon_breath": "Liquid Dragon Breath",
   "fluid_type.ifeu.liquid_sculk_matter": "Liquid Sculk Matter",
@@ -146,6 +170,10 @@
   "jei.ifeu.shapeless": "Shapeless Recipe",
   "jei.ifeu.fluid_shaped": "Shaped Fluid Crafting Recipe",
   "jei.ifeu.fluid_shapeless": "Shapeless Fluid Crafting Recipe",
+  "jei.ifeu.structure": "Items required for the structure",
+  "jei.ifeu.structure_core": "Multiblock target machine",
+  "jei.ifeu.structure_list": "Structure Required Material: ",
+  "jei.ifeu.block_tag": "Accepts tag: ",
 
   "weather.ifeu.clear": "Weather Clear",
   "weather.ifeu.rain": "Weather Rain",
@@ -162,6 +190,11 @@
   "key.ifeu.add": "to add",
   "key.ifeu.reduce": "to reduce",
 
+  "direction.ifeu.north": "North",
+  "direction.ifeu.south": "South",
+  "direction.ifeu.west": "West",
+  "direction.ifeu.east": "East",
+
   "message.ifeu.connect_tool.same_pos": "Connection failed, unable to connect to itself",
   "message.ifeu.connect_tool.pos1": "First BlockPos: %s, %s, %s",
   "message.ifeu.connect_tool.pos2": "Second BlockPos: %s, %s, %s",
@@ -172,5 +205,6 @@
   "message.ifeu.connect_tool.beyond_distance": "Beyond the Distance",
   "message.ifeu.configuration_tool.different_type": "Machine type error",
   "message.ifeu.configuration_tool.copy": "Copy configuration successfully",
-  "message.ifeu.configuration_tool.paste": "Paste configuration successfully"
+  "message.ifeu.configuration_tool.paste": "Paste configuration successfully",
+  "message.ifeu.configuration_tool.missing_augment": "Missing Augment"
 }

@@ -1,4 +1,4 @@
-// 1.21.1	2025-04-20T18:07:35.7917279	ifeu - ItemModel
+// 1.21.1	2025-05-21T22:17:12.2601926	ifeu - ItemModel
 954b2a22822a91fd5087a685934f027e85c73429 assets/ifeu/models/item/apple_addon_1.json
 010431de6f66008e97c28278342d9f0ea7c7fd39 assets/ifeu/models/item/apple_addon_2.json
 b685ea69b56d6df59a6825ab0ccee46a07f213c0 assets/ifeu/models/item/apple_addon_3.json
@@ -6,6 +6,7 @@ da0c680b915e8e429343a853185bc72d763e33f4 assets/ifeu/models/item/apple_addon_4.j
 27f04d3c2a30e6ad09581432e535ad8ed90be91c assets/ifeu/models/item/apple_addon_5.json
 a4bf16d4c591af91b074e1b55069ed0f7671b26e assets/ifeu/models/item/apple_addon_6.json
 8062230371ded3ca5cbfcbd9da38606c3343e750 assets/ifeu/models/item/apple_core.json
+15ff3d0553af340b7f15b87d0199ecc8c2027a72 assets/ifeu/models/item/blueprint.json
 a80ba5791f486d90e80b979e33d4d7636e63b0a4 assets/ifeu/models/item/configuration_tool.json
 61eb8818a87b17926779456709825e721abb092d assets/ifeu/models/item/connect_tool.json
 4954c2de2f229dc6891c84b879aa2c46bc052b21 assets/ifeu/models/item/dragon_star.json

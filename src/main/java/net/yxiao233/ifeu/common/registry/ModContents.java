@@ -49,7 +49,8 @@ public class ModContents {
     public static final DeferredItem<BlockItem> DEAD_DRAGON_EGG_ITEM = ITEMS.register("dead_dragon_egg",() -> new BlockItem(ModContents.DEAD_DRAGON_EGG.get(),new Item.Properties().rarity(Rarity.EPIC)));
     public static final DeferredItem<BlockItem> ULTIMATE_MACHINE_FRAME_ITEM = ITEMS.register("ultimate_machine_frame", () -> new BlockItem(ModContents.ULTIMATE_MACHINE_FRAME.get(),new Item.Properties().rarity(CustomRarity.SUPREME.getValue())));
     public static final DeferredItem<BlockItem> DRAGON_STAR_BLOCK_ITEM = ITEMS.register("dragon_star_block", () -> new BlockItem(ModContents.DRAGON_STAR_BLOCK.get(),new Item.Properties().rarity(CustomRarity.SUPREME.getValue())));
-
+    //for jei category structure info
+    public static final DeferredItem<Item> BLUEPRINT = ITEMS.register("blueprint", () -> new Item(new Item.Properties().stacksTo(1)));
 
     //for recipe as "minecraft:air"
     public static final DeferredItem<Item> AIR = ITEMS.register("air", () -> new Item(new Item.Properties()));

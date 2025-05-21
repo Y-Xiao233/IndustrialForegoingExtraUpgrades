@@ -13,4 +13,5 @@ public class ModRecipeType {
     public static RecipeType<ShapedRecipe> SHAPED = RecipeType.create(nameSpace,"shaped", ShapedRecipe.class);
     public static RecipeType<ShapelessRecipe> SHAPELESS = RecipeType.create(nameSpace,"shapeless", ShapelessRecipe.class);
     public static RecipeType<DragonGeneratorRecipe> DRAGON_GENERATOR = RecipeType.create(nameSpace,"dragon_generator", DragonGeneratorRecipe.class);
+    public static RecipeType<StructureInfoRecipe> STRUCTURE = RecipeType.create(nameSpace,"structure", StructureInfoRecipe.class);
 }
