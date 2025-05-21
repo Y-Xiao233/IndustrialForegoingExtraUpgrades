@@ -184,7 +184,6 @@ public class FluidCraftingTableEntity extends IndustrialProcessingTile<FluidCraf
             }
 
             shapelessRecipe = RecipeUtil.getRecipes(this.level,(RecipeType<ShapelessRecipe>) ModRecipes.SHAPELESS_TYPE.get()).stream().filter(recipe -> recipe.matches(inputs,inputFluid)).findFirst().orElse(null);
-            System.out.println(shapelessRecipe);
 
             if(shapelessRecipe == null){
                 shapedRecipe = RecipeUtil.getRecipes(this.level,(RecipeType<ShapedRecipe>) ModRecipes.SHAPED_TYPE.get()).stream().filter(recipe -> recipe.matches(inputs,inputFluid)).findFirst().orElse(null);

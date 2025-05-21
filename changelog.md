@@ -98,6 +98,17 @@
 - 更改了一些命名
 - 更新了KubeJS及其依赖的版本至当前最新版
 
+### v3.1.000
+- 添加了平台建造器[WIP!]
+- 新增特性,手持连接器时高亮显示被链接的两个方块
+- 新增特性,配置工具粘贴配置时背包无对应升级,聊天栏提示
+- 为所有多方块结构添加了jei查看所需材料的支持
+- 使用KubeJS添加的多方块渲染现在可以只在玩家手持特殊物品时才渲染了
+- 修改了大部分与KubeJS有关的命名"IFEUEvents -> IFEUStructureEvents,structureModify -> modify,structureRender -> render"(详情见README.md)
+- 添加了一个新的KubeJS事件"IFEUStructureEvents.registry"(详情见README.md)
+- 修改了大部分IFEUStructureEvents的用法(详情见README.md)
+- 修复了流体工作台在debug中疯狂输出null的bug
+
 
 ## en_us
 ### v1.0.0
@@ -196,3 +207,14 @@
 - Fixed bug where unable to enter the game without installing KubeJS
 - Changed some names
 - Updated KubeJS and its dependencies to the current latest version
+
+### v3.1.000
+- Added platform builder[WIP!]
+- New feature: Highlight the two linked fluid transfer blocks when holding the connect tool
+- New feature: When the configuration tool pastes the configuration, there is no corresponding upgrade for the inventory, and the chat bar prompts
+- Added support for viewing required materials for all MultiBlock structures using JEI
+- The MultiBlock rendering added using KubeJS can now only be rendered when the player is holding a special item
+- Modified most of the naming conventions related to KubeJS "IFEUEvents -> IFEUStructureEvents,structureModify -> modify,structureRender -> render"(For more details, please refer to README.md)
+- Added a new KubeJS event "IFEUStructureEvents.registry"(For more details, please refer to README.md)
+- Modified the usage of most IFEUStructureEvents(For more details, please refer to README.md)
+- Fixed the bug where the fluid crafting table output "null" frantically in debug
