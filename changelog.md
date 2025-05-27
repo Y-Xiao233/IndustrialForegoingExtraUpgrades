@@ -109,6 +109,9 @@
 - 修改了大部分IFEUStructureEvents的用法(详情见README.md)
 - 修复了流体工作台在debug中疯狂输出null的bug
 
+### v3.1.001
+- 修复了部分贴图错误的bug
+
 
 ## en_us
 ### v1.0.0
@@ -218,3 +221,6 @@
 - Added a new KubeJS event "IFEUStructureEvents.registry"(For more details, please refer to README.md)
 - Modified the usage of most IFEUStructureEvents(For more details, please refer to README.md)
 - Fixed the bug where the fluid crafting table output "null" frantically in debug
+
+### v3.1.001
+- Fixed a bug with some texture errors
