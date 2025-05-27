@@ -1,10 +1,6 @@
-// 1.20.1	2025-05-10T13:29:34.7356048	Block States: ifeu
+// 1.20.1	2025-05-27T12:09:46.397777	Block States: ifeu
 3950649a1dc32fea368f21e3e32352f896d082fb assets/ifeu/models/item/arcane_dragon_egg_forging.json
 767814396b777cbdd116ac8a03b3b2ddc439b92c assets/ifeu/models/item/big_dissolution_chamber_core.json
-09eb639a2a50a4299761417fcb4e2629fead2109 assets/ifeu/models/item/black_hole_capacitor_advanced.json
-9647e0d95693c7ccecff1bcef0481077f6b49cc2 assets/ifeu/models/item/black_hole_capacitor_pity.json
-6b8ecd8791030f89c0b1026d6296026018a4875c assets/ifeu/models/item/black_hole_capacitor_simple.json
-bebb515595bd87f0eab9533f87a1c1108623db86 assets/ifeu/models/item/black_hole_capacitor_supreme.json
 3565055ca76aa3ae842ed8c502bd0e6725729b02 assets/ifeu/models/item/creative_capacitor.json
 9090d5c04212b3317a4dfb2eff1899afc31a6bd7 assets/ifeu/models/item/dead_dragon_egg.json
 13c11dc34668a88c99b8741946740d7a883082f3 assets/ifeu/models/item/dragon_generator.json

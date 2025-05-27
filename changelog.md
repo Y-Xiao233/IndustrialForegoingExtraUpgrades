@@ -163,6 +163,9 @@
 - 修改了大部分IFEUStructureEvents的用法(详情见README.md)
 - 删除了黑洞电容器(导致了未知的bug)
 
+### v2.3.001
+- 修复了有关方块挖掘错误的bug
+
 ## en_us
 ### v1.0.0
 - init
@@ -324,3 +327,6 @@
 - Added a new KubeJS event "IFEUStructureEvents.registry"(For more details, please refer to README.md)
 - Modified the usage of most IFEUStructureEvents(For more details, please refer to README.md)
 - Removed black hole capacitor (causing unknown bug)
+
+### v2.3.001
+- Fixed a bug related to block mining errors

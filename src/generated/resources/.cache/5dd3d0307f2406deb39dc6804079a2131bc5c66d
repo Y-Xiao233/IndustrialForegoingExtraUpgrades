@@ -1,4 +1,4 @@
-// 1.20.1	2025-04-24T14:48:40.8771892	Titanium Serializable (ifeu)
+// 1.20.1	2025-05-27T12:09:46.4010544	Titanium Serializable (ifeu)
 5a32aaf5edd8a63da8d7dbbc3e98ee222f54e549 data/ifeu/recipes/arcane_dragon_egg_forging/dead_dragon_egg.json
 ee98c1c55d06b1ef40bcf4b3ff86cabb9ceb5e93 data/ifeu/recipes/arcane_dragon_egg_forging/egg_1.json
 8d37adb344b2eb92c22f350e100824d2620a4f40 data/ifeu/recipes/arcane_dragon_egg_forging/egg_2.json
@@ -46,8 +46,6 @@ d92a984747c9177b2e22c7ffc3f5cc8e31c472f9 data/ifeu/recipes/infuser/sculk.json
 8e842c86c963be8e7a5ef9a7d7db62ed3b4f7795 data/ifeu/recipes/laser_drill_fluid/liquid_dragon_breath.json
 dee15dd97d525725d29711fd6a518776d8ce51c4 data/ifeu/recipes/laser_drill_fluid/liquid_sculk_matter.json
 cb2f1d40e4c019e3a2550054418dbd650a6df9d1 data/ifeu/recipes/shaped/big_dissolution_chamber_core.json
-8afe024976c2bb093d653c1bc7dc5e6957fd81aa data/ifeu/recipes/shaped/black_hole_capacitor_advanced.json
-cba5fe8c198057fc29c92522958ce2526bcfe783 data/ifeu/recipes/shaped/black_hole_capacitor_supreme.json
 92b71e3f4cc8d4359788e03f10591b7dc203f0ec data/ifeu/recipes/shaped/connect_tool.json
 87d6223944f8d0a3b906e0446ff0b896c7768fc6 data/ifeu/recipes/shaped/dragon_star_axe.json
 eee58b236806c11511f9cc76a287cc31fd13bd94 data/ifeu/recipes/shaped/dragon_star_block.json
