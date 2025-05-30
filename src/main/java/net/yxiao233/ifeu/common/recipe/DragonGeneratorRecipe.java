@@ -46,7 +46,7 @@ public class DragonGeneratorRecipe extends FluidGeneratorSerializableRecipe {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return null;
+        return ModRecipes.DRAGON_GENERATOR_SERIALIZER.get();
     }
 
     @Override

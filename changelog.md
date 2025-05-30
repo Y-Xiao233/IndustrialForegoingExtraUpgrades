@@ -112,6 +112,9 @@
 ### v3.1.001
 - 修复了部分贴图错误的bug
 
+### v3.1.002
+- 修复了制作奥数龙蛋锻造机配方时导致崩溃的bug[\#67 by gmofi](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/67)
+
 
 ## en_us
 ### v1.0.0
@@ -224,3 +227,6 @@
 
 ### v3.1.001
 - Fixed a bug with some texture errors
+
+### v3.1.002
+- Fixed a bug that caused a crash when making the recipe for the Arcane Dragon Egg forging machine[\#67 by gmofi](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/67)
