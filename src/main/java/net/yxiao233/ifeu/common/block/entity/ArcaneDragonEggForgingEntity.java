@@ -100,9 +100,6 @@ public class ArcaneDragonEggForgingEntity extends IndustrialProcessingTile<Arcan
         if(currentRecipe != null){
             boolean hasCurrentItem = currentRecipe.output.orElse(ItemStack.EMPTY).isEmpty() || ItemHandlerHelper.insertItem(output, currentRecipe.output.orElse(ItemStack.EMPTY).copy(),true).isEmpty();
             boolean hasEnoughCount = input.getStackInSlot(0).getCount() >= currentRecipe.input.getCount();
-            System.out.println("recipe outputFluid empty: "+this.currentRecipe.outputFluid.isEmpty());
-            System.out.println("current fluid amount: "+this.outputFluid.fillForced(this.currentRecipe.outputFluid.orElse(FluidStack.EMPTY).copy(), IFluidHandler.FluidAction.SIMULATE));
-            System.out.println("fluid needed amount for recipe: "+this.currentRecipe.outputFluid.orElse(FluidStack.EMPTY).getAmount());
             boolean canFillFluid = (this.currentRecipe.outputFluid.isEmpty() || this.outputFluid.fillForced(this.currentRecipe.outputFluid.orElse(FluidStack.EMPTY).copy(), IFluidHandler.FluidAction.SIMULATE) == this.currentRecipe.outputFluid.orElse(FluidStack.EMPTY).getAmount());
 
             return hasCurrentItem && hasEnoughCount && canFillFluid;
