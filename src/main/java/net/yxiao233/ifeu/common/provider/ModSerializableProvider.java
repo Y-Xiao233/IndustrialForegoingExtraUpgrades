@@ -30,10 +30,7 @@ import net.yxiao233.ifeu.common.recipe.ArcaneDragonEggForgingRecipe;
 import net.yxiao233.ifeu.common.recipe.ShapedRecipe;
 import net.yxiao233.ifeu.common.recipe.InfuserRecipe;
 import net.yxiao233.ifeu.common.recipe.ShapelessRecipe;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.registry.ModContents;
-import net.yxiao233.ifeu.common.registry.ModFluids;
-import net.yxiao233.ifeu.common.registry.ModTags;
+import net.yxiao233.ifeu.common.registry.*;
 
 import java.util.Map;
 
@@ -111,14 +108,14 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
 
         IFEURecipeBuilders.dissolutionChamberRecipe(new ItemStack(ModContents.EMPTY_NETHER_STAR.get(),4))
                 .inputs(
-                        itemValue(Items.NETHER_STAR.getDefaultInstance()),
+                        itemValue(Items.NETHERITE_INGOT.getDefaultInstance()),
                         tagValue(IndustrialTags.Items.PLASTIC),
-                        itemValue(Items.NETHER_STAR.getDefaultInstance()),
+                        itemValue(Items.NETHERITE_INGOT.getDefaultInstance()),
                         tagValue(IndustrialTags.Items.PLASTIC),
                         tagValue(IndustrialTags.Items.PLASTIC),
-                        itemValue(Items.NETHER_STAR.getDefaultInstance()),
+                        itemValue(Items.NETHERITE_INGOT.getDefaultInstance()),
                         tagValue(IndustrialTags.Items.PLASTIC),
-                        itemValue(Items.NETHER_STAR.getDefaultInstance())
+                        itemValue(Items.NETHERITE_INGOT.getDefaultInstance())
                 )
                 .inputFluid(new FluidStack(ModFluids.LIQUID_MALIC_ACID.getSourceFluid().get(), 4000))
                 .processingTime(200)

@@ -204,6 +204,18 @@ public class RendererHelper {
     }
 
     @OnlyIn(Dist.CLIENT)
+    public static void renderAllBatchedGhostBlockWhileIsNotCurrent(PoseStack poseStack, MultiBufferSource multiBufferSource, BlockPos entityBlockPos, BlockPos centerPos, Level level, List<BlockPos> posList, BlockState blockState){
+        poseStack.pushPose();
+        poseStack.translate(centerPos.getX() - entityBlockPos.getX(),centerPos.getY() - entityBlockPos.getY(), centerPos.getZ() - entityBlockPos.getZ());
+        posList.forEach(pos ->{
+            if(!level.getBlockState(pos).is(blockState.getBlock())){
+                renderSingleBatchedGhostBlock(poseStack,multiBufferSource,entityBlockPos,pos,blockState);
+            }
+        });
+        poseStack.popPose();
+    }
+
+    @OnlyIn(Dist.CLIENT)
     public interface IBlockContextRender {
         public void render();
     }
@@ -295,5 +307,10 @@ public class RendererHelper {
     @OnlyIn(Dist.CLIENT)
     public static void renderCenterVerticalLine(PoseStack poseStack, VertexConsumer consumer, BlockPos verticalPos, int high, BlockPos entityPos, Color color){
         LevelRenderer.renderLineBox(poseStack,consumer,new AABB(verticalPos.getX(),verticalPos.getY(),verticalPos.getZ(),verticalPos.getX(),verticalPos.getY() + high,verticalPos.getZ()).move(-entityPos.getX() + 0.5F,-entityPos.getY() + 0.5F,-entityPos.getZ() + 0.5F),(float)color.getRed() / 255.0F, (float)color.getGreen() / 255.0F, (float)color.getBlue() / 255.0F, 0.5F);
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    public static void renderVerticalLine(PoseStack poseStack, VertexConsumer consumer, BlockPos verticalPos, int high, BlockPos entityPos, Color color, double prefixX, double prefixY, double prefixZ){
+        LevelRenderer.renderLineBox(poseStack,consumer,new AABB(verticalPos.getX(),verticalPos.getY(),verticalPos.getZ(),verticalPos.getX(),verticalPos.getY() + high,verticalPos.getZ()).move(-entityPos.getX() + prefixX,-entityPos.getY() + prefixY,-entityPos.getZ() + prefixZ),(float)color.getRed() / 255.0F, (float)color.getGreen() / 255.0F, (float)color.getBlue() / 255.0F, 0.5F);
     }
 }

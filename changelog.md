@@ -166,6 +166,11 @@
 ### v2.3.001
 - 修复了有关方块挖掘错误的bug
 
+### v2.3.002
+- 添加了插件: 精准
+- 调整了下界之星再生配方的不合理比例
+- 几乎重写了连接工具的代码
+
 ## en_us
 ### v1.0.0
 - init
@@ -330,3 +335,8 @@
 
 ### v2.3.001
 - Fixed a bug related to block mining errors
+
+### v2.3.002
+- Added addon: Silk
+- Adjusted the unreasonable proportion of the regeneration recipe for the nether star
+- Almost rewrote the code of the connect tool

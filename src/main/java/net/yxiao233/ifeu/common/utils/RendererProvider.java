@@ -58,12 +58,29 @@ public class RendererProvider {
         RendererHelper.renderCenterVerticalLine(poseStack,multiBufferSource.getBuffer(RenderType.lines()),verticalPos,high,entityPos,color);
     }
 
+    public void renderVerticalLine(BlockPos verticalPos, int high, Color color, double prefixX, double prefixY, double prefixZ){
+        RendererHelper.renderVerticalLine(poseStack,multiBufferSource.getBuffer(RenderType.lines()),verticalPos,high,entityPos,color,prefixX,prefixY,prefixZ);
+    }
+
+
+    public void renderCenterVerticalLine(BlockPos verticalPos, int high, Color color, boolean absoluteCenter){
+        if(!absoluteCenter){
+            RendererHelper.renderVerticalLine(poseStack,multiBufferSource.getBuffer(RenderType.lines()),verticalPos,high,entityPos,color,0.5F,0F,0.5F);
+        }else{
+            renderCenterVerticalLine(verticalPos,high,color);
+        }
+    }
+
     public void renderAllBatchedGhostBlock(List<BlockPos> posList, BlockState blockState){
         RendererHelper.renderAllBatchedGhostBlock(poseStack,multiBufferSource,entityPos,posList,blockState);
     }
 
     public void renderAllBatchedGhostBlockWhileIsNotCurrent(Level level, List<BlockPos> posList, BlockState blockState){
         RendererHelper.renderAllBatchedGhostBlockWhileIsNotCurrent(poseStack,multiBufferSource,entityPos,level,posList,blockState);
+    }
+
+    public void renderAllBatchedGhostBlockWhileIsNotCurrent(Level level, List<BlockPos> posList, BlockState blockState, BlockPos centerPos){
+        RendererHelper.renderAllBatchedGhostBlockWhileIsNotCurrent(poseStack,multiBufferSource,entityPos,centerPos,level,posList,blockState);
     }
 
     public void renderBlockLineBox(BlockPos curPos, Color color){

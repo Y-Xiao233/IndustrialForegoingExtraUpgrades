@@ -2,13 +2,13 @@
   "type": "industrialforegoing:dissolution_chamber",
   "input": [
     {
-      "item": "minecraft:nether_star"
+      "item": "minecraft:netherite_ingot"
     },
     {
       "tag": "forge:plastic"
     },
     {
-      "item": "minecraft:nether_star"
+      "item": "minecraft:netherite_ingot"
     },
     {
       "tag": "forge:plastic"
@@ -17,13 +17,13 @@
       "tag": "forge:plastic"
     },
     {
-      "item": "minecraft:nether_star"
+      "item": "minecraft:netherite_ingot"
     },
     {
       "tag": "forge:plastic"
     },
     {
-      "item": "minecraft:nether_star"
+      "item": "minecraft:netherite_ingot"
     }
   ],
   "inputFluid": "{Amount:4000,FluidName:\"ifeu:liquid_malic_acid\"}",

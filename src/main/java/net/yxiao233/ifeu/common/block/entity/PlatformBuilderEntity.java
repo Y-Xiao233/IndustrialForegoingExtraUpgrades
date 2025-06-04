@@ -3,6 +3,7 @@ package net.yxiao233.ifeu.common.block.entity;
 import com.buuz135.industrial.IndustrialForegoing;
 import com.buuz135.industrial.block.tile.RangeManager;
 import com.buuz135.industrial.utils.BlockUtils;
+import com.buuz135.industrial.utils.IFFakePlayer;
 import com.hrznstudio.titanium.annotation.Save;
 import com.hrznstudio.titanium.api.IFactory;
 import com.hrznstudio.titanium.api.client.AssetTypes;
@@ -21,10 +22,14 @@ import com.hrznstudio.titanium.util.LangUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -37,23 +42,28 @@ import net.yxiao233.ifeu.api.block.entity.IFEUAreaWorkingTile;
 import net.yxiao233.ifeu.api.components.ComponentGuiComponent;
 import net.yxiao233.ifeu.api.components.CustomTooltipComponent;
 import net.yxiao233.ifeu.api.components.TextGuiComponent;
+import net.yxiao233.ifeu.api.item.IFEUAugmentTypes;
+import net.yxiao233.ifeu.api.networking.BlockPosSyncS2C;
 import net.yxiao233.ifeu.api.networking.BooleanValueSyncS2C;
 import net.yxiao233.ifeu.common.config.machine.PlatformBuilderConfig;
 import net.yxiao233.ifeu.common.networking.ModNetWorking;
+import net.yxiao233.ifeu.common.networking.packet.BlockPosSyncS2CPacket;
 import net.yxiao233.ifeu.common.networking.packet.BooleanSyncS2CPacket;
 import net.yxiao233.ifeu.common.networking.packet.PlatformBuilderEntityKeyDownSyncC2SPacket;
 import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.utils.KeyDownUtil;
-import net.yxiao233.ifeu.common.utils.PlatformBuilderUtil;
+import net.yxiao233.ifeu.common.utils.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collections;
 import java.util.List;
 
-public class PlatformBuilderEntity extends IFEUAreaWorkingTile<PlatformBuilderEntity> implements BooleanValueSyncS2C {
+public class PlatformBuilderEntity extends IFEUAreaWorkingTile<PlatformBuilderEntity> implements BooleanValueSyncS2C, BlockPosSyncS2C {
     @Save
     public boolean isNorth = false;
-    @Save boolean isWest = false;
+    @Save
+    public boolean isWest = false;
+    @Save
+    public BlockPos centerPos = getBlockPos();
     @Save
     public InventoryComponent<PlatformBuilderEntity> land;
     @Save
@@ -275,6 +285,10 @@ public class PlatformBuilderEntity extends IFEUAreaWorkingTile<PlatformBuilderEn
         super.serverTick(level, pos, state, blockEntity);
         if(!level.isClientSide()){
             ModNetWorking.sendToClient(new BooleanSyncS2CPacket(pos,finish));
+
+            if(this.centerPos != null){
+                ModNetWorking.sendToClient(new BlockPosSyncS2CPacket(getBlockPos(),this.centerPos));
+            }
         }
     }
 
@@ -398,6 +412,15 @@ public class PlatformBuilderEntity extends IFEUAreaWorkingTile<PlatformBuilderEn
                 }
             };
         });
+
+        this.addGuiAddonFactory(() ->{
+            return new ComponentGuiComponent(95,74) {
+                @Override
+                public Component getText() {
+                    return Component.literal("Center: " + getCenterPos().toShortString());
+                }
+            };
+        });
     }
 
     @Override
@@ -416,14 +439,25 @@ public class PlatformBuilderEntity extends IFEUAreaWorkingTile<PlatformBuilderEn
         boolean frame = frameStack.getCount() > 0;
 
 
-        if(land){
-            if(needLand > 0){
-                if(mode == 0){
-                    replace(lands.get(landIndex),getLandBlockState(),"land");
-                }else{
-                    skip(lands.get(landIndex),getLandBlockState(),"land");
+        if(this.getEnergyStorage().getEnergyStored() >= PlatformBuilderConfig.powerPerOperation){
+            if(land){
+                if(needLand > 0){
+                    if(mode == 0){
+                        replace(lands.get(landIndex),getLandBlockState(),"land");
+                    }else{
+                        skip(lands.get(landIndex),getLandBlockState(),"land");
+                    }
+                    return new WorkAction(1.0F,PlatformBuilderConfig.powerPerOperation);
+                }else if(frame){
+                    if(needFrame > 0){
+                        if(mode == 0){
+                            replace(frames.get(frameIndex),getFrameBlockState(),"frame");
+                        }else{
+                            skip(frames.get(frameIndex),getFrameBlockState(),"frame");
+                        }
+                        return new WorkAction(1.0F,PlatformBuilderConfig.powerPerOperation);
+                    }
                 }
-                return new WorkAction(1.0F,PlatformBuilderConfig.powerPerOperation);
             }else if(frame){
                 if(needFrame > 0){
                     if(mode == 0){
@@ -434,36 +468,31 @@ public class PlatformBuilderEntity extends IFEUAreaWorkingTile<PlatformBuilderEn
                     return new WorkAction(1.0F,PlatformBuilderConfig.powerPerOperation);
                 }
             }
-        }else if(frame){
-            if(needFrame > 0){
-                if(mode == 0){
-                    replace(frames.get(frameIndex),getFrameBlockState(),"frame");
-                }else{
-                    skip(frames.get(frameIndex),getFrameBlockState(),"frame");
-                }
-                return new WorkAction(1.0F,PlatformBuilderConfig.powerPerOperation);
-            }
         }
-
-        return new WorkAction(1.0F, 0);
+        return new WorkAction(0F, 0);
     }
 
     private void replace(BlockPos pos, BlockState state, String type){
-        FakePlayer fakePlayer = IndustrialForegoing.getFakePlayer(level,pos);
-        fakePlayer.setGameMode(GameType.SURVIVAL);
-        fakePlayer.setItemInHand(InteractionHand.MAIN_HAND,new ItemStack(Items.NETHERITE_PICKAXE));
-        if(this.level.getBlockState(pos).isAir()){
-            level.setBlockAndUpdate(pos,state);
-            shrink(type);
-            increaseIndex(type);
-        }else{
-            if(level.getBlockState(pos).is(state.getBlock())){
-                increaseIndex(type);
-            }else if(level.getBlockState(pos).getDestroySpeed(level,pos) >= 0.0F && level.getBlockState(pos).canHarvestBlock(level,pos,fakePlayer)){
-                shrink(type);
-                level.destroyBlock(pos,true);
+        if(level != null && !level.isClientSide()){
+            boolean isSilk = AugmentInventoryHelper.contains(this,IFEUAugmentTypes.SILK);
+            BlockState destroyed = level.getBlockState(pos);
+            if(this.level.getBlockState(pos).isAir()){
                 level.setBlockAndUpdate(pos,state);
+                shrink(type);
                 increaseIndex(type);
+            }else{
+                if(destroyed.is(state.getBlock())){
+                    increaseIndex(type);
+                }else if(destroyed.getDestroySpeed(level,pos) >= 0.0F){
+                    shrink(type);
+                    if(isSilk){
+                        BlockUtil.silkDestroy(level,pos);
+                    }else{
+                        BlockUtil.destroy(level,pos,true);
+                    }
+                    level.setBlockAndUpdate(pos,state);
+                    increaseIndex(type);
+                }
             }
         }
     }
@@ -510,6 +539,11 @@ public class PlatformBuilderEntity extends IFEUAreaWorkingTile<PlatformBuilderEn
     }
 
     @Override
+    public BlockPos getCenterPos() {
+        return centerPos;
+    }
+
+    @Override
     public int getFrameBounds(){
         return frameBounds;
     }
@@ -526,7 +560,7 @@ public class PlatformBuilderEntity extends IFEUAreaWorkingTile<PlatformBuilderEn
 
     @Override
     public int getYOffset() {
-        return -1;
+        return 0;
     }
 
     @Override
@@ -543,11 +577,6 @@ public class PlatformBuilderEntity extends IFEUAreaWorkingTile<PlatformBuilderEn
             return Block.byItem(land.getStackInSlot(0).getItem()).defaultBlockState();
         }
         return Blocks.GLASS.defaultBlockState();
-    }
-
-    @Override
-    public BlockPos getCenter() {
-        return null;
     }
 
     @Override
@@ -602,6 +631,9 @@ public class PlatformBuilderEntity extends IFEUAreaWorkingTile<PlatformBuilderEn
         if (tag.contains("hideButtonTip")) {
             this.hasButtonTip = tag.getBoolean("hideButtonTip");
         }
+        if(tag.contains("center_pos")){
+            this.centerPos = IntArrayBlockPosUtil.intArrayToBlockPos(tag.getIntArray("center_pos"));
+        }
         super.loadSettings(player, tag);
     }
 
@@ -615,6 +647,21 @@ public class PlatformBuilderEntity extends IFEUAreaWorkingTile<PlatformBuilderEn
         tag.putInt("frame_index",this.frameIndex);
         tag.putInt("mode",this.mode);
         tag.putBoolean("hideButtonTip",this.hasButtonTip);
+        tag.putIntArray("center_pos",IntArrayBlockPosUtil.blockPosToIntArray(this.centerPos));
         super.saveSettings(player, tag);
+    }
+
+    @Override
+    public void sendBlockPos(BlockPos pos) {
+        centerPos = pos;
+    }
+
+    @Override
+    public BlockPos getSendBlockPos() {
+        if(this.centerPos == null){
+            return null;
+        }else{
+            return this.centerPos;
+        }
     }
 }

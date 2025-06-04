@@ -12,7 +12,7 @@ public class PlatformBuilderUtil {
         List<BlockPos> posList = new ArrayList<>();
         int bounds = entity.getFrameBounds();
         int range = entity.getLandRange();
-        BlockPos entityPos = entity.getBlockPos();
+        BlockPos entityPos = entity.getCenterPos();
         int d0 = adjustForDirection(entity.getFrameDirection().northSouth().get());
         int d1 = adjustForDirection(entity.getFrameDirection().westEast().get());
 
@@ -41,7 +41,7 @@ public class PlatformBuilderUtil {
 
     public static List<BlockPos> getLandPosList(IFEUAreaWorkingTile<?> entity){
         List<BlockPos> posList = new ArrayList<>();
-        BlockPos entityPos = entity.getBlockPos();
+        BlockPos entityPos = entity.getCenterPos();
         int range = entity.getLandRange();
         for(int x = entityPos.getX() - range; x <= entityPos.getX() + range; x ++){
             for(int z = entityPos.getZ() - range; z <= entityPos.getZ() + range; z ++){

@@ -20,6 +20,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.yxiao233.ifeu.common.registry.ModTags;
+import net.yxiao233.ifeu.common.utils.LevelUtil;
 import net.yxiao233.ifeu.common.utils.TooltipHelper;
 import org.jetbrains.annotations.Nullable;
 
@@ -85,17 +86,8 @@ public class WrenchItem extends Item {
             if(playerInventory.getFreeSlot() != -1 || playerInventory.contains(itemStack)){
                 playerInventory.add(itemStack);
             }else{
-                dropContents(level,pos,itemStack);
+                LevelUtil.dropContents(level,pos,itemStack);
             }
         });
-    }
-
-    public void dropContents(Level level, BlockPos pos,ItemStack stack){
-        double d0 = (double) EntityType.ITEM.getHeight() / 2.0;
-        double d1 = (double)pos.getX() + 0.5 + Mth.nextDouble(level.random, -0.25, 0.25);
-        double d2 = (double)pos.getY() + 0.5 + Mth.nextDouble(level.random, -0.25, 0.25) - d0;
-        double d3 = (double)pos.getZ() + 0.5 + Mth.nextDouble(level.random, -0.25, 0.25);
-        ItemEntity item = new ItemEntity(level, d1, d2, d3, stack);
-        level.addFreshEntity(item);
     }
 }

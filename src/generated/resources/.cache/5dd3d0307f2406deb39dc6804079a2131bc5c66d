@@ -1,4 +1,4 @@
-// 1.20.1	2025-05-27T12:09:46.4010544	Titanium Serializable (ifeu)
+// 1.20.1	2025-06-05T01:06:58.5197251	Titanium Serializable (ifeu)
 5a32aaf5edd8a63da8d7dbbc3e98ee222f54e549 data/ifeu/recipes/arcane_dragon_egg_forging/dead_dragon_egg.json
 ee98c1c55d06b1ef40bcf4b3ff86cabb9ceb5e93 data/ifeu/recipes/arcane_dragon_egg_forging/egg_1.json
 8d37adb344b2eb92c22f350e100824d2620a4f40 data/ifeu/recipes/arcane_dragon_egg_forging/egg_2.json
@@ -12,7 +12,7 @@ ae707198164e49ef8363f51273758b70a3aa0dd6 data/ifeu/recipes/dissolution_chamber/e
 d94db185558648aaef913cacd14ff4a4cc270249 data/ifeu/recipes/dissolution_chamber/efficiency_addon_4.json
 cea608a6f3915838bc4c71a38a8029ce757ac887 data/ifeu/recipes/dissolution_chamber/efficiency_addon_5.json
 1c47abddd5a4ec2640b042482247dc91ba267cbe data/ifeu/recipes/dissolution_chamber/efficiency_addon_6.json
-69a4286d526d7e577e938647d70f35e2b1da7a21 data/ifeu/recipes/dissolution_chamber/empty_nether_star.json
+4dfce07d133dee8b184147ba253592d6537e985e data/ifeu/recipes/dissolution_chamber/empty_nether_star.json
 8bc100355da62f100d91a5760110d3679dedb4f3 data/ifeu/recipes/dissolution_chamber/fluid_crafting_table.json
 90d81f57196834931542693df6833d6dca6c5ab7 data/ifeu/recipes/dissolution_chamber/laser_lens_dragon.json
 1c24b92a38c6d6e82ca5cea5e40ed78976197bb3 data/ifeu/recipes/dissolution_chamber/laser_lens_sculk.json
@@ -24,6 +24,7 @@ a9c332b590cd6a60ffba23ba3e66c4e9d0a42c7d data/ifeu/recipes/dissolution_chamber/l
 d1bbf0af46d750a05fe482838b2ff89454f0ee15 data/ifeu/recipes/dissolution_chamber/processing_addon_5.json
 5ee29a3787e6a7b95775b35c0d4e785d52bc4441 data/ifeu/recipes/dissolution_chamber/processing_addon_6.json
 c2e748c0dc40a4df58a168d95e0610e58edf5e9c data/ifeu/recipes/dissolution_chamber/rough_dragon_star.json
+69c6c86e10edc2384ae0e83b2c0c56d628ca94c0 data/ifeu/recipes/dissolution_chamber/silk_addon.json
 dec137485956e28db83e71225ab5aaba19011ba9 data/ifeu/recipes/dissolution_chamber/speed_addon_3.json
 21db4005cee0932439763aa659bc87241f7ebff0 data/ifeu/recipes/dissolution_chamber/speed_addon_4.json
 5a4b437bc2950d32cd3937023b1740faaf5b905f data/ifeu/recipes/dissolution_chamber/speed_addon_5.json

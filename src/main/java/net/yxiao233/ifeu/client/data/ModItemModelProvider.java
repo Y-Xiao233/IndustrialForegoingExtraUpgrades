@@ -67,5 +67,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModContents.APPLE_CORE.get());
         basicItem(ModContents.HYDROPONIC_SIMULATION_PROCESSOR.get());
         basicItem(ModContents.BLUEPRINT.get());
+        basicItem(ModItems.SILK_ADDON.get());
     }
 }

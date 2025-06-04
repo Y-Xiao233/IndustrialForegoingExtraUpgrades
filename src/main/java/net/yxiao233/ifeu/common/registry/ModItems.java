@@ -19,6 +19,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.api.item.*;
+import net.yxiao233.ifeu.api.recipe.builder.IFEURecipeBuilders;
 
 import java.util.function.Consumer;
 
@@ -48,6 +49,7 @@ public class ModItems implements IModule {
     public static RegistryObject<Item> APPLE_ADDON_4;
     public static RegistryObject<Item> APPLE_ADDON_5;
     public static RegistryObject<Item> APPLE_ADDON_6;
+    public static RegistryObject<Item> SILK_ADDON;
     @Override
     public void generateFeatures(DeferredRegistryHelper helper) {
         //Speed Addon
@@ -509,6 +511,27 @@ public class ModItems implements IModule {
                         new FluidStack(ModFluids.LIQUID_MALIC_ACID.getSourceFluid().get(), 8000), 200,
                         new ItemStack(this),FluidStack.EMPTY
                 );
+            }
+        });
+
+        SILK_ADDON = helper.registerGeneric(ForgeRegistries.ITEMS.getRegistryKey(), "silk_addon", () -> new SilkTouchAddonItem(TAB_ADDONS){
+            @Override
+            public void registerRecipe(Consumer<FinishedRecipe> consumer) {
+                IFEURecipeBuilders.dissolutionChamberRecipe(ModItems.SILK_ADDON.get().getDefaultInstance())
+                        .inputs(
+                                tagValue(Tags.Items.DUSTS_REDSTONE),
+                                tagValue(Tags.Items.DUSTS_REDSTONE),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(ModTags.Items.GEARS_SCULK),
+                                tagValue(ModTags.Items.GEARS_SCULK),
+                                itemValue(Items.DIAMOND_PICKAXE.getDefaultInstance()),
+                                itemValue(Items.BOOK.getDefaultInstance())
+                        )
+                        .inputFluid(new FluidStack(ModuleCore.ETHER.getSourceFluid().get(),1000))
+                        .processingTime(200)
+                        .outputFluid(FluidStack.EMPTY)
+                        .save();
             }
         });
     }
