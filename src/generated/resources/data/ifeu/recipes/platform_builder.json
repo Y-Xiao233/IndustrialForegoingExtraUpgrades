@@ -1,0 +1,54 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "forge:item_exists",
+              "item": "ifeu:platform_builder"
+            }
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "key": {
+          "A": {
+            "tag": "forge:dusts/redstone"
+          },
+          "B": {
+            "tag": "forge:storage_blocks/diamond"
+          },
+          "C": {
+            "item": "industrialforegoing:block_breaker"
+          },
+          "D": {
+            "tag": "industrialforegoing:machine_frame/advanced"
+          },
+          "E": {
+            "item": "ifeu:speed_addon_3"
+          },
+          "F": {
+            "item": "ifeu:processing_addon_3"
+          },
+          "G": {
+            "item": "ifeu:efficiency_addon_3"
+          }
+        },
+        "pattern": [
+          "ABA",
+          "CDC",
+          "EFG"
+        ],
+        "result": {
+          "item": "ifeu:platform_builder"
+        },
+        "show_notification": true
+      }
+    }
+  ]
+}
