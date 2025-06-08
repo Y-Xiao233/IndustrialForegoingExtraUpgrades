@@ -1,6 +1,7 @@
 package net.yxiao233.ifeu.common.provider;
 
 import com.buuz135.industrial.module.ModuleCore;
+import com.buuz135.industrial.module.ModuleResourceProduction;
 import com.buuz135.industrial.utils.IndustrialTags;
 import com.hrznstudio.titanium.api.IRecipeProvider;
 import com.hrznstudio.titanium.block.BasicBlock;
@@ -21,7 +22,9 @@ import net.yxiao233.ifeu.api.item.IFEUAddonItem;
 import net.yxiao233.ifeu.api.item.ModEfficiencyAddonItem;
 import net.yxiao233.ifeu.api.item.ModProcessingAddonItem;
 import net.yxiao233.ifeu.api.item.ModSpeedAddonItem;
+import net.yxiao233.ifeu.common.registry.ModBlocks;
 import net.yxiao233.ifeu.common.registry.ModContents;
+import net.yxiao233.ifeu.common.registry.ModItems;
 import net.yxiao233.ifeu.common.registry.ModTags;
 
 import java.util.Arrays;
@@ -135,6 +138,19 @@ public class ModRecipeProvider extends VanillaRecipeProvider {
 //                .define('D',Tags.Items.STORAGE_BLOCKS_REDSTONE)
 //                .define('E',IndustrialTags.Items.MACHINE_FRAME_SIMPLE)
 //                .save(consumer);
+
+        TitaniumShapedRecipeBuilder.shapedRecipe(ModBlocks.PLATFORM_BUILDER.asItem())
+                .pattern("ABA")
+                .pattern("CDC")
+                .pattern("EFG")
+                .define('A', Tags.Items.DUSTS_REDSTONE)
+                .define('B', Tags.Items.STORAGE_BLOCKS_DIAMOND)
+                .define('C', ModuleResourceProduction.BLOCK_BREAKER.asItem())
+                .define('D', IndustrialTags.Items.MACHINE_FRAME_ADVANCED)
+                .define('E', ModItems.SPEED_ADDON_3.get())
+                .define('F', ModItems.PROCESSING_ADDON_3.get())
+                .define('G', ModItems.EFFICIENCY_ADDON_3.get())
+                .save(recipeOutput);
 
 
         ModSerializableProvider.init(recipeOutput);

@@ -8,13 +8,13 @@
   "type": "industrialforegoing:dissolution_chamber",
   "input": [
     {
-      "item": "minecraft:nether_star"
+      "item": "minecraft:netherite_ingot"
     },
     {
       "tag": "c:plastics"
     },
     {
-      "item": "minecraft:nether_star"
+      "item": "minecraft:netherite_ingot"
     },
     {
       "tag": "c:plastics"
@@ -23,13 +23,13 @@
       "tag": "c:plastics"
     },
     {
-      "item": "minecraft:nether_star"
+      "item": "minecraft:netherite_ingot"
     },
     {
       "tag": "c:plastics"
     },
     {
-      "item": "minecraft:nether_star"
+      "item": "minecraft:netherite_ingot"
     }
   ],
   "inputFluid": {

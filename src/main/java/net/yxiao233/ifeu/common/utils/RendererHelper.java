@@ -286,4 +286,9 @@ public class RendererHelper {
     public static void renderCenterVerticalLine(PoseStack poseStack, VertexConsumer consumer, BlockPos verticalPos, int high, BlockPos entityPos, Color color){
         LevelRenderer.renderLineBox(poseStack,consumer,new AABB(verticalPos.getX(),verticalPos.getY(),verticalPos.getZ(),verticalPos.getX(),verticalPos.getY() + high,verticalPos.getZ()).move(-entityPos.getX() + 0.5F,-entityPos.getY() + 0.5F,-entityPos.getZ() + 0.5F),(float)color.getRed() / 255.0F, (float)color.getGreen() / 255.0F, (float)color.getBlue() / 255.0F, 0.5F);
     }
+
+    @OnlyIn(Dist.CLIENT)
+    public static void renderVerticalLine(PoseStack poseStack, VertexConsumer consumer, BlockPos verticalPos, int high, BlockPos entityPos, Color color, double prefixX, double prefixY, double prefixZ){
+        LevelRenderer.renderLineBox(poseStack,consumer,new AABB(verticalPos.getX(),verticalPos.getY(),verticalPos.getZ(),verticalPos.getX(),verticalPos.getY() + high,verticalPos.getZ()).move(-entityPos.getX() + prefixX,-entityPos.getY() + prefixY,-entityPos.getZ() + prefixZ),(float)color.getRed() / 255.0F, (float)color.getGreen() / 255.0F, (float)color.getBlue() / 255.0F, 0.5F);
+    }
 }

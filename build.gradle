@@ -94,20 +94,20 @@ repositories{
         }
     }
 
-    maven {
-        url "https://maven.latvian.dev/releases"
-        content {
-            includeGroup "dev.latvian.mods"
-            includeGroup "dev.latvian.apps"
-        }
-    }
+//    maven {
+//        url "https://maven.latvian.dev/releases"
+//        content {
+//            includeGroup "dev.latvian.mods"
+//            includeGroup "dev.latvian.apps"
+//        }
+//    }
 
-    maven {
-        url 'https://jitpack.io'
-        content {
-            includeGroup "com.github.rtyley"
-        }
-    }
+//    maven {
+//        url 'https://jitpack.io'
+//        content {
+//            includeGroup "com.github.rtyley"
+//        }
+//    }
 }
 
 dependencies {
@@ -122,7 +122,9 @@ dependencies {
     implementation("maven.modrinth:titanium:${titanium_version}")
 
     //KubeJS
-    implementation("dev.latvian.mods:kubejs-neoforge:${kubejs_version}")
+//    implementation("dev.latvian.mods:kubejs-neoforge:${kubejs_version}")
+    implementation "curse.maven:kubejs-238086:5701155"
+    implementation "curse.maven:rhino-416294:6184623"
 
 }
 

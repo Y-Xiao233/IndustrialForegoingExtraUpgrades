@@ -17,14 +17,13 @@ public class PlatformBuilderRenderer implements BlockEntityRenderer<IFEUAreaWork
     }
     @Override
     public void render(IFEUAreaWorkingTile<?> entity, float v, @NotNull PoseStack poseStack, @NotNull MultiBufferSource multiBufferSource, int i, int i1) {
-        if(entity != null && entity.isShowingArea()){
-            BlockPos entityPos = entity.getBlockPos();
-            RendererProvider provider = new RendererProvider(poseStack,multiBufferSource,entityPos);
+        if(entity.isShowingArea()){
+            RendererProvider provider = new RendererProvider(poseStack,multiBufferSource,entity.getBlockPos());
 
             Color color = new Color(255,255,0);
-            provider.renderCenterVerticalLine(entityPos,5,color);
+            provider.renderCenterVerticalLine(entity.getCenterPos(),5,color,false);
 
-            provider.renderAllBatchedGhostBlockWhileIsNotCurrent(entity.getLevel(), PlatformBuilderUtil.getFrameBlockPosList(entity),entity.getFrameBlockState());
+            provider.renderAllBatchedGhostBlockWhileIsNotCurrent(entity.getLevel(),PlatformBuilderUtil.getFrameBlockPosList(entity),entity.getFrameBlockState());
             provider.renderAllBatchedGhostBlockWhileIsNotCurrent(entity.getLevel(),PlatformBuilderUtil.getLandPosList(entity),entity.getLandBlockState());
         }
     }

@@ -20,6 +20,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
+import net.yxiao233.ifeu.api.item.IFEUAddonItem;
+import net.yxiao233.ifeu.api.item.IFEUAugmentTypes;
+import net.yxiao233.ifeu.common.utils.AugmentInventoryHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,11 +63,13 @@ public abstract class IFEUAreaWorkingTile<T extends IFEUAreaWorkingTile<T>> exte
 
 
     public boolean canAcceptAugment(ItemStack augment) {
-        if (!AugmentWrapper.hasType(augment, RangeAddonItem.RANGE)) {
-            return super.canAcceptAugment(augment);
-        } else {
-            return super.canAcceptAugment(augment) && this.acceptsRangeUpgrades;
+        if(augment.getItem() instanceof IFEUAddonItem addonItem){
+            if(addonItem.getType() == IFEUAugmentTypes.SILK){
+                return AugmentInventoryHelper.canAccept(this.getAugmentInventory(),augment);
+            }
+            return false;
         }
+        return false;
     }
 
     public abstract int getFrameBounds();
@@ -73,7 +78,7 @@ public abstract class IFEUAreaWorkingTile<T extends IFEUAreaWorkingTile<T>> exte
     public abstract int getYOffset();
     public abstract BlockState getFrameBlockState();
     public abstract BlockState getLandBlockState();
-    public abstract BlockPos getCenter();
+    public abstract BlockPos getCenterPos();
     public abstract Item getLandItem();
     public abstract Item getFrameItem();
 
