@@ -1,0 +1,42 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "ifeu:platform_builder"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "c:dusts/redstone"
+    },
+    "B": {
+      "tag": "c:storage_blocks/diamond"
+    },
+    "C": {
+      "item": "industrialforegoing:block_breaker"
+    },
+    "D": {
+      "tag": "industrialforegoing:machine_frame/advanced"
+    },
+    "E": {
+      "item": "ifeu:speed_addon_3"
+    },
+    "F": {
+      "item": "ifeu:processing_addon_3"
+    },
+    "G": {
+      "item": "ifeu:efficiency_addon_3"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "CDC",
+    "EFG"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ifeu:platform_builder"
+  }
+}

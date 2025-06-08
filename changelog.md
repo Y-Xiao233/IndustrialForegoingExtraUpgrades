@@ -115,6 +115,11 @@
 ### v3.1.002
 - 修复了制作奥数龙蛋锻造机配方时导致崩溃的bug[\#67 by gmofi](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/67)
 
+### v3.1.003
+- 添加了插件: 精准
+- 调整了下界之星再生配方的不合理比例
+- 几乎重写了连接工具的代码
+
 
 ## en_us
 ### v1.0.0
@@ -230,3 +235,8 @@
 
 ### v3.1.002
 - Fixed a bug that caused a crash when making the recipe for the Arcane Dragon Egg forging machine[\#67 by gmofi](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/67)
+
+### v3.1.003
+- Added addon: Silk
+- Adjusted the unreasonable proportion of the regeneration recipe for the nether star
+- Almost rewrote the code of the connect tool

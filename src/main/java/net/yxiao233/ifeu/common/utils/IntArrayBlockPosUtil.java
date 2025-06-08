@@ -10,7 +10,7 @@ public class IntArrayBlockPosUtil {
         return new BlockPos(xyz[0],xyz[1],xyz[2]);
     }
 
-    public static int[] BlockPosToIntArray(BlockPos blockPos){
+    public static int[] blockPosToIntArray(BlockPos blockPos){
         if(blockPos == null){
             return new int[]{0,0,0};
         }

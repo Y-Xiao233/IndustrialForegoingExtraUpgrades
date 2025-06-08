@@ -58,6 +58,14 @@ public class RendererProvider {
         RendererHelper.renderCenterVerticalLine(poseStack,multiBufferSource.getBuffer(RenderType.lines()),verticalPos,high,entityPos,color);
     }
 
+    public void renderCenterVerticalLine(BlockPos verticalPos, int high, Color color, boolean absoluteCenter){
+        if(!absoluteCenter){
+            RendererHelper.renderVerticalLine(poseStack,multiBufferSource.getBuffer(RenderType.lines()),verticalPos,high,entityPos,color,0.5F,0F,0.5F);
+        }else{
+            renderCenterVerticalLine(verticalPos,high,color);
+        }
+    }
+
     public void renderAllBatchedGhostBlock(java.util.List<BlockPos> posList, BlockState blockState){
         RendererHelper.renderAllBatchedGhostBlock(poseStack,multiBufferSource,entityPos,posList,blockState);
     }

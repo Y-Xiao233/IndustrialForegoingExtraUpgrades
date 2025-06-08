@@ -1,4 +1,4 @@
-// 1.21.1	2025-05-21T22:17:12.2601926	ifeu - ItemModel
+// 1.21.1	2025-06-08T14:07:47.839476	ifeu - ItemModel
 954b2a22822a91fd5087a685934f027e85c73429 assets/ifeu/models/item/apple_addon_1.json
 010431de6f66008e97c28278342d9f0ea7c7fd39 assets/ifeu/models/item/apple_addon_2.json
 b685ea69b56d6df59a6825ab0ccee46a07f213c0 assets/ifeu/models/item/apple_addon_3.json
@@ -33,6 +33,7 @@ dbc9d8451f8b4e1aaf0d19a292bdc3d443e02788 assets/ifeu/models/item/netherite_gear.
 0b32438956ef92c8e64c63557845a0f1ecb25a27 assets/ifeu/models/item/processing_addon_6.json
 6df8121d373deaf3b3b0568002864e0209ad4adf assets/ifeu/models/item/rough_dragon_star.json
 97ede24dd3923a4acf61eea083aeca90eca35d70 assets/ifeu/models/item/sculk_gear.json
+c69bc4058333712ec34d2e5841ac713a0c51b3af assets/ifeu/models/item/silk_addon.json
 e0634aa8081f6387f673044b54c4e26a036077f5 assets/ifeu/models/item/speed_addon_3.json
 bfa120dc033152830e9157ce97e7737d8c6a8cae assets/ifeu/models/item/speed_addon_4.json
 746c23eff467ceae241bfb2b2d118ba2740b0bcc assets/ifeu/models/item/speed_addon_5.json

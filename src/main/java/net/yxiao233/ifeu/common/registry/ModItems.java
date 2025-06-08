@@ -19,6 +19,7 @@ import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.api.item.*;
+import net.yxiao233.ifeu.api.recipe.builder.IFEURecipeBuilders;
 
 import java.util.List;
 import java.util.Optional;
@@ -49,6 +50,7 @@ public class ModItems implements IModule {
     public static DeferredHolder<Item,Item> APPLE_ADDON_4;
     public static DeferredHolder<Item,Item> APPLE_ADDON_5;
     public static DeferredHolder<Item,Item> APPLE_ADDON_6;
+    public static DeferredHolder<Item,Item> SILK_ADDON;
     @Override
     public void generateFeatures(DeferredRegistryHelper helper) {
         //Speed Addon
@@ -513,6 +515,27 @@ public class ModItems implements IModule {
                         ),new FluidStack(ModFluids.LIQUID_MALIC_ACID.getSourceFluid().get(), 8000), 200,
                                 Optional.of(new ItemStack(this)), Optional.empty())
                 );
+            }
+        });
+
+        SILK_ADDON = helper.registerGeneric(Registries.ITEM, "silk_addon", () -> new SilkTouchAddonItem(TAB_ADDONS){
+            @Override
+            public void registerRecipe(RecipeOutput consumer) {
+                IFEURecipeBuilders.dissolutionChamberRecipe(ModItems.SILK_ADDON.get().getDefaultInstance())
+                        .inputs(
+                                tagValue(Tags.Items.DUSTS_REDSTONE),
+                                tagValue(Tags.Items.DUSTS_REDSTONE),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(ModTags.Items.GEARS_SCULK),
+                                tagValue(ModTags.Items.GEARS_SCULK),
+                                itemValue(Items.DIAMOND_PICKAXE.getDefaultInstance()),
+                                itemValue(Items.BOOK.getDefaultInstance())
+                        )
+                        .inputFluid(new FluidStack(ModuleCore.ETHER.getSourceFluid().get(),1000))
+                        .processingTime(200)
+                        .outputFluid(FluidStack.EMPTY)
+                        .save(consumer);
             }
         });
     }

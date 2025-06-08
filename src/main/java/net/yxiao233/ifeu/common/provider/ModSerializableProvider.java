@@ -103,14 +103,14 @@ public class ModSerializableProvider{
 
         IFEURecipeBuilders.dissolutionChamberRecipe(new ItemStack(ModContents.EMPTY_NETHER_STAR.get(),4))
                 .inputs(
-                        itemValue(Items.NETHER_STAR.getDefaultInstance()),
+                        itemValue(Items.NETHERITE_INGOT.getDefaultInstance()),
                         tagValue(IndustrialTags.Items.PLASTIC),
-                        itemValue(Items.NETHER_STAR.getDefaultInstance()),
+                        itemValue(Items.NETHERITE_INGOT.getDefaultInstance()),
                         tagValue(IndustrialTags.Items.PLASTIC),
                         tagValue(IndustrialTags.Items.PLASTIC),
-                        itemValue(Items.NETHER_STAR.getDefaultInstance()),
+                        itemValue(Items.NETHERITE_INGOT.getDefaultInstance()),
                         tagValue(IndustrialTags.Items.PLASTIC),
-                        itemValue(Items.NETHER_STAR.getDefaultInstance())
+                        itemValue(Items.NETHERITE_INGOT.getDefaultInstance())
                 )
                 .inputFluid(new FluidStack(ModFluids.LIQUID_MALIC_ACID.getSourceFluid().get(), 4000))
                 .processingTime(200)

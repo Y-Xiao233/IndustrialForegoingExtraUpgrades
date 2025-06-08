@@ -66,5 +66,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModContents.EMPTY_NETHER_STAR.get());
         basicItem(ModContents.APPLE_CORE.get());
         basicItem(ModContents.BLUEPRINT.get());
+        basicItem(ModItems.SILK_ADDON.get());
     }
 }
