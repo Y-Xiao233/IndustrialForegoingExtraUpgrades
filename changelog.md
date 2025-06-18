@@ -344,3 +344,7 @@
 - Added addon: Silk
 - Adjusted the unreasonable proportion of the regeneration recipe for the nether star
 - Almost rewrote the code of the connect tool
+
+### v2.3.003
+- Added addon: Heal
+- Adjusted some incorrect fluid inputs in the recipes
