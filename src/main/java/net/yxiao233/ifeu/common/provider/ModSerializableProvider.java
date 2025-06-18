@@ -14,6 +14,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -336,6 +337,16 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                 .define('D', ModTags.Items.MACHINE_FRAME_ULTIMATE)
                 .define('E', ModuleTransportStorage.BLACK_HOLE_UNIT_SIMPLE.getLeft().get().asItem().getDefaultInstance())
                 .inputFluid(new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),1000))
+                .save();
+
+        IFEURecipeBuilders.shapedRecipe(Items.ENCHANTED_GOLDEN_APPLE.getDefaultInstance())
+                .pattern("ABA")
+                .pattern("BCB")
+                .pattern("ABA")
+                .define('A', ModContents.DRAGON_STAR.get().getDefaultInstance())
+                .define('B', Tags.Items.STORAGE_BLOCKS_GOLD)
+                .define('C', Items.APPLE.getDefaultInstance())
+                .inputFluid(new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),100))
                 .save();
 
         //shapeless

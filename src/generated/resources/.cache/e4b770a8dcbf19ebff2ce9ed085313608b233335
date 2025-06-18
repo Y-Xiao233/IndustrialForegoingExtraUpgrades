@@ -1,4 +1,4 @@
-// 1.20.1	2025-06-04T22:19:39.6702911	ifeu - ItemModel
+// 1.20.1	2025-06-18T11:32:28.0752267	ifeu - ItemModel
 954b2a22822a91fd5087a685934f027e85c73429 assets/ifeu/models/item/apple_addon_1.json
 010431de6f66008e97c28278342d9f0ea7c7fd39 assets/ifeu/models/item/apple_addon_2.json
 b685ea69b56d6df59a6825ab0ccee46a07f213c0 assets/ifeu/models/item/apple_addon_3.json
@@ -21,6 +21,12 @@ de239f82bee0505adbaf4886b8da0b67d9c41464 assets/ifeu/models/item/dragon_star_ess
 9bae33867b451297e561d7e0855602d5216f6b5b assets/ifeu/models/item/efficiency_addon_5.json
 e2ccb756d4fa94a1bfa0bcdf82071040119ebe1c assets/ifeu/models/item/efficiency_addon_6.json
 ce618c8597bbc981eb767641206934e92ad5d8d4 assets/ifeu/models/item/empty_nether_star.json
+9c4148f9f53309b2b54237f384027256130270b0 assets/ifeu/models/item/heal_addon_1.json
+75029f0a5cd971b227d5a20d62899c5e8617bea2 assets/ifeu/models/item/heal_addon_2.json
+e8631a325a2dbc064a4682f8f0be5b671705d4c8 assets/ifeu/models/item/heal_addon_3.json
+f4bb1409c2dea3a03dc75d0694b4528a3ea93b2a assets/ifeu/models/item/heal_addon_4.json
+0e56463007a0325f1cb0606236e23df3223a0bb1 assets/ifeu/models/item/heal_addon_5.json
+b82a435be7dc71e2db4c61cfbe7ebf092282d25e assets/ifeu/models/item/heal_addon_6.json
 b8842c1239afe4fdc926f704facda31180d42a71 assets/ifeu/models/item/hydroponic_simulation_processor.json
 d37d6ec3fce052d157ee9222dc9887f7fe543a7d assets/ifeu/models/item/laser_lens_dragon.json
 ea11f5c33f99af4c3147cf713e62524098223344 assets/ifeu/models/item/laser_lens_sculk.json

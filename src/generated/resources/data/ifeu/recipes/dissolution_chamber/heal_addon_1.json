@@ -1,0 +1,35 @@
+{
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "tag": "forge:dusts/redstone"
+    },
+    {
+      "tag": "forge:dusts/redstone"
+    },
+    {
+      "tag": "forge:glass_panes/colorless"
+    },
+    {
+      "tag": "forge:glass_panes/colorless"
+    },
+    {
+      "tag": "forge:gears/gold"
+    },
+    {
+      "tag": "forge:gears/gold"
+    },
+    {
+      "item": "minecraft:golden_apple"
+    },
+    {
+      "item": "minecraft:golden_carrot"
+    }
+  ],
+  "inputFluid": "{Amount:1000,FluidName:\"industrialforegoing:latex\"}",
+  "output": {
+    "count": 1,
+    "item": "ifeu:heal_addon_1"
+  },
+  "processingTime": 200
+}

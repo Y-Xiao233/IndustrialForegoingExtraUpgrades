@@ -4,4 +4,5 @@ public enum IFEUAugmentTypes {
     THREAD,
     APPLE,
     SILK,
+    HEAL,
 }
