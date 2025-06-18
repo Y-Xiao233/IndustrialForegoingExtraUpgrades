@@ -8,6 +8,7 @@
     "block.MixinMachineFrameItem",
     "entity.MixinHydroponicBedTile",
     "entity.MixinSimulatedHydroponicBedTile",
+    "entity.MixinStasisChamberTile",
     "item.MixinAugmentWrapper",
     "jei.MixinDissolutionChamberCategory"
   ],

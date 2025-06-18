@@ -1,0 +1,40 @@
+{
+  "type": "ifeu:shaped",
+  "inputFluid": {
+    "amount": 100,
+    "id": "ifeu:liquid_sculk_matter"
+  },
+  "inputs": [
+    {
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "tag": "c:storage_blocks/gold"
+    },
+    {
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "tag": "c:storage_blocks/gold"
+    },
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "tag": "c:storage_blocks/gold"
+    },
+    {
+      "item": "ifeu:dragon_star"
+    },
+    {
+      "tag": "c:storage_blocks/gold"
+    },
+    {
+      "item": "ifeu:dragon_star"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "id": "minecraft:enchanted_golden_apple"
+  }
+}

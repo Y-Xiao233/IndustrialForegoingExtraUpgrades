@@ -1,7 +1,7 @@
 # Industrial Foregoing: Extra Upgrades
 - [CurseForge](https://www.curseforge.com/minecraft/mc-mods/industrial-foregoing-extra-upgrades)
 - [mcmod](https://www.mcmod.cn/class/17475.html)
-
+## Contact [![Discord](https://img.shields.io/discord/102860784329052160.svg?style=for-the-badge&logo=discord)](https://discord.gg/jyUpUuHV)
 ## 该mod支持通过KubeJS来注册工业先锋的各种升级(强烈建议配合probejs一起食用)
 
 ### 注册插件
@@ -11,6 +11,7 @@
 - 插件: 范围```event.create(id,"industrialforegoing:range_addon").setTier(tier)```
 - 插件: 线程```event.create(id,"ifeu:thread_addon").setTier(tier)```
 - 插件: 苹果```event.create(id,"ifeu:apple_addon").setTier(tier)```
+- 插件: 治愈```event.create(id,"ifeu:heal_addon").setTier(tier)```
 
 ### 示例
 ```JavaScript

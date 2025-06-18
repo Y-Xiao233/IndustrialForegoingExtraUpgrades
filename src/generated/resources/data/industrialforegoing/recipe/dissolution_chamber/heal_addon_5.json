@@ -2,7 +2,7 @@
   "neoforge:conditions": [
     {
       "type": "neoforge:item_exists",
-      "item": "ifeu:processing_addon_5"
+      "item": "ifeu:heal_addon_5"
     }
   ],
   "type": "industrialforegoing:dissolution_chamber",
@@ -26,10 +26,10 @@
       "item": "minecraft:nether_star"
     },
     {
-      "item": "minecraft:furnace"
+      "item": "minecraft:enchanted_golden_apple"
     },
     {
-      "item": "minecraft:crafting_table"
+      "item": "ifeu:heal_addon_4"
     }
   ],
   "inputFluid": {
@@ -37,13 +37,8 @@
     "fluid": "industrialforegoing:ether_gas"
   },
   "output": {
-    "components": {
-      "titanium:augments": {
-        "Processing": 6.0
-      }
-    },
     "count": 1,
-    "id": "ifeu:processing_addon_5"
+    "id": "ifeu:heal_addon_5"
   },
   "processingTime": 200
 }

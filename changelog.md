@@ -120,6 +120,10 @@
 - 调整了下界之星再生配方的不合理比例
 - 几乎重写了连接工具的代码
 
+### v3.1.004
+- 添加了插件: 治愈
+- 调整了部分配方的错误流体输入
+
 
 ## en_us
 ### v1.0.0
@@ -240,3 +244,7 @@
 - Added addon: Silk
 - Adjusted the unreasonable proportion of the regeneration recipe for the nether star
 - Almost rewrote the code of the connect tool
+
+### v3.1.004
+- Added addon: Heal
+- Adjusted some incorrect fluid inputs in the recipes

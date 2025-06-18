@@ -51,6 +51,12 @@ public class ModItems implements IModule {
     public static DeferredHolder<Item,Item> APPLE_ADDON_5;
     public static DeferredHolder<Item,Item> APPLE_ADDON_6;
     public static DeferredHolder<Item,Item> SILK_ADDON;
+    public static DeferredHolder<Item,Item> HEAL_ADDON_1;
+    public static DeferredHolder<Item,Item> HEAL_ADDON_2;
+    public static DeferredHolder<Item,Item> HEAL_ADDON_3;
+    public static DeferredHolder<Item,Item> HEAL_ADDON_4;
+    public static DeferredHolder<Item,Item> HEAL_ADDON_5;
+    public static DeferredHolder<Item,Item> HEAL_ADDON_6;
     @Override
     public void generateFeatures(DeferredRegistryHelper helper) {
         //Speed Addon
@@ -86,7 +92,7 @@ public class ModItems implements IModule {
                                 tagValue(ModTags.Items.GEARS_SCULK),
                                 itemValue(Items.SUGAR.getDefaultInstance()),
                                 itemValue(Items.SUGAR.getDefaultInstance())
-                        ), new FluidStack(ModuleCore.ETHER.getSourceFluid().get(), 2000), 200,
+                        ), new FluidStack(ModuleCore.PINK_SLIME.getSourceFluid().get(), 2000), 200,
                                 Optional.of(new ItemStack(this)), Optional.empty())
                 );
             }
@@ -105,7 +111,7 @@ public class ModItems implements IModule {
                                 itemValue(Items.NETHER_STAR.getDefaultInstance()),
                                 itemValue(Items.SUGAR.getDefaultInstance()),
                                 itemValue(Items.SUGAR.getDefaultInstance())
-                        ),new FluidStack(ModuleCore.PINK_SLIME.getSourceFluid().get(),1000),200,
+                        ),new FluidStack(ModuleCore.ETHER.getSourceFluid().get(),1000),200,
                                 Optional.of(new ItemStack(this)), Optional.empty())
                 );
             }
@@ -163,7 +169,7 @@ public class ModItems implements IModule {
                                 tagValue(ModTags.Items.GEARS_SCULK),
                                 itemValue(Items.BLAZE_ROD.getDefaultInstance()),
                                 itemValue(Items.BLAZE_ROD.getDefaultInstance())
-                        ),new FluidStack(ModuleCore.PINK_SLIME.getSourceFluid().get(),1000),200,
+                        ),new FluidStack(ModuleCore.PINK_SLIME.getSourceFluid().get(),2000),200,
                                 Optional.of(new ItemStack(this)), Optional.empty())
                 );
             }
@@ -182,7 +188,7 @@ public class ModItems implements IModule {
                                 itemValue(Items.NETHER_STAR.getDefaultInstance()),
                                 itemValue(Items.BLAZE_ROD.getDefaultInstance()),
                                 itemValue(Items.BLAZE_ROD.getDefaultInstance())
-                        ),new FluidStack(ModuleCore.PINK_SLIME.getSourceFluid().get(),1000),200,
+                        ),new FluidStack(ModuleCore.ETHER.getSourceFluid().get(),1000),200,
                                 Optional.of(new ItemStack(this)), Optional.empty())
                 );
             }
@@ -241,7 +247,7 @@ public class ModItems implements IModule {
                                 tagValue(ModTags.Items.GEARS_SCULK),
                                 itemValue(Items.FURNACE.getDefaultInstance()),
                                 itemValue(Items.CRAFTING_TABLE.getDefaultInstance())
-                        ),new FluidStack(ModuleCore.PINK_SLIME.getSourceFluid().get(),1000),200,
+                        ),new FluidStack(ModuleCore.PINK_SLIME.getSourceFluid().get(),2000),200,
                                 Optional.of(new ItemStack(this)), Optional.empty())
                 );
             }
@@ -260,7 +266,7 @@ public class ModItems implements IModule {
                                 itemValue(Items.NETHER_STAR.getDefaultInstance()),
                                 itemValue(Items.FURNACE.getDefaultInstance()),
                                 itemValue(Items.CRAFTING_TABLE.getDefaultInstance())
-                        ),new FluidStack(ModuleCore.PINK_SLIME.getSourceFluid().get(),1000),200,
+                        ),new FluidStack(ModuleCore.ETHER.getSourceFluid().get(),1000),200,
                                 Optional.of(new ItemStack(this)), Optional.empty())
                 );
             }
@@ -355,7 +361,7 @@ public class ModItems implements IModule {
                                 tagValue(ModTags.Items.GEARS_SCULK),
                                 itemValue(Items.ECHO_SHARD.getDefaultInstance()),
                                 tagValue(Tags.Items.INGOTS_NETHERITE)
-                        ),new FluidStack(ModuleCore.ETHER.getSourceFluid().get(),1000),200,
+                        ),new FluidStack(ModuleCore.PINK_SLIME.getSourceFluid().get(),2000),200,
                                 Optional.of(new ItemStack(this)), Optional.empty())
                 );
             }
@@ -375,7 +381,7 @@ public class ModItems implements IModule {
                                 tagValue(Tags.Items.NETHER_STARS),
                                 itemValue(Items.ECHO_SHARD.getDefaultInstance()),
                                 tagValue(Tags.Items.INGOTS_NETHERITE)
-                        ),new FluidStack(ModuleCore.ETHER.getSourceFluid().get(),2000),200,
+                        ),new FluidStack(ModuleCore.ETHER.getSourceFluid().get(),1000),200,
                                 Optional.of(new ItemStack(this)), Optional.empty())
                 );
             }
@@ -533,6 +539,127 @@ public class ModItems implements IModule {
                                 itemValue(Items.BOOK.getDefaultInstance())
                         )
                         .inputFluid(new FluidStack(ModuleCore.ETHER.getSourceFluid().get(),1000))
+                        .processingTime(200)
+                        .outputFluid(FluidStack.EMPTY)
+                        .save(consumer);
+            }
+        });
+
+        HEAL_ADDON_1 = helper.registerGeneric(Registries.ITEM, "heal_addon_1", () -> new HealAddonItem(1,TAB_ADDONS){
+            @Override
+            public void registerRecipe(RecipeOutput consumer) {
+                IFEURecipeBuilders.dissolutionChamberRecipe(this.getDefaultInstance())
+                        .inputs(
+                                tagValue(Tags.Items.DUSTS_REDSTONE),
+                                tagValue(Tags.Items.DUSTS_REDSTONE),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(IndustrialTags.Items.GEAR_GOLD),
+                                tagValue(IndustrialTags.Items.GEAR_GOLD),
+                                itemValue(Items.GOLDEN_APPLE.getDefaultInstance()),
+                                itemValue(Items.GOLDEN_CARROT.getDefaultInstance())
+                        )
+                        .inputFluid(new FluidStack(ModuleCore.LATEX.getSourceFluid().get(),1000))
+                        .processingTime(200)
+                        .outputFluid(FluidStack.EMPTY)
+                        .save(consumer);
+            }
+        });
+        HEAL_ADDON_2 = helper.registerGeneric(Registries.ITEM, "heal_addon_2", () -> new HealAddonItem(2,TAB_ADDONS){
+            @Override
+            public void registerRecipe(RecipeOutput consumer) {
+                IFEURecipeBuilders.dissolutionChamberRecipe(this.getDefaultInstance())
+                        .inputs(
+                                tagValue(Tags.Items.DUSTS_REDSTONE),
+                                tagValue(Tags.Items.DUSTS_REDSTONE),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(IndustrialTags.Items.GEAR_DIAMOND),
+                                tagValue(IndustrialTags.Items.GEAR_DIAMOND),
+                                itemValue(Items.GOLDEN_APPLE.getDefaultInstance()),
+                                itemValue(ModItems.HEAL_ADDON_1.get().getDefaultInstance())
+                        )
+                        .inputFluid(new FluidStack(ModuleCore.LATEX.getSourceFluid().get(),2000))
+                        .processingTime(200)
+                        .outputFluid(FluidStack.EMPTY)
+                        .save(consumer);
+            }
+        });
+        HEAL_ADDON_3 = helper.registerGeneric(Registries.ITEM, "heal_addon_3", () -> new HealAddonItem(3,TAB_ADDONS){
+            @Override
+            public void registerRecipe(RecipeOutput consumer) {
+                IFEURecipeBuilders.dissolutionChamberRecipe(this.getDefaultInstance())
+                        .inputs(
+                                tagValue(Tags.Items.DUSTS_REDSTONE),
+                                tagValue(Tags.Items.DUSTS_REDSTONE),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(ModTags.Items.GEARS_NETHERITE),
+                                tagValue(ModTags.Items.GEARS_NETHERITE),
+                                itemValue(Items.GOLDEN_APPLE.getDefaultInstance()),
+                                itemValue(ModItems.HEAL_ADDON_2.get().getDefaultInstance())
+                        )
+                        .inputFluid(new FluidStack(ModuleCore.PINK_SLIME.getSourceFluid().get(),1000))
+                        .processingTime(200)
+                        .outputFluid(FluidStack.EMPTY)
+                        .save(consumer);
+            }
+        });
+        HEAL_ADDON_4 = helper.registerGeneric(Registries.ITEM, "heal_addon_4", () -> new HealAddonItem(4,TAB_ADDONS){
+            @Override
+            public void registerRecipe(RecipeOutput consumer) {
+                IFEURecipeBuilders.dissolutionChamberRecipe(this.getDefaultInstance())
+                        .inputs(
+                                tagValue(Tags.Items.DUSTS_REDSTONE),
+                                tagValue(Tags.Items.DUSTS_REDSTONE),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(ModTags.Items.GEARS_SCULK),
+                                tagValue(ModTags.Items.GEARS_SCULK),
+                                itemValue(Items.GOLDEN_APPLE.getDefaultInstance()),
+                                itemValue(ModItems.HEAL_ADDON_3.get().getDefaultInstance())
+                        )
+                        .inputFluid(new FluidStack(ModuleCore.PINK_SLIME.getSourceFluid().get(),2000))
+                        .processingTime(200)
+                        .outputFluid(FluidStack.EMPTY)
+                        .save(consumer);
+            }
+        });
+        HEAL_ADDON_5 = helper.registerGeneric(Registries.ITEM, "heal_addon_5", () -> new HealAddonItem(5,TAB_ADDONS){
+            @Override
+            public void registerRecipe(RecipeOutput consumer) {
+                IFEURecipeBuilders.dissolutionChamberRecipe(this.getDefaultInstance())
+                        .inputs(
+                                tagValue(Tags.Items.DUSTS_REDSTONE),
+                                tagValue(Tags.Items.DUSTS_REDSTONE),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                itemValue(Items.NETHER_STAR.getDefaultInstance()),
+                                itemValue(Items.NETHER_STAR.getDefaultInstance()),
+                                itemValue(Items.ENCHANTED_GOLDEN_APPLE.getDefaultInstance()),
+                                itemValue(ModItems.HEAL_ADDON_4.get().getDefaultInstance())
+                        )
+                        .inputFluid(new FluidStack(ModuleCore.ETHER.getSourceFluid().get(),1000))
+                        .processingTime(200)
+                        .outputFluid(FluidStack.EMPTY)
+                        .save(consumer);
+            }
+        });
+        HEAL_ADDON_6 = helper.registerGeneric(Registries.ITEM, "heal_addon_6", () -> new HealAddonItem(6,TAB_ADDONS){
+            @Override
+            public void registerRecipe(RecipeOutput consumer) {
+                IFEURecipeBuilders.dissolutionChamberRecipe(this.getDefaultInstance())
+                        .inputs(
+                                tagValue(Tags.Items.DUSTS_REDSTONE),
+                                tagValue(Tags.Items.DUSTS_REDSTONE),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
+                                itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
+                                itemValue(Items.ENCHANTED_GOLDEN_APPLE.getDefaultInstance()),
+                                itemValue(ModItems.HEAL_ADDON_5.get().getDefaultInstance())
+                        )
+                        .inputFluid(new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000))
                         .processingTime(200)
                         .outputFluid(FluidStack.EMPTY)
                         .save(consumer);

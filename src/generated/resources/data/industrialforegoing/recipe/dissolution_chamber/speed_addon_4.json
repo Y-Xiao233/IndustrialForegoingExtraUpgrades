@@ -34,7 +34,7 @@
   ],
   "inputFluid": {
     "amount": 2000,
-    "fluid": "industrialforegoing:ether_gas"
+    "fluid": "industrialforegoing:pink_slime"
   },
   "output": {
     "components": {

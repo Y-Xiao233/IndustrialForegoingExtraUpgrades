@@ -67,5 +67,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModContents.APPLE_CORE.get());
         basicItem(ModContents.BLUEPRINT.get());
         basicItem(ModItems.SILK_ADDON.get());
+        basicItem(ModItems.HEAL_ADDON_1.get());
+        basicItem(ModItems.HEAL_ADDON_2.get());
+        basicItem(ModItems.HEAL_ADDON_3.get());
+        basicItem(ModItems.HEAL_ADDON_4.get());
+        basicItem(ModItems.HEAL_ADDON_5.get());
+        basicItem(ModItems.HEAL_ADDON_6.get());
     }
 }
