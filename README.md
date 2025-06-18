@@ -1,7 +1,7 @@
 # Industrial Foregoing: Extra Upgrades
 - [CurseForge](https://www.curseforge.com/minecraft/mc-mods/industrial-foregoing-extra-upgrades)
 - [mcmod](https://www.mcmod.cn/class/17475.html)
-
+## Contact [![Discord](https://img.shields.io/discord/102860784329052160.svg?style=for-the-badge&logo=discord)](https://discord.gg/jyUpUuHV)
 ## 该mod支持通过KubeJS来注册工业先锋的各种升级(强烈建议配合probejs一起食用)
 
 ### 注册插件
