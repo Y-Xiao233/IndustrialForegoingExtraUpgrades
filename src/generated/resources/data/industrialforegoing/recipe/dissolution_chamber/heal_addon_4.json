@@ -2,7 +2,7 @@
   "neoforge:conditions": [
     {
       "type": "neoforge:item_exists",
-      "item": "ifeu:processing_addon_5"
+      "item": "ifeu:heal_addon_4"
     }
   ],
   "type": "industrialforegoing:dissolution_chamber",
@@ -20,30 +20,25 @@
       "tag": "c:glass_panes/colorless"
     },
     {
-      "item": "minecraft:nether_star"
+      "tag": "c:gears/sculk"
     },
     {
-      "item": "minecraft:nether_star"
+      "tag": "c:gears/sculk"
     },
     {
-      "item": "minecraft:furnace"
+      "item": "minecraft:golden_apple"
     },
     {
-      "item": "minecraft:crafting_table"
+      "item": "ifeu:heal_addon_3"
     }
   ],
   "inputFluid": {
-    "amount": 1000,
-    "fluid": "industrialforegoing:ether_gas"
+    "amount": 2000,
+    "fluid": "industrialforegoing:pink_slime"
   },
   "output": {
-    "components": {
-      "titanium:augments": {
-        "Processing": 6.0
-      }
-    },
     "count": 1,
-    "id": "ifeu:processing_addon_5"
+    "id": "ifeu:heal_addon_4"
   },
   "processingTime": 200
 }

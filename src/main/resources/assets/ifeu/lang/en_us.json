@@ -96,6 +96,8 @@
   "tooltip.ifeu.platform_builder.skip_1": "Skip blocks that block construction",
   "tooltip.ifeu.platform_builder.reset": "Reset",
   "tooltip.ifeu.silk_addon_item_0": "Used for Platform Builder",
+  "tooltip.ifeu.heal_addon_item_0": "Used in the Stasis Chamber to restore mob's health",
+  "tooltip.ifeu.heal_addon_item_1": "Increase single blood return: %d points",
 
   "item.ifeu.liquid_dragon_breath_bucket": "Liquid Dragon Breath Bucket",
   "item.ifeu.liquid_sculk_matter_bucket": "Liquid Sculk Matter Bucket",
@@ -136,6 +138,12 @@
   "item.ifeu.hydroponic_simulation_processor": "Hydroponic Simulation Processor",
   "item.ifeu.blueprint": "Blueprint",
   "item.ifeu.silk_addon": "Addon: Silk",
+  "item.ifeu.heal_addon_1": "Addon: Heal Tier 1",
+  "item.ifeu.heal_addon_2": "Addon: Heal Tier 2",
+  "item.ifeu.heal_addon_3": "Addon: Heal Tier 3",
+  "item.ifeu.heal_addon_4": "Addon: Heal Tier 4",
+  "item.ifeu.heal_addon_5": "Addon: Heal Tier 5",
+  "item.ifeu.heal_addon_6": "Addon: Heal Tier 6",
 
   "block.ifeu.infuser": "Infuser",
   "block.ifeu.dragon_star_generator": "Dragon Star Generator",

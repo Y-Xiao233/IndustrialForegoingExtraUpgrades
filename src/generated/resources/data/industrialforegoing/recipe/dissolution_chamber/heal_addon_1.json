@@ -2,7 +2,7 @@
   "neoforge:conditions": [
     {
       "type": "neoforge:item_exists",
-      "item": "ifeu:processing_addon_5"
+      "item": "ifeu:heal_addon_1"
     }
   ],
   "type": "industrialforegoing:dissolution_chamber",
@@ -20,30 +20,25 @@
       "tag": "c:glass_panes/colorless"
     },
     {
-      "item": "minecraft:nether_star"
+      "tag": "c:gears/gold"
     },
     {
-      "item": "minecraft:nether_star"
+      "tag": "c:gears/gold"
     },
     {
-      "item": "minecraft:furnace"
+      "item": "minecraft:golden_apple"
     },
     {
-      "item": "minecraft:crafting_table"
+      "item": "minecraft:golden_carrot"
     }
   ],
   "inputFluid": {
     "amount": 1000,
-    "fluid": "industrialforegoing:ether_gas"
+    "fluid": "industrialforegoing:latex"
   },
   "output": {
-    "components": {
-      "titanium:augments": {
-        "Processing": 6.0
-      }
-    },
     "count": 1,
-    "id": "ifeu:processing_addon_5"
+    "id": "ifeu:heal_addon_1"
   },
   "processingTime": 200
 }

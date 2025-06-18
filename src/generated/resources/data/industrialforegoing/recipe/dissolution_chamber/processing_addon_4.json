@@ -33,7 +33,7 @@
     }
   ],
   "inputFluid": {
-    "amount": 1000,
+    "amount": 2000,
     "fluid": "industrialforegoing:pink_slime"
   },
   "output": {
