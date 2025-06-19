@@ -175,6 +175,9 @@
 - 添加了插件: 治愈
 - 调整了部分配方的错误流体输入
 
+### v2.3.004
+- 修复了因为MixinStasisChamber的java注入导致的崩溃[\#75 by raincloud123abc](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/75)
+
 ## en_us
 ### v1.0.0
 - init
@@ -348,3 +351,6 @@
 ### v2.3.003
 - Added addon: Heal
 - Adjusted some incorrect fluid inputs in the recipes
+
+### v2.3.004
+- Fixed the crash caused by the Java injection of MixinStasisChamber[\#75 by raincloud123abc](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/75)
