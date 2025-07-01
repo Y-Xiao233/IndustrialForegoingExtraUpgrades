@@ -46,6 +46,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModuleCore.SUPREME.get());
         this.dropSelf(ModBlocks.SIMULATED_HYDROPONIC_BED.getLeft().get());
         this.dropSelf(ModBlocks.PLATFORM_BUILDER.getLeft().get());
+        this.dropSelf(ModBlocks.PRECISION_CRAFTING_TABLE.getLeft().get());
     }
 
     @Override
@@ -70,7 +71,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 ModuleCore.ADVANCED.get(),
                 ModuleCore.SUPREME.get(),
                 ModBlocks.SIMULATED_HYDROPONIC_BED.getLeft().get(),
-                ModBlocks.PLATFORM_BUILDER.getLeft().get()
+                ModBlocks.PLATFORM_BUILDER.getLeft().get(),
+                ModBlocks.PRECISION_CRAFTING_TABLE.getLeft().get()
         );
         return iterable;
     }

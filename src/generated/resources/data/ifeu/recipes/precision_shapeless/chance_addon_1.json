@@ -1,0 +1,22 @@
+{
+  "type": "ifeu:precision_shapeless",
+  "chance": 0.6,
+  "inputs": [
+    {
+      "tag": "forge:storage_blocks/redstone"
+    },
+    {
+      "tag": "forge:glass_panes/colorless"
+    },
+    {
+      "item": "minecraft:enchanted_book"
+    },
+    {
+      "tag": "forge:gears/gold"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "item": "ifeu:chance_addon_1"
+  }
+}

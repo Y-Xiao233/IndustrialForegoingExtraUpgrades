@@ -1,152 +1,152 @@
-[186月2025 12:01:52.213] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\18703\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.3.0, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, ifeu, --all, --output, K:\mod\my_mods\IndustrialForegoingExtraUpgrades\src\generated\resources, --existing, K:\mod\my_mods\IndustrialForegoingExtraUpgrades\src\main\resources, --mixin.config, ifeu.mixins.json]
-[186月2025 12:01:52.219] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.11 by Amazon.com Inc.; OS Windows 11 arch amd64 version 10.0
-[186月2025 12:01:52.363] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
-[186月2025 12:01:52.418] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/18703/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
-[186月2025 12:01:52.791] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\18703\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.3.0\d7ebc62120f202109e300e084ca1a31a7b946a62\javafmllanguage-1.20.1-47.3.0.jar is missing mods.toml file
-[186月2025 12:01:52.804] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\18703\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.3.0\1bf3e845ea0ce750096da8c71c8364b188ab74d4\lowcodelanguage-1.20.1-47.3.0.jar is missing mods.toml file
-[186月2025 12:01:52.816] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\18703\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.3.0\6093682e943ddccbabf70539319d7f2fe64db2e7\mclanguage-1.20.1-47.3.0.jar is missing mods.toml file
-[186月2025 12:01:52.828] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\18703\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.3.0\3b6be96aba3e323f3c918e8ef6a96312d82d76ad\fmlcore-1.20.1-47.3.0.jar is missing mods.toml file
-[186月2025 12:01:53.138] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
-[186月2025 12:01:55.055] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
-[186月2025 12:01:55.077] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\18703\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, ifeu, --all, --output, K:\mod\my_mods\IndustrialForegoingExtraUpgrades\src\generated\resources, --existing, K:\mod\my_mods\IndustrialForegoingExtraUpgrades\src\main\resources]
-[186月2025 12:01:55.204] [main/INFO] [mixin/]: Attempting to load Fernflower decompiler (Threaded mode)
-[186月2025 12:01:55.204] [main/INFO] [mixin/]: Fernflower could not be loaded, exported classes will not be decompiled. NoClassDefFoundError: org/jetbrains/java/decompiler/main/extern/IResultSaver
-[186月2025 12:01:55.304] [main/WARN] [mixin/]: Reference map 'ifeu.refmap.json' for ifeu.mixins.json could not be read. If this is a development environment you can ignore this message
-[186月2025 12:01:55.637] [main/INFO] [mixin/]: Remapping refMap rhino-common-refmap.json using K:\mod\my_mods\IndustrialForegoingExtraUpgrades/build/createSrgToMcp/output.srg
-[186月2025 12:01:55.640] [main/INFO] [mixin/]: Remapping refMap architectury-forge-refmap.json using K:\mod\my_mods\IndustrialForegoingExtraUpgrades/build/createSrgToMcp/output.srg
-[186月2025 12:01:55.640] [main/INFO] [mixin/]: Remapping refMap architectury-common-refmap.json using K:\mod\my_mods\IndustrialForegoingExtraUpgrades/build/createSrgToMcp/output.srg
-[186月2025 12:01:55.642] [main/INFO] [mixin/]: Remapping refMap kubejs-forge-refmap.json using K:\mod\my_mods\IndustrialForegoingExtraUpgrades/build/createSrgToMcp/output.srg
-[186月2025 12:01:55.643] [main/INFO] [mixin/]: Remapping refMap kubejs-common-refmap.json using K:\mod\my_mods\IndustrialForegoingExtraUpgrades/build/createSrgToMcp/output.srg
-[186月2025 12:01:56.213] [main/WARN] [mixin/]: Error loading class: mezz/modnametooltip/TooltipEventHandler (java.lang.ClassNotFoundException: mezz.modnametooltip.TooltipEventHandler)
-[186月2025 12:01:56.215] [main/WARN] [mixin/]: Error loading class: me/shedaniel/rei/impl/client/ClientHelperImpl (java.lang.ClassNotFoundException: me.shedaniel.rei.impl.client.ClientHelperImpl)
-[186月2025 12:01:56.438] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.2.0-rc.2).
-[186月2025 12:01:56.730] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [ifeu]
-[186月2025 12:02:01.282] [modloading-worker-0/INFO] [PluginManager/]: Scanning classes for ifeu
-[186月2025 12:02:01.308] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.3.0, for MC 1.20.1 with MCP 20230612.114412
-[186月2025 12:02:01.309] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.3.0 Initialized
-[186月2025 12:02:01.319] [modloading-worker-0/INFO] [PluginManager/]: Scanning classes for titanium
-[186月2025 12:02:01.344] [modloading-worker-0/INFO] [PluginManager/]: Scanning classes for industrialforegoing
-[186月2025 12:02:01.607] [modloading-worker-0/INFO] [KubeJS/]: Loaded common.properties
-[186月2025 12:02:01.610] [modloading-worker-0/INFO] [KubeJS/]: Loaded dev.properties
-[186月2025 12:02:01.623] [modloading-worker-0/INFO] [KubeJS Startup/]: Capturing errors for startup scripts enabled
-[186月2025 12:02:01.626] [modloading-worker-0/INFO] [KubeJS/]: Looking for KubeJS plugins...
-[186月2025 12:02:01.631] [modloading-worker-0/INFO] [KubeJS/]: Found plugin source kubejs
-[186月2025 12:02:01.725] [modloading-worker-0/WARN] [KubeJS/]: Plugin dev.latvian.mods.kubejs.integration.forge.gamestages.GameStagesIntegration does not have required mod gamestages loaded, skipping
-[186月2025 12:02:01.726] [modloading-worker-0/INFO] [KubeJS/]: Found plugin source ifeu
-[186月2025 12:02:01.731] [modloading-worker-0/INFO] [KubeJS/]: Done in 102.4 ms
-[186月2025 12:02:01.929] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id architectury:sync_ids
-[186月2025 12:02:01.932] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id architectury:sync_ids
-[186月2025 12:02:02.004] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
-[186月2025 12:02:02.011] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 6.669 ms
-[186月2025 12:02:02.082] [modloading-worker-0/INFO] [Rhino Script Remapper/]: Loading Rhino Minecraft remapper...
-[186月2025 12:02:02.085] [modloading-worker-0/INFO] [dev.latvian.mods.rhino.mod.util.RhinoProperties/]: Rhino properties loaded.
-[186月2025 12:02:02.089] [modloading-worker-0/INFO] [Rhino Script Remapper/]: Loading mappings for 1.20.1
-[186月2025 12:02:02.153] [modloading-worker-0/INFO] [Rhino Script Remapper/]: Done in 0.071 s
-[186月2025 12:02:02.476] [modloading-worker-0/INFO] [KubeJS Startup/]: example.js#5: Hello, World! (Loaded startup scripts)
-[186月2025 12:02:02.479] [modloading-worker-0/INFO] [KubeJS Startup/]: Loaded script startup_scripts:example.js in 0.039 s
-[186月2025 12:02:02.482] [modloading-worker-0/INFO] [KubeJS Startup/]: Loaded 1/1 KubeJS startup scripts in 0.327 s with 0 errors and 0 warnings
-[186月2025 12:02:02.539] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id kubejs:send_data_from_client
-[186月2025 12:02:02.540] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:send_data_from_server
-[186月2025 12:02:02.541] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:paint
-[186月2025 12:02:02.541] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:add_stage
-[186月2025 12:02:02.542] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:remove_stage
-[186月2025 12:02:02.543] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:sync_stages
-[186月2025 12:02:02.543] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id kubejs:first_click
-[186月2025 12:02:02.544] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:toast
-[186月2025 12:02:02.544] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:reload_startup_scripts
-[186月2025 12:02:02.546] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:display_server_errors
-[186月2025 12:02:02.547] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:display_client_errors
-[186月2025 12:02:02.630] [main/INFO] [KubeJS/]: Skipping minecraft:sound_event registry
-[186月2025 12:02:02.653] [main/INFO] [KubeJS/]: Skipping minecraft:fluid registry
-[186月2025 12:02:02.953] [main/INFO] [KubeJS/]: Skipping minecraft:block registry
-[186月2025 12:02:02.957] [main/INFO] [KubeJS/]: Skipping minecraft:attribute registry
-[186月2025 12:02:02.958] [main/INFO] [KubeJS/]: Skipping minecraft:mob_effect registry
-[186月2025 12:02:02.959] [main/INFO] [KubeJS/]: Skipping minecraft:particle_type registry
-[186月2025 12:02:03.013] [main/INFO] [KubeJS/]: Skipping minecraft:item registry
-[186月2025 12:02:03.022] [main/INFO] [KubeJS/]: Skipping minecraft:entity_type registry
-[186月2025 12:02:03.024] [main/INFO] [KubeJS/]: Skipping minecraft:sensor_type registry
-[186月2025 12:02:03.025] [main/INFO] [KubeJS/]: Skipping minecraft:memory_module_type registry
-[186月2025 12:02:03.027] [main/INFO] [KubeJS/]: Skipping minecraft:potion registry
-[186月2025 12:02:03.027] [main/INFO] [KubeJS/]: Skipping minecraft:game_event registry
-[186月2025 12:02:03.028] [main/INFO] [KubeJS/]: Skipping minecraft:enchantment registry
-[186月2025 12:02:03.052] [main/INFO] [KubeJS/]: Skipping minecraft:block_entity_type registry
-[186月2025 12:02:03.053] [main/INFO] [KubeJS/]: Skipping minecraft:painting_variant registry
-[186月2025 12:02:03.054] [main/INFO] [KubeJS/]: Skipping minecraft:stat_type registry
-[186月2025 12:02:03.055] [main/INFO] [KubeJS/]: Skipping minecraft:custom_stat registry
-[186月2025 12:02:03.056] [main/INFO] [KubeJS/]: Skipping minecraft:chunk_status registry
-[186月2025 12:02:03.060] [main/INFO] [KubeJS/]: Skipping minecraft:rule_test registry
-[186月2025 12:02:03.062] [main/INFO] [KubeJS/]: Skipping minecraft:rule_block_entity_modifier registry
-[186月2025 12:02:03.063] [main/INFO] [KubeJS/]: Skipping minecraft:pos_rule_test registry
-[186月2025 12:02:03.067] [main/INFO] [KubeJS/]: Skipping minecraft:menu registry
-[186月2025 12:02:03.069] [main/INFO] [KubeJS/]: Skipping minecraft:recipe_type registry
-[186月2025 12:02:03.100] [main/INFO] [KubeJS/]: Skipping minecraft:recipe_serializer registry
-[186月2025 12:02:03.101] [main/INFO] [KubeJS/]: Skipping minecraft:position_source_type registry
-[186月2025 12:02:03.103] [main/INFO] [KubeJS/]: Skipping minecraft:command_argument_type registry
-[186月2025 12:02:03.104] [main/INFO] [KubeJS/]: Skipping minecraft:villager_type registry
-[186月2025 12:02:03.105] [main/INFO] [KubeJS/]: Skipping minecraft:villager_profession registry
-[186月2025 12:02:03.106] [main/INFO] [KubeJS/]: Skipping minecraft:point_of_interest_type registry
-[186月2025 12:02:03.107] [main/INFO] [KubeJS/]: Skipping minecraft:schedule registry
-[186月2025 12:02:03.108] [main/INFO] [KubeJS/]: Skipping minecraft:activity registry
-[186月2025 12:02:03.108] [main/INFO] [KubeJS/]: Skipping minecraft:loot_pool_entry_type registry
-[186月2025 12:02:03.109] [main/INFO] [KubeJS/]: Skipping minecraft:loot_function_type registry
-[186月2025 12:02:03.113] [main/INFO] [KubeJS/]: Skipping minecraft:loot_condition_type registry
-[186月2025 12:02:03.114] [main/INFO] [KubeJS/]: Skipping minecraft:loot_number_provider_type registry
-[186月2025 12:02:03.114] [main/INFO] [KubeJS/]: Skipping minecraft:loot_nbt_provider_type registry
-[186月2025 12:02:03.115] [main/INFO] [KubeJS/]: Skipping minecraft:loot_score_provider_type registry
-[186月2025 12:02:03.115] [main/INFO] [KubeJS/]: Skipping minecraft:float_provider_type registry
-[186月2025 12:02:03.116] [main/INFO] [KubeJS/]: Skipping minecraft:int_provider_type registry
-[186月2025 12:02:03.116] [main/INFO] [KubeJS/]: Skipping minecraft:height_provider_type registry
-[186月2025 12:02:03.117] [main/INFO] [KubeJS/]: Skipping minecraft:block_predicate_type registry
-[186月2025 12:02:03.117] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/carver registry
-[186月2025 12:02:03.118] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/feature registry
-[186月2025 12:02:03.118] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/structure_processor registry
-[186月2025 12:02:03.118] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/structure_placement registry
-[186月2025 12:02:03.118] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/structure_piece registry
-[186月2025 12:02:03.119] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/structure_type registry
-[186月2025 12:02:03.119] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/placement_modifier_type registry
-[186月2025 12:02:03.119] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/block_state_provider_type registry
-[186月2025 12:02:03.119] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/foliage_placer_type registry
-[186月2025 12:02:03.120] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/trunk_placer_type registry
-[186月2025 12:02:03.120] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/root_placer_type registry
-[186月2025 12:02:03.120] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/tree_decorator_type registry
-[186月2025 12:02:03.121] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/feature_size_type registry
-[186月2025 12:02:03.121] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/biome_source registry
-[186月2025 12:02:03.121] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/chunk_generator registry
-[186月2025 12:02:03.123] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/material_condition registry
-[186月2025 12:02:03.123] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/material_rule registry
-[186月2025 12:02:03.124] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/density_function_type registry
-[186月2025 12:02:03.124] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/structure_pool_element registry
-[186月2025 12:02:03.124] [main/INFO] [KubeJS/]: Skipping minecraft:cat_variant registry
-[186月2025 12:02:03.125] [main/INFO] [KubeJS/]: Skipping minecraft:frog_variant registry
-[186月2025 12:02:03.125] [main/INFO] [KubeJS/]: Skipping minecraft:banner_pattern registry
-[186月2025 12:02:03.125] [main/INFO] [KubeJS/]: Skipping minecraft:instrument registry
-[186月2025 12:02:03.125] [main/INFO] [KubeJS/]: Skipping minecraft:decorated_pot_patterns registry
-[186月2025 12:02:03.127] [main/INFO] [KubeJS/]: Skipping minecraft:creative_mode_tab registry
-[186月2025 12:02:03.141] [main/INFO] [KubeJS/]: Skipping forge:biome_modifier_serializers registry
-[186月2025 12:02:03.142] [main/INFO] [KubeJS/]: Skipping forge:display_contexts registry
-[186月2025 12:02:03.144] [main/INFO] [KubeJS/]: Skipping forge:entity_data_serializers registry
-[186月2025 12:02:03.147] [main/INFO] [KubeJS/]: Skipping forge:fluid_type registry
-[186月2025 12:02:03.148] [main/INFO] [KubeJS/]: Skipping forge:global_loot_modifier_serializers registry
-[186月2025 12:02:03.153] [main/INFO] [KubeJS/]: Skipping forge:holder_set_type registry
-[186月2025 12:02:03.155] [main/INFO] [KubeJS/]: Skipping forge:structure_modifier_serializers registry
-[186月2025 12:02:03.156] [main/INFO] [KubeJS/]: Skipping industrialforegoing:plant_recollectable registry
-[186月2025 12:02:03.158] [main/INFO] [KubeJS/]: Skipping industrialforegoing:straw registry
-[186月2025 12:02:03.158] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/biome registry
-[186月2025 12:02:03.291] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/18703/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1.jar%23191!/assets/.mcassetsroot' uses unexpected schema
-[186月2025 12:02:03.292] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/18703/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1.jar%23191!/data/.mcassetsroot' uses unexpected schema
-[186月2025 12:02:03.587] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
-[186月2025 12:02:03.674] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 87 ms
-[186月2025 12:02:03.674] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Titanium Serializable (ifeu)
-[186月2025 12:02:03.693] [main/INFO] [net.minecraft.data.DataGenerator/]: Titanium Serializable (ifeu) finished after 19 ms
-[186月2025 12:02:03.693] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: ifeu
-[186月2025 12:02:03.702] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: ifeu finished after 8 ms
-[186月2025 12:02:03.703] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
-[186月2025 12:02:03.766] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 62 ms
-[186月2025 12:02:03.766] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: ifeu - ItemModel
-[186月2025 12:02:03.796] [main/INFO] [net.minecraft.data.DataGenerator/]: ifeu - ItemModel finished after 29 ms
-[186月2025 12:02:03.796] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id ifeu
-[186月2025 12:02:03.813] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id ifeu finished after 17 ms
-[186月2025 12:02:03.813] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id vanilla
-[186月2025 12:02:03.817] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id vanilla finished after 2 ms
-[186月2025 12:02:03.817] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 230 ms
-[186月2025 12:02:03.837] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 197, old count: 196, new count: 197, removed stale: 1, written: 1
+[017月2025 15:31:18.934] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\18703\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.3.0, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, ifeu, --all, --output, K:\mod\my_mods\IndustrialForegoingExtraUpgrades\src\generated\resources, --existing, K:\mod\my_mods\IndustrialForegoingExtraUpgrades\src\main\resources, --mixin.config, ifeu.mixins.json]
+[017月2025 15:31:18.940] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.11 by Amazon.com Inc.; OS Windows 11 arch amd64 version 10.0
+[017月2025 15:31:19.074] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
+[017月2025 15:31:19.126] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/18703/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
+[017月2025 15:31:19.470] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\18703\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.3.0\d7ebc62120f202109e300e084ca1a31a7b946a62\javafmllanguage-1.20.1-47.3.0.jar is missing mods.toml file
+[017月2025 15:31:19.484] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\18703\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.3.0\1bf3e845ea0ce750096da8c71c8364b188ab74d4\lowcodelanguage-1.20.1-47.3.0.jar is missing mods.toml file
+[017月2025 15:31:19.495] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\18703\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.3.0\6093682e943ddccbabf70539319d7f2fe64db2e7\mclanguage-1.20.1-47.3.0.jar is missing mods.toml file
+[017月2025 15:31:19.508] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\18703\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.3.0\3b6be96aba3e323f3c918e8ef6a96312d82d76ad\fmlcore-1.20.1-47.3.0.jar is missing mods.toml file
+[017月2025 15:31:19.825] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[017月2025 15:31:21.638] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[017月2025 15:31:21.658] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\18703\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, ifeu, --all, --output, K:\mod\my_mods\IndustrialForegoingExtraUpgrades\src\generated\resources, --existing, K:\mod\my_mods\IndustrialForegoingExtraUpgrades\src\main\resources]
+[017月2025 15:31:21.757] [main/INFO] [mixin/]: Attempting to load Fernflower decompiler (Threaded mode)
+[017月2025 15:31:21.759] [main/INFO] [mixin/]: Fernflower could not be loaded, exported classes will not be decompiled. NoClassDefFoundError: org/jetbrains/java/decompiler/main/extern/IResultSaver
+[017月2025 15:31:21.843] [main/WARN] [mixin/]: Reference map 'ifeu.refmap.json' for ifeu.mixins.json could not be read. If this is a development environment you can ignore this message
+[017月2025 15:31:22.144] [main/INFO] [mixin/]: Remapping refMap rhino-common-refmap.json using K:\mod\my_mods\IndustrialForegoingExtraUpgrades/build/createSrgToMcp/output.srg
+[017月2025 15:31:22.147] [main/INFO] [mixin/]: Remapping refMap architectury-forge-refmap.json using K:\mod\my_mods\IndustrialForegoingExtraUpgrades/build/createSrgToMcp/output.srg
+[017月2025 15:31:22.149] [main/INFO] [mixin/]: Remapping refMap architectury-common-refmap.json using K:\mod\my_mods\IndustrialForegoingExtraUpgrades/build/createSrgToMcp/output.srg
+[017月2025 15:31:22.150] [main/INFO] [mixin/]: Remapping refMap kubejs-forge-refmap.json using K:\mod\my_mods\IndustrialForegoingExtraUpgrades/build/createSrgToMcp/output.srg
+[017月2025 15:31:22.151] [main/INFO] [mixin/]: Remapping refMap kubejs-common-refmap.json using K:\mod\my_mods\IndustrialForegoingExtraUpgrades/build/createSrgToMcp/output.srg
+[017月2025 15:31:22.706] [main/WARN] [mixin/]: Error loading class: mezz/modnametooltip/TooltipEventHandler (java.lang.ClassNotFoundException: mezz.modnametooltip.TooltipEventHandler)
+[017月2025 15:31:22.708] [main/WARN] [mixin/]: Error loading class: me/shedaniel/rei/impl/client/ClientHelperImpl (java.lang.ClassNotFoundException: me.shedaniel.rei.impl.client.ClientHelperImpl)
+[017月2025 15:31:22.915] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.2.0-rc.2).
+[017月2025 15:31:23.195] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [ifeu]
+[017月2025 15:31:27.191] [modloading-worker-0/INFO] [PluginManager/]: Scanning classes for ifeu
+[017月2025 15:31:27.227] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.3.0, for MC 1.20.1 with MCP 20230612.114412
+[017月2025 15:31:27.228] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.3.0 Initialized
+[017月2025 15:31:27.235] [modloading-worker-0/INFO] [PluginManager/]: Scanning classes for titanium
+[017月2025 15:31:27.259] [modloading-worker-0/INFO] [PluginManager/]: Scanning classes for industrialforegoing
+[017月2025 15:31:27.377] [modloading-worker-0/INFO] [KubeJS/]: Loaded common.properties
+[017月2025 15:31:27.380] [modloading-worker-0/INFO] [KubeJS/]: Loaded dev.properties
+[017月2025 15:31:27.543] [modloading-worker-0/INFO] [KubeJS Startup/]: Capturing errors for startup scripts enabled
+[017月2025 15:31:27.546] [modloading-worker-0/INFO] [KubeJS/]: Looking for KubeJS plugins...
+[017月2025 15:31:27.553] [modloading-worker-0/INFO] [KubeJS/]: Found plugin source kubejs
+[017月2025 15:31:27.567] [modloading-worker-0/WARN] [KubeJS/]: Plugin dev.latvian.mods.kubejs.integration.forge.gamestages.GameStagesIntegration does not have required mod gamestages loaded, skipping
+[017月2025 15:31:27.568] [modloading-worker-0/INFO] [KubeJS/]: Found plugin source ifeu
+[017月2025 15:31:27.656] [modloading-worker-0/INFO] [KubeJS/]: Done in 109.0 ms
+[017月2025 15:31:27.850] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id architectury:sync_ids
+[017月2025 15:31:27.852] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id architectury:sync_ids
+[017月2025 15:31:27.938] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
+[017月2025 15:31:27.944] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 4.999 ms
+[017月2025 15:31:28.006] [modloading-worker-0/INFO] [Rhino Script Remapper/]: Loading Rhino Minecraft remapper...
+[017月2025 15:31:28.009] [modloading-worker-0/INFO] [dev.latvian.mods.rhino.mod.util.RhinoProperties/]: Rhino properties loaded.
+[017月2025 15:31:28.012] [modloading-worker-0/INFO] [Rhino Script Remapper/]: Loading mappings for 1.20.1
+[017月2025 15:31:28.079] [modloading-worker-0/INFO] [Rhino Script Remapper/]: Done in 0.072 s
+[017月2025 15:31:28.417] [modloading-worker-0/INFO] [KubeJS Startup/]: example.js#5: Hello, World! (Loaded startup scripts)
+[017月2025 15:31:28.420] [modloading-worker-0/INFO] [KubeJS Startup/]: Loaded script startup_scripts:example.js in 0.07 s
+[017月2025 15:31:28.424] [modloading-worker-0/INFO] [KubeJS Startup/]: Loaded 1/1 KubeJS startup scripts in 0.342 s with 0 errors and 0 warnings
+[017月2025 15:31:28.502] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id kubejs:send_data_from_client
+[017月2025 15:31:28.503] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:send_data_from_server
+[017月2025 15:31:28.504] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:paint
+[017月2025 15:31:28.504] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:add_stage
+[017月2025 15:31:28.505] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:remove_stage
+[017月2025 15:31:28.506] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:sync_stages
+[017月2025 15:31:28.508] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id kubejs:first_click
+[017月2025 15:31:28.508] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:toast
+[017月2025 15:31:28.509] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:reload_startup_scripts
+[017月2025 15:31:28.509] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:display_server_errors
+[017月2025 15:31:28.510] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:display_client_errors
+[017月2025 15:31:28.605] [main/INFO] [KubeJS/]: Skipping minecraft:sound_event registry
+[017月2025 15:31:28.628] [main/INFO] [KubeJS/]: Skipping minecraft:fluid registry
+[017月2025 15:31:28.939] [main/INFO] [KubeJS/]: Skipping minecraft:block registry
+[017月2025 15:31:28.942] [main/INFO] [KubeJS/]: Skipping minecraft:attribute registry
+[017月2025 15:31:28.944] [main/INFO] [KubeJS/]: Skipping minecraft:mob_effect registry
+[017月2025 15:31:28.945] [main/INFO] [KubeJS/]: Skipping minecraft:particle_type registry
+[017月2025 15:31:28.998] [main/INFO] [KubeJS/]: Skipping minecraft:item registry
+[017月2025 15:31:29.005] [main/INFO] [KubeJS/]: Skipping minecraft:entity_type registry
+[017月2025 15:31:29.008] [main/INFO] [KubeJS/]: Skipping minecraft:sensor_type registry
+[017月2025 15:31:29.009] [main/INFO] [KubeJS/]: Skipping minecraft:memory_module_type registry
+[017月2025 15:31:29.009] [main/INFO] [KubeJS/]: Skipping minecraft:potion registry
+[017月2025 15:31:29.010] [main/INFO] [KubeJS/]: Skipping minecraft:game_event registry
+[017月2025 15:31:29.010] [main/INFO] [KubeJS/]: Skipping minecraft:enchantment registry
+[017月2025 15:31:29.035] [main/INFO] [KubeJS/]: Skipping minecraft:block_entity_type registry
+[017月2025 15:31:29.035] [main/INFO] [KubeJS/]: Skipping minecraft:painting_variant registry
+[017月2025 15:31:29.036] [main/INFO] [KubeJS/]: Skipping minecraft:stat_type registry
+[017月2025 15:31:29.036] [main/INFO] [KubeJS/]: Skipping minecraft:custom_stat registry
+[017月2025 15:31:29.038] [main/INFO] [KubeJS/]: Skipping minecraft:chunk_status registry
+[017月2025 15:31:29.041] [main/INFO] [KubeJS/]: Skipping minecraft:rule_test registry
+[017月2025 15:31:29.042] [main/INFO] [KubeJS/]: Skipping minecraft:rule_block_entity_modifier registry
+[017月2025 15:31:29.043] [main/INFO] [KubeJS/]: Skipping minecraft:pos_rule_test registry
+[017月2025 15:31:29.046] [main/INFO] [KubeJS/]: Skipping minecraft:menu registry
+[017月2025 15:31:29.049] [main/INFO] [KubeJS/]: Skipping minecraft:recipe_type registry
+[017月2025 15:31:29.090] [main/INFO] [KubeJS/]: Skipping minecraft:recipe_serializer registry
+[017月2025 15:31:29.092] [main/INFO] [KubeJS/]: Skipping minecraft:position_source_type registry
+[017月2025 15:31:29.096] [main/INFO] [KubeJS/]: Skipping minecraft:command_argument_type registry
+[017月2025 15:31:29.098] [main/INFO] [KubeJS/]: Skipping minecraft:villager_type registry
+[017月2025 15:31:29.099] [main/INFO] [KubeJS/]: Skipping minecraft:villager_profession registry
+[017月2025 15:31:29.101] [main/INFO] [KubeJS/]: Skipping minecraft:point_of_interest_type registry
+[017月2025 15:31:29.102] [main/INFO] [KubeJS/]: Skipping minecraft:schedule registry
+[017月2025 15:31:29.103] [main/INFO] [KubeJS/]: Skipping minecraft:activity registry
+[017月2025 15:31:29.104] [main/INFO] [KubeJS/]: Skipping minecraft:loot_pool_entry_type registry
+[017月2025 15:31:29.105] [main/INFO] [KubeJS/]: Skipping minecraft:loot_function_type registry
+[017月2025 15:31:29.109] [main/INFO] [KubeJS/]: Skipping minecraft:loot_condition_type registry
+[017月2025 15:31:29.111] [main/INFO] [KubeJS/]: Skipping minecraft:loot_number_provider_type registry
+[017月2025 15:31:29.112] [main/INFO] [KubeJS/]: Skipping minecraft:loot_nbt_provider_type registry
+[017月2025 15:31:29.112] [main/INFO] [KubeJS/]: Skipping minecraft:loot_score_provider_type registry
+[017月2025 15:31:29.112] [main/INFO] [KubeJS/]: Skipping minecraft:float_provider_type registry
+[017月2025 15:31:29.113] [main/INFO] [KubeJS/]: Skipping minecraft:int_provider_type registry
+[017月2025 15:31:29.113] [main/INFO] [KubeJS/]: Skipping minecraft:height_provider_type registry
+[017月2025 15:31:29.113] [main/INFO] [KubeJS/]: Skipping minecraft:block_predicate_type registry
+[017月2025 15:31:29.114] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/carver registry
+[017月2025 15:31:29.114] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/feature registry
+[017月2025 15:31:29.115] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/structure_processor registry
+[017月2025 15:31:29.115] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/structure_placement registry
+[017月2025 15:31:29.117] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/structure_piece registry
+[017月2025 15:31:29.117] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/structure_type registry
+[017月2025 15:31:29.117] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/placement_modifier_type registry
+[017月2025 15:31:29.117] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/block_state_provider_type registry
+[017月2025 15:31:29.118] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/foliage_placer_type registry
+[017月2025 15:31:29.118] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/trunk_placer_type registry
+[017月2025 15:31:29.118] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/root_placer_type registry
+[017月2025 15:31:29.119] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/tree_decorator_type registry
+[017月2025 15:31:29.119] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/feature_size_type registry
+[017月2025 15:31:29.119] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/biome_source registry
+[017月2025 15:31:29.120] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/chunk_generator registry
+[017月2025 15:31:29.121] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/material_condition registry
+[017月2025 15:31:29.122] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/material_rule registry
+[017月2025 15:31:29.122] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/density_function_type registry
+[017月2025 15:31:29.123] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/structure_pool_element registry
+[017月2025 15:31:29.123] [main/INFO] [KubeJS/]: Skipping minecraft:cat_variant registry
+[017月2025 15:31:29.123] [main/INFO] [KubeJS/]: Skipping minecraft:frog_variant registry
+[017月2025 15:31:29.123] [main/INFO] [KubeJS/]: Skipping minecraft:banner_pattern registry
+[017月2025 15:31:29.123] [main/INFO] [KubeJS/]: Skipping minecraft:instrument registry
+[017月2025 15:31:29.125] [main/INFO] [KubeJS/]: Skipping minecraft:decorated_pot_patterns registry
+[017月2025 15:31:29.128] [main/INFO] [KubeJS/]: Skipping minecraft:creative_mode_tab registry
+[017月2025 15:31:29.138] [main/INFO] [KubeJS/]: Skipping forge:biome_modifier_serializers registry
+[017月2025 15:31:29.140] [main/INFO] [KubeJS/]: Skipping forge:display_contexts registry
+[017月2025 15:31:29.141] [main/INFO] [KubeJS/]: Skipping forge:entity_data_serializers registry
+[017月2025 15:31:29.144] [main/INFO] [KubeJS/]: Skipping forge:fluid_type registry
+[017月2025 15:31:29.144] [main/INFO] [KubeJS/]: Skipping forge:global_loot_modifier_serializers registry
+[017月2025 15:31:29.148] [main/INFO] [KubeJS/]: Skipping forge:holder_set_type registry
+[017月2025 15:31:29.149] [main/INFO] [KubeJS/]: Skipping forge:structure_modifier_serializers registry
+[017月2025 15:31:29.149] [main/INFO] [KubeJS/]: Skipping industrialforegoing:plant_recollectable registry
+[017月2025 15:31:29.152] [main/INFO] [KubeJS/]: Skipping industrialforegoing:straw registry
+[017月2025 15:31:29.152] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/biome registry
+[017月2025 15:31:29.260] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/18703/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[017月2025 15:31:29.260] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/18703/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[017月2025 15:31:29.506] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
+[017月2025 15:31:29.580] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 72 ms
+[017月2025 15:31:29.580] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Titanium Serializable (ifeu)
+[017月2025 15:31:29.603] [main/INFO] [net.minecraft.data.DataGenerator/]: Titanium Serializable (ifeu) finished after 23 ms
+[017月2025 15:31:29.603] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: ifeu
+[017月2025 15:31:29.610] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: ifeu finished after 6 ms
+[017月2025 15:31:29.610] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
+[017月2025 15:31:29.666] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 55 ms
+[017月2025 15:31:29.666] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: ifeu - ItemModel
+[017月2025 15:31:29.696] [main/INFO] [net.minecraft.data.DataGenerator/]: ifeu - ItemModel finished after 29 ms
+[017月2025 15:31:29.696] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id ifeu
+[017月2025 15:31:29.707] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id ifeu finished after 11 ms
+[017月2025 15:31:29.707] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id vanilla
+[017月2025 15:31:29.710] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id vanilla finished after 2 ms
+[017月2025 15:31:29.711] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 204 ms
+[017月2025 15:31:29.728] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 212, old count: 207, new count: 213, removed stale: 0, written: 6

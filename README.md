@@ -12,6 +12,7 @@
 - 插件: 线程```event.create(id,"ifeu:thread_addon").setTier(tier)```
 - 插件: 苹果```event.create(id,"ifeu:apple_addon").setTier(tier)```
 - 插件: 治愈```event.create(id,"ifeu:heal_addon").setTier(tier)```
+- 插件: 概率```event.create(id,"ifeu:chance_addon").setTier(tier)```
 
 ### 示例
 ```JavaScript
@@ -144,6 +145,22 @@ BlockEvents.rightClicked('industrialforegoing:dissolution_chamber', event =>{
     OutputItem:输出物品[ItemStack]
     InputItems:输入物品[[ItemStack...],最多9个输入物品]
     InputFluid:输入流体[FluidStack]
+```
+
+- Shaped Precision Crafting Recipe 有序精密工作台```event.recipes.ifeu.precision_shaped(OutputItem,InputItems,Chance)```
+```
+参数详解:
+    OutputItem:输出物品[ItemStack]
+    InputItems:输入物品[[ItemStack...],最多9个输入物品]
+    Chance:合成概率[Boolean]
+```
+
+- Shapeless Precision Crafting Recipe 无序精密工作台```event.recipes.ifeu.precision_shapeless(OutputItem,InputItems,Chance)```
+```
+参数详解:
+    OutputItem:输出物品[ItemStack]
+    InputItems:输入物品[[ItemStack...],最多9个输入物品]
+    Chance:合成概率[Boolean]
 ```
 
 - StoneWork Generate 造石加工机```event.recipes.industrialforegoing.stonework_generate(OutputItem,waterNeed,lavaNeed,waterConsume,lavaConsume)```

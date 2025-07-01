@@ -147,7 +147,6 @@ public class TooltipHelper {
     public static void addTooltip(List<Component> tooltips, String id, Object... obj){
         tooltips.add(Component.translatable(("tooltip.ifeu." + id),obj));
     }
-
     public static String itemIdToKey(ItemStack itemStack) {
         String rawKey = itemStack.getDescriptionId();
         return "tooltip" + rawKey.substring(rawKey.indexOf("."));

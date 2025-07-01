@@ -1,0 +1,37 @@
+{
+  "type": "ifeu:precision_shaped",
+  "chance": 0.8,
+  "inputs": [
+    {
+      "item": "ifeu:air"
+    },
+    {
+      "tag": "forge:ingots/netherite"
+    },
+    {
+      "item": "ifeu:air"
+    },
+    {
+      "tag": "forge:ingots/netherite"
+    },
+    {
+      "item": "ifeu:air"
+    },
+    {
+      "tag": "forge:ingots/netherite"
+    },
+    {
+      "item": "ifeu:air"
+    },
+    {
+      "tag": "forge:ingots/netherite"
+    },
+    {
+      "item": "ifeu:air"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "item": "ifeu:netherite_gear"
+  }
+}

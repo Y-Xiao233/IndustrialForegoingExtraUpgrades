@@ -38,6 +38,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getLeft());
         blockItem(ModBlocks.SIMULATED_HYDROPONIC_BED.getLeft());
         blockItem(ModBlocks.PLATFORM_BUILDER.getLeft());
+        blockItem(ModBlocks.PRECISION_CRAFTING_TABLE.getLeft());
     }
 
     private void blockItem(RegistryObject<Block> registryObject){

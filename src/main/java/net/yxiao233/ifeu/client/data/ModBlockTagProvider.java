@@ -43,7 +43,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModuleCore.ADVANCED.get())
                 .add(ModuleCore.SUPREME.get())
                 .add(ModBlocks.SIMULATED_HYDROPONIC_BED.getLeft().get())
-                .add(ModBlocks.PLATFORM_BUILDER.getLeft().get());
+                .add(ModBlocks.PLATFORM_BUILDER.getLeft().get())
+                .add(ModBlocks.PRECISION_CRAFTING_TABLE.getLeft().get());
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.INFUSER.getLeft().get())
@@ -60,7 +61,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.FLUID_TRANSFER.getLeft().get())
                 .add(ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getLeft().get())
                 .add(ModBlocks.SIMULATED_HYDROPONIC_BED.getLeft().get())
-                .add(ModBlocks.PLATFORM_BUILDER.getLeft().get());
+                .add(ModBlocks.PLATFORM_BUILDER.getLeft().get())
+                .add(ModBlocks.PRECISION_CRAFTING_TABLE.getLeft().get());
 
 
         this.tag(ModTags.Blocks.MACHINE_FRAME_ULTIMATE)

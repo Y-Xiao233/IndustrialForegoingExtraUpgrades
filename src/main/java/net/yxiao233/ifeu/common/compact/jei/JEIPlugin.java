@@ -52,6 +52,8 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeCategories(new ShapelessCategory(guiHelper));
         registration.addRecipeCategories(new DragonGeneratorCategory(guiHelper));
         registration.addRecipeCategories(new StructureInfoCategory(guiHelper));
+        registration.addRecipeCategories(new PrecisionShapedCategory(guiHelper));
+        registration.addRecipeCategories(new PrecisionShapelessCategory(guiHelper));
     }
 
     @Override
@@ -69,6 +71,8 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipes(ModRecipeType.DRAGON_STAR_GENERATOR, RecipeUtil.getRecipes(level,(RecipeType<DragonStarGeneratorRecipe>) ModRecipes.DRAGON_STAR_GENERATOR_TYPE.get()));
         registration.addRecipes(ModRecipeType.SHAPED, RecipeUtil.getRecipes(level,(RecipeType<ShapedRecipe>) ModRecipes.SHAPED_TYPE.get()));
         registration.addRecipes(ModRecipeType.SHAPELESS, RecipeUtil.getRecipes(level,(RecipeType<ShapelessRecipe>) ModRecipes.SHAPELESS_TYPE.get()));
+        registration.addRecipes(ModRecipeType.PRECISION_SHAPED,RecipeUtil.getRecipes(level,(RecipeType<PrecisionShapedRecipe>) ModRecipes.PRECISION_SHAPED_TYPE.get()));
+        registration.addRecipes(ModRecipeType.PRECISION_SHAPELESS,RecipeUtil.getRecipes(level,(RecipeType<PrecisionShapelessRecipe>) ModRecipes.PRECISION_SHAPELESS_TYPE.get()));
     }
 
     @Override
@@ -81,6 +85,8 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeCatalyst(ModBlocks.FLUID_CRAFTING_TABLE.getLeft().get(),ModRecipeType.SHAPELESS);
         registration.addRecipeCatalyst(ModBlocks.DRAGON_GENERATOR.getLeft().get(),ModRecipeType.DRAGON_GENERATOR);
         registration.addRecipeCatalyst(ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getLeft().get(),IndustrialRecipeTypes.DISSOLUTION);
+        registration.addRecipeCatalyst(ModBlocks.PRECISION_CRAFTING_TABLE.getLeft().get(),ModRecipeType.PRECISION_SHAPED);
+        registration.addRecipeCatalyst(ModBlocks.PRECISION_CRAFTING_TABLE.getLeft().get(),ModRecipeType.PRECISION_SHAPELESS);
 
         List<Item> items = new ArrayList<>();
         IFEUMultiBlockStructures.values.forEach((id,structure) ->{
@@ -96,6 +102,8 @@ public class JEIPlugin implements IModPlugin {
     public void registerRecipeTransferHandlers(IRecipeTransferRegistration registration) {
         registration.addRecipeTransferHandler(BasicAddonContainer.class,null,ModRecipeType.SHAPED,4,9,16,36);
         registration.addRecipeTransferHandler(BasicAddonContainer.class,null,ModRecipeType.SHAPELESS,4,9,16,36);
+        registration.addRecipeTransferHandler(BasicAddonContainer.class,null,ModRecipeType.PRECISION_SHAPED,4,9,14,36);
+        registration.addRecipeTransferHandler(BasicAddonContainer.class,null,ModRecipeType.PRECISION_SHAPELESS,4,9,14,36);
         registration.addRecipeTransferHandler(BasicAddonContainer.class,null, IndustrialRecipeTypes.DISSOLUTION,4,8,17,36);
     }
 

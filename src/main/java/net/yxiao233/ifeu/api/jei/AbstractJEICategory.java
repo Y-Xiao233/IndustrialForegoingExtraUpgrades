@@ -117,6 +117,43 @@ public abstract class AbstractJEICategory<T extends Recipe<?>> implements IRecip
         }
     }
 
+    public IDrawable drawSlot(double chance){
+        AllGuiTextures allJEITextures = null;
+
+        if(chance >= 1){
+            allJEITextures = AllGuiTextures.BASIC_SLOT;
+        }else{
+            allJEITextures = AllGuiTextures.CHANCE_SLOT;
+        }
+
+        AllGuiTextures finalAllJEITextures = allJEITextures;
+        return new IDrawable() {
+            @Override
+            public int getWidth() {
+                return finalAllJEITextures.width;
+            }
+
+            @Override
+            public int getHeight() {
+                return finalAllJEITextures.height;
+            }
+
+            @Override
+            public void draw(GuiGraphics guiGraphics, int i, int i1) {
+                finalAllJEITextures.render(guiGraphics,i,i1);
+            }
+        };
+    }
+
+    public IRecipeSlotRichTooltipCallback addChanceTooltip(double chance){
+        if(chance >= 1){
+            return null;
+        }
+        return (view, tooltip) ->{
+            tooltip.add(Component.translatable("jei.ifeu.chance", (chance >= 0.01 ? (int) (chance * 100) : "< 1") + "%").withStyle(ChatFormatting.GOLD));
+        };
+    }
+
     public void addTooltipOnTexture(GuiGraphics guiGraphics, int width, int height, Component component, int x, int y,double mouseX, double mouseY){
         Font font = Minecraft.getInstance().font;
 

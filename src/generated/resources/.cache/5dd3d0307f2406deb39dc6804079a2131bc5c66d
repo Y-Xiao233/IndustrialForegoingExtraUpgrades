@@ -1,4 +1,4 @@
-// 1.20.1	2025-06-18T12:02:03.8192954	Titanium Serializable (ifeu)
+// 1.20.1	2025-07-01T15:31:29.7123772	Titanium Serializable (ifeu)
 5a32aaf5edd8a63da8d7dbbc3e98ee222f54e549 data/ifeu/recipes/arcane_dragon_egg_forging/dead_dragon_egg.json
 ee98c1c55d06b1ef40bcf4b3ff86cabb9ceb5e93 data/ifeu/recipes/arcane_dragon_egg_forging/egg_1.json
 8d37adb344b2eb92c22f350e100824d2620a4f40 data/ifeu/recipes/arcane_dragon_egg_forging/egg_2.json
@@ -52,6 +52,14 @@ ba58b2b397fb9586302fa5b10929627667023155 data/ifeu/recipes/infuser/dragon_star.j
 d92a984747c9177b2e22c7ffc3f5cc8e31c472f9 data/ifeu/recipes/infuser/sculk.json
 8e842c86c963be8e7a5ef9a7d7db62ed3b4f7795 data/ifeu/recipes/laser_drill_fluid/liquid_dragon_breath.json
 dee15dd97d525725d29711fd6a518776d8ce51c4 data/ifeu/recipes/laser_drill_fluid/liquid_sculk_matter.json
+4d182701548e3ae135c517c49dd71e896039aea5 data/ifeu/recipes/precision_shaped/netherite_gear.json
+bd25a335fcc1f349141512e33cb7fba617e3bf9c data/ifeu/recipes/precision_shaped/sculk_gear.json
+83d6616a734d3b20debd6c5b93fc0d908cc20b59 data/ifeu/recipes/precision_shapeless/chance_addon_1.json
+ff1c60d7acae66efed4d819a16093b0e72d1afb5 data/ifeu/recipes/precision_shapeless/chance_addon_2.json
+1531ef40d2dc8a63d37c982d7edb74bd5b8ca9dd data/ifeu/recipes/precision_shapeless/chance_addon_3.json
+7d208f9c2b08cade5f26ab046ef4df2ef620e876 data/ifeu/recipes/precision_shapeless/chance_addon_4.json
+1d1c116fb3f0f27f077ca0d912bb25f661754fe6 data/ifeu/recipes/precision_shapeless/chance_addon_5.json
+acd976a498904843cc5a9d82be6aa190048da879 data/ifeu/recipes/precision_shapeless/chance_addon_6.json
 cb2f1d40e4c019e3a2550054418dbd650a6df9d1 data/ifeu/recipes/shaped/big_dissolution_chamber_core.json
 92b71e3f4cc8d4359788e03f10591b7dc203f0ec data/ifeu/recipes/shaped/connect_tool.json
 87d6223944f8d0a3b906e0446ff0b896c7768fc6 data/ifeu/recipes/shaped/dragon_star_axe.json

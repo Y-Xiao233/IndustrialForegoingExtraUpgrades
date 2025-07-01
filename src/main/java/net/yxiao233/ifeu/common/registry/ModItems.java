@@ -7,6 +7,7 @@ import com.buuz135.industrial.utils.IndustrialTags;
 import com.hrznstudio.titanium.module.DeferredRegistryHelper;
 import com.hrznstudio.titanium.tab.TitaniumTab;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
@@ -14,6 +15,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -21,6 +23,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.api.item.*;
 import net.yxiao233.ifeu.api.recipe.builder.IFEURecipeBuilders;
+import net.yxiao233.ifeu.common.utils.EnchantUtil;
 
 import java.util.function.Consumer;
 
@@ -57,6 +60,13 @@ public class ModItems implements IModule {
     public static RegistryObject<Item> HEAL_ADDON_4;
     public static RegistryObject<Item> HEAL_ADDON_5;
     public static RegistryObject<Item> HEAL_ADDON_6;
+    public static RegistryObject<Item> CHANCE_ADDON_1;
+    public static RegistryObject<Item> CHANCE_ADDON_2;
+    public static RegistryObject<Item> CHANCE_ADDON_3;
+    public static RegistryObject<Item> CHANCE_ADDON_4;
+    public static RegistryObject<Item> CHANCE_ADDON_5;
+    public static RegistryObject<Item> CHANCE_ADDON_6;
+    public static RegistryObject<Item> CHANCE_ADDON_CREATIVE;
     @Override
     public void generateFeatures(DeferredRegistryHelper helper) {
         //Speed Addon
@@ -663,6 +673,92 @@ public class ModItems implements IModule {
                         .save();
             }
         });
+
+        CHANCE_ADDON_1 = helper.registerGeneric(ForgeRegistries.ITEMS.getRegistryKey(),"chance_addon_1", () -> new ModChanceAddonItem(1,TAB_ADDONS,false){
+            @Override
+            public void registerRecipe(Consumer<FinishedRecipe> consumer) {
+                IFEURecipeBuilders.precisionShapelessRecipe(this.getDefaultInstance())
+                        .inputs(
+                                tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                itemValue(Items.ENCHANTED_BOOK.getDefaultInstance()),
+                                tagValue(IndustrialTags.Items.GEAR_GOLD)
+                        )
+                        .chance(0.6F)
+                        .save();
+            }
+        });
+        CHANCE_ADDON_2 = helper.registerGeneric(ForgeRegistries.ITEMS.getRegistryKey(),"chance_addon_2", () -> new ModChanceAddonItem(2,TAB_ADDONS,false){
+            @Override
+            public void registerRecipe(Consumer<FinishedRecipe> consumer) {
+                IFEURecipeBuilders.precisionShapelessRecipe(this.getDefaultInstance())
+                        .inputs(
+                                tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                itemValue(Items.ENCHANTED_BOOK.getDefaultInstance()),
+                                tagValue(IndustrialTags.Items.GEAR_DIAMOND)
+                        )
+                        .chance(0.5F)
+                        .save();
+            }
+        });
+        CHANCE_ADDON_3 = helper.registerGeneric(ForgeRegistries.ITEMS.getRegistryKey(),"chance_addon_3", () -> new ModChanceAddonItem(3,TAB_ADDONS,false){
+            @Override
+            public void registerRecipe(Consumer<FinishedRecipe> consumer) {
+                IFEURecipeBuilders.precisionShapelessRecipe(this.getDefaultInstance())
+                        .inputs(
+                                tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                itemValue(Items.ENCHANTED_BOOK.getDefaultInstance()),
+                                tagValue(ModTags.Items.GEARS_NETHERITE)
+                        )
+                        .chance(0.4F)
+                        .save();
+            }
+        });
+        CHANCE_ADDON_4 = helper.registerGeneric(ForgeRegistries.ITEMS.getRegistryKey(),"chance_addon_4", () -> new ModChanceAddonItem(4,TAB_ADDONS,false){
+            @Override
+            public void registerRecipe(Consumer<FinishedRecipe> consumer) {
+                IFEURecipeBuilders.precisionShapelessRecipe(this.getDefaultInstance())
+                        .inputs(
+                                tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                itemValue(Items.ENCHANTED_BOOK.getDefaultInstance()),
+                                tagValue(ModTags.Items.GEARS_SCULK)
+                        )
+                        .chance(0.3F)
+                        .save();
+            }
+        });
+        CHANCE_ADDON_5 = helper.registerGeneric(ForgeRegistries.ITEMS.getRegistryKey(),"chance_addon_5", () -> new ModChanceAddonItem(5,TAB_ADDONS,false){
+            @Override
+            public void registerRecipe(Consumer<FinishedRecipe> consumer) {
+                IFEURecipeBuilders.precisionShapelessRecipe(this.getDefaultInstance())
+                        .inputs(
+                                tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                itemValue(Items.ENCHANTED_BOOK.getDefaultInstance()),
+                                itemValue(Items.NETHER_STAR.getDefaultInstance())
+                        )
+                        .chance(0.2F)
+                        .save();
+            }
+        });
+        CHANCE_ADDON_6 = helper.registerGeneric(ForgeRegistries.ITEMS.getRegistryKey(),"chance_addon_6", () -> new ModChanceAddonItem(6,TAB_ADDONS,false){
+            @Override
+            public void registerRecipe(Consumer<FinishedRecipe> consumer) {
+                IFEURecipeBuilders.precisionShapelessRecipe(this.getDefaultInstance())
+                        .inputs(
+                                tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                itemValue(Items.ENCHANTED_BOOK.getDefaultInstance()),
+                                itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance())
+                        )
+                        .chance(0.1F)
+                        .save();
+            }
+        });
+        CHANCE_ADDON_CREATIVE = helper.registerGeneric(ForgeRegistries.ITEMS.getRegistryKey(),"creative_chance_addon", () -> new ModChanceAddonItem(Integer.MAX_VALUE,TAB_ADDONS,true));
     }
 
     public Ingredient.TagValue tagValue(TagKey<Item> tagKey){

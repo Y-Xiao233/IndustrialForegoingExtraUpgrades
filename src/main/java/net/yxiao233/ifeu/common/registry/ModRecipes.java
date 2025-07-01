@@ -28,6 +28,11 @@ public class ModRecipes implements IModule {
     public static RegistryObject<RecipeType<?>> DRAGON_GENERATOR_TYPE;
     public static RegistryObject<RecipeSerializer<?>> STRUCTURE_SERIALIZER;
     public static RegistryObject<RecipeType<?>> STRUCTURE_TYPE;
+    public static RegistryObject<RecipeSerializer<?>> PRECISION_SHAPED_SERIALIZER;
+    public static RegistryObject<RecipeType<?>> PRECISION_SHAPED_TYPE;
+
+    public static RegistryObject<RecipeSerializer<?>> PRECISION_SHAPELESS_SERIALIZER;
+    public static RegistryObject<RecipeType<?>> PRECISION_SHAPELESS_TYPE;
     @Override
     public void generateFeatures(DeferredRegistryHelper helper) {
         INFUSER_SERIALIZER = helper.registerGeneric(ForgeRegistries.RECIPE_SERIALIZERS.getRegistryKey(), "infuser", () -> new GenericSerializer<>(InfuserRecipe.class, INFUSER_TYPE));
@@ -54,5 +59,11 @@ public class ModRecipes implements IModule {
 
         STRUCTURE_SERIALIZER = helper.registerGeneric(ForgeRegistries.RECIPE_SERIALIZERS.getRegistryKey(), "structure", () -> new GenericSerializer<>(StructureInfoRecipe.class, STRUCTURE_TYPE));
         STRUCTURE_TYPE = helper.registerGeneric(ForgeRegistries.RECIPE_TYPES.getRegistryKey(), "structure", () -> RecipeType.simple(new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID, "structure")));
+
+        PRECISION_SHAPED_SERIALIZER = helper.registerGeneric(ForgeRegistries.RECIPE_SERIALIZERS.getRegistryKey(), "precision_shaped", () -> new GenericSerializer<>(PrecisionShapedRecipe.class, PRECISION_SHAPED_TYPE));
+        PRECISION_SHAPED_TYPE = helper.registerGeneric(ForgeRegistries.RECIPE_TYPES.getRegistryKey(), "precision_shaped", () -> RecipeType.simple(new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID, "precision_shaped")));
+
+        PRECISION_SHAPELESS_SERIALIZER = helper.registerGeneric(ForgeRegistries.RECIPE_SERIALIZERS.getRegistryKey(), "precision_shapeless", () -> new GenericSerializer<>(PrecisionShapelessRecipe.class, PRECISION_SHAPELESS_TYPE));
+        PRECISION_SHAPELESS_TYPE = helper.registerGeneric(ForgeRegistries.RECIPE_TYPES.getRegistryKey(), "precision_shapeless", () -> RecipeType.simple(new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID, "precision_shapeless")));
     }
 }

@@ -1,4 +1,4 @@
-// 1.20.1	2025-06-05T01:06:58.5161106	Recipes
+// 1.20.1	2025-07-01T14:25:33.8352672	Recipes
 4105a1cfaee5bc99c59b13bc79916d0e9179d33e data/ifeu/advancements/recipes/misc/laser_lens0_dragon.json
 c1559a400ab9444e305185a8dbe8ea444a53aec6 data/ifeu/advancements/recipes/misc/laser_lens0_sculk.json
 2c7a31422964e552b422bd35031d106dea2fd79d data/ifeu/advancements/recipes/misc/laser_lens_dragon.json
@@ -13,10 +13,9 @@ d15bfd0cd163f3493193f9581abcce26e13b9a41 data/ifeu/recipes/laser_lens0_dragon.js
 25d5da1fb8a0647abd155574a457ba6964f3c6a2 data/ifeu/recipes/laser_lens0_sculk.json
 4769a4f9afc91173ee07e6a3ae9d78538493ab60 data/ifeu/recipes/laser_lens_dragon.json
 541ff5191f512671d3d8d4b594187f11bcc669c6 data/ifeu/recipes/laser_lens_sculk.json
-af221a4ef31bc37469f7242cd56c9fe4b5500ebb data/ifeu/recipes/netherite_gear.json
 c410773c2803bdbffcb4c0bfe98077b90cbc4261 data/ifeu/recipes/platform_builder.json
+ab611b20640ea9d5e43158e002e521e6d3d60716 data/ifeu/recipes/precision_crafting_table.json
 7acfe0f0b4d66f8f98025b017fdd7253ac1977b5 data/ifeu/recipes/rule_controller.json
-d2d5d8e94147e3adde1fa7039249a1fcfc37581c data/ifeu/recipes/sculk_gear.json
 b6b6615c5268a0609b91306b9abf9d839271fe66 data/ifeu/recipes/simulated_hydroponic_bed.json
 bee46d647c09d40a032f58125f5c10d2e8c45dd9 data/ifeu/recipes/time_controller.json
 87005dc355e2877ff3e0bc2cbe7fc6a830f44c01 data/ifeu/recipes/weather_controller.json

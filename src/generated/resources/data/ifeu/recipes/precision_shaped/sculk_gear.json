@@ -1,0 +1,37 @@
+{
+  "type": "ifeu:precision_shaped",
+  "chance": 0.6,
+  "inputs": [
+    {
+      "item": "ifeu:air"
+    },
+    {
+      "item": "minecraft:sculk"
+    },
+    {
+      "item": "ifeu:air"
+    },
+    {
+      "item": "minecraft:sculk"
+    },
+    {
+      "tag": "forge:gears/netherite"
+    },
+    {
+      "item": "minecraft:sculk"
+    },
+    {
+      "item": "ifeu:air"
+    },
+    {
+      "item": "minecraft:sculk"
+    },
+    {
+      "item": "ifeu:air"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "item": "ifeu:sculk_gear"
+  }
+}

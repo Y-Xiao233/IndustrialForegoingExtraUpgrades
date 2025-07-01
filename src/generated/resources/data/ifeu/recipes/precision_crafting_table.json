@@ -8,7 +8,7 @@
           "values": [
             {
               "type": "forge:item_exists",
-              "item": "ifeu:sculk_gear"
+              "item": "ifeu:precision_crafting_table"
             }
           ]
         }
@@ -18,19 +18,22 @@
         "category": "misc",
         "key": {
           "A": {
-            "item": "minecraft:sculk"
+            "item": "minecraft:crafting_table"
           },
           "B": {
-            "tag": "forge:gears/netherite"
+            "tag": "forge:plastic"
+          },
+          "C": {
+            "tag": "industrialforegoing:machine_frame/pity"
           }
         },
         "pattern": [
-          " A ",
-          "ABA",
-          " A "
+          "AAA",
+          "BCB",
+          "AAA"
         ],
         "result": {
-          "item": "ifeu:sculk_gear"
+          "item": "ifeu:precision_crafting_table"
         },
         "show_notification": true
       }

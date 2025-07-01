@@ -5,4 +5,5 @@ public enum IFEUAugmentTypes {
     APPLE,
     SILK,
     HEAL,
+    CHANCE
 }

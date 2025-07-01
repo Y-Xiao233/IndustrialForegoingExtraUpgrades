@@ -94,17 +94,6 @@ public class ModRecipeProvider extends TitaniumRecipeProvider {
                 .requires(Tags.Items.DYES_WHITE)
                 .save(consumer,new ResourceLocation(modId,"laser_lens0_dragon"));
 
-        TitaniumShapedRecipeBuilder.shapedRecipe(ModContents.NETHERITE_GEAR.get())
-                .pattern(" A ").pattern("A A").pattern(" A ")
-                .define('A',Tags.Items.INGOTS_NETHERITE)
-                .save(consumer);
-
-        TitaniumShapedRecipeBuilder.shapedRecipe(ModContents.SCULK_GEAR.get())
-                .pattern(" A ").pattern("ABA").pattern(" A ")
-                .define('A',Items.SCULK)
-                .define('B', ModTags.Items.GEARS_NETHERITE)
-                .save(consumer);
-
         TitaniumShapedRecipeBuilder.shapedRecipe(ModContents.WRENCH.get())
                 .pattern(" AB").pattern(" CA").pattern("C  ")
                 .define('A',Tags.Items.DYES_PINK)
@@ -138,6 +127,15 @@ public class ModRecipeProvider extends TitaniumRecipeProvider {
                 .define('E', ModItems.SPEED_ADDON_3.get())
                 .define('F', ModItems.PROCESSING_ADDON_3.get())
                 .define('G', ModItems.EFFICIENCY_ADDON_3.get())
+                .save(consumer);
+
+        TitaniumShapedRecipeBuilder.shapedRecipe(ModBlocks.PRECISION_CRAFTING_TABLE.getLeft().get())
+                .pattern("AAA")
+                .pattern("BCB")
+                .pattern("AAA")
+                .define('A', Items.CRAFTING_TABLE)
+                .define('B', IndustrialTags.Items.PLASTIC)
+                .define('C', IndustrialTags.Items.MACHINE_FRAME_PITY)
                 .save(consumer);
     }
 }

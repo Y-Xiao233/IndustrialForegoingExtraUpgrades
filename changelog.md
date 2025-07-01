@@ -178,6 +178,11 @@
 ### v2.3.004
 - 修复了因为MixinStasisChamber的java注入导致的崩溃[\#75 by raincloud123abc](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/75)
 
+### v2.3.005
+- 添加了精密工作台,同时提供了KubeJS集成
+- 添加了插件: 概率,同时提供了KubeJS集成
+- 修改了一些配方
+
 ## en_us
 ### v1.0.0
 - init
@@ -354,3 +359,8 @@
 
 ### v2.3.004
 - Fixed the crash caused by the Java injection of MixinStasisChamber[\#75 by raincloud123abc](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/75)
+
+### v2.3.005
+- Added Precision Crafting Table and provided KubeJS integration
+- Added Addon: Chance and provided KubeJS integration
+- Modified some recipes

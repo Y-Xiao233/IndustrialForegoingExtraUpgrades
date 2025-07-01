@@ -37,6 +37,7 @@ public abstract class IFEURecipeBuilder {
     private boolean isDefaultRecipe;
     private int time;
     private final ItemStack output;
+    private float chance;
     public IFEURecipeBuilder(ItemStack output){
         this.output = output;
     }
@@ -63,6 +64,11 @@ public abstract class IFEURecipeBuilder {
 
     public IFEURecipeBuilder outputFluid(FluidStack fluid){
         this.outputFluid = fluid;
+        return this;
+    }
+
+    public IFEURecipeBuilder chance(float chance){
+        this.chance = chance;
         return this;
     }
 
@@ -154,6 +160,10 @@ public abstract class IFEURecipeBuilder {
             return new ArrayList<>(Arrays.asList(s));
         }
         return structure;
+    }
+
+    protected float getChance(){
+        return chance <= 0 ? 1 : chance;
     }
 
     protected FluidStack getInputFluid() {

@@ -98,6 +98,9 @@
   "tooltip.ifeu.silk_addon_item_0": "用于平台建造者",
   "tooltip.ifeu.heal_addon_item_0": "用于生物静滞室,恢复怪物血量",
   "tooltip.ifeu.heal_addon_item_1": "提高单次回血: %d点",
+  "tooltip.ifeu.chance_addon_item_0": "用于精密工作台",
+  "tooltip.ifeu.chance_addon_item_1": "提高合成概率: 无限",
+  "tooltip.ifeu.chance_addon_item_2": "提高合成概率: %d",
 
   "item.ifeu.liquid_dragon_breath_bucket": "液态龙息桶",
   "item.ifeu.liquid_sculk_matter_bucket": "液态幽匿物质桶",
@@ -144,6 +147,13 @@
   "item.ifeu.heal_addon_4": "插件: 治愈 Tier 4",
   "item.ifeu.heal_addon_5": "插件: 治愈 Tier 5",
   "item.ifeu.heal_addon_6": "插件: 治愈 Tier 6",
+  "item.ifeu.chance_addon_1": "插件: 概率 Tier 1",
+  "item.ifeu.chance_addon_2": "插件: 概率 Tier 2",
+  "item.ifeu.chance_addon_3": "插件: 概率 Tier 3",
+  "item.ifeu.chance_addon_4": "插件: 概率 Tier 4",
+  "item.ifeu.chance_addon_5": "插件: 概率 Tier 5",
+  "item.ifeu.chance_addon_6": "插件: 概率 Tier 6",
+  "item.ifeu.creative_chance_addon": "创造插件: 概率",
 
   "block.ifeu.infuser": "灌注器",
   "block.ifeu.dragon_star_generator": "龙之星发电机",
@@ -165,6 +175,7 @@
   "block.ifeu.dragon_star_essence": "龙之星精华",
   "block.ifeu.simulated_hydroponic_bed": "水培床模拟室",
   "block.ifeu.platform_builder": "平台搭建者",
+  "block.ifeu.precision_crafting_table": "精密工作台",
 
   "fluid_type.ifeu.liquid_dragon_breath": "液态龙息",
   "fluid_type.ifeu.liquid_sculk_matter": "液态幽匿物质",
@@ -187,6 +198,9 @@
   "jei.ifeu.structure_core": "目标多方块机器",
   "jei.ifeu.structure_list": "结构所需材料: ",
   "jei.ifeu.block_tag": "接受下列任何物品: ",
+  "jei.ifeu.precision_shaped": "有序精密工作台配方",
+  "jei.ifeu.precision_shapeless": "无序精密工作台配方",
+  "jei.ifeu.chance": "概率: %d",
 
   "weather.ifeu.clear": "天气晴朗",
   "weather.ifeu.rain": "下雨天气",

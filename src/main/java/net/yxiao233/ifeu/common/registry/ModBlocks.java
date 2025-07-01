@@ -31,6 +31,7 @@ public class ModBlocks implements IModule {
     public static Pair<RegistryObject<Block>, RegistryObject<BlockEntityType<?>>> BIG_DISSOLUTION_CHAMBER_CORE;
     public static Pair<RegistryObject<Block>, RegistryObject<BlockEntityType<?>>> SIMULATED_HYDROPONIC_BED;
     public static Pair<RegistryObject<Block>, RegistryObject<BlockEntityType<?>>> PLATFORM_BUILDER;
+    public static Pair<RegistryObject<Block>, RegistryObject<BlockEntityType<?>>> PRECISION_CRAFTING_TABLE;
     @Override
     public void generateFeatures(DeferredRegistryHelper helper) {
         INFUSER = deferredRegistry(helper,"infuser",InfuserBlock::new);
@@ -46,6 +47,7 @@ public class ModBlocks implements IModule {
         BIG_DISSOLUTION_CHAMBER_CORE = deferredRegistry(helper,"big_dissolution_chamber_core",BigDissolutionChamberBlock::new);
         SIMULATED_HYDROPONIC_BED = deferredRegistry(helper,"simulated_hydroponic_bed",SimulatedHydroponicBedBlock::new);
         PLATFORM_BUILDER = deferredRegistry(helper,"platform_builder",PlatformBuilderBlock::new);
+        PRECISION_CRAFTING_TABLE = deferredRegistry(helper,"precision_crafting_table",PrecisionCraftingTableBlock::new);
     }
 
     private Pair<RegistryObject<Block>,RegistryObject<BlockEntityType<?>>> deferredRegistry(DeferredRegistryHelper helper, String name, Supplier<BasicTileBlock<?>> blockSupplier){
@@ -68,6 +70,7 @@ public class ModBlocks implements IModule {
         blocks.add(BIG_DISSOLUTION_CHAMBER_CORE.getLeft());
         blocks.add(SIMULATED_HYDROPONIC_BED.getLeft());
         blocks.add(PLATFORM_BUILDER.getLeft());
+        blocks.add(PRECISION_CRAFTING_TABLE.getLeft());
 
         return blocks;
     }

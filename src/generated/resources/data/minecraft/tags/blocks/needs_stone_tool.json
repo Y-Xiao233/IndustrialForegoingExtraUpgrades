@@ -18,6 +18,7 @@
     "industrialforegoing:machine_frame_advanced",
     "industrialforegoing:machine_frame_supreme",
     "ifeu:simulated_hydroponic_bed",
-    "ifeu:platform_builder"
+    "ifeu:platform_builder",
+    "ifeu:precision_crafting_table"
   ]
 }

@@ -10,6 +10,7 @@ import com.buuz135.industrial.utils.IndustrialTags;
 import com.hrznstudio.titanium.recipe.generator.IJSONGenerator;
 import com.hrznstudio.titanium.recipe.generator.IJsonFile;
 import com.hrznstudio.titanium.recipe.generator.TitaniumSerializableProvider;
+import com.hrznstudio.titanium.recipe.generator.TitaniumShapedRecipeBuilder;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
@@ -27,10 +28,7 @@ import net.minecraftforge.fluids.FluidStack;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.api.recipe.builder.IFEURecipeBuilders;
 import net.yxiao233.ifeu.api.recipe.builder.ShapedRecipeBuilder;
-import net.yxiao233.ifeu.common.recipe.ArcaneDragonEggForgingRecipe;
-import net.yxiao233.ifeu.common.recipe.ShapedRecipe;
-import net.yxiao233.ifeu.common.recipe.InfuserRecipe;
-import net.yxiao233.ifeu.common.recipe.ShapelessRecipe;
+import net.yxiao233.ifeu.common.recipe.*;
 import net.yxiao233.ifeu.common.registry.*;
 
 import java.util.Map;
@@ -356,6 +354,20 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                 .inputFluid(new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),100))
                 .save();
 
+        //precision shaped
+        IFEURecipeBuilders.precisionShapedRecipe(ModContents.NETHERITE_GEAR.get().getDefaultInstance())
+                .pattern(" A ").pattern("A A").pattern(" A ")
+                .define('A',Tags.Items.INGOTS_NETHERITE)
+                .chance(0.8F)
+                .save();
+
+        IFEURecipeBuilders.precisionShapedRecipe(ModContents.SCULK_GEAR.get().getDefaultInstance())
+                .pattern(" A ").pattern("ABA").pattern(" A ")
+                .define('A',Items.SCULK.getDefaultInstance())
+                .define('B', ModTags.Items.GEARS_NETHERITE)
+                .chance(0.6F)
+                .save();
+
         DissolutionChamberRecipe.RECIPES.forEach(dissolutionChamberRecipe -> map.put(dissolutionChamberRecipe,dissolutionChamberRecipe));
         InfuserRecipe.RECIPES.forEach(infuserRecipe -> map.put(infuserRecipe,infuserRecipe));
         LaserDrillFluidRecipe.RECIPES.forEach(laserDrillFluidRecipe -> map.put(laserDrillFluidRecipe,laserDrillFluidRecipe));
@@ -367,6 +379,8 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                 map.put(fluidExtractorRecipe,fluidExtractorRecipe);
             }
         });
+        PrecisionShapedRecipe.RECIPES.forEach(precisionShapedRecipe -> map.put(precisionShapedRecipe,precisionShapedRecipe));
+        PrecisionShapelessRecipe.RECIPES.forEach(precisionShapelessRecipe -> map.put(precisionShapelessRecipe,precisionShapelessRecipe));
     }
 
     public Ingredient.TagValue tagValue(TagKey<Item> tagKey){
