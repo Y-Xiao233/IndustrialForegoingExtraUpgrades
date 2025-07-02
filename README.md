@@ -152,7 +152,7 @@ BlockEvents.rightClicked('industrialforegoing:dissolution_chamber', event =>{
 参数详解:
     OutputItem:输出物品[ItemStack]
     InputItems:输入物品[[ItemStack...],最多9个输入物品]
-    Chance:合成概率[Boolean]
+    Chance:合成概率[Float]
 ```
 
 - Shapeless Precision Crafting Recipe 无序精密工作台```event.recipes.ifeu.precision_shapeless(OutputItem,InputItems,Chance)```
@@ -160,7 +160,7 @@ BlockEvents.rightClicked('industrialforegoing:dissolution_chamber', event =>{
 参数详解:
     OutputItem:输出物品[ItemStack]
     InputItems:输入物品[[ItemStack...],最多9个输入物品]
-    Chance:合成概率[Boolean]
+    Chance:合成概率[Float]
 ```
 
 - StoneWork Generate 造石加工机```event.recipes.industrialforegoing.stonework_generate(OutputItem,waterNeed,lavaNeed,waterConsume,lavaConsume)```
