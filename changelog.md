@@ -183,6 +183,9 @@
 - 添加了插件: 概率,同时提供了KubeJS集成
 - 修改了一些配方
 
+### v2.3.006
+- 修复了精密工作台KubeJS集成错误的bug
+
 ## en_us
 ### v1.0.0
 - init
@@ -364,3 +367,6 @@
 - Added Precision Crafting Table and provided KubeJS integration
 - Added Addon: Chance and provided KubeJS integration
 - Modified some recipes
+
+### v2.3.006
+- Fixed bug of KubeJS integration error in Precision Crafting Table
