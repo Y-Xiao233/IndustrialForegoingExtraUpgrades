@@ -44,13 +44,16 @@ public class ShapedRecipe extends SerializableRecipe {
 
             for (int i = 0; i < this.inputs.length; i++) {
                 Iterator<ItemStack> iterator = this.inputs[i].getItems().iterator();
+                boolean found = false;
 
-                if(iterator.hasNext()){
+                while (iterator.hasNext() && !found){
                     ItemStack stack = iterator.next();
                     if(stack.is(ModContents.AIR.get())){
-                        matches.set(i,inputs.getStackInSlot(i).isEmpty());
+                        found = inputs.getStackInSlot(i).isEmpty();
+                        matches.set(i,found);
                     }else{
-                        matches.set(i,inputs.getStackInSlot(i).is(stack.getItem()));
+                        found = inputs.getStackInSlot(i).is(stack.getItem());
+                        matches.set(i,found);
                     }
                 }
             }

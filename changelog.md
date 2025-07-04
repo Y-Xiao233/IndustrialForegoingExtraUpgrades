@@ -186,6 +186,9 @@
 ### v2.3.006
 - 修复了精密工作台KubeJS集成错误的bug
 
+### v2.3.007
+- 修复了流体工作台,精密工作台合成逻辑错误的bug
+
 ## en_us
 ### v1.0.0
 - init
@@ -370,3 +373,6 @@
 
 ### v2.3.006
 - Fixed bug of KubeJS integration error in Precision Crafting Table
+
+### v2.3.007
+- Fixed bug of crafting logic error in fluid and precision crafting table
