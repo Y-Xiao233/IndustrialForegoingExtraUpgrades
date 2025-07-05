@@ -3,6 +3,7 @@ package net.yxiao233.ifeu.common.block.entity;
 import com.buuz135.industrial.block.tile.IndustrialProcessingTile;
 import com.hrznstudio.titanium.annotation.Save;
 import com.hrznstudio.titanium.api.augment.AugmentTypes;
+import com.hrznstudio.titanium.component.bundle.LockableInventoryBundle;
 import com.hrznstudio.titanium.component.energy.EnergyStorageComponent;
 import com.hrznstudio.titanium.component.inventory.InventoryComponent;
 import com.hrznstudio.titanium.component.inventory.SidedInventoryComponent;
@@ -27,7 +28,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class PrecisionCraftingTableEntity extends IndustrialProcessingTile<PrecisionCraftingTableEntity> {
     @Save
-    public InventoryComponent<PrecisionCraftingTableEntity> inputs;
+    public LockableInventoryBundle<PrecisionCraftingTableEntity> inputs;
     @Save
     private SidedInventoryComponent<PrecisionCraftingTableEntity> output;
     private PrecisionShapedRecipe shapedRecipe;
@@ -35,21 +36,25 @@ public class PrecisionCraftingTableEntity extends IndustrialProcessingTile<Preci
     public PrecisionCraftingTableEntity(BlockPos blockPos, BlockState blockState) {
         super(ModBlocks.PRECISION_CRAFTING_TABLE, 102, 41, blockPos, blockState);
         int slotSpacing = 22;
-        this.addInventory(this.inputs = new InventoryComponent<PrecisionCraftingTableEntity>("input",19+slotSpacing,slotSpacing,9)
-                .setSlotToColorRender(0, DyeColor.LIGHT_BLUE)
-                .setSlotToColorRender(1,DyeColor.LIGHT_BLUE)
-                .setSlotToColorRender(2,DyeColor.LIGHT_BLUE)
-                .setSlotToColorRender(3,DyeColor.LIGHT_BLUE)
-                .setSlotToColorRender(4,DyeColor.LIGHT_BLUE)
-                .setSlotToColorRender(5,DyeColor.LIGHT_BLUE)
-                .setSlotToColorRender(6,DyeColor.LIGHT_BLUE)
-                .setSlotToColorRender(7,DyeColor.LIGHT_BLUE)
-                .setSlotToColorRender(8,DyeColor.LIGHT_BLUE)
-                .setRange(3,3)
-                .setOutputFilter(((itemStack, integer) -> false))
-                .setOnSlotChanged((itemStack, integer) -> checkForRecipe())
-                .setSlotLimit(1)
-                .setComponentHarness(this));
+
+        this.addBundle(this.inputs = new LockableInventoryBundle<>(this,
+                new SidedInventoryComponent<PrecisionCraftingTableEntity>("input", 19 + slotSpacing, slotSpacing, 9, 0)
+                        .setColor(DyeColor.LIGHT_BLUE)
+                        .setSlotToColorRender(0, DyeColor.LIGHT_BLUE)
+                        .setSlotToColorRender(1, DyeColor.LIGHT_BLUE)
+                        .setSlotToColorRender(2, DyeColor.LIGHT_BLUE)
+                        .setSlotToColorRender(3, DyeColor.LIGHT_BLUE)
+                        .setSlotToColorRender(4, DyeColor.LIGHT_BLUE)
+                        .setSlotToColorRender(5, DyeColor.LIGHT_BLUE)
+                        .setSlotToColorRender(6, DyeColor.LIGHT_BLUE)
+                        .setSlotToColorRender(7, DyeColor.LIGHT_BLUE)
+                        .setSlotToColorRender(8, DyeColor.LIGHT_BLUE)
+                        .setRange(3, 3)
+                        .setOutputFilter(((itemStack, integer) -> false))
+                        .setOnSlotChanged((itemStack, integer) -> checkForRecipe())
+                        .setSlotLimit(1),
+                100, 64, false)
+        );
 
         this.addInventory(this.output = (SidedInventoryComponent<PrecisionCraftingTableEntity>) new SidedInventoryComponent<PrecisionCraftingTableEntity>("ot", 129, 18+slotSpacing, 1,1)
                 .setColor(DyeColor.ORANGE)
@@ -70,18 +75,18 @@ public class PrecisionCraftingTableEntity extends IndustrialProcessingTile<Preci
     }
     private void checkForRecipe(){
         if(isServer()){
-            if(shapelessRecipe != null && shapelessRecipe.matches(inputs)){
+            if(shapelessRecipe != null && shapelessRecipe.matches(inputs.getInventory())){
                 return;
             }
 
-            if(shapedRecipe != null && shapedRecipe.matches(inputs)){
+            if(shapedRecipe != null && shapedRecipe.matches(inputs.getInventory())){
                 return;
             }
 
-            shapelessRecipe = RecipeUtil.getRecipes(this.level,(RecipeType<PrecisionShapelessRecipe>) ModRecipes.PRECISION_SHAPELESS_TYPE.get()).stream().filter(recipe -> recipe.matches(inputs)).findFirst().orElse(null);
+            shapelessRecipe = RecipeUtil.getRecipes(this.level,(RecipeType<PrecisionShapelessRecipe>) ModRecipes.PRECISION_SHAPELESS_TYPE.get()).stream().filter(recipe -> recipe.matches(inputs.getInventory())).findFirst().orElse(null);
 
             if(shapelessRecipe == null){
-                shapedRecipe = RecipeUtil.getRecipes(this.level,(RecipeType<PrecisionShapedRecipe>) ModRecipes.PRECISION_SHAPED_TYPE.get()).stream().filter(recipe -> recipe.matches(inputs)).findFirst().orElse(null);
+                shapedRecipe = RecipeUtil.getRecipes(this.level,(RecipeType<PrecisionShapedRecipe>) ModRecipes.PRECISION_SHAPED_TYPE.get()).stream().filter(recipe -> recipe.matches(inputs.getInventory())).findFirst().orElse(null);
             }
         }
     }
@@ -108,8 +113,8 @@ public class PrecisionCraftingTableEntity extends IndustrialProcessingTile<Preci
             float random = level.getRandom().nextFloat();
             if(shapedRecipe != null){
                 PrecisionShapedRecipe shapedRecipe1 = shapedRecipe;
-                for (int i = 0; i < inputs.getSlots(); i++) {
-                    inputs.getStackInSlot(i).shrink(1);
+                for (int i = 0; i < inputs.getInventory().getSlots(); i++) {
+                    inputs.getInventory().getStackInSlot(i).shrink(1);
                 }
                 ItemStack outputStack = shapedRecipe1.output.copy();
                 outputStack.getItem().onCraftedBy(outputStack, this.level, null);
@@ -122,8 +127,8 @@ public class PrecisionCraftingTableEntity extends IndustrialProcessingTile<Preci
                 }
             }else if(shapelessRecipe != null){
                 PrecisionShapelessRecipe shapelessRecipe1 = shapelessRecipe;
-                for (int i = 0; i < inputs.getSlots(); i++) {
-                    inputs.getStackInSlot(i).shrink(1);
+                for (int i = 0; i < inputs.getInventory().getSlots(); i++) {
+                    inputs.getInventory().getStackInSlot(i).shrink(1);
                 }
                 ItemStack outputStack = shapelessRecipe1.output.copy();
                 outputStack.getItem().onCraftedBy(outputStack, this.level, null);

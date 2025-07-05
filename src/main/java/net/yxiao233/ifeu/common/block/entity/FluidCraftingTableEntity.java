@@ -9,6 +9,7 @@ import com.hrznstudio.titanium.api.client.IAssetType;
 import com.hrznstudio.titanium.api.client.IScreenAddon;
 import com.hrznstudio.titanium.client.screen.addon.StateButtonAddon;
 import com.hrznstudio.titanium.client.screen.addon.StateButtonInfo;
+import com.hrznstudio.titanium.component.bundle.LockableInventoryBundle;
 import com.hrznstudio.titanium.component.button.ButtonComponent;
 import com.hrznstudio.titanium.component.energy.EnergyStorageComponent;
 import com.hrznstudio.titanium.component.fluid.FluidTankComponent;
@@ -39,11 +40,12 @@ import net.yxiao233.ifeu.common.registry.ModRecipes;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 public class FluidCraftingTableEntity extends IndustrialProcessingTile<FluidCraftingTableEntity> {
     @Save
-    public InventoryComponent<FluidCraftingTableEntity> inputs;
+    public LockableInventoryBundle<FluidCraftingTableEntity> inputs;
     @Save
     public SidedFluidTankComponent<FluidCraftingTableEntity> inputFluid;
     @Save
@@ -66,31 +68,34 @@ public class FluidCraftingTableEntity extends IndustrialProcessingTile<FluidCraf
         super(ModBlocks.FLUID_CRAFTING_TABLE,102,41,blockPos,blockState);
         int slotSpacing = 22;
 
-        this.addInventory(this.inputs = new InventoryComponent<FluidCraftingTableEntity>("input",19+slotSpacing,slotSpacing,9)
-                .setSlotToColorRender(0,DyeColor.LIGHT_BLUE)
-                .setSlotToColorRender(1,DyeColor.LIGHT_BLUE)
-                .setSlotToColorRender(2,DyeColor.LIGHT_BLUE)
-                .setSlotToColorRender(3,DyeColor.LIGHT_BLUE)
-                .setSlotToColorRender(4,DyeColor.LIGHT_BLUE)
-                .setSlotToColorRender(5,DyeColor.LIGHT_BLUE)
-                .setSlotToColorRender(6,DyeColor.LIGHT_BLUE)
-                .setSlotToColorRender(7,DyeColor.LIGHT_BLUE)
-                .setSlotToColorRender(8,DyeColor.LIGHT_BLUE)
-                .setRange(3,3)
-                .setOutputFilter(((itemStack, integer) -> false))
-                .setOnSlotChanged((itemStack, integer) -> checkForRecipe())
-                .setSlotLimit(1)
-                .setInputFilter((itemStack, integer) -> this.output.getStackInSlot(0).isEmpty())
-                .setComponentHarness(this));
+        this.addBundle(this.inputs = new LockableInventoryBundle<>(this,
+                new SidedInventoryComponent<FluidCraftingTableEntity>("input", 19 + slotSpacing, slotSpacing, 9, 0)
+                        .setColor(DyeColor.LIGHT_BLUE)
+                        .setSlotToColorRender(0, DyeColor.LIGHT_BLUE)
+                        .setSlotToColorRender(1, DyeColor.LIGHT_BLUE)
+                        .setSlotToColorRender(2, DyeColor.LIGHT_BLUE)
+                        .setSlotToColorRender(3, DyeColor.LIGHT_BLUE)
+                        .setSlotToColorRender(4, DyeColor.LIGHT_BLUE)
+                        .setSlotToColorRender(5, DyeColor.LIGHT_BLUE)
+                        .setSlotToColorRender(6, DyeColor.LIGHT_BLUE)
+                        .setSlotToColorRender(7, DyeColor.LIGHT_BLUE)
+                        .setSlotToColorRender(8, DyeColor.LIGHT_BLUE)
+                        .setRange(3, 3)
+                        .setOutputFilter(((itemStack, integer) -> false))
+                        .setOnSlotChanged((itemStack, integer) -> checkForRecipe())
+                        .setSlotLimit(1)
+                        .setInputFilter((itemStack, integer) -> this.output.getStackInSlot(0).isEmpty()),
+                100, 64, false)
+        );
 
-        this.addInventory(this.output = (SidedInventoryComponent<FluidCraftingTableEntity>) new SidedInventoryComponent<FluidCraftingTableEntity>("ot", 129, 18+slotSpacing, 1,1)
+        this.addInventory(this.output = (SidedInventoryComponent<FluidCraftingTableEntity>) new SidedInventoryComponent<FluidCraftingTableEntity>("ot", 129, 18+slotSpacing, 1,2)
                 .setColor(DyeColor.ORANGE)
                 .setRange(1, 1)
                 .setInputFilter((stack, integer) -> false)
                 .setComponentHarness(this));
 
 
-        this.addTank(this.inputFluid = (SidedFluidTankComponent<FluidCraftingTableEntity>) new SidedFluidTankComponent<FluidCraftingTableEntity>("input_fluid", FluidCraftingTableConfig.maxInputTankSize,17,19,0)
+        this.addTank(this.inputFluid = (SidedFluidTankComponent<FluidCraftingTableEntity>) new SidedFluidTankComponent<FluidCraftingTableEntity>("input_fluid", FluidCraftingTableConfig.maxInputTankSize,17,19,1)
                 .setColor(DyeColor.LIME)
                 .setTankType(FluidTankComponent.Type.NORMAL)
                 .setComponentHarness(this)
@@ -122,7 +127,7 @@ public class FluidCraftingTableEntity extends IndustrialProcessingTile<FluidCraf
         }).setPredicate((playerEntity, compoundNBT) -> {
             this.autoCraft = !this.autoCraft;
             this.markForUpdate();
-        }).setId(1));
+        }).setId(2));
 
 
         this.addButton(this.buttonComponent2 = (new ButtonComponent(120, 84, 14, 14) {
@@ -151,7 +156,7 @@ public class FluidCraftingTableEntity extends IndustrialProcessingTile<FluidCraf
         }).setPredicate((playerEntity, compoundNBT) -> {
             this.isFluidRender = !this.isFluidRender;
             this.markForUpdate();
-        }).setId(2));
+        }).setId(3));
     }
 
     @Override
@@ -175,18 +180,18 @@ public class FluidCraftingTableEntity extends IndustrialProcessingTile<FluidCraf
 
     private void checkForRecipe(){
         if(isServer()){
-            if(shapelessRecipe != null && shapelessRecipe.matches(inputs,inputFluid)){
+            if(shapelessRecipe != null && shapelessRecipe.matches(inputs.getInventory(),inputFluid)){
                 return;
             }
 
-            if(shapedRecipe != null && shapedRecipe.matches(inputs,inputFluid)){
+            if(shapedRecipe != null && shapedRecipe.matches(inputs.getInventory(),inputFluid)){
                 return;
             }
 
-            shapelessRecipe = RecipeUtil.getRecipes(this.level,(RecipeType<ShapelessRecipe>) ModRecipes.SHAPELESS_TYPE.get()).stream().filter(recipe -> recipe.matches(inputs,inputFluid)).findFirst().orElse(null);
+            shapelessRecipe = RecipeUtil.getRecipes(this.level,(RecipeType<ShapelessRecipe>) ModRecipes.SHAPELESS_TYPE.get()).stream().filter(recipe -> recipe.matches(inputs.getInventory(),inputFluid)).findFirst().orElse(null);
 
             if(shapelessRecipe == null){
-                shapedRecipe = RecipeUtil.getRecipes(this.level,(RecipeType<ShapedRecipe>) ModRecipes.SHAPED_TYPE.get()).stream().filter(recipe -> recipe.matches(inputs,inputFluid)).findFirst().orElse(null);
+                shapedRecipe = RecipeUtil.getRecipes(this.level,(RecipeType<ShapedRecipe>) ModRecipes.SHAPED_TYPE.get()).stream().filter(recipe -> recipe.matches(inputs.getInventory(),inputFluid)).findFirst().orElse(null);
             }
         }
     }
@@ -197,8 +202,8 @@ public class FluidCraftingTableEntity extends IndustrialProcessingTile<FluidCraf
         super.serverTick(level, pos, state, blockEntity);
         if(!this.autoCraft){
             if(shapedOnFinish && (this.output.getStackInSlot(0).isEmpty() || this.output.getStackInSlot(0).getCount() < this.lastTimeShapedRecipe.output.getCount())){
-                for (int i = 0; i < inputs.getSlots(); i++) {
-                    inputs.getStackInSlot(i).shrink(1);
+                for (int i = 0; i < inputs.getInventory().getSlots(); i++) {
+                    inputs.getInventory().getStackInSlot(i).shrink(1);
                 }
                 inputFluid.drainForced(this.shapedFluidWillBeDrained, IFluidHandler.FluidAction.EXECUTE);
                 shapedOnFinish = false;
@@ -206,8 +211,8 @@ public class FluidCraftingTableEntity extends IndustrialProcessingTile<FluidCraf
                 this.lastTimeShapedRecipe = null;
                 checkForRecipe();
             }else if(shapelessOnFinish && (this.output.getStackInSlot(0).isEmpty() || this.output.getStackInSlot(0).getCount() < this.lastTimeShapelessRecipe.output.getCount())){
-                for (int i = 0; i < inputs.getSlots(); i++) {
-                    inputs.getStackInSlot(i).shrink(1);
+                for (int i = 0; i < inputs.getInventory().getSlots(); i++) {
+                    inputs.getInventory().getStackInSlot(i).shrink(1);
                 }
                 inputFluid.drainForced(this.shapelessFluidWillBeDrained, IFluidHandler.FluidAction.EXECUTE);
                 shapelessOnFinish = false;
@@ -217,7 +222,7 @@ public class FluidCraftingTableEntity extends IndustrialProcessingTile<FluidCraf
             }
 
             if(lastTimeShapedRecipe != null && lastTimeShapelessRecipe == null){
-                if(shapedOnFinish && !lastTimeShapedRecipe.matches(inputs,inputFluid)) {
+                if(shapedOnFinish && !lastTimeShapedRecipe.matches(inputs.getInventory(),inputFluid)) {
                     this.output.setStackInSlot(0, ItemStack.EMPTY);
                     this.shapedOnFinish = false;
                     this.shapedFluidWillBeDrained = null;
@@ -233,7 +238,7 @@ public class FluidCraftingTableEntity extends IndustrialProcessingTile<FluidCraf
             }
 
             if(lastTimeShapelessRecipe != null && lastTimeShapedRecipe == null){
-                if(shapelessOnFinish && !lastTimeShapelessRecipe.matches(inputs,inputFluid)) {
+                if(shapelessOnFinish && !lastTimeShapelessRecipe.matches(inputs.getInventory(),inputFluid)) {
                     this.output.setStackInSlot(0, ItemStack.EMPTY);
                     this.shapelessOnFinish = false;
                     this.shapelessFluidWillBeDrained = null;
@@ -250,8 +255,8 @@ public class FluidCraftingTableEntity extends IndustrialProcessingTile<FluidCraf
 
         }else{
             if(shapedOnFinish && lastTimeShapedRecipe != null){
-                for (int i = 0; i < inputs.getSlots(); i++) {
-                    inputs.getStackInSlot(i).shrink(1);
+                for (int i = 0; i < inputs.getInventory().getSlots(); i++) {
+                    inputs.getInventory().getStackInSlot(i).shrink(1);
                 }
 
                 inputFluid.drainForced(lastTimeShapedRecipe.inputFluid,IFluidHandler.FluidAction.EXECUTE);
@@ -261,8 +266,8 @@ public class FluidCraftingTableEntity extends IndustrialProcessingTile<FluidCraf
                 this.lastTimeShapedRecipe = null;
                 checkForRecipe();
             }else if(shapelessOnFinish && lastTimeShapelessRecipe != null){
-                for (int i = 0; i < inputs.getSlots(); i++) {
-                    inputs.getStackInSlot(i).shrink(1);
+                for (int i = 0; i < inputs.getInventory().getSlots(); i++) {
+                    inputs.getInventory().getStackInSlot(i).shrink(1);
                 }
 
                 inputFluid.drainForced(lastTimeShapelessRecipe.inputFluid,IFluidHandler.FluidAction.EXECUTE);
@@ -277,8 +282,8 @@ public class FluidCraftingTableEntity extends IndustrialProcessingTile<FluidCraf
 
     private boolean isInputSlotsAllMatchEmpty(){
         boolean allMatch = false;
-        for (int i = 0; i < this.inputs.getSlots(); i++) {
-            if(!this.inputs.getStackInSlot(i).isEmpty()){
+        for (int i = 0; i < this.inputs.getInventory().getSlots(); i++) {
+            if(!this.inputs.getInventory().getStackInSlot(i).isEmpty()){
                 return false;
             }else{
                 allMatch = true;
@@ -359,6 +364,20 @@ public class FluidCraftingTableEntity extends IndustrialProcessingTile<FluidCraf
         compoundTag.putBoolean("is_render_fluid",this.isFluidRender);
     }
 
+
+    @Override
+    public void saveSettings(Player player, CompoundTag tag) {
+        tag.putBoolean("DC_locked", this.inputs.isLocked());
+        CompoundTag filterTag = new CompoundTag();
+
+        for(int i = 0; i < this.inputs.getFilter().length; ++i) {
+            filterTag.put("" + i, this.inputs.getFilter()[i].serializeNBT());
+        }
+
+        tag.put("DC_filter", filterTag);
+        super.saveSettings(player, tag);
+    }
+
     @Override
     public void loadSettings(Player player, CompoundTag tag) {
         super.loadSettings(player, tag);
@@ -366,5 +385,17 @@ public class FluidCraftingTableEntity extends IndustrialProcessingTile<FluidCraf
         this.shapelessOnFinish = tag.getBoolean("shapeless_on_finish");
         this.autoCraft = tag.getBoolean("auto_craft");
         this.isFluidRender = tag.getBoolean("is_render_fluid");
+
+
+        if (tag.contains("DC_locked")) {
+            this.inputs.setLocked(tag.getBoolean("DC_locked"));
+        }
+
+        String psFilter;
+        if (tag.contains("DC_filter")) {
+            for(Iterator var3 = tag.getCompound("DC_filter").getAllKeys().iterator(); var3.hasNext(); this.inputs.getFilter()[Integer.parseInt(psFilter)] = ItemStack.of(tag.getCompound("DC_filter").getCompound(psFilter))) {
+                psFilter = (String)var3.next();
+            }
+        }
     }
 }

@@ -189,6 +189,9 @@
 ### v2.3.007
 - 修复了流体工作台,精密工作台合成逻辑错误的bug
 
+### v2.3.008
+- 为流体工作台,精密工作台添加了锁,以便于自动化
+
 ## en_us
 ### v1.0.0
 - init
@@ -376,3 +379,6 @@
 
 ### v2.3.007
 - Fixed bug of crafting logic error in fluid and precision crafting table
+
+### v2.3.008
+- Locks have been added to fluid and precision crafting table for automation purposes
