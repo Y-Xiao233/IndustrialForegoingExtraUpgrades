@@ -4,7 +4,7 @@ import dev.latvian.mods.kubejs.item.ItemBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.yxiao233.ifeu.api.item.ModEfficiencyAddonItem;
-import net.yxiao233.ifeu.common.registry.ModItems;
+import net.yxiao233.ifeu.common.registry.IFEUItems;
 
 public class EfficiencyAddonItemBuilder extends ItemBuilder {
 
@@ -29,6 +29,6 @@ public class EfficiencyAddonItemBuilder extends ItemBuilder {
     @Override
     public Item createObject() {
         int formTier = this.formTier == this.tier ? this.tier : this.formTier;
-        return new ModEfficiencyAddonItem(formTier, tier, ModItems.TAB_ADDONS);
+        return new ModEfficiencyAddonItem(formTier, tier, IFEUItems.TAB_ADDONS);
     }
 }

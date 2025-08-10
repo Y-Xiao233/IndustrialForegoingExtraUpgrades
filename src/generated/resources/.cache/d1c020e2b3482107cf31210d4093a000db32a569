@@ -1,4 +1,4 @@
-// 1.21.1	2025-05-21T22:17:12.2582807	Block States: ifeu
+// 1.21.1	2025-08-10T15:32:19.9276987	Block States: ifeu
 3950649a1dc32fea368f21e3e32352f896d082fb assets/ifeu/models/item/arcane_dragon_egg_forging.json
 767814396b777cbdd116ac8a03b3b2ddc439b92c assets/ifeu/models/item/big_dissolution_chamber_core.json
 3565055ca76aa3ae842ed8c502bd0e6725729b02 assets/ifeu/models/item/creative_capacitor.json
@@ -10,6 +10,7 @@ bc827bcaf05829599c311964499d31e907428299 assets/ifeu/models/item/fluid_crafting_
 5e163e32373767173c48322e0b56166cff5ff836 assets/ifeu/models/item/fluid_transfer.json
 0ec005217cd58d4ce236b8ba3df370901d551655 assets/ifeu/models/item/infuser.json
 618a8a046cfb982f335cd9f8581bd816af32594b assets/ifeu/models/item/platform_builder.json
+456efde98d45c376fbff65732be2c8a63f727046 assets/ifeu/models/item/precision_crafting_table.json
 d08afa31dcb256d215c40067fc0eafd9462fed25 assets/ifeu/models/item/rule_controller.json
 268fb070f197cd2d431309660165aee652ab1f6c assets/ifeu/models/item/time_controller.json
 dd03db7f43306eb06fe1ab198c12c82cb4509737 assets/ifeu/models/item/ultimate_machine_frame.json

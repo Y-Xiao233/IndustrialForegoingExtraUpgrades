@@ -51,4 +51,20 @@ public class IFEURecipeBuilders {
     public static ShapelessRecipeBuilder shapelessRecipe(ItemStack output, String id){
         return new ShapelessRecipeBuilder(output,id);
     }
+
+    public static PrecisionShapedRecipeBuilder precisionShapedRecipe(ItemStack output){
+        return new PrecisionShapedRecipeBuilder(output);
+    }
+
+    public static PrecisionShapedRecipeBuilder precisionShapedRecipe(ItemStack output, String id){
+        return new PrecisionShapedRecipeBuilder(output,id);
+    }
+
+    public static PrecisionShapelessRecipeBuilder precisionShapelessRecipe(ItemStack output){
+        return new PrecisionShapelessRecipeBuilder(output);
+    }
+
+    public static PrecisionShapelessRecipeBuilder precisionShapelessRecipe(ItemStack output, String id){
+        return new PrecisionShapelessRecipeBuilder(output,id);
+    }
 }

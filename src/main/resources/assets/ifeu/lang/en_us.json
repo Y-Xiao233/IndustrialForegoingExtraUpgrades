@@ -98,6 +98,9 @@
   "tooltip.ifeu.silk_addon_item_0": "Used for Platform Builder",
   "tooltip.ifeu.heal_addon_item_0": "Used in the Stasis Chamber to restore mob's health",
   "tooltip.ifeu.heal_addon_item_1": "Increase single blood return: %d points",
+  "tooltip.ifeu.chance_addon_item_0": "Used in Precision Crafting Table",
+  "tooltip.ifeu.chance_addon_item_1": "Increase crafting chance: INFINITY",
+  "tooltip.ifeu.chance_addon_item_2": "Increase crafting chance: %d",
 
   "item.ifeu.liquid_dragon_breath_bucket": "Liquid Dragon Breath Bucket",
   "item.ifeu.liquid_sculk_matter_bucket": "Liquid Sculk Matter Bucket",
@@ -144,6 +147,13 @@
   "item.ifeu.heal_addon_4": "Addon: Heal Tier 4",
   "item.ifeu.heal_addon_5": "Addon: Heal Tier 5",
   "item.ifeu.heal_addon_6": "Addon: Heal Tier 6",
+  "item.ifeu.chance_addon_1": "Addon: Chance Tier 1",
+  "item.ifeu.chance_addon_2": "Addon: Chance Tier 2",
+  "item.ifeu.chance_addon_3": "Addon: Chance Tier 3",
+  "item.ifeu.chance_addon_4": "Addon: Chance Tier 4",
+  "item.ifeu.chance_addon_5": "Addon: Chance Tier 5",
+  "item.ifeu.chance_addon_6": "Addon: Chance Tier 6",
+  "item.ifeu.creative_chance_addon": "Creaive Addon: Chance",
 
   "block.ifeu.infuser": "Infuser",
   "block.ifeu.dragon_star_generator": "Dragon Star Generator",
@@ -165,6 +175,7 @@
   "block.ifeu.dragon_star_essence": "Dragon Star Essence",
   "block.ifeu.simulated_hydroponic_bed": "Simulated Hydroponic Bed",
   "block.ifeu.platform_builder": "Platform Builder",
+  "block.ifeu.precision_crafting_table": "Precision Crafting Table",
 
   "fluid_type.ifeu.liquid_dragon_breath": "Liquid Dragon Breath",
   "fluid_type.ifeu.liquid_sculk_matter": "Liquid Sculk Matter",
@@ -187,6 +198,9 @@
   "jei.ifeu.structure_core": "Multiblock target machine",
   "jei.ifeu.structure_list": "Structure Required Material: ",
   "jei.ifeu.block_tag": "Accepts tag: ",
+  "jei.ifeu.precision_shaped": "Shaped Precision Crafting Recipe",
+  "jei.ifeu.precision_shapeless": "Shapeless Precision Crafting Recipe",
+  "jei.ifeu.chance": "Chance: %d",
 
   "weather.ifeu.clear": "Weather Clear",
   "weather.ifeu.rain": "Weather Rain",

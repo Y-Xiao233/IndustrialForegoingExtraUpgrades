@@ -124,6 +124,15 @@
 - 添加了插件: 治愈
 - 调整了部分配方的错误流体输入
 
+### v3.1.005
+- 添加了精密工作台,同时提供了KubeJS集成
+- 添加了插件: 概率,同时提供了KubeJS集成
+- 修复了流体工作部分合成逻辑错误的bug
+- 为流体工作台添加了锁以便于自动化
+- 修改了大量类名
+- 优化了大型溶解成型机的槽位输入逻辑(单个槽位内最大物品数量默认为锁定时槽位内物品数量,配置内可更改为机器最大线程)
+- 修改了一些配方
+- 更新了前置Titanium[4.0.36 -> 4.0.39]
 
 ## en_us
 ### v1.0.0
@@ -248,3 +257,13 @@
 ### v3.1.004
 - Added addon: Heal
 - Adjusted some incorrect fluid inputs in the recipes
+
+### v3.1.005
+- Added Precision Crafting Table and provided KubeJS integration
+- Added Addon: Chance and provided KubeJS integration
+- Fixed bug of crafting logic error in fluid crafting table
+- Locks have been added to fluid crafting table for automation purposes
+- Modified a large number of class names
+- Optimized the slot input logic of the Big Dissolution Chamber(the maximum number of items in a single slot is defaulted to the number of items in the locked slot, and can be changed to the maximum thread of the machine in the configuration)
+- Modified some recipes
+- Updated dependency:Titanium[4.0.36 -> 4.0.39]

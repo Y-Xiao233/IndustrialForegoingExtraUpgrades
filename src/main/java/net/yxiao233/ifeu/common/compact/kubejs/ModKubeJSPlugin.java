@@ -36,6 +36,7 @@ public class ModKubeJSPlugin implements KubeJSPlugin {
             reg.add("ifeu:thread_addon", ThreadAddonItemBuilder.class,ThreadAddonItemBuilder::new);
             reg.add("ifeu:apple_addon", AppleAddonItemBuilder.class,AppleAddonItemBuilder::new);
             reg.add("ifeu:heal_addon", HealAddonItemBuilder.class,HealAddonItemBuilder::new);
+            reg.add("ifeu:chance_addon", ChanceAddonItemBuilder.class,ChanceAddonItemBuilder::new);
         });
     }
 
@@ -45,7 +46,9 @@ public class ModKubeJSPlugin implements KubeJSPlugin {
                 .register("infuser", InfuserSchema.SCHEMA)
                 .register("arcane_dragon_egg_forging",ArcaneDragonEggForgingSchema.SCHEMA)
                 .register("shaped", ShapedSchema.SCHEMA)
-                .register("shapeless",ShapelessSchema.SCHEMA);
+                .register("shapeless",ShapelessSchema.SCHEMA)
+                .register("precision_shaped", PrecisionShapedSchema.SCHEMA)
+                .register("precision_shapeless", PrecisionShapelessSchema.SCHEMA);
 
         event.namespace("industrialforegoing")
                 .register("crusher", CrusherSchema.SCHEMA)

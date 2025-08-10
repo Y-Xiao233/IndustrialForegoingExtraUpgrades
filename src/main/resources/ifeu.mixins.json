@@ -10,7 +10,8 @@
     "entity.MixinSimulatedHydroponicBedTile",
     "entity.MixinStasisChamberTile",
     "item.MixinAugmentWrapper",
-    "jei.MixinDissolutionChamberCategory"
+    "jei.MixinDissolutionChamberCategory",
+    "screen.MixinSlotsScreenAddon"
   ],
   "client": [
   ],

@@ -11,7 +11,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.yxiao233.ifeu.common.block.entity.FluidTransferEntity;
 import net.yxiao233.ifeu.common.item.ConnectToolItem;
-import net.yxiao233.ifeu.common.registry.ModDataComponentTypes;
+import net.yxiao233.ifeu.common.registry.IFEUDataComponentTypes;
 import net.yxiao233.ifeu.common.utils.RendererProvider;
 import net.yxiao233.ifeu.common.utils.TagUtil;
 
@@ -36,8 +36,8 @@ public class FluidTransferRenderer implements BlockEntityRenderer<FluidTransferE
             ItemStack stack = player.getMainHandItem();
             if(stack.getItem() instanceof ConnectToolItem){
                 CompoundTag tag = new CompoundTag();
-                if(stack.has(ModDataComponentTypes.COMPOUND_TAG)){
-                    tag = stack.get(ModDataComponentTypes.COMPOUND_TAG);
+                if(stack.has(IFEUDataComponentTypes.COMPOUND_TAG)){
+                    tag = stack.get(IFEUDataComponentTypes.COMPOUND_TAG);
                 }
                 if(TagUtil.contains(tag,"mode")){
                     int mode = tag.getInt("mode");

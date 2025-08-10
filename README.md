@@ -12,6 +12,7 @@
 - 插件: 线程```event.create(id,"ifeu:thread_addon").setTier(tier)```
 - 插件: 苹果```event.create(id,"ifeu:apple_addon").setTier(tier)```
 - 插件: 治愈```event.create(id,"ifeu:heal_addon").setTier(tier)```
+- 插件: 概率```event.create(id,"ifeu:chance_addon").setTier(tier)```
 
 ### 示例
 ```JavaScript

@@ -8,12 +8,12 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.yxiao233.ifeu.common.block.entity.InfuserEntity;
-import net.yxiao233.ifeu.common.registry.ModItems;
+import net.yxiao233.ifeu.common.registry.IFEUItems;
 import org.jetbrains.annotations.NotNull;
 
 public class InfuserBlock extends IndustrialBlock<InfuserEntity> {
     public InfuserBlock() {
-        super("infuser", Properties.ofFullCopy(Blocks.IRON_BLOCK), InfuserEntity.class, ModItems.TAB_ADDONS);
+        super("infuser", Properties.ofFullCopy(Blocks.IRON_BLOCK), InfuserEntity.class, IFEUItems.TAB_ADDONS);
     }
 
     @Override

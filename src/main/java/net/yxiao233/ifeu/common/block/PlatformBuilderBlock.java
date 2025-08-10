@@ -4,7 +4,6 @@ import com.buuz135.industrial.block.IndustrialBlock;
 import com.hrznstudio.titanium.block.RotatableBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -19,13 +18,13 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.yxiao233.ifeu.common.block.entity.PlatformBuilderEntity;
 import net.yxiao233.ifeu.common.item.ConnectToolItem;
-import net.yxiao233.ifeu.common.registry.ModItems;
+import net.yxiao233.ifeu.common.registry.IFEUItems;
 import net.yxiao233.ifeu.common.utils.BlockBoxHelper;
 import org.jetbrains.annotations.NotNull;
 
 public class PlatformBuilderBlock extends IndustrialBlock<PlatformBuilderEntity> {
     public PlatformBuilderBlock() {
-        super("platform_builder", BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK), PlatformBuilderEntity.class, ModItems.TAB_ADDONS);
+        super("platform_builder", BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK), PlatformBuilderEntity.class, IFEUItems.TAB_ADDONS);
     }
 
     @Override

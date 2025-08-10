@@ -4,7 +4,7 @@ import dev.latvian.mods.kubejs.item.ItemBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.yxiao233.ifeu.api.item.HealAddonItem;
-import net.yxiao233.ifeu.common.registry.ModItems;
+import net.yxiao233.ifeu.common.registry.IFEUItems;
 
 public class HealAddonItemBuilder extends ItemBuilder {
 
@@ -19,6 +19,6 @@ public class HealAddonItemBuilder extends ItemBuilder {
 
     @Override
     public Item createObject() {
-        return new HealAddonItem(tier, ModItems.TAB_ADDONS);
+        return new HealAddonItem(tier, IFEUItems.TAB_ADDONS);
     }
 }

@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.yxiao233.ifeu.common.block.entity.FluidCraftingTableEntity;
-import net.yxiao233.ifeu.common.registry.ModItems;
+import net.yxiao233.ifeu.common.registry.IFEUItems;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 public class FluidCraftingTableBlock extends IndustrialBlock<FluidCraftingTableEntity> {
     public FluidCraftingTableBlock() {
-        super("fluid_crafting_table", Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.GLASS).noOcclusion(), FluidCraftingTableEntity.class, ModItems.TAB_ADDONS);
+        super("fluid_crafting_table", Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.GLASS).noOcclusion(), FluidCraftingTableEntity.class, IFEUItems.TAB_ADDONS);
     }
 
     @Override

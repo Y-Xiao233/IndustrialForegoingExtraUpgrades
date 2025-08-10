@@ -19,18 +19,18 @@ import net.yxiao233.ifeu.api.jei.AbstractJEICategory;
 import net.yxiao233.ifeu.common.compact.jei.ModRecipeType;
 import net.yxiao233.ifeu.common.gui.AllGuiTextures;
 import net.yxiao233.ifeu.common.recipe.BlockRightClickRecipe;
-import net.yxiao233.ifeu.common.registry.ModContents;
-import net.yxiao233.ifeu.common.registry.ModRecipes;
+import net.yxiao233.ifeu.common.registry.IFEUContents;
+import net.yxiao233.ifeu.common.registry.IFEURecipes;
 
 public class BlockRightClickCategory extends AbstractJEICategory<BlockRightClickRecipe> {
     public static final Component TITLE = Component.translatable("recipe.ifeu.block_right_click");
     public BlockRightClickCategory(IGuiHelper helper) {
-        super(helper, ModRecipeType.BLOCK_RIGHT_CLICK, TITLE, ModContents.DEAD_DRAGON_EGG_ITEM.get(), 140, 62);
+        super(helper, ModRecipeType.BLOCK_RIGHT_CLICK, TITLE, IFEUContents.DEAD_DRAGON_EGG_ITEM.get(), 140, 62);
     }
 
     @Override
     public RecipeType getTypeInstance() {
-        return ModRecipes.BLOCK_RIGHT_CLICK_TYPE.get();
+        return IFEURecipes.BLOCK_RIGHT_CLICK_TYPE.get();
     }
 
     @Override

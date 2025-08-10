@@ -17,8 +17,8 @@ import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.yxiao233.ifeu.common.block.entity.FluidCraftingTableEntity;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.registry.ModRecipes;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
+import net.yxiao233.ifeu.common.registry.IFEURecipes;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -123,16 +123,16 @@ public class ShapelessRecipe implements Recipe<CraftingInput> {
 
     @Override
     public ItemStack getToastSymbol() {
-        return ModBlocks.FLUID_CRAFTING_TABLE.asItem().getDefaultInstance();
+        return IFEUBlocks.FLUID_CRAFTING_TABLE.asItem().getDefaultInstance();
     }
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return ModRecipes.SHAPELESS_SERIALIZER.get();
+        return IFEURecipes.SHAPELESS_SERIALIZER.get();
     }
 
     @Override
     public RecipeType<?> getType() {
-        return ModRecipes.SHAPELESS_TYPE.get();
+        return IFEURecipes.SHAPELESS_TYPE.get();
     }
 }

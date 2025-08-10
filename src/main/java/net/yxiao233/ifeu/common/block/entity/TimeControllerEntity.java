@@ -37,8 +37,8 @@ import net.yxiao233.ifeu.common.gui.AllGuiTextures;
 import net.yxiao233.ifeu.common.networking.packet.BooleanSyncS2CPacket;
 import net.yxiao233.ifeu.api.networking.BooleanValueSyncS2C;
 import net.yxiao233.ifeu.common.networking.packet.TimeControllerEntityKeyDownSyncC2SPacket;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.registry.ModContents;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
+import net.yxiao233.ifeu.common.registry.IFEUContents;
 import net.yxiao233.ifeu.common.utils.KeyDownUtil;
 import net.yxiao233.ifeu.common.utils.TimeGetter;
 import org.jetbrains.annotations.NotNull;
@@ -67,10 +67,10 @@ public class TimeControllerEntity extends IndustrialProcessingTile<TimeControlle
     public static boolean isShiftDown;
     public static boolean isCtrlDown;
     public TimeControllerEntity(BlockPos blockPos, BlockState blockState) {
-        super(ModBlocks.TIME_CONTROLLER, 66, 40, blockPos, blockState);
+        super(IFEUBlocks.TIME_CONTROLLER, 66, 40, blockPos, blockState);
 
         this.addInventory(this.input = (SidedInventoryComponent<TimeControllerEntity>)(new SidedInventoryComponent<TimeControllerEntity>("dragon_star_input", 33, 40, 1, 0)).setColor(DyeColor.PURPLE).setInputFilter((stack, integer) -> {
-            return stack.is(ModContents.DRAGON_STAR.get());
+            return stack.is(IFEUContents.DRAGON_STAR.get());
         }).setOutputFilter((stack, integer) -> {
             return false;
         }).setComponentHarness(this));

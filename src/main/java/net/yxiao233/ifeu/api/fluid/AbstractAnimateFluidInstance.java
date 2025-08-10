@@ -41,6 +41,7 @@ public abstract class AbstractAnimateFluidInstance {
         this.fluidType = helper.registerGeneric(NeoForgeRegistries.FLUID_TYPES.key(), fluid, () -> {
             return new FluidType(fluidTypeProperties) {
                 @Override
+                @SuppressWarnings("removal")
                 public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer) {
                     consumer.accept(renderProperties);
                 }

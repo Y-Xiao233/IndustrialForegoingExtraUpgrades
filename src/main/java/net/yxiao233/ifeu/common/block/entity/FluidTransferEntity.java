@@ -37,7 +37,7 @@ import net.yxiao233.ifeu.common.config.machine.FluidTransferConfig;
 import net.yxiao233.ifeu.common.item.ConnectToolItem;
 import net.yxiao233.ifeu.common.networking.packet.BlockPosSyncS2CPacket;
 import net.yxiao233.ifeu.common.networking.packet.BooleanSyncS2CPacket;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collections;
@@ -62,7 +62,7 @@ public class FluidTransferEntity extends IndustrialProcessingTile<FluidTransferE
     public ButtonComponent buttonComponent2;
     public int maxTransfer;
     public FluidTransferEntity(BlockPos blockPos, BlockState blockState) {
-        super(ModBlocks.FLUID_TRANSFER,76,40, blockPos, blockState);
+        super(IFEUBlocks.FLUID_TRANSFER,76,40, blockPos, blockState);
 
         this.addTank(this.fluidStored = (SidedFluidTankComponent<FluidTransferEntity>) new SidedFluidTankComponent<FluidTransferEntity>("fluid_stored", FluidTransferConfig.maxTankSize,52,19,0)
                 .setColor(DyeColor.LIME)

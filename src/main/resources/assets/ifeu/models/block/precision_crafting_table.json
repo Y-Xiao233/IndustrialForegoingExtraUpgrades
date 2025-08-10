@@ -1,0 +1,11 @@
+{
+	"parent": "industrialforegoing:block/base_block",
+	"textures": {
+		"north": "industrialforegoing:block/base/side",
+		"south": "industrialforegoing:block/base/side",
+		"west": "industrialforegoing:block/base/side",
+		"east": "industrialforegoing:block/base/side",
+		"up": "ifeu:block/precision_crafting_table_top",
+		"down": "industrialforegoing:block/base/bottom"
+	}
+}

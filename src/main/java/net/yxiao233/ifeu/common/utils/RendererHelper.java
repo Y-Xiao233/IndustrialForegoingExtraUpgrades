@@ -24,7 +24,7 @@ import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtension
 import net.neoforged.neoforge.client.model.data.ModelData;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.yxiao233.ifeu.common.config.machine.FluidCraftingTableConfig;
-import net.yxiao233.ifeu.common.registry.ModRenderTypes;
+import net.yxiao233.ifeu.common.registry.IFEURenderTypes;
 import org.apache.commons.lang3.tuple.Triple;
 import org.joml.Matrix4f;
 import org.lwjgl.opengl.GL11;
@@ -152,7 +152,7 @@ public class RendererHelper {
     public static void renderSingleBatchedGhostBlock(PoseStack poseStack, MultiBufferSource multiBufferSource, BlockPos entityBlockPos, BlockPos renderBlockPos, BlockState blockState){
         Minecraft minecraft = Minecraft.getInstance();
         Level level = minecraft.level;
-        VertexConsumer consumer = multiBufferSource.getBuffer(ModRenderTypes.GHOST);
+        VertexConsumer consumer = multiBufferSource.getBuffer(IFEURenderTypes.GHOST);
         if(level == null){
             return;
         }
@@ -173,7 +173,7 @@ public class RendererHelper {
         renderGhostBlockContext(entityBlockPos,poseStack,() ->{
             poseStack.pushPose();
             poseStack.translate(renderBlockPos.getX(),renderBlockPos.getY(),renderBlockPos.getZ());
-            minecraft.getBlockRenderer().renderSingleBlock(blockState,poseStack,multiBufferSource,i1,i2,ModelData.EMPTY,ModRenderTypes.GHOST);
+            minecraft.getBlockRenderer().renderSingleBlock(blockState,poseStack,multiBufferSource,i1,i2,ModelData.EMPTY, IFEURenderTypes.GHOST);
             poseStack.popPose();
         });
     }
@@ -236,7 +236,7 @@ public class RendererHelper {
 
     @OnlyIn(Dist.CLIENT)
     public static void renderFaces(PoseStack stack,MultiBufferSource multiBufferSource, AABB aabb, BlockPos entityPos, Color color){
-        renderFaces(stack,multiBufferSource,ModRenderTypes.WORK_AREA,aabb,entityPos,color);
+        renderFaces(stack,multiBufferSource, IFEURenderTypes.WORK_AREA,aabb,entityPos,color);
     }
 
     @OnlyIn(Dist.CLIENT)

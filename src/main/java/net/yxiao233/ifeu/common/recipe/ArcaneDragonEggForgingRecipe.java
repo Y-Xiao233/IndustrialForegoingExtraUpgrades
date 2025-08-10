@@ -20,8 +20,8 @@ import net.neoforged.neoforge.common.conditions.ItemExistsCondition;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.neoforged.neoforge.items.IItemHandler;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.registry.ModRecipes;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
+import net.yxiao233.ifeu.common.registry.IFEURecipes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -107,14 +107,14 @@ public class ArcaneDragonEggForgingRecipe implements Recipe<CraftingInput> {
         return ((ItemStack)this.output.orElse(ItemStack.EMPTY)).copy();
     }
     public ItemStack getToastSymbol() {
-        return new ItemStack(ModBlocks.ARCANE_DRAGON_EGG_FORGING);
+        return new ItemStack(IFEUBlocks.ARCANE_DRAGON_EGG_FORGING);
     }
 
     public RecipeSerializer<?> getSerializer() {
-        return ModRecipes.ARCANE_DRAGON_EGG_FORGING_SERIALIZER.get();
+        return IFEURecipes.ARCANE_DRAGON_EGG_FORGING_SERIALIZER.get();
     }
 
     public RecipeType<?> getType() {
-        return ModRecipes.ARCANE_DRAGON_EGG_FORGING_TYPE.get();
+        return IFEURecipes.ARCANE_DRAGON_EGG_FORGING_TYPE.get();
     }
 }

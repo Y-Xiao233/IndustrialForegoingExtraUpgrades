@@ -7,9 +7,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -39,7 +37,7 @@ import static net.yxiao233.ifeu.common.utils.TooltipHelper.addTooltip;
 
 public class FluidTransferBlock extends IndustrialBlock<FluidTransferEntity> {
     public FluidTransferBlock() {
-        super("fluid_transfer", BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion(), FluidTransferEntity.class, ModItems.TAB_ADDONS);
+        super("fluid_transfer", BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion(), FluidTransferEntity.class, IFEUItems.TAB_ADDONS);
     }
 
     @Override
@@ -68,15 +66,15 @@ public class FluidTransferBlock extends IndustrialBlock<FluidTransferEntity> {
                         Ingredient.of(IndustrialTags.Items.PLASTIC),
                         Ingredient.of(Tags.Items.GLASS_PANES),
                         Ingredient.of(IndustrialTags.Items.PLASTIC),
-                        Ingredient.of(ModTags.Items.GEARS_NETHERITE),
-                        Ingredient.of(ModTags.Items.MACHINE_FRAME_ULTIMATE),
-                        Ingredient.of(ModTags.Items.GEARS_NETHERITE),
+                        Ingredient.of(IFEUTags.Items.GEARS_NETHERITE),
+                        Ingredient.of(IFEUTags.Items.MACHINE_FRAME_ULTIMATE),
+                        Ingredient.of(IFEUTags.Items.GEARS_NETHERITE),
                         Ingredient.of(ModuleCore.RANGE_ADDONS[3].get().getDefaultInstance()),
                         Ingredient.of(Items.BUCKET.getDefaultInstance()),
                         Ingredient.of(ModuleCore.RANGE_ADDONS[3].get().getDefaultInstance())
 
-                ),new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000),
-                ModBlocks.FLUID_TRANSFER.asItem().getDefaultInstance()
+                ),new FluidStack(IFEUFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000),
+                IFEUBlocks.FLUID_TRANSFER.asItem().getDefaultInstance()
         ));
     }
 

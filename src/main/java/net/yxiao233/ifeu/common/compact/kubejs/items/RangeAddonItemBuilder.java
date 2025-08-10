@@ -4,7 +4,7 @@ import com.buuz135.industrial.item.addon.RangeAddonItem;
 import dev.latvian.mods.kubejs.item.ItemBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.yxiao233.ifeu.common.registry.ModItems;
+import net.yxiao233.ifeu.common.registry.IFEUItems;
 
 public class RangeAddonItemBuilder extends ItemBuilder {
     private int tier;
@@ -18,6 +18,6 @@ public class RangeAddonItemBuilder extends ItemBuilder {
 
     @Override
     public Item createObject() {
-        return new RangeAddonItem(tier, ModItems.TAB_ADDONS);
+        return new RangeAddonItem(tier, IFEUItems.TAB_ADDONS);
     }
 }

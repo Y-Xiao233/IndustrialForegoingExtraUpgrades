@@ -6,40 +6,30 @@ import com.hrznstudio.titanium.tab.TitaniumTab;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.providers.nbt.ContextNbtProvider;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.ICapabilityProvider;
-import net.neoforged.neoforge.registries.DeferredHolder;
 import net.yxiao233.ifeu.api.block.entity.IFEUBlackHoleCapacitorEntity;
 import net.yxiao233.ifeu.api.capability.EnergyStorageItemStack;
-import net.yxiao233.ifeu.api.loot_table.IBlockLootTableProvider;
-import net.yxiao233.ifeu.client.data.loot.ModBlockLootTables;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.registry.ModItems;
-import net.yxiao233.ifeu.common.registry.ModRarity;
+import net.yxiao233.ifeu.common.registry.IFEUItems;
 import net.yxiao233.ifeu.common.utils.BlackHoleUtil;
 import net.yxiao233.ifeu.common.utils.TooltipHelper;
 import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Objects;
 
 public class IFEUBlackHoleCapacitorBlock extends IndustrialBlock<IFEUBlackHoleCapacitorEntity> {
     private Rarity rarity;
     public IFEUBlackHoleCapacitorBlock(String name, Rarity rarity) {
-        super(name, Properties.ofFullCopy(Blocks.IRON_BLOCK), IFEUBlackHoleCapacitorEntity.class, ModItems.TAB_ADDONS);
+        super(name, Properties.ofFullCopy(Blocks.IRON_BLOCK), IFEUBlackHoleCapacitorEntity.class, IFEUItems.TAB_ADDONS);
         this.rarity = rarity;
     }
 
@@ -51,14 +41,14 @@ public class IFEUBlackHoleCapacitorBlock extends IndustrialBlock<IFEUBlackHoleCa
     }
 
 //    private BlockEntityType<?> getRarityType() {
-//        if (this.rarity == ModRarity.PITY) {
-//            return (BlockEntityType<?>)((DeferredHolder<?,?>) ModBlocks.BLACK_HOLE_CAPACITOR_PITY.type()).get();
-//        } else if (this.rarity == ModRarity.SIMPLE) {
-//            return (BlockEntityType<?>)((DeferredHolder<?,?>)ModBlocks.BLACK_HOLE_CAPACITOR_SIMPLE.type()).get();
-//        } else if (this.rarity == ModRarity.ADVANCED) {
-//            return (BlockEntityType<?>)((DeferredHolder<?,?>) ModBlocks.BLACK_HOLE_CAPACITOR_ADVANCED.type()).get();
+//        if (this.rarity == IFEURarity.PITY) {
+//            return (BlockEntityType<?>)((DeferredHolder<?,?>) IFEUBlocks.BLACK_HOLE_CAPACITOR_PITY.type()).get();
+//        } else if (this.rarity == IFEURarity.SIMPLE) {
+//            return (BlockEntityType<?>)((DeferredHolder<?,?>)IFEUBlocks.BLACK_HOLE_CAPACITOR_SIMPLE.type()).get();
+//        } else if (this.rarity == IFEURarity.ADVANCED) {
+//            return (BlockEntityType<?>)((DeferredHolder<?,?>) IFEUBlocks.BLACK_HOLE_CAPACITOR_ADVANCED.type()).get();
 //        } else {
-//            return this.rarity == ModRarity.SUPREME ? (BlockEntityType<?>)((DeferredHolder<?,?>)ModBlocks.BLACK_HOLE_CAPACITOR_SUPREME.type()).get() : (BlockEntityType<?>)((DeferredHolder<?,?>)ModBlocks.BLACK_HOLE_CAPACITOR_PITY.type()).get();
+//            return this.rarity == IFEURarity.SUPREME ? (BlockEntityType<?>)((DeferredHolder<?,?>)IFEUBlocks.BLACK_HOLE_CAPACITOR_SUPREME.type()).get() : (BlockEntityType<?>)((DeferredHolder<?,?>)IFEUBlocks.BLACK_HOLE_CAPACITOR_PITY.type()).get();
 //        }
 //    }
 

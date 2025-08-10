@@ -4,12 +4,9 @@ import com.buuz135.industrial.module.ModuleCore;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.storage.loot.LootPool;
-import net.minecraft.world.level.storage.loot.LootTable;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.registry.ModContents;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
+import net.yxiao233.ifeu.common.registry.IFEUContents;
 
 import java.util.Arrays;
 import java.util.Set;
@@ -21,48 +18,50 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-        this.dropSelf(ModBlocks.INFUSER.getBlock());
-        this.dropSelf(ModBlocks.DRAGON_STAR_GENERATOR.getBlock());
-        this.dropSelf(ModBlocks.ARCANE_DRAGON_EGG_FORGING.getBlock());
-        this.dropSelf(ModBlocks.CREATIVE_CAPACITOR.getBlock());
-        this.dropSelf(ModBlocks.WEATHER_CONTROLLER.getBlock());
-        this.dropSelf(ModBlocks.TIME_CONTROLLER.getBlock());
-        this.dropSelf(ModBlocks.RULE_CONTROLLER.getBlock());
-        this.dropSelf(ModContents.ULTIMATE_MACHINE_FRAME.get());
-        this.dropSelf(ModContents.DRAGON_STAR_BLOCK.get());
-        this.dropSelf(ModBlocks.FLUID_CRAFTING_TABLE.getBlock());
-        this.dropSelf(ModBlocks.DRAGON_GENERATOR.getBlock());
-        this.dropSelf(ModBlocks.FLUID_TRANSFER.getBlock());
-        this.dropSelf(ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getBlock());
+        this.dropSelf(IFEUBlocks.INFUSER.getBlock());
+        this.dropSelf(IFEUBlocks.DRAGON_STAR_GENERATOR.getBlock());
+        this.dropSelf(IFEUBlocks.ARCANE_DRAGON_EGG_FORGING.getBlock());
+        this.dropSelf(IFEUBlocks.CREATIVE_CAPACITOR.getBlock());
+        this.dropSelf(IFEUBlocks.WEATHER_CONTROLLER.getBlock());
+        this.dropSelf(IFEUBlocks.TIME_CONTROLLER.getBlock());
+        this.dropSelf(IFEUBlocks.RULE_CONTROLLER.getBlock());
+        this.dropSelf(IFEUContents.ULTIMATE_MACHINE_FRAME.get());
+        this.dropSelf(IFEUContents.DRAGON_STAR_BLOCK.get());
+        this.dropSelf(IFEUBlocks.FLUID_CRAFTING_TABLE.getBlock());
+        this.dropSelf(IFEUBlocks.DRAGON_GENERATOR.getBlock());
+        this.dropSelf(IFEUBlocks.FLUID_TRANSFER.getBlock());
+        this.dropSelf(IFEUBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getBlock());
         this.dropSelf(ModuleCore.PITY.get());
         this.dropSelf(ModuleCore.SIMPLE.get());
         this.dropSelf(ModuleCore.ADVANCED.get());
         this.dropSelf(ModuleCore.SUPREME.get());
-        this.dropSelf(ModBlocks.PLATFORM_BUILDER.getBlock());
+        this.dropSelf(IFEUBlocks.PLATFORM_BUILDER.getBlock());
+        this.dropSelf(IFEUBlocks.PRECISION_CRAFTING_TABLE.getBlock());
     }
 
     @Override
     protected Iterable<Block> getKnownBlocks() {
         //注册方法时后面加上.noLootTable()就不需要在这里写
         Iterable<Block> iterable = Arrays.asList(
-                ModBlocks.INFUSER.getBlock(),
-                ModBlocks.DRAGON_STAR_GENERATOR.getBlock(),
-                ModBlocks.ARCANE_DRAGON_EGG_FORGING.getBlock(),
-                ModBlocks.CREATIVE_CAPACITOR.getBlock(),
-                ModBlocks.RULE_CONTROLLER.getBlock(),
-                ModBlocks.WEATHER_CONTROLLER.getBlock(),
-                ModBlocks.TIME_CONTROLLER.getBlock(),
-                ModContents.ULTIMATE_MACHINE_FRAME.get(),
-                ModContents.DRAGON_STAR_BLOCK.get(),
-                ModBlocks.FLUID_CRAFTING_TABLE.getBlock(),
-                ModBlocks.DRAGON_GENERATOR.getBlock(),
-                ModBlocks.FLUID_TRANSFER.getBlock(),
-                ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getBlock(),
+                IFEUBlocks.INFUSER.getBlock(),
+                IFEUBlocks.DRAGON_STAR_GENERATOR.getBlock(),
+                IFEUBlocks.ARCANE_DRAGON_EGG_FORGING.getBlock(),
+                IFEUBlocks.CREATIVE_CAPACITOR.getBlock(),
+                IFEUBlocks.RULE_CONTROLLER.getBlock(),
+                IFEUBlocks.WEATHER_CONTROLLER.getBlock(),
+                IFEUBlocks.TIME_CONTROLLER.getBlock(),
+                IFEUContents.ULTIMATE_MACHINE_FRAME.get(),
+                IFEUContents.DRAGON_STAR_BLOCK.get(),
+                IFEUBlocks.FLUID_CRAFTING_TABLE.getBlock(),
+                IFEUBlocks.DRAGON_GENERATOR.getBlock(),
+                IFEUBlocks.FLUID_TRANSFER.getBlock(),
+                IFEUBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getBlock(),
                 ModuleCore.PITY.get(),
                 ModuleCore.SIMPLE.get(),
                 ModuleCore.ADVANCED.get(),
                 ModuleCore.SUPREME.get(),
-                ModBlocks.PLATFORM_BUILDER.getBlock()
+                IFEUBlocks.PLATFORM_BUILDER.getBlock(),
+                IFEUBlocks.PRECISION_CRAFTING_TABLE.getBlock()
         );
         return iterable;
     }

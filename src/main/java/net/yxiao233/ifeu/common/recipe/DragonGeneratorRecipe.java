@@ -13,7 +13,7 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.yxiao233.ifeu.api.recipe.FluidGeneratorSerializableRecipe;
-import net.yxiao233.ifeu.common.registry.ModRecipes;
+import net.yxiao233.ifeu.common.registry.IFEURecipes;
 
 public class DragonGeneratorRecipe extends FluidGeneratorSerializableRecipe {
     public static final MapCodec<DragonGeneratorRecipe> CODEC = RecordCodecBuilder.mapCodec((in) -> {
@@ -46,11 +46,11 @@ public class DragonGeneratorRecipe extends FluidGeneratorSerializableRecipe {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return ModRecipes.DRAGON_GENERATOR_SERIALIZER.get();
+        return IFEURecipes.DRAGON_GENERATOR_SERIALIZER.get();
     }
 
     @Override
     public RecipeType<?> getType() {
-        return ModRecipes.DRAGON_GENERATOR_TYPE.get();
+        return IFEURecipes.DRAGON_GENERATOR_TYPE.get();
     }
 }
