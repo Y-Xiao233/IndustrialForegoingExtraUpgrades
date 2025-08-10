@@ -18,4 +18,6 @@ public class BigDissolutionChamberConfig {
     public static int maxOutputTankSize = 64000;
     @ConfigVal(comment = "Default Max Thread - Default: [8]")
     public static int maxThread = 8;
+    @ConfigVal(comment = "Item input rules, 0: The maximum number of items in the slot is the corresponding number of items in the slot when locked, 1: The maximum number of items in the slot is the machine thread - Default: [0]")
+    public static int inputRule = 0;
 }
