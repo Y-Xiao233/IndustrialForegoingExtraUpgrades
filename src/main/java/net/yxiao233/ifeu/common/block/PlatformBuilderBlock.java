@@ -15,13 +15,13 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.yxiao233.ifeu.common.block.entity.PlatformBuilderEntity;
 import net.yxiao233.ifeu.common.item.ConnectToolItem;
-import net.yxiao233.ifeu.common.registry.ModItems;
+import net.yxiao233.ifeu.common.registry.IFEUItems;
 import net.yxiao233.ifeu.common.utils.BlockBoxHelper;
 import org.jetbrains.annotations.NotNull;
 
 public class PlatformBuilderBlock extends IndustrialBlock<PlatformBuilderEntity> {
     public PlatformBuilderBlock() {
-        super("platform_builder", Properties.copy(Blocks.IRON_BLOCK), PlatformBuilderEntity.class, ModItems.TAB_ADDONS);
+        super("platform_builder", Properties.copy(Blocks.IRON_BLOCK), PlatformBuilderEntity.class, IFEUItems.TAB_ADDONS);
     }
 
     @Override

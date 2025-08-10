@@ -9,9 +9,9 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Supplier;
 
-public enum ModTiers implements Tier {
+public enum IFEUTiers implements Tier {
     DRAGON_STAR(5,4096,18.0F,7.0F,25, () -> {
-        return Ingredient.of(ModContents.DRAGON_STAR.get());
+        return Ingredient.of(IFEUContents.DRAGON_STAR.get());
     });
 
 
@@ -22,7 +22,7 @@ public enum ModTiers implements Tier {
     private final int enchantmentValue;
     private final LazyLoadedValue<Ingredient> repairIngredient;
 
-    private ModTiers(int pLevel, int pUses, float pSpeed, float pDamage, int pEnchantmentValue, Supplier pRepairIngredient) {
+    private IFEUTiers(int pLevel, int pUses, float pSpeed, float pDamage, int pEnchantmentValue, Supplier pRepairIngredient) {
         this.level = pLevel;
         this.uses = pUses;
         this.speed = pSpeed;
@@ -58,11 +58,11 @@ public enum ModTiers implements Tier {
         return getTagFromVanillaTier(this);
     }
 
-    public static TagKey<Block> getTagFromVanillaTier(ModTiers modTiers) {
+    public static TagKey<Block> getTagFromVanillaTier(IFEUTiers modTiers) {
         TagKey var10000;
         switch (modTiers) {
             case DRAGON_STAR:
-                var10000 = ModTags.Blocks.NEEDS_DRAGON_STAR_TOOL;
+                var10000 = IFEUTags.Blocks.NEEDS_DRAGON_STAR_TOOL;
                 break;
             default:
                 throw new IncompatibleClassChangeError();

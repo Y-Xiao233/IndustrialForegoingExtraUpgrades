@@ -5,7 +5,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.yxiao233.ifeu.api.recipe.ItemGeneratorSerializableRecipe;
-import net.yxiao233.ifeu.common.registry.ModRecipes;
+import net.yxiao233.ifeu.common.registry.IFEURecipes;
 
 public class DragonStarGeneratorRecipe extends ItemGeneratorSerializableRecipe {
 
@@ -21,11 +21,11 @@ public class DragonStarGeneratorRecipe extends ItemGeneratorSerializableRecipe {
 
     @Override
     public RecipeSerializer<?> getRecipeSerializer() {
-        return ModRecipes.DRAGON_STAR_GENERATOR_SERIALIZER.get();
+        return IFEURecipes.DRAGON_STAR_GENERATOR_SERIALIZER.get();
     }
 
     @Override
     public RecipeType<?> getType() {
-        return ModRecipes.DRAGON_STAR_GENERATOR_TYPE.get();
+        return IFEURecipes.DRAGON_STAR_GENERATOR_TYPE.get();
     }
 }

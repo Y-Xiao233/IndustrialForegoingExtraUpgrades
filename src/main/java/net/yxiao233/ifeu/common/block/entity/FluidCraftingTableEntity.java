@@ -14,7 +14,6 @@ import com.hrznstudio.titanium.component.button.ButtonComponent;
 import com.hrznstudio.titanium.component.energy.EnergyStorageComponent;
 import com.hrznstudio.titanium.component.fluid.FluidTankComponent;
 import com.hrznstudio.titanium.component.fluid.SidedFluidTankComponent;
-import com.hrznstudio.titanium.component.inventory.InventoryComponent;
 import com.hrznstudio.titanium.component.inventory.SidedInventoryComponent;
 import com.hrznstudio.titanium.util.LangUtil;
 import com.hrznstudio.titanium.util.RecipeUtil;
@@ -35,8 +34,8 @@ import net.minecraftforge.items.ItemHandlerHelper;
 import net.yxiao233.ifeu.common.config.machine.FluidCraftingTableConfig;
 import net.yxiao233.ifeu.common.recipe.ShapedRecipe;
 import net.yxiao233.ifeu.common.recipe.ShapelessRecipe;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.registry.ModRecipes;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
+import net.yxiao233.ifeu.common.registry.IFEURecipes;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collections;
@@ -65,7 +64,7 @@ public class FluidCraftingTableEntity extends IndustrialProcessingTile<FluidCraf
     @Save
     public boolean isFluidRender = true;
     public FluidCraftingTableEntity(BlockPos blockPos, BlockState blockState) {
-        super(ModBlocks.FLUID_CRAFTING_TABLE,102,41,blockPos,blockState);
+        super(IFEUBlocks.FLUID_CRAFTING_TABLE,102,41,blockPos,blockState);
         int slotSpacing = 22;
 
         this.addBundle(this.inputs = new LockableInventoryBundle<>(this,
@@ -188,10 +187,10 @@ public class FluidCraftingTableEntity extends IndustrialProcessingTile<FluidCraf
                 return;
             }
 
-            shapelessRecipe = RecipeUtil.getRecipes(this.level,(RecipeType<ShapelessRecipe>) ModRecipes.SHAPELESS_TYPE.get()).stream().filter(recipe -> recipe.matches(inputs.getInventory(),inputFluid)).findFirst().orElse(null);
+            shapelessRecipe = RecipeUtil.getRecipes(this.level,(RecipeType<ShapelessRecipe>) IFEURecipes.SHAPELESS_TYPE.get()).stream().filter(recipe -> recipe.matches(inputs.getInventory(),inputFluid)).findFirst().orElse(null);
 
             if(shapelessRecipe == null){
-                shapedRecipe = RecipeUtil.getRecipes(this.level,(RecipeType<ShapedRecipe>) ModRecipes.SHAPED_TYPE.get()).stream().filter(recipe -> recipe.matches(inputs.getInventory(),inputFluid)).findFirst().orElse(null);
+                shapedRecipe = RecipeUtil.getRecipes(this.level,(RecipeType<ShapedRecipe>) IFEURecipes.SHAPED_TYPE.get()).stream().filter(recipe -> recipe.matches(inputs.getInventory(),inputFluid)).findFirst().orElse(null);
             }
         }
     }

@@ -4,7 +4,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 
-public class ModFoodProperties {
+public class IFEUFoodProperties {
     public static final FoodProperties APPLE_CORE = new FoodProperties.Builder()
             .alwaysEat()
             .nutrition(1)

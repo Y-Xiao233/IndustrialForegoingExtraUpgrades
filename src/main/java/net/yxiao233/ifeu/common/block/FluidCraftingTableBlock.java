@@ -4,31 +4,24 @@ import com.buuz135.industrial.block.IndustrialBlock;
 import com.buuz135.industrial.module.ModuleCore;
 import com.buuz135.industrial.recipe.DissolutionChamberRecipe;
 import com.buuz135.industrial.utils.IndustrialTags;
-import com.hrznstudio.titanium.tab.TitaniumTab;
-import net.minecraft.core.BlockPos;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.fluids.FluidStack;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.common.block.entity.FluidCraftingTableEntity;
-import net.yxiao233.ifeu.common.registry.ModContents;
-import net.yxiao233.ifeu.common.registry.ModFluids;
-import net.yxiao233.ifeu.common.registry.ModItems;
+import net.yxiao233.ifeu.common.registry.IFEUItems;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Consumer;
 
 public class FluidCraftingTableBlock extends IndustrialBlock<FluidCraftingTableEntity> {
     public FluidCraftingTableBlock() {
-        super("fluid_crafting_table", Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.GLASS).noOcclusion(), FluidCraftingTableEntity.class, ModItems.TAB_ADDONS);
+        super("fluid_crafting_table", Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.GLASS).noOcclusion(), FluidCraftingTableEntity.class, IFEUItems.TAB_ADDONS);
     }
 
     @Override

@@ -7,15 +7,12 @@ import com.buuz135.industrial.utils.IndustrialTags;
 import com.hrznstudio.titanium.module.DeferredRegistryHelper;
 import com.hrznstudio.titanium.tab.TitaniumTab;
 import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -23,11 +20,10 @@ import net.minecraftforge.registries.RegistryObject;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.api.item.*;
 import net.yxiao233.ifeu.api.recipe.builder.IFEURecipeBuilders;
-import net.yxiao233.ifeu.common.utils.EnchantUtil;
 
 import java.util.function.Consumer;
 
-public class ModItems implements IModule {
+public class IFEUItems implements IModule {
     public static TitaniumTab TAB_ADDONS = new TitaniumTab(new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID, "extra_upgrades"));
     public static RegistryObject<Item> SPEED_ADDON_3;
     public static RegistryObject<Item> SPEED_ADDON_4;
@@ -78,8 +74,8 @@ public class ModItems implements IModule {
                         tagValue(Tags.Items.DUSTS_REDSTONE),
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
-                        tagValue(ModTags.Items.GEARS_NETHERITE),
-                        tagValue(ModTags.Items.GEARS_NETHERITE),
+                        tagValue(IFEUTags.Items.GEARS_NETHERITE),
+                        tagValue(IFEUTags.Items.GEARS_NETHERITE),
                         itemValue(Items.SUGAR.getDefaultInstance()),
                         itemValue(Items.SUGAR.getDefaultInstance())
                 },
@@ -96,8 +92,8 @@ public class ModItems implements IModule {
                         tagValue(Tags.Items.DUSTS_REDSTONE),
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
-                        tagValue(ModTags.Items.GEARS_SCULK),
-                        tagValue(ModTags.Items.GEARS_SCULK),
+                        tagValue(IFEUTags.Items.GEARS_SCULK),
+                        tagValue(IFEUTags.Items.GEARS_SCULK),
                         itemValue(Items.SUGAR.getDefaultInstance()),
                         itemValue(Items.SUGAR.getDefaultInstance())
                 },
@@ -132,12 +128,12 @@ public class ModItems implements IModule {
                         tagValue(Tags.Items.DUSTS_REDSTONE),
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
-                        itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
-                        itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
+                        itemValue(IFEUContents.DRAGON_STAR.get().getDefaultInstance()),
+                        itemValue(IFEUContents.DRAGON_STAR.get().getDefaultInstance()),
                         itemValue(Items.SUGAR.getDefaultInstance()),
                         itemValue(Items.SUGAR.getDefaultInstance())
                 },
-                        new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),2000),200,
+                        new FluidStack(IFEUFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),2000),200,
                         new ItemStack(this),FluidStack.EMPTY);
             }
         });
@@ -151,8 +147,8 @@ public class ModItems implements IModule {
                         tagValue(Tags.Items.DUSTS_REDSTONE),
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
-                        tagValue(ModTags.Items.GEARS_NETHERITE),
-                        tagValue(ModTags.Items.GEARS_NETHERITE),
+                        tagValue(IFEUTags.Items.GEARS_NETHERITE),
+                        tagValue(IFEUTags.Items.GEARS_NETHERITE),
                         itemValue(Items.BLAZE_ROD.getDefaultInstance()),
                         itemValue(Items.BLAZE_ROD.getDefaultInstance())
                 },
@@ -169,8 +165,8 @@ public class ModItems implements IModule {
                         tagValue(Tags.Items.DUSTS_REDSTONE),
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
-                        tagValue(ModTags.Items.GEARS_SCULK),
-                        tagValue(ModTags.Items.GEARS_SCULK),
+                        tagValue(IFEUTags.Items.GEARS_SCULK),
+                        tagValue(IFEUTags.Items.GEARS_SCULK),
                         itemValue(Items.BLAZE_ROD.getDefaultInstance()),
                         itemValue(Items.BLAZE_ROD.getDefaultInstance())
                 },
@@ -205,12 +201,12 @@ public class ModItems implements IModule {
                         tagValue(Tags.Items.DUSTS_REDSTONE),
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
-                        itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
-                        itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
+                        itemValue(IFEUContents.DRAGON_STAR.get().getDefaultInstance()),
+                        itemValue(IFEUContents.DRAGON_STAR.get().getDefaultInstance()),
                         itemValue(Items.BLAZE_ROD.getDefaultInstance()),
                         itemValue(Items.BLAZE_ROD.getDefaultInstance())
                 },
-                        new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),2000),200,
+                        new FluidStack(IFEUFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),2000),200,
                         new ItemStack(this),FluidStack.EMPTY);
             }
         });
@@ -225,8 +221,8 @@ public class ModItems implements IModule {
                         tagValue(Tags.Items.DUSTS_REDSTONE),
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
-                        tagValue(ModTags.Items.GEARS_NETHERITE),
-                        tagValue(ModTags.Items.GEARS_NETHERITE),
+                        tagValue(IFEUTags.Items.GEARS_NETHERITE),
+                        tagValue(IFEUTags.Items.GEARS_NETHERITE),
                         itemValue(Items.FURNACE.getDefaultInstance()),
                         itemValue(Items.CRAFTING_TABLE.getDefaultInstance())
                 },
@@ -243,8 +239,8 @@ public class ModItems implements IModule {
                         tagValue(Tags.Items.DUSTS_REDSTONE),
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
-                        tagValue(ModTags.Items.GEARS_SCULK),
-                        tagValue(ModTags.Items.GEARS_SCULK),
+                        tagValue(IFEUTags.Items.GEARS_SCULK),
+                        tagValue(IFEUTags.Items.GEARS_SCULK),
                         itemValue(Items.FURNACE.getDefaultInstance()),
                         itemValue(Items.CRAFTING_TABLE.getDefaultInstance())
                 },
@@ -280,12 +276,12 @@ public class ModItems implements IModule {
                             tagValue(Tags.Items.DUSTS_REDSTONE),
                             tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                             tagValue(Tags.Items.GLASS_PANES_COLORLESS),
-                            itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
-                            itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
+                            itemValue(IFEUContents.DRAGON_STAR.get().getDefaultInstance()),
+                            itemValue(IFEUContents.DRAGON_STAR.get().getDefaultInstance()),
                             itemValue(Items.FURNACE.getDefaultInstance()),
                             itemValue(Items.CRAFTING_TABLE.getDefaultInstance())
                         },
-                        new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000),200,
+                        new FluidStack(IFEUFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000),200,
                         new ItemStack(this),FluidStack.EMPTY
                 );
             }
@@ -340,8 +336,8 @@ public class ModItems implements IModule {
                                 tagValue(Tags.Items.DUSTS_REDSTONE),
                                 tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                                 tagValue(Tags.Items.GLASS_PANES_COLORLESS),
-                                tagValue(ModTags.Items.GEARS_NETHERITE),
-                                tagValue(ModTags.Items.GEARS_NETHERITE),
+                                tagValue(IFEUTags.Items.GEARS_NETHERITE),
+                                tagValue(IFEUTags.Items.GEARS_NETHERITE),
                                 itemValue(Items.ECHO_SHARD.getDefaultInstance()),
                                 tagValue(Tags.Items.INGOTS_NETHERITE)
                         },
@@ -360,8 +356,8 @@ public class ModItems implements IModule {
                                 tagValue(Tags.Items.DUSTS_REDSTONE),
                                 tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                                 tagValue(Tags.Items.GLASS_PANES_COLORLESS),
-                                tagValue(ModTags.Items.GEARS_SCULK),
-                                tagValue(ModTags.Items.GEARS_SCULK),
+                                tagValue(IFEUTags.Items.GEARS_SCULK),
+                                tagValue(IFEUTags.Items.GEARS_SCULK),
                                 itemValue(Items.ECHO_SHARD.getDefaultInstance()),
                                 tagValue(Tags.Items.INGOTS_NETHERITE)
                         },
@@ -400,12 +396,12 @@ public class ModItems implements IModule {
                                 tagValue(Tags.Items.DUSTS_REDSTONE),
                                 tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                                 tagValue(Tags.Items.GLASS_PANES_COLORLESS),
-                                itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
-                                itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
+                                itemValue(IFEUContents.DRAGON_STAR.get().getDefaultInstance()),
+                                itemValue(IFEUContents.DRAGON_STAR.get().getDefaultInstance()),
                                 itemValue(Items.ECHO_SHARD.getDefaultInstance()),
                                 tagValue(Tags.Items.INGOTS_NETHERITE)
                         },
-                        new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000),200,
+                        new FluidStack(IFEUFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000),200,
                         new ItemStack(this),FluidStack.EMPTY
                 );
             }
@@ -423,10 +419,10 @@ public class ModItems implements IModule {
                                 tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                                 tagValue(IndustrialTags.Items.GEAR_GOLD),
                                 tagValue(IndustrialTags.Items.GEAR_GOLD),
-                                itemValue(ModContents.APPLE_CORE.get().getDefaultInstance()),
-                                itemValue(ModContents.APPLE_CORE.get().getDefaultInstance())
+                                itemValue(IFEUContents.APPLE_CORE.get().getDefaultInstance()),
+                                itemValue(IFEUContents.APPLE_CORE.get().getDefaultInstance())
                         },
-                        new FluidStack(ModFluids.LIQUID_MALIC_ACID.getSourceFluid().get(), 10), 200,
+                        new FluidStack(IFEUFluids.LIQUID_MALIC_ACID.getSourceFluid().get(), 10), 200,
                         new ItemStack(this),FluidStack.EMPTY
                 );
             }
@@ -443,10 +439,10 @@ public class ModItems implements IModule {
                                 tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                                 tagValue(IndustrialTags.Items.GEAR_DIAMOND),
                                 tagValue(IndustrialTags.Items.GEAR_DIAMOND),
-                                itemValue(ModItems.APPLE_ADDON_1.get().getDefaultInstance()),
-                                itemValue(ModContents.APPLE_CORE.get().getDefaultInstance())
+                                itemValue(IFEUItems.APPLE_ADDON_1.get().getDefaultInstance()),
+                                itemValue(IFEUContents.APPLE_CORE.get().getDefaultInstance())
                         },
-                        new FluidStack(ModFluids.LIQUID_MALIC_ACID.getSourceFluid().get(), 100), 200,
+                        new FluidStack(IFEUFluids.LIQUID_MALIC_ACID.getSourceFluid().get(), 100), 200,
                         new ItemStack(this),FluidStack.EMPTY
                 );
             }
@@ -461,12 +457,12 @@ public class ModItems implements IModule {
                                 tagValue(Tags.Items.DUSTS_REDSTONE),
                                 tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                                 tagValue(Tags.Items.GLASS_PANES_COLORLESS),
-                                tagValue(ModTags.Items.GEARS_NETHERITE),
-                                tagValue(ModTags.Items.GEARS_NETHERITE),
-                                itemValue(ModItems.APPLE_ADDON_2.get().getDefaultInstance()),
-                                itemValue(ModContents.APPLE_CORE.get().getDefaultInstance())
+                                tagValue(IFEUTags.Items.GEARS_NETHERITE),
+                                tagValue(IFEUTags.Items.GEARS_NETHERITE),
+                                itemValue(IFEUItems.APPLE_ADDON_2.get().getDefaultInstance()),
+                                itemValue(IFEUContents.APPLE_CORE.get().getDefaultInstance())
                         },
-                        new FluidStack(ModFluids.LIQUID_MALIC_ACID.getSourceFluid().get(), 1000), 200,
+                        new FluidStack(IFEUFluids.LIQUID_MALIC_ACID.getSourceFluid().get(), 1000), 200,
                         new ItemStack(this),FluidStack.EMPTY
                 );
             }
@@ -481,12 +477,12 @@ public class ModItems implements IModule {
                                 tagValue(Tags.Items.DUSTS_REDSTONE),
                                 tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                                 tagValue(Tags.Items.GLASS_PANES_COLORLESS),
-                                tagValue(ModTags.Items.GEARS_SCULK),
-                                tagValue(ModTags.Items.GEARS_SCULK),
-                                itemValue(ModItems.APPLE_ADDON_3.get().getDefaultInstance()),
-                                itemValue(ModContents.APPLE_CORE.get().getDefaultInstance())
+                                tagValue(IFEUTags.Items.GEARS_SCULK),
+                                tagValue(IFEUTags.Items.GEARS_SCULK),
+                                itemValue(IFEUItems.APPLE_ADDON_3.get().getDefaultInstance()),
+                                itemValue(IFEUContents.APPLE_CORE.get().getDefaultInstance())
                         },
-                        new FluidStack(ModFluids.LIQUID_MALIC_ACID.getSourceFluid().get(), 2000), 200,
+                        new FluidStack(IFEUFluids.LIQUID_MALIC_ACID.getSourceFluid().get(), 2000), 200,
                         new ItemStack(this),FluidStack.EMPTY
                 );
             }
@@ -503,10 +499,10 @@ public class ModItems implements IModule {
                                 tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                                 itemValue(Items.NETHER_STAR.getDefaultInstance()),
                                 itemValue(Items.NETHER_STAR.getDefaultInstance()),
-                                itemValue(ModItems.APPLE_ADDON_4.get().getDefaultInstance()),
-                                itemValue(ModContents.APPLE_CORE.get().getDefaultInstance())
+                                itemValue(IFEUItems.APPLE_ADDON_4.get().getDefaultInstance()),
+                                itemValue(IFEUContents.APPLE_CORE.get().getDefaultInstance())
                         },
-                        new FluidStack(ModFluids.LIQUID_MALIC_ACID.getSourceFluid().get(), 4000), 200,
+                        new FluidStack(IFEUFluids.LIQUID_MALIC_ACID.getSourceFluid().get(), 4000), 200,
                         new ItemStack(this),FluidStack.EMPTY
                 );
             }
@@ -520,12 +516,12 @@ public class ModItems implements IModule {
                                 tagValue(Tags.Items.DUSTS_REDSTONE),
                                 tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                                 tagValue(Tags.Items.GLASS_PANES_COLORLESS),
-                                itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
-                                itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
-                                itemValue(ModItems.APPLE_ADDON_5.get().getDefaultInstance()),
-                                itemValue(ModContents.APPLE_CORE.get().getDefaultInstance())
+                                itemValue(IFEUContents.DRAGON_STAR.get().getDefaultInstance()),
+                                itemValue(IFEUContents.DRAGON_STAR.get().getDefaultInstance()),
+                                itemValue(IFEUItems.APPLE_ADDON_5.get().getDefaultInstance()),
+                                itemValue(IFEUContents.APPLE_CORE.get().getDefaultInstance())
                         },
-                        new FluidStack(ModFluids.LIQUID_MALIC_ACID.getSourceFluid().get(), 8000), 200,
+                        new FluidStack(IFEUFluids.LIQUID_MALIC_ACID.getSourceFluid().get(), 8000), 200,
                         new ItemStack(this),FluidStack.EMPTY
                 );
             }
@@ -534,14 +530,14 @@ public class ModItems implements IModule {
         SILK_ADDON = helper.registerGeneric(ForgeRegistries.ITEMS.getRegistryKey(), "silk_addon", () -> new SilkTouchAddonItem(TAB_ADDONS){
             @Override
             public void registerRecipe(Consumer<FinishedRecipe> consumer) {
-                IFEURecipeBuilders.dissolutionChamberRecipe(ModItems.SILK_ADDON.get().getDefaultInstance())
+                IFEURecipeBuilders.dissolutionChamberRecipe(IFEUItems.SILK_ADDON.get().getDefaultInstance())
                         .inputs(
                                 tagValue(Tags.Items.DUSTS_REDSTONE),
                                 tagValue(Tags.Items.DUSTS_REDSTONE),
                                 tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                                 tagValue(Tags.Items.GLASS_PANES_COLORLESS),
-                                tagValue(ModTags.Items.GEARS_SCULK),
-                                tagValue(ModTags.Items.GEARS_SCULK),
+                                tagValue(IFEUTags.Items.GEARS_SCULK),
+                                tagValue(IFEUTags.Items.GEARS_SCULK),
                                 itemValue(Items.DIAMOND_PICKAXE.getDefaultInstance()),
                                 itemValue(Items.BOOK.getDefaultInstance())
                         )
@@ -585,7 +581,7 @@ public class ModItems implements IModule {
                                 tagValue(IndustrialTags.Items.GEAR_DIAMOND),
                                 tagValue(IndustrialTags.Items.GEAR_DIAMOND),
                                 itemValue(Items.GOLDEN_APPLE.getDefaultInstance()),
-                                itemValue(ModItems.HEAL_ADDON_1.get().getDefaultInstance())
+                                itemValue(IFEUItems.HEAL_ADDON_1.get().getDefaultInstance())
                         )
                         .inputFluid(new FluidStack(ModuleCore.LATEX.getSourceFluid().get(),2000))
                         .processingTime(200)
@@ -602,10 +598,10 @@ public class ModItems implements IModule {
                                 tagValue(Tags.Items.DUSTS_REDSTONE),
                                 tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                                 tagValue(Tags.Items.GLASS_PANES_COLORLESS),
-                                tagValue(ModTags.Items.GEARS_NETHERITE),
-                                tagValue(ModTags.Items.GEARS_NETHERITE),
+                                tagValue(IFEUTags.Items.GEARS_NETHERITE),
+                                tagValue(IFEUTags.Items.GEARS_NETHERITE),
                                 itemValue(Items.GOLDEN_APPLE.getDefaultInstance()),
-                                itemValue(ModItems.HEAL_ADDON_2.get().getDefaultInstance())
+                                itemValue(IFEUItems.HEAL_ADDON_2.get().getDefaultInstance())
                         )
                         .inputFluid(new FluidStack(ModuleCore.PINK_SLIME.getSourceFluid().get(),1000))
                         .processingTime(200)
@@ -622,10 +618,10 @@ public class ModItems implements IModule {
                                 tagValue(Tags.Items.DUSTS_REDSTONE),
                                 tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                                 tagValue(Tags.Items.GLASS_PANES_COLORLESS),
-                                tagValue(ModTags.Items.GEARS_SCULK),
-                                tagValue(ModTags.Items.GEARS_SCULK),
+                                tagValue(IFEUTags.Items.GEARS_SCULK),
+                                tagValue(IFEUTags.Items.GEARS_SCULK),
                                 itemValue(Items.GOLDEN_APPLE.getDefaultInstance()),
-                                itemValue(ModItems.HEAL_ADDON_3.get().getDefaultInstance())
+                                itemValue(IFEUItems.HEAL_ADDON_3.get().getDefaultInstance())
                         )
                         .inputFluid(new FluidStack(ModuleCore.PINK_SLIME.getSourceFluid().get(),2000))
                         .processingTime(200)
@@ -645,7 +641,7 @@ public class ModItems implements IModule {
                                 itemValue(Items.NETHER_STAR.getDefaultInstance()),
                                 itemValue(Items.NETHER_STAR.getDefaultInstance()),
                                 itemValue(Items.ENCHANTED_GOLDEN_APPLE.getDefaultInstance()),
-                                itemValue(ModItems.HEAL_ADDON_4.get().getDefaultInstance())
+                                itemValue(IFEUItems.HEAL_ADDON_4.get().getDefaultInstance())
                         )
                         .inputFluid(new FluidStack(ModuleCore.ETHER.getSourceFluid().get(),1000))
                         .processingTime(200)
@@ -662,12 +658,12 @@ public class ModItems implements IModule {
                                 tagValue(Tags.Items.DUSTS_REDSTONE),
                                 tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                                 tagValue(Tags.Items.GLASS_PANES_COLORLESS),
-                                itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
-                                itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
+                                itemValue(IFEUContents.DRAGON_STAR.get().getDefaultInstance()),
+                                itemValue(IFEUContents.DRAGON_STAR.get().getDefaultInstance()),
                                 itemValue(Items.ENCHANTED_GOLDEN_APPLE.getDefaultInstance()),
-                                itemValue(ModItems.HEAL_ADDON_5.get().getDefaultInstance())
+                                itemValue(IFEUItems.HEAL_ADDON_5.get().getDefaultInstance())
                         )
-                        .inputFluid(new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000))
+                        .inputFluid(new FluidStack(IFEUFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000))
                         .processingTime(200)
                         .outputFluid(FluidStack.EMPTY)
                         .save();
@@ -710,7 +706,7 @@ public class ModItems implements IModule {
                                 tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE),
                                 tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                                 itemValue(Items.ENCHANTED_BOOK.getDefaultInstance()),
-                                tagValue(ModTags.Items.GEARS_NETHERITE)
+                                tagValue(IFEUTags.Items.GEARS_NETHERITE)
                         )
                         .chance(0.4F)
                         .save();
@@ -724,7 +720,7 @@ public class ModItems implements IModule {
                                 tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE),
                                 tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                                 itemValue(Items.ENCHANTED_BOOK.getDefaultInstance()),
-                                tagValue(ModTags.Items.GEARS_SCULK)
+                                tagValue(IFEUTags.Items.GEARS_SCULK)
                         )
                         .chance(0.3F)
                         .save();
@@ -752,7 +748,7 @@ public class ModItems implements IModule {
                                 tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE),
                                 tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                                 itemValue(Items.ENCHANTED_BOOK.getDefaultInstance()),
-                                itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance())
+                                itemValue(IFEUContents.DRAGON_STAR.get().getDefaultInstance())
                         )
                         .chance(0.1F)
                         .save();

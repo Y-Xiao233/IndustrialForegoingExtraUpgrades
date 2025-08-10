@@ -23,9 +23,9 @@ import net.yxiao233.ifeu.api.jei.AbstractJEICategory;
 import net.yxiao233.ifeu.common.compact.jei.ModRecipeType;
 import net.yxiao233.ifeu.common.config.machine.FluidCraftingTableConfig;
 import net.yxiao233.ifeu.common.recipe.ShapedRecipe;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.registry.ModContents;
-import net.yxiao233.ifeu.common.registry.ModRecipes;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
+import net.yxiao233.ifeu.common.registry.IFEUContents;
+import net.yxiao233.ifeu.common.registry.IFEURecipes;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.awt.*;
@@ -35,13 +35,13 @@ public class ShapedCategory extends AbstractJEICategory<ShapedRecipe> {
     public static final Component TITLE = Component.translatable("jei.ifeu.fluid_shaped");
     private final IDrawable bigTank_input1;
     public ShapedCategory(IGuiHelper helper) {
-        super(helper, ModRecipeType.SHAPED, TITLE, ModBlocks.FLUID_CRAFTING_TABLE.getLeft().get().asItem(),160, 82);
+        super(helper, ModRecipeType.SHAPED, TITLE, IFEUBlocks.FLUID_CRAFTING_TABLE.getLeft().get().asItem(),160, 82);
         this.bigTank_input1 = helper.createDrawable(DefaultAssetProvider.DEFAULT_LOCATION, 180, 4, 12, 50);
     }
 
     @Override
     public RecipeType getTypeInstance() {
-        return ModRecipes.SHAPED_TYPE.get();
+        return IFEURecipes.SHAPED_TYPE.get();
     }
 
     @Override
@@ -55,7 +55,7 @@ public class ShapedCategory extends AbstractJEICategory<ShapedRecipe> {
                 y += 18;
             }
             Iterator<ItemStack> iterator = recipe.inputs[i].getItems().iterator();
-            if(iterator.hasNext() && iterator.next().is(ModContents.AIR.get())){
+            if(iterator.hasNext() && iterator.next().is(IFEUContents.AIR.get())){
                 builder.addSlot(RecipeIngredientRole.INPUT,x,y).addIngredient(VanillaTypes.ITEM_STACK,ItemStack.EMPTY);
             }else{
                 builder.addSlot(RecipeIngredientRole.INPUT,x,y).addIngredients(VanillaTypes.ITEM_STACK,recipe.inputs[i].getItems().stream().toList());

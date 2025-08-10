@@ -3,7 +3,6 @@ package net.yxiao233.ifeu.common.utils;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
@@ -15,7 +14,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.model.data.ModelData;
 import net.minecraftforge.fluids.FluidStack;
-import net.yxiao233.ifeu.common.registry.ModRenderTypes;
+import net.yxiao233.ifeu.common.registry.IFEURenderTypes;
 
 import java.awt.*;
 import java.util.List;
@@ -35,7 +34,7 @@ public class RendererProvider {
     public void renderSingleBatchedGhostBlock(BlockPos renderBlockPos, BlockState blockState){
         Minecraft minecraft = Minecraft.getInstance();
         Level level = minecraft.level;
-        VertexConsumer consumer = multiBufferSource.getBuffer(ModRenderTypes.GHOST);
+        VertexConsumer consumer = multiBufferSource.getBuffer(IFEURenderTypes.GHOST);
         if(level == null){
             return;
         }

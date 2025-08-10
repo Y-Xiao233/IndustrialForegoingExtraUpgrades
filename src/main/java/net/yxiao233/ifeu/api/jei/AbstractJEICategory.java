@@ -59,6 +59,7 @@ public abstract class AbstractJEICategory<T extends Recipe<?>> implements IRecip
         return title;
     }
     @Override
+    @SuppressWarnings("removal")
     public IDrawable getBackground() {
         return background;
     }

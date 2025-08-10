@@ -15,7 +15,7 @@ import net.yxiao233.ifeu.common.fluid.sculk_matter.LiquidSculkMatterParticleAnim
 
 import java.util.ArrayList;
 
-public class ModFluids implements IModule {
+public class IFEUFluids implements IModule {
     public static LiquidDragonBreathParticleAnimateFluidInstance LIQUID_DRAGON_BREATH;
     public static LiquidSculkMatterParticleAnimateFluidInstance LIQUID_SCULK_MATTER;
     public static DragonStarEssenceFluidInstance DRAGON_STAR_ESSENCE;

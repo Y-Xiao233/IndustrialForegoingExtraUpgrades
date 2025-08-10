@@ -37,7 +37,7 @@ import net.yxiao233.ifeu.common.networking.ModNetWorking;
 import net.yxiao233.ifeu.common.networking.packet.BooleanSyncS2CPacket;
 import net.yxiao233.ifeu.common.networking.packet.DirectionSyncS2CPacket;
 import net.yxiao233.ifeu.api.structure.MultiBlockStructure;
-import net.yxiao233.ifeu.common.registry.ModTags;
+import net.yxiao233.ifeu.common.registry.IFEUTags;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.Collections;
@@ -54,14 +54,14 @@ public abstract class IFEUStructureProcessingTile<T extends IFEUStructureProcess
     private MultiBlockStructure helper;
     private int time = 0;
     //base structure block tag
-    public static final TagKey<Block> ENERGY = ModTags.Blocks.STORAGE_ENERGY;
-    public static final TagKey<Block> FLUID = ModTags.Blocks.STORAGE_FLUID;
-    public static final TagKey<Block> ITEM = ModTags.Blocks.STORAGE_ITEM;
+    public static final TagKey<Block> ENERGY = IFEUTags.Blocks.STORAGE_ENERGY;
+    public static final TagKey<Block> FLUID = IFEUTags.Blocks.STORAGE_FLUID;
+    public static final TagKey<Block> ITEM = IFEUTags.Blocks.STORAGE_ITEM;
     public static final TagKey<Block> FRAME_PITY = IndustrialTags.Blocks.MACHINE_FRAME_PITY;
     public static final TagKey<Block> FRAME_SIMPLE = IndustrialTags.Blocks.MACHINE_FRAME_SIMPLE;
     public static final TagKey<Block> FRAME_ADVANCED = IndustrialTags.Blocks.MACHINE_FRAME_ADVANCED;
     public static final TagKey<Block> FRAME_SUPREME = IndustrialTags.Blocks.MACHINE_FRAME_SUPREME;
-    public static final TagKey<Block> FRAME_ULTIMATE = ModTags.Blocks.MACHINE_FRAME_ULTIMATE;
+    public static final TagKey<Block> FRAME_ULTIMATE = IFEUTags.Blocks.MACHINE_FRAME_ULTIMATE;
     public IFEUStructureProcessingTile(Pair<RegistryObject<Block>, RegistryObject<BlockEntityType<?>>> basicTileBlock, int x, int y, BlockPos blockPos, BlockState blockState) {
         super(basicTileBlock, x, y, blockPos, blockState);
 

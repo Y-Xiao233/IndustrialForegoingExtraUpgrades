@@ -12,7 +12,7 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.items.IItemHandler;
-import net.yxiao233.ifeu.common.registry.ModRecipes;
+import net.yxiao233.ifeu.common.registry.IFEURecipes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,11 +68,11 @@ public class InfuserRecipe extends SerializableRecipe {
 
     @Override
     public GenericSerializer<? extends SerializableRecipe> getSerializer() {
-        return (GenericSerializer<? extends SerializableRecipe>) ModRecipes.INFUSER_SERIALIZER.get();
+        return (GenericSerializer<? extends SerializableRecipe>) IFEURecipes.INFUSER_SERIALIZER.get();
     }
 
     @Override
     public RecipeType<?> getType() {
-        return ModRecipes.INFUSER_TYPE.get();
+        return IFEURecipes.INFUSER_TYPE.get();
     }
 }

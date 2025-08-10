@@ -6,15 +6,15 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.yxiao233.ifeu.api.block.entity.IFEUItemFuelGeneratorEntity;
 import net.yxiao233.ifeu.common.config.machine.DragonStarGeneratorConfig;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.registry.ModContents;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
+import net.yxiao233.ifeu.common.registry.IFEUContents;
 import net.yxiao233.ifeu.common.utils.SlotElementsUtil;
 import org.jetbrains.annotations.NotNull;
 
 public class DragonStarGeneratorEntity extends IFEUItemFuelGeneratorEntity<DragonStarGeneratorEntity> {
-    public static final Item FUEL = ModContents.DRAGON_STAR.get();
+    public static final Item FUEL = IFEUContents.DRAGON_STAR.get();
     public DragonStarGeneratorEntity(BlockPos blockPos, BlockState blockState){
-        super(ModBlocks.DRAGON_STAR_GENERATOR, blockPos, blockState);
+        super(IFEUBlocks.DRAGON_STAR_GENERATOR, blockPos, blockState);
     }
     @Override
     public SlotElementsUtil getSlotElements() {

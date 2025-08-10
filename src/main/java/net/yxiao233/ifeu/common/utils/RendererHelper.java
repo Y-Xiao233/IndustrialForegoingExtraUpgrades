@@ -16,17 +16,15 @@ import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.minecraftforge.client.model.data.ModelData;
 import net.minecraftforge.fluids.FluidStack;
 import net.yxiao233.ifeu.common.config.machine.FluidCraftingTableConfig;
-import net.yxiao233.ifeu.common.registry.ModRenderTypes;
+import net.yxiao233.ifeu.common.registry.IFEURenderTypes;
 import org.apache.commons.lang3.tuple.Triple;
 import org.joml.Matrix4f;
 import org.lwjgl.opengl.GL11;
@@ -159,14 +157,14 @@ public class RendererHelper {
     public static void renderSingleGhostBlock(PoseStack poseStack, MultiBufferSource multiBufferSource, BlockPos entityBlockPos, BlockPos renderBlockPos, BlockState blockState, int i, int i1){
         Minecraft minecraft = Minecraft.getInstance();
         Level level = minecraft.level;
-        VertexConsumer consumer = multiBufferSource.getBuffer(ModRenderTypes.GHOST);
+        VertexConsumer consumer = multiBufferSource.getBuffer(IFEURenderTypes.GHOST);
         if(level == null){
             return;
         }
         renderBlockContext(entityBlockPos,poseStack,() ->{
             poseStack.pushPose();
             poseStack.translate(renderBlockPos.getX(),renderBlockPos.getY(),renderBlockPos.getZ());
-            minecraft.getBlockRenderer().renderSingleBlock(blockState,poseStack,multiBufferSource,i,i1,ModelData.EMPTY,ModRenderTypes.GHOST);
+            minecraft.getBlockRenderer().renderSingleBlock(blockState,poseStack,multiBufferSource,i,i1,ModelData.EMPTY, IFEURenderTypes.GHOST);
             poseStack.popPose();
         });
     }
@@ -175,7 +173,7 @@ public class RendererHelper {
     public static void renderSingleBatchedGhostBlock(PoseStack poseStack, MultiBufferSource multiBufferSource, BlockPos entityBlockPos, BlockPos renderBlockPos, BlockState blockState){
         Minecraft minecraft = Minecraft.getInstance();
         Level level = minecraft.level;
-        VertexConsumer consumer = multiBufferSource.getBuffer(ModRenderTypes.GHOST);
+        VertexConsumer consumer = multiBufferSource.getBuffer(IFEURenderTypes.GHOST);
         if(level == null){
             return;
         }
@@ -258,7 +256,7 @@ public class RendererHelper {
 
     @OnlyIn(Dist.CLIENT)
     public static void renderFaces(PoseStack stack,MultiBufferSource multiBufferSource, AABB aabb, BlockPos entityPos, Color color){
-        renderFaces(stack,multiBufferSource,ModRenderTypes.WORK_AREA,aabb,entityPos,color);
+        renderFaces(stack,multiBufferSource, IFEURenderTypes.WORK_AREA,aabb,entityPos,color);
     }
 
     @OnlyIn(Dist.CLIENT)

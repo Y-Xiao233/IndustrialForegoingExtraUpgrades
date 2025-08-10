@@ -16,7 +16,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.yxiao233.ifeu.common.block.entity.FluidTransferEntity;
 import net.yxiao233.ifeu.common.block.entity.PlatformBuilderEntity;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
 import net.yxiao233.ifeu.common.utils.IntArrayBlockPosUtil;
 import net.yxiao233.ifeu.common.utils.TagUtil;
 import org.jetbrains.annotations.Nullable;
@@ -115,7 +115,7 @@ public class ConnectToolItem extends Item{
                 }
 
                 item.setTag(tag);
-            }else if(!level.getBlockState(blockHitResult.getBlockPos()).is(ModBlocks.PLATFORM_BUILDER.getLeft().get())){
+            }else if(!level.getBlockState(blockHitResult.getBlockPos()).is(IFEUBlocks.PLATFORM_BUILDER.getLeft().get())){
                 CompoundTag tag = item.getTag();
                 if(tag == null){
                     tag = new CompoundTag();

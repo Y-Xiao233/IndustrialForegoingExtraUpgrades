@@ -20,8 +20,8 @@ import net.yxiao233.ifeu.api.item.IFEUAddonItem;
 import net.yxiao233.ifeu.api.item.IFEUAugmentTypes;
 import net.yxiao233.ifeu.common.config.machine.SimulatedHydroponicBedConfig;
 import net.yxiao233.ifeu.common.item.HydroponicSimulationProcessorItem;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.registry.ModContents;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
+import net.yxiao233.ifeu.common.registry.IFEUContents;
 import net.yxiao233.ifeu.common.utils.AugmentInventoryHelper;
 import org.jetbrains.annotations.NotNull;
 
@@ -35,7 +35,7 @@ public class SimulatedHydroponicBedEntity extends IndustrialWorkingTile<Simulate
     private HydroponicSimulationProcessorItem.Simulation simulation;
 
     public SimulatedHydroponicBedEntity(BlockPos blockPos, BlockState blockState) {
-        super(ModBlocks.SIMULATED_HYDROPONIC_BED, SimulatedHydroponicBedConfig.powerPerOperation, blockPos, blockState);
+        super(IFEUBlocks.SIMULATED_HYDROPONIC_BED, SimulatedHydroponicBedConfig.powerPerOperation, blockPos, blockState);
 
         this.addInventory(this.output = (SidedInventoryComponent<SimulatedHydroponicBedEntity>)(new SidedInventoryComponent<SimulatedHydroponicBedEntity>("output", 45, 22, 21, 0))
                 .setColor(DyeColor.ORANGE)
@@ -44,7 +44,7 @@ public class SimulatedHydroponicBedEntity extends IndustrialWorkingTile<Simulate
 
         this.addInventory(this.simulation_slot = (SidedInventoryComponent<SimulatedHydroponicBedEntity>)(new SidedInventoryComponent<SimulatedHydroponicBedEntity>("simulation", 106, 80, 1, 1))
                 .setColor(DyeColor.LIME)
-                .setInputFilter((stack, integer) -> stack.getItem().equals(ModContents.HYDROPONIC_SIMULATION_PROCESSOR.get()))
+                .setInputFilter((stack, integer) -> stack.getItem().equals(IFEUContents.HYDROPONIC_SIMULATION_PROCESSOR.get()))
                 .setOutputFilter((stack, integer) -> false)
                 .setOnSlotChanged((itemStack, integer) -> this.simulation = null));
 

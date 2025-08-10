@@ -4,8 +4,6 @@ import com.buuz135.industrial.block.IndustrialBlockItem;
 import com.buuz135.industrial.module.IModule;
 import com.hrznstudio.titanium.block.BasicTileBlock;
 import com.hrznstudio.titanium.module.DeferredRegistryHelper;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.RegistryObject;
@@ -17,7 +15,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import java.util.ArrayList;
 import java.util.function.Supplier;
 
-public class ModBlocks implements IModule {
+public class IFEUBlocks implements IModule {
     public static Pair<RegistryObject<Block>, RegistryObject<BlockEntityType<?>>> INFUSER;
     public static Pair<RegistryObject<Block>, RegistryObject<BlockEntityType<?>>> DRAGON_STAR_GENERATOR;
     public static Pair<RegistryObject<Block>, RegistryObject<BlockEntityType<?>>> ARCANE_DRAGON_EGG_FORGING;
@@ -51,7 +49,7 @@ public class ModBlocks implements IModule {
     }
 
     private Pair<RegistryObject<Block>,RegistryObject<BlockEntityType<?>>> deferredRegistry(DeferredRegistryHelper helper, String name, Supplier<BasicTileBlock<?>> blockSupplier){
-        return helper.registerBlockWithTileItem(name,blockSupplier, (blockRegistryObject) -> () -> new IndustrialBlockItem(blockRegistryObject.get(),ModItems.TAB_ADDONS),null);
+        return helper.registerBlockWithTileItem(name,blockSupplier, (blockRegistryObject) -> () -> new IndustrialBlockItem(blockRegistryObject.get(), IFEUItems.TAB_ADDONS),null);
     }
 
     public static ArrayList<RegistryObject<Block>> addBlocksToCreativeModeTab(){

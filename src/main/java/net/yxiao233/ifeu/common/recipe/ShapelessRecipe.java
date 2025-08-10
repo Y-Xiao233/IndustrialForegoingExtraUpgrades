@@ -4,7 +4,6 @@ import com.hrznstudio.titanium.component.fluid.FluidTankComponent;
 import com.hrznstudio.titanium.component.inventory.InventoryComponent;
 import com.hrznstudio.titanium.recipe.serializer.GenericSerializer;
 import com.hrznstudio.titanium.recipe.serializer.SerializableRecipe;
-import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
@@ -15,8 +14,7 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.yxiao233.ifeu.common.block.entity.FluidCraftingTableEntity;
-import net.yxiao233.ifeu.common.registry.ModContents;
-import net.yxiao233.ifeu.common.registry.ModRecipes;
+import net.yxiao233.ifeu.common.registry.IFEURecipes;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -106,11 +104,11 @@ public class ShapelessRecipe extends SerializableRecipe {
 
     @Override
     public GenericSerializer<? extends SerializableRecipe> getSerializer() {
-        return (GenericSerializer<? extends SerializableRecipe>) ModRecipes.SHAPELESS_SERIALIZER.get();
+        return (GenericSerializer<? extends SerializableRecipe>) IFEURecipes.SHAPELESS_SERIALIZER.get();
     }
 
     @Override
     public RecipeType<?> getType() {
-        return ModRecipes.SHAPELESS_TYPE.get();
+        return IFEURecipes.SHAPELESS_TYPE.get();
     }
 }

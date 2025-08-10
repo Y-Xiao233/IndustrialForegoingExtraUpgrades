@@ -20,9 +20,9 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.yxiao233.ifeu.api.jei.AbstractJEICategory;
 import net.yxiao233.ifeu.common.compact.jei.ModRecipeType;
 import net.yxiao233.ifeu.common.recipe.PrecisionShapedRecipe;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.registry.ModContents;
-import net.yxiao233.ifeu.common.registry.ModRecipes;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
+import net.yxiao233.ifeu.common.registry.IFEUContents;
+import net.yxiao233.ifeu.common.registry.IFEURecipes;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.awt.*;
@@ -31,12 +31,12 @@ import java.util.Iterator;
 public class PrecisionShapedCategory extends AbstractJEICategory<PrecisionShapedRecipe> {
     public static final Component TITLE = Component.translatable("jei.ifeu.precision_shaped");
     public PrecisionShapedCategory(IGuiHelper helper) {
-        super(helper, ModRecipeType.PRECISION_SHAPED, TITLE, ModBlocks.PRECISION_CRAFTING_TABLE.getLeft().get().asItem(), 160, 82);
+        super(helper, ModRecipeType.PRECISION_SHAPED, TITLE, IFEUBlocks.PRECISION_CRAFTING_TABLE.getLeft().get().asItem(), 160, 82);
     }
 
     @Override
     public RecipeType getTypeInstance() {
-        return ModRecipes.PRECISION_SHAPED_TYPE.get();
+        return IFEURecipes.PRECISION_SHAPED_TYPE.get();
     }
 
     @Override
@@ -50,7 +50,7 @@ public class PrecisionShapedCategory extends AbstractJEICategory<PrecisionShaped
                 y += 18;
             }
             Iterator<ItemStack> iterator = recipe.inputs[i].getItems().iterator();
-            if(iterator.hasNext() && iterator.next().is(ModContents.AIR.get())){
+            if(iterator.hasNext() && iterator.next().is(IFEUContents.AIR.get())){
                 builder.addSlot(RecipeIngredientRole.INPUT,x,y).addIngredient(VanillaTypes.ITEM_STACK,ItemStack.EMPTY);
             }else{
                 builder.addSlot(RecipeIngredientRole.INPUT,x,y).addIngredients(VanillaTypes.ITEM_STACK,recipe.inputs[i].getItems().stream().toList());

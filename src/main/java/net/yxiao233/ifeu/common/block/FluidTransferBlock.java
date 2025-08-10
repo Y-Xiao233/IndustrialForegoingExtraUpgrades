@@ -27,11 +27,10 @@ import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.common.config.machine.FluidTransferConfig;
 import net.yxiao233.ifeu.common.item.ConnectToolItem;
 import net.yxiao233.ifeu.common.recipe.ShapedRecipe;
-import net.yxiao233.ifeu.common.registry.ModContents;
-import net.yxiao233.ifeu.common.registry.ModFluids;
-import net.yxiao233.ifeu.common.registry.ModItems;
+import net.yxiao233.ifeu.common.registry.IFEUFluids;
+import net.yxiao233.ifeu.common.registry.IFEUItems;
 import net.yxiao233.ifeu.common.block.entity.FluidTransferEntity;
-import net.yxiao233.ifeu.common.registry.ModTags;
+import net.yxiao233.ifeu.common.registry.IFEUTags;
 import net.yxiao233.ifeu.common.utils.TooltipHelper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -41,7 +40,7 @@ import java.util.function.Consumer;
 
 public class FluidTransferBlock extends IndustrialBlock<FluidTransferEntity> {
     public FluidTransferBlock() {
-        super("fluid_transfer", Properties.copy(Blocks.IRON_BLOCK).noOcclusion(), FluidTransferEntity.class, ModItems.TAB_ADDONS);
+        super("fluid_transfer", Properties.copy(Blocks.IRON_BLOCK).noOcclusion(), FluidTransferEntity.class, IFEUItems.TAB_ADDONS);
     }
 
     @Override
@@ -70,13 +69,13 @@ public class FluidTransferBlock extends IndustrialBlock<FluidTransferEntity> {
                         new Ingredient.TagValue(IndustrialTags.Items.PLASTIC),
                         new Ingredient.TagValue(Tags.Items.GLASS_PANES),
                         new Ingredient.TagValue(IndustrialTags.Items.PLASTIC),
-                        new Ingredient.TagValue(ModTags.Items.GEARS_NETHERITE),
-                        new Ingredient.TagValue(ModTags.Items.MACHINE_FRAME_ULTIMATE),
-                        new Ingredient.TagValue(ModTags.Items.GEARS_NETHERITE),
+                        new Ingredient.TagValue(IFEUTags.Items.GEARS_NETHERITE),
+                        new Ingredient.TagValue(IFEUTags.Items.MACHINE_FRAME_ULTIMATE),
+                        new Ingredient.TagValue(IFEUTags.Items.GEARS_NETHERITE),
                         new Ingredient.ItemValue(ModuleCore.RANGE_ADDONS[3].get().getDefaultInstance()),
                         new Ingredient.ItemValue(Items.BUCKET.getDefaultInstance()),
                         new Ingredient.ItemValue(ModuleCore.RANGE_ADDONS[3].get().getDefaultInstance()),
-                },new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),200),
+                },new FluidStack(IFEUFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),200),
                 new ItemStack(this,2)
         );
     }

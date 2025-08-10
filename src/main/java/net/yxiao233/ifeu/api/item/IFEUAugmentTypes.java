@@ -5,5 +5,8 @@ public enum IFEUAugmentTypes {
     APPLE,
     SILK,
     HEAL,
-    CHANCE
+    CHANCE;
+    public boolean is(IFEUAugmentTypes other){
+        return this == other;
+    }
 }

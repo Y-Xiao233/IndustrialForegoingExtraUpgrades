@@ -6,16 +6,16 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.fluids.FluidStack;
 import net.yxiao233.ifeu.api.block.entity.IFEUFluidFuelGeneratorEntity;
 import net.yxiao233.ifeu.common.config.machine.DragonGeneratorConfig;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.registry.ModFluids;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
+import net.yxiao233.ifeu.common.registry.IFEUFluids;
 import net.yxiao233.ifeu.common.utils.FluidTankElementsUtil;
 import org.jetbrains.annotations.NotNull;
 
 public class DragonGeneratorEntity extends IFEUFluidFuelGeneratorEntity<DragonGeneratorEntity> {
-    private static final FluidStack FLUID_FUEL = new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(), 1000);
+    private static final FluidStack FLUID_FUEL = new FluidStack(IFEUFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(), 1000);
 
     public DragonGeneratorEntity(BlockPos blockPos, BlockState blockState) {
-        super(ModBlocks.DRAGON_GENERATOR, blockPos, blockState);
+        super(IFEUBlocks.DRAGON_GENERATOR, blockPos, blockState);
     }
 
     @Override

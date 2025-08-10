@@ -5,7 +5,6 @@ import com.hrznstudio.titanium.annotation.Save;
 import com.hrznstudio.titanium.api.augment.AugmentTypes;
 import com.hrznstudio.titanium.component.bundle.LockableInventoryBundle;
 import com.hrznstudio.titanium.component.energy.EnergyStorageComponent;
-import com.hrznstudio.titanium.component.inventory.InventoryComponent;
 import com.hrznstudio.titanium.component.inventory.SidedInventoryComponent;
 import com.hrznstudio.titanium.item.AugmentWrapper;
 import com.hrznstudio.titanium.util.RecipeUtil;
@@ -21,8 +20,8 @@ import net.yxiao233.ifeu.api.item.IFEUAugmentTypes;
 import net.yxiao233.ifeu.common.config.machine.PrecisionCraftingTableConfig;
 import net.yxiao233.ifeu.common.recipe.PrecisionShapedRecipe;
 import net.yxiao233.ifeu.common.recipe.PrecisionShapelessRecipe;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.registry.ModRecipes;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
+import net.yxiao233.ifeu.common.registry.IFEURecipes;
 import net.yxiao233.ifeu.common.utils.AugmentInventoryHelper;
 import org.jetbrains.annotations.NotNull;
 
@@ -34,7 +33,7 @@ public class PrecisionCraftingTableEntity extends IndustrialProcessingTile<Preci
     private PrecisionShapedRecipe shapedRecipe;
     private PrecisionShapelessRecipe shapelessRecipe;
     public PrecisionCraftingTableEntity(BlockPos blockPos, BlockState blockState) {
-        super(ModBlocks.PRECISION_CRAFTING_TABLE, 102, 41, blockPos, blockState);
+        super(IFEUBlocks.PRECISION_CRAFTING_TABLE, 102, 41, blockPos, blockState);
         int slotSpacing = 22;
 
         this.addBundle(this.inputs = new LockableInventoryBundle<>(this,
@@ -83,10 +82,10 @@ public class PrecisionCraftingTableEntity extends IndustrialProcessingTile<Preci
                 return;
             }
 
-            shapelessRecipe = RecipeUtil.getRecipes(this.level,(RecipeType<PrecisionShapelessRecipe>) ModRecipes.PRECISION_SHAPELESS_TYPE.get()).stream().filter(recipe -> recipe.matches(inputs.getInventory())).findFirst().orElse(null);
+            shapelessRecipe = RecipeUtil.getRecipes(this.level,(RecipeType<PrecisionShapelessRecipe>) IFEURecipes.PRECISION_SHAPELESS_TYPE.get()).stream().filter(recipe -> recipe.matches(inputs.getInventory())).findFirst().orElse(null);
 
             if(shapelessRecipe == null){
-                shapedRecipe = RecipeUtil.getRecipes(this.level,(RecipeType<PrecisionShapedRecipe>) ModRecipes.PRECISION_SHAPED_TYPE.get()).stream().filter(recipe -> recipe.matches(inputs.getInventory())).findFirst().orElse(null);
+                shapedRecipe = RecipeUtil.getRecipes(this.level,(RecipeType<PrecisionShapedRecipe>) IFEURecipes.PRECISION_SHAPED_TYPE.get()).stream().filter(recipe -> recipe.matches(inputs.getInventory())).findFirst().orElse(null);
             }
         }
     }

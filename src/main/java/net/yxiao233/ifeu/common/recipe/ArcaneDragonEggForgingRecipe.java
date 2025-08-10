@@ -12,7 +12,7 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.items.IItemHandler;
-import net.yxiao233.ifeu.common.registry.ModRecipes;
+import net.yxiao233.ifeu.common.registry.IFEURecipes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,11 +75,11 @@ public class ArcaneDragonEggForgingRecipe extends SerializableRecipe {
 
     @Override
     public GenericSerializer<? extends SerializableRecipe> getSerializer() {
-        return (GenericSerializer<? extends SerializableRecipe>) ModRecipes.ARCANE_DRAGON_EGG_FORGING_SERIALIZER.get();
+        return (GenericSerializer<? extends SerializableRecipe>) IFEURecipes.ARCANE_DRAGON_EGG_FORGING_SERIALIZER.get();
     }
 
     @Override
     public RecipeType<?> getType() {
-        return ModRecipes.ARCANE_DRAGON_EGG_FORGING_TYPE.get();
+        return IFEURecipes.ARCANE_DRAGON_EGG_FORGING_TYPE.get();
     }
 }

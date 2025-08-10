@@ -17,8 +17,8 @@ import net.yxiao233.ifeu.api.jei.AbstractJEICategory;
 import net.yxiao233.ifeu.common.compact.jei.ModRecipeType;
 import net.yxiao233.ifeu.common.gui.AllGuiTextures;
 import net.yxiao233.ifeu.common.recipe.StructureInfoRecipe;
-import net.yxiao233.ifeu.common.registry.ModContents;
-import net.yxiao233.ifeu.common.registry.ModRecipes;
+import net.yxiao233.ifeu.common.registry.IFEUContents;
+import net.yxiao233.ifeu.common.registry.IFEURecipes;
 import net.yxiao233.ifeu.common.utils.TooltipCallBackHelper;
 
 import java.util.ArrayList;
@@ -27,11 +27,11 @@ import java.util.List;
 public class StructureInfoCategory extends AbstractJEICategory<StructureInfoRecipe> {
     public static final Component TITLE = Component.translatable("jei.ifeu.structure");
     public StructureInfoCategory(IGuiHelper helper) {
-        super(helper, ModRecipeType.STRUCTURE, TITLE, ModContents.BLUEPRINT.get(), 160, 140);
+        super(helper, ModRecipeType.STRUCTURE, TITLE, IFEUContents.BLUEPRINT.get(), 160, 140);
     }
     @Override
     public RecipeType getTypeInstance() {
-        return ModRecipes.STRUCTURE_TYPE.get();
+        return IFEURecipes.STRUCTURE_TYPE.get();
     }
 
     @Override

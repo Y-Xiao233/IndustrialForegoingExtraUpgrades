@@ -11,7 +11,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.common.recipe.*;
 
-public class ModRecipes implements IModule {
+public class IFEURecipes implements IModule {
     public static RegistryObject<RecipeSerializer<?>> INFUSER_SERIALIZER;
     public static RegistryObject<RecipeType<?>> INFUSER_TYPE;
     public static RegistryObject<RecipeSerializer<?>> ARCANE_DRAGON_EGG_FORGING_SERIALIZER;

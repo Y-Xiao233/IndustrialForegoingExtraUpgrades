@@ -14,14 +14,14 @@ import net.minecraft.world.level.ItemLike;
 import java.util.EnumMap;
 import java.util.function.Supplier;
 
-public enum ModArmorMaterials implements StringRepresentable, ArmorMaterial {
+public enum IFEUArmorMaterials implements StringRepresentable, ArmorMaterial {
     DRAGON_STAR("dragon_star", 47, (EnumMap)Util.make(new EnumMap(ArmorItem.Type.class), (p_266655_) -> {
         p_266655_.put(ArmorItem.Type.BOOTS, 3);
         p_266655_.put(ArmorItem.Type.LEGGINGS, 6);
         p_266655_.put(ArmorItem.Type.CHESTPLATE, 8);
         p_266655_.put(ArmorItem.Type.HELMET, 3);
     }), 25, SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.1F, () -> {
-        return Ingredient.of(new ItemLike[]{ModContents.DRAGON_STAR.get()});
+        return Ingredient.of(new ItemLike[]{IFEUContents.DRAGON_STAR.get()});
     });
 
     public static final StringRepresentable.EnumCodec<ArmorMaterials> CODEC = StringRepresentable.fromEnum(ArmorMaterials::values);
@@ -40,7 +40,7 @@ public enum ModArmorMaterials implements StringRepresentable, ArmorMaterial {
     private final float knockbackResistance;
     private final LazyLoadedValue<Ingredient> repairIngredient;
 
-    private ModArmorMaterials(String pName, int pDurabilityMultiplier, EnumMap pProtectionFunctionForType, int pEnchantmentValue, SoundEvent pSound, float pToughness, float pKnockbackResistance, Supplier pRepairIngredient) {
+    private IFEUArmorMaterials(String pName, int pDurabilityMultiplier, EnumMap pProtectionFunctionForType, int pEnchantmentValue, SoundEvent pSound, float pToughness, float pKnockbackResistance, Supplier pRepairIngredient) {
         this.name = pName;
         this.durabilityMultiplier = pDurabilityMultiplier;
         this.protectionFunctionForType = pProtectionFunctionForType;

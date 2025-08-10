@@ -7,22 +7,22 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 
-public class ModCreativeModeTab {
+public class IFEUCreativeModeTab {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TAB = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, IndustrialForegoingExtraUpgrades.MODID);
     public static final RegistryObject<CreativeModeTab> IFEU_TAB = CREATIVE_MODE_TAB.register("ifeu_tab", () -> CreativeModeTab.builder()
-            .icon(() -> ModBlocks.INFUSER.getLeft().get().asItem().getDefaultInstance())
+            .icon(() -> IFEUBlocks.INFUSER.getLeft().get().asItem().getDefaultInstance())
             .displayItems((parameters, output) -> {
 
-                ModContents.ITEMS.getEntries().forEach((reg) ->{
-                    if(reg.get().getDefaultInstance().is(ModContents.AIR.get()) || reg.get().getDefaultInstance().is(ModContents.HYDROPONIC_SIMULATION_PROCESSOR.get())){
+                IFEUContents.ITEMS.getEntries().forEach((reg) ->{
+                    if(reg.get().getDefaultInstance().is(IFEUContents.AIR.get()) || reg.get().getDefaultInstance().is(IFEUContents.HYDROPONIC_SIMULATION_PROCESSOR.get())){
                         int i = 0;
                     }else{
                         output.accept(reg.get());
                     }
                 });
 
-                ModFluids.addBucketItemsToCreativeModeTab().forEach(item -> output.accept(item.get()));
-                ModBlocks.addBlocksToCreativeModeTab().forEach(block -> output.accept(block.get()));
+                IFEUFluids.addBucketItemsToCreativeModeTab().forEach(item -> output.accept(item.get()));
+                IFEUBlocks.addBlocksToCreativeModeTab().forEach(block -> output.accept(block.get()));
             })
             .title(Component.translatable("itemGroup.ifeu.extra_contents"))
             .build()

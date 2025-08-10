@@ -1,9 +1,6 @@
 package net.yxiao233.ifeu.common.block.entity;
 
-import com.buuz135.industrial.IndustrialForegoing;
 import com.buuz135.industrial.block.tile.RangeManager;
-import com.buuz135.industrial.utils.BlockUtils;
-import com.buuz135.industrial.utils.IFFakePlayer;
 import com.hrznstudio.titanium.annotation.Save;
 import com.hrznstudio.titanium.api.IFactory;
 import com.hrznstudio.titanium.api.client.AssetTypes;
@@ -22,22 +19,15 @@ import com.hrznstudio.titanium.util.LangUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.item.enchantment.Enchantments;
-import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.common.util.FakePlayer;
 import net.yxiao233.ifeu.api.block.entity.IFEUAreaWorkingTile;
 import net.yxiao233.ifeu.api.components.ComponentGuiComponent;
 import net.yxiao233.ifeu.api.components.CustomTooltipComponent;
@@ -50,7 +40,7 @@ import net.yxiao233.ifeu.common.networking.ModNetWorking;
 import net.yxiao233.ifeu.common.networking.packet.BlockPosSyncS2CPacket;
 import net.yxiao233.ifeu.common.networking.packet.BooleanSyncS2CPacket;
 import net.yxiao233.ifeu.common.networking.packet.PlatformBuilderEntityKeyDownSyncC2SPacket;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
 import net.yxiao233.ifeu.common.utils.*;
 import org.jetbrains.annotations.NotNull;
 
@@ -85,7 +75,7 @@ public class PlatformBuilderEntity extends IFEUAreaWorkingTile<PlatformBuilderEn
     private static final int maxLandRange = PlatformBuilderConfig.maxLandRange;
     private static final int maxFrameBounds = PlatformBuilderConfig.maxFrameBounds;
     public PlatformBuilderEntity(BlockPos blockPos, BlockState blockState) {
-        super(ModBlocks.PLATFORM_BUILDER, RangeManager.RangeType.BEHIND, false, 0, blockPos, blockState);
+        super(IFEUBlocks.PLATFORM_BUILDER, RangeManager.RangeType.BEHIND, false, 0, blockPos, blockState);
 
         this.addInventory(this.frame = (new SidedInventoryComponent<PlatformBuilderEntity>("frame_input", 46, 22, 1, 0)).setColor(DyeColor.YELLOW).setInputFilter((stack, integer) -> {
             return stack.getItem() instanceof BlockItem;

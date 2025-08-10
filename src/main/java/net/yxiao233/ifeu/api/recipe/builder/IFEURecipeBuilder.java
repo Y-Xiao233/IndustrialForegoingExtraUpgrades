@@ -1,7 +1,6 @@
 package net.yxiao233.ifeu.api.recipe.builder;
 
 import com.buuz135.industrial.recipe.LaserDrillRarity;
-import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -11,7 +10,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.registries.RegistryObject;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
-import net.yxiao233.ifeu.common.registry.ModContents;
+import net.yxiao233.ifeu.common.registry.IFEUContents;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -179,7 +178,7 @@ public abstract class IFEURecipeBuilder {
 
     protected HashMap<Character, ItemStack> getDefineMap() {
         if(defineMap.isEmpty()){
-            this.defineMap.put(' ',ModContents.AIR.get().getDefaultInstance());
+            this.defineMap.put(' ', IFEUContents.AIR.get().getDefaultInstance());
             return defineMap;
         }
         return defineMap;

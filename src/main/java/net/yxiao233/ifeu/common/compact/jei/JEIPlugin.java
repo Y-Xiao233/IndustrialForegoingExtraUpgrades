@@ -38,7 +38,7 @@ public class JEIPlugin implements IModPlugin {
     @Override
     public void onRuntimeAvailable(IJeiRuntime jeiRuntime) {
         JEIUtil util = new JEIUtil(jeiRuntime);
-        util.removeItemStack(ModContents.AIR);
+        util.removeItemStack(IFEUContents.AIR);
     }
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
@@ -65,28 +65,28 @@ public class JEIPlugin implements IModPlugin {
         addStructureInfoRecipe(registration);
 
         Level level = Minecraft.getInstance().level;
-        registration.addRecipes(ModRecipeType.INFUSER, RecipeUtil.getRecipes(level,(RecipeType<InfuserRecipe>) ModRecipes.INFUSER_TYPE.get()));
-        registration.addRecipes(ModRecipeType.ARCANE_DRAGON_EGG_FORGING, RecipeUtil.getRecipes(level,(RecipeType<ArcaneDragonEggForgingRecipe>) ModRecipes.ARCANE_DRAGON_EGG_FORGING_TYPE.get()));
-        registration.addRecipes(ModRecipeType.BLOCK_RIGHT_CLICK, RecipeUtil.getRecipes(level,(RecipeType<BlockRightClickRecipe>) ModRecipes.BLOCK_RIGHT_CLICK_TYPE.get()));
-        registration.addRecipes(ModRecipeType.DRAGON_STAR_GENERATOR, RecipeUtil.getRecipes(level,(RecipeType<DragonStarGeneratorRecipe>) ModRecipes.DRAGON_STAR_GENERATOR_TYPE.get()));
-        registration.addRecipes(ModRecipeType.SHAPED, RecipeUtil.getRecipes(level,(RecipeType<ShapedRecipe>) ModRecipes.SHAPED_TYPE.get()));
-        registration.addRecipes(ModRecipeType.SHAPELESS, RecipeUtil.getRecipes(level,(RecipeType<ShapelessRecipe>) ModRecipes.SHAPELESS_TYPE.get()));
-        registration.addRecipes(ModRecipeType.PRECISION_SHAPED,RecipeUtil.getRecipes(level,(RecipeType<PrecisionShapedRecipe>) ModRecipes.PRECISION_SHAPED_TYPE.get()));
-        registration.addRecipes(ModRecipeType.PRECISION_SHAPELESS,RecipeUtil.getRecipes(level,(RecipeType<PrecisionShapelessRecipe>) ModRecipes.PRECISION_SHAPELESS_TYPE.get()));
+        registration.addRecipes(ModRecipeType.INFUSER, RecipeUtil.getRecipes(level,(RecipeType<InfuserRecipe>) IFEURecipes.INFUSER_TYPE.get()));
+        registration.addRecipes(ModRecipeType.ARCANE_DRAGON_EGG_FORGING, RecipeUtil.getRecipes(level,(RecipeType<ArcaneDragonEggForgingRecipe>) IFEURecipes.ARCANE_DRAGON_EGG_FORGING_TYPE.get()));
+        registration.addRecipes(ModRecipeType.BLOCK_RIGHT_CLICK, RecipeUtil.getRecipes(level,(RecipeType<BlockRightClickRecipe>) IFEURecipes.BLOCK_RIGHT_CLICK_TYPE.get()));
+        registration.addRecipes(ModRecipeType.DRAGON_STAR_GENERATOR, RecipeUtil.getRecipes(level,(RecipeType<DragonStarGeneratorRecipe>) IFEURecipes.DRAGON_STAR_GENERATOR_TYPE.get()));
+        registration.addRecipes(ModRecipeType.SHAPED, RecipeUtil.getRecipes(level,(RecipeType<ShapedRecipe>) IFEURecipes.SHAPED_TYPE.get()));
+        registration.addRecipes(ModRecipeType.SHAPELESS, RecipeUtil.getRecipes(level,(RecipeType<ShapelessRecipe>) IFEURecipes.SHAPELESS_TYPE.get()));
+        registration.addRecipes(ModRecipeType.PRECISION_SHAPED,RecipeUtil.getRecipes(level,(RecipeType<PrecisionShapedRecipe>) IFEURecipes.PRECISION_SHAPED_TYPE.get()));
+        registration.addRecipes(ModRecipeType.PRECISION_SHAPELESS,RecipeUtil.getRecipes(level,(RecipeType<PrecisionShapelessRecipe>) IFEURecipes.PRECISION_SHAPELESS_TYPE.get()));
     }
 
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
-        registration.addRecipeCatalyst(ModBlocks.INFUSER.getLeft().get(),ModRecipeType.INFUSER);
-        registration.addRecipeCatalyst(ModBlocks.ARCANE_DRAGON_EGG_FORGING.getLeft().get(),ModRecipeType.ARCANE_DRAGON_EGG_FORGING);
+        registration.addRecipeCatalyst(IFEUBlocks.INFUSER.getLeft().get(),ModRecipeType.INFUSER);
+        registration.addRecipeCatalyst(IFEUBlocks.ARCANE_DRAGON_EGG_FORGING.getLeft().get(),ModRecipeType.ARCANE_DRAGON_EGG_FORGING);
         registration.addRecipeCatalyst(Blocks.DRAGON_EGG,ModRecipeType.BLOCK_RIGHT_CLICK);
-        registration.addRecipeCatalyst(ModBlocks.DRAGON_STAR_GENERATOR.getLeft().get(),ModRecipeType.DRAGON_STAR_GENERATOR);
-        registration.addRecipeCatalyst(ModBlocks.FLUID_CRAFTING_TABLE.getLeft().get(),ModRecipeType.SHAPED);
-        registration.addRecipeCatalyst(ModBlocks.FLUID_CRAFTING_TABLE.getLeft().get(),ModRecipeType.SHAPELESS);
-        registration.addRecipeCatalyst(ModBlocks.DRAGON_GENERATOR.getLeft().get(),ModRecipeType.DRAGON_GENERATOR);
-        registration.addRecipeCatalyst(ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getLeft().get(),IndustrialRecipeTypes.DISSOLUTION);
-        registration.addRecipeCatalyst(ModBlocks.PRECISION_CRAFTING_TABLE.getLeft().get(),ModRecipeType.PRECISION_SHAPED);
-        registration.addRecipeCatalyst(ModBlocks.PRECISION_CRAFTING_TABLE.getLeft().get(),ModRecipeType.PRECISION_SHAPELESS);
+        registration.addRecipeCatalyst(IFEUBlocks.DRAGON_STAR_GENERATOR.getLeft().get(),ModRecipeType.DRAGON_STAR_GENERATOR);
+        registration.addRecipeCatalyst(IFEUBlocks.FLUID_CRAFTING_TABLE.getLeft().get(),ModRecipeType.SHAPED);
+        registration.addRecipeCatalyst(IFEUBlocks.FLUID_CRAFTING_TABLE.getLeft().get(),ModRecipeType.SHAPELESS);
+        registration.addRecipeCatalyst(IFEUBlocks.DRAGON_GENERATOR.getLeft().get(),ModRecipeType.DRAGON_GENERATOR);
+        registration.addRecipeCatalyst(IFEUBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getLeft().get(),IndustrialRecipeTypes.DISSOLUTION);
+        registration.addRecipeCatalyst(IFEUBlocks.PRECISION_CRAFTING_TABLE.getLeft().get(),ModRecipeType.PRECISION_SHAPED);
+        registration.addRecipeCatalyst(IFEUBlocks.PRECISION_CRAFTING_TABLE.getLeft().get(),ModRecipeType.PRECISION_SHAPELESS);
 
         List<Item> items = new ArrayList<>();
         IFEUMultiBlockStructures.values.forEach((id,structure) ->{
@@ -131,18 +131,18 @@ public class JEIPlugin implements IModPlugin {
     }
     private void addBlockRightClickRecipes(IRecipeRegistration registration){
         List<BlockRightClickRecipe> blockRightClickRecipes = new ArrayList<>();
-        blockRightClickRecipes.add(new BlockRightClickRecipe(new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID,"block_right_click"), ModContents.DEAD_DRAGON_EGG.get(),ModContents.DRAGON_STAR.get().getDefaultInstance(),Blocks.DRAGON_EGG));
+        blockRightClickRecipes.add(new BlockRightClickRecipe(new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID,"block_right_click"), IFEUContents.DEAD_DRAGON_EGG.get(), IFEUContents.DRAGON_STAR.get().getDefaultInstance(),Blocks.DRAGON_EGG));
         registration.addRecipes(ModRecipeType.BLOCK_RIGHT_CLICK,blockRightClickRecipes);
     }
     private void addDragonStarGeneratorRecipe(IRecipeRegistration registration){
         List<DragonStarGeneratorRecipe> dragonStarGeneratorCategories = new ArrayList<>();
-        dragonStarGeneratorCategories.add(new DragonStarGeneratorRecipe(new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID,"dragon_star"),ModContents.DRAGON_STAR.get().getDefaultInstance(), DragonStarGeneratorConfig.maxProgress,DragonStarGeneratorConfig.powerPerTick));
+        dragonStarGeneratorCategories.add(new DragonStarGeneratorRecipe(new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID,"dragon_star"), IFEUContents.DRAGON_STAR.get().getDefaultInstance(), DragonStarGeneratorConfig.maxProgress,DragonStarGeneratorConfig.powerPerTick));
         registration.addRecipes(ModRecipeType.DRAGON_STAR_GENERATOR,dragonStarGeneratorCategories);
     }
 
     private void addDragonGeneratorRecipe(IRecipeRegistration registration){
         List<DragonGeneratorRecipe> dragonGeneratorRecipes = new ArrayList<>();
-        dragonGeneratorRecipes.add(new DragonGeneratorRecipe(new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID,"liquid_dragon_breath"),new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000), DragonGeneratorConfig.maxProgress,DragonGeneratorConfig.powerPerTick));
+        dragonGeneratorRecipes.add(new DragonGeneratorRecipe(new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID,"liquid_dragon_breath"),new FluidStack(IFEUFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000), DragonGeneratorConfig.maxProgress,DragonGeneratorConfig.powerPerTick));
         registration.addRecipes(ModRecipeType.DRAGON_GENERATOR,dragonGeneratorRecipes);
     }
 

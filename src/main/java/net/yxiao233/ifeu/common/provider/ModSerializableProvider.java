@@ -10,12 +10,9 @@ import com.buuz135.industrial.utils.IndustrialTags;
 import com.hrznstudio.titanium.recipe.generator.IJSONGenerator;
 import com.hrznstudio.titanium.recipe.generator.IJsonFile;
 import com.hrznstudio.titanium.recipe.generator.TitaniumSerializableProvider;
-import com.hrznstudio.titanium.recipe.generator.TitaniumShapedRecipeBuilder;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -27,7 +24,6 @@ import net.minecraftforge.common.Tags;
 import net.minecraftforge.fluids.FluidStack;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.api.recipe.builder.IFEURecipeBuilders;
-import net.yxiao233.ifeu.api.recipe.builder.ShapedRecipeBuilder;
 import net.yxiao233.ifeu.common.recipe.*;
 import net.yxiao233.ifeu.common.registry.*;
 
@@ -52,12 +48,12 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                         itemValue(Items.DRAGON_BREATH.getDefaultInstance()),
                         itemValue(Items.DRAGON_BREATH.getDefaultInstance())
                 )
-                .inputFluid(new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),500))
+                .inputFluid(new FluidStack(IFEUFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),500))
                 .processingTime(200)
-                .outputFluid(new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),100))
+                .outputFluid(new FluidStack(IFEUFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),100))
                 .save();
 
-        IFEURecipeBuilders.dissolutionChamberRecipe(ModContents.LASER_LENS_SCULK.get().getDefaultInstance())
+        IFEURecipeBuilders.dissolutionChamberRecipe(IFEUContents.LASER_LENS_SCULK.get().getDefaultInstance())
                 .inputs(
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
@@ -73,39 +69,39 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                 .outputFluid(FluidStack.EMPTY)
                 .save();
 
-        IFEURecipeBuilders.dissolutionChamberRecipe(ModContents.LASER_LENS_DRAGON.get().getDefaultInstance())
+        IFEURecipeBuilders.dissolutionChamberRecipe(IFEUContents.LASER_LENS_DRAGON.get().getDefaultInstance())
                 .inputs(
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
                         tagValue(Tags.Items.GLASS_PANES_COLORLESS),
-                        itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
-                        itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
-                        itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance()),
-                        itemValue(ModContents.DRAGON_STAR.get().getDefaultInstance())
+                        itemValue(IFEUContents.DRAGON_STAR.get().getDefaultInstance()),
+                        itemValue(IFEUContents.DRAGON_STAR.get().getDefaultInstance()),
+                        itemValue(IFEUContents.DRAGON_STAR.get().getDefaultInstance()),
+                        itemValue(IFEUContents.DRAGON_STAR.get().getDefaultInstance())
                 )
                 .inputFluid(new FluidStack(ModuleCore.ETHER.getSourceFluid().get(), 1000))
                 .processingTime(200)
                 .outputFluid(FluidStack.EMPTY)
                 .save();
 
-        IFEURecipeBuilders.dissolutionChamberRecipe(ModContents.ULTIMATE_MACHINE_FRAME.get().asItem().getDefaultInstance())
+        IFEURecipeBuilders.dissolutionChamberRecipe(IFEUContents.ULTIMATE_MACHINE_FRAME.get().asItem().getDefaultInstance())
                 .inputs(
                         tagValue(IndustrialTags.Items.PLASTIC),
                         tagValue(IndustrialTags.Items.MACHINE_FRAME_SUPREME),
                         tagValue(IndustrialTags.Items.PLASTIC),
-                        itemValue(ModContents.DRAGON_STAR_BLOCK.get().asItem().getDefaultInstance()),
-                        itemValue(ModContents.DRAGON_STAR_BLOCK.get().asItem().getDefaultInstance()),
+                        itemValue(IFEUContents.DRAGON_STAR_BLOCK.get().asItem().getDefaultInstance()),
+                        itemValue(IFEUContents.DRAGON_STAR_BLOCK.get().asItem().getDefaultInstance()),
                         itemValue(Items.DRAGON_EGG.getDefaultInstance()),
-                        tagValue(ModTags.Items.GEARS_SCULK),
+                        tagValue(IFEUTags.Items.GEARS_SCULK),
                         itemValue(Items.DRAGON_EGG.getDefaultInstance())
                 )
-                .inputFluid(new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),8000))
+                .inputFluid(new FluidStack(IFEUFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),8000))
                 .processingTime(200)
                 .outputFluid(new FluidStack(Fluids.WATER,8000))
                 .save();
 
-        IFEURecipeBuilders.dissolutionChamberRecipe(new ItemStack(ModContents.EMPTY_NETHER_STAR.get(),4))
+        IFEURecipeBuilders.dissolutionChamberRecipe(new ItemStack(IFEUContents.EMPTY_NETHER_STAR.get(),4))
                 .inputs(
                         itemValue(Items.NETHERITE_INGOT.getDefaultInstance()),
                         tagValue(IndustrialTags.Items.PLASTIC),
@@ -116,28 +112,28 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                         tagValue(IndustrialTags.Items.PLASTIC),
                         itemValue(Items.NETHERITE_INGOT.getDefaultInstance())
                 )
-                .inputFluid(new FluidStack(ModFluids.LIQUID_MALIC_ACID.getSourceFluid().get(), 4000))
+                .inputFluid(new FluidStack(IFEUFluids.LIQUID_MALIC_ACID.getSourceFluid().get(), 4000))
                 .processingTime(200)
                 .outputFluid(FluidStack.EMPTY)
                 .save();
 
-        IFEURecipeBuilders.dissolutionChamberRecipe(new ItemStack(ModContents.ROUGH_DRAGON_STAR.get(),2))
+        IFEURecipeBuilders.dissolutionChamberRecipe(new ItemStack(IFEUContents.ROUGH_DRAGON_STAR.get(),2))
                 .inputs(
-                        itemValue(ModContents.EMPTY_NETHER_STAR.get().getDefaultInstance()),
+                        itemValue(IFEUContents.EMPTY_NETHER_STAR.get().getDefaultInstance()),
                         itemValue(Items.WITHER_SKELETON_SKULL.getDefaultInstance()),
-                        itemValue(ModContents.EMPTY_NETHER_STAR.get().getDefaultInstance()),
+                        itemValue(IFEUContents.EMPTY_NETHER_STAR.get().getDefaultInstance()),
                         tagValue(Tags.Items.RODS_BLAZE),
                         tagValue(Tags.Items.RODS_BLAZE),
                         tagValue(Tags.Items.STORAGE_BLOCKS_DIAMOND),
                         tagValue(Tags.Items.RODS_BLAZE),
                         tagValue(Tags.Items.STORAGE_BLOCKS_DIAMOND)
                 )
-                .inputFluid(new FluidStack(ModFluids.DRAGON_STAR_ESSENCE.getSourceFluid().get(), 200))
+                .inputFluid(new FluidStack(IFEUFluids.DRAGON_STAR_ESSENCE.getSourceFluid().get(), 200))
                 .processingTime(200)
                 .outputFluid(FluidStack.EMPTY)
                 .save();
 
-        IFEURecipeBuilders.dissolutionChamberRecipe(new ItemStack(ModContents.APPLE_CORE.get(),8),"liquid_malic_acid")
+        IFEURecipeBuilders.dissolutionChamberRecipe(new ItemStack(IFEUContents.APPLE_CORE.get(),8),"liquid_malic_acid")
                 .inputs(
                         itemValue(Items.APPLE.getDefaultInstance()),
                         itemValue(Items.APPLE.getDefaultInstance()),
@@ -150,23 +146,23 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                 )
                 .inputFluid(new FluidStack(ModuleCore.ETHER.getSourceFluid().get(), 100))
                 .processingTime(200)
-                .outputFluid(new FluidStack(ModFluids.LIQUID_MALIC_ACID.getSourceFluid().get(), 10))
+                .outputFluid(new FluidStack(IFEUFluids.LIQUID_MALIC_ACID.getSourceFluid().get(), 10))
                 .save();
 
         IFEURecipeBuilders.dissolutionChamberRecipe(Items.NETHER_STAR.getDefaultInstance())
                 .inputs(
-                        itemValue(ModContents.ROUGH_DRAGON_STAR.get().getDefaultInstance())
+                        itemValue(IFEUContents.ROUGH_DRAGON_STAR.get().getDefaultInstance())
                 )
-                .inputFluid(new FluidStack(ModFluids.LIQUID_MALIC_ACID.getSourceFluid().get(), 1000))
+                .inputFluid(new FluidStack(IFEUFluids.LIQUID_MALIC_ACID.getSourceFluid().get(), 1000))
                 .processingTime(200)
                 .outputFluid(FluidStack.EMPTY)
                 .save();
 
 
         //infuser
-        IFEURecipeBuilders.infuserRecipe(ModContents.DRAGON_STAR.get().getDefaultInstance())
+        IFEURecipeBuilders.infuserRecipe(IFEUContents.DRAGON_STAR.get().getDefaultInstance())
                 .input(Items.NETHER_STAR.getDefaultInstance())
-                .inputFluid(new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(), 1000))
+                .inputFluid(new FluidStack(IFEUFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(), 1000))
                 .processingTime(200)
                 .save();
 
@@ -191,49 +187,49 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
 
         IFEURecipeBuilders.infuserRecipe(Items.ECHO_SHARD.getDefaultInstance(),"sculk")
                 .input(Items.AMETHYST_SHARD.getDefaultInstance())
-                .inputFluid(new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),200))
+                .inputFluid(new FluidStack(IFEUFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),200))
                 .processingTime(200)
                 .save();
 
         IFEURecipeBuilders.infuserRecipe(Items.CRYING_OBSIDIAN.getDefaultInstance())
                 .input(Items.OBSIDIAN.getDefaultInstance())
-                .inputFluid(new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),2000))
+                .inputFluid(new FluidStack(IFEUFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),2000))
                 .processingTime(200)
                 .save();
 
         IFEURecipeBuilders.infuserRecipe(Items.DRAGON_BREATH.getDefaultInstance())
                 .input(Items.GLASS_BOTTLE.getDefaultInstance())
-                .inputFluid(new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),10))
+                .inputFluid(new FluidStack(IFEUFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),10))
                 .processingTime(200)
                 .save();
 
 
         //laser drill fluid
-        IFEURecipeBuilders.laserDrillFluidRecipe(new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),10),"liquid_sculk_matter")
-                .catalyst(Ingredient.of(ModContents.LASER_LENS_SCULK.get()))
+        IFEURecipeBuilders.laserDrillFluidRecipe(new FluidStack(IFEUFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),10),"liquid_sculk_matter")
+                .catalyst(Ingredient.of(IFEUContents.LASER_LENS_SCULK.get()))
                 .entity(MC("warden"))
                 .rarity(new LaserDrillRarity(new ResourceKey[0], new ResourceKey[0],-64,256,8))
                 .save();
         
 
-        IFEURecipeBuilders.laserDrillFluidRecipe(new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),10),"liquid_dragon_breath")
-                .catalyst(Ingredient.of(ModContents.LASER_LENS_DRAGON.get()))
+        IFEURecipeBuilders.laserDrillFluidRecipe(new FluidStack(IFEUFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),10),"liquid_dragon_breath")
+                .catalyst(Ingredient.of(IFEUContents.LASER_LENS_DRAGON.get()))
                 .entity(MC("ender_dragon"))
                 .rarity(new LaserDrillRarity(LaserDrillRarity.END, new ResourceKey[0],-64,256,8))
                 .save();
 
         //fluid extractor
-        IFEURecipeBuilders.fluidExtractorRecipe(new FluidStack(ModFluids.DRAGON_STAR_ESSENCE.getSourceFluid().get(),2),"dragon_star_essence")
-                .inputBlock(itemValue(new ItemStack(ModContents.DRAGON_STAR_BLOCK.get())))
+        IFEURecipeBuilders.fluidExtractorRecipe(new FluidStack(IFEUFluids.DRAGON_STAR_ESSENCE.getSourceFluid().get(),2),"dragon_star_essence")
+                .inputBlock(itemValue(new ItemStack(IFEUContents.DRAGON_STAR_BLOCK.get())))
                 .resultBlock(Blocks.AIR)
                 .breakChance(0.01f)
                 .isDefault(false)
                 .save();
 
         //arcane dragon egg forging
-        IFEURecipeBuilders.arcaneDragonEggForgingRecipe(ModContents.DEAD_DRAGON_EGG_ITEM.get().getDefaultInstance(),"dead_dragon_egg")
+        IFEURecipeBuilders.arcaneDragonEggForgingRecipe(IFEUContents.DEAD_DRAGON_EGG_ITEM.get().getDefaultInstance(),"dead_dragon_egg")
                 .input(new ItemStack(Items.EGG,4))
-                .inputFluids(new FluidStack(ModuleCore.ESSENCE.getSourceFluid().get(),250),new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),4000))
+                .inputFluids(new FluidStack(ModuleCore.ESSENCE.getSourceFluid().get(),250),new FluidStack(IFEUFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),4000))
                 .outputFluid(FluidStack.EMPTY)
                 .processingTime(200)
                 .save();
@@ -246,7 +242,7 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
                 .save();
 
         IFEURecipeBuilders.arcaneDragonEggForgingRecipe(new ItemStack(Items.EGG,16),"egg_2")
-                .input(ModContents.DEAD_DRAGON_EGG_ITEM.get().getDefaultInstance())
+                .input(IFEUContents.DEAD_DRAGON_EGG_ITEM.get().getDefaultInstance())
                 .inputFluids(new FluidStack(ModuleCore.PINK_SLIME.getSourceFluid().get(),100),new FluidStack(Fluids.WATER,1000))
                 .outputFluid(FluidStack.EMPTY)
                 .processingTime(200)
@@ -254,117 +250,117 @@ public class ModSerializableProvider extends TitaniumSerializableProvider {
         
         //shaped
             //如果配方内某个格子为空,请使用ModContents.AIR.get().getDefaultInstance(),而不是ItemStack.EMPTY
-        IFEURecipeBuilders.shapedRecipe(ModContents.DRAGON_STAR_BLOCK.get().asItem().getDefaultInstance())
+        IFEURecipeBuilders.shapedRecipe(IFEUContents.DRAGON_STAR_BLOCK.get().asItem().getDefaultInstance())
                 .pattern("AAA")
                 .pattern("AAA")
                 .pattern("AAA")
-                .define('A', ModContents.DRAGON_STAR.get().getDefaultInstance())
-                .inputFluid(new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),8000))
+                .define('A', IFEUContents.DRAGON_STAR.get().getDefaultInstance())
+                .inputFluid(new FluidStack(IFEUFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),8000))
                 .save();
 
 
-        IFEURecipeBuilders.shapedRecipe(ModContents.DRAGON_STAR_AXE.get().getDefaultInstance())
+        IFEURecipeBuilders.shapedRecipe(IFEUContents.DRAGON_STAR_AXE.get().getDefaultInstance())
                 .pattern("AA ")
                 .pattern("AB ")
                 .pattern(" C ")
-                .define('A', ModContents.DRAGON_STAR.get().getDefaultInstance())
+                .define('A', IFEUContents.DRAGON_STAR.get().getDefaultInstance())
                 .define('B', Items.NETHERITE_AXE.getDefaultInstance())
                 .define('C', Items.STICK.getDefaultInstance())
-                .inputFluid(new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000))
+                .inputFluid(new FluidStack(IFEUFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000))
                 .save();
 
 
-        IFEURecipeBuilders.shapedRecipe(ModContents.DRAGON_STAR_HOE.get().getDefaultInstance())
+        IFEURecipeBuilders.shapedRecipe(IFEUContents.DRAGON_STAR_HOE.get().getDefaultInstance())
                 .pattern("AA ")
                 .pattern(" B ")
                 .pattern(" C ")
-                .define('A', ModContents.DRAGON_STAR.get().getDefaultInstance())
+                .define('A', IFEUContents.DRAGON_STAR.get().getDefaultInstance())
                 .define('B', Items.NETHERITE_HOE.getDefaultInstance())
                 .define('C', Items.STICK.getDefaultInstance())
-                .inputFluid(new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000))
+                .inputFluid(new FluidStack(IFEUFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000))
                 .save();
 
 
-        IFEURecipeBuilders.shapedRecipe(ModContents.DRAGON_STAR_PICKAXE.get().getDefaultInstance())
+        IFEURecipeBuilders.shapedRecipe(IFEUContents.DRAGON_STAR_PICKAXE.get().getDefaultInstance())
                 .pattern("AAA")
                 .pattern(" B ")
                 .pattern(" C ")
-                .define('A', ModContents.DRAGON_STAR.get().getDefaultInstance())
+                .define('A', IFEUContents.DRAGON_STAR.get().getDefaultInstance())
                 .define('B', Items.NETHERITE_PICKAXE.getDefaultInstance())
                 .define('C', Items.STICK.getDefaultInstance())
-                .inputFluid(new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000))
+                .inputFluid(new FluidStack(IFEUFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000))
                 .save();
 
-        IFEURecipeBuilders.shapedRecipe(ModContents.DRAGON_STAR_SHOVEL.get().getDefaultInstance())
+        IFEURecipeBuilders.shapedRecipe(IFEUContents.DRAGON_STAR_SHOVEL.get().getDefaultInstance())
                 .pattern(" A ")
                 .pattern(" B ")
                 .pattern(" C ")
-                .define('A', ModContents.DRAGON_STAR.get().getDefaultInstance())
+                .define('A', IFEUContents.DRAGON_STAR.get().getDefaultInstance())
                 .define('B', Items.NETHERITE_SHOVEL.getDefaultInstance())
                 .define('C', Items.STICK.getDefaultInstance())
-                .inputFluid(new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000))
+                .inputFluid(new FluidStack(IFEUFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000))
                 .save();
 
 
-        IFEURecipeBuilders.shapedRecipe(ModContents.DRAGON_STAR_SWORD.get().getDefaultInstance())
+        IFEURecipeBuilders.shapedRecipe(IFEUContents.DRAGON_STAR_SWORD.get().getDefaultInstance())
                 .pattern(" A ")
                 .pattern(" B ")
                 .pattern(" C ")
-                .define('A', ModContents.DRAGON_STAR.get().getDefaultInstance())
+                .define('A', IFEUContents.DRAGON_STAR.get().getDefaultInstance())
                 .define('B', Items.NETHERITE_SWORD.getDefaultInstance())
                 .define('C', Items.STICK.getDefaultInstance())
-                .inputFluid(new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000))
+                .inputFluid(new FluidStack(IFEUFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000))
                 .save();
 
-        IFEURecipeBuilders.shapedRecipe(ModContents.CONNECT_TOOL.get().getDefaultInstance())
+        IFEURecipeBuilders.shapedRecipe(IFEUContents.CONNECT_TOOL.get().getDefaultInstance())
                 .pattern("  A")
                 .pattern(" B ")
                 .pattern("B  ")
-                .define('A', ModContents.DRAGON_STAR.get().getDefaultInstance())
+                .define('A', IFEUContents.DRAGON_STAR.get().getDefaultInstance())
                 .define('B', Tags.Items.RODS)
                 .inputFluid(new FluidStack(ModuleCore.PINK_SLIME.getSourceFluid().get(),1000))
                 .save();
 
-        IFEURecipeBuilders.shapedRecipe(ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getLeft().get().asItem().getDefaultInstance())
+        IFEURecipeBuilders.shapedRecipe(IFEUBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getLeft().get().asItem().getDefaultInstance())
                 .pattern("ABA")
                 .pattern("CDC")
                 .pattern("AEA")
                 .define('A', IndustrialTags.Items.PLASTIC)
                 .define('B', ModuleTransportStorage.BLACK_HOLE_TANK_SIMPLE.getLeft().get().asItem().getDefaultInstance())
                 .define('C', ModuleCore.DISSOLUTION_CHAMBER.getLeft().get().asItem().getDefaultInstance())
-                .define('D', ModTags.Items.MACHINE_FRAME_ULTIMATE)
+                .define('D', IFEUTags.Items.MACHINE_FRAME_ULTIMATE)
                 .define('E', ModuleTransportStorage.BLACK_HOLE_UNIT_SIMPLE.getLeft().get().asItem().getDefaultInstance())
-                .inputFluid(new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),1000))
+                .inputFluid(new FluidStack(IFEUFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),1000))
                 .save();
 
         IFEURecipeBuilders.shapedRecipe(Items.ENCHANTED_GOLDEN_APPLE.getDefaultInstance())
                 .pattern("ABA")
                 .pattern("BCB")
                 .pattern("ABA")
-                .define('A', ModContents.DRAGON_STAR.get().getDefaultInstance())
+                .define('A', IFEUContents.DRAGON_STAR.get().getDefaultInstance())
                 .define('B', Tags.Items.STORAGE_BLOCKS_GOLD)
                 .define('C', Items.APPLE.getDefaultInstance())
-                .inputFluid(new FluidStack(ModFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),100))
+                .inputFluid(new FluidStack(IFEUFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),100))
                 .save();
 
         //shapeless
             //有多少输入写多少
-        IFEURecipeBuilders.shapelessRecipe(ModContents.DRAGON_STAR.get().getDefaultInstance().copyWithCount(9),"dragon_star_from_block")
-                .inputs(itemValue(ModContents.DRAGON_STAR_BLOCK.get().asItem().getDefaultInstance()))
-                .inputFluid(new FluidStack(ModFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),100))
+        IFEURecipeBuilders.shapelessRecipe(IFEUContents.DRAGON_STAR.get().getDefaultInstance().copyWithCount(9),"dragon_star_from_block")
+                .inputs(itemValue(IFEUContents.DRAGON_STAR_BLOCK.get().asItem().getDefaultInstance()))
+                .inputFluid(new FluidStack(IFEUFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),100))
                 .save();
 
         //precision shaped
-        IFEURecipeBuilders.precisionShapedRecipe(ModContents.NETHERITE_GEAR.get().getDefaultInstance())
+        IFEURecipeBuilders.precisionShapedRecipe(IFEUContents.NETHERITE_GEAR.get().getDefaultInstance())
                 .pattern(" A ").pattern("A A").pattern(" A ")
                 .define('A',Tags.Items.INGOTS_NETHERITE)
                 .chance(0.8F)
                 .save();
 
-        IFEURecipeBuilders.precisionShapedRecipe(ModContents.SCULK_GEAR.get().getDefaultInstance())
+        IFEURecipeBuilders.precisionShapedRecipe(IFEUContents.SCULK_GEAR.get().getDefaultInstance())
                 .pattern(" A ").pattern("ABA").pattern(" A ")
                 .define('A',Items.SCULK.getDefaultInstance())
-                .define('B', ModTags.Items.GEARS_NETHERITE)
+                .define('B', IFEUTags.Items.GEARS_NETHERITE)
                 .chance(0.6F)
                 .save();
 

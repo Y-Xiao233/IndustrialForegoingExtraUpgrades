@@ -7,15 +7,15 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.yxiao233.ifeu.common.block.entity.DragonStarGeneratorEntity;
-import net.yxiao233.ifeu.common.registry.ModItems;
-import net.yxiao233.ifeu.common.registry.ModTags;
+import net.yxiao233.ifeu.common.registry.IFEUItems;
+import net.yxiao233.ifeu.common.registry.IFEUTags;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Consumer;
 
 public class DragonStarGeneratorBlock extends IndustrialBlock<DragonStarGeneratorEntity> {
     public DragonStarGeneratorBlock() {
-        super("dragon_star_generator", Properties.copy(Blocks.IRON_BLOCK), DragonStarGeneratorEntity.class, ModItems.TAB_ADDONS);
+        super("dragon_star_generator", Properties.copy(Blocks.IRON_BLOCK), DragonStarGeneratorEntity.class, IFEUItems.TAB_ADDONS);
     }
     @Override
     public BlockEntityType.BlockEntitySupplier<?> getTileEntityFactory() {
@@ -34,11 +34,11 @@ public class DragonStarGeneratorBlock extends IndustrialBlock<DragonStarGenerato
                 .pattern("ACA").pattern("DFE").pattern("GBG")
                 .define('A', IndustrialTags.Items.PLASTIC)
                 .define('B', Blocks.FURNACE)
-                .define('C', ModItems.EFFICIENCY_ADDON_6.get())
-                .define('D', ModItems.PROCESSING_ADDON_6.get())
-                .define('E', ModItems.SPEED_ADDON_6.get())
-                .define('F', ModTags.Items.MACHINE_FRAME_ULTIMATE)
-                .define('G', ModTags.Items.GEARS_SCULK)
+                .define('C', IFEUItems.EFFICIENCY_ADDON_6.get())
+                .define('D', IFEUItems.PROCESSING_ADDON_6.get())
+                .define('E', IFEUItems.SPEED_ADDON_6.get())
+                .define('F', IFEUTags.Items.MACHINE_FRAME_ULTIMATE)
+                .define('G', IFEUTags.Items.GEARS_SCULK)
                 .save(consumer);
     }
 }

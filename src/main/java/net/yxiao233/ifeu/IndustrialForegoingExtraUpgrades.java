@@ -25,9 +25,9 @@ public class IndustrialForegoingExtraUpgrades extends ModuleController{
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         MinecraftForge.EVENT_BUS.register(this);
 
-        ModContents.BLOCKS.register(modEventBus);
-        ModContents.ITEMS.register(modEventBus);
-        ModCreativeModeTab.CREATIVE_MODE_TAB.register(modEventBus);
+        IFEUContents.BLOCKS.register(modEventBus);
+        IFEUContents.ITEMS.register(modEventBus);
+        IFEUCreativeModeTab.CREATIVE_MODE_TAB.register(modEventBus);
         ModNetWorking.register();
     }
     @SuppressWarnings("deprecation")
@@ -35,18 +35,18 @@ public class IndustrialForegoingExtraUpgrades extends ModuleController{
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            ItemBlockRenderTypes.setRenderLayer(ModBlocks.FLUID_CRAFTING_TABLE.getLeft().get(), RenderType.translucent());
-            ItemBlockRenderTypes.setRenderLayer(ModBlocks.FLUID_TRANSFER.getLeft().get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(IFEUBlocks.FLUID_CRAFTING_TABLE.getLeft().get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(IFEUBlocks.FLUID_TRANSFER.getLeft().get(), RenderType.translucent());
         }
     }
 
     @Override
     protected void initModules(){
-        new ModItems().generateFeatures(getRegistries());
-        new ModBlocks().generateFeatures(getRegistries());
-        new ModRecipes().generateFeatures(getRegistries());
-        new ModFluids().generateFeatures(getRegistries());
-        this.addCreativeTab("extra_upgrades", () -> new ItemStack(ModItems.SPEED_ADDON_6.get()),IndustrialForegoingExtraUpgrades.MODID+ ".extra_upgrades", ModItems.TAB_ADDONS);
+        new IFEUItems().generateFeatures(getRegistries());
+        new IFEUBlocks().generateFeatures(getRegistries());
+        new IFEURecipes().generateFeatures(getRegistries());
+        new IFEUFluids().generateFeatures(getRegistries());
+        this.addCreativeTab("extra_upgrades", () -> new ItemStack(IFEUItems.SPEED_ADDON_6.get()),IndustrialForegoingExtraUpgrades.MODID+ ".extra_upgrades", IFEUItems.TAB_ADDONS);
     }
 
     @Override

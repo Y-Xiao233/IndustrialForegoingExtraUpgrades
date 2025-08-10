@@ -5,7 +5,7 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.fluids.FluidStack;
 import net.yxiao233.ifeu.api.recipe.FluidGeneratorSerializableRecipe;
-import net.yxiao233.ifeu.common.registry.ModRecipes;
+import net.yxiao233.ifeu.common.registry.IFEURecipes;
 
 public class DragonGeneratorRecipe extends FluidGeneratorSerializableRecipe {
     public DragonGeneratorRecipe(ResourceLocation resourceLocation, FluidStack inputFluid, int progressTime, int powerPerTick) {
@@ -19,11 +19,11 @@ public class DragonGeneratorRecipe extends FluidGeneratorSerializableRecipe {
 
     @Override
     public RecipeSerializer<?> getRecipeSerializer() {
-        return ModRecipes.DRAGON_GENERATOR_SERIALIZER.get();
+        return IFEURecipes.DRAGON_GENERATOR_SERIALIZER.get();
     }
 
     @Override
     public RecipeType<?> getType() {
-        return ModRecipes.DRAGON_GENERATOR_TYPE.get();
+        return IFEURecipes.DRAGON_GENERATOR_TYPE.get();
     }
 }

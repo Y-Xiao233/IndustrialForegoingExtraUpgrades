@@ -4,7 +4,7 @@ import dev.latvian.mods.kubejs.item.ItemBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.yxiao233.ifeu.api.item.ModChanceAddonItem;
-import net.yxiao233.ifeu.common.registry.ModItems;
+import net.yxiao233.ifeu.common.registry.IFEUItems;
 
 public class ChanceAddonItemBuilder extends ItemBuilder {
     private int tier;
@@ -20,6 +20,6 @@ public class ChanceAddonItemBuilder extends ItemBuilder {
         if(this.tier > 20){
             this.tier = 20;
         }
-        return new ModChanceAddonItem(this.tier, ModItems.TAB_ADDONS,false);
+        return new ModChanceAddonItem(this.tier, IFEUItems.TAB_ADDONS,false);
     }
 }

@@ -4,7 +4,7 @@ import dev.latvian.mods.kubejs.item.ItemBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.yxiao233.ifeu.api.item.ModAppleAddonItem;
-import net.yxiao233.ifeu.common.registry.ModItems;
+import net.yxiao233.ifeu.common.registry.IFEUItems;
 
 public class AppleAddonItemBuilder extends ItemBuilder {
     private int tier;
@@ -20,6 +20,6 @@ public class AppleAddonItemBuilder extends ItemBuilder {
 
     @Override
     public Item createObject() {
-        return new ModAppleAddonItem(tier, ModItems.TAB_ADDONS);
+        return new ModAppleAddonItem(tier, IFEUItems.TAB_ADDONS);
     }
 }

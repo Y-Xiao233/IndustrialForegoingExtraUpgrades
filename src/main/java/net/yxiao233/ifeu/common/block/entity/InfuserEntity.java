@@ -6,8 +6,6 @@ import com.hrznstudio.titanium.component.energy.EnergyStorageComponent;
 import com.hrznstudio.titanium.component.fluid.FluidTankComponent;
 import com.hrznstudio.titanium.component.fluid.SidedFluidTankComponent;
 import com.hrznstudio.titanium.component.inventory.SidedInventoryComponent;
-import com.hrznstudio.titanium.component.sideness.IFacingComponent;
-import com.hrznstudio.titanium.util.FacingUtil;
 import com.hrznstudio.titanium.util.RecipeUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
@@ -21,8 +19,8 @@ import net.minecraftforge.items.ItemHandlerHelper;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.common.config.machine.InfuserConfig;
 import net.yxiao233.ifeu.common.recipe.InfuserRecipe;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.registry.ModRecipes;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
+import net.yxiao233.ifeu.common.registry.IFEURecipes;
 import org.jetbrains.annotations.NotNull;
 
 public class InfuserEntity extends IndustrialProcessingTile<InfuserEntity> {
@@ -36,7 +34,7 @@ public class InfuserEntity extends IndustrialProcessingTile<InfuserEntity> {
     private SidedInventoryComponent<InfuserEntity> output;
     private InfuserRecipe currentRecipe;
     public InfuserEntity(BlockPos blockPos, BlockState blockState) {
-        super(ModBlocks.INFUSER, 102, 41, blockPos, blockState);
+        super(IFEUBlocks.INFUSER, 102, 41, blockPos, blockState);
         int slotSpacing = 22;
 
         this.addInventory(this.input = (SidedInventoryComponent<InfuserEntity>) new SidedInventoryComponent<InfuserEntity>("input",54+slotSpacing,18+slotSpacing,1,0)
@@ -74,7 +72,7 @@ public class InfuserEntity extends IndustrialProcessingTile<InfuserEntity> {
             }
 
             //Json Recipes
-            currentRecipe = RecipeUtil.getRecipes(this.level,(RecipeType<InfuserRecipe>) ModRecipes.INFUSER_TYPE.get()).stream().filter(recipe -> recipe.matches(input,inputFluid)).findFirst().orElse(null);
+            currentRecipe = RecipeUtil.getRecipes(this.level,(RecipeType<InfuserRecipe>) IFEURecipes.INFUSER_TYPE.get()).stream().filter(recipe -> recipe.matches(input,inputFluid)).findFirst().orElse(null);
 
 
             //Compact Recipes

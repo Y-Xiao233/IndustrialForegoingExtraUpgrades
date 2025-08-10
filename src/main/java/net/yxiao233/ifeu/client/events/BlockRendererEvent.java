@@ -12,17 +12,17 @@ import net.yxiao233.ifeu.common.block.entity.*;
 import net.yxiao233.ifeu.common.block.renderer.DragonGeneratorRenderer;
 import net.yxiao233.ifeu.common.block.renderer.FluidCraftingTableRenderer;
 import net.yxiao233.ifeu.common.block.renderer.FluidTransferRenderer;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
 
 @Mod.EventBusSubscriber(modid = IndustrialForegoingExtraUpgrades.MODID,bus = Mod.EventBusSubscriber.Bus.MOD,value = Dist.CLIENT)
 public class BlockRendererEvent {
     @SubscribeEvent
     public static void registerBlockEntityRenderer(EntityRenderersEvent.RegisterRenderers event){
-        event.registerBlockEntityRenderer((BlockEntityType<FluidCraftingTableEntity>) ModBlocks.FLUID_CRAFTING_TABLE.getRight().get(),FluidCraftingTableRenderer::new);
-        event.registerBlockEntityRenderer((BlockEntityType<DragonGeneratorEntity>) ModBlocks.DRAGON_GENERATOR.getRight().get(), DragonGeneratorRenderer::new);
-        event.registerBlockEntityRenderer((BlockEntityType<FluidTransferEntity>) ModBlocks.FLUID_TRANSFER.getRight().get(), FluidTransferRenderer::new);
-        event.registerBlockEntityRenderer((BlockEntityType<BigDissolutionChamberEntity>) ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getRight().get(), IFEUStructureEntityRenderer::new);
+        event.registerBlockEntityRenderer((BlockEntityType<FluidCraftingTableEntity>) IFEUBlocks.FLUID_CRAFTING_TABLE.getRight().get(),FluidCraftingTableRenderer::new);
+        event.registerBlockEntityRenderer((BlockEntityType<DragonGeneratorEntity>) IFEUBlocks.DRAGON_GENERATOR.getRight().get(), DragonGeneratorRenderer::new);
+        event.registerBlockEntityRenderer((BlockEntityType<FluidTransferEntity>) IFEUBlocks.FLUID_TRANSFER.getRight().get(), FluidTransferRenderer::new);
+        event.registerBlockEntityRenderer((BlockEntityType<BigDissolutionChamberEntity>) IFEUBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getRight().get(), IFEUStructureEntityRenderer::new);
 
-        event.registerBlockEntityRenderer((BlockEntityType<PlatformBuilderEntity>) ModBlocks.PLATFORM_BUILDER.getRight().get(), PlatformBuilderRenderer::new);
+        event.registerBlockEntityRenderer((BlockEntityType<PlatformBuilderEntity>) IFEUBlocks.PLATFORM_BUILDER.getRight().get(), PlatformBuilderRenderer::new);
     }
 }

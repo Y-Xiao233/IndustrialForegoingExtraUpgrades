@@ -21,8 +21,8 @@ import net.yxiao233.ifeu.api.jei.AbstractJEICategory;
 import net.yxiao233.ifeu.common.compact.jei.ModRecipeType;
 import net.yxiao233.ifeu.common.gui.AllGuiTextures;
 import net.yxiao233.ifeu.common.recipe.PrecisionShapelessRecipe;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.registry.ModRecipes;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
+import net.yxiao233.ifeu.common.registry.IFEURecipes;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.awt.*;
@@ -30,12 +30,12 @@ import java.awt.*;
 public class PrecisionShapelessCategory extends AbstractJEICategory<PrecisionShapelessRecipe> {
     public static final Component TITLE = Component.translatable("jei.ifeu.precision_shapeless");
     public PrecisionShapelessCategory(IGuiHelper helper) {
-        super(helper, ModRecipeType.PRECISION_SHAPELESS, TITLE, ModBlocks.PRECISION_CRAFTING_TABLE.getLeft().get().asItem(), 160, 82);
+        super(helper, ModRecipeType.PRECISION_SHAPELESS, TITLE, IFEUBlocks.PRECISION_CRAFTING_TABLE.getLeft().get().asItem(), 160, 82);
     }
 
     @Override
     public RecipeType getTypeInstance() {
-        return ModRecipes.PRECISION_SHAPELESS_TYPE.get();
+        return IFEURecipes.PRECISION_SHAPELESS_TYPE.get();
     }
 
     @Override

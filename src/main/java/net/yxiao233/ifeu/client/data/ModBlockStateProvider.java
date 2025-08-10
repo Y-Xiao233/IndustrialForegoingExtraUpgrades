@@ -9,8 +9,8 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.registry.ModContents;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
+import net.yxiao233.ifeu.common.registry.IFEUContents;
 
 public class ModBlockStateProvider extends BlockStateProvider {
     public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
@@ -22,23 +22,23 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        blockItem(ModBlocks.INFUSER.getLeft());
-        blockItem(ModBlocks.DRAGON_STAR_GENERATOR.getLeft());
-        blockItem(ModBlocks.CREATIVE_CAPACITOR.getLeft());
-        blockItem(ModBlocks.ARCANE_DRAGON_EGG_FORGING.getLeft());
-        blockItem(ModContents.DEAD_DRAGON_EGG);
-        blockItem(ModBlocks.WEATHER_CONTROLLER.getLeft());
-        blockItem(ModBlocks.TIME_CONTROLLER.getLeft());
-        blockItem(ModBlocks.RULE_CONTROLLER.getLeft());
-        blockItem(ModContents.ULTIMATE_MACHINE_FRAME);
-        blockItem(ModContents.DRAGON_STAR_BLOCK);
-        blockItem(ModBlocks.FLUID_CRAFTING_TABLE.getLeft());
-        blockItem(ModBlocks.DRAGON_GENERATOR.getLeft());
-        blockItem(ModBlocks.FLUID_TRANSFER.getLeft());
-        blockItem(ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getLeft());
-        blockItem(ModBlocks.SIMULATED_HYDROPONIC_BED.getLeft());
-        blockItem(ModBlocks.PLATFORM_BUILDER.getLeft());
-        blockItem(ModBlocks.PRECISION_CRAFTING_TABLE.getLeft());
+        blockItem(IFEUBlocks.INFUSER.getLeft());
+        blockItem(IFEUBlocks.DRAGON_STAR_GENERATOR.getLeft());
+        blockItem(IFEUBlocks.CREATIVE_CAPACITOR.getLeft());
+        blockItem(IFEUBlocks.ARCANE_DRAGON_EGG_FORGING.getLeft());
+        blockItem(IFEUContents.DEAD_DRAGON_EGG);
+        blockItem(IFEUBlocks.WEATHER_CONTROLLER.getLeft());
+        blockItem(IFEUBlocks.TIME_CONTROLLER.getLeft());
+        blockItem(IFEUBlocks.RULE_CONTROLLER.getLeft());
+        blockItem(IFEUContents.ULTIMATE_MACHINE_FRAME);
+        blockItem(IFEUContents.DRAGON_STAR_BLOCK);
+        blockItem(IFEUBlocks.FLUID_CRAFTING_TABLE.getLeft());
+        blockItem(IFEUBlocks.DRAGON_GENERATOR.getLeft());
+        blockItem(IFEUBlocks.FLUID_TRANSFER.getLeft());
+        blockItem(IFEUBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getLeft());
+        blockItem(IFEUBlocks.SIMULATED_HYDROPONIC_BED.getLeft());
+        blockItem(IFEUBlocks.PLATFORM_BUILDER.getLeft());
+        blockItem(IFEUBlocks.PRECISION_CRAFTING_TABLE.getLeft());
     }
 
     private void blockItem(RegistryObject<Block> registryObject){

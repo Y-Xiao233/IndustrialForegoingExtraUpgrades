@@ -25,8 +25,8 @@ import net.yxiao233.ifeu.api.jei.AbstractJEICategory;
 import net.yxiao233.ifeu.common.compact.jei.ModRecipeType;
 import net.yxiao233.ifeu.common.config.machine.InfuserConfig;
 import net.yxiao233.ifeu.common.recipe.ArcaneDragonEggForgingRecipe;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.registry.ModRecipes;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
+import net.yxiao233.ifeu.common.registry.IFEURecipes;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.awt.*;
@@ -37,7 +37,7 @@ public class ArcaneDragonEggForgingCategory extends AbstractJEICategory<ArcaneDr
     private final IDrawable bigTank_input2;
     private final IDrawable bigTank_output;
     public ArcaneDragonEggForgingCategory(IGuiHelper helper) {
-        super(helper, ModRecipeType.ARCANE_DRAGON_EGG_FORGING, TITLE, ModBlocks.ARCANE_DRAGON_EGG_FORGING.getLeft().get().asItem(), 160, 82);
+        super(helper, ModRecipeType.ARCANE_DRAGON_EGG_FORGING, TITLE, IFEUBlocks.ARCANE_DRAGON_EGG_FORGING.getLeft().get().asItem(), 160, 82);
 
         this.bigTank_input1 = helper.createDrawable(DefaultAssetProvider.DEFAULT_LOCATION, 180, 4, 12, 50);
         this.bigTank_input2 = helper.createDrawable(DefaultAssetProvider.DEFAULT_LOCATION, 180, 4, 12, 50);
@@ -47,7 +47,7 @@ public class ArcaneDragonEggForgingCategory extends AbstractJEICategory<ArcaneDr
 
     @Override
     public RecipeType getTypeInstance() {
-        return ModRecipes.ARCANE_DRAGON_EGG_FORGING_TYPE.get();
+        return IFEURecipes.ARCANE_DRAGON_EGG_FORGING_TYPE.get();
     }
 
     @Override

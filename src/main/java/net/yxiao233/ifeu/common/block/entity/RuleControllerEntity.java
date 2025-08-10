@@ -29,8 +29,8 @@ import net.yxiao233.ifeu.common.gui.AllGuiTextures;
 import net.yxiao233.ifeu.common.networking.ModNetWorking;
 import net.yxiao233.ifeu.common.networking.packet.BooleanSyncS2CPacket;
 import net.yxiao233.ifeu.api.networking.BooleanValueSyncS2C;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.registry.ModContents;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
+import net.yxiao233.ifeu.common.registry.IFEUContents;
 import net.yxiao233.ifeu.common.utils.GameRuleGetter;
 import net.yxiao233.ifeu.common.utils.GameRuleUtil;
 import org.jetbrains.annotations.NotNull;
@@ -52,10 +52,10 @@ public class RuleControllerEntity extends IndustrialProcessingTile<RuleControlle
     private int rule;
     private boolean value;
     public RuleControllerEntity(BlockPos blockPos, BlockState blockState) {
-        super(ModBlocks.RULE_CONTROLLER, 66, 40, blockPos, blockState);
+        super(IFEUBlocks.RULE_CONTROLLER, 66, 40, blockPos, blockState);
 
         this.addInventory(this.input = (SidedInventoryComponent<RuleControllerEntity>)(new SidedInventoryComponent<RuleControllerEntity>("dragon_star_input", 33, 40, 1, 0)).setColor(DyeColor.PURPLE).setInputFilter((stack, integer) -> {
-            return stack.is(ModContents.DRAGON_STAR.get());
+            return stack.is(IFEUContents.DRAGON_STAR.get());
         }).setOutputFilter((stack, integer) -> {
             return false;
         }).setComponentHarness(this));

@@ -25,8 +25,8 @@ import net.yxiao233.ifeu.api.jei.AbstractJEICategory;
 import net.yxiao233.ifeu.common.compact.jei.ModRecipeType;
 import net.yxiao233.ifeu.common.config.machine.InfuserConfig;
 import net.yxiao233.ifeu.common.recipe.InfuserRecipe;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.registry.ModRecipes;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
+import net.yxiao233.ifeu.common.registry.IFEURecipes;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.awt.*;
@@ -35,13 +35,13 @@ public class InfuserCategory extends AbstractJEICategory<InfuserRecipe> {
     public static final Component TITLE = Component.translatable("block.ifeu.infuser");
     private final IDrawable bigTank;
     public InfuserCategory(IGuiHelper helper) {
-        super(helper, ModRecipeType.INFUSER,TITLE,ModBlocks.INFUSER.getKey().get().asItem(), 160, 82);
+        super(helper, ModRecipeType.INFUSER,TITLE, IFEUBlocks.INFUSER.getKey().get().asItem(), 160, 82);
         this.bigTank = helper.createDrawable(DefaultAssetProvider.DEFAULT_LOCATION, 177 + 3, 1 + 3, 12, 50);
     }
 
     @Override
     public RecipeType getTypeInstance() {
-        return ModRecipes.INFUSER_TYPE.get();
+        return IFEURecipes.INFUSER_TYPE.get();
     }
 
     @Override

@@ -3,7 +3,7 @@ package net.yxiao233.ifeu.api.recipe.builder;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.yxiao233.ifeu.common.recipe.PrecisionShapedRecipe;
-import net.yxiao233.ifeu.common.registry.ModContents;
+import net.yxiao233.ifeu.common.registry.IFEUContents;
 
 public class PrecisionShapedRecipeBuilder extends IFEURecipeBuilder{
 
@@ -28,7 +28,7 @@ public class PrecisionShapedRecipeBuilder extends IFEURecipeBuilder{
                                     }else if(this.getDefineTagMap().containsKey(c)){
                                         return new Ingredient.TagValue(this.getDefineTagMap().get(c));
                                     }else{
-                                        return new Ingredient.ItemValue(ModContents.AIR.get().getDefaultInstance());
+                                        return new Ingredient.ItemValue(IFEUContents.AIR.get().getDefaultInstance());
                                     }
                                 })
                 )

@@ -192,6 +192,11 @@
 ### v2.3.008
 - 为流体工作台,精密工作台添加了锁,以便于自动化
 
+### v2.3.009
+- 修改了大量类名
+- 对高级熔炉堆叠数进行了更改(1 -> 64)
+- 优化了大型溶解成型机的槽位输入逻辑(单个槽位内最大物品数量默认为锁定时槽位内物品数量,配置内可更改为机器最大线程)
+
 ## en_us
 ### v1.0.0
 - init
@@ -382,3 +387,8 @@
 
 ### v2.3.008
 - Locks have been added to fluid and precision crafting table for automation purposes
+
+### v2.3.009
+- Modified a large number of class names
+- Changed the stacking number of advanced furnaces (1->64)
+- Optimized the slot input logic of the Big Dissolution Chamber(the maximum number of items in a single slot is defaulted to the number of items in the locked slot, and can be changed to the maximum thread of the machine in the configuration)

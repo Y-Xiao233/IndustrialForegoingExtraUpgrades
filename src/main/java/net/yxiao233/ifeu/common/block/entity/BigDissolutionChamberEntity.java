@@ -8,31 +8,28 @@ import com.hrznstudio.titanium.component.bundle.LockableInventoryBundle;
 import com.hrznstudio.titanium.component.energy.EnergyStorageComponent;
 import com.hrznstudio.titanium.component.fluid.FluidTankComponent;
 import com.hrznstudio.titanium.component.fluid.SidedFluidTankComponent;
+import com.hrznstudio.titanium.component.inventory.InventoryComponent;
 import com.hrznstudio.titanium.component.inventory.SidedInventoryComponent;
 import com.hrznstudio.titanium.util.RecipeUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.items.ItemHandlerHelper;
 import net.yxiao233.ifeu.api.block.entity.IFEUStructureProcessingTile;
+import net.yxiao233.ifeu.api.components.IFEULockableInventoryBundle;
 import net.yxiao233.ifeu.api.item.IFEUAddonItem;
 import net.yxiao233.ifeu.api.item.IFEUAugmentTypes;
 import net.yxiao233.ifeu.api.item.ModAppleAddonItem;
-import net.yxiao233.ifeu.api.structure.MultiBlockStructureBuilder;
 import net.yxiao233.ifeu.common.config.machine.BigDissolutionChamberConfig;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
 import net.yxiao233.ifeu.api.structure.MultiBlockStructure;
-import net.yxiao233.ifeu.common.registry.ModContents;
 import net.yxiao233.ifeu.common.structure.IFEUMultiBlockStructures;
 import net.yxiao233.ifeu.common.utils.AugmentInventoryHelper;
 import org.apache.commons.lang3.tuple.Pair;
@@ -45,7 +42,7 @@ public class BigDissolutionChamberEntity extends IFEUStructureProcessingTile<Big
     private int powerPerTick;
     private int defaultMaxThread;
     @Save
-    private LockableInventoryBundle<BigDissolutionChamberEntity> input;
+    private IFEULockableInventoryBundle<BigDissolutionChamberEntity> input;
     @Save
     private SidedFluidTankComponent<BigDissolutionChamberEntity> inputFluid;
     @Save
@@ -54,10 +51,10 @@ public class BigDissolutionChamberEntity extends IFEUStructureProcessingTile<Big
     private SidedFluidTankComponent<BigDissolutionChamberEntity> outputFluid;
     private DissolutionChamberRecipe currentRecipe;
     public BigDissolutionChamberEntity(BlockPos blockPos, BlockState blockState) {
-        super(ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE, 102, 41, blockPos, blockState);
+        super(IFEUBlocks.BIG_DISSOLUTION_CHAMBER_CORE, 102, 41, blockPos, blockState);
 
         int slotSpacing = 22;
-        this.addBundle(this.input = new LockableInventoryBundle<>(this, (new SidedInventoryComponent<BigDissolutionChamberEntity>("input", 34, 19, 8, 0))
+        this.addBundle(this.input = new IFEULockableInventoryBundle<>(this.getAugmentInventory(),this, (new SidedInventoryComponent<BigDissolutionChamberEntity>("input", 34, 19, 8, 0))
                 .setColor(DyeColor.LIGHT_BLUE)
                 .setSlotPosition(BigDissolutionChamberEntity::getSlotPos)
                 .setOutputFilter((stack, integer) -> false)

@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.yxiao233.ifeu.api.block.IFEUStructureBlock;
 import net.yxiao233.ifeu.common.block.entity.BigDissolutionChamberEntity;
 import net.yxiao233.ifeu.common.config.machine.BigDissolutionChamberConfig;
-import net.yxiao233.ifeu.common.registry.ModItems;
+import net.yxiao233.ifeu.common.registry.IFEUItems;
 import net.yxiao233.ifeu.common.structure.IFEUMultiBlockStructures;
 import net.yxiao233.ifeu.common.utils.TooltipHelper;
 import org.apache.commons.lang3.tuple.Pair;
@@ -21,7 +21,7 @@ import java.util.List;
 
 public class BigDissolutionChamberBlock extends IFEUStructureBlock<BigDissolutionChamberEntity> {
     public BigDissolutionChamberBlock() {
-        super("structure", Properties.copy(Blocks.IRON_BLOCK), BigDissolutionChamberEntity.class, ModItems.TAB_ADDONS);
+        super("structure", Properties.copy(Blocks.IRON_BLOCK), BigDissolutionChamberEntity.class, IFEUItems.TAB_ADDONS);
     }
 
     @Override

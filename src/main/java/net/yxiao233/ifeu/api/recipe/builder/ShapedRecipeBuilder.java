@@ -3,9 +3,7 @@ package net.yxiao233.ifeu.api.recipe.builder;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.yxiao233.ifeu.common.recipe.ShapedRecipe;
-import net.yxiao233.ifeu.common.registry.ModContents;
-
-import java.util.function.IntFunction;
+import net.yxiao233.ifeu.common.registry.IFEUContents;
 
 public class ShapedRecipeBuilder extends IFEURecipeBuilder{
     public ShapedRecipeBuilder(ItemStack output) {
@@ -27,7 +25,7 @@ public class ShapedRecipeBuilder extends IFEURecipeBuilder{
                                     }else if(this.getDefineTagMap().containsKey(c)){
                                         return new Ingredient.TagValue(this.getDefineTagMap().get(c));
                                     }else{
-                                        return new Ingredient.ItemValue(ModContents.AIR.get().getDefaultInstance());
+                                        return new Ingredient.ItemValue(IFEUContents.AIR.get().getDefaultInstance());
                                     }
                                 })
                 )

@@ -31,7 +31,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.yxiao233.ifeu.api.item.IFEUAddonItem;
 import net.yxiao233.ifeu.api.item.IFEUAugmentTypes;
 import net.yxiao233.ifeu.common.item.HydroponicSimulationProcessorItem;
-import net.yxiao233.ifeu.common.registry.ModContents;
+import net.yxiao233.ifeu.common.registry.IFEUContents;
 import net.yxiao233.ifeu.common.utils.AugmentInventoryHelper;
 import org.apache.commons.lang3.tuple.Pair;
 import org.spongepowered.asm.mixin.Mixin;
@@ -43,7 +43,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -68,7 +67,7 @@ public abstract class MixinHydroponicBedTile extends IndustrialWorkingTile<Hydro
     private void onTileInit(BlockPos blockPos, BlockState blockState, CallbackInfo ci){
         addInventory(this.simulation_slot = (SidedInventoryComponent<HydroponicBedTile>) new SidedInventoryComponent<HydroponicBedTile>("simulation", 70 + 18 * 2, 80, 1, 3)
                 .setColor(DyeColor.LIME)
-                .setInputFilter((stack, integer) -> stack.getItem().equals(ModContents.HYDROPONIC_SIMULATION_PROCESSOR.get()))
+                .setInputFilter((stack, integer) -> stack.getItem().equals(IFEUContents.HYDROPONIC_SIMULATION_PROCESSOR.get()))
                 .setOutputFilter((stack, integer) -> false)
         );
     }

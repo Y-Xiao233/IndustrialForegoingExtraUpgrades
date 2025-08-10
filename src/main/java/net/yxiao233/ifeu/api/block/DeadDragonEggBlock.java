@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.yxiao233.ifeu.common.registry.ModContents;
+import net.yxiao233.ifeu.common.registry.IFEUContents;
 import net.yxiao233.ifeu.common.utils.BlockBoxHelper;
 
 public class DeadDragonEggBlock extends DragonEggBlock {
@@ -26,7 +26,7 @@ public class DeadDragonEggBlock extends DragonEggBlock {
             return super.use(state,level, pos, player, hand, hit);
         }
 
-        if(player.getMainHandItem().is(ModContents.DRAGON_STAR.get())){
+        if(player.getMainHandItem().is(IFEUContents.DRAGON_STAR.get())){
             level.setBlock(hit.getBlockPos(), Blocks.DRAGON_EGG.defaultBlockState(),3);
             return InteractionResult.CONSUME;
         }else{

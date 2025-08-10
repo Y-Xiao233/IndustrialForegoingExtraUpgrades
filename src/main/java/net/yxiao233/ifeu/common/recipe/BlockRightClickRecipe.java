@@ -11,7 +11,7 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.BlockHitResult;
-import net.yxiao233.ifeu.common.registry.ModRecipes;
+import net.yxiao233.ifeu.common.registry.IFEURecipes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,11 +59,11 @@ public class BlockRightClickRecipe extends SerializableRecipe {
 
     @Override
     public GenericSerializer<? extends SerializableRecipe> getSerializer() {
-        return (GenericSerializer<? extends SerializableRecipe>) ModRecipes.BLOCK_RIGHT_CLICK_SERIALIZER.get();
+        return (GenericSerializer<? extends SerializableRecipe>) IFEURecipes.BLOCK_RIGHT_CLICK_SERIALIZER.get();
     }
 
     @Override
     public RecipeType<?> getType() {
-        return ModRecipes.BLOCK_RIGHT_CLICK_TYPE.get();
+        return IFEURecipes.BLOCK_RIGHT_CLICK_TYPE.get();
     }
 }

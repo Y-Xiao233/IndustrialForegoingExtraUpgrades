@@ -5,10 +5,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -19,7 +16,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.yxiao233.ifeu.common.registry.ModTags;
+import net.yxiao233.ifeu.common.registry.IFEUTags;
 import net.yxiao233.ifeu.common.utils.LevelUtil;
 import net.yxiao233.ifeu.common.utils.TooltipHelper;
 import org.jetbrains.annotations.Nullable;
@@ -47,7 +44,7 @@ public class WrenchItem extends Item {
                     blockState = tile.getBlockState();
                     block = blockState.getBlock();
                     entity = tile;
-                }else if(level.getBlockState(pos).getTags().toList().contains(ModTags.Blocks.WRENCH_PICKUP)){
+                }else if(level.getBlockState(pos).getTags().toList().contains(IFEUTags.Blocks.WRENCH_PICKUP)){
                     blockState = level.getBlockState(pos);
                     block = blockState.getBlock();
                     if(blockState.hasBlockEntity()){

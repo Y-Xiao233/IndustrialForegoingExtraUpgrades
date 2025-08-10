@@ -9,7 +9,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 
-public class ModTags {
+public class IFEUTags {
     public static class Blocks{
         public static final TagKey<Block> NEEDS_DRAGON_STAR_TOOL = TagUtil.getBlockTag(new ResourceLocation("ifeu:need_dragon_star_tool"));
         public static final TagKey<Block> MACHINE_FRAME_ULTIMATE = TagUtil.getBlockTag(new ResourceLocation("ifeu:machine_frame/ultimate"));

@@ -1,6 +1,5 @@
 package net.yxiao233.ifeu.common.recipe;
 
-import com.hrznstudio.titanium.component.fluid.FluidTankComponent;
 import com.hrznstudio.titanium.component.inventory.InventoryComponent;
 import com.hrznstudio.titanium.recipe.serializer.GenericSerializer;
 import com.hrznstudio.titanium.recipe.serializer.SerializableRecipe;
@@ -11,9 +10,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
-import net.yxiao233.ifeu.common.block.entity.FluidCraftingTableEntity;
 import net.yxiao233.ifeu.common.block.entity.PrecisionCraftingTableEntity;
-import net.yxiao233.ifeu.common.registry.ModRecipes;
+import net.yxiao233.ifeu.common.registry.IFEURecipes;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -103,11 +101,11 @@ public class PrecisionShapelessRecipe extends SerializableRecipe {
 
     @Override
     public GenericSerializer<? extends SerializableRecipe> getSerializer() {
-        return (GenericSerializer<? extends SerializableRecipe>) ModRecipes.PRECISION_SHAPELESS_SERIALIZER.get();
+        return (GenericSerializer<? extends SerializableRecipe>) IFEURecipes.PRECISION_SHAPELESS_SERIALIZER.get();
     }
 
     @Override
     public RecipeType<?> getType() {
-        return ModRecipes.PRECISION_SHAPELESS_TYPE.get();
+        return IFEURecipes.PRECISION_SHAPELESS_TYPE.get();
     }
 }
