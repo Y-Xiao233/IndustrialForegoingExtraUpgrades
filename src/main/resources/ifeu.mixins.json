@@ -7,7 +7,6 @@
   "mixins": [
     "block.MixinMachineFrameItem",
     "entity.MixinHydroponicBedTile",
-    "entity.MixinResourcefulFurnaceTile",
     "entity.MixinStasisChamberTile",
     "item.MixinAugmentWrapper",
     "jei.MixinDissolutionChamberCategory",
