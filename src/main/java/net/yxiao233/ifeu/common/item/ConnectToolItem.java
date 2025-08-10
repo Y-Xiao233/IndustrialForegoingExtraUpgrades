@@ -16,7 +16,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.yxiao233.ifeu.common.block.entity.FluidTransferEntity;
 import net.yxiao233.ifeu.common.block.entity.PlatformBuilderEntity;
-import net.yxiao233.ifeu.common.registry.ModDataComponentTypes;
+import net.yxiao233.ifeu.common.registry.IFEUDataComponentTypes;
 import net.yxiao233.ifeu.common.utils.IntArrayBlockPosUtil;
 import net.yxiao233.ifeu.common.utils.TagUtil;
 
@@ -41,7 +41,7 @@ public class ConnectToolItem extends Item {
             initTag(item);
 
             CompoundTag tag = new CompoundTag();
-            CompoundTag itemTag = item.get(ModDataComponentTypes.COMPOUND_TAG);
+            CompoundTag itemTag = item.get(IFEUDataComponentTypes.COMPOUND_TAG);
 
             if(itemTag != null){
                 int mode = itemTag.getInt("mode");
@@ -89,7 +89,7 @@ public class ConnectToolItem extends Item {
                 }
 
                 TagUtil.saveInt(tag,itemTag,"mode");
-                item.set(ModDataComponentTypes.COMPOUND_TAG,tag);
+                item.set(IFEUDataComponentTypes.COMPOUND_TAG,tag);
             }
 
 
@@ -106,7 +106,7 @@ public class ConnectToolItem extends Item {
             if(level.getBlockState(pos).isAir() && item.getItem() instanceof ConnectToolItem){
                 initTag(item);
                 CompoundTag tag = new CompoundTag();
-                CompoundTag itemTag = item.get(ModDataComponentTypes.COMPOUND_TAG);
+                CompoundTag itemTag = item.get(IFEUDataComponentTypes.COMPOUND_TAG);
                 if(itemTag != null){
                     int mode = itemTag.getInt("mode");
                     TagUtil.saveAllTag(tag,itemTag,List.of("mode0","mode1"));
@@ -124,7 +124,7 @@ public class ConnectToolItem extends Item {
                         }
                         tag.put("mode" + mode,new CompoundTag());
                         player.displayClientMessage(Component.translatable("message.ifeu.connect_tool.clear_configuration").withStyle(ChatFormatting.GREEN),true);
-                        item.set(ModDataComponentTypes.COMPOUND_TAG,tag);
+                        item.set(IFEUDataComponentTypes.COMPOUND_TAG,tag);
                         return InteractionResultHolder.success(item);
                     }
                     if(!player.isShiftKeyDown()){
@@ -135,7 +135,7 @@ public class ConnectToolItem extends Item {
                             tag.putInt("mode",0);
                             player.displayClientMessage(Component.translatable("message.ifeu.connect_tool.mode_change_0").withStyle(ChatFormatting.GREEN),true);
                         }
-                        item.set(ModDataComponentTypes.COMPOUND_TAG,tag);
+                        item.set(IFEUDataComponentTypes.COMPOUND_TAG,tag);
                         return InteractionResultHolder.success(item);
                     }
                 }
@@ -145,12 +145,12 @@ public class ConnectToolItem extends Item {
     }
 
     private void initTag(ItemStack stack){
-        if(!stack.has(ModDataComponentTypes.COMPOUND_TAG) || stack.get(ModDataComponentTypes.COMPOUND_TAG) == null) {
+        if(!stack.has(IFEUDataComponentTypes.COMPOUND_TAG) || stack.get(IFEUDataComponentTypes.COMPOUND_TAG) == null) {
             CompoundTag tag = new CompoundTag();
             tag.putInt("mode",0);
             tag.put("mode0",new CompoundTag());
             tag.put("mode1",new CompoundTag());
-            stack.set(ModDataComponentTypes.COMPOUND_TAG,tag);
+            stack.set(IFEUDataComponentTypes.COMPOUND_TAG,tag);
         }
     }
 
@@ -201,7 +201,7 @@ public class ConnectToolItem extends Item {
     }
 
     private BlockPos getBlockPos(ItemStack stack, String posId){
-        CompoundTag tag = stack.get(ModDataComponentTypes.COMPOUND_TAG);
+        CompoundTag tag = stack.get(IFEUDataComponentTypes.COMPOUND_TAG);
         return getBlockPos(tag,posId);
     }
 
@@ -250,7 +250,7 @@ public class ConnectToolItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltips, TooltipFlag flag) {
-        CompoundTag tag = stack.get(ModDataComponentTypes.COMPOUND_TAG);
+        CompoundTag tag = stack.get(IFEUDataComponentTypes.COMPOUND_TAG);
         initTag(stack);
 
         if(TagUtil.contains(tag,"mode")){

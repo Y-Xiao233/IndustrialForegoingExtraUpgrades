@@ -4,7 +4,7 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.yxiao233.ifeu.common.recipe.ShapedRecipe;
-import net.yxiao233.ifeu.common.registry.ModContents;
+import net.yxiao233.ifeu.common.registry.IFEUContents;
 
 import java.util.List;
 
@@ -28,7 +28,7 @@ public class ShapedRecipeBuilder extends IFEURecipeBuilder{
                                     }else if(this.getDefineTagMap().containsKey(c)){
                                         return Ingredient.of(this.getDefineTagMap().get(c));
                                     }else{
-                                        return Ingredient.of(ModContents.AIR.get());
+                                        return Ingredient.of(IFEUContents.AIR.get());
                                     }
                                 })
                 )

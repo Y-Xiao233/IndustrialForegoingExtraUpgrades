@@ -1,0 +1,22 @@
+{
+  "type": "ifeu:precision_shapeless",
+  "chance": 0.4,
+  "inputs": [
+    {
+      "tag": "c:storage_blocks/redstone"
+    },
+    {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "item": "minecraft:enchanted_book"
+    },
+    {
+      "tag": "c:gears/netherite"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "id": "ifeu:chance_addon_3"
+  }
+}

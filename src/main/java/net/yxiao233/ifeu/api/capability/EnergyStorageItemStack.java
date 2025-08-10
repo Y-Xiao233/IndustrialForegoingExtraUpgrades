@@ -3,7 +3,7 @@ package net.yxiao233.ifeu.api.capability;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.energy.IEnergyStorage;
-import net.yxiao233.ifeu.common.registry.ModDataComponentTypes;
+import net.yxiao233.ifeu.common.registry.IFEUDataComponentTypes;
 
 public class EnergyStorageItemStack implements IEnergyStorage {
     private static final String BLOCK_ENTITY_TAG = "BlockEntityTag";
@@ -16,10 +16,10 @@ public class EnergyStorageItemStack implements IEnergyStorage {
 
     public EnergyStorageItemStack(ItemStack stack, int capacity, int in, int out) {
         this.stack = stack;
-        boolean hasTags = stack.has(ModDataComponentTypes.COMPOUND_TAG);
+        boolean hasTags = stack.has(IFEUDataComponentTypes.COMPOUND_TAG);
 
         if(hasTags){
-            tag = stack.get(ModDataComponentTypes.COMPOUND_TAG).getCompound(BLOCK_ENTITY_TAG);
+            tag = stack.get(IFEUDataComponentTypes.COMPOUND_TAG).getCompound(BLOCK_ENTITY_TAG);
             tag.putInt(MAX,capacity);
             tag.putInt(IN,in);
             tag.putInt(OUT,out);

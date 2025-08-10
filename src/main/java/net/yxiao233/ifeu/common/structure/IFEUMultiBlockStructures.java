@@ -3,34 +3,25 @@ package net.yxiao233.ifeu.common.structure;
 import com.buuz135.industrial.utils.IndustrialTags;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import dev.latvian.mods.kubejs.script.ScriptType;
-import net.minecraft.core.Direction;
-import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
-import net.minecraft.util.ExtraCodecs;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.api.structure.MultiBlockStructure;
 import net.yxiao233.ifeu.api.structure.MultiBlockStructureBuilder;
-import net.yxiao233.ifeu.common.compact.kubejs.events.IFEUStructureEvents;
-import net.yxiao233.ifeu.common.compact.kubejs.events.IFEUStructureRegistryJS;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.registry.ModContents;
-import net.yxiao233.ifeu.common.registry.ModTags;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
+import net.yxiao233.ifeu.common.registry.IFEUContents;
+import net.yxiao233.ifeu.common.registry.IFEUTags;
 
 import java.util.HashMap;
 import java.util.function.Supplier;
 
-import static net.minecraft.world.item.ItemStack.ITEM_NON_AIR_CODEC;
-
 public class IFEUMultiBlockStructures {
     public static final HashMap<ResourceLocation, IFEUMultiBlockStructures> values = new HashMap<>();
-    public static final IFEUMultiBlockStructures BIG_DISSOLUTION_CHAMBER = new IFEUMultiBlockStructures(ifeu("big_dissolution_chamber"),() -> ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.asItem(),() -> new MultiBlockStructureBuilder()
+    public static final IFEUMultiBlockStructures BIG_DISSOLUTION_CHAMBER = new IFEUMultiBlockStructures(ifeu("big_dissolution_chamber"),() -> IFEUBlocks.BIG_DISSOLUTION_CHAMBER_CORE.asItem(),() -> new MultiBlockStructureBuilder()
             .pattern(
                     "ABA",
                     "BBB",
@@ -48,7 +39,7 @@ public class IFEUMultiBlockStructures {
             )
             .define('A', FRAME_SIMPLE())
             .define('B', Blocks.SCULK)
-            .define('C', ModContents.DRAGON_STAR_BLOCK.get())
+            .define('C', IFEUContents.DRAGON_STAR_BLOCK.get())
             .define('D', ITEM())
             .define('E', FLUID())
 //                .define('F', ENERGY)
@@ -103,15 +94,15 @@ public class IFEUMultiBlockStructures {
     }
     //base structure block tag
     private static TagKey<Block> ENERGY(){
-        return ModTags.Blocks.STORAGE_ENERGY;
+        return IFEUTags.Blocks.STORAGE_ENERGY;
     }
 
     private static TagKey<Block> FLUID(){
-        return ModTags.Blocks.STORAGE_FLUID;
+        return IFEUTags.Blocks.STORAGE_FLUID;
     }
 
     private static TagKey<Block> ITEM(){
-        return ModTags.Blocks.STORAGE_ITEM;
+        return IFEUTags.Blocks.STORAGE_ITEM;
     }
 
     private static TagKey<Block> FRAME_PITY(){
@@ -130,6 +121,6 @@ public class IFEUMultiBlockStructures {
         return IndustrialTags.Blocks.MACHINE_FRAME_SUPREME;
     }
     private static TagKey<Block> FRAME_ULTIMATE(){
-        return ModTags.Blocks.MACHINE_FRAME_ULTIMATE;
+        return IFEUTags.Blocks.MACHINE_FRAME_ULTIMATE;
     }
 }

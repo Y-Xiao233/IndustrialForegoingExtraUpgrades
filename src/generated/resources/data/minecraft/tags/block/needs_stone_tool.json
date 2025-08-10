@@ -17,6 +17,7 @@
     "industrialforegoing:machine_frame_simple",
     "industrialforegoing:machine_frame_advanced",
     "industrialforegoing:machine_frame_supreme",
-    "ifeu:platform_builder"
+    "ifeu:platform_builder",
+    "ifeu:precision_crafting_table"
   ]
 }

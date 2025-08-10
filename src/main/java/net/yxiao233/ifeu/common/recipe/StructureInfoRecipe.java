@@ -17,8 +17,8 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
-import net.yxiao233.ifeu.common.registry.ModContents;
-import net.yxiao233.ifeu.common.registry.ModRecipes;
+import net.yxiao233.ifeu.common.registry.IFEUContents;
+import net.yxiao233.ifeu.common.registry.IFEURecipes;
 import net.yxiao233.ifeu.common.structure.IFEUMultiBlockStructures;
 
 public class StructureInfoRecipe implements Recipe<CraftingInput> {
@@ -70,16 +70,16 @@ public class StructureInfoRecipe implements Recipe<CraftingInput> {
 
     @Override
     public ItemStack getToastSymbol() {
-        return new ItemStack(ModContents.BLUEPRINT.asItem());
+        return new ItemStack(IFEUContents.BLUEPRINT.asItem());
     }
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return ModRecipes.BLOCK_RIGHT_CLICK_SERIALIZER.get();
+        return IFEURecipes.BLOCK_RIGHT_CLICK_SERIALIZER.get();
     }
 
     @Override
     public RecipeType<?> getType() {
-        return ModRecipes.BLOCK_RIGHT_CLICK_TYPE.get();
+        return IFEURecipes.BLOCK_RIGHT_CLICK_TYPE.get();
     }
 }

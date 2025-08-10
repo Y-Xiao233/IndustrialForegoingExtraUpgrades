@@ -13,6 +13,7 @@
     "ifeu:dragon_generator",
     "ifeu:fluid_transfer",
     "ifeu:big_dissolution_chamber_core",
-    "ifeu:platform_builder"
+    "ifeu:platform_builder",
+    "ifeu:precision_crafting_table"
   ]
 }

@@ -36,7 +36,7 @@ import net.neoforged.neoforge.network.PacketDistributor;
 import net.yxiao233.ifeu.api.item.IFEUAddonItem;
 import net.yxiao233.ifeu.api.item.ModThreadAddonItem;
 import net.yxiao233.ifeu.common.networking.packet.ConfigurationToolItemKeyDownSyncC2SPacket;
-import net.yxiao233.ifeu.common.registry.ModDataComponentTypes;
+import net.yxiao233.ifeu.common.registry.IFEUDataComponentTypes;
 import net.yxiao233.ifeu.common.utils.InventoryComponentHelper;
 import net.yxiao233.ifeu.common.utils.KeyDownUtil;
 import net.yxiao233.ifeu.common.utils.TooltipHelper;
@@ -171,7 +171,7 @@ public class ConfigurationToolItem extends Item {
         //inv
         if(hasInvConfig.get()){
             if(invFacings.get().isEmpty()){
-                stack.set(ModDataComponentTypes.COMPOUND_TAG,emptyTag);
+                stack.set(IFEUDataComponentTypes.COMPOUND_TAG,emptyTag);
                 return InteractionResult.FAIL;
             }else{
                 for (int i = 0; i < invFacings.get().size(); i++) {
@@ -190,7 +190,7 @@ public class ConfigurationToolItem extends Item {
         //fluid
         if(hasFluidConfig.get()){
             if(fluidFacings.get().isEmpty()){
-                stack.set(ModDataComponentTypes.COMPOUND_TAG,emptyTag);
+                stack.set(IFEUDataComponentTypes.COMPOUND_TAG,emptyTag);
                 return InteractionResult.FAIL;
             }else{
                 for (int i = 0; i < fluidFacings.get().size(); i++) {
@@ -209,7 +209,7 @@ public class ConfigurationToolItem extends Item {
         //augments
         if(hasAugments.get()){
             if(augmentsTag.isEmpty()){
-                stack.set(ModDataComponentTypes.COMPOUND_TAG,emptyTag);
+                stack.set(IFEUDataComponentTypes.COMPOUND_TAG,emptyTag);
                 return InteractionResult.FAIL;
             }else{
                 tag.put("augments",augmentsTag);
@@ -218,7 +218,7 @@ public class ConfigurationToolItem extends Item {
 
         tag.putString("machine_type",block.getDescriptionId());
 
-        stack.set(ModDataComponentTypes.COMPOUND_TAG,tag);
+        stack.set(IFEUDataComponentTypes.COMPOUND_TAG,tag);
         context.getPlayer().displayClientMessage(Component.translatable("message.ifeu.configuration_tool.copy").withStyle(ChatFormatting.GOLD),true);
         return InteractionResult.SUCCESS;
     }
@@ -230,7 +230,7 @@ public class ConfigurationToolItem extends Item {
         BlockState blockState = level.getBlockState(clickedBlockPos);
         Block block = blockState.getBlock();
         ItemStack stack = context.getItemInHand();
-        CompoundTag itemTag = stack.get(ModDataComponentTypes.COMPOUND_TAG);
+        CompoundTag itemTag = stack.get(IFEUDataComponentTypes.COMPOUND_TAG);
         Player player = context.getPlayer();
         if(player == null){
             return InteractionResult.PASS;
@@ -391,7 +391,7 @@ public class ConfigurationToolItem extends Item {
         if(!level.isClientSide()){
             BlockHitResult blockHitResult = (BlockHitResult) player.pick(player.blockInteractionRange(), 0.0F, false);
             if(player.isShiftKeyDown() && level.getBlockState(blockHitResult.getBlockPos()).isAir()){
-                player.getMainHandItem().set(ModDataComponentTypes.COMPOUND_TAG,new CompoundTag());
+                player.getMainHandItem().set(IFEUDataComponentTypes.COMPOUND_TAG,new CompoundTag());
                 player.displayClientMessage(Component.translatable("message.ifeu.connect_tool.clear_configuration").withStyle(ChatFormatting.GREEN),true);
                 return InteractionResultHolder.success(player.getMainHandItem());
             }
@@ -408,7 +408,7 @@ public class ConfigurationToolItem extends Item {
             TooltipHelper.addTooltip(tooltips,stack,ChatFormatting.RED,2);
         });
 
-        CompoundTag tag = stack.get(ModDataComponentTypes.COMPOUND_TAG);
+        CompoundTag tag = stack.get(IFEUDataComponentTypes.COMPOUND_TAG);
         if(tag == null || !tag.contains("machine_type")){
             TooltipHelper.addTooltip(tooltips,stack,ChatFormatting.RED,3,new Object[]{"null"});
         }else{

@@ -18,9 +18,9 @@ import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.yxiao233.ifeu.common.block.entity.FluidCraftingTableEntity;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.registry.ModContents;
-import net.yxiao233.ifeu.common.registry.ModRecipes;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
+import net.yxiao233.ifeu.common.registry.IFEUContents;
+import net.yxiao233.ifeu.common.registry.IFEURecipes;
 
 import java.util.*;
 
@@ -61,13 +61,16 @@ public class ShapedRecipe implements Recipe<CraftingInput> {
 
             for (int i = 0; i < this.inputs.size(); i++) {
                 Iterator<ItemStack> iterator = Arrays.stream(this.inputs.get(i).getItems()).iterator();
+                boolean found = false;
 
-                if(iterator.hasNext()){
+                while (iterator.hasNext() && !found){
                     ItemStack stack = iterator.next();
-                    if(stack.is(ModContents.AIR.get())){
-                        matches.set(i,inputs.getStackInSlot(i).isEmpty());
+                    if(stack.is(IFEUContents.AIR.get())){
+                        found = inputs.getStackInSlot(i).isEmpty();
+                        matches.set(i,found);
                     }else{
-                        matches.set(i,inputs.getStackInSlot(i).is(stack.getItem()));
+                        found = inputs.getStackInSlot(i).is(stack.getItem());
+                        matches.set(i,found);
                     }
                 }
             }
@@ -101,16 +104,16 @@ public class ShapedRecipe implements Recipe<CraftingInput> {
 
     @Override
     public ItemStack getToastSymbol() {
-        return ModBlocks.FLUID_CRAFTING_TABLE.asItem().getDefaultInstance();
+        return IFEUBlocks.FLUID_CRAFTING_TABLE.asItem().getDefaultInstance();
     }
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return ModRecipes.SHAPED_SERIALIZER.get();
+        return IFEURecipes.SHAPED_SERIALIZER.get();
     }
 
     @Override
     public RecipeType<?> getType() {
-        return ModRecipes.SHAPED_TYPE.get();
+        return IFEURecipes.SHAPED_TYPE.get();
     }
 }

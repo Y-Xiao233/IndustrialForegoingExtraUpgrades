@@ -18,8 +18,8 @@ import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.neoforged.neoforge.items.ItemHandlerHelper;
 import net.yxiao233.ifeu.common.config.machine.ArcaneDragonForgingConfig;
 import net.yxiao233.ifeu.common.recipe.ArcaneDragonEggForgingRecipe;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.registry.ModRecipes;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
+import net.yxiao233.ifeu.common.registry.IFEURecipes;
 import org.jetbrains.annotations.NotNull;
 
 public class ArcaneDragonEggForgingEntity extends IndustrialProcessingTile<ArcaneDragonEggForgingEntity> {
@@ -37,7 +37,7 @@ public class ArcaneDragonEggForgingEntity extends IndustrialProcessingTile<Arcan
     private SidedFluidTankComponent<ArcaneDragonEggForgingEntity> outputFluid;
     private ArcaneDragonEggForgingRecipe currentRecipe;
     public ArcaneDragonEggForgingEntity(BlockPos blockPos, BlockState blockState) {
-        super(ModBlocks.ARCANE_DRAGON_EGG_FORGING, 102, 41, blockPos, blockState);
+        super(IFEUBlocks.ARCANE_DRAGON_EGG_FORGING, 102, 41, blockPos, blockState);
         int slotSpacing = 22;
 
         this.addInventory(this.input = (SidedInventoryComponent<ArcaneDragonEggForgingEntity>) new SidedInventoryComponent<ArcaneDragonEggForgingEntity>("input",54+slotSpacing,18+slotSpacing,1,0)
@@ -80,7 +80,7 @@ public class ArcaneDragonEggForgingEntity extends IndustrialProcessingTile<Arcan
                 return;
             }
 
-            currentRecipe = RecipeUtil.getRecipes(this.level,(RecipeType<ArcaneDragonEggForgingRecipe>) ModRecipes.ARCANE_DRAGON_EGG_FORGING_TYPE.get()).stream().filter(recipe -> recipe.matches(input,inputFluid1,inputFluid2)).findFirst().orElse(null);
+            currentRecipe = RecipeUtil.getRecipes(this.level,(RecipeType<ArcaneDragonEggForgingRecipe>) IFEURecipes.ARCANE_DRAGON_EGG_FORGING_TYPE.get()).stream().filter(recipe -> recipe.matches(input,inputFluid1,inputFluid2)).findFirst().orElse(null);
         }
     }
 

@@ -7,12 +7,11 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
-import net.yxiao233.ifeu.common.registry.ModContents;
+import net.yxiao233.ifeu.common.registry.IFEUContents;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -39,6 +38,7 @@ public abstract class IFEURecipeBuilder {
     private boolean isDefaultRecipe;
     private int time;
     private final ItemStack output;
+    private float chance;
     public IFEURecipeBuilder(ItemStack output){
         this.output = output;
     }
@@ -65,6 +65,10 @@ public abstract class IFEURecipeBuilder {
 
     public IFEURecipeBuilder outputFluid(FluidStack fluid){
         this.outputFluid = fluid;
+        return this;
+    }
+    public IFEURecipeBuilder chance(float chance){
+        this.chance = chance;
         return this;
     }
 
@@ -161,7 +165,7 @@ public abstract class IFEURecipeBuilder {
 
     protected HashMap<Character, ItemStack> getDefineMap() {
         if(defineMap.isEmpty()){
-            this.defineMap.put(' ',ModContents.AIR.get().getDefaultInstance());
+            this.defineMap.put(' ', IFEUContents.AIR.get().getDefaultInstance());
             return defineMap;
         }
         return defineMap;
@@ -227,5 +231,8 @@ public abstract class IFEURecipeBuilder {
 
     public ItemStack getOutput() {
         return output;
+    }
+    protected float getChance(){
+        return chance <= 0 ? 1.0F : chance;
     }
 }

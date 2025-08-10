@@ -19,7 +19,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.yxiao233.ifeu.common.registry.ModTags;
+import net.yxiao233.ifeu.common.registry.IFEUTags;
 import net.yxiao233.ifeu.common.utils.TooltipHelper;
 
 import java.util.List;
@@ -45,7 +45,7 @@ public class WrenchItem extends Item {
                     blockState = tile.getBlockState();
                     block = blockState.getBlock();
                     entity = tile;
-                }else if(level.getBlockState(pos).getTags().toList().contains(ModTags.Blocks.WRENCH_PICKUP)){
+                }else if(level.getBlockState(pos).getTags().toList().contains(IFEUTags.Blocks.WRENCH_PICKUP)){
                     blockState = level.getBlockState(pos);
                     block = blockState.getBlock();
                     if(blockState.hasBlockEntity()){

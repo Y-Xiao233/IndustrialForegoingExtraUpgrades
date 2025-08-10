@@ -15,10 +15,8 @@ import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.BlockHitResult;
-import net.neoforged.neoforge.common.conditions.ICondition;
-import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
-import net.yxiao233.ifeu.common.registry.ModContents;
-import net.yxiao233.ifeu.common.registry.ModRecipes;
+import net.yxiao233.ifeu.common.registry.IFEUContents;
+import net.yxiao233.ifeu.common.registry.IFEURecipes;
 
 public class BlockRightClickRecipe implements Recipe<CraftingInput> {
     public static final MapCodec<BlockRightClickRecipe> CODEC = RecordCodecBuilder.mapCodec((in) -> {
@@ -79,16 +77,16 @@ public class BlockRightClickRecipe implements Recipe<CraftingInput> {
 
     @Override
     public ItemStack getToastSymbol() {
-        return new ItemStack(ModContents.DEAD_DRAGON_EGG);
+        return new ItemStack(IFEUContents.DEAD_DRAGON_EGG);
     }
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return ModRecipes.BLOCK_RIGHT_CLICK_SERIALIZER.get();
+        return IFEURecipes.BLOCK_RIGHT_CLICK_SERIALIZER.get();
     }
 
     @Override
     public RecipeType<?> getType() {
-        return ModRecipes.BLOCK_RIGHT_CLICK_TYPE.get();
+        return IFEURecipes.BLOCK_RIGHT_CLICK_TYPE.get();
     }
 }

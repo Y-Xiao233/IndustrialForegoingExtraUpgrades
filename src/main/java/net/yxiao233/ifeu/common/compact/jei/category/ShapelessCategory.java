@@ -24,8 +24,8 @@ import net.yxiao233.ifeu.common.compact.jei.ModRecipeType;
 import net.yxiao233.ifeu.common.config.machine.FluidCraftingTableConfig;
 import net.yxiao233.ifeu.common.gui.AllGuiTextures;
 import net.yxiao233.ifeu.common.recipe.ShapelessRecipe;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.registry.ModRecipes;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
+import net.yxiao233.ifeu.common.registry.IFEURecipes;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.awt.*;
@@ -35,13 +35,13 @@ public class ShapelessCategory extends AbstractJEICategory<ShapelessRecipe> {
     public static final Component TITLE = Component.translatable("jei.ifeu.fluid_shapeless");
     private final IDrawable bigTank_input1;
     public ShapelessCategory(IGuiHelper helper) {
-        super(helper, ModRecipeType.SHAPELESS, TITLE, ModBlocks.FLUID_CRAFTING_TABLE.asItem(),160, 82);
+        super(helper, ModRecipeType.SHAPELESS, TITLE, IFEUBlocks.FLUID_CRAFTING_TABLE.asItem(),160, 82);
         this.bigTank_input1 = helper.createDrawable(DefaultAssetProvider.DEFAULT_LOCATION, 180, 4, 12, 50);
     }
 
     @Override
     public RecipeType getTypeInstance() {
-        return ModRecipes.SHAPELESS_TYPE.get();
+        return IFEURecipes.SHAPELESS_TYPE.get();
     }
 
     @Override

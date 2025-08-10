@@ -2,23 +2,17 @@ package net.yxiao233.ifeu.client.data;
 
 import com.buuz135.industrial.module.ModuleCore;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.registry.ModContents;
-import net.yxiao233.ifeu.common.registry.ModTags;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
+import net.yxiao233.ifeu.common.registry.IFEUContents;
+import net.yxiao233.ifeu.common.registry.IFEUTags;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class ModBlockTagProvider extends BlockTagsProvider {
@@ -29,46 +23,48 @@ public class ModBlockTagProvider extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         this.tag(BlockTags.NEEDS_STONE_TOOL)
-                .add(ModBlocks.INFUSER.getBlock())
-                .add(ModBlocks.DRAGON_STAR_GENERATOR.getBlock())
-                .add(ModBlocks.ARCANE_DRAGON_EGG_FORGING.getBlock())
-                .add(ModBlocks.CREATIVE_CAPACITOR.getBlock())
-                .add(ModContents.ULTIMATE_MACHINE_FRAME.get())
-                .add(ModContents.DRAGON_STAR_BLOCK.get())
-                .add(ModBlocks.WEATHER_CONTROLLER.getBlock())
-                .add(ModBlocks.TIME_CONTROLLER.getBlock())
-                .add(ModBlocks.RULE_CONTROLLER.getBlock())
-                .add(ModBlocks.FLUID_CRAFTING_TABLE.getBlock())
-                .add(ModBlocks.DRAGON_GENERATOR.getBlock())
-                .add(ModBlocks.FLUID_TRANSFER.getBlock())
-                .add(ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getBlock())
+                .add(IFEUBlocks.INFUSER.getBlock())
+                .add(IFEUBlocks.DRAGON_STAR_GENERATOR.getBlock())
+                .add(IFEUBlocks.ARCANE_DRAGON_EGG_FORGING.getBlock())
+                .add(IFEUBlocks.CREATIVE_CAPACITOR.getBlock())
+                .add(IFEUContents.ULTIMATE_MACHINE_FRAME.get())
+                .add(IFEUContents.DRAGON_STAR_BLOCK.get())
+                .add(IFEUBlocks.WEATHER_CONTROLLER.getBlock())
+                .add(IFEUBlocks.TIME_CONTROLLER.getBlock())
+                .add(IFEUBlocks.RULE_CONTROLLER.getBlock())
+                .add(IFEUBlocks.FLUID_CRAFTING_TABLE.getBlock())
+                .add(IFEUBlocks.DRAGON_GENERATOR.getBlock())
+                .add(IFEUBlocks.FLUID_TRANSFER.getBlock())
+                .add(IFEUBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getBlock())
                 .add(ModuleCore.PITY.get())
                 .add(ModuleCore.SIMPLE.get())
                 .add(ModuleCore.ADVANCED.get())
                 .add(ModuleCore.SUPREME.get())
-                .add(ModBlocks.PLATFORM_BUILDER.getBlock());
+                .add(IFEUBlocks.PLATFORM_BUILDER.getBlock())
+                .add(IFEUBlocks.PRECISION_CRAFTING_TABLE.getBlock());
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(ModBlocks.INFUSER.getBlock())
-                .add(ModBlocks.DRAGON_STAR_GENERATOR.getBlock())
-                .add(ModBlocks.ARCANE_DRAGON_EGG_FORGING.getBlock())
-                .add(ModBlocks.CREATIVE_CAPACITOR.getBlock())
-                .add(ModBlocks.WEATHER_CONTROLLER.getBlock())
-                .add(ModBlocks.TIME_CONTROLLER.getBlock())
-                .add(ModBlocks.RULE_CONTROLLER.getBlock())
-                .add(ModContents.ULTIMATE_MACHINE_FRAME.get())
-                .add(ModContents.DRAGON_STAR_BLOCK.get())
-                .add(ModBlocks.FLUID_CRAFTING_TABLE.getBlock())
-                .add(ModBlocks.DRAGON_GENERATOR.getBlock())
-                .add(ModBlocks.FLUID_TRANSFER.getBlock())
-                .add(ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getBlock())
-                .add(ModBlocks.PLATFORM_BUILDER.getBlock());
+                .add(IFEUBlocks.INFUSER.getBlock())
+                .add(IFEUBlocks.DRAGON_STAR_GENERATOR.getBlock())
+                .add(IFEUBlocks.ARCANE_DRAGON_EGG_FORGING.getBlock())
+                .add(IFEUBlocks.CREATIVE_CAPACITOR.getBlock())
+                .add(IFEUBlocks.WEATHER_CONTROLLER.getBlock())
+                .add(IFEUBlocks.TIME_CONTROLLER.getBlock())
+                .add(IFEUBlocks.RULE_CONTROLLER.getBlock())
+                .add(IFEUContents.ULTIMATE_MACHINE_FRAME.get())
+                .add(IFEUContents.DRAGON_STAR_BLOCK.get())
+                .add(IFEUBlocks.FLUID_CRAFTING_TABLE.getBlock())
+                .add(IFEUBlocks.DRAGON_GENERATOR.getBlock())
+                .add(IFEUBlocks.FLUID_TRANSFER.getBlock())
+                .add(IFEUBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getBlock())
+                .add(IFEUBlocks.PLATFORM_BUILDER.getBlock())
+                .add(IFEUBlocks.PRECISION_CRAFTING_TABLE.getBlock());
 
 
-        this.tag(ModTags.Blocks.MACHINE_FRAME_ULTIMATE)
-                .add(ModContents.ULTIMATE_MACHINE_FRAME.get());
+        this.tag(IFEUTags.Blocks.MACHINE_FRAME_ULTIMATE)
+                .add(IFEUContents.ULTIMATE_MACHINE_FRAME.get());
 
-        this.tag(ModTags.Blocks.WRENCH_PICKUP)
+        this.tag(IFEUTags.Blocks.WRENCH_PICKUP)
                 .addTag(Tags.Blocks.CHESTS)
                 .addTag(BlockTags.SHULKER_BOXES)
                 .addTag(Tags.Blocks.BARRELS)
@@ -76,23 +72,23 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModuleCore.SIMPLE.get())
                 .add(ModuleCore.ADVANCED.get())
                 .add(ModuleCore.SUPREME.get())
-                .add(ModContents.ULTIMATE_MACHINE_FRAME.get());
+                .add(IFEUContents.ULTIMATE_MACHINE_FRAME.get());
 
-//        this.tag(ModTags.Blocks.BLACK_HOLE_CAPACITOR)
-//                .add(ModBlocks.BLACK_HOLE_CAPACITOR_PITY.getLeft().get())
-//                .add(ModBlocks.BLACK_HOLE_CAPACITOR_SIMPLE.getLeft().get())
-//                .add(ModBlocks.BLACK_HOLE_CAPACITOR_ADVANCED.getLeft().get())
-//                .add(ModBlocks.BLACK_HOLE_CAPACITOR_SUPREME.getLeft().get());
+//        this.tag(IFEUTags.Blocks.BLACK_HOLE_CAPACITOR)
+//                .add(IFEUBlocks.BLACK_HOLE_CAPACITOR_PITY.getLeft().get())
+//                .add(IFEUBlocks.BLACK_HOLE_CAPACITOR_SIMPLE.getLeft().get())
+//                .add(IFEUBlocks.BLACK_HOLE_CAPACITOR_ADVANCED.getLeft().get())
+//                .add(IFEUBlocks.BLACK_HOLE_CAPACITOR_SUPREME.getLeft().get());
 
-        this.tag(ModTags.Blocks.STORAGE_FLUID)
-//                .addTag(ModTags.Blocks.BLACK_HOLE_TANK)
-                .add(ModBlocks.FLUID_TRANSFER.getBlock());
+        this.tag(IFEUTags.Blocks.STORAGE_FLUID)
+//                .addTag(IFEUTags.Blocks.BLACK_HOLE_TANK)
+                .add(IFEUBlocks.FLUID_TRANSFER.getBlock());
 
-        this.tag(ModTags.Blocks.STORAGE_ITEM)
+        this.tag(IFEUTags.Blocks.STORAGE_ITEM)
                 .addTag(Tags.Blocks.BARRELS);
 
-        this.tag(ModTags.Blocks.STORAGE_ENERGY)
-//                .addTag(ModTags.Blocks.BLACK_HOLE_CAPACITOR)
-                .add(ModBlocks.CREATIVE_CAPACITOR.getBlock());
+        this.tag(IFEUTags.Blocks.STORAGE_ENERGY)
+//                .addTag(IFEUTags.Blocks.BLACK_HOLE_CAPACITOR)
+                .add(IFEUBlocks.CREATIVE_CAPACITOR.getBlock());
     }
 }

@@ -9,23 +9,16 @@ import net.minecraft.advancements.AdvancementRequirements;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
-import net.neoforged.neoforge.common.conditions.ICondition;
-import net.neoforged.neoforge.common.conditions.ItemExistsCondition;
-import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.neoforged.neoforge.items.IItemHandler;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.registry.ModRecipes;
-
-import java.util.ArrayList;
-import java.util.List;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
+import net.yxiao233.ifeu.common.registry.IFEURecipes;
 
 public class InfuserRecipe implements Recipe<CraftingInput> {
     public static final MapCodec<InfuserRecipe> CODEC = RecordCodecBuilder.mapCodec((in) -> {
@@ -97,16 +90,16 @@ public class InfuserRecipe implements Recipe<CraftingInput> {
 
     @Override
     public ItemStack getToastSymbol() {
-        return new ItemStack(ModBlocks.INFUSER);
+        return new ItemStack(IFEUBlocks.INFUSER);
     }
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return ModRecipes.INFUSER_SERIALIZER.get();
+        return IFEURecipes.INFUSER_SERIALIZER.get();
     }
 
     @Override
     public RecipeType<?> getType() {
-        return ModRecipes.INFUSER_TYPE.get();
+        return IFEURecipes.INFUSER_TYPE.get();
     }
 }

@@ -9,12 +9,12 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.neoforge.common.Tags;
 import net.yxiao233.ifeu.common.block.entity.ArcaneDragonEggForgingEntity;
-import net.yxiao233.ifeu.common.registry.ModItems;
+import net.yxiao233.ifeu.common.registry.IFEUItems;
 import org.jetbrains.annotations.NotNull;
 
 public class ArcaneDragonEggForgingBlock extends IndustrialBlock<ArcaneDragonEggForgingEntity> {
     public ArcaneDragonEggForgingBlock() {
-        super("arcane_dragon_egg_forging", Properties.ofFullCopy(Blocks.IRON_BLOCK), ArcaneDragonEggForgingEntity.class, ModItems.TAB_ADDONS);
+        super("arcane_dragon_egg_forging", Properties.ofFullCopy(Blocks.IRON_BLOCK), ArcaneDragonEggForgingEntity.class, IFEUItems.TAB_ADDONS);
     }
 
     @Override

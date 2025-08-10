@@ -14,7 +14,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.neoforge.client.model.data.ModelData;
 import net.neoforged.neoforge.fluids.FluidStack;
-import net.yxiao233.ifeu.common.registry.ModRenderTypes;
+import net.yxiao233.ifeu.common.registry.IFEURenderTypes;
 
 import java.awt.Color;
 import java.util.List;
@@ -35,7 +35,7 @@ public class RendererProvider {
     public void renderSingleBatchedGhostBlock(BlockPos renderBlockPos, BlockState blockState){
         Minecraft minecraft = Minecraft.getInstance();
         Level level = minecraft.level;
-        VertexConsumer consumer = multiBufferSource.getBuffer(ModRenderTypes.GHOST);
+        VertexConsumer consumer = multiBufferSource.getBuffer(IFEURenderTypes.GHOST);
         if(level == null){
             return;
         }

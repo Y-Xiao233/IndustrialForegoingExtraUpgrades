@@ -1,17 +1,15 @@
 package net.yxiao233.ifeu.common.utils;
 
-import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
-import net.yxiao233.ifeu.common.registry.ModDataComponentTypes;
+import net.yxiao233.ifeu.common.registry.IFEUDataComponentTypes;
 
-import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Objects;
 
 public class TagUtil {
     public static boolean contains(ItemStack stack, String key){
-        return contains(stack.get(ModDataComponentTypes.COMPOUND_TAG),key);
+        return contains(stack.get(IFEUDataComponentTypes.COMPOUND_TAG),key);
     }
     public static boolean contains(CompoundTag tag, String key){
         if(tag == null || tag.isEmpty()){

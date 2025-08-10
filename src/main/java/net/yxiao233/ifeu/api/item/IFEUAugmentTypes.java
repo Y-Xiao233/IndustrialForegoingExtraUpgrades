@@ -4,7 +4,9 @@ public enum IFEUAugmentTypes {
     THREAD("thread"),
     APPLE("apple"),
     SILK("silk"),
-    HEAL("heal");
+    HEAL("heal"),
+    CHANCE("chance")
+    ;
     private final String id;
     IFEUAugmentTypes(String id){
         this.id = id;

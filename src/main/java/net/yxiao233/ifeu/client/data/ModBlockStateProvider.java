@@ -10,8 +10,8 @@ import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
-import net.yxiao233.ifeu.common.registry.ModBlocks;
-import net.yxiao233.ifeu.common.registry.ModContents;
+import net.yxiao233.ifeu.common.registry.IFEUBlocks;
+import net.yxiao233.ifeu.common.registry.IFEUContents;
 
 public class ModBlockStateProvider extends BlockStateProvider {
     public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
@@ -23,21 +23,22 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        blockWithTileItem(ModBlocks.INFUSER);
-        blockWithTileItem(ModBlocks.DRAGON_STAR_GENERATOR);
-        blockWithTileItem(ModBlocks.CREATIVE_CAPACITOR);
-        blockWithTileItem(ModBlocks.ARCANE_DRAGON_EGG_FORGING);
-        blockItem(ModContents.DEAD_DRAGON_EGG);
-        blockWithTileItem(ModBlocks.WEATHER_CONTROLLER);
-        blockWithTileItem(ModBlocks.TIME_CONTROLLER);
-        blockWithTileItem(ModBlocks.RULE_CONTROLLER);
-        blockItem(ModContents.ULTIMATE_MACHINE_FRAME);
-        blockItem(ModContents.DRAGON_STAR_BLOCK);
-        blockWithTileItem(ModBlocks.FLUID_CRAFTING_TABLE);
-        blockWithTileItem(ModBlocks.DRAGON_GENERATOR);
-        blockWithTileItem(ModBlocks.FLUID_TRANSFER);
-        blockWithTileItem(ModBlocks.BIG_DISSOLUTION_CHAMBER_CORE);
-        blockWithTileItem(ModBlocks.PLATFORM_BUILDER);
+        blockWithTileItem(IFEUBlocks.INFUSER);
+        blockWithTileItem(IFEUBlocks.DRAGON_STAR_GENERATOR);
+        blockWithTileItem(IFEUBlocks.CREATIVE_CAPACITOR);
+        blockWithTileItem(IFEUBlocks.ARCANE_DRAGON_EGG_FORGING);
+        blockItem(IFEUContents.DEAD_DRAGON_EGG);
+        blockWithTileItem(IFEUBlocks.WEATHER_CONTROLLER);
+        blockWithTileItem(IFEUBlocks.TIME_CONTROLLER);
+        blockWithTileItem(IFEUBlocks.RULE_CONTROLLER);
+        blockItem(IFEUContents.ULTIMATE_MACHINE_FRAME);
+        blockItem(IFEUContents.DRAGON_STAR_BLOCK);
+        blockWithTileItem(IFEUBlocks.FLUID_CRAFTING_TABLE);
+        blockWithTileItem(IFEUBlocks.DRAGON_GENERATOR);
+        blockWithTileItem(IFEUBlocks.FLUID_TRANSFER);
+        blockWithTileItem(IFEUBlocks.BIG_DISSOLUTION_CHAMBER_CORE);
+        blockWithTileItem(IFEUBlocks.PLATFORM_BUILDER);
+        blockWithTileItem(IFEUBlocks.PRECISION_CRAFTING_TABLE);
     }
 
     private void blockItem(DeferredHolder<Block,Block> registryObject){
