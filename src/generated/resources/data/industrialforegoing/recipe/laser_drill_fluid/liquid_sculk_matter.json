@@ -9,10 +9,16 @@
   "catalyst": {
     "item": "ifeu:laser_lens_sculk"
   },
-  "entity": "minecraft:warden",
+  "entity_data": {
+    "data": {},
+    "display": "",
+    "entity": {
+      "type": "minecraft:warden"
+    }
+  },
   "output": {
     "amount": 10,
-    "id": "ifeu:liquid_sculk_matter"
+    "fluid": "ifeu:liquid_sculk_matter"
   },
   "rarity": [
     {

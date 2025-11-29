@@ -12,6 +12,7 @@ import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 
 import java.util.concurrent.CompletableFuture;
 
+@SuppressWarnings("removal")
 @EventBusSubscriber(modid = IndustrialForegoingExtraUpgrades.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class DataGenerators {
     @SubscribeEvent

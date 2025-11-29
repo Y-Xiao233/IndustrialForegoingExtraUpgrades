@@ -7,16 +7,16 @@ import dev.latvian.mods.kubejs.util.TickDuration;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.fluids.FluidStack;
-import net.neoforged.neoforge.fluids.crafting.FluidIngredient;
 import net.neoforged.neoforge.fluids.crafting.SizedFluidIngredient;
+import net.yxiao233.ifeu.common.compact.kubejs.component.IngredientsComponent;
 
 import java.util.List;
 
 public interface DissolutionChamberSchema {
-    RecipeKey<List<Ingredient>> INPUTS = IngredientComponent.UNWRAPPED_INGREDIENT_LIST.otherKey("input");
+    RecipeKey<List<Ingredient>> INPUTS = IngredientsComponent.OPTIONAL_INGREDIENTS.inputKey("input");
     RecipeKey<SizedFluidIngredient> INPUT_FLUID = SizedFluidIngredientComponent.FLAT.inputKey("inputFluid");
     RecipeKey<ItemStack> OUTPUT = ItemStackComponent.ITEM_STACK.inputKey("output");
-    RecipeKey<FluidStack> OUTPUT_FLUID = FluidStackComponent.FLUID_STACK.outputKey("outputFluid").optional(FluidStack.EMPTY).allowEmpty();
+    RecipeKey<FluidStack> OUTPUT_FLUID = FluidStackComponent.OPTIONAL_FLUID_STACK.outputKey("outputFluid").optional(FluidStack.EMPTY);
     RecipeKey<TickDuration> TIME = TimeComponent.TICKS.otherKey("processingTime");
     RecipeSchema SCHEMA = new RecipeSchema(OUTPUT,INPUTS,INPUT_FLUID,TIME,OUTPUT_FLUID);
 }

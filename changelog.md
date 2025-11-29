@@ -134,6 +134,12 @@
 - 修改了一些配方
 - 更新了前置Titanium[4.0.36 -> 4.0.39]
 
+### v3.2.000
+- 修复了化学溶解室相关配方写样板时无法自动填充流体的bug
+- 修改了大型溶解室输入规则为1时的输入规则(不锁定时单个格子默认最大数量为最大线程)[\#82 by Shugabush](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/82)
+- 更新了neoforge以及所有前置的版本
+- 修复了新版部分配方错误的bug
+
 ## en_us
 ### v1.0.0
 - init

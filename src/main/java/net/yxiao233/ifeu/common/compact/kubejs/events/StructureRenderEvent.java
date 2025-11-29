@@ -7,6 +7,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 
+@SuppressWarnings("removal")
 @EventBusSubscriber(modid = IndustrialForegoingExtraUpgrades.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class StructureRenderEvent {
     @SubscribeEvent

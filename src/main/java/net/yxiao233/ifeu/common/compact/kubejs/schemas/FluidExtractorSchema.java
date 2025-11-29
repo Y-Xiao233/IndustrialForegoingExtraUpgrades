@@ -9,9 +9,9 @@ import net.neoforged.neoforge.fluids.FluidStack;
 
 public interface FluidExtractorSchema {
     RecipeKey<Ingredient> INPUT = IngredientComponent.INGREDIENT.inputKey("input");
-    RecipeKey<BlockState> RESULT = BlockStateComponent.BLOCK_STRING.inputKey("result").allowEmpty();
+    RecipeKey<BlockState> RESULT = BlockStateComponent.OPTIONAL_BLOCK_STRING.inputKey("result");
     RecipeKey<Float> BREAK_CHANCE = NumberComponent.FLOAT.otherKey("breakChance");
     RecipeKey<FluidStack> OUTPUT = FluidStackComponent.FLUID_STACK.outputKey("output");
-    RecipeKey<Boolean> DEFAULT_RECIPE = BooleanComponent.BOOLEAN.otherKey("defaultRecipe").optional(false).allowEmpty();
+    RecipeKey<Boolean> DEFAULT_RECIPE = BooleanComponent.BOOLEAN.otherKey("defaultRecipe").optional(false);
     RecipeSchema SCHEMA = new RecipeSchema(OUTPUT,INPUT,BREAK_CHANCE,RESULT,DEFAULT_RECIPE);
 }

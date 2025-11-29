@@ -1,6 +1,7 @@
 package net.yxiao233.ifeu.api.recipe.builder;
 
 import com.buuz135.industrial.recipe.LaserDrillRarity;
+import com.buuz135.industrial.recipe.data.EntityData;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -9,14 +10,12 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.crafting.SizedFluidIngredient;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.common.registry.IFEUContents;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public abstract class IFEURecipeBuilder {
     private final ArrayList<String> structure = new ArrayList<>();
@@ -25,9 +24,11 @@ public abstract class IFEURecipeBuilder {
     private List<Ingredient> inputs;
     private ItemStack input;
     private FluidStack inputFluid;
+    private SizedFluidIngredient inputIngredientFluid;
+    private SizedFluidIngredient outputIngredientFluid;
     private FluidStack[] inputFluids;
     private BlockState result;
-    private ResourceLocation entity;
+    private Optional<EntityData> entity;
     private float breakChance;
     private Ingredient inputBlock;
     private Ingredient catalyst;
@@ -58,6 +59,10 @@ public abstract class IFEURecipeBuilder {
         return this;
     }
 
+    protected IFEURecipeBuilder inputFluid(SizedFluidIngredient inputFluid){
+        this.inputIngredientFluid = inputFluid;
+        return this;
+    }
     public IFEURecipeBuilder inputFluids(FluidStack... inputFluids){
         this.inputFluids = inputFluids;
         return this;
@@ -65,6 +70,11 @@ public abstract class IFEURecipeBuilder {
 
     public IFEURecipeBuilder outputFluid(FluidStack fluid){
         this.outputFluid = fluid;
+        return this;
+    }
+
+    public IFEURecipeBuilder outputFluid(SizedFluidIngredient fluid){
+        this.outputIngredientFluid = fluid;
         return this;
     }
     public IFEURecipeBuilder chance(float chance){
@@ -97,8 +107,8 @@ public abstract class IFEURecipeBuilder {
         return this;
     }
 
-    public IFEURecipeBuilder entity(ResourceLocation entityLocation){
-        this.entity = entityLocation;
+    public IFEURecipeBuilder entity(Optional<EntityData> entityData){
+        this.entity = entityData;
         return this;
     }
 
@@ -155,8 +165,14 @@ public abstract class IFEURecipeBuilder {
     protected FluidStack getInputFluid() {
         return inputFluid;
     }
+    protected SizedFluidIngredient getInputIngredientFluid() {
+        return inputIngredientFluid;
+    }
     protected FluidStack getOutputFluid() {
         return outputFluid;
+    }
+    protected SizedFluidIngredient getOutputIngredientFluid() {
+        return outputIngredientFluid;
     }
 
     protected int getTime() {
@@ -196,7 +212,7 @@ public abstract class IFEURecipeBuilder {
         return input;
     }
 
-    protected ResourceLocation getEntity(){
+    protected Optional<EntityData> getEntity(){
         return this.entity;
     }
 
