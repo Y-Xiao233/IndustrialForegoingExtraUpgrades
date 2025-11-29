@@ -199,6 +199,7 @@
 ### v2.4.000
 - 修改了大型溶解室输入规则为1时的输入规则(不锁定时单个格子默认最大数量为最大线程)[\#82 by Shugabush](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/82)
 - 为(模拟)水培床添加了种植黑名单[\#87 by BOLTMAGIC](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/87)
+- 修复了化学溶解室相关配方写样板时无法自动填充流体的bug
 
 ## en_us
 ### v1.0.0
@@ -398,3 +399,4 @@
 ### v2.4.000
 - Modified the input rule for Big Dissolution Chamber (When not locked, the default maximum count for a single slot is the threads)[\#82 by Shugabush](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/82)
 - Added planting blacklist for (Simulated) Hydroponic Bed[\#87 by BOLTMAGIC](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/87)
+- Fixed a bug where the recipe for the dissolution chamber could not be automatically filled with fluid when writing ae templates
