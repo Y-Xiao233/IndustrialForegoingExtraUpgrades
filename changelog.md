@@ -196,6 +196,10 @@
 - 修改了大量类名
 - 优化了大型溶解成型机的槽位输入逻辑(单个槽位内最大物品数量默认为锁定时槽位内物品数量,配置内可更改为机器最大线程)
 
+### v2.4.000
+- 修改了大型溶解室输入规则为1时的输入规则(不锁定时单个格子默认最大数量为最大线程)[\#82 by Shugabush](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/82)
+- 为(模拟)水培床添加了种植黑名单[\#87 by BOLTMAGIC](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/87)
+
 ## en_us
 ### v1.0.0
 - init
@@ -390,3 +394,7 @@
 ### v2.3.009
 - Modified a large number of class names
 - Optimized the slot input logic of the Big Dissolution Chamber(the maximum number of items in a single slot is defaulted to the number of items in the locked slot, and can be changed to the maximum thread of the machine in the configuration)
+
+### v2.4.000
+- Modified the input rule for Big Dissolution Chamber (When not locked, the default maximum count for a single slot is the threads)[\#82 by Shugabush](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/82)
+- Added planting blacklist for (Simulated) Hydroponic Bed[\#87 by BOLTMAGIC](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/87)

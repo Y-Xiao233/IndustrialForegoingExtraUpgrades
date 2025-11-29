@@ -7,15 +7,21 @@ import com.hrznstudio.titanium.component.inventory.SidedInventoryComponent;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import javax.annotation.Nonnull;
+import com.hrznstudio.titanium.util.TagUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.items.ItemHandlerHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.yxiao233.ifeu.api.item.IFEUAddonItem;
 import net.yxiao233.ifeu.api.item.IFEUAugmentTypes;
 import net.yxiao233.ifeu.common.config.machine.SimulatedHydroponicBedConfig;
@@ -50,7 +56,35 @@ public class SimulatedHydroponicBedEntity extends IndustrialWorkingTile<Simulate
 
         this.addInventory(this.seed = (SidedInventoryComponent<SimulatedHydroponicBedEntity>)(new SidedInventoryComponent<SimulatedHydroponicBedEntity>("seed", 79, 80, 1, 2))
                 .setColor(DyeColor.CYAN)
-                .setInputFilter((stack, integer) -> true)
+                .setInputFilter((stack, integer) -> {
+                    AtomicBoolean canInsert = new AtomicBoolean(true);
+                    List<String> list = SimulatedHydroponicBedConfig.blackList;
+                    if(SimulatedHydroponicBedConfig.useSameList){
+                        list = net.yxiao233.ifeu.common.config.machine.HydroponicBedConfig.blackList;
+                    }
+                    if(!list.isEmpty()){
+                        list.forEach(arg ->{
+                            if(arg.startsWith("#") && arg.contains(":")){
+                                String nameSpace = arg.substring(arg.indexOf("#") + 1,arg.indexOf(":"));
+                                String location = arg.substring(arg.indexOf(":") + 1);
+                                ResourceLocation rl = new ResourceLocation(nameSpace,location);
+                                TagKey<Item> tag = TagUtil.getItemTag(rl);
+                                if(stack.is(tag)){
+                                    canInsert.set(false);
+                                }
+                            }else if(arg.contains(":")){
+                                String nameSpace = arg.substring(0,arg.indexOf(":"));
+                                String location = arg.substring(arg.indexOf(":") + 1);
+                                ResourceLocation rl = new ResourceLocation(nameSpace,location);
+                                Item filter = ForgeRegistries.ITEMS.getValue(rl);
+                                if(filter != null && stack.is(filter)){
+                                    canInsert.set(false);
+                                }
+                            }
+                        });
+                    }
+                    return canInsert.get();
+                })
                 .setOutputFilter((stack, integer) -> false));
     }
 

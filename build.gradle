@@ -1,10 +1,11 @@
 buildscript {
     repositories {
-        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+//        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+        maven { url = 'https://maven.aliyun.com/repository/public' }
         mavenCentral()
     }
     dependencies {
-        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
+        classpath 'org.spongepowered:mixingradle:0.7.+'
     }
 }
 

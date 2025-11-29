@@ -14,6 +14,7 @@ import net.yxiao233.ifeu.common.block.renderer.FluidCraftingTableRenderer;
 import net.yxiao233.ifeu.common.block.renderer.FluidTransferRenderer;
 import net.yxiao233.ifeu.common.registry.IFEUBlocks;
 
+@SuppressWarnings("unchecked")
 @Mod.EventBusSubscriber(modid = IndustrialForegoingExtraUpgrades.MODID,bus = Mod.EventBusSubscriber.Bus.MOD,value = Dist.CLIENT)
 public class BlockRendererEvent {
     @SubscribeEvent

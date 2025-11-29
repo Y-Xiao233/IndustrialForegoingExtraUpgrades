@@ -4,6 +4,9 @@ import com.hrznstudio.titanium.annotation.config.ConfigFile;
 import com.hrznstudio.titanium.annotation.config.ConfigVal;
 import net.yxiao233.ifeu.common.config.MachineConfig;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @ConfigFile.Child(MachineConfig.class)
 public class SimulatedHydroponicBedConfig {
 
@@ -18,4 +21,10 @@ public class SimulatedHydroponicBedConfig {
 
     @ConfigVal(comment = "Chance to increase the executions of the current processor, 0.1 = 10% chance - Default: [0.1]")
     public static double chanceToIncreaseExecutions = 0.1;
+
+    @ConfigVal(comment = "Use the same blacklist as for HydroponicBed - Default: [true]")
+    public static boolean useSameList = true;
+
+    @ConfigVal(comment = "BlackList for SimulatedHydroponicBed")
+    public static List<String> blackList = new ArrayList<>();
 }

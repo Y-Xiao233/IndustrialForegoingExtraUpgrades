@@ -160,8 +160,18 @@ public class IFEULockableInventoryBundle<T extends BasicTile<?> & IComponentHarn
                 return bound && !isEmpty && same && canInsert;
             });
         } else {
-            Arrays.fill(this.filter, ItemStack.EMPTY);
-            this.inventory.setInputFilter(this.cachedFilter);
+            if(BigDissolutionChamberConfig.inputRule == 1){
+                this.inventory.setInputFilter(((stack, integer) -> {
+                    boolean bound = integer < this.filter.length;
+                    int count = this.inventory.getStackInSlot(integer).getCount();
+                    int max = AugmentInventoryHelper.getAugmentTier(this.augmentInventory, IFEUAugmentTypes.THREAD) * 4 + BigDissolutionChamberConfig.maxThread;
+                    boolean canInsert = count + stack.getCount() <= max;
+                    return bound && canInsert;
+                }));
+            }else{
+                Arrays.fill(this.filter, ItemStack.EMPTY);
+                this.inventory.setInputFilter(this.cachedFilter);
+            }
         }
 
         for(int i = 0; i < this.filter.length; ++i) {

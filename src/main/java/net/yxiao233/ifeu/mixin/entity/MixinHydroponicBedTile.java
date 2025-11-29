@@ -11,28 +11,32 @@ import com.hrznstudio.titanium.annotation.Save;
 import com.hrznstudio.titanium.component.fluid.SidedFluidTankComponent;
 import com.hrznstudio.titanium.component.inventory.SidedInventoryComponent;
 import com.hrznstudio.titanium.component.progress.ProgressBarComponent;
+import com.hrznstudio.titanium.util.TagUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemHandlerHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.yxiao233.ifeu.api.item.IFEUAddonItem;
 import net.yxiao233.ifeu.api.item.IFEUAugmentTypes;
 import net.yxiao233.ifeu.common.item.HydroponicSimulationProcessorItem;
 import net.yxiao233.ifeu.common.registry.IFEUContents;
 import net.yxiao233.ifeu.common.utils.AugmentInventoryHelper;
+import net.yxiao233.ifeu.common.utils.LevelUtil;
 import org.apache.commons.lang3.tuple.Pair;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
@@ -62,6 +66,36 @@ public abstract class MixinHydroponicBedTile extends IndustrialWorkingTile<Hydro
         super(basicTileBlock, estimatedPower, blockPos, blockState);
     }
 
+    @Inject(method = "serverTick(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lcom/buuz135/industrial/block/agriculturehusbandry/tile/HydroponicBedTile;)V", at = @At("TAIL"))
+    private void ifeu$serverTick(Level level, BlockPos pos, BlockState state, HydroponicBedTile blockEntity, CallbackInfo ci){
+        if(!net.yxiao233.ifeu.common.config.machine.HydroponicBedConfig.blackList.isEmpty()){
+            List<String> list = net.yxiao233.ifeu.common.config.machine.HydroponicBedConfig.blackList;
+            Item item = level.getBlockState(pos.above()).getBlock().asItem();
+            ItemStack stack = item.getDefaultInstance();
+            BlockState blockState1 = level.getBlockState(pos.above()).getFluidState().is(Fluids.WATER) ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState();
+            list.forEach(arg ->{
+                if(arg.startsWith("#") && arg.contains(":")){
+                    String nameSpace = arg.substring(arg.indexOf("#") + 1,arg.indexOf(":"));
+                    String location = arg.substring(arg.indexOf(":") + 1);
+                    ResourceLocation rl = new ResourceLocation(nameSpace,location);
+                    TagKey<Item> tag = TagUtil.getItemTag(rl);
+                    if(stack.is(tag)){
+                        LevelUtil.dropContents(level,pos.above(),new ItemStack(item));
+                        level.setBlockAndUpdate(pos.above(),blockState1);
+                    }
+                }else if(arg.contains(":")){
+                    String nameSpace = arg.substring(0,arg.indexOf(":"));
+                    String location = arg.substring(arg.indexOf(":") + 1);
+                    ResourceLocation rl = new ResourceLocation(nameSpace,location);
+                    Item filter = ForgeRegistries.ITEMS.getValue(rl);
+                    if(filter != null && stack.is(filter)){
+                        LevelUtil.dropContents(level,pos.above(),new ItemStack(item));
+                        level.setBlockAndUpdate(pos.above(),blockState1);
+                    }
+                }
+            });
+        }
+    }
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void onTileInit(BlockPos blockPos, BlockState blockState, CallbackInfo ci){
