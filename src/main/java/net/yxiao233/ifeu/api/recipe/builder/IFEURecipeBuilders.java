@@ -2,6 +2,7 @@ package net.yxiao233.ifeu.api.recipe.builder;
 
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.crafting.SizedFluidIngredient;
 
 public class IFEURecipeBuilders {
     public static ShapedRecipeBuilder shapedRecipe(ItemStack output, String id){
@@ -28,7 +29,7 @@ public class IFEURecipeBuilders {
         return new InfuserRecipeBuilder(output);
     }
 
-    public static LaserDrillFluidRecipeBuilder laserDrillFluidRecipe(FluidStack output, String id){
+    public static LaserDrillFluidRecipeBuilder laserDrillFluidRecipe(SizedFluidIngredient output, String id){
         return new LaserDrillFluidRecipeBuilder(output,id);
     }
 

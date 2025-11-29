@@ -28,6 +28,7 @@ public class IndustrialForegoingExtraUpgrades extends ModuleController {
         IFEUDataComponentTypes.DATA_COMPONENTS.register(modEventBus);
     }
 
+    @SuppressWarnings("removal")
     @EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent

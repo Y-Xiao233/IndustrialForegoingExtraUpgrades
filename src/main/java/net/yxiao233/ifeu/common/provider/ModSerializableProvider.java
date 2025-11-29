@@ -2,18 +2,23 @@ package net.yxiao233.ifeu.common.provider;
 
 import com.buuz135.industrial.module.ModuleCore;
 import com.buuz135.industrial.recipe.LaserDrillRarity;
+import com.buuz135.industrial.recipe.data.EntityData;
 import com.buuz135.industrial.utils.IndustrialTags;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.crafting.FluidIngredient;
+import net.neoforged.neoforge.fluids.crafting.SizedFluidIngredient;
 import net.yxiao233.ifeu.api.recipe.builder.IFEURecipeBuilders;
 import net.yxiao233.ifeu.common.registry.IFEUBlocks;
 import net.yxiao233.ifeu.common.registry.IFEUContents;
@@ -21,6 +26,7 @@ import net.yxiao233.ifeu.common.registry.IFEUTags;
 import net.yxiao233.ifeu.common.registry.IFEUFluids;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class ModSerializableProvider{
     public static void init(RecipeOutput recipeOutput) {
@@ -195,15 +201,15 @@ public class ModSerializableProvider{
 
 
         //laser drill fluid
-        IFEURecipeBuilders.laserDrillFluidRecipe(new FluidStack(IFEUFluids.LIQUID_SCULK_MATTER.getSourceFluid().get(),10),"liquid_sculk_matter")
+        IFEURecipeBuilders.laserDrillFluidRecipe(new SizedFluidIngredient(FluidIngredient.of(IFEUFluids.LIQUID_SCULK_MATTER.getSourceFluid().get()),10),"liquid_sculk_matter")
                 .catalyst(Ingredient.of(IFEUContents.LASER_LENS_SCULK.get()))
-                .entity(MC("warden"))
+                .entity(Optional.of(EntityData.of(EntityType.WARDEN)))
                 .rarity(new LaserDrillRarity(new LaserDrillRarity.BiomeRarity(new ArrayList<>(),new ArrayList<>()),new LaserDrillRarity.DimensionRarity(new ArrayList<>(),new ArrayList<>()),-64,256,8))
                 .save(recipeOutput);
 
-        IFEURecipeBuilders.laserDrillFluidRecipe(new FluidStack(IFEUFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),10),"liquid_dragon_breath")
+        IFEURecipeBuilders.laserDrillFluidRecipe(new SizedFluidIngredient(FluidIngredient.of(IFEUFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get()),10),"liquid_dragon_breath")
                 .catalyst(Ingredient.of(IFEUContents.LASER_LENS_DRAGON.get()))
-                .entity(MC("ender_dragon"))
+                .entity(Optional.of(EntityData.of(EntityType.ENDER_DRAGON)))
                 .rarity(new LaserDrillRarity(new LaserDrillRarity.BiomeRarity(LaserDrillRarity.BiomeRarity.END,new ArrayList<>()),new LaserDrillRarity.DimensionRarity(new ArrayList<>(),new ArrayList<>()),-64,256,8))
                 .save(recipeOutput);
 

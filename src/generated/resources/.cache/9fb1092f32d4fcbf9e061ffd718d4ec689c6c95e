@@ -1,4 +1,4 @@
-// 1.21.1	2025-08-10T16:36:24.4891589	Recipes
+// 1.21.1	2025-11-29T16:38:29.5919998	Recipes
 50dded7964768360091d2a72f21482917ba313b2 data/ifeu/advancement/arcane_dragon_egg_forging/dead_dragon_egg.json
 0c4d904269eadd30beb5b7fbd62d9fddfffc4954 data/ifeu/advancement/arcane_dragon_egg_forging/egg_1.json
 819d02b8ab08a1e4eb76f7e73cc546ff23804450 data/ifeu/advancement/arcane_dragon_egg_forging/egg_2.json
@@ -171,8 +171,8 @@ b563ef120a87fb5101928e15232c67c65d957d37 data/industrialforegoing/recipe/dissolu
 f20e825faae1247ad1c5db1e47eb6f54c653a785 data/industrialforegoing/recipe/dissolution_chamber/thread_addon_6.json
 17e108dfc6c8a911c90f0aa0ef62af1fc9c08946 data/industrialforegoing/recipe/dissolution_chamber/ultimate_machine_frame.json
 0992bd65344706260d3a2f1fbb3bd347a00972f6 data/industrialforegoing/recipe/fluid_extractor/dragon_star_essence.json
-ad280f43250723ca1eb9efe83e0792ef67f7caf9 data/industrialforegoing/recipe/laser_drill_fluid/liquid_dragon_breath.json
-b6cc6a2953e85c0cdfab2a8d35ab2fc45fbbd7b0 data/industrialforegoing/recipe/laser_drill_fluid/liquid_sculk_matter.json
+1c71ada24c59d64fba1fd54b935a58bd0b3d4ca2 data/industrialforegoing/recipe/laser_drill_fluid/liquid_dragon_breath.json
+c294b1e595ffc43e7bb05730eca66ccd5810512a data/industrialforegoing/recipe/laser_drill_fluid/liquid_sculk_matter.json
 b5f66a9e010f50be25cb33b38b85731a2a3193cf data/minecraft/advancement/recipes/misc/sculk.json
 d248c5232893b08a0d5830d0f2f575fd11fe9f3a data/minecraft/advancement/recipes/root.json
 12b26bd7ff002aa9f65f699b4c53a1641223e35f data/minecraft/recipe/sculk.json

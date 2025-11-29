@@ -9,10 +9,16 @@
   "catalyst": {
     "item": "ifeu:laser_lens_dragon"
   },
-  "entity": "minecraft:ender_dragon",
+  "entity_data": {
+    "data": {},
+    "display": "",
+    "entity": {
+      "type": "minecraft:ender_dragon"
+    }
+  },
   "output": {
     "amount": 10,
-    "id": "ifeu:liquid_dragon_breath"
+    "fluid": "ifeu:liquid_dragon_breath"
   },
   "rarity": [
     {

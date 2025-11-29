@@ -8,6 +8,7 @@ import dev.latvian.mods.kubejs.registry.BuilderTypeRegistry;
 import dev.latvian.mods.kubejs.script.BindingRegistry;
 import dev.latvian.mods.kubejs.script.ScriptType;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.yxiao233.ifeu.api.structure.MultiBlockStructureBuilder;
 import net.yxiao233.ifeu.common.compact.kubejs.events.IFEUStructureEvents;
 import net.yxiao233.ifeu.common.compact.kubejs.events.IFEUStructureModifyJS;
@@ -29,14 +30,14 @@ public class ModKubeJSPlugin implements KubeJSPlugin {
     @Override
     public void registerBuilderTypes(BuilderTypeRegistry registry) {
         registry.of(Registries.ITEM, reg ->{
-            reg.add("industrialforegoing:speed_addon",SpeedAddonItemBuilder.class, SpeedAddonItemBuilder::new);
-            reg.add("industrialforegoing:efficiency_addon", EfficiencyAddonItemBuilder.class, EfficiencyAddonItemBuilder::new);
-            reg.add("industrialforegoing:processing_addon", ProcessingAddonItemBuilder.class, ProcessingAddonItemBuilder::new);
-            reg.add("industrialforegoing:range_addon", RangeAddonItemBuilder.class,RangeAddonItemBuilder::new);
-            reg.add("ifeu:thread_addon", ThreadAddonItemBuilder.class,ThreadAddonItemBuilder::new);
-            reg.add("ifeu:apple_addon", AppleAddonItemBuilder.class,AppleAddonItemBuilder::new);
-            reg.add("ifeu:heal_addon", HealAddonItemBuilder.class,HealAddonItemBuilder::new);
-            reg.add("ifeu:chance_addon", ChanceAddonItemBuilder.class,ChanceAddonItemBuilder::new);
+            reg.add(getFromString("industrialforegoing:speed_addon"),SpeedAddonItemBuilder.class, SpeedAddonItemBuilder::new);
+            reg.add(getFromString("industrialforegoing:efficiency_addon"), EfficiencyAddonItemBuilder.class, EfficiencyAddonItemBuilder::new);
+            reg.add(getFromString("industrialforegoing:processing_addon"), ProcessingAddonItemBuilder.class, ProcessingAddonItemBuilder::new);
+            reg.add(getFromString("industrialforegoing:range_addon"), RangeAddonItemBuilder.class,RangeAddonItemBuilder::new);
+            reg.add(getFromString("ifeu:thread_addon"), ThreadAddonItemBuilder.class,ThreadAddonItemBuilder::new);
+            reg.add(getFromString("ifeu:apple_addon"), AppleAddonItemBuilder.class,AppleAddonItemBuilder::new);
+            reg.add(getFromString("ifeu:heal_addon"), HealAddonItemBuilder.class,HealAddonItemBuilder::new);
+            reg.add(getFromString("ifeu:chance_addon"), ChanceAddonItemBuilder.class,ChanceAddonItemBuilder::new);
         });
     }
 
@@ -66,5 +67,11 @@ public class ModKubeJSPlugin implements KubeJSPlugin {
     public void afterInit() {
         var structure = new IFEUStructureModifyJS();
         IFEUStructureEvents.MODIFY.post(ScriptType.STARTUP, structure);
+    }
+
+    private ResourceLocation getFromString(String rl){
+        String nameSpace = rl.substring(0,rl.indexOf(":"));
+        String location = rl.substring(rl.indexOf(":") + 1);
+        return ResourceLocation.fromNamespaceAndPath(nameSpace,location);
     }
 }
