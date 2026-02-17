@@ -35,7 +35,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(IFEUBlocks.FLUID_CRAFTING_TABLE.getLeft());
         blockItem(IFEUBlocks.DRAGON_GENERATOR.getLeft());
         blockItem(IFEUBlocks.FLUID_TRANSFER.getLeft());
-        blockItem(IFEUBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getLeft());
         blockItem(IFEUBlocks.SIMULATED_HYDROPONIC_BED.getLeft());
         blockItem(IFEUBlocks.PLATFORM_BUILDER.getLeft());
         blockItem(IFEUBlocks.PRECISION_CRAFTING_TABLE.getLeft());

@@ -45,7 +45,7 @@ public class IFEULockableInventoryBundle<T extends BasicTile<?> & IComponentHarn
     private int lockPosY;
     private boolean isLocked;
 
-    public IFEULockableInventoryBundle(InventoryComponent<T> augmentInventory,T componentHarness, final InventoryComponent<T> inventory, int lockPosX, int lockPosY, boolean isLocked) {
+    public IFEULockableInventoryBundle(InventoryComponent<T> augmentInventory, T componentHarness, final InventoryComponent<T> inventory, int lockPosX, int lockPosY, boolean isLocked) {
         this.augmentInventory = augmentInventory;
         this.componentHarness = componentHarness;
         this.inventory = inventory;

@@ -42,7 +42,7 @@ public class IFEUBlocks implements IModule {
         FLUID_CRAFTING_TABLE = deferredRegistry(helper,"fluid_crafting_table",FluidCraftingTableBlock::new);
         DRAGON_GENERATOR = deferredRegistry(helper,"dragon_generator",DragonGeneratorBlock::new);
         FLUID_TRANSFER = deferredRegistry(helper,"fluid_transfer", FluidTransferBlock::new);
-        BIG_DISSOLUTION_CHAMBER_CORE = deferredRegistry(helper,"big_dissolution_chamber_core",BigDissolutionChamberBlock::new);
+        BIG_DISSOLUTION_CHAMBER_CORE = deferredRegistry(helper,"big_dissolution_chamber",BigDissolutionChamberBlock::new);
         SIMULATED_HYDROPONIC_BED = deferredRegistry(helper,"simulated_hydroponic_bed",SimulatedHydroponicBedBlock::new);
         PLATFORM_BUILDER = deferredRegistry(helper,"platform_builder",PlatformBuilderBlock::new);
         PRECISION_CRAFTING_TABLE = deferredRegistry(helper,"precision_crafting_table",PrecisionCraftingTableBlock::new);

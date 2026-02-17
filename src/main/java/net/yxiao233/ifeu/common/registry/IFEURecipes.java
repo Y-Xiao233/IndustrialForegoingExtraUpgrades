@@ -26,8 +26,6 @@ public class IFEURecipes implements IModule {
     public static RegistryObject<RecipeType<?>> SHAPELESS_TYPE;
     public static RegistryObject<RecipeSerializer<?>> DRAGON_GENERATOR_SERIALIZER;
     public static RegistryObject<RecipeType<?>> DRAGON_GENERATOR_TYPE;
-    public static RegistryObject<RecipeSerializer<?>> STRUCTURE_SERIALIZER;
-    public static RegistryObject<RecipeType<?>> STRUCTURE_TYPE;
     public static RegistryObject<RecipeSerializer<?>> PRECISION_SHAPED_SERIALIZER;
     public static RegistryObject<RecipeType<?>> PRECISION_SHAPED_TYPE;
 
@@ -56,9 +54,6 @@ public class IFEURecipes implements IModule {
 
         DRAGON_GENERATOR_SERIALIZER = helper.registerGeneric(ForgeRegistries.RECIPE_SERIALIZERS.getRegistryKey(), "dragon_generator", () -> new GenericSerializer<>(DragonGeneratorRecipe.class, DRAGON_GENERATOR_TYPE));
         DRAGON_GENERATOR_TYPE = helper.registerGeneric(ForgeRegistries.RECIPE_TYPES.getRegistryKey(), "dragon_generator", () -> RecipeType.simple(new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID, "dragon_generator")));
-
-        STRUCTURE_SERIALIZER = helper.registerGeneric(ForgeRegistries.RECIPE_SERIALIZERS.getRegistryKey(), "structure", () -> new GenericSerializer<>(StructureInfoRecipe.class, STRUCTURE_TYPE));
-        STRUCTURE_TYPE = helper.registerGeneric(ForgeRegistries.RECIPE_TYPES.getRegistryKey(), "structure", () -> RecipeType.simple(new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID, "structure")));
 
         PRECISION_SHAPED_SERIALIZER = helper.registerGeneric(ForgeRegistries.RECIPE_SERIALIZERS.getRegistryKey(), "precision_shaped", () -> new GenericSerializer<>(PrecisionShapedRecipe.class, PRECISION_SHAPED_TYPE));
         PRECISION_SHAPED_TYPE = helper.registerGeneric(ForgeRegistries.RECIPE_TYPES.getRegistryKey(), "precision_shaped", () -> RecipeType.simple(new ResourceLocation(IndustrialForegoingExtraUpgrades.MODID, "precision_shaped")));

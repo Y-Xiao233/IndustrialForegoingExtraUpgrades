@@ -1,4 +1,4 @@
-// 1.20.1	2025-07-01T15:31:29.7123772	Titanium Serializable (ifeu)
+// 1.20.1	2026-02-17T12:49:56.6158463	Titanium Serializable (ifeu)
 5a32aaf5edd8a63da8d7dbbc3e98ee222f54e549 data/ifeu/recipes/arcane_dragon_egg_forging/dead_dragon_egg.json
 ee98c1c55d06b1ef40bcf4b3ff86cabb9ceb5e93 data/ifeu/recipes/arcane_dragon_egg_forging/egg_1.json
 8d37adb344b2eb92c22f350e100824d2620a4f40 data/ifeu/recipes/arcane_dragon_egg_forging/egg_2.json
@@ -60,7 +60,7 @@ ff1c60d7acae66efed4d819a16093b0e72d1afb5 data/ifeu/recipes/precision_shapeless/c
 7d208f9c2b08cade5f26ab046ef4df2ef620e876 data/ifeu/recipes/precision_shapeless/chance_addon_4.json
 1d1c116fb3f0f27f077ca0d912bb25f661754fe6 data/ifeu/recipes/precision_shapeless/chance_addon_5.json
 acd976a498904843cc5a9d82be6aa190048da879 data/ifeu/recipes/precision_shapeless/chance_addon_6.json
-cb2f1d40e4c019e3a2550054418dbd650a6df9d1 data/ifeu/recipes/shaped/big_dissolution_chamber_core.json
+344ee5e1037ecb3f2e0a7296991b5b8831844799 data/ifeu/recipes/shaped/big_dissolution_chamber.json
 92b71e3f4cc8d4359788e03f10591b7dc203f0ec data/ifeu/recipes/shaped/connect_tool.json
 87d6223944f8d0a3b906e0446ff0b896c7768fc6 data/ifeu/recipes/shaped/dragon_star_axe.json
 eee58b236806c11511f9cc76a287cc31fd13bd94 data/ifeu/recipes/shaped/dragon_star_block.json
