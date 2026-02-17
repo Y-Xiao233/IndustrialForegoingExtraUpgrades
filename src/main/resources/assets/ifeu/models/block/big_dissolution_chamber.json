@@ -1,0 +1,25 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "minecraft:block/block",
+  "textures": {
+    "0": "ifeu:block/big_dissolution_chamber",
+    "1": "industrialforegoing:block/base/side",
+    "2": "industrialforegoing:block/base/top",
+    "3": "industrialforegoing:block/base/bottom",
+    "particle": "ifeu:block/big_dissolution_chamber"
+  },
+  "elements": [
+    {
+      "from": [-16, -16, -16],
+      "to": [32, 32, 32],
+      "faces": {
+        "north": {"uv": [0, 0, 16, 16], "texture": "#0"},
+        "east": {"uv": [0, 0, 16, 16], "texture": "#1"},
+        "south": {"uv": [0, 0, 16, 16], "texture": "#1"},
+        "west": {"uv": [0, 0, 16, 16], "texture": "#1"},
+        "up": {"uv": [0, 0, 16, 16], "texture": "#2"},
+        "down": {"uv": [0, 0, 16, 16], "texture": "#3"}
+      }
+    }
+  ]
+}

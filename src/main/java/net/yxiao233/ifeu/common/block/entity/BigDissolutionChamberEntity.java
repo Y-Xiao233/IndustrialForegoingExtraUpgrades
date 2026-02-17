@@ -1,10 +1,11 @@
 package net.yxiao233.ifeu.common.block.entity;
 
+import com.buuz135.industrial.block.tile.IndustrialProcessingTile;
 import com.buuz135.industrial.config.machine.core.DissolutionChamberConfig;
+import com.buuz135.industrial.item.addon.ProcessingAddonItem;
 import com.buuz135.industrial.module.ModuleCore;
 import com.buuz135.industrial.recipe.DissolutionChamberRecipe;
 import com.hrznstudio.titanium.annotation.Save;
-import com.hrznstudio.titanium.component.bundle.LockableInventoryBundle;
 import com.hrznstudio.titanium.component.energy.EnergyStorageComponent;
 import com.hrznstudio.titanium.component.fluid.FluidTankComponent;
 import com.hrznstudio.titanium.component.fluid.SidedFluidTankComponent;
@@ -18,17 +19,19 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.neoforged.neoforge.items.ItemHandlerHelper;
-import net.yxiao233.ifeu.api.block.entity.IFEUStructureProcessingTile;
+import net.yxiao233.ifeu.api.block.entity.EnumPropertyIndustrialProcessingTile;
 import net.yxiao233.ifeu.api.components.IFEULockableInventoryBundle;
 import net.yxiao233.ifeu.api.item.IFEUAddonItem;
 import net.yxiao233.ifeu.api.item.IFEUAugmentTypes;
-import net.yxiao233.ifeu.api.structure.MultiBlockStructure;
+import net.yxiao233.ifeu.api.item.ModAppleAddonItem;
+import net.yxiao233.ifeu.common.block.BigDissolutionChamberBlock;
 import net.yxiao233.ifeu.common.config.machine.BigDissolutionChamberConfig;
 import net.yxiao233.ifeu.common.registry.IFEUBlocks;
-import net.yxiao233.ifeu.common.structure.IFEUMultiBlockStructures;
+import net.yxiao233.ifeu.common.state.BigDissolutionChamberStructure;
 import net.yxiao233.ifeu.common.utils.AugmentInventoryHelper;
 import net.yxiao233.ifeu.common.utils.InventoryComponentHelper;
 import org.apache.commons.lang3.tuple.Pair;
@@ -38,7 +41,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Optional;
 
-public class BigDissolutionChamberEntity extends IFEUStructureProcessingTile<BigDissolutionChamberEntity> {
+public class BigDissolutionChamberEntity extends EnumPropertyIndustrialProcessingTile<BigDissolutionChamberEntity, BigDissolutionChamberStructure> {
     private int maxProgress;
     private int powerPerTick;
     private int defaultMaxThread;
@@ -55,7 +58,7 @@ public class BigDissolutionChamberEntity extends IFEUStructureProcessingTile<Big
         super(IFEUBlocks.BIG_DISSOLUTION_CHAMBER_CORE, 102, 41, blockPos, blockState);
 
         int slotSpacing = 22;
-        this.addBundle(this.input = new IFEULockableInventoryBundle<>(this.getAugmentInventory(),this, (new SidedInventoryComponent<BigDissolutionChamberEntity>("input", 34, 19, 8, 0))
+        this.addBundle(this.input = new IFEULockableInventoryBundle<>(this.getWrapperAugmentInventory(),this, (new SidedInventoryComponent<BigDissolutionChamberEntity>("input", 34, 19, 8, 0))
                 .setColor(DyeColor.LIGHT_BLUE)
                 .setSlotPosition(BigDissolutionChamberEntity::getSlotPos)
                 .setOutputFilter((stack, integer) -> false)
@@ -85,10 +88,6 @@ public class BigDissolutionChamberEntity extends IFEUStructureProcessingTile<Big
 
     private void checkForRecipe() {
         if (this.isServer()) {
-            if(!hasCurrentStructure){
-                this.currentRecipe = null;
-                return;
-            }
             if (this.currentRecipe != null && this.currentRecipe.matches(this.input.getInventory(), this.inputFluid)) {
                 return;
             }
@@ -101,7 +100,13 @@ public class BigDissolutionChamberEntity extends IFEUStructureProcessingTile<Big
 
     @Override
     public boolean canAcceptAugment(ItemStack augment) {
-        if(augment.getItem() instanceof IFEUAddonItem){
+        if(augment.getItem() instanceof ProcessingAddonItem){
+            return false;
+        }
+        if(augment.getItem() instanceof IFEUAddonItem item){
+            if(item instanceof ModAppleAddonItem){
+                return false;
+            }
             return AugmentInventoryHelper.canAccept(this.getAugmentInventory(),augment);
         }
         return super.canAcceptAugment(augment);
@@ -120,7 +125,7 @@ public class BigDissolutionChamberEntity extends IFEUStructureProcessingTile<Big
 
     @Override
     public boolean canIncrease() {
-        return hasCurrentStructure && this.currentRecipe != null && ItemHandlerHelper.insertItem(this.output, ((ItemStack)this.currentRecipe.output.orElse(ItemStack.EMPTY)).copy(), true).isEmpty() && (this.currentRecipe.outputFluid.isEmpty() || this.outputFluid.fillForced(((FluidStack)this.currentRecipe.outputFluid.orElse(FluidStack.EMPTY)).copy(), IFluidHandler.FluidAction.SIMULATE) == ((FluidStack)this.currentRecipe.outputFluid.orElse(FluidStack.EMPTY)).getAmount());
+        return this.currentRecipe != null && ItemHandlerHelper.insertItem(this.output, ((ItemStack)this.currentRecipe.output.orElse(ItemStack.EMPTY)).copy(), true).isEmpty() && (this.currentRecipe.outputFluid.isEmpty() || this.outputFluid.fillForced(((FluidStack)this.currentRecipe.outputFluid.orElse(FluidStack.EMPTY)).copy(), IFluidHandler.FluidAction.SIMULATE) == ((FluidStack)this.currentRecipe.outputFluid.orElse(FluidStack.EMPTY)).getAmount());
     }
 
     public Runnable onFinish() {
@@ -189,7 +194,7 @@ public class BigDissolutionChamberEntity extends IFEUStructureProcessingTile<Big
         return tier * 4 + defaultMaxThread;
     }
 
-    protected EnergyStorageComponent<BigDissolutionChamberEntity> createEnergyStorage() {
+    protected @NotNull EnergyStorageComponent<BigDissolutionChamberEntity> createEnergyStorage() {
         return new EnergyStorageComponent<>(DissolutionChamberConfig.maxStoredPower, 10, 20);
     }
 
@@ -199,7 +204,7 @@ public class BigDissolutionChamberEntity extends IFEUStructureProcessingTile<Big
         return this.powerPerTick;
     }
     public int getMaxProgress() {
-        return this.currentRecipe != null ? this.currentRecipe.processingTime : this.maxProgress;
+        return this.currentRecipe != null ? this.currentRecipe.processingTime / 2 : this.maxProgress;
     }
 
     public static Pair<Integer, Integer> getSlotPos(int slot) {
@@ -261,12 +266,12 @@ public class BigDissolutionChamberEntity extends IFEUStructureProcessingTile<Big
     }
 
     @Override
-    public MultiBlockStructure multiBlockStructure() {
-        return IFEUMultiBlockStructures.BIG_DISSOLUTION_CHAMBER.getStructure();
+    protected BigDissolutionChamberStructure getDefault() {
+        return BigDissolutionChamberStructure.CORE;
     }
 
     @Override
-    public int[] setStructureFormingPosition() {
-        return new int[]{152,4};
+    protected Property<BigDissolutionChamberStructure> getProperty() {
+        return BigDissolutionChamberBlock.structure;
     }
 }

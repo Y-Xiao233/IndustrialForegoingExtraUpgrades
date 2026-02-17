@@ -36,7 +36,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithTileItem(IFEUBlocks.FLUID_CRAFTING_TABLE);
         blockWithTileItem(IFEUBlocks.DRAGON_GENERATOR);
         blockWithTileItem(IFEUBlocks.FLUID_TRANSFER);
-        blockWithTileItem(IFEUBlocks.BIG_DISSOLUTION_CHAMBER_CORE);
         blockWithTileItem(IFEUBlocks.PLATFORM_BUILDER);
         blockWithTileItem(IFEUBlocks.PRECISION_CRAFTING_TABLE);
     }

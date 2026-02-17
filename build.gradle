@@ -123,7 +123,7 @@ dependencies {
 
     //KubeJS
 //    implementation("dev.latvian.mods:kubejs-neoforge:${kubejs_version}")
-    implementation "curse.maven:kubejs-238086:7255073"
+    implementation "curse.maven:kubejs-238086:7278501"
     implementation "curse.maven:rhino-416294:7104526"
 
 }

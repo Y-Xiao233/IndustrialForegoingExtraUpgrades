@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ifeu:shaped/big_dissolution_chamber_core"
+        "recipe": "ifeu:shaped/big_dissolution_chamber"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "ifeu:shaped/big_dissolution_chamber_core"
+      "ifeu:shaped/big_dissolution_chamber"
     ]
   }
 }

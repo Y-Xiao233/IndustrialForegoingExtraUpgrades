@@ -26,8 +26,6 @@ public class IFEURecipes implements IModule {
     public static DeferredHolder<RecipeType<?>,RecipeType<?>> SHAPELESS_TYPE;
     public static DeferredHolder<RecipeSerializer<?>,RecipeSerializer<?>> DRAGON_GENERATOR_SERIALIZER;
     public static DeferredHolder<RecipeType<?>,RecipeType<?>> DRAGON_GENERATOR_TYPE;
-    public static DeferredHolder<RecipeSerializer<?>,RecipeSerializer<?>> STRUCTURE_SERIALIZER;
-    public static DeferredHolder<RecipeType<?>,RecipeType<?>> STRUCTURE_TYPE;
     public static DeferredHolder<RecipeSerializer<?>,RecipeSerializer<?>> PRECISION_SHAPED_SERIALIZER;
     public static DeferredHolder<RecipeType<?>,RecipeType<?>> PRECISION_SHAPED_TYPE;
     public static DeferredHolder<RecipeSerializer<?>,RecipeSerializer<?>> PRECISION_SHAPELESS_SERIALIZER;
@@ -54,9 +52,6 @@ public class IFEURecipes implements IModule {
 
         DRAGON_GENERATOR_SERIALIZER = helper.registerGeneric(Registries.RECIPE_SERIALIZER, "dragon_generator", () -> new CodecRecipeSerializer<>(DragonGeneratorRecipe.class, DRAGON_GENERATOR_TYPE, DragonGeneratorRecipe.CODEC));
         DRAGON_GENERATOR_TYPE = helper.registerGeneric(Registries.RECIPE_TYPE, "dragon_generator", () -> RecipeType.simple(ResourceLocation.fromNamespaceAndPath(IndustrialForegoingExtraUpgrades.MODID, "dragon_generator")));
-
-        STRUCTURE_SERIALIZER = helper.registerGeneric(Registries.RECIPE_SERIALIZER, "structure", () -> new CodecRecipeSerializer<>(StructureInfoRecipe.class, STRUCTURE_TYPE, StructureInfoRecipe.CODEC));
-        STRUCTURE_TYPE = helper.registerGeneric(Registries.RECIPE_TYPE, "structure", () -> RecipeType.simple(ResourceLocation.fromNamespaceAndPath(IndustrialForegoingExtraUpgrades.MODID, "structure")));
 
         PRECISION_SHAPED_SERIALIZER = helper.registerGeneric(Registries.RECIPE_SERIALIZER, "precision_shaped", () -> new CodecRecipeSerializer<>(PrecisionShapedRecipe.class, PRECISION_SHAPED_TYPE,PrecisionShapedRecipe.CODEC));
         PRECISION_SHAPED_TYPE = helper.registerGeneric(Registries.RECIPE_TYPE, "precision_shaped", () -> RecipeType.simple(ResourceLocation.fromNamespaceAndPath(IndustrialForegoingExtraUpgrades.MODID, "precision_shaped")));
