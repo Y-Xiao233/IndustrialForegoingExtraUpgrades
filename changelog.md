@@ -144,6 +144,9 @@
 - 更新了前置的版本
 - 将大型溶解成型机修改为单方块大型机器(每个面均可以正常输入输出)[\#93 by BOLTMAGIC](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/93)
 
+### v3.3.001
+- 更新了贴图 by [MHanHanBing](https://github.com/MHanHanBing)
+
 ## en_us
 ### v1.0.0
 - init
@@ -281,3 +284,6 @@
 ### v3.3.000
 - Updated the dependency version
 - Modify the Big Dissolution Chamber to a single block large machine(with normal input and output on each side)[\#93 by BOLTMAGIC](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/93)
+
+### v3.3.001
+- Update textures by [MHanHanBing](https://github.com/MHanHanBing)
