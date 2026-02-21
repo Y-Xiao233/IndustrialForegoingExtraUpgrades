@@ -1,0 +1,100 @@
+{
+  "variants": {
+    "big_dissolution_chamber_structure=m,subfacing=east": {
+      "model": "ifeu:block/big_dissolution_chamber",
+      "y": 90
+    },
+    "big_dissolution_chamber_structure=m,subfacing=north": {
+      "model": "ifeu:block/big_dissolution_chamber"
+    },
+    "big_dissolution_chamber_structure=m,subfacing=south": {
+      "model": "ifeu:block/big_dissolution_chamber",
+      "y": 180
+    },
+    "big_dissolution_chamber_structure=m,subfacing=west": {
+      "model": "ifeu:block/big_dissolution_chamber",
+      "y": 270
+    },
+    "big_dissolution_chamber_structure=core": {
+      "model": "ifeu:block/big_dissolution_chamber"
+    },
+    "big_dissolution_chamber_structure=a": {
+      "model": "ifeu:block/big_dissolution_chamber"
+    },
+    "big_dissolution_chamber_structure=b": {
+      "model": "ifeu:block/big_dissolution_chamber"
+    },
+    "big_dissolution_chamber_structure=c": {
+      "model": "ifeu:block/big_dissolution_chamber"
+    },
+    "big_dissolution_chamber_structure=d": {
+      "model": "ifeu:block/big_dissolution_chamber"
+    },
+    "big_dissolution_chamber_structure=e": {
+      "model": "ifeu:block/big_dissolution_chamber"
+    },
+    "big_dissolution_chamber_structure=f": {
+      "model": "ifeu:block/big_dissolution_chamber"
+    },
+    "big_dissolution_chamber_structure=g": {
+      "model": "ifeu:block/big_dissolution_chamber"
+    },
+    "big_dissolution_chamber_structure=h": {
+      "model": "ifeu:block/big_dissolution_chamber"
+    },
+    "big_dissolution_chamber_structure=i": {
+      "model": "ifeu:block/big_dissolution_chamber"
+    },
+    "big_dissolution_chamber_structure=j": {
+      "model": "ifeu:block/big_dissolution_chamber"
+    },
+    "big_dissolution_chamber_structure=k": {
+      "model": "ifeu:block/big_dissolution_chamber"
+    },
+    "big_dissolution_chamber_structure=l": {
+      "model": "ifeu:block/big_dissolution_chamber"
+    },
+    "big_dissolution_chamber_structure=n": {
+      "model": "ifeu:block/big_dissolution_chamber"
+    },
+    "big_dissolution_chamber_structure=o": {
+      "model": "ifeu:block/big_dissolution_chamber"
+    },
+    "big_dissolution_chamber_structure=p": {
+      "model": "ifeu:block/big_dissolution_chamber"
+    },
+    "big_dissolution_chamber_structure=q": {
+      "model": "ifeu:block/big_dissolution_chamber"
+    },
+    "big_dissolution_chamber_structure=r": {
+      "model": "ifeu:block/big_dissolution_chamber"
+    },
+    "big_dissolution_chamber_structure=s": {
+      "model": "ifeu:block/big_dissolution_chamber"
+    },
+    "big_dissolution_chamber_structure=t": {
+      "model": "ifeu:block/big_dissolution_chamber"
+    },
+    "big_dissolution_chamber_structure=u": {
+      "model": "ifeu:block/big_dissolution_chamber"
+    },
+    "big_dissolution_chamber_structure=v": {
+      "model": "ifeu:block/big_dissolution_chamber"
+    },
+    "big_dissolution_chamber_structure=w": {
+      "model": "ifeu:block/big_dissolution_chamber"
+    },
+    "big_dissolution_chamber_structure=x": {
+      "model": "ifeu:block/big_dissolution_chamber"
+    },
+    "big_dissolution_chamber_structure=y": {
+      "model": "ifeu:block/big_dissolution_chamber"
+    },
+    "big_dissolution_chamber_structure=z": {
+      "model": "ifeu:block/big_dissolution_chamber"
+    },
+    "big_dissolution_chamber_structure=aa": {
+      "model": "ifeu:block/big_dissolution_chamber"
+    }
+  }
+}

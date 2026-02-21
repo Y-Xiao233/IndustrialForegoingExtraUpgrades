@@ -140,6 +140,13 @@
 - 更新了neoforge以及所有前置的版本
 - 修复了新版部分配方错误的bug
 
+### v3.3.000
+- 更新了前置的版本
+- 将大型溶解成型机修改为单方块大型机器(每个面均可以正常输入输出)[\#93 by BOLTMAGIC](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/93)
+
+### v3.3.001
+- 更新了贴图 by [MHanHanBing](https://github.com/MHanHanBing)
+
 ## en_us
 ### v1.0.0
 - init
@@ -273,3 +280,10 @@
 - Optimized the slot input logic of the Big Dissolution Chamber(the maximum number of items in a single slot is defaulted to the number of items in the locked slot, and can be changed to the maximum thread of the machine in the configuration)
 - Modified some recipes
 - Updated dependency:Titanium[4.0.36 -> 4.0.39]
+
+### v3.3.000
+- Updated the dependency version
+- Modify the Big Dissolution Chamber to a single block large machine(with normal input and output on each side)[\#93 by BOLTMAGIC](https://github.com/Y-Xiao233/IndustrialForegoingExtraUpgrades/issues/93)
+
+### v3.3.001
+- Update textures by [MHanHanBing](https://github.com/MHanHanBing)

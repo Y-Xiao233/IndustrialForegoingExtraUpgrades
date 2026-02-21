@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "ifeu:big_dissolution_chamber_core"
+          "name": "ifeu:big_dissolution_chamber"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "ifeu:blocks/big_dissolution_chamber_core"
+  "random_sequence": "ifeu:blocks/big_dissolution_chamber"
 }

@@ -29,7 +29,6 @@ import net.yxiao233.ifeu.common.registry.IFEUBlocks;
 import net.yxiao233.ifeu.common.registry.IFEUContents;
 import net.yxiao233.ifeu.common.registry.IFEUFluids;
 import net.yxiao233.ifeu.common.registry.IFEURecipes;
-import net.yxiao233.ifeu.common.structure.IFEUMultiBlockStructures;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -58,7 +57,6 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeCategories(new ShapedCategory(guiHelper));
         registration.addRecipeCategories(new ShapelessCategory(guiHelper));
         registration.addRecipeCategories(new DragonGeneratorCategory(guiHelper));
-        registration.addRecipeCategories(new StructureInfoCategory(guiHelper));
         registration.addRecipeCategories(new PrecisionShapedCategory(guiHelper));
         registration.addRecipeCategories(new PrecisionShapelessCategory(guiHelper));
     }
@@ -69,7 +67,6 @@ public class JEIPlugin implements IModPlugin {
         addBlockRightClickRecipes(registration);
         addDragonStarGenerator(registration);
         addDragonGeneratorRecipe(registration);
-        addStructureInfoRecipe(registration);
 
         Level level = Minecraft.getInstance().level;
         registration.addRecipes(ModRecipeType.INFUSER, RecipeUtil.getRecipes(level,(RecipeType<InfuserRecipe>) IFEURecipes.INFUSER_TYPE.get()));
@@ -94,14 +91,6 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeCatalyst(IFEUBlocks.BIG_DISSOLUTION_CHAMBER_CORE,IndustrialRecipeTypes.DISSOLUTION);
         registration.addRecipeCatalyst(IFEUBlocks.PRECISION_CRAFTING_TABLE.getBlock(),ModRecipeType.PRECISION_SHAPED);
         registration.addRecipeCatalyst(IFEUBlocks.PRECISION_CRAFTING_TABLE.getBlock(),ModRecipeType.PRECISION_SHAPELESS);
-
-        List<Item> items = new ArrayList<>();
-        IFEUMultiBlockStructures.values.forEach((id, structure) ->{
-            if(!items.contains(structure.getMachine())){
-                registration.addRecipeCatalyst(structure.getMachine(),ModRecipeType.STRUCTURE);
-            }
-            items.add(structure.getMachine());
-        });
     }
 
     @Override
@@ -143,17 +132,5 @@ public class JEIPlugin implements IModPlugin {
         List<DragonGeneratorRecipe> dragonGeneratorRecipes = new ArrayList<>();
         dragonGeneratorRecipes.add(new DragonGeneratorRecipe(new FluidStack(IFEUFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000), DragonGeneratorConfig.maxProgress,DragonGeneratorConfig.powerPerTick));
         registration.addRecipes(ModRecipeType.DRAGON_GENERATOR,dragonGeneratorRecipes);
-    }
-
-    private void addStructureInfoRecipe(IRecipeRegistration registration){
-        List<StructureInfoRecipe> structureRecipes = new ArrayList<>();
-        List<Item> items = new ArrayList<>();
-        IFEUMultiBlockStructures.values.forEach((id,structure) ->{
-            if(!items.contains(structure.getMachine())){
-                structureRecipes.add(new StructureInfoRecipe(structure));
-            }
-            items.add(structure.getMachine());
-        });
-        registration.addRecipes(ModRecipeType.STRUCTURE,structureRecipes);
     }
 }

@@ -3,15 +3,25 @@ package net.yxiao233.ifeu.common.registry;
 import com.buuz135.industrial.block.IndustrialBlockItem;
 import com.buuz135.industrial.module.IModule;
 import com.hrznstudio.titanium.block.BasicTileBlock;
+import com.hrznstudio.titanium.block.tile.ActiveTile;
+import com.hrznstudio.titanium.block.tile.PoweredTile;
 import com.hrznstudio.titanium.module.BlockWithTile;
 import com.hrznstudio.titanium.module.DeferredRegistryHelper;
+import com.hrznstudio.titanium.tab.TitaniumTab;
+import com.mojang.datafixers.types.Type;
+import net.minecraft.core.Holder;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.yxiao233.ifeu.api.block.IFEUBlackHoleCapacitorBlock;
 import net.yxiao233.ifeu.common.block.*;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class IFEUBlocks implements IModule {
@@ -44,7 +54,7 @@ public class IFEUBlocks implements IModule {
         FLUID_CRAFTING_TABLE = deferredRegistry(helper,"fluid_crafting_table",FluidCraftingTableBlock::new);
         DRAGON_GENERATOR = deferredRegistry(helper,"dragon_generator",DragonGeneratorBlock::new);
         FLUID_TRANSFER = deferredRegistry(helper,"fluid_transfer",FluidTransferBlock::new);
-        BIG_DISSOLUTION_CHAMBER_CORE = deferredRegistry(helper,"big_dissolution_chamber_core", BigDissolutionChamberBlock::new);
+        BIG_DISSOLUTION_CHAMBER_CORE = registerBlockWithTileItem(helper,"big_dissolution_chamber", BigDissolutionChamberBlock::new);
         PLATFORM_BUILDER = deferredRegistry(helper,"platform_builder",PlatformBuilderBlock::new);
         PRECISION_CRAFTING_TABLE = deferredRegistry(helper,"precision_crafting_table",PrecisionCraftingTableBlock::new);
 //        BLACK_HOLE_CAPACITOR_PITY = blackHoleRegistry(helper,"black_hole_capacitor_pity",IFEURarity.PITY);
@@ -65,6 +75,14 @@ public class IFEUBlocks implements IModule {
                 return new IFEUBlackHoleCapacitorBlock.BlackHoleCapacitorItem(blockRegistryObject.get(),new Item.Properties().rarity(rarity),rarity, IFEUItems.TAB_ADDONS);
             };
         },null);
+    }
+
+    public BlockWithTile registerBlockWithTileItem(DeferredRegistryHelper helper ,String name, Supplier<BasicTileBlock<?>> blockSupplier) {
+        DeferredHolder<Block, Block> blockRegistryObject = helper.registerBlockWithItem(name, blockSupplier, (blockBlockDeferredHolder) -> () -> new IndustrialBlockItem(blockBlockDeferredHolder.get(), IFEUItems.TAB_ADDONS), null);
+        DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> type = helper.registerBlockEntityType(name, () -> {
+            return BlockEntityType.Builder.of(((BasicTileBlock<?>)blockRegistryObject.get()).getTileEntityFactory(), new Block[]{blockRegistryObject.get()}).build(null);
+        });
+        return new BlockWithTile(blockRegistryObject, type);
     }
 
     public static ArrayList<Block> addBlocksToCreativeModeTab(){
