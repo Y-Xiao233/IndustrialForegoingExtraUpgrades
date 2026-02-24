@@ -1,4 +1,4 @@
-// 1.21.1	2026-02-17T20:12:19.3577584	Recipes
+// 1.21.1	2026-02-24T11:31:00.6910049	Recipes
 50dded7964768360091d2a72f21482917ba313b2 data/ifeu/advancement/arcane_dragon_egg_forging/dead_dragon_egg.json
 0c4d904269eadd30beb5b7fbd62d9fddfffc4954 data/ifeu/advancement/arcane_dragon_egg_forging/egg_1.json
 819d02b8ab08a1e4eb76f7e73cc546ff23804450 data/ifeu/advancement/arcane_dragon_egg_forging/egg_2.json
@@ -29,6 +29,7 @@ efc289649174a4eca68e0e66ddfb88d33ba6b19e data/ifeu/advancement/recipes/misc/lase
 c56440f62ede20fd417fe5dfed2d3fa764ccc78a data/ifeu/advancement/recipes/misc/platform_builder.json
 4dd8554eee7581fbc89f537cddda1cac68afb835 data/ifeu/advancement/recipes/misc/precision_crafting_table.json
 0e8368ea34cbf59290235801e26b88fab95168a2 data/ifeu/advancement/recipes/misc/rule_controller.json
+1655ae246fd7006febb34cac023d48edd38c1e7b data/ifeu/advancement/recipes/misc/saucepan.json
 7429d9b3533f64aec3c4fdaa8c91b2d53e779a3b data/ifeu/advancement/recipes/misc/time_controller.json
 3443b9668294c5ad27a5b2f9bbbea7d0fe06ad3f data/ifeu/advancement/recipes/misc/weather_controller.json
 3121302f2ab295b53fff37710627739259799fe4 data/ifeu/advancement/recipes/misc/wrench.json
@@ -73,6 +74,7 @@ c1ac1873737fec0b284d4bbad69b69bb3ef682ac data/ifeu/recipe/precision_shapeless/ch
 39497b0f31545b23a34e550063d4a9e02349ecb1 data/ifeu/recipe/precision_shapeless/chance_addon_5.json
 4f0c9ded6b6d8329d7d42ebfe4192ea4305f4182 data/ifeu/recipe/precision_shapeless/chance_addon_6.json
 a76d2aac0e7f5f60e72eb3a7798b6d400c68dec2 data/ifeu/recipe/rule_controller.json
+7844e0eaef28c7434a7a83c883082ead015f9baa data/ifeu/recipe/saucepan.json
 666ecebb9d5948e0adbfc73f7055bf879020dfa9 data/ifeu/recipe/shaped/big_dissolution_chamber.json
 85b9974b54acbfc89c2ae31763fbbcea9949d969 data/ifeu/recipe/shaped/connect_tool.json
 1587fe2416e598b7a3843ba591464d0309793a02 data/ifeu/recipe/shaped/dragon_star_axe.json

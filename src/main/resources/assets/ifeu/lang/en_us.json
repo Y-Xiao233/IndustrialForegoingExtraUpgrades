@@ -176,6 +176,7 @@
   "block.ifeu.simulated_hydroponic_bed": "Simulated Hydroponic Bed",
   "block.ifeu.platform_builder": "Platform Builder",
   "block.ifeu.precision_crafting_table": "Precision Crafting Table",
+  "block.ifeu.saucepan": "Saucepan",
 
   "fluid_type.ifeu.liquid_dragon_breath": "Liquid Dragon Breath",
   "fluid_type.ifeu.liquid_sculk_matter": "Liquid Sculk Matter",
@@ -201,6 +202,7 @@
   "jei.ifeu.precision_shaped": "Shaped Precision Crafting Recipe",
   "jei.ifeu.precision_shapeless": "Shapeless Precision Crafting Recipe",
   "jei.ifeu.chance": "Chance: %d",
+  "jei.ifeu.recipe.title.saucepan": "Saucepan accept items",
 
   "weather.ifeu.clear": "Weather Clear",
   "weather.ifeu.rain": "Weather Rain",

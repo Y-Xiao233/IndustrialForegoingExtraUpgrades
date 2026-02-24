@@ -147,6 +147,9 @@
 ### v3.3.001
 - 更新了贴图 by [MHanHanBing](https://github.com/MHanHanBing)
 
+### v3.3.002
+- 添加了炖锅
+
 ## en_us
 ### v1.0.0
 - init
@@ -287,3 +290,6 @@
 
 ### v3.3.001
 - Update textures by [MHanHanBing](https://github.com/MHanHanBing)
+
+### v3.3.002
+- Added Saucepan

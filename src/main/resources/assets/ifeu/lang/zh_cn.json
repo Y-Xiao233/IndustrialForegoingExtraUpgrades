@@ -176,6 +176,7 @@
   "block.ifeu.simulated_hydroponic_bed": "水培床模拟室",
   "block.ifeu.platform_builder": "平台搭建者",
   "block.ifeu.precision_crafting_table": "精密工作台",
+  "block.ifeu.saucepan": "炖锅",
 
   "fluid_type.ifeu.liquid_dragon_breath": "液态龙息",
   "fluid_type.ifeu.liquid_sculk_matter": "液态幽匿物质",
@@ -201,6 +202,7 @@
   "jei.ifeu.precision_shaped": "有序精密工作台配方",
   "jei.ifeu.precision_shapeless": "无序精密工作台配方",
   "jei.ifeu.chance": "概率: %d",
+  "jei.ifeu.recipe.title.saucepan": "炖锅可接受的物品",
 
   "weather.ifeu.clear": "天气晴朗",
   "weather.ifeu.rain": "下雨天气",

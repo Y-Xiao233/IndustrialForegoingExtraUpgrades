@@ -1,0 +1,10 @@
+{
+  "parent": "industrialforegoing:block/base_block",
+  "textures": {
+    "south": "ifeu:block/saucepan_side",
+    "west": "ifeu:block/saucepan_side",
+    "east": "ifeu:block/saucepan_side",
+    "north": "ifeu:block/saucepan_side",
+    "up": "ifeu:block/saucepan_top"
+  }
+}

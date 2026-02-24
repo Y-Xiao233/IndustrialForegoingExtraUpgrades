@@ -1,4 +1,4 @@
-// 1.21.1	2026-02-17T20:12:19.3556376	Loot Tables
+// 1.21.1	2026-02-24T11:02:14.0534856	Loot Tables
 415ef358a3d4a4290a0a68f6f17ac60e4ff615f2 data/ifeu/loot_table/blocks/arcane_dragon_egg_forging.json
 9ae3763423ab27745525db867c07fc1ef5e06934 data/ifeu/loot_table/blocks/big_dissolution_chamber.json
 36805e21e81dd0482a92b3ecff8c35a434cfea0d data/ifeu/loot_table/blocks/creative_capacitor.json
@@ -11,6 +11,7 @@ c1c1907402dfdadd0199f00d45e0b1bbd617f9c3 data/ifeu/loot_table/blocks/infuser.jso
 843c0c6366f778ec8ce3a25508868bf67a1830ef data/ifeu/loot_table/blocks/platform_builder.json
 57dd723073a3502cf8eb4cd186ef3b4fed4086ac data/ifeu/loot_table/blocks/precision_crafting_table.json
 f673d13cb8fddaf02938835461055fed9dc79c65 data/ifeu/loot_table/blocks/rule_controller.json
+df08a05342bb8c91154a867a32f513f74f9a42b5 data/ifeu/loot_table/blocks/saucepan.json
 584c021e3ccd548c07e9cdab55c2168c0d2a7322 data/ifeu/loot_table/blocks/time_controller.json
 7059f2cee9f8b56d6c4be1ba272970071a622365 data/ifeu/loot_table/blocks/ultimate_machine_frame.json
 afa239db3b838158868bbbbabe437ab577742e89 data/ifeu/loot_table/blocks/weather_controller.json

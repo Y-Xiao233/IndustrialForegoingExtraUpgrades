@@ -9,6 +9,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
 import net.yxiao233.ifeu.common.registry.IFEUContents;
 import net.yxiao233.ifeu.common.registry.IFEUTags;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -18,7 +19,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider provider) {
+    protected void addTags(HolderLookup.@NotNull Provider provider) {
         tag(IFEUTags.Items.GEARS_NETHERITE).add(IFEUContents.NETHERITE_GEAR.get());
         tag(IFEUTags.Items.GEARS_SCULK).add(IFEUContents.SCULK_GEAR.get());
         tag(IndustrialTags.Items.GEAR_DIAMOND).add(ModuleCore.DIAMOND_GEAR.get());
