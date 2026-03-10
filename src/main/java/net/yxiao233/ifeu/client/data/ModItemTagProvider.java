@@ -6,6 +6,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.yxiao233.ifeu.common.registry.IFEUContents;
 import net.yxiao233.ifeu.common.registry.IFEUTags;
@@ -51,5 +52,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         tag(IFEUTags.Items.WRENCH)
                 .add(IFEUContents.WRENCH.get());
+
+        tag(IFEUTags.Items.ROTTEN_CROPS)
+                .add(Items.POISONOUS_POTATO);
     }
 }

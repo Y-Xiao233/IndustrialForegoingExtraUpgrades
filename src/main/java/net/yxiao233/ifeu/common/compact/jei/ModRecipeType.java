@@ -2,6 +2,7 @@ package net.yxiao233.ifeu.common.compact.jei;
 
 import mezz.jei.api.recipe.RecipeType;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
+import net.yxiao233.ifeu.common.compact.jei.category.FermenterCategory;
 import net.yxiao233.ifeu.common.compact.jei.category.SaucepanCategory;
 import net.yxiao233.ifeu.common.recipe.*;
 
@@ -17,4 +18,5 @@ public class ModRecipeType {
     public static RecipeType<PrecisionShapedRecipe> PRECISION_SHAPED = RecipeType.create(nameSpace,"precision_shaped",PrecisionShapedRecipe.class);
     public static RecipeType<PrecisionShapelessRecipe> PRECISION_SHAPELESS = RecipeType.create(nameSpace,"precision_shapeless",PrecisionShapelessRecipe.class);
     public static RecipeType<SaucepanCategory.SaucepanRecipeWrapper> SAUCEPAN = RecipeType.create(nameSpace,"saucepan",SaucepanCategory.SaucepanRecipeWrapper.class);
+    public static RecipeType<FermenterCategory.FermenterRecipeWrapper> FERMENTER = RecipeType.create(nameSpace,"fermenter", FermenterCategory.FermenterRecipeWrapper.class);
 }

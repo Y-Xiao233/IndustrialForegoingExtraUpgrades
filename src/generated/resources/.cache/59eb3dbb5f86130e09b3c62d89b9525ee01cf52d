@@ -1,10 +1,11 @@
-// 1.21.1	2026-02-24T11:02:14.0534856	Loot Tables
+// 1.21.1	2026-03-10T20:06:37.9614608	Loot Tables
 415ef358a3d4a4290a0a68f6f17ac60e4ff615f2 data/ifeu/loot_table/blocks/arcane_dragon_egg_forging.json
 9ae3763423ab27745525db867c07fc1ef5e06934 data/ifeu/loot_table/blocks/big_dissolution_chamber.json
 36805e21e81dd0482a92b3ecff8c35a434cfea0d data/ifeu/loot_table/blocks/creative_capacitor.json
 8970feeb31a2838573fea21a1c4191062b6f364e data/ifeu/loot_table/blocks/dragon_generator.json
 75b264b8f3b24a89a31367ff258b6ef2d84e17ab data/ifeu/loot_table/blocks/dragon_star_block.json
 1bcac0e4a5013c743acae9ac9e907d5010c79ef2 data/ifeu/loot_table/blocks/dragon_star_generator.json
+556e077136400ebfa80933472f042aada7c20f1d data/ifeu/loot_table/blocks/fermenter.json
 b62535370102127e63093e15339865c75d287bc6 data/ifeu/loot_table/blocks/fluid_crafting_table.json
 a53466727115a27644e665da8336d0f694f7447b data/ifeu/loot_table/blocks/fluid_transfer.json
 c1c1907402dfdadd0199f00d45e0b1bbd617f9c3 data/ifeu/loot_table/blocks/infuser.json

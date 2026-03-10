@@ -204,6 +204,12 @@ public class BigDissolutionChamberEntity extends EnumPropertyIndustrialProcessin
         return this.powerPerTick;
     }
     public int getMaxProgress() {
+        if(this.getAugmentInventory() == null){
+            return this.currentRecipe != null ? this.currentRecipe.processingTime / 2 : this.maxProgress;
+        }
+        if(AugmentInventoryHelper.contains(this.getAugmentInventory(), IFEUAugmentTypes.CREATIVE)){
+            return 1;
+        }
         return this.currentRecipe != null ? this.currentRecipe.processingTime / 2 : this.maxProgress;
     }
 

@@ -151,7 +151,7 @@ public class SaucepanEntity extends IndustrialWorkingTile<SaucepanEntity> {
 
     @Override
     protected @NotNull EnergyStorageComponent<SaucepanEntity> createEnergyStorage() {
-        return new EnergyStorageComponent<>(BioReactorConfig.maxStoredPower, 10, 20);
+        return new EnergyStorageComponent<>(SaucepanConfig.maxStoredPower, 10, 20);
     }
 
     @Override

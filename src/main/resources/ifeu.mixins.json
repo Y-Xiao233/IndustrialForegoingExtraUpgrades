@@ -6,7 +6,11 @@
   "refmap": "ifeu.refmap.json",
   "mixins": [
     "block.MixinMachineFrameItem",
+    "capability.EnergyStorageAccessor",
     "entity.MixinHydroponicBedTile",
+    "entity.MixinIndustrialMachineTile",
+    "entity.MixinIndustrialProcessingTile",
+    "entity.MixinIndustrialWorkingTile",
     "entity.MixinSimulatedHydroponicBedTile",
     "entity.MixinStasisChamberTile",
     "item.MixinAugmentWrapper",

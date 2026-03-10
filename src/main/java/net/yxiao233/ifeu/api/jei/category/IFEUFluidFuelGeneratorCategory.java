@@ -46,7 +46,7 @@ public abstract class IFEUFluidFuelGeneratorCategory<R extends FluidGeneratorSer
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
-            builder.addSlot(RecipeIngredientRole.INPUT, 16 + 3, 12 + 3).setFluidRenderer(Math.max(maxInputTankSize, 1000),false,12,50).setOverlay(bigTank,0,0).addIngredient(NeoForgeTypes.FLUID_STACK, recipe.inputFluid);
+                builder.addSlot(RecipeIngredientRole.INPUT, 16 + 3, 12 + 3).setFluidRenderer(Math.max(maxInputTankSize, 1000),false,12,50).setOverlay(bigTank,0,0).addIngredient(NeoForgeTypes.FLUID_STACK, recipe.inputFluid);
         }
     }
 

@@ -14,6 +14,8 @@
     "ifeu:fluid_transfer",
     "ifeu:big_dissolution_chamber",
     "ifeu:platform_builder",
-    "ifeu:precision_crafting_table"
+    "ifeu:precision_crafting_table",
+    "ifeu:saucepan",
+    "ifeu:fermenter"
   ]
 }

@@ -38,6 +38,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(IFEUBlocks.PLATFORM_BUILDER.getBlock());
         this.dropSelf(IFEUBlocks.PRECISION_CRAFTING_TABLE.getBlock());
         this.dropSelf(IFEUBlocks.SAUCEPAN.getBlock());
+        this.dropSelf(IFEUBlocks.FERMENTER.getBlock());
     }
 
     @Override
@@ -63,7 +64,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 ModuleCore.SUPREME.get(),
                 IFEUBlocks.PLATFORM_BUILDER.getBlock(),
                 IFEUBlocks.PRECISION_CRAFTING_TABLE.getBlock(),
-                IFEUBlocks.SAUCEPAN.getBlock()
+                IFEUBlocks.SAUCEPAN.getBlock(),
+                IFEUBlocks.FERMENTER.getBlock()
         );
         return iterable;
     }

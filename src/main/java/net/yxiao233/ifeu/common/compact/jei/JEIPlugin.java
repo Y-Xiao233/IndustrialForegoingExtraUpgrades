@@ -24,17 +24,16 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Fluid;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
+import net.yxiao233.ifeu.common.block.entity.FermenterEntity;
 import net.yxiao233.ifeu.common.block.entity.SaucepanEntity;
 import net.yxiao233.ifeu.common.compact.jei.category.*;
 import net.yxiao233.ifeu.common.config.machine.DragonGeneratorConfig;
 import net.yxiao233.ifeu.common.config.machine.DragonStarGeneratorConfig;
 import net.yxiao233.ifeu.common.recipe.*;
-import net.yxiao233.ifeu.common.registry.IFEUBlocks;
-import net.yxiao233.ifeu.common.registry.IFEUContents;
-import net.yxiao233.ifeu.common.registry.IFEUFluids;
-import net.yxiao233.ifeu.common.registry.IFEURecipes;
+import net.yxiao233.ifeu.common.registry.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -67,6 +66,7 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeCategories(new PrecisionShapedCategory(guiHelper));
         registration.addRecipeCategories(new PrecisionShapelessCategory(guiHelper));
         registration.addRecipeCategories(new SaucepanCategory(guiHelper));
+        registration.addRecipeCategories(new FermenterCategory(guiHelper));
     }
 
     @Override
@@ -77,6 +77,7 @@ public class JEIPlugin implements IModPlugin {
         addDragonStarGenerator(registration);
         addDragonGeneratorRecipe(registration);
         addSaucepanRecipe(registration);
+        addFermenterRecipe(registration);
 
         Level level = Minecraft.getInstance().level;
         if(level == null){
@@ -105,6 +106,7 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeCatalyst(IFEUBlocks.PRECISION_CRAFTING_TABLE.getBlock(),ModRecipeType.PRECISION_SHAPED);
         registration.addRecipeCatalyst(IFEUBlocks.PRECISION_CRAFTING_TABLE.getBlock(),ModRecipeType.PRECISION_SHAPELESS);
         registration.addRecipeCatalyst(IFEUBlocks.SAUCEPAN.asItem(),ModRecipeType.SAUCEPAN);
+        registration.addRecipeCatalyst(IFEUBlocks.FERMENTER.asItem(),ModRecipeType.FERMENTER);
     }
 
     @Override
@@ -157,5 +159,15 @@ public class JEIPlugin implements IModPlugin {
         });
 
         registration.addRecipes(ModRecipeType.SAUCEPAN,recipes);
+    }
+
+    public static void addFermenterRecipe(IRecipeRegistration registration) {
+        List<FermenterCategory.FermenterRecipeWrapper> recipes = new ArrayList<>();
+        List<TagKey<Item>> catalysts = List.of(FermenterEntity.CATALYST);
+
+        recipes.add(new FermenterCategory.FermenterRecipeWrapper(Tags.Items.CROPS,catalysts.getFirst(),new FluidStack(ModuleCore.SLUDGE.getSourceFluid().get(),80)));
+        recipes.add(new FermenterCategory.FermenterRecipeWrapper(IFEUTags.Items.ROTTEN_CROPS,catalysts.getFirst(),new FluidStack(ModuleCore.SLUDGE.getSourceFluid().get(),400)));
+
+        registration.addRecipes(ModRecipeType.FERMENTER,recipes);
     }
 }

@@ -18,6 +18,8 @@
     "industrialforegoing:machine_frame_advanced",
     "industrialforegoing:machine_frame_supreme",
     "ifeu:platform_builder",
-    "ifeu:precision_crafting_table"
+    "ifeu:precision_crafting_table",
+    "ifeu:saucepan",
+    "ifeu:fermenter"
   ]
 }

@@ -80,5 +80,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(IFEUItems.CHANCE_ADDON_5.get());
         basicItem(IFEUItems.CHANCE_ADDON_6.get());
         basicItem(IFEUItems.CHANCE_ADDON_CREATIVE.get());
+        basicItem(IFEUItems.ENERGY_ADDON_1.get());
+        basicItem(IFEUItems.ENERGY_ADDON_2.get());
+        basicItem(IFEUItems.ENERGY_ADDON_3.get());
+        basicItem(IFEUItems.ENERGY_ADDON_4.get());
+        basicItem(IFEUItems.ENERGY_ADDON_5.get());
+        basicItem(IFEUItems.ENERGY_ADDON_6.get());
+        basicItem(IFEUItems.CREATIVE_ADDON.get());
     }
 }

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "subfacing=east": {
+      "model": "ifeu:block/fermenter",
+      "y": 90
+    },
+    "subfacing=north": {
+      "model": "ifeu:block/fermenter"
+    },
+    "subfacing=south": {
+      "model": "ifeu:block/fermenter",
+      "y": 180
+    },
+    "subfacing=west": {
+      "model": "ifeu:block/fermenter",
+      "y": 270
+    }
+  }
+}

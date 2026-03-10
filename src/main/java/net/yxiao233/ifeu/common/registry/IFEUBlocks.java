@@ -39,6 +39,7 @@ public class IFEUBlocks implements IModule {
     public static BlockWithTile PLATFORM_BUILDER;
     public static BlockWithTile PRECISION_CRAFTING_TABLE;
     public static BlockWithTile SAUCEPAN;
+    public static BlockWithTile FERMENTER;
 //    public static BlockWithTile BLACK_HOLE_CAPACITOR_PITY;
 //    public static BlockWithTile BLACK_HOLE_CAPACITOR_SIMPLE;
 //    public static BlockWithTile BLACK_HOLE_CAPACITOR_ADVANCED;
@@ -59,6 +60,7 @@ public class IFEUBlocks implements IModule {
         PLATFORM_BUILDER = deferredRegistry(helper,"platform_builder",PlatformBuilderBlock::new);
         PRECISION_CRAFTING_TABLE = deferredRegistry(helper,"precision_crafting_table",PrecisionCraftingTableBlock::new);
         SAUCEPAN = deferredRegistry(helper,"saucepan",SaucepanBlock::new);
+        FERMENTER = deferredRegistry(helper,"fermenter", FermenterBlock::new);
 //        BLACK_HOLE_CAPACITOR_PITY = blackHoleRegistry(helper,"black_hole_capacitor_pity",IFEURarity.PITY);
 //        BLACK_HOLE_CAPACITOR_SIMPLE = blackHoleRegistry(helper,"black_hole_capacitor_simple",IFEURarity.SIMPLE);
 //        BLACK_HOLE_CAPACITOR_ADVANCED = blackHoleRegistry(helper,"black_hole_capacitor_advanced",IFEURarity.ADVANCED);
@@ -104,6 +106,7 @@ public class IFEUBlocks implements IModule {
         blocks.add(PLATFORM_BUILDER.getBlock());
         blocks.add(PRECISION_CRAFTING_TABLE.getBlock());
         blocks.add(SAUCEPAN.getBlock());
+        blocks.add(FERMENTER.getBlock());
 
         return blocks;
     }

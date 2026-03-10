@@ -101,6 +101,8 @@
   "tooltip.ifeu.chance_addon_item_0": "用于精密工作台",
   "tooltip.ifeu.chance_addon_item_1": "提高合成概率: 无限",
   "tooltip.ifeu.chance_addon_item_2": "提高合成概率: %d",
+  "tooltip.ifeu.energy_addon_item_0": "能量存储提升至%d倍",
+  "tooltip.ifeu.creative_addon_item_0": "不耗电瞬间处理",
 
   "item.ifeu.liquid_dragon_breath_bucket": "液态龙息桶",
   "item.ifeu.liquid_sculk_matter_bucket": "液态幽匿物质桶",
@@ -154,6 +156,13 @@
   "item.ifeu.chance_addon_5": "插件: 概率 Tier 5",
   "item.ifeu.chance_addon_6": "插件: 概率 Tier 6",
   "item.ifeu.creative_chance_addon": "创造插件: 概率",
+  "item.ifeu.energy_addon_1": "插件: 能量 Tier 1",
+  "item.ifeu.energy_addon_2": "插件: 能量 Tier 2",
+  "item.ifeu.energy_addon_3": "插件: 能量 Tier 3",
+  "item.ifeu.energy_addon_4": "插件: 能量 Tier 4",
+  "item.ifeu.energy_addon_5": "插件: 能量 Tier 5",
+  "item.ifeu.energy_addon_6": "插件: 能量 Tier 6",
+  "item.ifeu.creative_addon": "插件: 创造",
 
   "block.ifeu.infuser": "灌注器",
   "block.ifeu.dragon_star_generator": "龙之星发电机",
@@ -177,6 +186,7 @@
   "block.ifeu.platform_builder": "平台搭建者",
   "block.ifeu.precision_crafting_table": "精密工作台",
   "block.ifeu.saucepan": "炖锅",
+  "block.ifeu.fermenter": "发酵机",
 
   "fluid_type.ifeu.liquid_dragon_breath": "液态龙息",
   "fluid_type.ifeu.liquid_sculk_matter": "液态幽匿物质",
@@ -203,6 +213,9 @@
   "jei.ifeu.precision_shapeless": "无序精密工作台配方",
   "jei.ifeu.chance": "概率: %d",
   "jei.ifeu.recipe.title.saucepan": "炖锅可接受的物品",
+  "jei.ifeu.recipe.title.fermenter": "发酵机可接受的物品",
+  "jei.ifeu.higher_efficiency": "效率更高",
+  "jei.ifeu.catalyst": "催化剂",
 
   "weather.ifeu.clear": "天气晴朗",
   "weather.ifeu.rain": "下雨天气",

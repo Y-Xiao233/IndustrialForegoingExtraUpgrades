@@ -41,7 +41,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModuleCore.ADVANCED.get())
                 .add(ModuleCore.SUPREME.get())
                 .add(IFEUBlocks.PLATFORM_BUILDER.getBlock())
-                .add(IFEUBlocks.PRECISION_CRAFTING_TABLE.getBlock());
+                .add(IFEUBlocks.PRECISION_CRAFTING_TABLE.getBlock())
+                .add(IFEUBlocks.SAUCEPAN.getBlock())
+                .add(IFEUBlocks.FERMENTER.getBlock());
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(IFEUBlocks.INFUSER.getBlock())
@@ -58,7 +60,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(IFEUBlocks.FLUID_TRANSFER.getBlock())
                 .add(IFEUBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getBlock())
                 .add(IFEUBlocks.PLATFORM_BUILDER.getBlock())
-                .add(IFEUBlocks.PRECISION_CRAFTING_TABLE.getBlock());
+                .add(IFEUBlocks.PRECISION_CRAFTING_TABLE.getBlock())
+                .add(IFEUBlocks.SAUCEPAN.getBlock())
+                .add(IFEUBlocks.FERMENTER.getBlock());
 
 
         this.tag(IFEUTags.Blocks.MACHINE_FRAME_ULTIMATE)

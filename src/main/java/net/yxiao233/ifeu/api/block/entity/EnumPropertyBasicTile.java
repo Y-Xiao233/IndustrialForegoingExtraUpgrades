@@ -46,7 +46,7 @@ public abstract class EnumPropertyBasicTile <T extends EnumPropertyBasicTile<T, 
     }
 
     protected BlockPos getMainPropertyPos(BlockState state){
-        if(state.hasProperty(getProperty())){
+        if(level != null && state.hasProperty(getProperty())){
             Direction direction = getFacingDirection().getOpposite();
             return state.getValue(getProperty()).getMainPos(getBlockPos(),direction);
         }

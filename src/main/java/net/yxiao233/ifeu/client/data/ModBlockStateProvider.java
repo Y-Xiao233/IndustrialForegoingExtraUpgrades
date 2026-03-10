@@ -39,6 +39,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithTileItem(IFEUBlocks.PLATFORM_BUILDER);
         blockWithTileItem(IFEUBlocks.PRECISION_CRAFTING_TABLE);
         blockWithTileItem(IFEUBlocks.SAUCEPAN);
+        blockWithTileItem(IFEUBlocks.FERMENTER);
     }
 
     private void blockItem(DeferredHolder<Block,Block> registryObject){

@@ -1,0 +1,7 @@
+{
+  "parent": "industrialforegoing:block/base_block",
+  "textures": {
+    "north": "ifeu:block/fermenter_front",
+    "up": "ifeu:block/fermenter_top"
+  }
+}

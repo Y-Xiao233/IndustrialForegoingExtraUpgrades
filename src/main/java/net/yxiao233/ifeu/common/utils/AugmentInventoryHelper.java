@@ -50,6 +50,10 @@ public class AugmentInventoryHelper {
         return getAugmentIndex(tile,type) != -1;
     }
 
+    public static boolean contains(InventoryComponent<?> augmentInventory, IFEUAugmentTypes type){
+        return getAugmentIndex(augmentInventory,type) != -1;
+    }
+
     public static boolean contains(MachineTile<?> tile, ItemStack stack){
         return contains(tile.getAugmentInventory(),stack);
     }

@@ -150,6 +150,11 @@
 ### v3.3.002
 - 添加了炖锅
 
+### v3.3.003
+- 添加了发酵机
+- 添加了能量插件
+- 添加了创造插件
+
 ## en_us
 ### v1.0.0
 - init
@@ -293,3 +298,8 @@
 
 ### v3.3.002
 - Added Saucepan
+
+### v3.3.003
+- Added Fermenter
+- Added Energy Addon
+- Added Creative Addon

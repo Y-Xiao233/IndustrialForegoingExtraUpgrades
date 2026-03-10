@@ -63,6 +63,13 @@ public class IFEUItems implements IModule {
     public static DeferredHolder<Item,Item> CHANCE_ADDON_4;
     public static DeferredHolder<Item,Item> CHANCE_ADDON_5;
     public static DeferredHolder<Item,Item> CHANCE_ADDON_6;
+    public static DeferredHolder<Item,Item> ENERGY_ADDON_1;
+    public static DeferredHolder<Item,Item> ENERGY_ADDON_2;
+    public static DeferredHolder<Item,Item> ENERGY_ADDON_3;
+    public static DeferredHolder<Item,Item> ENERGY_ADDON_4;
+    public static DeferredHolder<Item,Item> ENERGY_ADDON_5;
+    public static DeferredHolder<Item,Item> ENERGY_ADDON_6;
+    public static DeferredHolder<Item,Item> CREATIVE_ADDON;
     public static DeferredHolder<Item,Item> CHANCE_ADDON_CREATIVE;
     @Override
     public void generateFeatures(DeferredRegistryHelper helper) {
@@ -757,6 +764,128 @@ public class IFEUItems implements IModule {
             }
         });
         CHANCE_ADDON_CREATIVE = helper.registerGeneric(Registries.ITEM,"creative_chance_addon", () -> new ModChanceAddonItem(Integer.MAX_VALUE,TAB_ADDONS,true));
+
+        ENERGY_ADDON_1 = helper.registerGeneric(Registries.ITEM, "energy_addon_1", () -> new EnergyAddonItem(1,TAB_ADDONS){
+            @Override
+            public void registerRecipe(RecipeOutput recipeOutput) {
+                IFEURecipeBuilders.dissolutionChamberRecipe(this.getDefaultInstance())
+                        .inputs(
+                                tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE),
+                                tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(IndustrialTags.Items.PLASTIC),
+                                tagValue(IndustrialTags.Items.PLASTIC),
+                                tagValue(IndustrialTags.Items.GEAR_GOLD),
+                                tagValue(IndustrialTags.Items.GEAR_GOLD)
+                        )
+                        .inputFluid(new FluidStack(ModuleCore.LATEX.getSourceFluid().get(),1000))
+                        .processingTime(200)
+                        .outputFluid(FluidStack.EMPTY)
+                        .save(recipeOutput);
+            }
+        });
+        ENERGY_ADDON_2 = helper.registerGeneric(Registries.ITEM, "energy_addon_2", () -> new EnergyAddonItem(2,TAB_ADDONS){
+            @Override
+            public void registerRecipe(RecipeOutput recipeOutput) {
+                IFEURecipeBuilders.dissolutionChamberRecipe(this.getDefaultInstance())
+                        .inputs(
+                                tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE),
+                                tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(IndustrialTags.Items.PLASTIC),
+                                tagValue(IndustrialTags.Items.PLASTIC),
+                                tagValue(IndustrialTags.Items.GEAR_DIAMOND),
+                                tagValue(IndustrialTags.Items.GEAR_DIAMOND)
+                        )
+                        .inputFluid(new FluidStack(ModuleCore.LATEX.getSourceFluid().get(),1000))
+                        .processingTime(200)
+                        .outputFluid(FluidStack.EMPTY)
+                        .save(recipeOutput);
+            }
+        });
+        ENERGY_ADDON_3 = helper.registerGeneric(Registries.ITEM, "energy_addon_3", () -> new EnergyAddonItem(3,TAB_ADDONS){
+            @Override
+            public void registerRecipe(RecipeOutput recipeOutput) {
+                IFEURecipeBuilders.dissolutionChamberRecipe(this.getDefaultInstance())
+                        .inputs(
+                                tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE),
+                                tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(IndustrialTags.Items.PLASTIC),
+                                tagValue(IndustrialTags.Items.PLASTIC),
+                                tagValue(IFEUTags.Items.GEARS_NETHERITE),
+                                tagValue(IFEUTags.Items.GEARS_NETHERITE)
+                        )
+                        .inputFluid(new FluidStack(ModuleCore.PINK_SLIME.getSourceFluid().get(),1000))
+                        .processingTime(200)
+                        .outputFluid(FluidStack.EMPTY)
+                        .save(recipeOutput);
+            }
+        });
+        ENERGY_ADDON_4 = helper.registerGeneric(Registries.ITEM, "energy_addon_4", () -> new EnergyAddonItem(4,TAB_ADDONS){
+            @Override
+            public void registerRecipe(RecipeOutput recipeOutput) {
+                IFEURecipeBuilders.dissolutionChamberRecipe(this.getDefaultInstance())
+                        .inputs(
+                                tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE),
+                                tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(IndustrialTags.Items.PLASTIC),
+                                tagValue(IndustrialTags.Items.PLASTIC),
+                                tagValue(IFEUTags.Items.GEARS_SCULK),
+                                tagValue(IFEUTags.Items.GEARS_SCULK)
+                        )
+                        .inputFluid(new FluidStack(ModuleCore.PINK_SLIME.getSourceFluid().get(),2000))
+                        .processingTime(200)
+                        .outputFluid(FluidStack.EMPTY)
+                        .save(recipeOutput);
+            }
+        });
+        ENERGY_ADDON_5 = helper.registerGeneric(Registries.ITEM, "energy_addon_5", () -> new EnergyAddonItem(5,TAB_ADDONS){
+            @Override
+            public void registerRecipe(RecipeOutput recipeOutput) {
+                IFEURecipeBuilders.dissolutionChamberRecipe(this.getDefaultInstance())
+                        .inputs(
+                                tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE),
+                                tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(IndustrialTags.Items.PLASTIC),
+                                tagValue(IndustrialTags.Items.PLASTIC),
+                                itemValue(Items.NETHER_STAR.getDefaultInstance()),
+                                itemValue(Items.NETHER_STAR.getDefaultInstance())
+                        )
+                        .inputFluid(new FluidStack(ModuleCore.ETHER.getSourceFluid().get(),1000))
+                        .processingTime(200)
+                        .outputFluid(FluidStack.EMPTY)
+                        .save(recipeOutput);
+            }
+        });
+        ENERGY_ADDON_6 = helper.registerGeneric(Registries.ITEM, "energy_addon_6", () -> new EnergyAddonItem(6,TAB_ADDONS){
+            @Override
+            public void registerRecipe(RecipeOutput recipeOutput) {
+                IFEURecipeBuilders.dissolutionChamberRecipe(this.getDefaultInstance())
+                        .inputs(
+                                tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE),
+                                tagValue(Tags.Items.STORAGE_BLOCKS_REDSTONE),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(Tags.Items.GLASS_PANES_COLORLESS),
+                                tagValue(IndustrialTags.Items.PLASTIC),
+                                tagValue(IndustrialTags.Items.PLASTIC),
+                                itemValue(IFEUContents.DRAGON_STAR.toStack()),
+                                itemValue(IFEUContents.DRAGON_STAR.toStack())
+                        )
+                        .inputFluid(new FluidStack(IFEUFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000))
+                        .processingTime(200)
+                        .outputFluid(FluidStack.EMPTY)
+                        .save(recipeOutput);
+            }
+        });
+        CREATIVE_ADDON = helper.registerGeneric(Registries.ITEM, "creative_addon", () -> new CreativeAddonItem(TAB_ADDONS));
     }
 
     public Ingredient tagValue(TagKey<Item> tagKey){
