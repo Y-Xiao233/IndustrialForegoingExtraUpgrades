@@ -155,6 +155,10 @@
 - 添加了能量插件
 - 添加了创造插件
 
+### v3.3.004
+- 添加了橡胶树
+- 修复了拆除大型溶解成型机导致的崩溃bug
+
 ## en_us
 ### v1.0.0
 - init
@@ -303,3 +307,7 @@
 - Added Fermenter
 - Added Energy Addon
 - Added Creative Addon
+
+### v3.3.004
+- Added Rubber Tree
+- Fixed a bug with Big Dissolution Chamber

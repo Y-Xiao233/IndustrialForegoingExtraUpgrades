@@ -187,6 +187,13 @@
   "block.ifeu.precision_crafting_table": "Precision Crafting Table",
   "block.ifeu.saucepan": "Saucepan",
   "block.ifeu.fermenter": "Fermenter",
+  "block.ifeu.rubber_log": "Rubber Log",
+  "block.ifeu.stripped_rubber_log": "Stripped Rubber Log",
+  "block.ifeu.rubber_wood": "Rubber Wood",
+  "block.ifeu.stripped_rubber_wood": "Stripped Rubber Wood",
+  "block.ifeu.rubber_planks": "Rubber Planks",
+  "block.ifeu.rubber_leaves": "Rubber Leaves",
+  "block.ifeu.rubber_sapling": "Rubber Sapling",
 
   "fluid_type.ifeu.liquid_dragon_breath": "Liquid Dragon Breath",
   "fluid_type.ifeu.liquid_sculk_matter": "Liquid Sculk Matter",

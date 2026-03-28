@@ -11,6 +11,7 @@ import net.yxiao233.ifeu.common.config.misc.LiquidDragonBreathConfig;
 import net.yxiao233.ifeu.common.config.misc.LiquidSculkMatterConfig;
 import net.yxiao233.ifeu.api.fluid.AbstractAnimateFluid;
 import net.yxiao233.ifeu.api.fluid.AbstractAnimateFluidInstance;
+import org.jetbrains.annotations.NotNull;
 
 public class LiquidSculkMatterParticleAnimateFluid extends AbstractAnimateFluid {
     public LiquidSculkMatterParticleAnimateFluid(AbstractAnimateFluidInstance abstractAnimateFluidInstance) {
@@ -40,7 +41,7 @@ public class LiquidSculkMatterParticleAnimateFluid extends AbstractAnimateFluid 
     }
 
     @Override
-    public void animateTick(Level level, BlockPos blockPos, FluidState fluidState, RandomSource randomSource) {
+    public void animateTick(@NotNull Level level, @NotNull BlockPos blockPos, @NotNull FluidState fluidState, @NotNull RandomSource randomSource) {
         LiquidSculkMatterParticleAnimateFluid.tick(level,blockPos,fluidState,randomSource);
     }
 
@@ -51,7 +52,7 @@ public class LiquidSculkMatterParticleAnimateFluid extends AbstractAnimateFluid 
         }
 
         @Override
-        public void animateTick(Level level, BlockPos blockPos, FluidState fluidState, RandomSource randomSource) {
+        public void animateTick(@NotNull Level level, @NotNull BlockPos blockPos, @NotNull FluidState fluidState, @NotNull RandomSource randomSource) {
             LiquidSculkMatterParticleAnimateFluid.tick(level,blockPos,fluidState,randomSource);
         }
     }
@@ -62,7 +63,7 @@ public class LiquidSculkMatterParticleAnimateFluid extends AbstractAnimateFluid 
         }
 
         @Override
-        public void animateTick(Level level, BlockPos blockPos, FluidState fluidState, RandomSource randomSource) {
+        public void animateTick(@NotNull Level level, @NotNull BlockPos blockPos, @NotNull FluidState fluidState, @NotNull RandomSource randomSource) {
             LiquidSculkMatterParticleAnimateFluid.tick(level,blockPos,fluidState,randomSource);
         }
     }

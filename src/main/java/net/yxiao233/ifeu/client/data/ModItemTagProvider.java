@@ -5,9 +5,11 @@ import com.buuz135.industrial.utils.IndustrialTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.yxiao233.ifeu.api.tree.DeferredTree;
 import net.yxiao233.ifeu.common.registry.IFEUContents;
 import net.yxiao233.ifeu.common.registry.IFEUTags;
 import org.jetbrains.annotations.NotNull;
@@ -55,5 +57,17 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         tag(IFEUTags.Items.ROTTEN_CROPS)
                 .add(Items.POISONOUS_POTATO);
+
+
+        DeferredTree.DeferredTreesRegister.getAllTrees().forEach(tree ->{
+            this.tag(ItemTags.LOGS_THAT_BURN)
+                    .add(tree.getLogItem().get())
+                    .add(tree.getStrippedLogItem().get())
+                    .add(tree.getWoodItem().get())
+                    .add(tree.getStrippedWoodItem().get());
+
+            this.tag(ItemTags.PLANKS)
+                    .add(tree.getPlanksItem().get());
+        });
     }
 }

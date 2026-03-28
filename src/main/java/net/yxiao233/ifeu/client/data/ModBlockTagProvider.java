@@ -8,6 +8,7 @@ import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
+import net.yxiao233.ifeu.api.tree.DeferredTree;
 import net.yxiao233.ifeu.common.registry.IFEUBlocks;
 import net.yxiao233.ifeu.common.registry.IFEUContents;
 import net.yxiao233.ifeu.common.registry.IFEUTags;
@@ -63,6 +64,14 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(IFEUBlocks.PRECISION_CRAFTING_TABLE.getBlock())
                 .add(IFEUBlocks.SAUCEPAN.getBlock())
                 .add(IFEUBlocks.FERMENTER.getBlock());
+
+        DeferredTree.DeferredTreesRegister.getAllTrees().forEach(tree ->{
+            this.tag(BlockTags.LOGS_THAT_BURN)
+                    .add(tree.getLogBlock().get())
+                    .add(tree.getStrippedLogBlock().get())
+                    .add(tree.getWoodBlock().get())
+                    .add(tree.getStrippedWoodBlock().get());
+        });
 
 
         this.tag(IFEUTags.Blocks.MACHINE_FRAME_ULTIMATE)

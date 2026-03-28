@@ -14,11 +14,11 @@ import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.neoforged.neoforge.fluids.FluidType;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -31,23 +31,23 @@ public abstract class AbstractAnimateFluid extends FlowingFluid {
     }
 
     @Override
-    public abstract void animateTick(Level level, BlockPos blockPos, FluidState fluidState, RandomSource randomSource);
+    public abstract void animateTick(@NotNull Level level, @NotNull BlockPos blockPos, @NotNull FluidState fluidState, @NotNull RandomSource randomSource);
 
     @Nonnull
     public Fluid getFlowing() {
-        return (Fluid)this.abstractAnimateFluidInstance.getFlowingFluid().get();
+        return this.abstractAnimateFluidInstance.getFlowingFluid().get();
     }
 
     @Nonnull
     public Fluid getSource() {
-        return (Fluid)this.abstractAnimateFluidInstance.getSourceFluid().get();
+        return this.abstractAnimateFluidInstance.getSourceFluid().get();
     }
 
-    public boolean canConvertToSource(FluidState state, Level level, BlockPos pos) {
+    public boolean canConvertToSource(@NotNull FluidState state, @NotNull Level level, @NotNull BlockPos pos) {
         return false;
     }
 
-    protected boolean canConvertToSource(Level p_256009_) {
+    protected boolean canConvertToSource(@NotNull Level level) {
         return false;
     }
 
@@ -70,12 +70,13 @@ public abstract class AbstractAnimateFluid extends FlowingFluid {
 
     @Nonnull
     public Item getBucket() {
-        return (Item)this.abstractAnimateFluidInstance.getBucketFluid().get();
+        return this.abstractAnimateFluidInstance.getBucketFluid().get();
     }
 
     @ParametersAreNonnullByDefault
-    protected boolean canBeReplacedWith(FluidState p_215665_1_, BlockGetter p_215665_2_, BlockPos p_215665_3_, Fluid p_215665_4_, Direction p_215665_5_) {
-        return p_215665_5_ == Direction.DOWN && !p_215665_4_.is(FluidTags.WATER);
+    @SuppressWarnings("deprecation")
+    protected boolean canBeReplacedWith(FluidState fluidState, BlockGetter level, BlockPos blockPos, Fluid fluid, Direction direction) {
+        return direction == Direction.DOWN && !fluid.is(FluidTags.WATER);
     }
 
     public int getTickDelay(@Nonnull LevelReader p_205569_1_) {
@@ -88,7 +89,7 @@ public abstract class AbstractAnimateFluid extends FlowingFluid {
 
     @Nonnull
     protected BlockState createLegacyBlock(@Nonnull FluidState state) {
-        return (BlockState)((Block)this.abstractAnimateFluidInstance.getBlockFluid().get()).defaultBlockState().setValue(LiquidBlock.LEVEL, getLegacyLevel(state));
+        return this.abstractAnimateFluidInstance.getBlockFluid().get().defaultBlockState().setValue(LiquidBlock.LEVEL, getLegacyLevel(state));
     }
 
     public boolean isSource(@Nonnull FluidState state) {
@@ -99,12 +100,12 @@ public abstract class AbstractAnimateFluid extends FlowingFluid {
         return 0;
     }
 
-    public boolean isSame(Fluid fluidIn) {
+    public boolean isSame(@NotNull Fluid fluidIn) {
         return fluidIn == this.abstractAnimateFluidInstance.getFlowingFluid().get() || fluidIn == this.abstractAnimateFluidInstance.getSourceFluid().get();
     }
 
-    public FluidType getFluidType() {
-        return (FluidType) this.abstractAnimateFluidInstance.getFluidType().get();
+    public @NotNull FluidType getFluidType() {
+        return this.abstractAnimateFluidInstance.getFluidType().get();
     }
 
     public abstract static class Source<T extends AbstractAnimateFluidInstance> extends AbstractAnimateFluid {
@@ -121,29 +122,25 @@ public abstract class AbstractAnimateFluid extends FlowingFluid {
         }
 
         @Override
-        public abstract void animateTick(Level level, BlockPos blockPos, FluidState fluidState, RandomSource randomSource);
+        public abstract void animateTick(@NotNull Level level, @NotNull BlockPos blockPos, @NotNull FluidState fluidState, @NotNull RandomSource randomSource);
     }
 
     public abstract static class Flowing<T extends AbstractAnimateFluidInstance> extends AbstractAnimateFluid {
         public Flowing(T instance) {
             super(instance);
-            this.registerDefaultState((FluidState)((FluidState)this.getStateDefinition().any()).setValue(LEVEL, 7));
+            this.registerDefaultState(this.getStateDefinition().any().setValue(LEVEL, 7));
         }
 
-        protected void createFluidStateDefinition(StateDefinition.Builder<Fluid, FluidState> builder) {
+        protected void createFluidStateDefinition(StateDefinition.@NotNull Builder<Fluid, FluidState> builder) {
             super.createFluidStateDefinition(builder);
-            builder.add(new Property[]{LEVEL});
+            builder.add(LEVEL);
         }
 
         public int getAmount(@Nonnull FluidState p_207192_1_) {
             return (Integer)p_207192_1_.getValue(LEVEL);
         }
 
-        public boolean isSource(@Nonnull FluidState state) {
-            return false;
-        }
-
         @Override
-        public abstract void animateTick(Level level, BlockPos blockPos, FluidState fluidState, RandomSource randomSource);
+        public abstract void animateTick(@NotNull Level level, @NotNull BlockPos blockPos, @NotNull FluidState fluidState, @NotNull RandomSource randomSource);
     }
 }

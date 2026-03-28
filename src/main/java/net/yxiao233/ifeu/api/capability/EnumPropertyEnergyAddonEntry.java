@@ -18,6 +18,9 @@ public class EnumPropertyEnergyAddonEntry {
         return new EnumPropertyEnergyAddonEntry(tile,baseCapacity);
     }
     public void updateEnergyCapacity(){
+        if(tile.getAugmentInventory() == null){
+            return;
+        }
         int tier = AugmentInventoryHelper.getAugmentTier(tile.getAugmentInventory(),IFEUAugmentTypes.ENERGY);
         EnergyStorageComponent<?> energyStorage = tile.getEnergyStorage();
         boolean isCreative = AugmentInventoryHelper.contains(tile.getAugmentInventory(),IFEUAugmentTypes.CREATIVE);

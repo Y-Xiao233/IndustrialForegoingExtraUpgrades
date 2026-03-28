@@ -1,4 +1,4 @@
-// 1.21.1	2026-03-10T20:06:37.9614608	Loot Tables
+// 1.21.1	2026-03-19T12:58:17.492678	Loot Tables
 415ef358a3d4a4290a0a68f6f17ac60e4ff615f2 data/ifeu/loot_table/blocks/arcane_dragon_egg_forging.json
 9ae3763423ab27745525db867c07fc1ef5e06934 data/ifeu/loot_table/blocks/big_dissolution_chamber.json
 36805e21e81dd0482a92b3ecff8c35a434cfea0d data/ifeu/loot_table/blocks/creative_capacitor.json
@@ -11,8 +11,15 @@ a53466727115a27644e665da8336d0f694f7447b data/ifeu/loot_table/blocks/fluid_trans
 c1c1907402dfdadd0199f00d45e0b1bbd617f9c3 data/ifeu/loot_table/blocks/infuser.json
 843c0c6366f778ec8ce3a25508868bf67a1830ef data/ifeu/loot_table/blocks/platform_builder.json
 57dd723073a3502cf8eb4cd186ef3b4fed4086ac data/ifeu/loot_table/blocks/precision_crafting_table.json
+b688fc186a15c914598b76fd6a3b4005ce9b8fe3 data/ifeu/loot_table/blocks/rubber_leaves.json
+6626e1b99d982e41ffa1ba1350dd5a2e9e5cbfb5 data/ifeu/loot_table/blocks/rubber_log.json
+5642ab0a6ccf9f876384b79bd20620c6568c33ac data/ifeu/loot_table/blocks/rubber_planks.json
+0d0044c5e5e5e0060a3af44dde7216cd6e259c38 data/ifeu/loot_table/blocks/rubber_sapling.json
+2369fa1482ce4e36aa7c574bce135a569b472f65 data/ifeu/loot_table/blocks/rubber_wood.json
 f673d13cb8fddaf02938835461055fed9dc79c65 data/ifeu/loot_table/blocks/rule_controller.json
 df08a05342bb8c91154a867a32f513f74f9a42b5 data/ifeu/loot_table/blocks/saucepan.json
+78c0212c2401fe0b1315ac02ea98cbb41c4d9fe3 data/ifeu/loot_table/blocks/stripped_rubber_log.json
+d6d5dcb58b7b5901ee0b9450918116e2013c3447 data/ifeu/loot_table/blocks/stripped_rubber_wood.json
 584c021e3ccd548c07e9cdab55c2168c0d2a7322 data/ifeu/loot_table/blocks/time_controller.json
 7059f2cee9f8b56d6c4be1ba272970071a622365 data/ifeu/loot_table/blocks/ultimate_machine_frame.json
 afa239db3b838158868bbbbabe437ab577742e89 data/ifeu/loot_table/blocks/weather_controller.json

@@ -2,6 +2,7 @@ package net.yxiao233.ifeu.common.registry;
 
 import com.buuz135.industrial.utils.CustomRarity;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -10,13 +11,20 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.api.block.DeadDragonEggBlock;
+import net.yxiao233.ifeu.api.tree.DeferredTree;
 import net.yxiao233.ifeu.common.item.ConfigurationToolItem;
 import net.yxiao233.ifeu.common.item.ConnectToolItem;
 import net.yxiao233.ifeu.common.item.WrenchItem;
 
+import java.util.List;
+
 public class IFEUContents {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(IndustrialForegoingExtraUpgrades.MODID);
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(IndustrialForegoingExtraUpgrades.MODID);
+    public static final DeferredTree.DeferredTreesRegister TREES = DeferredTree.DeferredTreesRegister.create(ITEMS, BLOCKS);
+    //Tree
+    public static final DeferredTree RUBBER = TREES.registry("rubber", List.of(Biomes.FLOWER_FOREST, Biomes.BAMBOO_JUNGLE, Biomes.SPARSE_JUNGLE));
+//    public static final DeferredTree SACRED_RUBBER = TREES.registry("sacred_rubber");
 
     //Item
     public static final DeferredItem<Item> DRAGON_STAR = ITEMS.register("dragon_star", () -> new Item(new Item.Properties().rarity(CustomRarity.SUPREME.getValue())));
@@ -54,5 +62,4 @@ public class IFEUContents {
 
     //for recipe as "minecraft:air"
     public static final DeferredItem<Item> AIR = ITEMS.register("air", () -> new Item(new Item.Properties()));
-
 }

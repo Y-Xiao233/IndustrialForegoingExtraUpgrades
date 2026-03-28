@@ -221,6 +221,13 @@ public class ModSerializableProvider{
                 .isDefault(false)
                 .save(recipeOutput);
 
+        IFEURecipeBuilders.fluidExtractorRecipe(new FluidStack(ModuleCore.LATEX.getSourceFluid().get(), 8), "latex_from_rubber_log")
+                .inputBlock(itemValue(new ItemStack(IFEUContents.RUBBER.getLogBlock().get())))
+                .resultBlockState(IFEUContents.RUBBER.getStrippedLogBlock().get().defaultBlockState())
+                .breakChance(0.01f)
+                .isDefault(false)
+                .save(recipeOutput);
+
         //arcane dragon egg forging
         IFEURecipeBuilders.arcaneDragonEggForgingRecipe(IFEUContents.DEAD_DRAGON_EGG_ITEM.get().getDefaultInstance(),"dead_dragon_egg")
                 .input(new ItemStack(Items.EGG,4))
