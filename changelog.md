@@ -159,6 +159,11 @@
 - 添加了橡胶树
 - 修复了拆除大型溶解成型机导致的崩溃bug
 
+### v3.3.005
+- 添加了神圣橡胶树(树的形状只是临时的,还会修改)
+- 修复了大型溶解成型机导致的崩溃bug
+
+
 ## en_us
 ### v1.0.0
 - init
@@ -310,4 +315,8 @@
 
 ### v3.3.004
 - Added Rubber Tree
+- Fixed a bug with Big Dissolution Chamber
+
+### v3.3.005
+- Added Sacred Rubber Tree (the tree shape is only temporary and will be modified later)
 - Fixed a bug with Big Dissolution Chamber

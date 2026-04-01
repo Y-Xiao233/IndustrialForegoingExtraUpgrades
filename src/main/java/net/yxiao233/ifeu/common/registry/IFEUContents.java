@@ -1,17 +1,24 @@
 package net.yxiao233.ifeu.common.registry;
 
 import com.buuz135.industrial.utils.CustomRarity;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.api.block.DeadDragonEggBlock;
 import net.yxiao233.ifeu.api.tree.DeferredTree;
+import net.yxiao233.ifeu.api.tree.RadiusTrunkPlacer;
+import net.yxiao233.ifeu.api.tree.UnboundBlobFoliagePlacer;
 import net.yxiao233.ifeu.common.item.ConfigurationToolItem;
 import net.yxiao233.ifeu.common.item.ConnectToolItem;
 import net.yxiao233.ifeu.common.item.WrenchItem;
@@ -21,10 +28,16 @@ import java.util.List;
 public class IFEUContents {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(IndustrialForegoingExtraUpgrades.MODID);
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(IndustrialForegoingExtraUpgrades.MODID);
+    public static final DeferredRegister<TrunkPlacerType<?>> TRUNK_PLACER_TYPES = DeferredRegister.create(Registries.TRUNK_PLACER_TYPE,IndustrialForegoingExtraUpgrades.MODID);
+    public static final DeferredRegister<FoliagePlacerType<?>> FOLIAGE_PLACER_TYPES = DeferredRegister.create(Registries.FOLIAGE_PLACER_TYPE,IndustrialForegoingExtraUpgrades.MODID);
     public static final DeferredTree.DeferredTreesRegister TREES = DeferredTree.DeferredTreesRegister.create(ITEMS, BLOCKS);
     //Tree
+    public static final DeferredHolder<TrunkPlacerType<?>,TrunkPlacerType<RadiusTrunkPlacer>> RADIUS_TRUNK_PLACER_TYPE = TRUNK_PLACER_TYPES.register("radius_trunk_placer",()  -> new TrunkPlacerType<>(RadiusTrunkPlacer.CODEC));
+    public static final DeferredHolder<FoliagePlacerType<?>,FoliagePlacerType<UnboundBlobFoliagePlacer>> UNBOUND_BLOB_FOLIAGE_PLACER_TYPE = FOLIAGE_PLACER_TYPES.register("unbound_blob_foliage_placer",()  -> new FoliagePlacerType<>(UnboundBlobFoliagePlacer.CODEC));
     public static final DeferredTree RUBBER = TREES.registry("rubber", List.of(Biomes.FLOWER_FOREST, Biomes.BAMBOO_JUNGLE, Biomes.SPARSE_JUNGLE));
-//    public static final DeferredTree SACRED_RUBBER = TREES.registry("sacred_rubber");
+    public static final DeferredTree SACRED_RUBBER = TREES.registryOf("sacred_rubber",RUBBER,null,1,1,2)
+            .withCustomTrunkPlacer(new RadiusTrunkPlacer(40, 12, 16,6))
+            .withCustomFoliagePlacer(new UnboundBlobFoliagePlacer(ConstantInt.of(12), ConstantInt.of(1), 14));
 
     //Item
     public static final DeferredItem<Item> DRAGON_STAR = ITEMS.register("dragon_star", () -> new Item(new Item.Properties().rarity(CustomRarity.SUPREME.getValue())));

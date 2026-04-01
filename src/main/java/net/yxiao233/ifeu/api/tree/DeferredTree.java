@@ -24,17 +24,17 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.featuresize.FeatureSize;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.ForkingTrunkPlacer;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.neoforged.neoforge.common.world.BiomeModifier;
 import net.neoforged.neoforge.common.world.BiomeModifiers;
-import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredItem;
-import net.neoforged.neoforge.registries.DeferredRegister;
-import net.neoforged.neoforge.registries.NeoForgeRegistries;
+import net.neoforged.neoforge.registries.*;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
 import net.yxiao233.ifeu.api.block.FlammableRotatedPillarBlock;
 import org.jetbrains.annotations.NotNull;
@@ -68,6 +68,9 @@ public class DeferredTree {
     private final ResourceKey<PlacedFeature> placedFeatureResourceKey;
     private final ResourceKey<BiomeModifier> biomeModifierResourceKey;
     private final List<ResourceKey<Biome>> biomes;
+    private TrunkPlacer trunkPlacer;
+    private FoliagePlacer foliagePlacer;
+    private FeatureSize featureSize;
     private final int logBaseHeight;
     private final int logFirstRandomHeight;
     private final int logSecondRandomHeight;
@@ -194,21 +197,46 @@ public class DeferredTree {
         return List.of(logBlock,strippedLogBlock,woodBlock,strippedWoodBlock,planksBlock,saplingBlock);
     }
 
+    public DeferredTree withCustomTrunkPlacer(TrunkPlacer trunkPlacer){
+        this.trunkPlacer = trunkPlacer;
+        return this;
+    }
+
+    public DeferredTree withCustomFoliagePlacer(FoliagePlacer foliagePlacer){
+        this.foliagePlacer = foliagePlacer;
+        return this;
+    }
+
+    public DeferredTree withCustomFeatureSize(FeatureSize featureSize){
+        this.featureSize = featureSize;
+        return this;
+    }
+
     public void registryConfiguredFeature(BootstrapContext<ConfiguredFeature<?,?>> context){
+        TrunkPlacer trunkPlacer = new ForkingTrunkPlacer(logBaseHeight,logFirstRandomHeight,logSecondRandomHeight);
+        FoliagePlacer foliagePlacer = new BlobFoliagePlacer(ConstantInt.of(leavesRadius),ConstantInt.of(leavesOffset),leavesHeight);
+        FeatureSize featureSize = new TwoLayersFeatureSize(limit,lowerSize,upperSize);
+        if(this.trunkPlacer != null){
+            trunkPlacer = this.trunkPlacer;
+        }
+        if(this.foliagePlacer != null){
+            foliagePlacer = this.foliagePlacer;
+        }
+        if(this.featureSize != null){
+            featureSize = this.featureSize;
+        }
         context.register(configuredFeatureResourceKey,new ConfiguredFeature<>(Feature.TREE,new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(logBlock.get()),
-                new ForkingTrunkPlacer(logBaseHeight,logFirstRandomHeight,logSecondRandomHeight),
+                trunkPlacer,
                 BlockStateProvider.simple(leavesBlock.get()),
-                new BlobFoliagePlacer(ConstantInt.of(leavesRadius),ConstantInt.of(leavesOffset),leavesHeight),
-                new TwoLayersFeatureSize(limit,lowerSize,upperSize)
+                foliagePlacer,
+                featureSize
         ).build()));
     }
 
     public void registryPlacedFeature(BootstrapContext<PlacedFeature> context){
-        if(biomes != null && !biomes.isEmpty()){
-            var lookup = context.lookup(Registries.CONFIGURED_FEATURE);
-            context.register(placedFeatureResourceKey,new PlacedFeature(lookup.getOrThrow(configuredFeatureResourceKey), VegetationPlacements.treePlacement(PlacementUtils.countExtra(3,0.1f,2),saplingBlock.get())));
-        }
+        var lookup = context.lookup(Registries.CONFIGURED_FEATURE);
+        context.register(placedFeatureResourceKey,new PlacedFeature(lookup.getOrThrow(configuredFeatureResourceKey), VegetationPlacements.treePlacement(PlacementUtils.countExtra(3,0.1f,2),saplingBlock.get())));
     }
 
     public void registryBiomeModifier(BootstrapContext<BiomeModifier> context){
@@ -242,6 +270,37 @@ public class DeferredTree {
 
         public DeferredTree registry(String name){
             return registry(name,null,4,4,3,2,3,3,1,0,2);
+        }
+
+        public DeferredTree registryOf(String name, DeferredTree other, @Nullable List<ResourceKey<Biome>> biomes){
+            return registryOf(name,other,biomes,1,0,2);
+        }
+
+        public DeferredTree registryOf(String name, DeferredTree other, @Nullable List<ResourceKey<Biome>> biomes, int limit, int lowerSize, int upperSize){
+            return registryOf(name,other,biomes,4,4,3,2,3,3,limit,lowerSize,upperSize);
+        }
+        public DeferredTree registryOf(String name, DeferredTree other, @Nullable List<ResourceKey<Biome>> biomes, int logBaseHeight, int logFirstRandomHeight, int logSecondRandomHeight, int leavesRadius, int leavesOffset, int leavesHeight, int limit, int lowerSize, int upperSize){
+            ResourceKey<ConfiguredFeature<?, ?>> configuredFeatureResourceKey = registryKey(Registries.CONFIGURED_FEATURE,name);
+            ResourceKey<PlacedFeature> featureResourceKey = registryKey(Registries.PLACED_FEATURE,name);
+            ResourceKey<BiomeModifier> biomeModifierResourceKey = registryKey(NeoForgeRegistries.Keys.BIOME_MODIFIERS, "add_tree_" + name);
+
+            DeferredBlock<Block> saplingBlock = blocks.register(name + "_sapling", () -> new SaplingBlock(new TreeGrower(IndustrialForegoingExtraUpgrades.MODID + ":" + name, Optional.empty(), Optional.of(configuredFeatureResourceKey), Optional.empty()), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+            DeferredItem<BlockItem> saplingItem = items.register(name + "_sapling", () -> new BlockItem(saplingBlock.get(), new Item.Properties()));
+
+            DeferredTree tree = new DeferredTree(other.logBlock,other.logItem,
+                    other.strippedLogBlock,other.strippedLogItem,
+                    other.woodBlock,other.woodItem,
+                    other.strippedWoodBlock,other.strippedWoodItem,
+                    other.planksBlock,other.planksItem,
+                    other.leavesBlock,other.leavesItem,
+                    saplingBlock,saplingItem,
+                    configuredFeatureResourceKey,featureResourceKey,biomeModifierResourceKey,
+                    biomes,logBaseHeight,logFirstRandomHeight,logSecondRandomHeight,
+                    leavesRadius,leavesOffset,leavesHeight,
+                    limit,lowerSize,upperSize
+            );
+            putToMap(name,tree);
+            return tree;
         }
 
         public DeferredTree registry(String name, @Nullable List<ResourceKey<Biome>> biomes, int logBaseHeight, int logFirstRandomHeight, int logSecondRandomHeight, int leavesRadius, int leavesOffset, int leavesHeight, int limit, int lowerSize, int upperSize){
@@ -315,10 +374,14 @@ public class DeferredTree {
                     limit,lowerSize,upperSize
 
             );
+            putToMap(name,tree);
+            return tree;
+        }
+
+        private static void putToMap(String name, DeferredTree tree){
             treeMap.put(List.of(name + "_log","stripped_" + name + "_log",name + "_wood","stripped_" + name + "_wood",name + "_planks",name + "_leaves",name + "_sapling"),tree);
             logMap.put(List.of(name + "_log","stripped_" + name + "_log"),tree);
             woodMap.put(List.of(name + "_wood","stripped_" + name + "_wood"),tree);
-            return tree;
         }
 
         private static <T> ResourceKey<T> registryKey(ResourceKey<Registry<T>> resourceKey, String name){

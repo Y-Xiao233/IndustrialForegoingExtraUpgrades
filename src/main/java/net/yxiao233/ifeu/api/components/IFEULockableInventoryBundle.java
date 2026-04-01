@@ -55,6 +55,7 @@ public class IFEULockableInventoryBundle<T extends BasicTile & IComponentHarness
         this.lockPosX = lockPosX;
         this.lockPosY = lockPosY;
         this.isLocked = isLocked;
+        this.augmentInventory = augmentInventory;
         this.buttonAddon = (new ButtonComponent(lockPosX, lockPosY, 14, 14) {
             @OnlyIn(Dist.CLIENT)
             public List<IFactory<? extends IScreenAddon>> getScreenAddons() {
@@ -154,7 +155,11 @@ public class IFEULockableInventoryBundle<T extends BasicTile & IComponentHarness
                 int count = this.inventory.getStackInSlot(integer).getCount();
                 int max = this.filter[integer].getCount();
                 if(BigDissolutionChamberConfig.inputRule == 1){
-                    max = AugmentInventoryHelper.getAugmentTier(this.augmentInventory, IFEUAugmentTypes.THREAD) * 4 + BigDissolutionChamberConfig.maxThread;
+                    if(this.augmentInventory == null){
+                        max = BigDissolutionChamberConfig.maxThread;
+                    }else{
+                        max = AugmentInventoryHelper.getAugmentTier(this.augmentInventory, IFEUAugmentTypes.THREAD) * 4 + BigDissolutionChamberConfig.maxThread;
+                    }
                 }
                 boolean canInsert = count + stack.getCount() <= max;
                 return bound && !isEmpty && same && canInsert;
@@ -164,7 +169,10 @@ public class IFEULockableInventoryBundle<T extends BasicTile & IComponentHarness
                 this.inventory.setInputFilter(((stack, integer) -> {
                     boolean bound = integer < this.filter.length;
                     int count = this.inventory.getStackInSlot(integer).getCount();
-                    int max = AugmentInventoryHelper.getAugmentTier(this.augmentInventory, IFEUAugmentTypes.THREAD) * 4 + BigDissolutionChamberConfig.maxThread;
+                    int max = BigDissolutionChamberConfig.maxThread;
+                    if(this.augmentInventory != null){
+                        max = AugmentInventoryHelper.getAugmentTier(this.augmentInventory, IFEUAugmentTypes.THREAD) * 4 + BigDissolutionChamberConfig.maxThread;
+                    }
                     boolean canInsert = count + stack.getCount() <= max;
                     return bound && canInsert;
                 }));

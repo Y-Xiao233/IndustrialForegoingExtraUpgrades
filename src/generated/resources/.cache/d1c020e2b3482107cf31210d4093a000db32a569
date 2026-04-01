@@ -1,9 +1,10 @@
-// 1.21.1	2026-03-19T13:16:53.8934675	Block States: ifeu
+// 1.21.1	2026-03-30T13:59:27.3815628	Block States: ifeu
 9852dfb16cef2bedb364036c7fab9f9bade5fdbb assets/ifeu/blockstates/rubber_leaves.json
 5303654f1dd482a3878f02d7bb0dcf75175dd597 assets/ifeu/blockstates/rubber_log.json
 7cb56607c81721750c235147ed43469f1dc67255 assets/ifeu/blockstates/rubber_planks.json
 7d61073bfd008e0d99ff35d94bc4a57b175191d3 assets/ifeu/blockstates/rubber_sapling.json
 e8b4d81c33eb37b3297a184e4cfd0bfc640510e0 assets/ifeu/blockstates/rubber_wood.json
+8cbf6e836ad5340f0abd4c535b7bcffb6bd83fbc assets/ifeu/blockstates/sacred_rubber_sapling.json
 5c0fe287302be6f0926be9478d934c504faa428f assets/ifeu/blockstates/stripped_rubber_log.json
 42ac6701cda400390c363322f56d48b04fa7a48b assets/ifeu/blockstates/stripped_rubber_wood.json
 920fa7c7d13b950d97b8331252cc9e61bb113c3f assets/ifeu/models/block/rubber_leaves.json
@@ -13,6 +14,7 @@ e3bb5d9c3c0632a0e2a3a048460c6e9c5512133f assets/ifeu/models/block/rubber_planks.
 3e22f5c1a4f2891b4356bbc3814bfc0942f24eac assets/ifeu/models/block/rubber_sapling.json
 176990ea22519fa2f07f16a10ff69e5e99cb84e5 assets/ifeu/models/block/rubber_wood.json
 619353acab061a61659e7e396e53b57c28ecbaf1 assets/ifeu/models/block/rubber_wood_horizontal.json
+c12f86e65c6b2783db57f65a50ed0abcaa1c34e3 assets/ifeu/models/block/sacred_rubber_sapling.json
 1d4efdac6a751313c208009223884d1145063997 assets/ifeu/models/block/stripped_rubber_log.json
 99b631225ec333f2fb0ee28ef937dd3d69ce98a1 assets/ifeu/models/block/stripped_rubber_log_horizontal.json
 252588397fd6614b2a77aba00fd19e1ac2dc51d4 assets/ifeu/models/block/stripped_rubber_wood.json

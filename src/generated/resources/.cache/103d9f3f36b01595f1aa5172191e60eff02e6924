@@ -1,4 +1,6 @@
-// 1.21.1	2026-03-19T14:37:53.4820589	Registries
+// 1.21.1	2026-04-01T17:14:58.9116036	Registries
 a9f339e2faf572a78ffae234905520f87c0b1b9a data/ifeu/neoforge/biome_modifier/add_tree_rubber.json
 b7a2794ce9bb2d9eeb336163a911d429a8732775 data/ifeu/worldgen/configured_feature/rubber.json
+76be1338590116f93c929a9f0f4f12f56f72a3c7 data/ifeu/worldgen/configured_feature/sacred_rubber.json
 0aa924b78e76143a078ab60a3e8ea7b166f8c300 data/ifeu/worldgen/placed_feature/rubber.json
+4aa54beec0d4a440c7acbd94abf833c9393d6ec8 data/ifeu/worldgen/placed_feature/sacred_rubber.json

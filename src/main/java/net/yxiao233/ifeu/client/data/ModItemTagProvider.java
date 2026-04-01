@@ -3,10 +3,13 @@ package net.yxiao233.ifeu.client.data;
 import com.buuz135.industrial.module.ModuleCore;
 import com.buuz135.industrial.utils.IndustrialTags;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.yxiao233.ifeu.api.tree.DeferredTree;
@@ -14,9 +17,12 @@ import net.yxiao233.ifeu.common.registry.IFEUContents;
 import net.yxiao233.ifeu.common.registry.IFEUTags;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class ModItemTagProvider extends ItemTagsProvider {
+    private final List<ResourceLocation> generated = new ArrayList<>();
     public ModItemTagProvider(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pLookupProvider, CompletableFuture<TagLookup<Block>> pBlockTags) {
         super(pOutput, pLookupProvider, pBlockTags);
     }
@@ -60,14 +66,35 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
 
         DeferredTree.DeferredTreesRegister.getAllTrees().forEach(tree ->{
-            this.tag(ItemTags.LOGS_THAT_BURN)
-                    .add(tree.getLogItem().get())
-                    .add(tree.getStrippedLogItem().get())
-                    .add(tree.getWoodItem().get())
-                    .add(tree.getStrippedWoodItem().get());
-
-            this.tag(ItemTags.PLANKS)
-                    .add(tree.getPlanksItem().get());
+            if(shouldGenerated(tree.getLogItem().get())){
+                this.tag(ItemTags.LOGS_THAT_BURN).add(tree.getLogItem().get());
+                generated(tree.getLogItem().get());
+            }
+            if(shouldGenerated(tree.getStrippedLogItem().get())){
+                this.tag(ItemTags.LOGS_THAT_BURN).add(tree.getStrippedLogItem().get());
+                generated(tree.getStrippedLogItem().get());
+            }
+            if(shouldGenerated(tree.getWoodItem().get())){
+                this.tag(ItemTags.LOGS_THAT_BURN).add(tree.getWoodItem().get());
+                generated(tree.getWoodItem().get());
+            }
+            if(shouldGenerated(tree.getStrippedWoodItem().get())){
+                this.tag(ItemTags.LOGS_THAT_BURN).add(tree.getStrippedWoodItem().get());
+                generated(tree.getStrippedWoodItem().get());
+            }
+            if(shouldGenerated(tree.getPlanksItem().get())){
+                this.tag(ItemTags.PLANKS).add(tree.getPlanksItem().get());
+                generated(tree.getPlanksItem().get());
+            }
         });
+    }
+
+    private boolean shouldGenerated(Item item){
+        ResourceLocation location = BuiltInRegistries.ITEM.getKey(item);
+        return !generated.contains(location);
+    }
+
+    private void generated(Item item){
+        generated.add(BuiltInRegistries.ITEM.getKey(item));
     }
 }
