@@ -8,4 +8,10 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 public interface EnergyStorageAccessor {
     @Accessor("capacity")
     void setCapacity(int capacity);
+
+    @Accessor("maxReceive")
+    void setMaxReceive(int maxReceive);
+
+    @Accessor("maxExtract")
+    void setMaxExtract(int maxExtract);
 }

@@ -163,6 +163,9 @@
 - 添加了神圣橡胶树(树的形状只是临时的,还会修改)
 - 修复了大型溶解成型机导致的崩溃bug
 
+### v3.3.006
+- 修复了能量插件无法正常增大能量传输速率的bug
+
 
 ## en_us
 ### v1.0.0
@@ -320,3 +323,6 @@
 ### v3.3.005
 - Added Sacred Rubber Tree (the tree shape is only temporary and will be modified later)
 - Fixed a bug with Big Dissolution Chamber
+
+### v3.3.006
+- Fixed the bug where the energy addon could not increase the energy transmission rate normally

@@ -27,6 +27,8 @@ public class EnergyAddonEntry {
         int old = energyStorage.getEnergyStored();
         if(energyStorage instanceof EnergyStorageAccessor accessor){
             accessor.setCapacity(cap);
+            accessor.setMaxExtract(cap);
+            accessor.setMaxReceive(cap);
             if(old > cap){
                 energyStorage.setEnergyStored(cap);
             }
