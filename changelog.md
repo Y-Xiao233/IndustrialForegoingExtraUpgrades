@@ -166,6 +166,9 @@
 ### v3.3.006
 - 修复了能量插件无法正常增大能量传输速率的bug
 
+### v3.3.007
+- 使jei可以正常显示部分配方id
+
 
 ## en_us
 ### v1.0.0
@@ -326,3 +329,6 @@
 
 ### v3.3.006
 - Fixed the bug where the energy addon could not increase the energy transmission rate normally
+
+### v3.3.007
+- Enable JEI to display partial recipe ids normally

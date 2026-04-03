@@ -1,11 +1,8 @@
 package net.yxiao233.ifeu.common.compact.jei;
 
-import com.buuz135.industrial.block.generator.tile.BioReactorTile;
 import com.buuz135.industrial.module.ModuleCore;
 import com.buuz135.industrial.plugin.jei.IndustrialRecipeTypes;
-import com.buuz135.industrial.plugin.jei.category.BioReactorRecipeCategory;
 import com.hrznstudio.titanium.container.BasicAddonContainer;
-import com.hrznstudio.titanium.util.RecipeUtil;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.VanillaTypes;
@@ -20,10 +17,10 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.material.Fluid;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
@@ -72,6 +69,12 @@ public class JEIPlugin implements IModPlugin {
     @Override
     @SuppressWarnings("unchecked")
     public void registerRecipes(@NotNull IRecipeRegistration registration) {
+        Level level = Minecraft.getInstance().level;
+        if(level == null){
+            return;
+        }
+
+
         addInfuserCompactRecipes(registration);
         addBlockRightClickRecipes(registration);
         addDragonStarGenerator(registration);
@@ -79,18 +82,38 @@ public class JEIPlugin implements IModPlugin {
         addSaucepanRecipe(registration);
         addFermenterRecipe(registration);
 
-        Level level = Minecraft.getInstance().level;
-        if(level == null){
-            return;
+        {
+            List<RecipeHolder<InfuserRecipe>> recipes = level.getRecipeManager().getAllRecipesFor((RecipeType<InfuserRecipe>) IFEURecipes.INFUSER_TYPE.get()).stream().toList();
+            registration.addRecipes(ModRecipeType.INFUSER, recipes);
         }
-        registration.addRecipes(ModRecipeType.INFUSER, RecipeUtil.getRecipes(level,(RecipeType<InfuserRecipe>) IFEURecipes.INFUSER_TYPE.get()));
-        registration.addRecipes(ModRecipeType.ARCANE_DRAGON_EGG_FORGING, RecipeUtil.getRecipes(level,(RecipeType<ArcaneDragonEggForgingRecipe>) IFEURecipes.ARCANE_DRAGON_EGG_FORGING_TYPE.get()));
-        registration.addRecipes(ModRecipeType.BLOCK_RIGHT_CLICK, RecipeUtil.getRecipes(level,(RecipeType<BlockRightClickRecipe>) IFEURecipes.BLOCK_RIGHT_CLICK_TYPE.get()));
-        registration.addRecipes(ModRecipeType.DRAGON_STAR_GENERATOR, RecipeUtil.getRecipes(level,(RecipeType<DragonStarGeneratorRecipe>) IFEURecipes.DRAGON_STAR_GENERATOR_TYPE.get()));
-        registration.addRecipes(ModRecipeType.SHAPED, RecipeUtil.getRecipes(level,(RecipeType<ShapedRecipe>) IFEURecipes.SHAPED_TYPE.get()));
-        registration.addRecipes(ModRecipeType.SHAPELESS, RecipeUtil.getRecipes(level,(RecipeType<ShapelessRecipe>) IFEURecipes.SHAPELESS_TYPE.get()));
-        registration.addRecipes(ModRecipeType.PRECISION_SHAPED,RecipeUtil.getRecipes(level,(RecipeType<PrecisionShapedRecipe>) IFEURecipes.PRECISION_SHAPED_TYPE.get()));
-        registration.addRecipes(ModRecipeType.PRECISION_SHAPELESS,RecipeUtil.getRecipes(level,(RecipeType<PrecisionShapelessRecipe>) IFEURecipes.PRECISION_SHAPELESS_TYPE.get()));
+        {
+            List<RecipeHolder<ArcaneDragonEggForgingRecipe>> recipes = level.getRecipeManager().getAllRecipesFor((RecipeType<ArcaneDragonEggForgingRecipe>) IFEURecipes.ARCANE_DRAGON_EGG_FORGING_TYPE.get()).stream().toList();
+            registration.addRecipes(ModRecipeType.ARCANE_DRAGON_EGG_FORGING, recipes);
+        }
+        {
+            List<RecipeHolder<BlockRightClickRecipe>> recipes = level.getRecipeManager().getAllRecipesFor((RecipeType<BlockRightClickRecipe>) IFEURecipes.BLOCK_RIGHT_CLICK_TYPE.get()).stream().toList();
+            registration.addRecipes(ModRecipeType.BLOCK_RIGHT_CLICK, recipes);
+        }
+        {
+            List<RecipeHolder<DragonStarGeneratorRecipe>> recipes = level.getRecipeManager().getAllRecipesFor((RecipeType<DragonStarGeneratorRecipe>) IFEURecipes.DRAGON_STAR_GENERATOR_TYPE.get()).stream().toList();
+            registration.addRecipes(ModRecipeType.DRAGON_STAR_GENERATOR, recipes);
+        }
+        {
+            List<RecipeHolder<ShapedRecipe>> recipes = level.getRecipeManager().getAllRecipesFor((RecipeType<ShapedRecipe>) IFEURecipes.SHAPED_TYPE.get()).stream().toList();
+            registration.addRecipes(ModRecipeType.SHAPED, recipes);
+        }
+        {
+            List<RecipeHolder<ShapelessRecipe>> recipes = level.getRecipeManager().getAllRecipesFor((RecipeType<ShapelessRecipe>) IFEURecipes.SHAPELESS_TYPE.get()).stream().toList();
+            registration.addRecipes(ModRecipeType.SHAPELESS, recipes);
+        }
+        {
+            List<RecipeHolder<PrecisionShapedRecipe>> recipes = level.getRecipeManager().getAllRecipesFor((RecipeType<PrecisionShapedRecipe>) IFEURecipes.PRECISION_SHAPED_TYPE.get()).stream().toList();
+            registration.addRecipes(ModRecipeType.PRECISION_SHAPED, recipes);
+        }
+        {
+            List<RecipeHolder<PrecisionShapelessRecipe>> recipes = level.getRecipeManager().getAllRecipesFor((RecipeType<PrecisionShapelessRecipe>) IFEURecipes.PRECISION_SHAPELESS_TYPE.get()).stream().toList();
+            registration.addRecipes(ModRecipeType.PRECISION_SHAPELESS, recipes);
+        }
     }
 
     @Override
@@ -119,7 +142,7 @@ public class JEIPlugin implements IModPlugin {
     }
 
     private void addInfuserCompactRecipes(IRecipeRegistration registration){
-        List<InfuserRecipe> infuserRecipes = new ArrayList<>();
+        List<RecipeHolder<InfuserRecipe>> infuserRecipes = new ArrayList<>();
         BuiltInRegistries.ITEM.stream().forEach(reg ->{
             if(reg instanceof MobBucketItem || reg.getDefaultInstance().is(Items.BUCKET)){
                 return;
@@ -127,26 +150,26 @@ public class JEIPlugin implements IModPlugin {
             if(reg instanceof BucketItem bucketItem){
                 FluidStack fluidStack = new FluidStack(bucketItem.content,1000);
                 if(!fluidStack.isEmpty()){
-                    infuserRecipes.add(new InfuserRecipe(Items.BUCKET.getDefaultInstance(),fluidStack,200,bucketItem.getDefaultInstance()));
+                    infuserRecipes.add(new RecipeHolder<>(ResourceLocation.fromNamespaceAndPath(IndustrialForegoingExtraUpgrades.MODID,"infuser/" + BuiltInRegistries.ITEM.getKey(bucketItem).getNamespace() + "/" + BuiltInRegistries.ITEM.getKey(bucketItem).getPath()),new InfuserRecipe(Items.BUCKET.getDefaultInstance(),fluidStack,200,bucketItem.getDefaultInstance())));
                 }
             }
         });
         registration.addRecipes(ModRecipeType.INFUSER,infuserRecipes);
     }
     private void addBlockRightClickRecipes(IRecipeRegistration registration){
-        List<BlockRightClickRecipe> blockRightClickRecipes = new ArrayList<>();
-        blockRightClickRecipes.add(new BlockRightClickRecipe(IFEUContents.DRAGON_STAR.get().getDefaultInstance(), IFEUContents.DEAD_DRAGON_EGG.get(),Blocks.DRAGON_EGG));
+        List<RecipeHolder<BlockRightClickRecipe>> blockRightClickRecipes = new ArrayList<>();
+        blockRightClickRecipes.add(new RecipeHolder<>(ResourceLocation.fromNamespaceAndPath(IndustrialForegoingExtraUpgrades.MODID,"block_right_click/" + BuiltInRegistries.BLOCK.getKey(Blocks.DRAGON_EGG).getPath()),new BlockRightClickRecipe(IFEUContents.DRAGON_STAR.get().getDefaultInstance(), IFEUContents.DEAD_DRAGON_EGG.get(),Blocks.DRAGON_EGG)));
         registration.addRecipes(ModRecipeType.BLOCK_RIGHT_CLICK,blockRightClickRecipes);
     }
     private void addDragonStarGenerator(IRecipeRegistration registration){
-        List<DragonStarGeneratorRecipe> dragonStarGeneratorCategories = new ArrayList<>();
-        dragonStarGeneratorCategories.add(new DragonStarGeneratorRecipe(IFEUContents.DRAGON_STAR.get().getDefaultInstance(), DragonStarGeneratorConfig.maxProgress,DragonStarGeneratorConfig.powerPerTick));
+        List<RecipeHolder<DragonStarGeneratorRecipe>> dragonStarGeneratorCategories = new ArrayList<>();
+        dragonStarGeneratorCategories.add(new RecipeHolder<>(ResourceLocation.fromNamespaceAndPath(IndustrialForegoingExtraUpgrades.MODID,"dragon_star_generator/" + BuiltInRegistries.ITEM.getKey(IFEUContents.DRAGON_STAR.get()).getPath()),new DragonStarGeneratorRecipe(IFEUContents.DRAGON_STAR.get().getDefaultInstance(), DragonStarGeneratorConfig.maxProgress,DragonStarGeneratorConfig.powerPerTick)));
         registration.addRecipes(ModRecipeType.DRAGON_STAR_GENERATOR,dragonStarGeneratorCategories);
     }
 
     private void addDragonGeneratorRecipe(IRecipeRegistration registration){
-        List<DragonGeneratorRecipe> dragonGeneratorRecipes = new ArrayList<>();
-        dragonGeneratorRecipes.add(new DragonGeneratorRecipe(new FluidStack(IFEUFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000), DragonGeneratorConfig.maxProgress,DragonGeneratorConfig.powerPerTick));
+        List<RecipeHolder<DragonGeneratorRecipe>> dragonGeneratorRecipes = new ArrayList<>();
+        dragonGeneratorRecipes.add(new RecipeHolder<>(ResourceLocation.fromNamespaceAndPath(IndustrialForegoingExtraUpgrades.MODID,"dragon_generator/" + BuiltInRegistries.FLUID.getKey(IFEUFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get()).getPath()),new DragonGeneratorRecipe(new FluidStack(IFEUFluids.LIQUID_DRAGON_BREATH.getSourceFluid().get(),1000), DragonGeneratorConfig.maxProgress,DragonGeneratorConfig.powerPerTick)));
         registration.addRecipes(ModRecipeType.DRAGON_GENERATOR,dragonGeneratorRecipes);
     }
 

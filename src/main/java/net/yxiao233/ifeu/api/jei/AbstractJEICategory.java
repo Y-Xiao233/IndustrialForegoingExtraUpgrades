@@ -35,12 +35,11 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractJEICategory<T extends Recipe<?>> implements IRecipeCategory<T> {
+public abstract class AbstractJEICategory<T> implements IRecipeCategory<T> {
     public final RecipeType<T> type;
     public Component title;
     public final IDrawable background;
     public final IDrawable icon;
-    public abstract net.minecraft.world.item.crafting.RecipeType<T> getTypeInstance();
 
     public AbstractJEICategory(IGuiHelper helper, RecipeType<T> type, Component title, Item icon, int width, int height) {
         ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(IndustrialForegoingExtraUpgrades.MODID,"textures/gui/empty.png");

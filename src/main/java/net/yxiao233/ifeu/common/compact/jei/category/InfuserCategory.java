@@ -20,18 +20,17 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.yxiao233.ifeu.api.jei.AbstractJEICategory;
 import net.yxiao233.ifeu.common.compact.jei.ModRecipeType;
 import net.yxiao233.ifeu.common.config.machine.InfuserConfig;
 import net.yxiao233.ifeu.common.recipe.InfuserRecipe;
 import net.yxiao233.ifeu.common.registry.IFEUBlocks;
-import net.yxiao233.ifeu.common.registry.IFEURecipes;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.awt.*;
 
-public class InfuserCategory extends AbstractJEICategory<InfuserRecipe> {
+public class InfuserCategory extends AbstractJEICategory<RecipeHolder<InfuserRecipe>> {
     public static final Component TITLE = Component.translatable("block.ifeu.infuser");
     private final IDrawable bigTank;
     public InfuserCategory(IGuiHelper helper) {
@@ -40,28 +39,23 @@ public class InfuserCategory extends AbstractJEICategory<InfuserRecipe> {
     }
 
     @Override
-    public RecipeType getTypeInstance() {
-        return IFEURecipes.INFUSER_TYPE.get();
-    }
-
-    @Override
-    public void setRecipe(IRecipeLayoutBuilder builder, InfuserRecipe recipe, IFocusGroup iFocusGroup) {
+    public void setRecipe(IRecipeLayoutBuilder builder, RecipeHolder<InfuserRecipe> recipe, IFocusGroup iFocusGroup) {
         //Input
-        builder.addSlot(RecipeIngredientRole.INPUT, 66, 33).addIngredient(VanillaTypes.ITEM_STACK,recipe.input);
+        builder.addSlot(RecipeIngredientRole.INPUT, 66, 33).addIngredient(VanillaTypes.ITEM_STACK,recipe.value().input);
         //InputFluid
-        if(recipe.inputFluid != null && !recipe.inputFluid.isEmpty()){
-            builder.addSlot(RecipeIngredientRole.INPUT, 44 + 3, 12 + 3).setFluidRenderer(InfuserConfig.maxInputTankSize >= 1000 ? InfuserConfig.maxInputTankSize : 1000,false,12,50).setOverlay(bigTank,0,0).addIngredient(NeoForgeTypes.FLUID_STACK, recipe.inputFluid);
+        if(recipe.value().inputFluid != null && !recipe.value().inputFluid.isEmpty()){
+            builder.addSlot(RecipeIngredientRole.INPUT, 44 + 3, 12 + 3).setFluidRenderer(InfuserConfig.maxInputTankSize >= 1000 ? InfuserConfig.maxInputTankSize : 1000,false,12,50).setOverlay(bigTank,0,0).addIngredient(NeoForgeTypes.FLUID_STACK, recipe.value().inputFluid);
         }
         //Output
-        if(!recipe.output.isEmpty()){
-            ItemStack stack = recipe.output;
+        if(!recipe.value().output.isEmpty()){
+            ItemStack stack = recipe.value().output;
             stack.getItem().onCraftedBy(stack,null,null);
             builder.addSlot(RecipeIngredientRole.OUTPUT, 119, 16).addIngredient(VanillaTypes.ITEM_STACK,stack);
         }
     }
 
     @Override
-    public void draw(InfuserRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
+    public void draw(RecipeHolder<InfuserRecipe> recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
         //Background
         EnergyBarScreenAddon.drawBackground(guiGraphics, Minecraft.getInstance().screen, DefaultAssetProvider.DEFAULT_PROVIDER, 0, 12, 0, 0);
         //Input
@@ -73,15 +67,15 @@ public class InfuserCategory extends AbstractJEICategory<InfuserRecipe> {
         //ProgressBar
         AssetUtil.drawAsset(guiGraphics, Minecraft.getInstance().screen, IAssetProvider.getAsset(DefaultAssetProvider.DEFAULT_PROVIDER, AssetTypes.PROGRESS_BAR_BACKGROUND_ARROW_HORIZONTAL), 92, 41 - 8);
         //EnergyBar
-        int consumed = recipe.processingTime * InfuserConfig.powerPerTick;
+        int consumed = recipe.value().processingTime * InfuserConfig.powerPerTick;
         EnergyBarScreenAddon.drawForeground(guiGraphics, Minecraft.getInstance().screen, DefaultAssetProvider.DEFAULT_PROVIDER, 0, 12, 0, 0, consumed, (int) Math.max(50000, Math.ceil(consumed)));
     }
 
     @Override
-    public void getTooltip(ITooltipBuilder tooltip, InfuserRecipe recipe, IRecipeSlotsView recipeSlotsView, double mouseX, double mouseY) {
+    public void getTooltip(ITooltipBuilder tooltip, RecipeHolder<InfuserRecipe> recipe, IRecipeSlotsView recipeSlotsView, double mouseX, double mouseY) {
         super.getTooltip(tooltip, recipe, recipeSlotsView, mouseX, mouseY);
 
-        int consumed = recipe.processingTime * 60;
+        int consumed = recipe.value().processingTime * 60;
         addEnergyBarTooltip(tooltip,mouseX,mouseY,consumed,(int) Math.max(50000, Math.ceil(consumed)));
     }
 }

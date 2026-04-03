@@ -16,31 +16,25 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.yxiao233.ifeu.api.jei.AbstractJEICategory;
 import net.yxiao233.ifeu.common.compact.jei.ModRecipeType;
 import net.yxiao233.ifeu.common.gui.AllGuiTextures;
 import net.yxiao233.ifeu.common.recipe.PrecisionShapelessRecipe;
 import net.yxiao233.ifeu.common.registry.IFEUBlocks;
-import net.yxiao233.ifeu.common.registry.IFEURecipes;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.awt.*;
 import java.util.Arrays;
 
-public class PrecisionShapelessCategory extends AbstractJEICategory<PrecisionShapelessRecipe> {
+public class PrecisionShapelessCategory extends AbstractJEICategory<RecipeHolder<PrecisionShapelessRecipe>> {
     public static final Component TITLE = Component.translatable("jei.ifeu.precision_shapeless");
     public PrecisionShapelessCategory(IGuiHelper helper) {
         super(helper, ModRecipeType.PRECISION_SHAPELESS, TITLE, IFEUBlocks.PRECISION_CRAFTING_TABLE.asItem(), 160, 82);
     }
 
     @Override
-    public RecipeType getTypeInstance() {
-        return IFEURecipes.PRECISION_SHAPELESS_TYPE.get();
-    }
-
-    @Override
-    public void setRecipe(IRecipeLayoutBuilder builder, PrecisionShapelessRecipe recipe, IFocusGroup iFocusGroup) {
+    public void setRecipe(IRecipeLayoutBuilder builder, RecipeHolder<PrecisionShapelessRecipe> recipe, IFocusGroup iFocusGroup) {
         //Input
         int x = 31;
         int y = 15;
@@ -49,8 +43,8 @@ public class PrecisionShapelessCategory extends AbstractJEICategory<PrecisionSha
                 x = 31;
                 y += 18;
             }
-            if(i < recipe.inputs.size()){
-                builder.addSlot(RecipeIngredientRole.INPUT,x,y).addIngredients(VanillaTypes.ITEM_STACK, Arrays.stream(recipe.inputs.get(i).getItems()).toList());
+            if(i < recipe.value().inputs.size()){
+                builder.addSlot(RecipeIngredientRole.INPUT,x,y).addIngredients(VanillaTypes.ITEM_STACK, Arrays.stream(recipe.value().inputs.get(i).getItems()).toList());
             }else{
                 builder.addSlot(RecipeIngredientRole.INPUT,x,y).addIngredient(VanillaTypes.ITEM_STACK, ItemStack.EMPTY);
             }
@@ -58,21 +52,21 @@ public class PrecisionShapelessCategory extends AbstractJEICategory<PrecisionSha
         }
 
         //Output
-        float chance = (float) recipe.chance;
+        float chance = (float) recipe.value().chance;
         if(chance >= 1){
             builder.addSlot(RecipeIngredientRole.OUTPUT, 119, 33)
-                    .addIngredient(VanillaTypes.ITEM_STACK,recipe.output)
+                    .addIngredient(VanillaTypes.ITEM_STACK,recipe.value().output)
                     .setBackground(drawSlot(1),-1,-1);
         }else{
             builder.addSlot(RecipeIngredientRole.OUTPUT, 119, 33)
-                    .addIngredient(VanillaTypes.ITEM_STACK,recipe.output)
+                    .addIngredient(VanillaTypes.ITEM_STACK,recipe.value().output)
                     .setBackground(drawSlot(chance),-1,-1)
                     .addRichTooltipCallback(addChanceTooltip(chance));
         }
     }
 
     @Override
-    public void draw(PrecisionShapelessRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
+    public void draw(RecipeHolder<PrecisionShapelessRecipe> recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
         //Input
         int x = 31;
         int y = 15;

@@ -14,42 +14,36 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.yxiao233.ifeu.api.jei.AbstractJEICategory;
 import net.yxiao233.ifeu.common.compact.jei.ModRecipeType;
 import net.yxiao233.ifeu.common.gui.AllGuiTextures;
 import net.yxiao233.ifeu.common.recipe.BlockRightClickRecipe;
 import net.yxiao233.ifeu.common.registry.IFEUContents;
-import net.yxiao233.ifeu.common.registry.IFEURecipes;
 
-public class BlockRightClickCategory extends AbstractJEICategory<BlockRightClickRecipe> {
+public class BlockRightClickCategory extends AbstractJEICategory<RecipeHolder<BlockRightClickRecipe>> {
     public static final Component TITLE = Component.translatable("recipe.ifeu.block_right_click");
     public BlockRightClickCategory(IGuiHelper helper) {
         super(helper, ModRecipeType.BLOCK_RIGHT_CLICK, TITLE, IFEUContents.DEAD_DRAGON_EGG_ITEM.get(), 140, 62);
     }
 
     @Override
-    public RecipeType getTypeInstance() {
-        return IFEURecipes.BLOCK_RIGHT_CLICK_TYPE.get();
-    }
-
-    @Override
-    public void setRecipe(IRecipeLayoutBuilder builder, BlockRightClickRecipe recipe, IFocusGroup focusGroup) {
+    public void setRecipe(IRecipeLayoutBuilder builder, RecipeHolder<BlockRightClickRecipe> recipe, IFocusGroup focusGroup) {
         //Block
         builder.addSlot(RecipeIngredientRole.INPUT,50,39)
-                .addIngredient(VanillaTypes.ITEM_STACK,recipe.block.asItem().getDefaultInstance())
+                .addIngredient(VanillaTypes.ITEM_STACK,recipe.value().block.asItem().getDefaultInstance())
                 .addRichTooltipCallback(addText("jei.ifeu.world",ChatFormatting.GOLD));
         //handItem
         builder.addSlot(RecipeIngredientRole.INPUT,22,17)
-                .addIngredient(VanillaTypes.ITEM_STACK,recipe.handItem)
+                .addIngredient(VanillaTypes.ITEM_STACK,recipe.value().handItem)
                 .addRichTooltipCallback(addText("jei.ifeu.hand",ChatFormatting.AQUA));
         //result
         builder.addSlot(RecipeIngredientRole.OUTPUT,110,27)
-                .addIngredient(VanillaTypes.ITEM_STACK,recipe.result.asItem().getDefaultInstance());
+                .addIngredient(VanillaTypes.ITEM_STACK,recipe.value().result.asItem().getDefaultInstance());
     }
 
     @Override
-    public void draw(BlockRightClickRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
+    public void draw(RecipeHolder<BlockRightClickRecipe> recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
         //handItem
         AllGuiTextures.BASIC_SLOT.render(guiGraphics,21,16);
         //Click

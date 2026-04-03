@@ -13,15 +13,12 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.yxiao233.ifeu.common.compact.jei.ModRecipeType;
-import net.yxiao233.ifeu.common.registry.IFEUTags;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
-import java.util.Optional;
 
 public class FermenterCategory implements IRecipeCategory<FermenterCategory.FermenterRecipeWrapper> {
     private final IGuiHelper guiHelper;
@@ -34,6 +31,7 @@ public class FermenterCategory implements IRecipeCategory<FermenterCategory.Ferm
         this.title = Component.translatable("jei.ifeu.recipe.title.fermenter");
     }
 
+    @Override
     public @NotNull RecipeType<FermenterCategory.FermenterRecipeWrapper> getRecipeType() {
         return ModRecipeType.FERMENTER;
     }
