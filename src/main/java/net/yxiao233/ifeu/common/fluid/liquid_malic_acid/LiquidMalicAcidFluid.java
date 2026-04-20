@@ -6,6 +6,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.FluidState;
 import net.yxiao233.ifeu.api.fluid.AbstractAnimateFluid;
 import net.yxiao233.ifeu.api.fluid.AbstractAnimateFluidInstance;
+import org.jetbrains.annotations.NotNull;
 
 public class LiquidMalicAcidFluid extends AbstractAnimateFluid {
     public LiquidMalicAcidFluid(AbstractAnimateFluidInstance abstractAnimateFluidInstance) {
@@ -13,7 +14,7 @@ public class LiquidMalicAcidFluid extends AbstractAnimateFluid {
     }
 
     @Override
-    public void animateTick(Level level, BlockPos blockPos, FluidState fluidState, RandomSource randomSource) {
+    public void animateTick(@NotNull Level level, @NotNull BlockPos blockPos, @NotNull FluidState fluidState, @NotNull RandomSource randomSource) {
     }
 
     public static class Source extends AbstractAnimateFluid.Source<LiquidMalicAcidFluidInstance>{
@@ -23,7 +24,7 @@ public class LiquidMalicAcidFluid extends AbstractAnimateFluid {
         }
 
         @Override
-        public void animateTick(Level level, BlockPos blockPos, FluidState fluidState, RandomSource randomSource) {
+        public void animateTick(@NotNull Level level, @NotNull BlockPos blockPos, @NotNull FluidState fluidState, @NotNull RandomSource randomSource) {
         }
     }
 
@@ -35,7 +36,7 @@ public class LiquidMalicAcidFluid extends AbstractAnimateFluid {
         }
 
         @Override
-        public void animateTick(Level level, BlockPos blockPos, FluidState fluidState, RandomSource randomSource) {
+        public void animateTick(@NotNull Level level, @NotNull BlockPos blockPos, @NotNull FluidState fluidState, @NotNull RandomSource randomSource) {
         }
     }
 }

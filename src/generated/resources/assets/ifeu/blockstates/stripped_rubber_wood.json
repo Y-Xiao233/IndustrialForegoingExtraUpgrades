@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "ifeu:block/stripped_rubber_wood_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "ifeu:block/stripped_rubber_wood"
+    },
+    "axis=z": {
+      "model": "ifeu:block/stripped_rubber_wood_horizontal",
+      "x": 90
+    }
+  }
+}

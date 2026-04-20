@@ -6,17 +6,21 @@ import com.hrznstudio.titanium.api.IFactory;
 import com.hrznstudio.titanium.api.augment.AugmentTypes;
 import com.hrznstudio.titanium.api.client.IScreenAddon;
 import com.hrznstudio.titanium.client.screen.addon.ProgressBarScreenAddon;
+import com.hrznstudio.titanium.component.energy.EnergyStorageComponent;
 import com.hrznstudio.titanium.component.progress.ProgressBarComponent;
 import com.hrznstudio.titanium.item.AugmentWrapper;
 import com.hrznstudio.titanium.module.BlockWithTile;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import net.yxiao233.ifeu.api.block.IEnumProperty;
+import net.yxiao233.ifeu.api.item.IFEUAugmentTypes;
+import net.yxiao233.ifeu.common.utils.AugmentInventoryHelper;
 import org.jetbrains.annotations.NotNull;
 
 import java.text.DecimalFormat;
@@ -83,7 +87,23 @@ public abstract class EnumPropertyIndustrialProcessingTile<T extends EnumPropert
         }
         return null;
     }
+
+    @Override
+    public void serverTick(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull T blockEntity) {
+        super.serverTick(level, pos, state, blockEntity);
+        if(AugmentInventoryHelper.contains(this.getAugmentInventory(), IFEUAugmentTypes.CREATIVE)){
+            EnergyStorageComponent<T> energyStorage = this.getEnergyStorage();
+            energyStorage.setEnergyStored(Integer.MAX_VALUE);
+        }
+    }
+
     public int getMaxProgress() {
+        if(this.getAugmentInventory() == null){
+            return 100;
+        }
+        if(AugmentInventoryHelper.contains(this.getAugmentInventory(), IFEUAugmentTypes.CREATIVE)){
+            return 1;
+        }
         return 100;
     }
     public abstract boolean canIncrease();

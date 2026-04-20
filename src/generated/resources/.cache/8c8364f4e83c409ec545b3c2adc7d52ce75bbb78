@@ -1,4 +1,5 @@
-// 1.21.1	2025-02-25T18:38:33.5469407	Tags for minecraft:item mod id vanilla
+// 1.21.1	2026-03-30T14:07:01.5919193	Tags for minecraft:item mod id vanilla
+635de4c7559d65c52269150e0f5edf6de7379583 data/c/tags/item/crops/rotten.json
 a7d1a293754e0a484ecad3c2a216a22ef1243dcc data/c/tags/item/gears.json
 b4f05d39ccb4e9007094301213bb95a6938cc607 data/c/tags/item/gears/diamond.json
 90ab32de2c9647cd4563103fc413e8eb65356d39 data/c/tags/item/gears/gold.json
@@ -9,6 +10,8 @@ b4f05d39ccb4e9007094301213bb95a6938cc607 data/c/tags/item/gears/diamond.json
 caf4c98e85cb3415a948909a7ff166fdb7bbf229 data/ifeu/tags/item/machine_frame/ultimate.json
 f4932bcfc4b4d65fe652c15cb3cd447243f9601d data/minecraft/tags/item/axes.json
 a17e42d407f7f1244b71d441b228d0fa454d7bff data/minecraft/tags/item/hoes.json
+a9a1bf93218e0030f130d131dc5fa14923068c9e data/minecraft/tags/item/logs_that_burn.json
 86bff8418a02adcd12b053449f71ff059c3a9b95 data/minecraft/tags/item/pickaxes.json
+619f9cf57393e88ce8840719658f12a7e85fe668 data/minecraft/tags/item/planks.json
 fe2bfc16d61ddc360df5a3d48667b6fa45e24804 data/minecraft/tags/item/shovels.json
 afe2ee0be445d8f61cc944ea82c15b90528962bc data/minecraft/tags/item/swords.json

@@ -2,20 +2,28 @@ package net.yxiao233.ifeu.client.data;
 
 import com.buuz135.industrial.module.ModuleCore;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
+import net.yxiao233.ifeu.api.tree.DeferredTree;
 import net.yxiao233.ifeu.common.registry.IFEUBlocks;
 import net.yxiao233.ifeu.common.registry.IFEUContents;
 import net.yxiao233.ifeu.common.registry.IFEUTags;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class ModBlockTagProvider extends BlockTagsProvider {
+    private final List<ResourceLocation> generated = new ArrayList<>();
     public ModBlockTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper existingFileHelper) {
         super(output, lookupProvider, IndustrialForegoingExtraUpgrades.MODID, existingFileHelper);
     }
@@ -41,7 +49,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModuleCore.ADVANCED.get())
                 .add(ModuleCore.SUPREME.get())
                 .add(IFEUBlocks.PLATFORM_BUILDER.getBlock())
-                .add(IFEUBlocks.PRECISION_CRAFTING_TABLE.getBlock());
+                .add(IFEUBlocks.PRECISION_CRAFTING_TABLE.getBlock())
+                .add(IFEUBlocks.SAUCEPAN.getBlock())
+                .add(IFEUBlocks.FERMENTER.getBlock());
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(IFEUBlocks.INFUSER.getBlock())
@@ -58,7 +68,28 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(IFEUBlocks.FLUID_TRANSFER.getBlock())
                 .add(IFEUBlocks.BIG_DISSOLUTION_CHAMBER_CORE.getBlock())
                 .add(IFEUBlocks.PLATFORM_BUILDER.getBlock())
-                .add(IFEUBlocks.PRECISION_CRAFTING_TABLE.getBlock());
+                .add(IFEUBlocks.PRECISION_CRAFTING_TABLE.getBlock())
+                .add(IFEUBlocks.SAUCEPAN.getBlock())
+                .add(IFEUBlocks.FERMENTER.getBlock());
+
+        DeferredTree.DeferredTreesRegister.getAllTrees().forEach(tree ->{
+            if(shouldGenerated(tree.getLogBlock().get())){
+                this.tag(BlockTags.LOGS_THAT_BURN).add(tree.getLogBlock().get());
+                generated(tree.getLogBlock().get());
+            }
+            if(shouldGenerated(tree.getStrippedLogBlock().get())){
+                this.tag(BlockTags.LOGS_THAT_BURN).add(tree.getStrippedLogBlock().get());
+                generated(tree.getStrippedLogBlock().get());
+            }
+            if(shouldGenerated(tree.getWoodBlock().get())){
+                this.tag(BlockTags.LOGS_THAT_BURN).add(tree.getWoodBlock().get());
+                generated(tree.getWoodBlock().get());
+            }
+            if(shouldGenerated(tree.getStrippedWoodBlock().get())){
+                this.tag(BlockTags.LOGS_THAT_BURN).add(tree.getStrippedWoodBlock().get());
+                generated(tree.getStrippedWoodBlock().get());
+            }
+        });
 
 
         this.tag(IFEUTags.Blocks.MACHINE_FRAME_ULTIMATE)
@@ -90,5 +121,14 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         this.tag(IFEUTags.Blocks.STORAGE_ENERGY)
 //                .addTag(IFEUTags.Blocks.BLACK_HOLE_CAPACITOR)
                 .add(IFEUBlocks.CREATIVE_CAPACITOR.getBlock());
+    }
+
+    private boolean shouldGenerated(Block block){
+        ResourceLocation location = BuiltInRegistries.BLOCK.getKey(block);
+        return !generated.contains(location);
+    }
+
+    private void generated(Block block){
+        generated.add(BuiltInRegistries.BLOCK.getKey(block));
     }
 }

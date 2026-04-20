@@ -30,6 +30,7 @@ public class IFEUTags {
         public static final TagKey<Item> MACHINE_FRAME_ULTIMATE = TagUtil.getItemTag(ResourceLocation.parse("ifeu:machine_frame/ultimate"));
         public static final TagKey<Item> WRENCH = TagUtil.getItemTag(ResourceLocation.parse("c:wrench"));
         public static final TagKey<Item> DIAMOND = TagUtil.getItemTag(ResourceLocation.parse("c:gems/diamond"));
+        public static final TagKey<Item> ROTTEN_CROPS = TagUtil.getItemTag(ResourceLocation.parse("c:crops/rotten"));
 
         private static TagKey<Item> createTag(String name){
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath(IndustrialForegoingExtraUpgrades.MODID,name));

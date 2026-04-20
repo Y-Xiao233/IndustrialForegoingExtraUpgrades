@@ -5,7 +5,9 @@ public enum IFEUAugmentTypes {
     APPLE("apple"),
     SILK("silk"),
     HEAL("heal"),
-    CHANCE("chance")
+    CHANCE("chance"),
+    ENERGY("energy"),
+    CREATIVE("creative")
     ;
     private final String id;
     IFEUAugmentTypes(String id){

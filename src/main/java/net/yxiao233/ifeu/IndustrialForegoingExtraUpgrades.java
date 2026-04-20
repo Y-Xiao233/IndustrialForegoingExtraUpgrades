@@ -24,11 +24,13 @@ public class IndustrialForegoingExtraUpgrades extends ModuleController {
 
         IFEUContents.BLOCKS.register(modEventBus);
         IFEUContents.ITEMS.register(modEventBus);
+        IFEUContents.TRUNK_PLACER_TYPES.register(modEventBus);
+        IFEUContents.FOLIAGE_PLACER_TYPES.register(modEventBus);
         IFEUCreativeModeTab.CREATIVE_MODE_TAB.register(modEventBus);
         IFEUDataComponentTypes.DATA_COMPONENTS.register(modEventBus);
     }
 
-    @SuppressWarnings("removal")
+    @SuppressWarnings({"deprecation","removal"})
     @EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent

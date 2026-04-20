@@ -1,0 +1,18 @@
+{
+  "type": "industrialforegoing:fluid_extractor",
+  "breakChance": 0.01,
+  "defaultRecipe": false,
+  "input": {
+    "item": "ifeu:rubber_log"
+  },
+  "output": {
+    "amount": 8,
+    "id": "industrialforegoing:latex"
+  },
+  "result": {
+    "Name": "ifeu:stripped_rubber_log",
+    "Properties": {
+      "axis": "y"
+    }
+  }
+}

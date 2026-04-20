@@ -18,21 +18,20 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.yxiao233.ifeu.api.jei.AbstractJEICategory;
 import net.yxiao233.ifeu.common.compact.jei.ModRecipeType;
 import net.yxiao233.ifeu.common.config.machine.FluidCraftingTableConfig;
 import net.yxiao233.ifeu.common.recipe.ShapedRecipe;
 import net.yxiao233.ifeu.common.registry.IFEUBlocks;
 import net.yxiao233.ifeu.common.registry.IFEUContents;
-import net.yxiao233.ifeu.common.registry.IFEURecipes;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.awt.*;
 import java.util.Arrays;
 import java.util.Iterator;
 
-public class ShapedCategory extends AbstractJEICategory<ShapedRecipe> {
+public class ShapedCategory extends AbstractJEICategory<RecipeHolder<ShapedRecipe>> {
     public static final Component TITLE = Component.translatable("jei.ifeu.fluid_shaped");
     private final IDrawable bigTank_input1;
     public ShapedCategory(IGuiHelper helper) {
@@ -41,46 +40,41 @@ public class ShapedCategory extends AbstractJEICategory<ShapedRecipe> {
     }
 
     @Override
-    public RecipeType getTypeInstance() {
-        return IFEURecipes.SHAPED_TYPE.get();
-    }
-
-    @Override
-    public void setRecipe(IRecipeLayoutBuilder builder, ShapedRecipe recipe, IFocusGroup iFocusGroup) {
+    public void setRecipe(IRecipeLayoutBuilder builder, RecipeHolder<ShapedRecipe> recipe, IFocusGroup iFocusGroup) {
         //Input
         int x = 31;
         int y = 15;
-        for (int i = 0; i < recipe.inputs.size(); i++) {
+        for (int i = 0; i < recipe.value().inputs.size(); i++) {
             if(i % 3 == 0 && i != 0){
                 x = 31;
                 y += 18;
             }
-            Iterator<ItemStack> iterator = Arrays.stream(recipe.inputs.get(i).getItems()).iterator();
+            Iterator<ItemStack> iterator = Arrays.stream(recipe.value().inputs.get(i).getItems()).iterator();
             if(iterator.hasNext() && iterator.next().is(IFEUContents.AIR.get())){
                 builder.addSlot(RecipeIngredientRole.INPUT,x,y).addIngredient(VanillaTypes.ITEM_STACK,ItemStack.EMPTY);
             }else{
-                builder.addSlot(RecipeIngredientRole.INPUT,x,y).addIngredients(VanillaTypes.ITEM_STACK, Arrays.asList(recipe.inputs.get(i).getItems()));
+                builder.addSlot(RecipeIngredientRole.INPUT,x,y).addIngredients(VanillaTypes.ITEM_STACK, Arrays.asList(recipe.value().inputs.get(i).getItems()));
             }
             x += 18;
         }
 
         //InputFluid
-        if(recipe.inputFluid != null && !recipe.inputFluid.isEmpty()){
+        if(recipe.value().inputFluid != null && !recipe.value().inputFluid.isEmpty()){
             builder.addSlot(RecipeIngredientRole.CATALYST, 9 + 3, 12 + 3)
                     .setFluidRenderer(FluidCraftingTableConfig.maxInputTankSize >= 1000 ? FluidCraftingTableConfig.maxInputTankSize : 1000,false,12,50)
-                    .setOverlay(bigTank_input1,0,0).addIngredient(NeoForgeTypes.FLUID_STACK, recipe.inputFluid);
+                    .setOverlay(bigTank_input1,0,0).addIngredient(NeoForgeTypes.FLUID_STACK, recipe.value().inputFluid);
         }
         //Output
         builder.addSlot(RecipeIngredientRole.OUTPUT, 119, 33)
-                .addIngredient(VanillaTypes.ITEM_STACK,recipe.output);
+                .addIngredient(VanillaTypes.ITEM_STACK,recipe.value().output);
     }
 
     @Override
-    public void draw(ShapedRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
+    public void draw(RecipeHolder<ShapedRecipe> recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
         //Input
         int x = 31;
         int y = 15;
-        for (int i = 0; i < recipe.inputs.size(); i++) {
+        for (int i = 0; i < recipe.value().inputs.size(); i++) {
             if(i % 3 == 0 && i != 0){
                 x = 31;
                 y += 18;

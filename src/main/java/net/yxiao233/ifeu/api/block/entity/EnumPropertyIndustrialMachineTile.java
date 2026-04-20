@@ -41,10 +41,14 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.neoforge.items.ItemHandlerHelper;
 import net.yxiao233.ifeu.api.block.IEnumProperty;
+import net.yxiao233.ifeu.api.capability.EnergyAddonEntry;
+import net.yxiao233.ifeu.api.capability.EnumPropertyEnergyAddonEntry;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public abstract class EnumPropertyIndustrialMachineTile <T extends EnumPropertyIndustrialMachineTile<T, E>, E extends Enum<E> & IEnumProperty<E>> extends EnumPropertyMachineTile<T, E>{
     private static final String settingsAddons = "MACHINE_ADDONS";
@@ -52,6 +56,7 @@ public abstract class EnumPropertyIndustrialMachineTile <T extends EnumPropertyI
     private static final String sidenessTank = "SIDENESS_TANK";
     private static final String sidenessInventory = "SIDENESS_INVENTORY";
     private static final String filter = "FILTER";
+    private final AtomicInteger ifeu$baseCapacity = ifeu$getBaseCapacity();
     @Save
     private TankInteractionBundle<EnumPropertyIndustrialMachineTile<T, E>> tankBundle;
     @Save
@@ -69,6 +74,9 @@ public abstract class EnumPropertyIndustrialMachineTile <T extends EnumPropertyI
         }, () -> {
             return this;
         }));
+    }
+    public final AtomicInteger ifeu$getBaseCapacity(){
+        return new AtomicInteger(this.getEnergyStorage().getMaxEnergyStored());
     }
 
     public void addTank(FluidTankComponent<T> tank) {
@@ -131,11 +139,6 @@ public abstract class EnumPropertyIndustrialMachineTile <T extends EnumPropertyI
 
     public IAssetProvider getAssetProvider() {
         return IndustrialAssetProvider.INSTANCE;
-    }
-
-    @OnlyIn(Dist.CLIENT)
-    public void clientTick(Level level, BlockPos pos, BlockState state, T blockEntity) {
-        super.clientTick(level, pos, state, blockEntity);
     }
 
     @SuppressWarnings("all")
@@ -331,6 +334,18 @@ public abstract class EnumPropertyIndustrialMachineTile <T extends EnumPropertyI
             tag.put(filter, sideTankTag);
         }
 
+    }
+
+    @Override
+    public void serverTick(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull T blockEntity) {
+        super.serverTick(level, pos, state, blockEntity);
+        EnumPropertyEnergyAddonEntry.create(this, this.ifeu$baseCapacity.get()).updateEnergyCapacity();
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    public void clientTick(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull T blockEntity) {
+        super.clientTick(level, pos, state, blockEntity);
+        EnumPropertyEnergyAddonEntry.create(this, this.ifeu$baseCapacity.get()).updateEnergyCapacity();
     }
 
     public String getUuid() {

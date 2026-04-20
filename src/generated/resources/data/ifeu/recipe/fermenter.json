@@ -1,0 +1,39 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "ifeu:fermenter"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "industrialforegoing:pink_slime_ingot"
+    },
+    "D": {
+      "tag": "c:gears/netherite"
+    },
+    "M": {
+      "tag": "industrialforegoing:machine_frame/pity"
+    },
+    "P": {
+      "tag": "c:plastics"
+    },
+    "R": {
+      "tag": "c:crops"
+    },
+    "S": {
+      "tag": "c:crops/rotten"
+    }
+  },
+  "pattern": [
+    "PDP",
+    "SMS",
+    "ARA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ifeu:fermenter"
+  }
+}

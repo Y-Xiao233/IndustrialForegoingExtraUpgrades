@@ -2,6 +2,9 @@ package net.yxiao233.ifeu.common.block.entity;
 
 import com.buuz135.industrial.block.tile.IndustrialProcessingTile;
 import com.hrznstudio.titanium.annotation.Save;
+import com.hrznstudio.titanium.api.IFactory;
+import com.hrznstudio.titanium.api.client.IScreenAddon;
+import com.hrznstudio.titanium.client.screen.addon.EnergyBarScreenAddon;
 import com.hrznstudio.titanium.component.energy.EnergyStorageComponent;
 import com.hrznstudio.titanium.component.fluid.FluidTankComponent;
 import com.hrznstudio.titanium.component.fluid.SidedFluidTankComponent;
@@ -15,11 +18,18 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.neoforged.neoforge.items.ItemHandlerHelper;
+import net.yxiao233.ifeu.api.capability.EnergyAddonEntry;
+import net.yxiao233.ifeu.api.item.EnergyAddonItem;
+import net.yxiao233.ifeu.api.item.IFEUAddonItem;
 import net.yxiao233.ifeu.common.config.machine.InfuserConfig;
 import net.yxiao233.ifeu.common.recipe.InfuserRecipe;
 import net.yxiao233.ifeu.common.registry.IFEUBlocks;
 import net.yxiao233.ifeu.common.registry.IFEURecipes;
+import net.yxiao233.ifeu.common.utils.AugmentInventoryHelper;
+import net.yxiao233.ifeu.mixin.capability.EnergyStorageAccessor;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 
 public class InfuserEntity extends IndustrialProcessingTile<InfuserEntity> {
     private int maxProgress;
@@ -125,6 +135,12 @@ public class InfuserEntity extends IndustrialProcessingTile<InfuserEntity> {
     protected EnergyStorageComponent<InfuserEntity> createEnergyStorage() {
         return new EnergyStorageComponent<>(InfuserConfig.maxStoredPower,10,20);
     }
+
+    @Override
+    public void clientTick(Level level, BlockPos pos, BlockState state, InfuserEntity blockEntity) {
+        super.clientTick(level, pos, state, blockEntity);
+    }
+
     @Override
     protected int getTickPower() {
         return powerPerTick;

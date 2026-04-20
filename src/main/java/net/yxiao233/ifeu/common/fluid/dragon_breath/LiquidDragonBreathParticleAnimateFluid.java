@@ -10,6 +10,7 @@ import net.minecraft.world.level.material.FluidState;
 import net.yxiao233.ifeu.common.config.misc.LiquidDragonBreathConfig;
 import net.yxiao233.ifeu.api.fluid.AbstractAnimateFluid;
 import net.yxiao233.ifeu.api.fluid.AbstractAnimateFluidInstance;
+import org.jetbrains.annotations.NotNull;
 
 public class LiquidDragonBreathParticleAnimateFluid extends AbstractAnimateFluid {
     public LiquidDragonBreathParticleAnimateFluid(AbstractAnimateFluidInstance abstractAnimateFluidInstance) {
@@ -33,7 +34,7 @@ public class LiquidDragonBreathParticleAnimateFluid extends AbstractAnimateFluid
         }
     }
     @Override
-    public void animateTick(Level level, BlockPos blockPos, FluidState fluidState, RandomSource randomSource) {
+    public void animateTick(@NotNull Level level, @NotNull BlockPos blockPos, @NotNull FluidState fluidState, @NotNull RandomSource randomSource) {
         LiquidDragonBreathParticleAnimateFluid.tick(level,blockPos,fluidState,randomSource);
     }
 
@@ -44,7 +45,7 @@ public class LiquidDragonBreathParticleAnimateFluid extends AbstractAnimateFluid
         }
 
         @Override
-        public void animateTick(Level level, BlockPos blockPos, FluidState fluidState, RandomSource randomSource) {
+        public void animateTick(@NotNull Level level, @NotNull BlockPos blockPos, @NotNull FluidState fluidState, @NotNull RandomSource randomSource) {
             LiquidDragonBreathParticleAnimateFluid.tick(level,blockPos,fluidState,randomSource);
         }
     }
@@ -57,7 +58,7 @@ public class LiquidDragonBreathParticleAnimateFluid extends AbstractAnimateFluid
         }
 
         @Override
-        public void animateTick(Level level, BlockPos blockPos, FluidState fluidState, RandomSource randomSource) {
+        public void animateTick(@NotNull Level level, @NotNull BlockPos blockPos, @NotNull FluidState fluidState, @NotNull RandomSource randomSource) {
             LiquidDragonBreathParticleAnimateFluid.tick(level,blockPos,fluidState,randomSource);
         }
     }

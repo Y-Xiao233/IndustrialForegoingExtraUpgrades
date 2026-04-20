@@ -26,6 +26,7 @@ import net.yxiao233.ifeu.common.registry.IFEUBlocks;
 import net.yxiao233.ifeu.common.registry.IFEUContents;
 import net.yxiao233.ifeu.common.registry.IFEUItems;
 import net.yxiao233.ifeu.common.registry.IFEUTags;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 import java.util.concurrent.CompletableFuture;
@@ -38,7 +39,7 @@ public class ModRecipeProvider extends VanillaRecipeProvider {
     public static final String modId = IndustrialForegoingExtraUpgrades.MODID;
 
     @Override
-    protected void buildRecipes(RecipeOutput recipeOutput) {
+    protected void buildRecipes(@NotNull RecipeOutput recipeOutput) {
 
         BuiltInRegistries.ITEM.stream().forEach(reg ->{
             //Upgrades

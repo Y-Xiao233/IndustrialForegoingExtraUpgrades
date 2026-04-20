@@ -5,11 +5,13 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
+import net.yxiao233.ifeu.api.tree.DeferredTree;
 import net.yxiao233.ifeu.common.registry.IFEUBlocks;
 import net.yxiao233.ifeu.common.registry.IFEUContents;
+import org.jetbrains.annotations.NotNull;
 
-import java.util.Arrays;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class ModBlockLootTables extends BlockLootSubProvider {
     public ModBlockLootTables(HolderLookup.Provider provider) {
@@ -37,12 +39,22 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModuleCore.SUPREME.get());
         this.dropSelf(IFEUBlocks.PLATFORM_BUILDER.getBlock());
         this.dropSelf(IFEUBlocks.PRECISION_CRAFTING_TABLE.getBlock());
+        this.dropSelf(IFEUBlocks.SAUCEPAN.getBlock());
+        this.dropSelf(IFEUBlocks.FERMENTER.getBlock());
+
+        DeferredTree.DeferredTreesRegister.getAllTrees().forEach(tree ->{
+            tree.getAllBlocksWithoutLeavesBlock().forEach(block ->{
+                this.dropSelf(block.get());
+            });
+
+            this.add(tree.getLeavesBlock().get(),block -> createLeavesDrops(block,tree.getSaplingBlock().get(),NORMAL_LEAVES_SAPLING_CHANCES));
+        });
     }
 
     @Override
-    protected Iterable<Block> getKnownBlocks() {
+    protected @NotNull Iterable<Block> getKnownBlocks() {
         //注册方法时后面加上.noLootTable()就不需要在这里写
-        Iterable<Block> iterable = Arrays.asList(
+        List<Block> list = Arrays.asList(
                 IFEUBlocks.INFUSER.getBlock(),
                 IFEUBlocks.DRAGON_STAR_GENERATOR.getBlock(),
                 IFEUBlocks.ARCANE_DRAGON_EGG_FORGING.getBlock(),
@@ -61,9 +73,14 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 ModuleCore.ADVANCED.get(),
                 ModuleCore.SUPREME.get(),
                 IFEUBlocks.PLATFORM_BUILDER.getBlock(),
-                IFEUBlocks.PRECISION_CRAFTING_TABLE.getBlock()
+                IFEUBlocks.PRECISION_CRAFTING_TABLE.getBlock(),
+                IFEUBlocks.SAUCEPAN.getBlock(),
+                IFEUBlocks.FERMENTER.getBlock()
         );
-        return iterable;
+
+        ArrayList<Block> blocks = new ArrayList<>(list);
+        DeferredTree.DeferredTreesRegister.getAllTrees().forEach(tree -> tree.getAllBlocks().forEach(block -> blocks.add(block.get())));
+        return blocks;
     }
 
 //    public LootTable.Builder droppingSelfWithNbt(ItemLike itemProvider, CopyNbtFunction.Builder nbtBuilder) {

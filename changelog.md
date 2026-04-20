@@ -147,6 +147,29 @@
 ### v3.3.001
 - 更新了贴图 by [MHanHanBing](https://github.com/MHanHanBing)
 
+### v3.3.002
+- 添加了炖锅
+
+### v3.3.003
+- 添加了发酵机
+- 添加了能量插件
+- 添加了创造插件
+
+### v3.3.004
+- 添加了橡胶树
+- 修复了拆除大型溶解成型机导致的崩溃bug
+
+### v3.3.005
+- 添加了神圣橡胶树(树的形状只是临时的,还会修改)
+- 修复了大型溶解成型机导致的崩溃bug
+
+### v3.3.006
+- 修复了能量插件无法正常增大能量传输速率的bug
+
+### v3.3.007
+- 使jei可以正常显示部分配方id
+
+
 ## en_us
 ### v1.0.0
 - init
@@ -287,3 +310,25 @@
 
 ### v3.3.001
 - Update textures by [MHanHanBing](https://github.com/MHanHanBing)
+
+### v3.3.002
+- Added Saucepan
+
+### v3.3.003
+- Added Fermenter
+- Added Energy Addon
+- Added Creative Addon
+
+### v3.3.004
+- Added Rubber Tree
+- Fixed a bug with Big Dissolution Chamber
+
+### v3.3.005
+- Added Sacred Rubber Tree (the tree shape is only temporary and will be modified later)
+- Fixed a bug with Big Dissolution Chamber
+
+### v3.3.006
+- Fixed the bug where the energy addon could not increase the energy transmission rate normally
+
+### v3.3.007
+- Enable JEI to display partial recipe ids normally

@@ -1,4 +1,4 @@
-// 1.21.1	2025-08-10T15:32:19.9287979	ifeu - ItemModel
+// 1.21.1	2026-03-30T13:49:21.6400588	ifeu - ItemModel
 954b2a22822a91fd5087a685934f027e85c73429 assets/ifeu/models/item/apple_addon_1.json
 010431de6f66008e97c28278342d9f0ea7c7fd39 assets/ifeu/models/item/apple_addon_2.json
 b685ea69b56d6df59a6825ab0ccee46a07f213c0 assets/ifeu/models/item/apple_addon_3.json
@@ -15,6 +15,7 @@ d4f2fb2aaef3c066059965f69e49da73ca048f3d assets/ifeu/models/item/chance_addon_5.
 d78b775f8806d769d3a9400ef4ac80c1e09f02c1 assets/ifeu/models/item/chance_addon_6.json
 a80ba5791f486d90e80b979e33d4d7636e63b0a4 assets/ifeu/models/item/configuration_tool.json
 61eb8818a87b17926779456709825e721abb092d assets/ifeu/models/item/connect_tool.json
+84334e2acde68abc607788cfc81c57eec27230ab assets/ifeu/models/item/creative_addon.json
 441825deae3809b6d028bddf52a4832aa1b18c04 assets/ifeu/models/item/creative_chance_addon.json
 4954c2de2f229dc6891c84b879aa2c46bc052b21 assets/ifeu/models/item/dragon_star.json
 8ec369f49a195ee9cadcfa86a240cd662ce097d0 assets/ifeu/models/item/dragon_star_axe.json
@@ -28,6 +29,12 @@ de239f82bee0505adbaf4886b8da0b67d9c41464 assets/ifeu/models/item/dragon_star_ess
 9bae33867b451297e561d7e0855602d5216f6b5b assets/ifeu/models/item/efficiency_addon_5.json
 e2ccb756d4fa94a1bfa0bcdf82071040119ebe1c assets/ifeu/models/item/efficiency_addon_6.json
 ce618c8597bbc981eb767641206934e92ad5d8d4 assets/ifeu/models/item/empty_nether_star.json
+c775567a9b9beec37a124a81e27ce5249ad54c5b assets/ifeu/models/item/energy_addon_1.json
+63368c720872e49c498e3bf382f5058a7b3b38b3 assets/ifeu/models/item/energy_addon_2.json
+586e4ffad60d5579d3a6c71de1da11c53a3e3067 assets/ifeu/models/item/energy_addon_3.json
+7c01026d1b37961f8374c216af8e14c13691d4a3 assets/ifeu/models/item/energy_addon_4.json
+0cfa5d87ac5839f42c14bb58e91dda3b7b07a1b6 assets/ifeu/models/item/energy_addon_5.json
+fde6aab63bdd3d181e00e20661503435cf683b48 assets/ifeu/models/item/energy_addon_6.json
 9c4148f9f53309b2b54237f384027256130270b0 assets/ifeu/models/item/heal_addon_1.json
 75029f0a5cd971b227d5a20d62899c5e8617bea2 assets/ifeu/models/item/heal_addon_2.json
 e8631a325a2dbc064a4682f8f0be5b671705d4c8 assets/ifeu/models/item/heal_addon_3.json
@@ -45,6 +52,8 @@ dbc9d8451f8b4e1aaf0d19a292bdc3d443e02788 assets/ifeu/models/item/netherite_gear.
 9e03d5fe09b255889706efaed0af7b681a8bfe6d assets/ifeu/models/item/processing_addon_5.json
 0b32438956ef92c8e64c63557845a0f1ecb25a27 assets/ifeu/models/item/processing_addon_6.json
 6df8121d373deaf3b3b0568002864e0209ad4adf assets/ifeu/models/item/rough_dragon_star.json
+81e2e09c4a1ed5d5c934f97de1b0b653fc61bd76 assets/ifeu/models/item/rubber_sapling.json
+1aa94e3a3dce2ea1c472c3b989a4e8405272a0e9 assets/ifeu/models/item/sacred_rubber_sapling.json
 97ede24dd3923a4acf61eea083aeca90eca35d70 assets/ifeu/models/item/sculk_gear.json
 c69bc4058333712ec34d2e5841ac713a0c51b3af assets/ifeu/models/item/silk_addon.json
 e0634aa8081f6387f673044b54c4e26a036077f5 assets/ifeu/models/item/speed_addon_3.json

@@ -1,9 +1,11 @@
 package net.yxiao233.ifeu.client.data;
 
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.yxiao233.ifeu.IndustrialForegoingExtraUpgrades;
+import net.yxiao233.ifeu.api.tree.DeferredTree;
 import net.yxiao233.ifeu.common.registry.IFEUContents;
 import net.yxiao233.ifeu.common.registry.IFEUFluids;
 import net.yxiao233.ifeu.common.registry.IFEUItems;
@@ -80,5 +82,18 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(IFEUItems.CHANCE_ADDON_5.get());
         basicItem(IFEUItems.CHANCE_ADDON_6.get());
         basicItem(IFEUItems.CHANCE_ADDON_CREATIVE.get());
+        basicItem(IFEUItems.ENERGY_ADDON_1.get());
+        basicItem(IFEUItems.ENERGY_ADDON_2.get());
+        basicItem(IFEUItems.ENERGY_ADDON_3.get());
+        basicItem(IFEUItems.ENERGY_ADDON_4.get());
+        basicItem(IFEUItems.ENERGY_ADDON_5.get());
+        basicItem(IFEUItems.ENERGY_ADDON_6.get());
+        basicItem(IFEUItems.CREATIVE_ADDON.get());
+
+        DeferredTree.DeferredTreesRegister.getAllTrees().forEach(tree ->{
+            withExistingParent(tree.getSaplingItem().getId().getPath(),
+                    ResourceLocation.parse("item/generated")).texture("layer0",
+                    ResourceLocation.fromNamespaceAndPath(IndustrialForegoingExtraUpgrades.MODID,"block/" + tree.getSaplingItem().getId().getPath()));
+        });
     }
 }
