@@ -1,6 +1,5 @@
 package net.yxiao233.ifeu.common.block.entity;
 
-import com.buuz135.industrial.block.tile.IndustrialProcessingTile;
 import com.buuz135.industrial.config.machine.core.DissolutionChamberConfig;
 import com.buuz135.industrial.item.addon.ProcessingAddonItem;
 import com.buuz135.industrial.module.ModuleCore;
@@ -10,8 +9,11 @@ import com.hrznstudio.titanium.component.energy.EnergyStorageComponent;
 import com.hrznstudio.titanium.component.fluid.FluidTankComponent;
 import com.hrznstudio.titanium.component.fluid.SidedFluidTankComponent;
 import com.hrznstudio.titanium.component.inventory.SidedInventoryComponent;
+import com.hrznstudio.titanium.component.sideness.IFacingComponent;
+import com.hrznstudio.titanium.util.FacingUtil;
 import com.hrznstudio.titanium.util.RecipeUtil;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
@@ -25,6 +27,7 @@ import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.neoforged.neoforge.items.ItemHandlerHelper;
 import net.yxiao233.ifeu.api.block.entity.EnumPropertyIndustrialProcessingTile;
 import net.yxiao233.ifeu.api.components.IFEULockableInventoryBundle;
+import net.yxiao233.ifeu.api.components.EnumPropertyOutputSidedInventoryComponent;
 import net.yxiao233.ifeu.api.item.IFEUAddonItem;
 import net.yxiao233.ifeu.api.item.IFEUAugmentTypes;
 import net.yxiao233.ifeu.api.item.ModAppleAddonItem;
@@ -40,6 +43,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class BigDissolutionChamberEntity extends EnumPropertyIndustrialProcessingTile<BigDissolutionChamberEntity, BigDissolutionChamberStructure> {
     private int maxProgress;

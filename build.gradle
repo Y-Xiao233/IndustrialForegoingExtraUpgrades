@@ -119,12 +119,16 @@ dependencies {
 
     //Industrial Foregoing
     implementation("maven.modrinth:industrial-foregoing:${industrialforegoing_version}")
-    implementation("maven.modrinth:titanium:${titanium_version}")
+//    implementation("maven.modrinth:titanium:${titanium_version}")
+    implementation "curse.maven:titanium-287342:8426819"
 
     //KubeJS
 //    implementation("dev.latvian.mods:kubejs-neoforge:${kubejs_version}")
     implementation "curse.maven:kubejs-238086:7278501"
     implementation "curse.maven:rhino-416294:7104526"
+
+    //Jade
+    implementation "curse.maven:jade-324717:7545219"
 
 }
 

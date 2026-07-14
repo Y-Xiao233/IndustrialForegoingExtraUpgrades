@@ -169,6 +169,9 @@
 ### v3.3.007
 - 使jei可以正常显示部分配方id
 
+### v3.3.008
+- Jade现在支持显示机器已安装的插件了
+
 
 ## en_us
 ### v1.0.0
@@ -332,3 +335,6 @@
 
 ### v3.3.007
 - Enable JEI to display partial recipe ids normally
+
+### v3.3.008
+- Jade now supports displaying the installed addons on the machine

@@ -3,6 +3,7 @@ package net.yxiao233.ifeu;
 import com.hrznstudio.titanium.module.ModuleController;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -53,5 +54,9 @@ public class IndustrialForegoingExtraUpgrades extends ModuleController {
     public void addDataProvider(GatherDataEvent event) {
         super.addDataProvider(event);
         event.getGenerator().addProvider(event.includeServer(), new ModRecipeProvider(event.getGenerator().getPackOutput(),event.getLookupProvider()));
+    }
+
+    public static ResourceLocation makeId(String path){
+        return ResourceLocation.fromNamespaceAndPath(MODID,path);
     }
 }
